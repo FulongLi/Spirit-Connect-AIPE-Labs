@@ -2,7 +2,7 @@
 layout: default
 title: Careers
 permalink: /company/careers/
-description: Join Spirit Connect Power Labs — help build the Power Electronics AI Agent and shape the future of energy.
+description: Join Spirit Connect AIPE Labs — help build the Power Electronics AI Agent and shape the future of energy.
 ---
 
 <header class="hero">

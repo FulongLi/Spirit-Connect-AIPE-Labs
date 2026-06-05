@@ -2,7 +2,7 @@
 layout: default
 title: About
 permalink: /company/about/
-description: About Spirit Connect Power Labs — building the Power Electronics AI Agent for a closed-loop energy-AI ecosystem.
+description: About Spirit Connect AIPE Labs — building the Power Electronics AI Agent for a closed-loop energy-AI ecosystem.
 ---
 
 <header class="hero">
@@ -11,7 +11,7 @@ description: About Spirit Connect Power Labs — building the Power Electronics 
   </video>
   <div class="bg"></div>
   <div class="container">
-    <h1>About Spirit Connect Power Labs</h1>
+    <h1>About Spirit Connect AIPE Labs</h1>
     <p class="lead">
       We are building the <strong>Power Electronics AI Agent</strong> — an intelligent design partner
       that works across device, converter, and system to create a closed-loop ecosystem
@@ -24,7 +24,7 @@ description: About Spirit Connect Power Labs — building the Power Electronics 
   <div class="container">
     <h2>Our Mission</h2>
     <p>
-      Spirit Connect Power Labs was founded with a single conviction: the future of power electronics
+      Spirit Connect AIPE Labs was founded with a single conviction: the future of power electronics
       and artificial intelligence are inseparable. Every AI data center needs efficient, reliable power
       delivery. Every power system can be designed better with AI. We exist to close that loop.
     </p>

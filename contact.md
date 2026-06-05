@@ -2,7 +2,7 @@
 layout: default
 title: Contact
 permalink: /contact/
-description: Contact Spirit Connect Power Labs — the Power Electronics AI Agent, services, collaborations, and device research.
+description: Contact Spirit Connect AIPE Labs — the Power Electronics AI Agent, services, collaborations, and device research.
 ---
 
 <header class="hero">
@@ -31,10 +31,10 @@ description: Contact Spirit Connect Power Labs — the Power Electronics AI Agen
     <div class="contact-layout">
       <div class="contact-regions">
         <h2>Contact Us</h2>
-        <p class="contact-regions-lead">Spirit Connect Power Labs</p>
+        <p class="contact-regions-lead">Spirit Connect AIPE Labs</p>
         <div class="contact-region-list">
           <div class="card contact-region-card">
-            <p><strong>Spirit Connect Power Labs</strong></p>
+            <p><strong>Spirit Connect AIPE Labs</strong></p>
             <p>Cardiff, United Kingdom</p>
             <p><strong>Contact:</strong> Dr. Fulong Li</p>
             <p>
@@ -66,11 +66,11 @@ description: Contact Spirit Connect Power Labs — the Power Electronics AI Agen
         >
           {% if wf != '' %}
           <input type="hidden" name="access_key" value="{{ wf }}">
-          <input type="hidden" name="subject" value="Website contact — Spirit Connect Power Labs">
+          <input type="hidden" name="subject" value="Website contact — Spirit Connect AIPE Labs">
           <input type="hidden" name="redirect" value="{{ site.url }}{{ site.baseurl }}/contact/?sent=1">
           <input type="text" name="botcheck" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
           {% else %}
-          <input type="hidden" name="_subject" value="Website contact — Spirit Connect Power Labs">
+          <input type="hidden" name="_subject" value="Website contact — Spirit Connect AIPE Labs">
           <input type="hidden" name="_next" value="{{ site.url }}{{ site.baseurl }}/contact/?sent=1">
           <input type="text" name="_gotcha" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
           {% endif %}

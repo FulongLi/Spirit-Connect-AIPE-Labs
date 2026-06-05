@@ -4,11 +4,11 @@
 ![status - active](https://img.shields.io/badge/status-active-success)
 
 
-# Spirit Connect Power Labs
+# Spirit Connect AIPE Labs
 
 > **AI-Assisted Power Electronics Converter Design Automation**
 
-Welcome to the public website repository of **Spirit Connect Power Labs**.
+Welcome to the public website repository of **Spirit Connect AIPE Labs**.
 We accelerate power electronics development using artificial intelligence: from topology exploration to thermal analysis and control synthesis.
 
 **Live site:** [https://fulongli.github.io/Spirit-Connect-AIPE-Labs/](https://fulongli.github.io/Spirit-Connect-AIPE-Labs/)
@@ -17,7 +17,7 @@ We accelerate power electronics development using artificial intelligence: from 
 
 ## What We Do
 
-Spirit Connect Power Labs builds **automation tools and workflows** that help engineers design high-performance power converters faster and with better trade-offs.
+Spirit Connect AIPE Labs builds **automation tools and workflows** that help engineers design high-performance power converters faster and with better trade-offs.
 
 ### Core Services
 

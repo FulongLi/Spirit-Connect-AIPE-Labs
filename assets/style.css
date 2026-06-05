@@ -1,4 +1,4 @@
-/* ── Spirit Connect Power Labs ── */
+/* ── Spirit Connect AIPE Labs ── */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
@@ -242,41 +242,6 @@ h2 { margin-bottom: 1.5rem; }
   font-weight: 600; color: var(--brand); font-size: .82rem;
   letter-spacing: .03em;
 }
-.news-scroll-panel {
-  height: clamp(28rem, 62vh, 34rem);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  padding: 0 0.45rem 0.35rem 0;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 144, 204, 0.38) transparent;
-}
-.news-scroll-panel::-webkit-scrollbar { width: 8px; }
-.news-scroll-panel::-webkit-scrollbar-track { background: transparent; }
-.news-scroll-panel::-webkit-scrollbar-thumb {
-  background: rgba(0, 144, 204, 0.34);
-  border-radius: 999px;
-}
-.news-scroll-panel:focus-visible {
-  outline: 2px solid var(--brand);
-  outline-offset: 6px;
-  border-radius: var(--radius);
-}
-.news-scroll-content {
-  display: grid;
-  gap: 1.5rem;
-}
-.news-year {
-  margin: 0;
-  color: var(--fg-dim);
-  font-size: 1.5rem;
-}
-.news-year:not(:first-child) { margin-top: 1.5rem; }
-.news-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-.news-list .card h3 { margin-top: 0.5rem; }
 
 /* Focus / A11Y */
 a:focus-visible, button:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 4px; }
@@ -543,9 +508,5 @@ img { max-width: 100%; height: auto; }
   .contact-page .phone-field-wrap input[type="tel"] {
     width: 100%;
     flex: 1 1 auto;
-  }
-  .news-scroll-panel {
-    height: clamp(26rem, 68vh, 31rem);
-    padding-right: 0.2rem;
   }
 }
