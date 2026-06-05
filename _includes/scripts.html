@@ -17,4 +17,37 @@ document.querySelectorAll('.drop-toggle').forEach(btn => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
   });
 });
+
+document.querySelectorAll('[data-auto-scroll]').forEach(panel => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const speed = Number(panel.dataset.scrollSpeed || 16);
+  let paused = false;
+  let lastFrame = 0;
+
+  const canScroll = () => panel.scrollHeight > panel.clientHeight + 1;
+
+  const step = timestamp => {
+    if (!lastFrame) lastFrame = timestamp;
+    const deltaSeconds = (timestamp - lastFrame) / 1000;
+    lastFrame = timestamp;
+
+    if (!paused && !reduceMotion && canScroll()) {
+      const maxScroll = panel.scrollHeight - panel.clientHeight;
+      if (panel.scrollTop >= maxScroll - 1) {
+        panel.scrollTop = 0;
+      } else {
+        panel.scrollTop += speed * deltaSeconds;
+      }
+    }
+
+    window.requestAnimationFrame(step);
+  };
+
+  panel.addEventListener('mouseenter', () => { paused = true; });
+  panel.addEventListener('mouseleave', () => { paused = false; });
+  panel.addEventListener('focusin', () => { paused = true; });
+  panel.addEventListener('focusout', () => { paused = false; });
+
+  window.requestAnimationFrame(step);
+});
 </script>

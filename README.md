@@ -11,7 +11,7 @@
 Welcome to the public website repository of **Spirit Connect Power Labs**.
 We accelerate power electronics development using artificial intelligence: from topology exploration to thermal analysis and control synthesis.
 
-**Live site:** [https://fulongli.github.io/SpriConPowerLabs/](https://fulongli.github.io/SpriConPowerLabs/)
+**Live site:** [https://fulongli.github.io/Spirit-Connect-AIPE-Labs/](https://fulongli.github.io/Spirit-Connect-AIPE-Labs/)
 
 ---
 
@@ -47,7 +47,7 @@ Spirit Connect Power Labs builds **automation tools and workflows** that help en
 ## Project Structure
 
 ```
-SpriConPowerLabs/
+Spirit-Connect-AIPE-Labs/
 ├── _config.yml              # Jekyll configuration
 ├── _includes/               # Reusable components (navbar, footer, scripts)
 ├── _layouts/                # Page layouts
@@ -80,8 +80,8 @@ SpriConPowerLabs/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/FulongLi/SpriConPowerLabs.git
-   cd SpriConPowerLabs
+   git clone https://github.com/FulongLi/Spirit-Connect-AIPE-Labs.git
+   cd Spirit-Connect-AIPE-Labs
    ```
 
 2. Install dependencies:
@@ -94,7 +94,7 @@ SpriConPowerLabs/
    bundle exec jekyll serve
    ```
 
-4. Open `http://localhost:4000/SpriConPowerLabs/`
+4. Open `http://localhost:4000/Spirit-Connect-AIPE-Labs/`
 
 ---
 
@@ -108,4 +108,4 @@ See [LICENSE.md](LICENSE.md) for details.
 
 - **Email:** [info@spiritconnect.co.uk](mailto:info@spiritconnect.co.uk)
 - **Location:** Cardiff, United Kingdom
-- **Website:** [https://fulongli.github.io/SpriConPowerLabs/](https://fulongli.github.io/SpriConPowerLabs/)
+- **Website:** [https://fulongli.github.io/Spirit-Connect-AIPE-Labs/](https://fulongli.github.io/Spirit-Connect-AIPE-Labs/)
