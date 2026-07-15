@@ -11,7 +11,7 @@
 Welcome to the public website repository of **Spirit Connect AIPE Labs**.
 We accelerate power electronics development using artificial intelligence: from topology exploration to thermal analysis and control synthesis.
 
-**Live site:** [https://fulongli.github.io/Spirit-Connect-AIPE-Labs/](https://fulongli.github.io/Spirit-Connect-AIPE-Labs/)
+**Live site:** [https://aipel.co.uk](https://aipel.co.uk)
 
 ---
 
@@ -94,7 +94,7 @@ Spirit-Connect-AIPE-Labs/
    bundle exec jekyll serve
    ```
 
-4. Open `http://localhost:4000/Spirit-Connect-AIPE-Labs/`
+4. Open `http://localhost:4000/`
 
 ---
 
@@ -108,4 +108,4 @@ See [LICENSE.md](LICENSE.md) for details.
 
 - **Email:** [info@spiritconnect.co.uk](mailto:info@spiritconnect.co.uk)
 - **Location:** Cardiff, United Kingdom
-- **Website:** [https://fulongli.github.io/Spirit-Connect-AIPE-Labs/](https://fulongli.github.io/Spirit-Connect-AIPE-Labs/)
+- **Website:** [https://aipel.co.uk](https://aipel.co.uk)

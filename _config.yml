@@ -1,8 +1,8 @@
 title: "Spirit Connect AIPE Labs"
 description: "Power Electronics AI Agent — from device to converter to grid"
 email: "info@spiritconnect.co.uk"
-url: "https://fulongli.github.io"
-baseurl: "/Spirit-Connect-AIPE-Labs"
+url: "https://aipel.co.uk"
+baseurl: ""
 timezone: Europe/London
 
 exclude:
