@@ -5,6 +5,8 @@ url: "https://aipel.co.uk"
 baseurl: ""
 timezone: Europe/London
 
+permalink: /resources/blog/:title/
+
 exclude:
   - README.md
   - LICENSE.md

@@ -8,7 +8,6 @@
       <span></span><span></span><span></span>
     </button>
     <nav id="mainmenu" class="menu">
-      <a href="{{ '/' | relative_url }}">Home</a>
       <div class="dropdown">
         <button class="drop-toggle" aria-expanded="false">Power ▾</button>
         <div class="drop-menu">
@@ -19,15 +18,13 @@
         </div>
       </div>
       <div class="dropdown">
-        <button class="drop-toggle" aria-expanded="false">Company ▾</button>
+        <button class="drop-toggle" aria-expanded="false">Resources ▾</button>
         <div class="drop-menu">
-          <a href="{{ '/company/about/' | relative_url }}">About Us</a>
-          <a href="{{ '/company/team/' | relative_url }}">Team</a>
-          <a href="{{ '/company/faq/' | relative_url }}">FAQ</a>
-          <a href="{{ '/company/careers/' | relative_url }}">Careers</a>
+          <a href="{{ '/resources/blog/' | relative_url }}">Blog</a>
+          <a href="{{ '/resources/prototypes/' | relative_url }}">Design Prototypes</a>
+          <a href="{{ '/news/' | relative_url }}">News</a>
         </div>
       </div>
-      <a href="{{ '/news/' | relative_url }}">News</a>
       <a href="{{ '/contact/' | relative_url }}" class="cta">Contact Us</a>
     </nav>
   </div>
