@@ -48,7 +48,7 @@ description: Hardware prototypes and AI-assisted design case studies — convert
   <div class="container">
     <h2>Design databases</h2>
     <p class="lead">The component data behind the prototypes — also readable by your AI agent via
-      <a href="{{ '/llms.txt' | relative_url }}">llms.txt</a>.</p>
+      <a href="{{ '/aipe.txt' | relative_url }}">aipe.txt</a>.</p>
     <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
       <a class="card post-card" href="{{ '/database/transistors/' | relative_url }}">
         <span class="small">Database</span>

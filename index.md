@@ -35,11 +35,11 @@ description: Building a Power Electronics AI Agent — from device to converter 
       converter design references, and more.
     </p>
     <div class="agent-link">
-      <code id="agent-url">https://aipel.co.uk/llms.txt</code>
+      <code id="agent-url">https://aipel.co.uk/aipe.txt</code>
       <button class="copy-btn" data-copy-target="agent-url">Copy</button>
     </div>
     <p class="agent-steps">
-      Paste it into your agent and ask: <em>“Read https://aipel.co.uk/llms.txt and use it to help me design a 10&nbsp;kW DC-DC converter.”</em>
+      Paste it into your agent and ask: <em>“Read https://aipel.co.uk/aipe.txt and use it to help me design a 10&nbsp;kW DC-DC converter.”</em>
     </p>
   </div>
 </section>

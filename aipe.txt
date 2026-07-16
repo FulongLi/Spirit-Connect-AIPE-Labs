@@ -1,10 +1,15 @@
-# Spirit Connect AIPE Labs
+# AIPE Labs
 
-> Power Electronics AI Agent — from device to converter to grid. Resources for
-> power electronics and power systems design: semiconductor device data,
-> magnetics databases, converter design references, and microgrid architectures.
-> Point your AI coding agent (Claude Code, Codex, etc.) at this file to give it
-> access to everything below.
+> Power Electronics AI Agent — from device to converter to grid. This file is the
+> agent-readable index of everything AIPE Labs publishes: the skills, packages,
+> and agents we build on GitHub, plus the databases, design references, and case
+> studies on this site. Point your AI coding agent (Claude Code, Codex, etc.) at
+> this file and it can navigate all of it.
+
+## Skills, Packages & Agents (GitHub)
+
+- [AIPE Labs on GitHub](https://github.com/FulongLi): Home of our power electronics packages, skills, and agents — in active development. New skills are published here first.
+- [Spirit-Connect-AIPE-Labs](https://github.com/FulongLi/Spirit-Connect-AIPE-Labs): Source of this website, including this index file.
 
 ## Power Electronics
 
@@ -33,5 +38,5 @@
 ## Company
 
 - [About](https://aipel.co.uk/company/about/): Mission and vision — a closed-loop energy-AI ecosystem
-- [Services](https://aipel.co.uk/company/services/): What the Power Electronics AI Agent does
+- [The AI Agent](https://aipel.co.uk/company/services/): What the Power Electronics AI Agent does
 - [Contact](https://aipel.co.uk/contact/): Get in touch — info@spiritconnect.co.uk
