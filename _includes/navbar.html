@@ -1,12 +1,9 @@
 <header class="nav">
   <div class="container nav-inner">
     <a class="brand" href="{{ '/' | relative_url }}">
-      <img src="{{ '/images/general/logo_svg.svg' | relative_url }}" alt="Spirit Connect AIPE Labs" style="height:36px; margin-right:8px; vertical-align:middle;">
-      <span>Spirit Connect AIPE Labs</span>
+      <img src="{{ '/images/general/logo_svg.svg' | relative_url }}" alt="AIPE Labs" style="height:36px; margin-right:8px; vertical-align:middle;">
+      <span>AIPE Labs</span>
     </a>
-    <button class="hamburger" aria-label="Open menu" aria-controls="mainmenu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
     <nav id="mainmenu" class="menu">
       <div class="dropdown">
         <button class="drop-toggle" aria-expanded="false">Power ▾</button>
@@ -25,7 +22,22 @@
           <a href="{{ '/news/' | relative_url }}">News</a>
         </div>
       </div>
-      <a href="{{ '/contact/' | relative_url }}" class="cta">Contact Us</a>
     </nav>
+    <div class="nav-right">
+      <div class="dropdown lang-switch">
+        <button class="drop-toggle" aria-expanded="false">
+          <svg class="lang-globe" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          {% if page.lang == 'zh' %}中文{% else %}EN{% endif %} ▾
+        </button>
+        <div class="drop-menu drop-menu-right">
+          <a href="{{ '/' | relative_url }}">English</a>
+          <a href="{{ '/zh/' | relative_url }}">中文</a>
+        </div>
+      </div>
+      <a href="{{ '/contact/' | relative_url }}" class="cta">Contact Us</a>
+      <button class="hamburger" aria-label="Open menu" aria-controls="mainmenu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>

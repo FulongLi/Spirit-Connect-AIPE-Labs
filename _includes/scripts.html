@@ -18,14 +18,16 @@ document.querySelectorAll('.drop-toggle').forEach(btn => {
   });
 });
 document.querySelectorAll('.copy-btn[data-copy-target]').forEach(btn => {
+  const idleLabel = btn.textContent.trim();
+  const copiedLabel = btn.dataset.copiedLabel || 'Copied!';
   btn.addEventListener('click', () => {
     const el = document.getElementById(btn.dataset.copyTarget);
     if (!el) return;
     const text = el.textContent.trim();
     const done = () => {
       btn.classList.add('copied');
-      btn.textContent = 'Copied!';
-      setTimeout(() => { btn.classList.remove('copied'); btn.textContent = 'Copy'; }, 2000);
+      btn.textContent = copiedLabel;
+      setTimeout(() => { btn.classList.remove('copied'); btn.textContent = idleLabel; }, 2000);
     };
     const fallback = () => {
       const ta = document.createElement('textarea');
