@@ -45,4 +45,19 @@ document.querySelectorAll('.copy-btn[data-copy-target]').forEach(btn => {
     }
   });
 });
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  if (!q || !a) return;
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.toggle('open');
+    q.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    a.style.maxHeight = isOpen ? a.scrollHeight + 'px' : null;
+  });
+});
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.faq-item.open .faq-a').forEach(a => {
+    a.style.maxHeight = a.scrollHeight + 'px';
+  });
+});
 </script>

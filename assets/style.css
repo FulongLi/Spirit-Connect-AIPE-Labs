@@ -90,6 +90,16 @@ a:hover { opacity: .7; }
 }
 .cta:hover { background: var(--black-hover); opacity: 1 !important; transform: translateY(-1px); }
 
+/* Plugin link + NEW badge (ChatCut-style) */
+.nav-plugin { display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap; }
+.nav-badge {
+  display: inline-block; padding: .1rem .45rem;
+  background: var(--accent); color: #3a2f05;
+  border-radius: var(--pill); font-size: .62rem; font-weight: 700;
+  letter-spacing: .05em; text-transform: uppercase; line-height: 1.5;
+}
+.lang-active { font-weight: 700; color: var(--fg) !important; }
+
 /* Dropdown */
 .dropdown { position: relative; }
 .drop-toggle { background: transparent; border: 0; padding: .5rem 0; cursor: pointer; font: inherit; font-weight: 500; display: flex; align-items: center; gap: .25rem; }
@@ -334,6 +344,46 @@ a:hover { opacity: .7; }
   border-radius: 6px; padding: .12em .4em;
 }
 .post-article img { border-radius: var(--radius-sm); }
+
+/* ══════════════════════════════════════
+   FAQ ACCORDION (ChatCut-style)
+   ══════════════════════════════════════ */
+.faq-list { max-width: 820px; margin: 2.5rem auto 0; display: flex; flex-direction: column; gap: 1rem; }
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0 1.6rem;
+  box-shadow: var(--shadow);
+  transition: border-color .2s, box-shadow .2s;
+}
+.section-alt .faq-item { background: var(--bg-white); }
+.faq-item[open], .faq-item.open { border-color: var(--border-hover); }
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  width: 100%; text-align: left;
+  background: transparent; border: 0; cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 1.08rem; font-weight: 600; color: var(--fg);
+  padding: 1.35rem 0; line-height: 1.4;
+}
+.faq-q:hover { opacity: .75; }
+.faq-icon { position: relative; flex-shrink: 0; width: 20px; height: 20px; }
+.faq-icon::before, .faq-icon::after {
+  content: ""; position: absolute; top: 50%; left: 50%;
+  background: var(--fg); border-radius: 2px;
+  transform: translate(-50%, -50%);
+  transition: transform .25s ease, opacity .25s ease;
+}
+.faq-icon::before { width: 16px; height: 2px; }
+.faq-icon::after { width: 2px; height: 16px; }
+.faq-item.open .faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+.faq-a {
+  overflow: hidden; max-height: 0;
+  transition: max-height .3s ease;
+}
+.faq-a-inner { padding: 0 0 1.5rem; color: var(--fg-dim); line-height: 1.7; }
+.faq-a-inner p { margin: 0; color: var(--fg-dim); }
 
 /* ══════════════════════════════════════
    FOOTER — cream, quiet

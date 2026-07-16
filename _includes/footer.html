@@ -1,3 +1,6 @@
+{% assign lang = page.lang | default: 'en' %}
+{% assign t = site.data.i18n[lang] %}
+{%- if lang == 'zh' -%}{%- assign lp = '/zh' -%}{%- else -%}{%- assign lp = '' -%}{%- endif -%}
 <footer class="footer">
   <div class="container cols">
     <div>
@@ -6,46 +9,46 @@
         <div>
           <strong style="display:block;font-size:1.05rem;">AIPE Labs</strong>
           <span class="small" style="display:block;color:var(--fg-dim);">Spirit Connect</span>
-          <span class="small" style="display:block;color:var(--fg-dim);font-style:italic;">Make Power Conversion Smarter.</span>
+          <span class="small" style="display:block;color:var(--fg-dim);font-style:italic;">{{ t.footer_tagline }}</span>
         </div>
       </div>
       <p class="small" style="margin-top:.6rem;">
-        Cardiff, United Kingdom ·
+        {{ t.footer_location }} ·
         <a href="mailto:info@spiritconnect.co.uk">info@spiritconnect.co.uk</a>
       </p>
     </div>
     <div>
-      <strong>Company</strong>
+      <strong>{{ t.footer_company }}</strong>
       <p class="small">
-        <a href="{{ '/company/about/' | relative_url }}">About</a><br>
-        <a href="{{ '/company/services/' | relative_url }}">Services</a><br>
-        <a href="{{ '/company/team/' | relative_url }}">Team</a><br>
-        <a href="{{ '/company/faq/' | relative_url }}">FAQ</a><br>
-        <a href="{{ '/company/careers/' | relative_url }}">Careers</a>
+        <a href="{{ lp | append: '/company/about/' | relative_url }}">{{ t.footer_about }}</a><br>
+        <a href="{{ lp | append: '/company/services/' | relative_url }}">{{ t.footer_services }}</a><br>
+        <a href="{{ lp | append: '/company/team/' | relative_url }}">{{ t.footer_team }}</a><br>
+        <a href="{{ lp | append: '/company/faq/' | relative_url }}">{{ t.footer_faq }}</a><br>
+        <a href="{{ lp | append: '/company/careers/' | relative_url }}">{{ t.footer_careers }}</a><br>
+        <a href="{{ lp | append: '/news/' | relative_url }}">{{ t.footer_news }}</a>
       </p>
     </div>
     <div>
-      <strong>Resources</strong>
+      <strong>{{ t.footer_resources }}</strong>
       <p class="small">
-        <a href="{{ '/resources/blog/' | relative_url }}">Blog</a><br>
-        <a href="{{ '/resources/prototypes/' | relative_url }}">Design Prototypes</a><br>
-        <a href="{{ '/news/' | relative_url }}">News</a><br>
+        <a href="{{ lp | append: '/resources/blog/' | relative_url }}">{{ t.nav_blog }}</a><br>
+        <a href="{{ lp | append: '/resources/prototypes/' | relative_url }}">{{ t.nav_prototypes }}</a><br>
         <a href="{{ '/llms.txt' | relative_url }}">llms.txt</a>
       </p>
     </div>
     <div>
-      <strong>Legal</strong>
+      <strong>{{ t.footer_legal }}</strong>
       <p class="small">
-        <a href="{{ '/legal/privacy/' | relative_url }}">Privacy Policy</a><br>
-        <a href="{{ '/legal/terms/' | relative_url }}">Terms of Use</a><br>
-        <a href="{{ '/legal/cookies/' | relative_url }}">Cookie Policy</a>
+        <a href="{{ lp | append: '/legal/privacy/' | relative_url }}">{{ t.footer_privacy }}</a><br>
+        <a href="{{ lp | append: '/legal/terms/' | relative_url }}">{{ t.footer_terms }}</a><br>
+        <a href="{{ lp | append: '/legal/cookies/' | relative_url }}">{{ t.footer_cookies }}</a>
       </p>
     </div>
   </div>
 
   <div class="container" style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;">
     <p class="small" style="color:var(--muted);">
-      © 2026 Spirit Connect AIPE Labs Ltd. All rights reserved.
+      {{ t.footer_rights }}
     </p>
   </div>
 </footer>

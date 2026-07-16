@@ -1,40 +1,53 @@
+{% assign lang = page.lang | default: 'en' %}
+{% assign t = site.data.i18n[lang] %}
+{%- if lang == 'zh' -%}
+  {%- assign base_path = page.url | remove_first: '/zh' -%}
+  {%- assign lp = '/zh' -%}
+{%- else -%}
+  {%- assign base_path = page.url -%}
+  {%- assign lp = '' -%}
+{%- endif -%}
+{%- assign en_url = base_path -%}
+{%- assign zh_url = '/zh' | append: base_path -%}
 <header class="nav">
   <div class="container nav-inner">
-    <a class="brand" href="{{ '/' | relative_url }}">
+    <a class="brand" href="{{ lp | append: '/' | relative_url }}">
       <img src="{{ '/images/general/logo_svg.svg' | relative_url }}" alt="AIPE Labs" style="height:36px; margin-right:8px; vertical-align:middle;">
       <span>AIPE Labs</span>
     </a>
     <nav id="mainmenu" class="menu">
       <div class="dropdown">
-        <button class="drop-toggle" aria-expanded="false">Power ▾</button>
+        <button class="drop-toggle" aria-expanded="false">{{ t.nav_category }} ▾</button>
         <div class="drop-menu">
-          <a href="{{ '/power/microgrids/' | relative_url }}">Microgrids</a>
-          <a href="{{ '/power/converters/' | relative_url }}">Converters</a>
-          <a href="{{ '/power/devices/' | relative_url }}">Devices</a>
-          <a href="{{ '/database/magnetics/' | relative_url }}">Magnetics</a>
+          <a href="{{ lp | append: '/power/microgrids/' | relative_url }}">{{ t.nav_microgrids }}</a>
+          <a href="{{ lp | append: '/power/converters/' | relative_url }}">{{ t.nav_converters }}</a>
+          <a href="{{ lp | append: '/power/devices/' | relative_url }}">{{ t.nav_devices }}</a>
+          <a href="{{ lp | append: '/database/magnetics/' | relative_url }}">{{ t.nav_magnetics }}</a>
         </div>
       </div>
       <div class="dropdown">
-        <button class="drop-toggle" aria-expanded="false">Resources ▾</button>
+        <button class="drop-toggle" aria-expanded="false">{{ t.nav_resources }} ▾</button>
         <div class="drop-menu">
-          <a href="{{ '/resources/blog/' | relative_url }}">Blog</a>
-          <a href="{{ '/resources/prototypes/' | relative_url }}">Design Prototypes</a>
-          <a href="{{ '/news/' | relative_url }}">News</a>
+          <a href="{{ lp | append: '/resources/blog/' | relative_url }}">{{ t.nav_blog }}</a>
+          <a href="{{ lp | append: '/resources/prototypes/' | relative_url }}">{{ t.nav_prototypes }}</a>
         </div>
       </div>
+      <a class="nav-plugin" href="{{ '/llms.txt' | relative_url }}">
+        {{ t.nav_plugin }}<span class="nav-badge">{{ t.nav_plugin_badge }}</span>
+      </a>
     </nav>
     <div class="nav-right">
       <div class="dropdown lang-switch">
         <button class="drop-toggle" aria-expanded="false">
           <svg class="lang-globe" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          {% if page.lang == 'zh' %}中文{% else %}EN{% endif %} ▾
+          {{ t.lang_label }} ▾
         </button>
         <div class="drop-menu drop-menu-right">
-          <a href="{{ '/' | relative_url }}">English</a>
-          <a href="{{ '/zh/' | relative_url }}">中文</a>
+          <a href="{{ en_url | relative_url }}"{% if lang != 'zh' %} class="lang-active"{% endif %}>{{ t.lang_english }}</a>
+          <a href="{{ zh_url | relative_url }}"{% if lang == 'zh' %} class="lang-active"{% endif %}>{{ t.lang_chinese }}</a>
         </div>
       </div>
-      <a href="{{ '/contact/' | relative_url }}" class="cta">Contact Us</a>
+      <a href="{{ lp | append: '/contact/' | relative_url }}" class="cta">{{ t.nav_contact }}</a>
       <button class="hamburger" aria-label="Open menu" aria-controls="mainmenu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
