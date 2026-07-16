@@ -305,7 +305,7 @@ a:hover { opacity: .7; }
    BLOG & RESOURCES
    ══════════════════════════════════════ */
 .hero-compact { padding: 4.5rem 0 2.5rem; }
-.hero-compact h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+.hero-compact h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); max-width: 26ch; }
 .post-meta { color: var(--muted); font-size: .95rem; margin: 0; }
 
 .post-card { display: flex; flex-direction: column; color: var(--fg); }

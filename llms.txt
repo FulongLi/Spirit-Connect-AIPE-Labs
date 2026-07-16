@@ -26,6 +26,7 @@
 
 ## Resources
 
+- [Claude Code/Codex Plugin](https://aipel.co.uk/plugin/): How to use these resources inside Claude Code, Codex, or any AI coding agent
 - [Blog](https://aipel.co.uk/resources/blog/): Engineering notes and research updates on AI-driven power electronics design
 - [Design Prototypes](https://aipel.co.uk/resources/prototypes/): Hardware prototypes and AI-assisted design case studies
 

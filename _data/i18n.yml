@@ -6,7 +6,7 @@ en:
   # nav
   nav_category: "Category"
   nav_resources: "Resources"
-  nav_plugin: "Claude Code / Codex"
+  nav_plugin: "Claude Code/Codex Plugin"
   nav_plugin_badge: "NEW"
   nav_contact: "Contact Us"
   nav_microgrids: "Microgrids"
@@ -39,7 +39,7 @@ zh:
   # nav
   nav_category: "分类"
   nav_resources: "资源"
-  nav_plugin: "Claude Code / Codex"
+  nav_plugin: "Claude Code/Codex 插件"
   nav_plugin_badge: "新"
   nav_contact: "联系我们"
   nav_microgrids: "微电网"
