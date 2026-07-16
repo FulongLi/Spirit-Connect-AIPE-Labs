@@ -4,10 +4,11 @@
 
 en:
   # nav
-  nav_category: "Category"
-  nav_resources: "Resources"
-  nav_plugin: "Claude Code/Codex Plugin"
-  nav_contact: "Contact Us"
+  nav_engineering: "Engineering"
+  nav_resources: "Open Resources"
+  nav_plugin: "Use with AI Agents"
+  nav_agent: "Our AI Agent"
+  nav_contact: "Partner with us"
   nav_microgrids: "Microgrids"
   nav_converters: "Converters"
   nav_devices: "Devices"
@@ -36,10 +37,11 @@ en:
 
 zh:
   # nav
-  nav_category: "分类"
-  nav_resources: "资源"
-  nav_plugin: "Claude Code/Codex 插件"
-  nav_contact: "联系我们"
+  nav_engineering: "工程领域"
+  nav_resources: "开放资源"
+  nav_plugin: "接入 AI 智能体"
+  nav_agent: "我们的 AI 智能体"
+  nav_contact: "合作联系"
   nav_microgrids: "微电网"
   nav_converters: "变换器"
   nav_devices: "器件"

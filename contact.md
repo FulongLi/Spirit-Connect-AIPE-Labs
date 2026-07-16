@@ -1,20 +1,18 @@
 ---
 layout: default
-title: Contact
+title: Partner with AIPE Labs
 permalink: /contact/
-description: Contact Spirit Connect AIPE Labs — the Power Electronics AI Agent, services, collaborations, and device research.
+description: Contact AIPE Labs about open-source contributions, research collaboration, engineering pilots, strategic partnerships, and investment.
+image: /images/background/sst.png
 ---
 
 <header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="{{ '/images/vids/compicon.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <div class="bg"></div>
   <div class="container">
-    <h1>Contact</h1>
+    <span class="badge">Open-source · research · industry</span>
+    <h1>Build with AIPE Labs</h1>
     <p class="lead">
-      Questions about the <strong>Power Electronics AI Agent</strong>, our research and engineering services,
-      or a potential collaboration — we would like to hear from you.
+      Whether you want to contribute an open resource, validate a workflow, pilot the technology on a
+      real engineering problem, or explore a strategic partnership — we would like to hear from you.
     </p>
   </div>
 </header>
@@ -47,10 +45,10 @@ description: Contact Spirit Connect AIPE Labs — the Power Electronics AI Agent
 
       <div class="card contact-window">
         <div class="contact-window-header">
-          <h2 class="contact-form-title">Do you have a question? Do you need support?</h2>
+          <h2 class="contact-form-title">Tell us what you want to build</h2>
           <p class="contact-form-sub">
-            Feel free to send a message for technical or commercial enquiries about the Power Electronics AI Agent,
-            our services, or collaborations — we are here to help.
+            Share the problem, contribution, pilot, or partnership you have in mind. A short description
+            is enough to start the conversation.
           </p>
         </div>
 
@@ -68,11 +66,11 @@ description: Contact Spirit Connect AIPE Labs — the Power Electronics AI Agent
           <input type="hidden" name="access_key" value="{{ wf }}">
           <input type="hidden" name="subject" value="Website contact — Spirit Connect AIPE Labs">
           <input type="hidden" name="redirect" value="{{ site.url }}{{ site.baseurl }}/contact/?sent=1">
-          <input type="text" name="botcheck" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="text" name="botcheck" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
           {% else %}
           <input type="hidden" name="_subject" value="Website contact — Spirit Connect AIPE Labs">
           <input type="hidden" name="_next" value="{{ site.url }}{{ site.baseurl }}/contact/?sent=1">
-          <input type="text" name="_gotcha" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="text" name="_gotcha" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
           {% endif %}
 
           <div class="contact-field">
@@ -86,6 +84,18 @@ description: Contact Spirit Connect AIPE Labs — the Power Electronics AI Agent
           <div class="contact-field">
             <label class="visually-hidden" for="cx-email">Email</label>
             <input id="cx-email" name="email" type="email" required placeholder="Email" autocomplete="email">
+          </div>
+          <div class="contact-field">
+            <label class="contact-label" for="cx-interest">I am interested in</label>
+            <select id="cx-interest" name="interest" required>
+              <option value="" selected disabled>Select an enquiry type</option>
+              <option value="open-source">Using or contributing open-source resources</option>
+              <option value="research">Research collaboration</option>
+              <option value="industry-pilot">Industry pilot or engineering project</option>
+              <option value="strategic-investment">Strategic partnership or investment</option>
+              <option value="technical">Technical question</option>
+              <option value="other">Other</option>
+            </select>
           </div>
           <div class="contact-field">
             <label class="visually-hidden" for="cx-phone">Phone number</label>
@@ -115,6 +125,7 @@ description: Contact Spirit Connect AIPE Labs — the Power Electronics AI Agent
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
             <span class="contact-submit-label">Send message</span>
           </button>
+          <p class="contact-response-time">We normally reply within two business days.</p>
         </form>
       </div>
     </div>

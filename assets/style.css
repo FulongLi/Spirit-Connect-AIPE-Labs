@@ -91,6 +91,7 @@ a:hover { opacity: .7; }
 .cta:hover { background: var(--black-hover); opacity: 1 !important; transform: translateY(-1px); }
 
 .nav-plugin { display: inline-flex; align-items: center; white-space: nowrap; }
+.nav-partner-mobile { display: none; }
 .lang-active { font-weight: 700; color: var(--fg) !important; }
 
 /* Dropdown */
@@ -127,11 +128,13 @@ a:hover { opacity: .7; }
   .menu.open { display: flex; }
   .nav-right { gap: .7rem; }
   .nav-right .cta { padding: .5rem 1rem; font-size: .88rem; }
+  .nav-partner-mobile { display: block; }
 }
 @media(max-width:560px) {
   .nav .brand span { display: none; }
   .lang-switch { position: relative; }
   .lang-switch .drop-menu { position: absolute; }
+  .desktop-cta { display: none; }
 }
 .drop-toggle:focus, .menu a:focus { outline: 2px solid var(--fg); outline-offset: 2px; }
 
@@ -254,6 +257,143 @@ a:hover { opacity: .7; }
   box-shadow: var(--shadow-lg);
 }
 .demo-panel video, .demo-panel img { display: block; width: 100%; height: auto; }
+
+/* ══════════════════════════════════════
+   HOME PRODUCT STORY
+   ══════════════════════════════════════ */
+.home-hero { padding-bottom: 5.5rem; }
+.home-hero h1 { max-width: 16ch; }
+.narrow-center { text-align: center; }
+.narrow-center > .lead { margin-inline: auto; }
+.align-left { justify-content: flex-start; }
+.text-link {
+  display: inline-block; margin-top: 1.8rem;
+  font-weight: 700; text-decoration: underline; text-underline-offset: 4px;
+}
+
+.workflow-panel {
+  width: min(100%, 980px); margin: 3.5rem auto 0;
+  background: #171713; color: #fff; text-align: left;
+  border: 1px solid rgba(255,255,255,.1); border-radius: 24px;
+  overflow: hidden; box-shadow: 0 24px 70px rgba(36,28,16,.18);
+}
+.workflow-toolbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: .95rem 1.25rem; background: #211f19;
+  border-bottom: 1px solid rgba(255,255,255,.1); font-size: .8rem;
+}
+.workflow-brand { font-weight: 700; letter-spacing: .02em; }
+.workflow-status { color: rgba(255,255,255,.58); }
+.status-dot {
+  display: inline-block; width: 8px; height: 8px; margin-right: .45rem;
+  border-radius: 50%; background: #65d887; box-shadow: 0 0 0 4px rgba(101,216,135,.12);
+}
+.workflow-prompt { padding: 1.55rem 1.75rem 1.25rem; }
+.workflow-label {
+  display: block; margin-bottom: .45rem; color: #f5d54a;
+  font-size: .7rem; font-weight: 800; letter-spacing: .12em;
+}
+.workflow-prompt p { margin: 0; color: rgba(255,255,255,.9); font-size: 1.05rem; line-height: 1.6; }
+.workflow-prompt strong { color: #fff; }
+.workflow-route {
+  display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: .8rem;
+  margin: .5rem 1.75rem 1.25rem; padding: 1rem;
+  border: 1px solid rgba(255,255,255,.12); border-radius: 14px;
+  background: rgba(255,255,255,.04); text-align: center; font-size: .86rem;
+}
+.workflow-route b { color: rgba(255,255,255,.35); }
+.workflow-route .workflow-index { color: #171713; background: #f5d54a; border-radius: 999px; padding: .45rem .8rem; font-weight: 800; }
+.workflow-resources {
+  display: flex; flex-wrap: wrap; gap: .55rem; padding: 0 1.75rem 1.75rem;
+}
+.workflow-resources span {
+  padding: .42rem .7rem; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.13); color: rgba(255,255,255,.68);
+  font-size: .78rem;
+}
+
+.agent-entry .badge { margin-bottom: 1.2rem; }
+.agent-entry h2 { max-width: 20ch; margin-inline: auto; }
+.agent-entry .lead code, .roadmap-card code {
+  padding: .12em .4em; border-radius: 6px; background: rgba(36,28,16,.07);
+  font-family: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--fg);
+}
+.prompt-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  margin: 2.25rem auto 0; text-align: left;
+}
+.prompt-card {
+  background: rgba(255,255,255,.7); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 1.15rem;
+}
+.prompt-card span, .scope-kicker {
+  display: block; margin-bottom: .55rem; color: var(--muted);
+  font-size: .7rem; font-weight: 800; letter-spacing: .08em;
+}
+.prompt-card p { margin: 0; font-size: .9rem; line-height: 1.6; }
+
+.roadmap-card { position: relative; padding-top: 4.5rem; }
+.roadmap-number {
+  position: absolute; top: 1.25rem; right: 1.4rem;
+  color: rgba(36,28,16,.14); font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+}
+.roadmap-state {
+  position: absolute; top: 1.45rem; left: 1.4rem;
+  padding: .25rem .6rem; border-radius: 999px; font-size: .7rem; font-weight: 700;
+}
+.state-live { background: #dff5e5; color: #26633a; }
+.state-growing { background: var(--accent-soft); color: #6e5710; }
+.state-vision { background: #e9e6f8; color: #51468b; }
+
+.scope-card { display: flex; flex-direction: column; color: var(--fg); }
+.scope-card:hover { opacity: 1; }
+.scope-card img {
+  width: 100%; height: 180px; margin-bottom: 1.35rem;
+  object-fit: cover; background: var(--bg-alt);
+}
+.scope-card p { flex: 1; }
+.scope-card strong { display: block; margin-top: 1.2rem; font-size: .9rem; }
+
+.collaboration-section { background: #171713; color: #fff; }
+.collaboration-section h2, .collaboration-section .lead { color: #fff; }
+.collaboration-section .lead { color: rgba(255,255,255,.66); }
+.collaboration-section .section-badge { background: rgba(245,213,74,.12); color: #f8df75; border-color: rgba(245,213,74,.25); }
+.collaboration-section .btn-primary { background: #fff; color: #171713; }
+.collaboration-section .btn-primary:hover { background: #f2efe7; color: #171713; }
+.collaboration-section .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.25); }
+.collaboration-section .btn-ghost:hover { background: rgba(255,255,255,.08); color: #fff; }
+.collaboration-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 5rem; align-items: center; }
+.collaboration-list { display: flex; flex-direction: column; }
+.collaboration-list > div {
+  display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.collaboration-list > div:first-child { border-top: 1px solid rgba(255,255,255,.12); }
+.collaboration-list span { color: #f5d54a; font-size: .75rem; font-weight: 800; }
+.collaboration-list p { margin: 0; color: rgba(255,255,255,.62); }
+.collaboration-list strong { color: #fff; }
+
+.partner-grid {
+  display: grid; grid-template-columns: repeat(6, minmax(0,1fr));
+  gap: 2rem; align-items: center; margin-top: 2.5rem;
+}
+.partner-grid img { width: 100%; max-width: 150px; max-height: 72px; object-fit: contain; justify-self: center; }
+
+@media(max-width:880px) {
+  .prompt-grid { grid-template-columns: 1fr; }
+  .collaboration-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .partner-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+@media(max-width:600px) {
+  .workflow-toolbar { align-items: flex-start; flex-direction: column; }
+  .workflow-route { grid-template-columns: 1fr; }
+  .workflow-route b { transform: rotate(90deg); }
+  .workflow-prompt, .workflow-resources { padding-left: 1.1rem; padding-right: 1.1rem; }
+  .workflow-route { margin-left: 1.1rem; margin-right: 1.1rem; }
+  .partner-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .home-hero h1 { font-size: clamp(2.25rem, 11vw, 3.2rem); }
+}
 
 /* ══════════════════════════════════════
    AGENT LINK — copy-paste block
@@ -498,7 +638,8 @@ img { max-width: 100%; height: auto; }
 .contact-field { margin-bottom: 1rem; }
 .contact-field:last-of-type { margin-bottom: 0; }
 .contact-page .contact-field input:not([type="hidden"]),
-.contact-page .contact-field textarea {
+.contact-page .contact-field textarea,
+.contact-page .contact-field select {
   width: 100%; font: inherit;
   padding: 0.7rem 0.95rem;
   border: 1px solid var(--border);
@@ -519,6 +660,7 @@ img { max-width: 100%; height: auto; }
 .contact-page .contact-field textarea { min-height: 140px; resize: vertical; margin-top: 0.35rem; }
 .contact-page .contact-field input:focus,
 .contact-page .contact-field textarea:focus,
+.contact-page .contact-field select:focus,
 .contact-page .phone-field-wrap select:focus,
 .contact-page .phone-field-wrap input:focus {
   outline: none;
@@ -540,6 +682,7 @@ img { max-width: 100%; height: auto; }
 }
 .contact-submit.btn:hover { background: var(--black-hover); }
 .contact-submit .contact-submit-label { position: relative; top: 0.5px; }
+.contact-response-time { margin: .8rem 0 0; text-align: center; color: var(--muted); font-size: .82rem; }
 .contact-turnstile { margin: 1rem 0 0.25rem; }
 .contact-thanks {
   padding: 1rem 1.25rem; margin-bottom: 1.5rem;

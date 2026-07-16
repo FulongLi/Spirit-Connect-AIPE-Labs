@@ -1,20 +1,19 @@
 ---
 layout: default
-title: 联系我们
+title: 与 AIPE Labs 合作
 lang: zh
 permalink: /zh/contact/
-description: 联系 Spirit Connect AIPE Labs —— 电力电子 AI 智能体、服务、合作与器件研究。
+description: 联系 AIPE Labs，讨论开源贡献、科研合作、工程试点、战略合作与投资。
+image: /images/background/sst.png
 ---
 
 <header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="{{ '/images/vids/compicon.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <div class="bg"></div>
   <div class="container">
-    <h1>联系我们</h1>
+    <span class="badge">开源 · 科研 · 产业</span>
+    <h1>与 AIPE Labs 一起建设</h1>
     <p class="lead">
-      对<strong>电力电子 AI 智能体</strong>、我们的研究与工程服务，或潜在合作有任何疑问 —— 我们期待你的来信。
+      无论你希望贡献开放资源、共同验证工程流程、在真实项目中试点技术，
+      还是讨论战略合作与投资，我们都期待你的来信。
     </p>
   </div>
 </header>
@@ -47,9 +46,9 @@ description: 联系 Spirit Connect AIPE Labs —— 电力电子 AI 智能体、
 
       <div class="card contact-window">
         <div class="contact-window-header">
-          <h2 class="contact-form-title">有问题？需要支持？</h2>
+          <h2 class="contact-form-title">告诉我们你想一起建设什么</h2>
           <p class="contact-form-sub">
-            欢迎就电力电子 AI 智能体、我们的服务或合作，发送技术或商务咨询 —— 我们乐意提供帮助。
+            简单介绍你正在考虑的问题、开源贡献、工程试点或合作方向，就可以开始交流。
           </p>
         </div>
 
@@ -67,11 +66,11 @@ description: 联系 Spirit Connect AIPE Labs —— 电力电子 AI 智能体、
           <input type="hidden" name="access_key" value="{{ wf }}">
           <input type="hidden" name="subject" value="Website contact — Spirit Connect AIPE Labs">
           <input type="hidden" name="redirect" value="{{ site.url }}{{ site.baseurl }}/zh/contact/?sent=1">
-          <input type="text" name="botcheck" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="text" name="botcheck" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
           {% else %}
           <input type="hidden" name="_subject" value="Website contact — Spirit Connect AIPE Labs">
           <input type="hidden" name="_next" value="{{ site.url }}{{ site.baseurl }}/zh/contact/?sent=1">
-          <input type="text" name="_gotcha" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="text" name="_gotcha" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
           {% endif %}
 
           <div class="contact-field">
@@ -85,6 +84,18 @@ description: 联系 Spirit Connect AIPE Labs —— 电力电子 AI 智能体、
           <div class="contact-field">
             <label class="visually-hidden" for="cx-email">邮箱</label>
             <input id="cx-email" name="email" type="email" required placeholder="邮箱" autocomplete="email">
+          </div>
+          <div class="contact-field">
+            <label class="contact-label" for="cx-interest">你希望讨论</label>
+            <select id="cx-interest" name="interest" required>
+              <option value="" selected disabled>请选择咨询类型</option>
+              <option value="open-source">使用或贡献开源资源</option>
+              <option value="research">科研合作</option>
+              <option value="industry-pilot">产业试点或工程项目</option>
+              <option value="strategic-investment">战略合作或投资</option>
+              <option value="technical">技术问题</option>
+              <option value="other">其他</option>
+            </select>
           </div>
           <div class="contact-field">
             <label class="visually-hidden" for="cx-phone">电话号码</label>
@@ -114,6 +125,7 @@ description: 联系 Spirit Connect AIPE Labs —— 电力电子 AI 智能体、
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
             <span class="contact-submit-label">发送消息</span>
           </button>
+          <p class="contact-response-time">我们通常会在两个工作日内回复。</p>
         </form>
       </div>
     </div>

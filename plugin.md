@@ -1,13 +1,15 @@
 ---
 layout: default
-title: Claude Code/Codex Plugin
+title: Use AIPE Labs with Your Coding Agent
 permalink: /plugin/
-description: The AIPE Labs plugin for Claude Code and Codex — one prompt gives your AI coding agent access to power electronics databases, design references, and case studies.
+description: Give Claude Code, Codex, Cursor, and other coding agents an open entry point to AIPE Labs power electronics knowledge, tools, specialist agents, and workflows.
+image: /images/background/sst.png
 ---
 
 <header class="hero hero-compact">
   <div class="container">
-    <h1>AIPE Labs plugin for Claude Code &amp; Codex</h1>
+    <span class="badge">No installation · no API key</span>
+    <h1>Use AIPE Labs with your coding agent</h1>
     <p class="lead">
       Enter the prompt below into <strong>Claude Code</strong>, <strong>Codex</strong>, or any AI coding agent.
     </p>
@@ -15,11 +17,7 @@ description: The AIPE Labs plugin for Claude Code and Codex — one prompt gives
       <code id="agent-prompt">Read aipel.co.uk/aipe.txt to load the AIPE Labs power electronics resources and help me start a design.</code>
       <button class="copy-btn" data-copy-target="agent-prompt">Copy</button>
     </div>
-    <div class="demo-panel">
-      <video autoplay muted loop playsinline>
-        <source src="{{ '/images/vids/main.mp4' | relative_url }}" type="video/mp4">
-      </video>
-    </div>
+    <p class="agent-steps">The link is an open resource index, not a software package you need to install.</p>
   </div>
 </header>
 
@@ -28,7 +26,7 @@ description: The AIPE Labs plugin for Claude Code and Codex — one prompt gives
     <h2>Why AIPE Labs in your agent</h2>
     <p class="lead" style="margin-inline:auto;">
       Most ways to bring domain data into an AI workflow mean a new app, new logins, and API keys to manage.
-      The AIPE Labs plugin skips all of that.
+      The AIPE Labs resource link skips all of that.
     </p>
     <div class="grid" style="text-align:left;">
       <div class="card">
@@ -43,12 +41,12 @@ description: The AIPE Labs plugin for Claude Code and Codex — one prompt gives
         everything is reachable through the same link.</p>
       </div>
       <div class="card">
-        <h3>Runs on your agent's usage</h3>
-        <p>The plugin works inside your Claude Code or Codex session and runs on the plan you
-        already have — no separate credits and no extra subscription.</p>
+        <h3>Works inside your existing agent</h3>
+        <p>The index uses the web access already available to your coding agent. AIPE Labs does not
+        require a separate login, credit balance, or subscription to read the open resources.</p>
       </div>
     </div>
-    <p class="lead" style="margin:3rem auto 0;">To install, paste this into your agent:</p>
+    <p class="lead" style="margin:3rem auto 0;">To start, paste this into your agent:</p>
     <div class="agent-link">
       <code id="agent-prompt-2">Read aipel.co.uk/aipe.txt to load the AIPE Labs power electronics resources and help me start a design.</code>
       <button class="copy-btn" data-copy-target="agent-prompt-2">Copy</button>
@@ -60,38 +58,38 @@ description: The AIPE Labs plugin for Claude Code and Codex — one prompt gives
   <div class="container">
     <h2>What can AIPE Labs do in your agent</h2>
     <p class="lead">
-      Pick a job and your agent runs it with our data — no new app, no export, no context switch.
+      Start with a job and let your agent discover the most relevant resources currently available through the index.
     </p>
     <div class="grid">
       <div class="card">
         <h3>Shortlist devices</h3>
-        <p>“Shortlist SiC devices for a 10 kW, 800 V DC-DC stage” — the agent searches our transistor
-        database against your voltage, current, and thermal constraints.</p>
+        <p>“Shortlist SiC devices for a 10 kW, 800 V DC-DC stage” — ask the agent to find available
+        AIPE device data and selection tools relevant to your constraints.</p>
       </div>
       <div class="card">
         <h3>Size magnetics</h3>
-        <p>“Size the transformer for a 100 kHz DAB” — core material options, Steinmetz parameters,
-        and winding windows come straight from the magnetics database.</p>
+        <p>“Size the transformer for a 100 kHz DAB” — ask the agent to locate magnetic design
+        references, material data, and reusable workflows in the ecosystem.</p>
       </div>
       <div class="card">
         <h3>Compare topologies</h3>
-        <p>“LLC or DAB for this spec?” — the agent pulls our converter design references and lays out
-        the efficiency, density, and control trade-offs.</p>
+        <p>“LLC or DAB for this spec?” — use the index to discover converter references and tools
+        that support an efficiency, density, and control comparison.</p>
       </div>
       <div class="card">
         <h3>Estimate losses &amp; thermals</h3>
-        <p>“Estimate losses at full load” — switching and conduction losses from characterisation data,
-        with thermal limits checked against device ratings.</p>
+        <p>“Estimate losses at full load” — find relevant characterisation data, modelling packages,
+        and thermal-analysis resources before carrying out the calculation.</p>
       </div>
       <div class="card">
         <h3>Learn from case studies</h3>
-        <p>“How did AIPE Labs design their 2 kW DAB?” — the agent walks through our validated
-        prototype case studies and applies the same flow to your design.</p>
+        <p>“How did AIPE Labs approach its 2 kW DAB?” — let the agent locate the published case study
+        and any related design resources.</p>
       </div>
       <div class="card">
         <h3>Plan validation</h3>
-        <p>“Draft a test plan for this converter” — test matrices and measurement workflows modelled
-        on our own lab validation practice.</p>
+        <p>“Draft a test plan for this converter” — find available measurement, sensing, and validation
+        references to support a reviewable test plan.</p>
       </div>
     </div>
   </div>
@@ -102,8 +100,8 @@ description: The AIPE Labs plugin for Claude Code and Codex — one prompt gives
     <h2 style="text-align:center;">Frequently asked questions</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">What is the AIPE Labs plugin?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>It is the simplest way to bring power electronics knowledge into your AI coding agent. One prompt points the agent at our index file, aipe.txt, and from there it can reach our device and magnetics databases, design references, prototype case studies, and the skills and packages we publish on GitHub.</p></div></div>
+        <button class="faq-q" aria-expanded="false">What is the AIPE Labs resource link?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>It is a simple way to help an AI coding agent discover power electronics resources. One prompt points the agent at aipe.txt, which links to the knowledge, tools, specialist agents, datasets, and engineering work that AIPE Labs publishes.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">How do I install it?<span class="faq-icon"></span></button>
@@ -123,7 +121,7 @@ description: The AIPE Labs plugin for Claude Code and Codex — one prompt gives
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Does it cost anything?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>No. The plugin runs inside your existing agent session on the plan you already have. For the full Power Electronics AI Agent — physics-guided optimization, control synthesis, and validation workflows — <a href="{{ '/contact/' | relative_url }}">get in touch</a>.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>No. The index and linked open resources can be read inside your existing agent session. For collaboration around the full Power Electronics AI Agent — including physics-guided optimization, control synthesis, and validation workflows — <a href="{{ '/contact/' | relative_url }}">get in touch</a>.</p></div></div>
       </div>
     </div>
   </div>
@@ -133,8 +131,8 @@ description: The AIPE Labs plugin for Claude Code and Codex — one prompt gives
   <div class="container" style="text-align:center;">
     <h2>Go further with the AI Agent</h2>
     <p class="lead" style="margin-inline:auto;">
-      The plugin gives your agent our data. The full Power Electronics AI Agent adds physics-guided
-      optimization, control synthesis, and validation workflows on top.
+      The open link helps your agent discover published resources. Our longer-term Power Electronics AI Agent
+      brings those resources into physics-guided optimization, control synthesis, and validation workflows.
     </p>
     <div class="hero-actions" style="margin-top:2rem;">
       <a class="btn btn-primary" href="{{ '/company/services/' | relative_url }}">Explore the AI Agent</a>

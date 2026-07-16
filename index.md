@@ -1,77 +1,95 @@
 ---
 layout: default
-title: Home
-description: Building a Power Electronics AI Agent — from device to converter to grid — for a closed-loop energy-AI ecosystem.
+title: Power Electronics AI Resources for Coding Agents
+description: Give Claude Code, Codex, Cursor, and other coding agents access to AIPE Labs' open power electronics knowledge, tools, specialist agents, and engineering workflows through one link.
+image: /images/background/sst.png
 ---
 
-<header class="hero">
+<header class="hero home-hero">
   <div class="container">
-    <span class="badge">Power Electronics AI Agent</span>
-    <h1>The AI that designs the power systems that power AI</h1>
+    <span class="badge">Open power electronics resources for AI agents</span>
+    <h1>Give your coding agent a power electronics lab</h1>
     <p class="lead">
-      We are building a Power Electronics AI Agent that closes the loop between intelligent
-      system design and the energy infrastructure that fuels it — from semiconductor device
-      to converter to grid.
+      One public link connects Claude Code, Codex, Cursor, and other coding agents to the
+      AIPE Labs ecosystem — open knowledge, engineering tools, specialist agents, datasets,
+      and workflows for power electronics.
     </p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="#agent-link">Use it in your AI agent</a>
-      <a class="btn btn-ghost" href="{{ '/company/services/' | relative_url }}">Explore the AI Agent</a>
+      <a class="btn btn-primary" href="#agent-link">Copy the AIPE link</a>
+      <a class="btn btn-ghost" href="https://github.com/FulongLi" target="_blank" rel="noopener">Explore the open-source work ↗</a>
     </div>
-    <div class="demo-panel">
-      <video autoplay muted loop playsinline>
-        <source src="{{ '/images/vids/main.mp4' | relative_url }}" type="video/mp4">
-      </video>
+
+    <div class="workflow-panel" aria-label="How a coding agent uses the AIPE Labs resource index">
+      <div class="workflow-toolbar">
+        <span class="workflow-brand"><span class="status-dot"></span> AIPE Labs resource graph</span>
+        <span class="workflow-status">Open · growing in public</span>
+      </div>
+      <div class="workflow-prompt">
+        <span class="workflow-label">YOU</span>
+        <p>Read <strong>aipel.co.uk/aipe.txt</strong> and find the best AIPE resources to help me analyse a DAB converter.</p>
+      </div>
+      <div class="workflow-route" aria-hidden="true">
+        <span>Coding agent</span><b>→</b><span class="workflow-index">aipe.txt</span><b>→</b><span>Relevant resources</span>
+      </div>
+      <div class="workflow-resources">
+        <span>Simulation</span><span>Finite-element analysis</span><span>Devices</span>
+        <span>Magnetics</span><span>Converters</span><span>Validation</span>
+      </div>
     </div>
   </div>
 </header>
 
-<section class="section section-alt" id="agent-link" style="text-align:center;">
-  <div class="container">
-    <span class="badge">Works with Claude Code &amp; Codex</span>
-    <h2>One link. All of power electronics.</h2>
-    <p class="lead" style="margin-inline:auto;">
-      Copy one link into Claude Code, Codex, or any AI coding agent, and it gains access to our
-      power electronics and power systems resources — device databases, magnetics data,
-      converter design references, and more.
+<section class="section section-alt agent-entry" id="agent-link">
+  <div class="container narrow-center">
+    <span class="badge">Free · open · no API key</span>
+    <h2>One link is the entry point</h2>
+    <p class="lead">
+      <code>aipe.txt</code> is a plain-text index written for AI agents. It helps an agent discover
+      the most relevant AIPE Labs resources for the task in front of you, without a new app,
+      account, or closed platform.
     </p>
     <div class="agent-link">
       <code id="agent-url">https://aipel.co.uk/aipe.txt</code>
-      <button class="copy-btn" data-copy-target="agent-url">Copy</button>
+      <button class="copy-btn" data-copy-target="agent-url" aria-live="polite">Copy link</button>
     </div>
     <p class="agent-steps">
-      Paste it into your agent and ask: <em>“Read https://aipel.co.uk/aipe.txt and use it to help me design a 10&nbsp;kW DC-DC converter.”</em>
+      Paste the link into your coding agent, then describe the engineering task you want to complete.
     </p>
+    <div class="prompt-grid">
+      <div class="prompt-card"><span>SIMULATION</span><p>“Find the available AIPE resources for setting up and checking this converter simulation.”</p></div>
+      <div class="prompt-card"><span>FINITE-ELEMENT ANALYSIS</span><p>“Use the AIPE index to help me plan a magnetic or thermal finite-element workflow.”</p></div>
+      <div class="prompt-card"><span>DESIGN &amp; VALIDATION</span><p>“Find relevant device, magnetics, control, and validation resources for this specification.”</p></div>
+    </div>
+    <a class="text-link" href="{{ '/plugin/' | relative_url }}">See how to use AIPE with your coding agent →</a>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2>Design across every scale</h2>
+    <span class="section-badge">Built in public</span>
+    <h2>From an open index to a complete engineering agent</h2>
     <p class="lead">
-      Our AI Agent operates across the full power electronics stack — three tightly connected layers
-      that together form a complete, closed-loop design system.
+      The useful product starts with open resources developers can use today. The ecosystem grows
+      as new tools, specialist agents, datasets, and validated workflows are published.
     </p>
-    <div class="grid">
-      <div class="card" style="text-align:center;">
-        <img src="{{ '/images/research/components.png' | relative_url }}" alt="Devices" style="width:100%;max-width:240px;margin-bottom:1rem;">
-        <h3>Device</h3>
-        <p>Characterize, model, and select semiconductor devices (SiC, GaN, Si) with AI-driven
-           loss estimation, thermal profiling, and datasheet-to-model automation.</p>
-        <a href="{{ '/power/devices/' | relative_url }}" style="display:inline-block;margin-top:1rem;font-weight:600;">Learn More →</a>
+    <div class="grid roadmap-grid">
+      <div class="card roadmap-card">
+        <span class="roadmap-state state-live">Available now</span>
+        <span class="roadmap-number">01</span>
+        <h3>Open resource index</h3>
+        <p><code>aipe.txt</code> gives coding agents a stable entry point to the AIPE Labs knowledge and open-source ecosystem.</p>
       </div>
-      <div class="card" style="text-align:center;">
-        <img src="{{ '/images/research/converter.png' | relative_url }}" alt="Converters" style="width:100%;max-width:240px;margin-bottom:1rem;">
-        <h3>Converter</h3>
-        <p>Explore topologies, size magnetics, synthesize control loops, and optimize multi-objective
-           trade-offs — all orchestrated by the AI Agent in a single design pass.</p>
-        <a href="{{ '/power/converters/' | relative_url }}" style="display:inline-block;margin-top:1rem;font-weight:600;">Learn More →</a>
+      <div class="card roadmap-card">
+        <span class="roadmap-state state-growing">Growing in public</span>
+        <span class="roadmap-number">02</span>
+        <h3>Tools &amp; specialist agents</h3>
+        <p>Simulation, finite-element analysis, device, magnetics, converter, and validation resources are being organised into reusable agent workflows.</p>
       </div>
-      <div class="card" style="text-align:center;">
-        <img src="{{ '/images/research/microgrids.png' | relative_url }}" alt="Systems" style="width:100%;max-width:240px;margin-bottom:1rem;">
-        <h3>System</h3>
-        <p>Architect microgrids, DC distribution networks, and hybrid AC/DC power systems where every
-           converter is co-optimized for the mission profile of the whole grid.</p>
-        <a href="{{ '/power/microgrids/' | relative_url }}" style="display:inline-block;margin-top:1rem;font-weight:600;">Learn More →</a>
+      <div class="card roadmap-card">
+        <span class="roadmap-state state-vision">Long-term platform</span>
+        <span class="roadmap-number">03</span>
+        <h3>Power Electronics AI Agent</h3>
+        <p>A physics-guided design partner that reasons across device, converter, and system — developed with researchers and industry.</p>
       </div>
     </div>
   </div>
@@ -79,68 +97,71 @@ description: Building a Power Electronics AI Agent — from device to converter 
 
 <section class="section section-alt">
   <div class="container">
-    <h2>The closed-loop vision</h2>
+    <h2>Engineering knowledge across every scale</h2>
     <p class="lead">
-      We believe the future of energy and AI is a self-reinforcing cycle.
+      AIPE Labs connects the layers that power electronics engineers already work across, so an
+      agent can find context beyond a single isolated calculation.
     </p>
-    <div class="grid">
-      <div class="card">
-        <h3>AI designs power systems</h3>
-        <p>Our Power Electronics AI Agent assists engineers in designing optimized converters and grids —
-           faster, with better trade-offs, and with built-in validation workflows.</p>
-      </div>
-      <div class="card">
-        <h3>Power systems fuel AI</h3>
-        <p>The efficient, reliable power infrastructure that results — microgrids, DC distribution,
-           high-density converters — powers the data centers and compute that run AI itself.</p>
-      </div>
-      <div class="card">
-        <h3>AI upgrades power systems</h3>
-        <p>Every design cycle feeds data back to the AI Agent. It learns, refines its models, and
-           produces even better designs — a true closed-loop ecosystem.</p>
-      </div>
+    <div class="grid scope-grid">
+      <a class="card scope-card" href="{{ '/power/devices/' | relative_url }}">
+        <img src="{{ '/images/research/components.png' | relative_url }}" alt="Power semiconductor devices" loading="lazy" decoding="async">
+        <span class="scope-kicker">01 · COMPONENT LEVEL</span>
+        <h3>Devices &amp; magnetics</h3>
+        <p>Characterisation, modelling, component data, loss estimation, thermal behaviour, and magnetic design resources.</p>
+        <strong>Explore device resources →</strong>
+      </a>
+      <a class="card scope-card" href="{{ '/power/converters/' | relative_url }}">
+        <img src="{{ '/images/research/converter.png' | relative_url }}" alt="Power converter design" loading="lazy" decoding="async">
+        <span class="scope-kicker">02 · CONVERTER LEVEL</span>
+        <h3>Converters &amp; control</h3>
+        <p>Topology comparison, converter modelling, control, optimisation, and repeatable design workflows.</p>
+        <strong>Explore converter resources →</strong>
+      </a>
+      <a class="card scope-card" href="{{ '/power/microgrids/' | relative_url }}">
+        <img src="{{ '/images/research/microgrids.png' | relative_url }}" alt="Power electronics systems and microgrids" loading="lazy" decoding="async">
+        <span class="scope-kicker">03 · SYSTEM LEVEL</span>
+        <h3>Systems &amp; microgrids</h3>
+        <p>DC distribution, microgrid architecture, system integration, mission profiles, and validation planning.</p>
+        <strong>Explore system resources →</strong>
+      </a>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <h2>What the AI Agent does</h2>
-    <p class="lead">A modular intelligence layer that plugs into your design flow — or we run it for you as a service.</p>
-    <div class="grid">
-      <div class="card"><h3>Topology exploration</h3><p>Constraint-aware search across LLC, DAB, multi-level DC-AC, interleaved buck/boost, and more.</p></div>
-      <div class="card"><h3>Device & magnetics selection</h3><p>Automated WBG device picking, core sizing, winding optimization, and switching-loss estimation.</p></div>
-      <div class="card"><h3>Loss & thermal modeling</h3><p>Datasheet + physics-guided surrogate models produce efficiency maps and thermal limits.</p></div>
-      <div class="card"><h3>Control synthesis</h3><p>Phase-shift, TPWM strategies, current/voltage loops, and soft-switching regions — tuned automatically.</p></div>
-      <div class="card"><h3>Multi-objective optimization</h3><p>Efficiency, power density, cost, temperature, EMI — Pareto trade-offs with clear rationales.</p></div>
-      <div class="card"><h3>Validation planning</h3><p>Auto-generated HIL/SIL test matrices, data capture scripts, and repeatable lab workflows.</p></div>
+<section class="section collaboration-section">
+  <div class="container collaboration-layout">
+    <div>
+      <span class="section-badge">Community + collaboration</span>
+      <h2>Built to be useful today — and ambitious enough to grow</h2>
+      <p class="lead">
+        We welcome developers who want to use or contribute resources, researchers who want to
+        validate new workflows, and companies or strategic partners interested in building the
+        next generation of AI-assisted power electronics engineering.
+      </p>
+      <div class="hero-actions align-left">
+        <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Discuss a collaboration</a>
+        <a class="btn btn-ghost" href="{{ '/resources/prototypes/' | relative_url }}">Explore design work</a>
+      </div>
+    </div>
+    <div class="collaboration-list">
+      <div><span>01</span><p><strong>Developers</strong><br>Use the index, test resources, and contribute open tools.</p></div>
+      <div><span>02</span><p><strong>Research partners</strong><br>Turn methods and datasets into repeatable agent workflows.</p></div>
+      <div><span>03</span><p><strong>Industry &amp; strategic partners</strong><br>Pilot the technology on real engineering problems and help shape the platform.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section section-alt partners-section">
   <div class="container">
-    <h2>Partners & Collaborations</h2>
-    <p>We work with leading academic and industrial partners to push the boundaries of AI-driven power electronics.</p>
-    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;align-items:center;text-align:center;">
-      <div>
-        <img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="Cardiff University" style="max-width:160px;">
-      </div>
-      <div>
-        <img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="Sumitomo Heavy Industries" style="max-width:160px;">
-      </div>
-      <div>
-        <img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="Shanghai University" style="max-width:160px;">
-      </div>
-      <div>
-        <img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="Panxin Technologies" style="max-width:160px;">
-      </div>
-      <div>
-        <img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="Loughborough University" style="max-width:160px;">
-      </div>
-      <div>
-        <img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="University of Glasgow" style="max-width:160px;">
-      </div>
+    <h2>Partners &amp; collaborations</h2>
+    <p>Academic and industrial relationships supporting our work across AI, power electronics, and energy systems.</p>
+    <div class="partner-grid">
+      <img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="Cardiff University" loading="lazy" decoding="async">
+      <img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="Sumitomo Heavy Industries" loading="lazy" decoding="async">
+      <img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="Shanghai University" loading="lazy" decoding="async">
+      <img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="Panxin Technologies" loading="lazy" decoding="async">
+      <img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="Loughborough University" loading="lazy" decoding="async">
+      <img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="University of Glasgow" loading="lazy" decoding="async">
     </div>
   </div>
 </section>

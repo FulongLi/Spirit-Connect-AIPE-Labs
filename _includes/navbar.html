@@ -17,7 +17,15 @@
     </a>
     <nav id="mainmenu" class="menu">
       <div class="dropdown">
-        <button class="drop-toggle" aria-expanded="false">{{ t.nav_category }} ▾</button>
+        <button class="drop-toggle" aria-expanded="false">{{ t.nav_resources }} ▾</button>
+        <div class="drop-menu">
+          <a href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a>
+          <a href="{{ lp | append: '/resources/prototypes/' | relative_url }}">{{ t.nav_prototypes }}</a>
+          <a href="{{ lp | append: '/resources/blog/' | relative_url }}">{{ t.nav_blog }}</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="drop-toggle" aria-expanded="false">{{ t.nav_engineering }} ▾</button>
         <div class="drop-menu">
           <a href="{{ lp | append: '/power/microgrids/' | relative_url }}">{{ t.nav_microgrids }}</a>
           <a href="{{ lp | append: '/power/converters/' | relative_url }}">{{ t.nav_converters }}</a>
@@ -25,14 +33,8 @@
           <a href="{{ lp | append: '/database/magnetics/' | relative_url }}">{{ t.nav_magnetics }}</a>
         </div>
       </div>
-      <div class="dropdown">
-        <button class="drop-toggle" aria-expanded="false">{{ t.nav_resources }} ▾</button>
-        <div class="drop-menu">
-          <a href="{{ lp | append: '/resources/blog/' | relative_url }}">{{ t.nav_blog }}</a>
-          <a href="{{ lp | append: '/resources/prototypes/' | relative_url }}">{{ t.nav_prototypes }}</a>
-        </div>
-      </div>
-      <a class="nav-plugin" href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a>
+      <a class="nav-plugin" href="{{ lp | append: '/company/services/' | relative_url }}">{{ t.nav_agent }}</a>
+      <a class="nav-partner-mobile" href="{{ lp | append: '/contact/' | relative_url }}">{{ t.nav_contact }}</a>
     </nav>
     <div class="nav-right">
       <div class="dropdown lang-switch">
@@ -45,7 +47,7 @@
           <a href="{{ zh_url | relative_url }}"{% if lang == 'zh' %} class="lang-active"{% endif %}>{{ t.lang_chinese }}</a>
         </div>
       </div>
-      <a href="{{ lp | append: '/contact/' | relative_url }}" class="cta">{{ t.nav_contact }}</a>
+      <a href="{{ lp | append: '/contact/' | relative_url }}" class="cta desktop-cta">{{ t.nav_contact }}</a>
       <button class="hamburger" aria-label="Open menu" aria-controls="mainmenu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
