@@ -17,4 +17,30 @@ document.querySelectorAll('.drop-toggle').forEach(btn => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
   });
 });
+document.querySelectorAll('.copy-btn[data-copy-target]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const el = document.getElementById(btn.dataset.copyTarget);
+    if (!el) return;
+    const text = el.textContent.trim();
+    const done = () => {
+      btn.classList.add('copied');
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.classList.remove('copied'); btn.textContent = 'Copy'; }, 2000);
+    };
+    const fallback = () => {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  });
+});
 </script>

@@ -5,10 +5,6 @@ description: Building a Power Electronics AI Agent — from device to converter 
 ---
 
 <header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="{{ '/images/vids/main.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <div class="bg"></div>
   <div class="container">
     <span class="badge">Power Electronics AI Agent</span>
     <h1>The AI that designs the power systems that power AI</h1>
@@ -18,11 +14,35 @@ description: Building a Power Electronics AI Agent — from device to converter 
       to converter to grid.
     </p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="{{ '/company/about/' | relative_url }}">Our mission</a>
+      <a class="btn btn-primary" href="#agent-link">Use it in your AI agent</a>
       <a class="btn btn-ghost" href="{{ '/company/services/' | relative_url }}">Explore the AI Agent</a>
+    </div>
+    <div class="demo-panel">
+      <video autoplay muted loop playsinline>
+        <source src="{{ '/images/vids/main.mp4' | relative_url }}" type="video/mp4">
+      </video>
     </div>
   </div>
 </header>
+
+<section class="section section-alt" id="agent-link" style="text-align:center;">
+  <div class="container">
+    <span class="badge">Works with Claude Code &amp; Codex</span>
+    <h2>One link. All of power electronics.</h2>
+    <p class="lead" style="margin-inline:auto;">
+      Copy one link into Claude Code, Codex, or any AI coding agent, and it gains access to our
+      power electronics and power systems resources — device databases, magnetics data,
+      converter design references, and more.
+    </p>
+    <div class="agent-link">
+      <code id="agent-url">https://aipel.co.uk/llms.txt</code>
+      <button class="copy-btn" data-copy-target="agent-url">Copy</button>
+    </div>
+    <p class="agent-steps">
+      Paste it into your agent and ask: <em>“Read https://aipel.co.uk/llms.txt and use it to help me design a 10&nbsp;kW DC-DC converter.”</em>
+    </p>
+  </div>
+</section>
 
 <section class="section">
   <div class="container">
@@ -33,21 +53,21 @@ description: Building a Power Electronics AI Agent — from device to converter 
     </p>
     <div class="grid">
       <div class="card" style="text-align:center;">
-        <img src="{{ '/images/research/components.png' | relative_url }}" alt="Devices" style="width:100%;max-width:240px;border-radius:8px;margin-bottom:1rem;">
+        <img src="{{ '/images/research/components.png' | relative_url }}" alt="Devices" style="width:100%;max-width:240px;margin-bottom:1rem;">
         <h3>Device</h3>
         <p>Characterize, model, and select semiconductor devices (SiC, GaN, Si) with AI-driven
            loss estimation, thermal profiling, and datasheet-to-model automation.</p>
         <a href="{{ '/power/devices/' | relative_url }}" style="display:inline-block;margin-top:1rem;font-weight:600;">Learn More →</a>
       </div>
       <div class="card" style="text-align:center;">
-        <img src="{{ '/images/research/converter.png' | relative_url }}" alt="Converters" style="width:100%;max-width:240px;border-radius:8px;margin-bottom:1rem;">
+        <img src="{{ '/images/research/converter.png' | relative_url }}" alt="Converters" style="width:100%;max-width:240px;margin-bottom:1rem;">
         <h3>Converter</h3>
         <p>Explore topologies, size magnetics, synthesize control loops, and optimize multi-objective
            trade-offs — all orchestrated by the AI Agent in a single design pass.</p>
         <a href="{{ '/power/converters/' | relative_url }}" style="display:inline-block;margin-top:1rem;font-weight:600;">Learn More →</a>
       </div>
       <div class="card" style="text-align:center;">
-        <img src="{{ '/images/research/microgrids.png' | relative_url }}" alt="Systems" style="width:100%;max-width:240px;border-radius:8px;margin-bottom:1rem;">
+        <img src="{{ '/images/research/microgrids.png' | relative_url }}" alt="Systems" style="width:100%;max-width:240px;margin-bottom:1rem;">
         <h3>System</h3>
         <p>Architect microgrids, DC distribution networks, and hybrid AC/DC power systems where every
            converter is co-optimized for the mission profile of the whole grid.</p>

@@ -1,0 +1,31 @@
+# Spirit Connect AIPE Labs
+
+> Power Electronics AI Agent — from device to converter to grid. Resources for
+> power electronics and power systems design: semiconductor device data,
+> magnetics databases, converter design references, and microgrid architectures.
+> Point your AI coding agent (Claude Code, Codex, etc.) at this file to give it
+> access to everything below.
+
+## Power Electronics
+
+- [Devices](https://aipel.co.uk/power/devices/): Semiconductor device testing, modelling, and characterisation (SiC, GaN, Si) — electrical and thermal characterisation for design automation
+- [Device Characterisation](https://aipel.co.uk/power/characterizations/): Switching characteristics, switching losses, thermal resistance, and junction temperature analysis
+- [Converters](https://aipel.co.uk/power/converters/): Converter topologies, magnetics sizing, control synthesis, and multi-objective optimization (LLC, DAB, multi-level DC-AC, interleaved buck/boost)
+- [Microgrids](https://aipel.co.uk/power/microgrids/): Microgrid architectures, DC distribution networks, and hybrid AC/DC power systems
+
+## Databases
+
+- [Transistor Database](https://aipel.co.uk/database/transistors/): Power semiconductor device database
+- [Magnetics Database](https://aipel.co.uk/database/magnetics/): Magnetic components and core material database
+
+## Case Studies
+
+- [Dual Active Bridge (DAB)](https://aipel.co.uk/case-studies/dab/): DAB converter design case study
+- [Solid-State Transformer (SST)](https://aipel.co.uk/case-studies/sst/): SST design case study
+- [Rogowski Coil](https://aipel.co.uk/case-studies/magnetics/rogowski-coil/): Rogowski coil current transducer design
+
+## Company
+
+- [About](https://aipel.co.uk/company/about/): Mission and vision — a closed-loop energy-AI ecosystem
+- [Services](https://aipel.co.uk/company/services/): What the Power Electronics AI Agent does
+- [Contact](https://aipel.co.uk/contact/): Get in touch — info@spiritconnect.co.uk
