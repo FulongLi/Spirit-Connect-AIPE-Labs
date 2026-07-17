@@ -5,12 +5,9 @@ permalink: /company/careers/
 description: Join Spirit Connect AIPE Labs — help build the Power Electronics AI Agent and shape the future of energy.
 ---
 
-<header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="{{ '/images/vids/compicon.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <div class="bg"></div>
+<header class="hero hero-compact">
   <div class="container">
+    <span class="badge">Company</span>
     <h1>Careers</h1>
     <p class="lead">We're building a compact, expert team to create the Power Electronics AI Agent — where deep hardware knowledge meets cutting-edge AI.</p>
   </div>
@@ -25,9 +22,9 @@ description: Join Spirit Connect AIPE Labs — help build the Power Electronics 
       how power systems are created for decades to come.
     </p>
     
-    <div class="card" style="max-width: 700px; margin: 2rem auto;">
+    <div class="card opportunity-card">
       <h3>Current Opportunities</h3>
-      <p style="margin-bottom: 1rem;">
+      <p>
         We don't have open full-time positions at the moment, but we're always open to collaboration
         with contractors, researchers, and consultants who share our vision.
       </p>
@@ -37,14 +34,14 @@ description: Join Spirit Connect AIPE Labs — help build the Power Electronics 
       </p>
     </div>
 
-    <div class="grid" style="margin-top: 3rem;">
+    <div class="grid">
       <div class="card">
         <h3>Power Electronics</h3>
         <p>Converter design, device characterisation, control systems, thermal management, and
         hardware validation — the domain expertise that grounds our AI.</p>
       </div>
       <div class="card">
-        <h3>AI & Machine Learning</h3>
+        <h3>AI &amp; Machine Learning</h3>
         <p>Physics-informed models, optimisation algorithms, surrogate modelling, and agent architectures
         that reason across the device-converter-system stack.</p>
       </div>

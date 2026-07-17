@@ -1,17 +1,13 @@
 ---
 layout: default
-title: DAB Converter Case Study
-permalink: /case-studies/dab/
-description: Case study on AI-assisted optimisation of a dual-active-bridge (DAB) converter design.
+title: DAB Converter Design Reference
+permalink: /resources/prototypes/dab/
+description: Design reference for AI-assisted optimisation of a dual-active-bridge (DAB) converter.
 ---
 
 <header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="{{ '/images/vids/compicon1.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <div class="bg"></div>
   <div class="container">
-    <h1>DAB Converter Case Study</h1>
+    <h1>DAB Converter Design Reference</h1>
     <p class="lead">How our AI-assisted platform optimised a 2 kW DAB stage — switching devices, magnetics, and control loops.</p>
   </div>
 </header>
@@ -20,7 +16,7 @@ description: Case study on AI-assisted optimisation of a dual-active-bridge (DAB
   <div class="container">
     <h2>Design Optimisation Process</h2>
     <p class="lead">
-      This case study demonstrates how our AI-assisted design automation platform systematically explores
+      This design reference demonstrates how an AI-assisted workflow can systematically explore
       the design space to find optimal solutions for a dual-active-bridge converter.
     </p>
     <div class="grid">

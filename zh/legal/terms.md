@@ -1,11 +1,10 @@
 ---
-layout: default
+layout: legal
 title: 使用条款
 lang: zh
 permalink: /zh/legal/terms/
+description: 访问和使用 AIPE Labs 网站及其公开内容时适用的条款。
 ---
-
-# 使用条款
 
 使用本网站即表示你同意这些条款。
 
@@ -27,4 +26,4 @@ permalink: /zh/legal/terms/
 ## 适用法律
 本条款受英格兰和威尔士法律管辖。
 
-最后更新：2025/10/06
+*最后更新：2025 年 10 月 6 日*

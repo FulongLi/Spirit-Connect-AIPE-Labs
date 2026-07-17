@@ -6,12 +6,9 @@ permalink: /zh/company/careers/
 description: 加入 Spirit Connect AIPE Labs —— 共同打造电力电子 AI 智能体，塑造能源的未来。
 ---
 
-<header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="{{ '/images/vids/compicon.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <div class="bg"></div>
+<header class="hero hero-compact">
   <div class="container">
+    <span class="badge">公司</span>
     <h1>招聘</h1>
     <p class="lead">我们正在组建一支精干的专家团队来打造电力电子 AI 智能体 —— 让深厚的硬件功底与前沿 AI 相遇。</p>
   </div>
@@ -25,9 +22,9 @@ description: 加入 Spirit Connect AIPE Labs —— 共同打造电力电子 AI 
       并在未来数十年塑造电力系统设计方式的工程师与研究者。
     </p>
 
-    <div class="card" style="max-width: 700px; margin: 2rem auto;">
+    <div class="card opportunity-card">
       <h3>当前机会</h3>
-      <p style="margin-bottom: 1rem;">
+      <p>
         我们目前没有开放的全职岗位，但始终欢迎与认同我们愿景的承包方、研究者和顾问合作。
       </p>
       <p>
@@ -36,7 +33,7 @@ description: 加入 Spirit Connect AIPE Labs —— 共同打造电力电子 AI 
       </p>
     </div>
 
-    <div class="grid" style="margin-top: 3rem;">
+    <div class="grid">
       <div class="card">
         <h3>电力电子</h3>
         <p>变换器设计、器件表征、控制系统、热管理与硬件验证 —— 这些领域专长为我们的 AI 奠定根基。</p>

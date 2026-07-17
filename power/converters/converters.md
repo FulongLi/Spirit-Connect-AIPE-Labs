@@ -7,10 +7,6 @@ description: A structured topology library for industrial power conversion, from
 
 <main class="converter-library">
 <header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="{{ '/images/vids/converter.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <div class="bg"></div>
   <div class="container">
     <span class="badge">Topology library · growing in public</span>
     <h1>Converter Topologies</h1>
@@ -100,7 +96,7 @@ description: A structured topology library for industrial power conversion, from
         <p><strong>LLC</strong> · high-efficiency isolated conversion around a designed resonant operating range.</p>
         <p><strong>CLLC</strong> · bidirectional resonant conversion with active bridges on both sides.</p>
         <p><strong>Dual active bridge (DAB)</strong> · isolated bidirectional power transfer using phase shift between two active bridges.</p>
-        <p style="margin-top:1rem;"><a href="{{ '/case-studies/dab/' | relative_url }}" class="text-link">DAB case study →</a></p>
+        <p class="card-link"><a href="{{ '/resources/prototypes/dab/' | relative_url }}" class="text-link">DAB design reference →</a></p>
       </div>
     </div>
   </div>
@@ -217,7 +213,7 @@ description: A structured topology library for industrial power conversion, from
       <div class="card">
         <h3>Solid-state transformer (SST)</h3>
         <p>An SST is a multistage architecture rather than a single topology. It can combine an active or cascaded medium-voltage front end, isolated DAB or CLLC cells, DC links, and a low-voltage inverter.</p>
-        <p style="margin-top:1rem;"><a href="{{ '/case-studies/sst/' | relative_url }}" class="text-link">SST case study →</a></p>
+        <p class="card-link"><a href="{{ '/resources/prototypes/sst/' | relative_url }}" class="text-link">SST design reference →</a></p>
       </div>
     </div>
   </div>
@@ -255,26 +251,26 @@ description: A structured topology library for industrial power conversion, from
 <section class="section">
   <div class="container">
     <span class="section-badge">STARTING REFERENCES</span>
-    <h2>Current Design Case Studies</h2>
+    <h2>Current Design References</h2>
     <p class="lead">
       These early references show how topology, devices, magnetics, modulation, and system
       requirements can be connected in one design workflow.
     </p>
     <div class="grid grid-two">
-      <a class="card post-card" href="{{ '/case-studies/dab/' | relative_url }}">
+      <a class="card post-card" href="{{ '/resources/prototypes/dab/' | relative_url }}">
         <span class="small">ISOLATED BIDIRECTIONAL DC–DC</span>
         <h3>Dual Active Bridge Converter</h3>
         <p>A 2&nbsp;kW DAB reference covering switching devices, high-frequency magnetics, phase-shift control, and design optimisation.</p>
-        <span class="post-card-more">Read case study →</span>
+        <span class="post-card-more">Open design reference →</span>
       </a>
-      <a class="card post-card" href="{{ '/case-studies/sst/' | relative_url }}">
+      <a class="card post-card" href="{{ '/resources/prototypes/sst/' | relative_url }}">
         <span class="small">MODULAR MULTISTAGE SYSTEM</span>
         <h3>Solid-State Transformer</h3>
         <p>A modular SST reference connecting cell-level power conversion with system integration and coordinated control.</p>
-        <span class="post-card-more">Read case study →</span>
+        <span class="post-card-more">Open design reference →</span>
       </a>
     </div>
-    <div class="hero-actions" style="margin-top:2rem;">
+    <div class="hero-actions section-actions">
       <a class="btn btn-primary" href="{{ '/aipe.md' | relative_url }}">Open the AIPE index</a>
       <a class="btn btn-ghost" href="{{ '/database/transistors/' | relative_url }}">Transistor database</a>
       <a class="btn btn-ghost" href="{{ '/database/magnetics/' | relative_url }}">Magnetics database</a>

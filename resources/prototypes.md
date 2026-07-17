@@ -2,7 +2,7 @@
 layout: default
 title: Prototype Design References
 permalink: /resources/prototypes/
-description: Prototype design references and AI-assisted engineering case studies — converters, transformers, magnetics, and measurement.
+description: Prototype design references for converters, transformers, magnetics, and power-electronics measurement.
 ---
 
 <header class="hero hero-compact">
@@ -10,7 +10,7 @@ description: Prototype design references and AI-assisted engineering case studie
     <span class="badge">Resources</span>
     <h1>Prototype Design References</h1>
     <p class="lead">
-      Reference designs, hardware prototypes, and engineering case studies that can inform
+      Reference designs, hardware prototypes, and engineering notes that can inform
       future power electronics analysis and development.
     </p>
   </div>
@@ -19,26 +19,26 @@ description: Prototype design references and AI-assisted engineering case studie
 <section class="section">
   <div class="container">
     <div class="grid">
-      <a class="card post-card" href="{{ '/case-studies/dab/' | relative_url }}">
+      <a class="card post-card" href="{{ '/resources/prototypes/dab/' | relative_url }}">
         <span class="small">Converter</span>
         <h3>Dual Active Bridge Converter</h3>
         <p>AI-assisted optimisation of a dual-active-bridge (DAB) converter — topology, magnetics,
            and control co-designed in a single pass.</p>
-        <span class="post-card-more">View case study →</span>
+        <span class="post-card-more">View design reference →</span>
       </a>
-      <a class="card post-card" href="{{ '/case-studies/sst/' | relative_url }}">
+      <a class="card post-card" href="{{ '/resources/prototypes/sst/' | relative_url }}">
         <span class="small">System</span>
         <h3>Solid-State Transformer</h3>
         <p>AI-assisted design of a solid-state transformer (SST) for next-generation
            power distribution networks.</p>
-        <span class="post-card-more">View case study →</span>
+        <span class="post-card-more">View design reference →</span>
       </a>
-      <a class="card post-card" href="{{ '/case-studies/magnetics/rogowski-coil/' | relative_url }}">
+      <a class="card post-card" href="{{ '/resources/prototypes/rogowski-coil/' | relative_url }}">
         <span class="small">Measurement</span>
         <h3>PCB Rogowski Coil</h3>
         <p>High-precision PCB Rogowski coil current transducers for power electronics
            validation and monitoring.</p>
-        <span class="post-card-more">View case study →</span>
+        <span class="post-card-more">View design reference →</span>
       </a>
     </div>
   </div>
@@ -49,7 +49,7 @@ description: Prototype design references and AI-assisted engineering case studie
     <h2>Design databases</h2>
     <p class="lead">The component data behind the prototypes — also readable by your AI agent via
       <a href="{{ '/aipe.md' | relative_url }}">aipe.md</a>.</p>
-    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+    <div class="grid grid-two">
       <a class="card post-card" href="{{ '/database/transistors/' | relative_url }}">
         <span class="small">Database</span>
         <h3>Transistor Database</h3>

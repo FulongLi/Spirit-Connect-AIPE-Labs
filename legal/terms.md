@@ -1,10 +1,9 @@
 ---
-layout: default
+layout: legal
 title: Terms of Use
 permalink: /legal/terms/
+description: Terms governing access to and use of the AIPE Labs website and its published content.
 ---
-
-# Terms of Use
 
 By using this website, you agree to these terms.
 
@@ -26,4 +25,4 @@ To the extent permitted by law, we are not liable for any indirect or consequent
 ## Governing law
 These terms are governed by the laws of England & Wales.
 
-Last updated: 06/10/2025
+*Last updated: 6 October 2025*

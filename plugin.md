@@ -6,90 +6,80 @@ description: Give Claude Code, Codex, Cursor, and other coding agents an open en
 image: /images/background/sst.png
 ---
 
+<main class="agent-guide">
 <header class="hero hero-compact">
   <div class="container">
     <span class="badge">No installation · no API key</span>
     <h1>Use AIPE Labs with your coding agent</h1>
     <p class="lead">
-      Enter the prompt below into <strong>Claude Code</strong>, <strong>Codex</strong>, or any AI coding agent.
+      Give <strong>Claude Code</strong>, <strong>Codex</strong>, Cursor, or another web-enabled
+      coding agent one open link to the AIPE Labs engineering resources.
     </p>
     <div class="agent-link">
-      <code id="agent-prompt">Read aipel.co.uk/aipe.md to load the AIPE Labs power electronics resources and help me start a design.</code>
+      <code id="agent-prompt">Read https://aipel.co.uk/aipe.md, find the relevant AIPE Labs resources, and help me with my power electronics task.</code>
       <button class="copy-btn" data-copy-target="agent-prompt">Copy</button>
     </div>
-    <p class="agent-steps">The link is an open resource index, not a software package you need to install.</p>
+    <p class="agent-steps">Paste the prompt into your existing agent, then describe the engineering task.</p>
   </div>
 </header>
 
 <section class="section section-alt">
-  <div class="container" style="text-align:center;">
-    <h2>Why AIPE Labs in your agent</h2>
-    <p class="lead" style="margin-inline:auto;">
-      Most ways to bring domain data into an AI workflow mean a new app, new logins, and API keys to manage.
-      The AIPE Labs resource link skips all of that.
+  <div class="container">
+    <span class="section-badge">ONE OPEN ENTRY POINT</span>
+    <h2>Why use the AIPE index</h2>
+    <p class="lead">
+      The index gives an agent a stable map of the knowledge, data, design references,
+      packages, and specialist agents that AIPE Labs has published.
     </p>
-    <div class="grid" style="text-align:left;">
+    <div class="grid">
       <div class="card">
         <h3>One prompt, no setup</h3>
-        <p>No API keys to generate, store, or manage. Paste one prompt and your agent reads our
-        resource index directly — you are designing in minutes, inside the agent you already use.</p>
+        <p>No account, AIPE API key, extension, or separate application is required to read the public resources.</p>
       </div>
       <div class="card">
-        <h3>Every resource, one connection</h3>
-        <p>Transistor and magnetics databases, design references, prototype case studies, and the
-        skills and packages we publish on <a href="https://github.com/FulongLi" target="_blank">GitHub</a> —
-        everything is reachable through the same link.</p>
+        <h3>Resources stay connected</h3>
+        <p>Device data, magnetics, converter topologies, prototype design references, and open-source tools remain reachable through one maintained index.</p>
       </div>
       <div class="card">
-        <h3>Works inside your existing agent</h3>
-        <p>The index uses the web access already available to your coding agent. AIPE Labs does not
-        require a separate login, credit balance, or subscription to read the open resources.</p>
+        <h3>Works in your current workflow</h3>
+        <p>Any coding agent that can retrieve a public URL can use the index without moving your work into a separate platform.</p>
       </div>
-    </div>
-    <p class="lead" style="margin:3rem auto 0;">To start, paste this into your agent:</p>
-    <div class="agent-link">
-      <code id="agent-prompt-2">Read aipel.co.uk/aipe.md to load the AIPE Labs power electronics resources and help me start a design.</code>
-      <button class="copy-btn" data-copy-target="agent-prompt-2">Copy</button>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2>What can AIPE Labs do in your agent</h2>
+    <span class="section-badge">EXAMPLE TASKS</span>
+    <h2>Start with an engineering question</h2>
     <p class="lead">
-      Start with a job and let your agent discover the most relevant resources currently available through the index.
+      Ask the agent to use the index as a resource map, then require it to state assumptions,
+      cite original sources, and keep important calculations reviewable.
     </p>
     <div class="grid">
       <div class="card">
         <h3>Shortlist devices</h3>
-        <p>“Shortlist SiC devices for a 10 kW, 800 V DC-DC stage” — ask the agent to find available
-        AIPE device data and selection tools relevant to your constraints.</p>
+        <p>“Shortlist SiC devices for a 10&nbsp;kW, 800&nbsp;V DC–DC stage and explain the selection constraints.”</p>
       </div>
       <div class="card">
         <h3>Size magnetics</h3>
-        <p>“Size the transformer for a 100 kHz DAB” — ask the agent to locate magnetic design
-        references, material data, and reusable workflows in the ecosystem.</p>
+        <p>“Find the relevant magnetic data and help me plan a transformer design for a 100&nbsp;kHz DAB.”</p>
       </div>
       <div class="card">
         <h3>Compare topologies</h3>
-        <p>“LLC or DAB for this spec?” — use the index to discover converter references and tools
-        that support an efficiency, density, and control comparison.</p>
+        <p>“Compare LLC and DAB for this specification, including power flow, isolation, soft switching, and control.”</p>
       </div>
       <div class="card">
-        <h3>Estimate losses &amp; thermals</h3>
-        <p>“Estimate losses at full load” — find relevant characterisation data, modelling packages,
-        and thermal-analysis resources before carrying out the calculation.</p>
+        <h3>Estimate losses</h3>
+        <p>“Locate available characterisation and modelling resources, then structure a reviewable loss calculation.”</p>
       </div>
       <div class="card">
-        <h3>Learn from case studies</h3>
-        <p>“How did AIPE Labs approach its 2 kW DAB?” — let the agent locate the published case study
-        and any related design resources.</p>
+        <h3>Plan simulation</h3>
+        <p>“Use the AIPE resources to outline a simulation or finite-element workflow and its validation checks.”</p>
       </div>
       <div class="card">
-        <h3>Plan validation</h3>
-        <p>“Draft a test plan for this converter” — find available measurement, sensing, and validation
-        references to support a reviewable test plan.</p>
+        <h3>Prepare validation</h3>
+        <p>“Draft a converter test plan covering sensing, operating points, protection, uncertainty, and pass criteria.”</p>
       </div>
     </div>
   </div>
@@ -97,46 +87,45 @@ image: /images/background/sst.png
 
 <section class="section section-alt">
   <div class="container">
-    <h2 style="text-align:center;">Frequently asked questions</h2>
+    <span class="section-badge section-badge-centred">COMMON QUESTIONS</span>
+    <h2 class="section-title-centred">Frequently asked questions</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">What is the AIPE Labs resource link?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>It is a simple way to help an AI coding agent discover power electronics resources. One prompt points the agent at aipe.md, which links to the knowledge, tools, specialist agents, datasets, and engineering work that AIPE Labs publishes.</p></div></div>
+        <button class="faq-q" aria-expanded="false">What is <code>aipe.md</code>?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>It is the canonical Markdown resource index for AIPE Labs. It describes the resources currently available and links an agent to the relevant tools, datasets, engineering pages, and repositories.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">How do I install it?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>There is nothing to install. Copy the prompt at the top of this page, paste it into Claude Code, Codex, or any AI coding agent with web access, and the agent loads the resources itself — no account, no API key, no configuration.</p></div></div>
+        <button class="faq-q" aria-expanded="false">Is the Claude/Codex Plugin something I install?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>No. “Plugin” is the navigation name for this agent entry point. Your coding agent reads the public Markdown index directly; there is no browser extension or software package to install.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">What is aipe.md?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>A Markdown index written for language models. It summarises everything AIPE Labs publishes — our skills, packages, and agents on GitHub, plus the databases and design references on this site — with a link and a one-line description for each, so an agent can navigate straight to what it needs.</p></div></div>
+        <button class="faq-q" aria-expanded="false">Which agents can use it?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Any agent that can retrieve a public URL can use it, including Claude Code, Codex, Cursor, and custom agent frameworks with web access.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Where do the skills and packages live?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>On our <a href="https://github.com/FulongLi" target="_blank">GitHub</a>. We are actively building power electronics packages, skills, and agents there — aipe.md always points to the latest, so your agent picks up new skills as soon as they are published.</p></div></div>
+        <button class="faq-q" aria-expanded="false">Does the index send my project data to AIPE Labs?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>No. Reading the public index does not send project files to AIPE Labs. Information entered into a third-party agent is handled under that provider’s terms and your organisation’s policies.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Does it work with agents other than Claude Code and Codex?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>Yes. Any AI agent that can fetch a URL can use it — Claude Code, Codex, Cursor, or your own agent framework. The index is standard Markdown, so nothing about it is tool-specific.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Does it cost anything?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>No. The index and linked open resources can be read inside your existing agent session. For collaboration around the full Power Electronics AI Agent — including physics-guided optimisation, control synthesis, and validation workflows — <a href="{{ '/contact/' | relative_url }}">get in touch</a>.</p></div></div>
+        <button class="faq-q" aria-expanded="false">Can the output replace engineering review?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>No. Use the resources to accelerate discovery and analysis, then verify important outputs against original datasheets, models, standards, simulations, and measurements.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container" style="text-align:center;">
-    <h2>Go further with the AI Agent</h2>
-    <p class="lead" style="margin-inline:auto;">
-      The open link helps your agent discover published resources. Our longer-term Power Electronics AI Agent
-      brings those resources into physics-guided optimisation, control synthesis, and validation workflows.
+<section class="section collaboration-section agent-guide-cta">
+  <div class="container narrow-center">
+    <span class="section-badge">START HERE</span>
+    <h2>Give your agent the AIPE link</h2>
+    <p class="lead">
+      Open the Markdown index directly, or contact us to discuss research collaboration,
+      engineering pilots, and deeper integrations.
     </p>
-    <div class="hero-actions" style="margin-top:2rem;">
-      <a class="btn btn-primary" href="{{ '/company/services/' | relative_url }}">Explore the AI Agent</a>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ '/aipe.md' | relative_url }}">Open aipe.md</a>
       <a class="btn btn-ghost" href="{{ '/contact/' | relative_url }}">Contact us</a>
     </div>
   </div>
 </section>
+</main>

@@ -8,10 +8,6 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
 
 <main class="converter-library">
 <header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="{{ '/images/vids/converter.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <div class="bg"></div>
   <div class="container">
     <span class="badge">拓扑资料库 · 持续公开建设</span>
     <h1>变换器拓扑</h1>
@@ -101,7 +97,7 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
         <p><strong>LLC</strong> · 在设定谐振工作范围内实现高效率隔离变换。</p>
         <p><strong>CLLC</strong> · 两侧均采用有源桥的双向谐振变换。</p>
         <p><strong>双有源桥（DAB）</strong> · 通过两个有源桥之间的移相实现隔离型双向功率传输。</p>
-        <p style="margin-top:1rem;"><a href="{{ '/zh/case-studies/dab/' | relative_url }}" class="text-link">DAB 案例研究 →</a></p>
+        <p class="card-link"><a href="{{ '/zh/resources/prototypes/dab/' | relative_url }}" class="text-link">DAB 设计参考 →</a></p>
       </div>
     </div>
   </div>
@@ -217,7 +213,7 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
       <div class="card">
         <h3>固态变压器（SST）</h3>
         <p>SST 是多级系统架构，而不是单一拓扑。它可以组合有源或级联中压前端、隔离型 DAB 或 CLLC 单元、直流母线与低压逆变器。</p>
-        <p style="margin-top:1rem;"><a href="{{ '/zh/case-studies/sst/' | relative_url }}" class="text-link">SST 案例研究 →</a></p>
+        <p class="card-link"><a href="{{ '/zh/resources/prototypes/sst/' | relative_url }}" class="text-link">SST 设计参考 →</a></p>
       </div>
     </div>
   </div>
@@ -255,25 +251,25 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
 <section class="section">
   <div class="container">
     <span class="section-badge">现有参考</span>
-    <h2>当前设计案例</h2>
+    <h2>当前设计参考</h2>
     <p class="lead">
       这些初步参考展示了如何在同一设计流程中连接拓扑、器件、磁性元件、调制与系统需求。
     </p>
     <div class="grid grid-two">
-      <a class="card post-card" href="{{ '/zh/case-studies/dab/' | relative_url }}">
+      <a class="card post-card" href="{{ '/zh/resources/prototypes/dab/' | relative_url }}">
         <span class="small">隔离型双向 DC–DC</span>
         <h3>双有源桥变换器</h3>
         <p>2&nbsp;kW DAB 参考设计，覆盖开关器件、高频磁性元件、移相控制与设计优化。</p>
-        <span class="post-card-more">阅读案例 →</span>
+        <span class="post-card-more">打开设计参考 →</span>
       </a>
-      <a class="card post-card" href="{{ '/zh/case-studies/sst/' | relative_url }}">
+      <a class="card post-card" href="{{ '/zh/resources/prototypes/sst/' | relative_url }}">
         <span class="small">模块化多级系统</span>
         <h3>固态变压器</h3>
         <p>模块化 SST 参考设计，将单元级电能变换与系统集成、协调控制连接起来。</p>
-        <span class="post-card-more">阅读案例 →</span>
+        <span class="post-card-more">打开设计参考 →</span>
       </a>
     </div>
-    <div class="hero-actions" style="margin-top:2rem;">
+    <div class="hero-actions section-actions">
       <a class="btn btn-primary" href="{{ '/aipe.md' | relative_url }}">打开 AIPE 索引</a>
       <a class="btn btn-ghost" href="{{ '/zh/database/transistors/' | relative_url }}">晶体管数据库</a>
       <a class="btn btn-ghost" href="{{ '/zh/database/magnetics/' | relative_url }}">磁性元件数据库</a>

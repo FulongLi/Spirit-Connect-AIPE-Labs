@@ -5,12 +5,9 @@ permalink: /company/about/
 description: About Spirit Connect AIPE Labs — building the Power Electronics AI Agent for a closed-loop energy-AI ecosystem.
 ---
 
-<header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="{{ '/images/vids/compicon.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <div class="bg"></div>
+<header class="hero hero-compact">
   <div class="container">
+    <span class="badge">Company</span>
     <h1>About Spirit Connect AIPE Labs</h1>
     <p class="lead">
       We are building the <strong>Power Electronics AI Agent</strong> — an intelligent design partner
@@ -40,7 +37,7 @@ description: About Spirit Connect AIPE Labs — building the Power Electronics A
 <section class="section section-alt">
   <div class="container">
     <h2>The Closed-Loop Ecosystem</h2>
-    <p class="lead" style="margin-bottom:2rem;">
+    <p class="lead section-lead-spaced">
       We envision a self-reinforcing cycle that accelerates both AI capability and energy infrastructure.
     </p>
     <div class="grid">
@@ -91,24 +88,24 @@ description: About Spirit Connect AIPE Labs — building the Power Electronics A
   <div class="container">
     <h2>Partners & Collaborations</h2>
     <p>We work with leading academic and industrial partners to push the boundaries of AI-driven power electronics.</p>
-    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;align-items:center;text-align:center;">
+    <div class="partner-logo-grid">
       <div>
-        <img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="Cardiff University" style="max-width:160px;">
+        <img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="Cardiff University">
       </div>
       <div>
-        <img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="Sumitomo Heavy Industries" style="max-width:160px;">
+        <img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="Sumitomo Heavy Industries">
       </div>
       <div>
-        <img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="Shanghai University" style="max-width:160px;">
+        <img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="Shanghai University">
       </div>
       <div>
-        <img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="Panxin Technologies" style="max-width:160px;">
+        <img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="Panxin Technologies">
       </div>
       <div>
-        <img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="Loughborough University" style="max-width:160px;">
+        <img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="Loughborough University">
       </div>
       <div>
-        <img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="University of Glasgow" style="max-width:160px;">
+        <img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="University of Glasgow">
       </div>
     </div>
   </div>

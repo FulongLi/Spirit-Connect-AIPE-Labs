@@ -7,83 +7,80 @@ description: 通过一条开放链接，让 Claude Code、Codex、Cursor 等 Cod
 image: /images/background/sst.png
 ---
 
+<main class="agent-guide">
 <header class="hero hero-compact">
   <div class="container">
     <span class="badge">无需安装 · 无需 API Key</span>
     <h1>在你的 Coding Agent 中使用 AIPE Labs</h1>
     <p class="lead">
-      将下面的提示词输入 <strong>Claude Code</strong>、<strong>Codex</strong> 或任意 AI 编程智能体。
+      通过一条开放链接，让 <strong>Claude Code</strong>、<strong>Codex</strong>、Cursor
+      或其他具备联网能力的 Coding Agent 发现 AIPE Labs 工程资源。
     </p>
     <div class="agent-link">
-      <code id="agent-prompt">Read aipel.co.uk/aipe.md to load the AIPE Labs power electronics resources and help me start a design.</code>
-      <button class="copy-btn" data-copy-target="agent-prompt" data-copied-label="已复制!">复制</button>
+      <code id="agent-prompt">请阅读 https://aipel.co.uk/aipe.md，找到相关的 AIPE Labs 资源，并帮助我完成电力电子工程任务。</code>
+      <button class="copy-btn" data-copy-target="agent-prompt" data-copied-label="已复制">复制</button>
     </div>
-    <p class="agent-steps">这是一份开放资源索引，不是需要安装的软件包。</p>
+    <p class="agent-steps">将提示词粘贴到你现有的智能体中，然后描述工程任务。</p>
   </div>
 </header>
 
 <section class="section section-alt">
-  <div class="container" style="text-align:center;">
-    <h2>为什么在你的智能体中使用 AIPE Labs</h2>
-    <p class="lead" style="margin-inline:auto;">
-      大多数将领域数据引入 AI 工作流的方式，都意味着新应用、新账号和需要管理的 API 密钥。
-      AIPE Labs 资源链接把这些全部省去。
+  <div class="container">
+    <span class="section-badge">一个开放入口</span>
+    <h2>为什么使用 AIPE 索引</h2>
+    <p class="lead">
+      这份索引为智能体提供一张稳定的资源地图，连接 AIPE Labs 已发布的知识、
+      数据、设计参考、软件包与专业智能体。
     </p>
-    <div class="grid" style="text-align:left;">
+    <div class="grid">
       <div class="card">
-        <h3>一条提示词，零配置</h3>
-        <p>无需生成、保存或管理任何 API 密钥。粘贴一条提示词，你的智能体即可直接读取我们的资源索引
-        —— 几分钟内就能在你熟悉的智能体里开始设计。</p>
+        <h3>一条提示词，无需配置</h3>
+        <p>读取公开资源无需 AIPE 账号、API Key、浏览器扩展或独立应用。</p>
       </div>
       <div class="card">
-        <h3>全部资源，一个连接</h3>
-        <p>晶体管与磁性元件数据库、设计参考、原型案例研究，以及我们发布在
-        <a href="https://github.com/FulongLi" target="_blank">GitHub</a> 上的技能与工具包 ——
-        全部资源通过同一条链接触达。</p>
+        <h3>资源保持连接</h3>
+        <p>器件数据、磁性元件、变换器拓扑、原型设计参考与开源工具都通过同一份持续维护的索引连接。</p>
       </div>
       <div class="card">
-        <h3>在现有智能体内工作</h3>
-        <p>索引使用 Coding Agent 已有的联网能力。读取开放资源不需要额外登录、积分余额或 AIPE Labs 订阅。</p>
+        <h3>留在现有工作流中</h3>
+        <p>任何能够读取公开 URL 的 Coding Agent 都可以使用，无需把项目迁移到另一个平台。</p>
       </div>
-    </div>
-    <p class="lead" style="margin:3rem auto 0;">开始使用：将这条提示词粘贴到你的智能体中：</p>
-    <div class="agent-link">
-      <code id="agent-prompt-2">Read aipel.co.uk/aipe.md to load the AIPE Labs power electronics resources and help me start a design.</code>
-      <button class="copy-btn" data-copy-target="agent-prompt-2" data-copied-label="已复制!">复制</button>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2>AIPE Labs 能在你的智能体中做什么</h2>
+    <span class="section-badge">任务示例</span>
+    <h2>从一个工程问题开始</h2>
     <p class="lead">
-      从一项任务开始，让智能体通过索引发现当前已经发布的相关资源。
+      让智能体把索引作为资源地图，同时要求它明确说明假设、引用原始来源，
+      并保持关键计算过程可以复核。
     </p>
     <div class="grid">
       <div class="card">
-        <h3>器件选型</h3>
-        <p>“为 10 kW、800 V 的 DC-DC 级筛选 SiC 器件” —— 让智能体找到与约束相关的 AIPE 器件数据和选型工具。</p>
+        <h3>筛选器件</h3>
+        <p>“为 10&nbsp;kW、800&nbsp;V DC–DC 功率级筛选 SiC 器件，并说明选型约束。”</p>
       </div>
       <div class="card">
-        <h3>磁性元件设计</h3>
-        <p>“为 100 kHz 的 DAB 设计变压器” —— 让智能体在生态中定位磁性设计参考、材料数据与可复用工作流。</p>
+        <h3>设计磁性元件</h3>
+        <p>“查找相关磁性材料数据，帮助我规划 100&nbsp;kHz DAB 变压器设计。”</p>
       </div>
       <div class="card">
-        <h3>拓扑对比</h3>
-        <p>“这个规格选 LLC 还是 DAB？” —— 通过索引寻找支持效率、功率密度与控制对比的变换器资源。</p>
+        <h3>比较拓扑</h3>
+        <p>“针对这个规格比较 LLC 与 DAB，包括功率流、隔离、软开关和控制方式。”</p>
       </div>
       <div class="card">
-        <h3>损耗与热估算</h3>
-        <p>“估算满载损耗” —— 先找到相关的表征数据、建模工具包与热分析资源，再完成计算。</p>
+        <h3>估算损耗</h3>
+        <p>“查找可用的表征与建模资源，然后组织一份能够复核的损耗计算。”</p>
       </div>
       <div class="card">
-        <h3>借鉴案例研究</h3>
-        <p>“AIPE Labs 的 2 kW DAB 是如何开展的？” —— 让智能体定位已发布的案例和相关设计资源。</p>
+        <h3>规划仿真</h3>
+        <p>“使用 AIPE 资源规划仿真或有限元工作流，并列出验证检查项。”</p>
       </div>
       <div class="card">
-        <h3>验证规划</h3>
-        <p>“为这台变换器起草测试方案” —— 找到可用的测量、传感与验证参考，支持形成可审查的测试方案。</p>
+        <h3>准备验证</h3>
+        <p>“起草变换器测试计划，覆盖测量、工况、保护、不确定性和通过标准。”</p>
       </div>
     </div>
   </div>
@@ -91,46 +88,44 @@ image: /images/background/sst.png
 
 <section class="section section-alt">
   <div class="container">
-    <h2 style="text-align:center;">常见问题</h2>
+    <span class="section-badge section-badge-centred">常见问题</span>
+    <h2 class="section-title-centred">关于这个入口</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">什么是 AIPE Labs 资源链接？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>这是帮助 Coding Agent 发现电力电子资源的一种简单方式。一条提示词让智能体读取 aipe.md，再从中找到 AIPE Labs 已发布的知识、工具、专业智能体、数据与工程工作。</p></div></div>
+        <button class="faq-q" aria-expanded="false"><code>aipe.md</code> 是什么？<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>它是 AIPE Labs 面向智能体的正式 Markdown 资源索引，介绍当前可用内容，并把智能体连接到相关工具、数据集、工程页面与代码仓库。</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">如何安装？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>无需安装。复制本页顶部的提示词，粘贴到 Claude Code、Codex 或任意具备联网能力的 AI 编程智能体中，智能体会自行加载资源 —— 无需账号、无需 API 密钥、无需配置。</p></div></div>
+        <button class="faq-q" aria-expanded="false">Claude/Codex 插件需要安装吗？<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>不需要。“插件”是导航中对这个智能体入口的名称。Coding Agent 会直接读取公开的 Markdown 索引，不需要安装浏览器扩展或软件包。</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">aipe.md 是什么？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>一份为语言模型编写的 Markdown 索引。它汇总了 AIPE Labs 发布的一切 —— GitHub 上的技能、工具包与智能体，以及本网站上的数据库与设计参考 —— 每一项都附有链接与一句话说明，让智能体能直达所需内容。</p></div></div>
+        <button class="faq-q" aria-expanded="false">哪些智能体可以使用？<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>任何能访问公开 URL 的智能体都可以使用，包括 Claude Code、Codex、Cursor 以及具备联网能力的自定义智能体框架。</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">技能与工具包在哪里？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>在我们的 <a href="https://github.com/FulongLi" target="_blank">GitHub</a> 上。我们正在那里积极构建电力电子工具包、技能与智能体 —— aipe.md 始终指向最新内容，新技能一经发布，你的智能体即可使用。</p></div></div>
+        <button class="faq-q" aria-expanded="false">读取索引会把项目数据发送给 AIPE Labs 吗？<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>不会。读取公开索引不会向 AIPE Labs 发送项目文件。你输入第三方智能体的信息仍由相应服务商条款和所在机构的政策管理。</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">除了 Claude Code 和 Codex，其他智能体可以用吗？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>可以。任何能访问 URL 的 AI 智能体都能使用 —— Claude Code、Codex、Cursor，或你自己的智能体框架。索引采用标准 Markdown，不绑定任何工具。</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">需要付费吗？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>不需要。索引与开放资源可以直接在现有智能体会话中读取。若希望围绕完整的电力电子 AI 智能体开展合作 —— 包括物理引导优化、控制综合与验证工作流 —— 请<a href="{{ '/zh/contact/' | relative_url }}">联系我们</a>。</p></div></div>
+        <button class="faq-q" aria-expanded="false">输出结果可以替代工程审核吗？<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>不可以。资源可以加速检索与分析，但重要输出仍应对照原始数据手册、模型、标准、仿真和测量结果进行验证。</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container" style="text-align:center;">
-    <h2>更进一步：AI 智能体</h2>
-    <p class="lead" style="margin-inline:auto;">
-      开放链接帮助智能体发现已经发布的资源。长期的电力电子 AI 智能体将在此之上，
-      连接物理引导优化、控制综合与验证工作流。
+<section class="section collaboration-section agent-guide-cta">
+  <div class="container narrow-center">
+    <span class="section-badge">从这里开始</span>
+    <h2>把 AIPE 链接交给你的智能体</h2>
+    <p class="lead">
+      直接打开 Markdown 索引，或者联系我们讨论科研合作、工程试点与更深入的集成。
     </p>
-    <div class="hero-actions" style="margin-top:2rem;">
-      <a class="btn btn-primary" href="{{ '/zh/company/services/' | relative_url }}">了解 AI 智能体</a>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ '/aipe.md' | relative_url }}">打开 aipe.md</a>
       <a class="btn btn-ghost" href="{{ '/zh/contact/' | relative_url }}">联系我们</a>
     </div>
   </div>
 </section>
+</main>

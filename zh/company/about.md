@@ -6,12 +6,9 @@ permalink: /zh/company/about/
 description: 关于 Spirit Connect AIPE Labs —— 打造电力电子 AI 智能体，构建能源与 AI 的闭环生态。
 ---
 
-<header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="{{ '/images/vids/compicon.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <div class="bg"></div>
+<header class="hero hero-compact">
   <div class="container">
+    <span class="badge">公司</span>
     <h1>关于 Spirit Connect AIPE Labs</h1>
     <p class="lead">
       我们正在打造<strong>电力电子 AI 智能体</strong> —— 一个贯穿器件、变换器与系统的智能设计伙伴，
@@ -38,7 +35,7 @@ description: 关于 Spirit Connect AIPE Labs —— 打造电力电子 AI 智能
 <section class="section section-alt">
   <div class="container">
     <h2>闭环生态</h2>
-    <p class="lead" style="margin-bottom:2rem;">
+    <p class="lead section-lead-spaced">
       我们设想一个自我强化的循环，同时加速 AI 能力与能源基础设施的发展。
     </p>
     <div class="grid">
@@ -86,13 +83,13 @@ description: 关于 Spirit Connect AIPE Labs —— 打造电力电子 AI 智能
   <div class="container">
     <h2>合作伙伴</h2>
     <p>我们与顶尖的学术与产业伙伴合作，共同推动 AI 驱动的电力电子技术前沿。</p>
-    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;align-items:center;text-align:center;">
-      <div><img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="卡迪夫大学" style="max-width:160px;"></div>
-      <div><img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="住友重机械工业" style="max-width:160px;"></div>
-      <div><img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="上海大学" style="max-width:160px;"></div>
-      <div><img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="泮芯科技" style="max-width:160px;"></div>
-      <div><img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="拉夫堡大学" style="max-width:160px;"></div>
-      <div><img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="格拉斯哥大学" style="max-width:160px;"></div>
+    <div class="partner-logo-grid">
+      <div><img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="卡迪夫大学"></div>
+      <div><img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="住友重机械工业"></div>
+      <div><img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="上海大学"></div>
+      <div><img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="泮芯科技"></div>
+      <div><img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="拉夫堡大学"></div>
+      <div><img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="格拉斯哥大学"></div>
     </div>
   </div>
 </section>

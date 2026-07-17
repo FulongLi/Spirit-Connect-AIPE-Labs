@@ -6,10 +6,6 @@ description: Designing, modelling, and controlling DC and AC microgrids for resi
 ---
 
 <header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="{{ '/images/vids/mg.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <div class="bg"></div>
   <div class="container">
     <h1>Microgrids</h1>
     <p class="lead">Designing, modelling, and controlling DC and AC microgrids for resilient and efficient energy distribution.</p>
@@ -40,10 +36,10 @@ description: Designing, modelling, and controlling DC and AC microgrids for resi
   </div>
 </section>
 
-<section class="section section-case-study section-alt devices-page-strip devices-page-strip--b">
+<section class="section section-feature section-alt devices-page-strip devices-page-strip--b">
   <div class="container">
-    <div class="case-study-content">
-      <div class="case-study-text">
+    <div class="feature-content">
+      <div class="feature-text">
         <span class="section-badge">SYSTEMS &amp; DISTRIBUTION</span>
         <h2>Solid-State Transformer (SST)</h2>
         <p class="lead">
@@ -52,15 +48,15 @@ description: Designing, modelling, and controlling DC and AC microgrids for resi
           block when you think about modern microgrids and hybrid AC/DC distribution at medium voltage.
         </p>
         <p class="lead">
-          Our case study walks through a modular SST: multi-stage conversion, isolated DC-DC cells, and coordinated control
+          Our design reference walks through a modular SST: multi-stage conversion, isolated DC-DC cells, and coordinated control
           from device selection to system-level power flow.
         </p>
-        <div class="case-study-actions">
-          <a href="{{ '/case-studies/sst/' | relative_url }}" class="btn btn-primary">SST case study</a>
+        <div class="feature-actions">
+          <a href="{{ '/resources/prototypes/sst/' | relative_url }}" class="btn btn-primary">SST design reference</a>
           <a href="{{ '/contact/' | relative_url }}" class="btn btn-ghost">Contact us</a>
         </div>
       </div>
-      <div class="case-study-visual">
+      <div class="feature-visual">
         <img class="devices-page-case-img" src="{{ '/images/background/sst.png' | relative_url }}" alt="Solid-state transformer concept">
       </div>
     </div>

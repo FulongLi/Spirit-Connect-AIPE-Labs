@@ -1,14 +1,12 @@
 ---
 layout: default
-title: 固态变压器案例研究
+title: 固态变压器设计参考
 lang: zh
-permalink: /zh/case-studies/sst/
-description: AI 辅助设计面向下一代电力配电的固态变压器（SST）的案例研究。
+permalink: /zh/resources/prototypes/sst/
+description: 面向下一代电力配电的 AI 辅助固态变压器（SST）架构设计参考。
 ---
 
 <header class="hero">
-  <img class="hero-video" src="{{ '/images/background/sst.png' | relative_url }}" alt="固态变压器">
-  <div class="bg"></div>
   <div class="container">
     <h1>固态变压器</h1>
     <p class="lead">AI 驱动设计模块化 SST —— 从单元级变换器优化到系统级集成与控制。</p>

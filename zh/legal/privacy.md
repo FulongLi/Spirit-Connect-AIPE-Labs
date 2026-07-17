@@ -1,11 +1,10 @@
 ---
-layout: default
+layout: legal
 title: 隐私政策
 lang: zh
 permalink: /zh/legal/privacy/
+description: Spirit Connect AIPE Labs 如何处理通过本网站提交的信息。
 ---
-
-# 隐私政策
 
 我们尊重你的隐私。本政策说明我们收集哪些信息以及为何收集。
 
@@ -34,4 +33,4 @@ permalink: /zh/legal/privacy/
 ## 更新
 我们可能会更新本政策，并在此发布带修订日期的新版本。
 
-最后更新：2025/10/06
+*最后更新：2025 年 10 月 6 日*

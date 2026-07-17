@@ -1,11 +1,10 @@
 ---
-layout: default
+layout: legal
 title: Cookie 政策
 lang: zh
 permalink: /zh/legal/cookies/
+description: AIPE Labs 网站如何使用必要 Cookie 与可选分析 Cookie。
 ---
-
-# Cookie 政策
 
 我们使用必要 Cookie 以保证网站运行，并可能使用分析 Cookie 以了解汇总的使用情况。
 
@@ -19,4 +18,4 @@ permalink: /zh/legal/cookies/
 ## 联系
 有疑问？**info@spiritconnect.co.uk**
 
-最后更新：2025/10/06
+*最后更新：2025 年 10 月 6 日*

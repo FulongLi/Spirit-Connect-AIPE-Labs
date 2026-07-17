@@ -1,15 +1,11 @@
 ---
 layout: default
 title: Characterisations
-permalink: /power/characterizations/
+permalink: /power/devices/characterisation/
 description: Device testing, characterisation, and modelling services for power electronics design automation.
 ---
 
 <header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="{{ '/images/vids/semiconductor.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <div class="bg"></div>
   <div class="container">
     <h1>Characterisations</h1>
     <p class="lead">Device testing, characterisation, and modelling services for power electronics design automation.</p>
@@ -113,7 +109,7 @@ description: Device testing, characterisation, and modelling services for power 
       We provide comprehensive device testing, characterisation, and modelling services to support your power electronics
       design projects. Our expertise includes wide-bandgap devices (SiC/GaN), traditional semiconductors, and passive components.
     </p>
-    <div class="hero-actions" style="margin-top:2rem;">
+    <div class="hero-actions section-actions">
       <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Contact us</a>
       <a class="btn btn-ghost" href="{{ '/power/devices/' | relative_url }}">Back to Devices</a>
     </div>

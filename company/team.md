@@ -2,100 +2,73 @@
 layout: default
 title: Team
 permalink: /company/team/
+description: The team and collaboration network building Spirit Connect AIPE Labs.
 ---
 
-<header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="{{ '/images/vids/compicon.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <div class="bg"></div>
+<header class="hero hero-compact">
   <div class="container">
+    <span class="badge">Company</span>
     <h1>Team</h1>
     <p class="lead">
-      The people building the Power Electronics AI Agent — combining deep hardware expertise with cutting-edge AI.
+      A focused team connecting power electronics, engineering validation, and AI-assisted design.
     </p>
   </div>
 </header>
 
 <section class="section">
   <div class="container">
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));">
-      <!-- Founder -->
-      <div class="card" style="text-align: center; padding: 1.1rem 1rem;">
-        <img 
-          src="{{ '/images/team/fulong.jpg' | relative_url }}" 
-          alt="Dr. Fulong Li" 
-          style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 0.75rem; display: block; border: 2px solid var(--border); box-shadow: 0 4px 16px rgba(0,200,255,0.08);">
-        <h3 style="margin-bottom: 0.35rem; font-size: 1.05rem; line-height: 1.25;">Dr. Fulong Li</h3>
-        <p style="margin-bottom: 0.65rem; color: var(--brand); font-weight: 600; font-size: 0.85rem;">
-          Founder & CEO
-        </p>
-        <p style="margin-bottom: 0.85rem; line-height: 1.55; font-size: 0.88rem;">
-          As <strong>Chief Executive Officer</strong> of <em>Spirit Connect AIPE Labs</em>, Dr. Fulong Li leads company strategy
-          and the team delivering the Power Electronics AI Agent. He is also a power electronics engineer and researcher,
-          with deep expertise in <strong>DC microgrids, wide-bandgap devices (SiC/GaN), and converter optimisation &amp; validation</strong>.
-          He founded the company to close the loop between intelligent design automation and the energy infrastructure that powers AI.
-        </p>
-        <div style="margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid var(--border);">
-          <p style="margin: 0.35rem 0; color: var(--muted); font-size: 0.82rem;">
-            <strong style="color: var(--fg);">📍</strong> Cardiff, United Kingdom
+    <span class="section-badge">FOUNDER</span>
+    <div class="team-grid">
+      <article class="card team-card">
+        <img class="team-photo" src="{{ '/images/team/fulong.jpg' | relative_url }}" alt="Dr Fulong Li">
+        <div class="team-card-body">
+          <h2>Dr Fulong Li</h2>
+          <p class="team-role">Founder &amp; CEO</p>
+          <p>
+            Dr Fulong Li leads the strategy and development of Spirit Connect AIPE Labs. He is a
+            power electronics engineer and researcher with experience in DC microgrids, wide-bandgap
+            devices, converter optimisation, testing, and validation.
           </p>
-          <p style="margin: 0.35rem 0; font-size: 0.82rem;">
-            <strong style="color: var(--fg);">🔗</strong> 
-            <a href="mailto:fulong.li@ieee.org" style="margin-right: 0.35rem;">fulong.li@ieee.org</a>
-            <span style="color: var(--muted);">·</span>
-            <a href="https://www.linkedin.com/in/fulong-li-6bb443127" target="_blank" style="margin-left: 0.35rem;">LinkedIn</a>
+          <p>
+            He founded the company to connect intelligent design automation with the practical
+            energy infrastructure required by AI and electrified systems.
           </p>
+          <div class="team-links">
+            <span>Cardiff, United Kingdom</span>
+            <a href="mailto:fulong.li@ieee.org">fulong.li@ieee.org</a>
+            <a href="https://www.linkedin.com/in/fulong-li-6bb443127" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
         </div>
-      </div>
+      </article>
+    </div>
+  </div>
+</section>
 
-      <div class="card" style="text-align: center; padding: 1.1rem 1rem;">
-        <img
-          src="{{ '/images/team/placeholder.svg' | relative_url }}"
-          alt="Placeholder — team photo to be added"
-          width="96"
-          height="96"
-          style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 0.75rem; display: block; border: 2px solid var(--border); box-shadow: 0 4px 16px rgba(0,200,255,0.08);">
-        <h3 style="margin-bottom: 0.35rem; font-size: 1.05rem; line-height: 1.25;">Announced soon</h3>
-        <p style="margin-bottom: 0.65rem; color: var(--brand); font-weight: 600; font-size: 0.85rem;">
-          Power electronics &amp; characterisation
-        </p>
-        <p style="margin-bottom: 0.85rem; line-height: 1.55; font-size: 0.88rem;">
-          Full profile coming soon. This role covers device and converter testing, validation workflows,
-          and hardware-led work on the Power Electronics AI Agent.
-        </p>
-        <div style="margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid var(--border);">
-          <p style="margin: 0.35rem 0; font-size: 0.82rem;">
-            <a href="{{ '/company/careers/' | relative_url }}">Careers</a>
-            <span style="color: var(--muted);"> · </span>
-            <a href="{{ '/contact/' | relative_url }}">Contact</a>
-          </p>
-        </div>
+<section class="section section-alt">
+  <div class="container">
+    <span class="section-badge">COLLABORATION MODEL</span>
+    <h2>Built with specialists</h2>
+    <p class="lead">
+      AIPE Labs is growing through focused collaboration rather than placeholder team positions.
+      We work with the right engineering, research, and software expertise for each problem.
+    </p>
+    <div class="grid">
+      <div class="card">
+        <h3>Power electronics</h3>
+        <p>Converter design, semiconductor devices, magnetics, control, thermal engineering, testing, and reliability.</p>
       </div>
-
-      <div class="card" style="text-align: center; padding: 1.1rem 1rem;">
-        <img
-          src="{{ '/images/team/placeholder.svg' | relative_url }}"
-          alt="Placeholder — team photo to be added"
-          width="96"
-          height="96"
-          style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 0.75rem; display: block; border: 2px solid var(--border); box-shadow: 0 4px 16px rgba(0,200,255,0.08);">
-        <h3 style="margin-bottom: 0.35rem; font-size: 1.05rem; line-height: 1.25;">Announced soon</h3>
-        <p style="margin-bottom: 0.65rem; color: var(--brand); font-weight: 600; font-size: 0.85rem;">
-          AI, optimisation &amp; software
-        </p>
-        <p style="margin-bottom: 0.85rem; line-height: 1.55; font-size: 0.88rem;">
-          Full profile coming soon. This role covers modelling, optimisation, and software that powers
-          the agent’s reasoning across devices, converters, and systems.
-        </p>
-        <div style="margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid var(--border);">
-          <p style="margin: 0.35rem 0; font-size: 0.82rem;">
-            <a href="{{ '/company/careers/' | relative_url }}">Careers</a>
-            <span style="color: var(--muted);"> · </span>
-            <a href="{{ '/contact/' | relative_url }}">Contact</a>
-          </p>
-        </div>
+      <div class="card">
+        <h3>AI &amp; software</h3>
+        <p>Physics-informed models, optimisation, specialist agents, simulation workflows, and engineering integrations.</p>
       </div>
+      <div class="card">
+        <h3>Research &amp; industry</h3>
+        <p>Universities, laboratories, manufacturers, and project partners who contribute data, facilities, and practical validation.</p>
+      </div>
+    </div>
+    <div class="hero-actions section-actions">
+      <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Work with us</a>
+      <a class="btn btn-ghost" href="{{ '/company/careers/' | relative_url }}">Careers</a>
     </div>
   </div>
 </section>

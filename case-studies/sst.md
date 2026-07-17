@@ -1,13 +1,11 @@
 ---
 layout: default
-title: Solid-State Transformer Case Study
-permalink: /case-studies/sst/
-description: Case study on AI-assisted design of a solid-state transformer (SST) for next-generation power distribution.
+title: Solid-State Transformer Design Reference
+permalink: /resources/prototypes/sst/
+description: Design reference for an AI-assisted solid-state transformer (SST) architecture for next-generation power distribution.
 ---
 
 <header class="hero">
-  <img class="hero-video" src="{{ '/images/background/sst.png' | relative_url }}" alt="Solid-State Transformer">
-  <div class="bg"></div>
   <div class="container">
     <h1>Solid-State Transformer</h1>
     <p class="lead">AI-driven design of a modular SST — from cell-level converter optimisation to system-level integration and control.</p>

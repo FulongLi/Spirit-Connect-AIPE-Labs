@@ -7,12 +7,12 @@
   {%- assign base_path = page.url -%}
   {%- assign lp = '' -%}
 {%- endif -%}
-{%- assign en_url = base_path -%}
-{%- assign zh_url = '/zh' | append: base_path -%}
+{%- if page.en_url -%}{%- assign en_url = page.en_url -%}{%- else -%}{%- assign en_url = base_path -%}{%- endif -%}
+{%- if page.zh_url -%}{%- assign zh_url = page.zh_url -%}{%- else -%}{%- assign zh_url = '/zh' | append: base_path -%}{%- endif -%}
 <header class="nav">
   <div class="container nav-inner">
     <a class="brand" href="{{ lp | append: '/' | relative_url }}">
-      <img src="{{ '/images/general/AIPE_logo_black.svg' | relative_url }}" alt="AIPE Labs" style="height:36px;width:auto;display:block;">
+      <img class="nav-logo" src="{{ '/images/general/AIPE_logo_black.svg' | relative_url }}" alt="AIPE Labs">
     </a>
     <nav id="mainmenu" class="menu">
       <div class="dropdown">

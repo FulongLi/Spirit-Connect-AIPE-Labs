@@ -1,10 +1,9 @@
 ---
-layout: default
+layout: legal
 title: Cookie Policy
 permalink: /legal/cookies/
+description: How essential and optional analytics cookies may be used on the AIPE Labs website.
 ---
-
-# Cookie Policy
 
 We use essential cookies for site operation and may use analytics cookies to understand aggregate usage.
 
@@ -18,4 +17,4 @@ You can control cookies through your browser settings. Disabling cookies may lim
 ## Contact
 Questions? **info@spiritconnect.co.uk**
 
-Last updated: 06/10/2025
+*Last updated: 6 October 2025*

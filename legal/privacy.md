@@ -1,10 +1,9 @@
 ---
-layout: default
+layout: legal
 title: Privacy Policy
 permalink: /legal/privacy/
+description: How Spirit Connect AIPE Labs handles information submitted through this website.
 ---
-
-# Privacy Policy
 
 We respect your privacy. This policy explains what we collect and why.
 
@@ -33,4 +32,4 @@ We use HTTPS and industry-standard safeguards. No method is 100% secure, but we 
 ## Updates
 We may update this policy and will post the new version here with a revision date.
 
-Last updated: 06/10/2025
+*Last updated: 6 October 2025*

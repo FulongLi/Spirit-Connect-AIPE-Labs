@@ -2,7 +2,7 @@
 
 > AIPE Labs is building an open Power Electronics AI ecosystem — from device to
 > converter to grid. This Markdown file is the agent-readable index of the tools,
-> packages, specialist agents, datasets, design references, and case studies we publish.
+> packages, specialist agents, datasets, design references, and engineering notes we publish.
 
 ## How to Use This Index
 
@@ -32,7 +32,7 @@ datasheets, models, simulations, standards, and measurements.
 
 - [Devices](https://aipel.co.uk/power/devices/) — Semiconductor device testing,
   modelling, and electrical and thermal characterisation for SiC, GaN, and Si devices.
-- [Device Characterisation](https://aipel.co.uk/power/characterizations/) — Switching
+- [Device Characterisation](https://aipel.co.uk/power/devices/characterisation/) — Switching
   characteristics, switching losses, thermal resistance, and junction-temperature analysis.
 - [Transistor Database](https://aipel.co.uk/database/transistors/) — Power semiconductor
   device data and selection references.
@@ -41,7 +41,7 @@ datasheets, models, simulations, standards, and measurements.
 
 - [Magnetics Database](https://aipel.co.uk/database/magnetics/) — Magnetic components,
   core materials, and design data.
-- [PCB Rogowski Coil](https://aipel.co.uk/case-studies/magnetics/rogowski-coil/) —
+- [PCB Rogowski Coil](https://aipel.co.uk/resources/prototypes/rogowski-coil/) —
   Current-transducer design reference for power electronics measurement and validation.
 
 ### Converters and Control
@@ -49,9 +49,9 @@ datasheets, models, simulations, standards, and measurements.
 - [Converters](https://aipel.co.uk/power/converters/) — Converter topologies, magnetics
   sizing, control synthesis, and multi-objective optimisation, including LLC, DAB,
   multilevel DC-AC, and interleaved buck/boost converters.
-- [Dual Active Bridge Case Study](https://aipel.co.uk/case-studies/dab/) — DAB converter
+- [Dual Active Bridge Design Reference](https://aipel.co.uk/resources/prototypes/dab/) — DAB converter
   design reference covering devices, magnetics, and control.
-- [Solid-State Transformer Case Study](https://aipel.co.uk/case-studies/sst/) — Modular
+- [Solid-State Transformer Design Reference](https://aipel.co.uk/resources/prototypes/sst/) — Modular
   solid-state transformer architecture and system-integration reference.
 
 ### Systems, Microgrids, and Energy Storage
@@ -62,7 +62,7 @@ datasheets, models, simulations, standards, and measurements.
 ## Prototype Design References
 
 - [Prototype Design References](https://aipel.co.uk/resources/prototypes/) — Hardware
-  prototypes, engineering references, and AI-assisted design case studies.
+  prototypes, engineering references, and AI-assisted design material.
 
 ## Guides and Updates
 
