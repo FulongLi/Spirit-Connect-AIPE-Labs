@@ -14,7 +14,7 @@ image: /images/background/sst.png
       Enter the prompt below into <strong>Claude Code</strong>, <strong>Codex</strong>, or any AI coding agent.
     </p>
     <div class="agent-link">
-      <code id="agent-prompt">Read aipel.co.uk/aipe.txt to load the AIPE Labs power electronics resources and help me start a design.</code>
+      <code id="agent-prompt">Read aipel.co.uk/aipe.md to load the AIPE Labs power electronics resources and help me start a design.</code>
       <button class="copy-btn" data-copy-target="agent-prompt">Copy</button>
     </div>
     <p class="agent-steps">The link is an open resource index, not a software package you need to install.</p>
@@ -48,7 +48,7 @@ image: /images/background/sst.png
     </div>
     <p class="lead" style="margin:3rem auto 0;">To start, paste this into your agent:</p>
     <div class="agent-link">
-      <code id="agent-prompt-2">Read aipel.co.uk/aipe.txt to load the AIPE Labs power electronics resources and help me start a design.</code>
+      <code id="agent-prompt-2">Read aipel.co.uk/aipe.md to load the AIPE Labs power electronics resources and help me start a design.</code>
       <button class="copy-btn" data-copy-target="agent-prompt-2">Copy</button>
     </div>
   </div>
@@ -101,27 +101,27 @@ image: /images/background/sst.png
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">What is the AIPE Labs resource link?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>It is a simple way to help an AI coding agent discover power electronics resources. One prompt points the agent at aipe.txt, which links to the knowledge, tools, specialist agents, datasets, and engineering work that AIPE Labs publishes.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>It is a simple way to help an AI coding agent discover power electronics resources. One prompt points the agent at aipe.md, which links to the knowledge, tools, specialist agents, datasets, and engineering work that AIPE Labs publishes.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">How do I install it?<span class="faq-icon"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>There is nothing to install. Copy the prompt at the top of this page, paste it into Claude Code, Codex, or any AI coding agent with web access, and the agent loads the resources itself — no account, no API key, no configuration.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">What is aipe.txt?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>A plain-text index written for language models. It summarizes everything AIPE Labs publishes — our skills, packages, and agents on GitHub, plus the databases and design references on this site — with a link and a one-line description for each, so an agent can navigate straight to what it needs.</p></div></div>
+        <button class="faq-q" aria-expanded="false">What is aipe.md?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>A Markdown index written for language models. It summarises everything AIPE Labs publishes — our skills, packages, and agents on GitHub, plus the databases and design references on this site — with a link and a one-line description for each, so an agent can navigate straight to what it needs.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Where do the skills and packages live?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>On our <a href="https://github.com/FulongLi" target="_blank">GitHub</a>. We are actively building power electronics packages, skills, and agents there — aipe.txt always points to the latest, so your agent picks up new skills as soon as they are published.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>On our <a href="https://github.com/FulongLi" target="_blank">GitHub</a>. We are actively building power electronics packages, skills, and agents there — aipe.md always points to the latest, so your agent picks up new skills as soon as they are published.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Does it work with agents other than Claude Code and Codex?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>Yes. Any AI agent that can fetch a URL can use it — Claude Code, Codex, Cursor, or your own agent framework. The index is plain text, so nothing about it is tool-specific.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes. Any AI agent that can fetch a URL can use it — Claude Code, Codex, Cursor, or your own agent framework. The index is standard Markdown, so nothing about it is tool-specific.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Does it cost anything?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>No. The index and linked open resources can be read inside your existing agent session. For collaboration around the full Power Electronics AI Agent — including physics-guided optimization, control synthesis, and validation workflows — <a href="{{ '/contact/' | relative_url }}">get in touch</a>.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>No. The index and linked open resources can be read inside your existing agent session. For collaboration around the full Power Electronics AI Agent — including physics-guided optimisation, control synthesis, and validation workflows — <a href="{{ '/contact/' | relative_url }}">get in touch</a>.</p></div></div>
       </div>
     </div>
   </div>
@@ -132,7 +132,7 @@ image: /images/background/sst.png
     <h2>Go further with the AI Agent</h2>
     <p class="lead" style="margin-inline:auto;">
       The open link helps your agent discover published resources. Our longer-term Power Electronics AI Agent
-      brings those resources into physics-guided optimization, control synthesis, and validation workflows.
+      brings those resources into physics-guided optimisation, control synthesis, and validation workflows.
     </p>
     <div class="hero-actions" style="margin-top:2rem;">
       <a class="btn btn-primary" href="{{ '/company/services/' | relative_url }}">Explore the AI Agent</a>

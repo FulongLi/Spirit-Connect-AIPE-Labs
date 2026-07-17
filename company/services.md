@@ -26,7 +26,7 @@ description: The Power Electronics AI Agent — intelligent design automation fr
     <p class="lead">The foundation: deep understanding of every semiconductor and passive component in your design.</p>
     <div class="grid">
       <div class="card">
-        <h3>Device characterization</h3>
+        <h3>Device characterisation</h3>
         <p>Automated extraction of switching loss, conduction loss, and thermal parameters from datasheets
         and measurement data — building accurate models for SiC, GaN, and Si devices.</p>
       </div>
@@ -36,8 +36,8 @@ description: The Power Electronics AI Agent — intelligent design automation fr
         voltage, current, thermal, and cost constraints.</p>
       </div>
       <div class="card">
-        <h3>Magnetics modeling</h3>
-        <p>Core material selection, winding optimization, and copper/core loss estimation — automated
+        <h3>Magnetics modelling</h3>
+        <p>Core material selection, winding optimisation, and copper/core loss estimation — automated
         sizing that respects thermal limits and manufacturability.</p>
       </div>
     </div>
@@ -60,7 +60,7 @@ description: The Power Electronics AI Agent — intelligent design automation fr
         soft-switching region mapping, and stability verification.</p>
       </div>
       <div class="card">
-        <h3>Multi-objective optimization</h3>
+        <h3>Multi-objective optimisation</h3>
         <p>Efficiency, power density, cost, temperature, and EMI headroom — the agent finds the best
         trade-offs and explains the rationale behind each design point.</p>
       </div>
@@ -71,15 +71,15 @@ description: The Power Electronics AI Agent — intelligent design automation fr
 <section class="section">
   <div class="container">
     <h2>System-Level Intelligence</h2>
-    <p class="lead">Scaling up from a single converter to an entire power network — with every piece co-optimized.</p>
+    <p class="lead">Scaling up from a single converter to an entire power network — with every piece co-optimised.</p>
     <div class="grid">
       <div class="card">
         <h3>Microgrid architecture</h3>
         <p>AI-assisted design of DC and AC microgrids, hybrid distribution topologies, and renewable
-        integration — optimized for resilience, efficiency, and cost.</p>
+        integration — optimised for resilience, efficiency, and cost.</p>
       </div>
       <div class="card">
-        <h3>Grid-level co-optimization</h3>
+        <h3>Grid-level co-optimisation</h3>
         <p>Every converter in the system is designed with awareness of the whole — mission profiles,
         load sharing, fault tolerance, and energy management work in concert.</p>
       </div>
@@ -98,7 +98,7 @@ description: The Power Electronics AI Agent — intelligent design automation fr
     <div class="grid">
       <div class="card">
         <h3>Consultancy</h3>
-        <p>Work directly with our team to review architectures, optimize existing designs, or solve
+        <p>Work directly with our team to review architectures, optimise existing designs, or solve
         specific thermal, EMI, or control challenges using the AI Agent.</p>
       </div>
       <div class="card">
@@ -119,7 +119,7 @@ description: The Power Electronics AI Agent — intelligent design automation fr
   <div class="container">
     <h2>Start your project</h2>
     <p>
-      Whether you're designing a next-generation DC-DC converter, building a microgrid for an AI data center,
+      Whether you're designing a next-generation DC-DC converter, building a microgrid for an AI data centre,
       or exploring how the AI Agent can transform your workflow — let's talk.
     </p>
     <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem;">

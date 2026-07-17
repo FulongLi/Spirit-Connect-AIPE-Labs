@@ -32,7 +32,7 @@ description: Comprehensive SiC/GaN/IGBT database for power electronics design au
       </div>
       <div class="card">
         <h3>Mission Profile Analysis</h3>
-        <p>Device selection optimized for your specific operating conditions, efficiency targets, and thermal constraints.</p>
+        <p>Device selection optimised for your specific operating conditions, efficiency targets, and thermal constraints.</p>
       </div>
     </div>
   </div>

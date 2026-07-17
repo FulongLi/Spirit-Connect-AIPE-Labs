@@ -27,10 +27,10 @@ image: /images/background/sst.png
       </div>
       <div class="workflow-prompt">
         <span class="workflow-label">你</span>
-        <p>阅读 <strong>aipel.co.uk/aipe.txt</strong>，找到合适的 AIPE 资源，帮助我分析一台 DAB 变换器。</p>
+        <p>阅读 <strong>aipel.co.uk/aipe.md</strong>，找到合适的 AIPE 资源，帮助我分析一台 DAB 变换器。</p>
       </div>
       <div class="workflow-route" aria-hidden="true">
-        <span>Coding Agent</span><b>→</b><span class="workflow-index">aipe.txt</span><b>→</b><span>相关资源</span>
+        <span>Coding Agent</span><b>→</b><span class="workflow-index">aipe.md</span><b>→</b><span>相关资源</span>
       </div>
       <div class="workflow-resources">
         <span>仿真</span><span>有限元分析</span><span>器件</span>
@@ -45,11 +45,11 @@ image: /images/background/sst.png
     <span class="badge">免费 · 开放 · 无需 API Key</span>
     <h2>一条链接，就是整个生态的入口</h2>
     <p class="lead">
-      <code>aipe.txt</code> 是一份专门为 AI 智能体编写的纯文本索引。它帮助智能体根据当前任务，
+      <code>aipe.md</code> 是一份专门为 AI 智能体编写的 Markdown 索引。它帮助智能体根据当前任务，
       找到最相关的 AIPE Labs 资源；不需要安装新应用、注册账号，也不受封闭平台限制。
     </p>
     <div class="agent-link">
-      <code id="agent-url">https://aipel.co.uk/aipe.txt</code>
+      <code id="agent-url">https://aipel.co.uk/aipe.md</code>
       <button class="copy-btn" data-copy-target="agent-url" data-copied-label="已复制!" aria-live="polite">复制链接</button>
     </div>
     <p class="agent-steps">把链接粘贴给你的 Coding Agent，然后直接描述你想完成的工程任务。</p>
@@ -74,7 +74,7 @@ image: /images/background/sst.png
       <div class="card roadmap-card">
         <span class="roadmap-state state-live">现在可用</span><span class="roadmap-number">01</span>
         <h3>开放资源索引</h3>
-        <p><code>aipe.txt</code> 为 Coding Agent 提供一个稳定入口，连接 AIPE Labs 的知识与开源生态。</p>
+        <p><code>aipe.md</code> 为 Coding Agent 提供一个稳定入口，连接 AIPE Labs 的知识与开源生态。</p>
       </div>
       <div class="card roadmap-card">
         <span class="roadmap-state state-growing">持续建设中</span><span class="roadmap-number">02</span>

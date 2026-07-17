@@ -3,7 +3,7 @@ layout: default
 title: 常见问题
 lang: zh
 permalink: /zh/company/faq/
-description: 关于 AIPE Labs、aipe.txt、Coding Agent 接入、开放资源、工程应用与合作方式的常见问题。
+description: 关于 AIPE Labs、aipe.md、Coding Agent 接入、开放资源、工程应用与合作方式的常见问题。
 ---
 
 <header class="hero hero-compact">
@@ -23,18 +23,18 @@ description: 关于 AIPE Labs、aipe.txt、Coding Agent 接入、开放资源、
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">aipe.txt 是什么？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p><code>aipe.txt</code> 是一份面向 AI 智能体的公开纯文本索引。它介绍 AIPE Labs 当前发布的资源，并把智能体引导到相关的工具、软件包、专业智能体、数据库、案例和工程参考。它是整个生态的入口，本身不是模型或独立应用。</p></div></div>
+        <button class="faq-q" aria-expanded="false">aipe.md 是什么？<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p><code>aipe.md</code> 是一份面向 AI 智能体的公开 Markdown 索引。它介绍 AIPE Labs 当前发布的资源，并把智能体引导到相关的工具、软件包、专业智能体、数据库、案例和工程参考。它是整个生态的入口，本身不是模型或独立应用。</p></div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">如何在 Claude 或 Codex 中使用？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>把 <strong>https://aipel.co.uk/aipe.txt</strong> 粘贴给具备联网能力的 Coding Agent，让它先读取索引，再描述你的任务。例如：“阅读这份 AIPE Labs 索引，找到相关资源，帮我规划磁性元件有限元分析。”读取公开索引不需要注册 AIPE Labs 账号或申请 API Key。</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>把 <strong>https://aipel.co.uk/aipe.md</strong> 粘贴给具备联网能力的 Coding Agent，让它先读取索引，再描述你的任务。例如：“阅读这份 AIPE Labs 索引，找到相关资源，帮我规划磁性元件有限元分析。”读取公开索引不需要注册 AIPE Labs 账号或申请 API Key。</p></div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Claude/Codex 插件需要安装吗？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>不需要。“插件”是当前智能体入口的便捷名称，并不是浏览器扩展或需要安装的软件包。Coding Agent 会读取 <code>aipe.txt</code>，再访问其中已经发布的链接。随着项目发展，后续可能会增加集成程度更高的 Skill 和专业智能体。</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>不需要。“插件”是当前智能体入口的便捷名称，并不是浏览器扩展或需要安装的软件包。Coding Agent 会读取 <code>aipe.md</code>，再访问其中已经发布的链接。随着项目发展，后续可能会增加集成程度更高的 Skill 和专业智能体。</p></div></div>
       </div>
 
       <div class="faq-item">
@@ -49,7 +49,7 @@ description: 关于 AIPE Labs、aipe.txt、Coding Agent 接入、开放资源、
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">哪些内容现在可以使用，哪些仍在建设？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>公开的 <code>aipe.txt</code> 索引以及其中当前链接的资源已经可以使用。AIPE Labs 正在持续整理和扩展软件包、专业智能体、工程数据、仿真与有限元工作流和验证案例。完整的电力电子 AI 智能体是正在建设的长期平台，因此网站会区分已发布资源与规划中的能力。</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>公开的 <code>aipe.md</code> 索引以及其中当前链接的资源已经可以使用。AIPE Labs 正在持续整理和扩展软件包、专业智能体、工程数据、仿真与有限元工作流和验证案例。完整的电力电子 AI 智能体是正在建设的长期平台，因此网站会区分已发布资源与规划中的能力。</p></div></div>
       </div>
 
       <div class="faq-item">

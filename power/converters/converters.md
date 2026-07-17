@@ -2,7 +2,7 @@
 layout: default
 title: Converters
 permalink: /power/converters/
-description: Optimized converter design and control strategies for high-performance power electronics applications.
+description: Optimised converter design and control strategies for high-performance power electronics applications.
 ---
 
 <header class="hero">
@@ -12,7 +12,7 @@ description: Optimized converter design and control strategies for high-performa
   <div class="bg"></div>
   <div class="container">
     <h1>Converters</h1>
-    <p class="lead">Optimized converter design and control strategies for high-performance applications.</p>
+    <p class="lead">Optimised converter design and control strategies for high-performance applications.</p>
   </div>
 </header>
 
@@ -20,7 +20,7 @@ description: Optimized converter design and control strategies for high-performa
   <div class="container">
     <h2>Converter Solutions</h2>
     <p class="lead">
-      We provide optimized converter design and control strategies for high-performance applications — buck/boost, LLC, DAB,
+      We provide optimised converter design and control strategies for high-performance applications — buck/boost, LLC, DAB,
       multi-level DC-AC — with automated parameter search and soft-switching control regions.
     </p>
     <div class="grid">
@@ -49,12 +49,12 @@ description: Optimized converter design and control strategies for high-performa
   <div class="container">
     <h2>Case studies</h2>
     <p class="lead">
-      See how our AI-assisted flow applies to real converter stacks — from an optimized DAB stage to a modular solid-state transformer architecture.
+      See how our AI-assisted flow applies to real converter stacks — from an optimised DAB stage to a modular solid-state transformer architecture.
     </p>
     <div class="grid">
       <div class="card">
         <h3>DAB converter</h3>
-        <p>2&nbsp;kW dual-active-bridge optimization — devices, magnetics, and control loops.</p>
+        <p>2&nbsp;kW dual-active-bridge optimisation — devices, magnetics, and control loops.</p>
         <p style="margin-top:1rem;"><a href="{{ '/case-studies/dab/' | relative_url }}" class="btn btn-primary" style="display:inline-block;">Read case study</a></p>
       </div>
       <div class="card">
@@ -70,7 +70,7 @@ description: Optimized converter design and control strategies for high-performa
   <div class="container">
     <h2>Design Automation</h2>
     <p>
-      Our AI-assisted design automation platform enables automated parameter search, control synthesis, and optimization
+      Our AI-assisted design automation platform enables automated parameter search, control synthesis, and optimisation
       to find the best converter solutions for your specific requirements.
     </p>
     <div class="hero-actions" style="margin-top:2rem;">
@@ -80,4 +80,3 @@ description: Optimized converter design and control strategies for high-performa
     </div>
   </div>
 </section>
-

@@ -2,7 +2,7 @@
 layout: default
 title: Microgrids
 permalink: /power/microgrids/
-description: Designing, modeling, and controlling DC and AC microgrids for resilient and efficient energy distribution.
+description: Designing, modelling, and controlling DC and AC microgrids for resilient and efficient energy distribution.
 ---
 
 <header class="hero">
@@ -12,7 +12,7 @@ description: Designing, modeling, and controlling DC and AC microgrids for resil
   <div class="bg"></div>
   <div class="container">
     <h1>Microgrids</h1>
-    <p class="lead">Designing, modeling, and controlling DC and AC microgrids for resilient and efficient energy distribution.</p>
+    <p class="lead">Designing, modelling, and controlling DC and AC microgrids for resilient and efficient energy distribution.</p>
   </div>
 </header>
 
@@ -20,7 +20,7 @@ description: Designing, modeling, and controlling DC and AC microgrids for resil
   <div class="container">
     <h2>Microgrid Solutions</h2>
     <p class="lead">
-      We specialize in designing, modeling, and controlling both DC and AC microgrids for resilient and efficient energy distribution.
+      We specialise in designing, modelling, and controlling both DC and AC microgrids for resilient and efficient energy distribution.
       Our expertise includes hybrid AC/DC architectures and renewable integration.
     </p>
     <div class="grid">
@@ -66,4 +66,3 @@ description: Designing, modeling, and controlling DC and AC microgrids for resil
     </div>
   </div>
 </section>
-

@@ -15,7 +15,7 @@ image: /images/background/sst.png
       将下面的提示词输入 <strong>Claude Code</strong>、<strong>Codex</strong> 或任意 AI 编程智能体。
     </p>
     <div class="agent-link">
-      <code id="agent-prompt">Read aipel.co.uk/aipe.txt to load the AIPE Labs power electronics resources and help me start a design.</code>
+      <code id="agent-prompt">Read aipel.co.uk/aipe.md to load the AIPE Labs power electronics resources and help me start a design.</code>
       <button class="copy-btn" data-copy-target="agent-prompt" data-copied-label="已复制!">复制</button>
     </div>
     <p class="agent-steps">这是一份开放资源索引，不是需要安装的软件包。</p>
@@ -48,7 +48,7 @@ image: /images/background/sst.png
     </div>
     <p class="lead" style="margin:3rem auto 0;">开始使用：将这条提示词粘贴到你的智能体中：</p>
     <div class="agent-link">
-      <code id="agent-prompt-2">Read aipel.co.uk/aipe.txt to load the AIPE Labs power electronics resources and help me start a design.</code>
+      <code id="agent-prompt-2">Read aipel.co.uk/aipe.md to load the AIPE Labs power electronics resources and help me start a design.</code>
       <button class="copy-btn" data-copy-target="agent-prompt-2" data-copied-label="已复制!">复制</button>
     </div>
   </div>
@@ -95,23 +95,23 @@ image: /images/background/sst.png
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">什么是 AIPE Labs 资源链接？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>这是帮助 Coding Agent 发现电力电子资源的一种简单方式。一条提示词让智能体读取 aipe.txt，再从中找到 AIPE Labs 已发布的知识、工具、专业智能体、数据与工程工作。</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>这是帮助 Coding Agent 发现电力电子资源的一种简单方式。一条提示词让智能体读取 aipe.md，再从中找到 AIPE Labs 已发布的知识、工具、专业智能体、数据与工程工作。</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">如何安装？<span class="faq-icon"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>无需安装。复制本页顶部的提示词，粘贴到 Claude Code、Codex 或任意具备联网能力的 AI 编程智能体中，智能体会自行加载资源 —— 无需账号、无需 API 密钥、无需配置。</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">aipe.txt 是什么？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>一份为语言模型编写的纯文本索引。它汇总了 AIPE Labs 发布的一切 —— GitHub 上的技能、工具包与智能体，以及本网站上的数据库与设计参考 —— 每一项都附有链接与一句话说明，让智能体能直达所需内容。</p></div></div>
+        <button class="faq-q" aria-expanded="false">aipe.md 是什么？<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>一份为语言模型编写的 Markdown 索引。它汇总了 AIPE Labs 发布的一切 —— GitHub 上的技能、工具包与智能体，以及本网站上的数据库与设计参考 —— 每一项都附有链接与一句话说明，让智能体能直达所需内容。</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">技能与工具包在哪里？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>在我们的 <a href="https://github.com/FulongLi" target="_blank">GitHub</a> 上。我们正在那里积极构建电力电子工具包、技能与智能体 —— aipe.txt 始终指向最新内容，新技能一经发布，你的智能体即可使用。</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>在我们的 <a href="https://github.com/FulongLi" target="_blank">GitHub</a> 上。我们正在那里积极构建电力电子工具包、技能与智能体 —— aipe.md 始终指向最新内容，新技能一经发布，你的智能体即可使用。</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">除了 Claude Code 和 Codex，其他智能体可以用吗？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>可以。任何能访问 URL 的 AI 智能体都能使用 —— Claude Code、Codex、Cursor，或你自己的智能体框架。索引是纯文本，不绑定任何工具。</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>可以。任何能访问 URL 的 AI 智能体都能使用 —— Claude Code、Codex、Cursor，或你自己的智能体框架。索引采用标准 Markdown，不绑定任何工具。</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">需要付费吗？<span class="faq-icon"></span></button>

@@ -1,17 +1,17 @@
 ---
 layout: default
-title: Design Prototypes
+title: Prototype Design References
 permalink: /resources/prototypes/
-description: Hardware prototypes and AI-assisted design case studies — converters, transformers, magnetics, and measurement.
+description: Prototype design references and AI-assisted engineering case studies — converters, transformers, magnetics, and measurement.
 ---
 
 <header class="hero hero-compact">
   <div class="container">
     <span class="badge">Resources</span>
-    <h1>Design Prototypes</h1>
+    <h1>Prototype Design References</h1>
     <p class="lead">
-      Hardware we have designed, built, and validated — each one a testbed for the
-      Power Electronics AI Agent's design workflows.
+      Reference designs, hardware prototypes, and engineering case studies that can inform
+      future power electronics analysis and development.
     </p>
   </div>
 </header>
@@ -22,7 +22,7 @@ description: Hardware prototypes and AI-assisted design case studies — convert
       <a class="card post-card" href="{{ '/case-studies/dab/' | relative_url }}">
         <span class="small">Converter</span>
         <h3>Dual Active Bridge Converter</h3>
-        <p>AI-assisted optimization of a dual-active-bridge (DAB) converter — topology, magnetics,
+        <p>AI-assisted optimisation of a dual-active-bridge (DAB) converter — topology, magnetics,
            and control co-designed in a single pass.</p>
         <span class="post-card-more">View case study →</span>
       </a>
@@ -48,7 +48,7 @@ description: Hardware prototypes and AI-assisted design case studies — convert
   <div class="container">
     <h2>Design databases</h2>
     <p class="lead">The component data behind the prototypes — also readable by your AI agent via
-      <a href="{{ '/aipe.txt' | relative_url }}">aipe.txt</a>.</p>
+      <a href="{{ '/aipe.md' | relative_url }}">aipe.md</a>.</p>
     <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
       <a class="card post-card" href="{{ '/database/transistors/' | relative_url }}">
         <span class="small">Database</span>

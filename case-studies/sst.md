@@ -10,7 +10,7 @@ description: Case study on AI-assisted design of a solid-state transformer (SST)
   <div class="bg"></div>
   <div class="container">
     <h1>Solid-State Transformer</h1>
-    <p class="lead">AI-driven design of a modular SST — from cell-level converter optimization to system-level integration and control.</p>
+    <p class="lead">AI-driven design of a modular SST — from cell-level converter optimisation to system-level integration and control.</p>
   </div>
 </header>
 
@@ -26,7 +26,7 @@ description: Case study on AI-assisted design of a solid-state transformer (SST)
       <div class="card">
         <h3>Multi-stage architecture</h3>
         <p>AC-DC rectification, isolated DC-DC conversion (DAB), and DC-AC inversion — each stage
-        co-optimized by the AI Agent for the overall SST mission profile.</p>
+        co-optimised by the AI Agent for the overall SST mission profile.</p>
       </div>
       <div class="card">
         <h3>Modular cell design</h3>

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "One link to bring power electronics into your AI agent"
-description: "Why we published aipe.txt — and how to use it with Claude Code, Codex, or any AI coding agent to design converters with real component data."
+description: "Why we published aipe.md — and how to use it with Claude Code, Codex, or any AI coding agent to design converters with real component data."
 author: "AIPE Labs"
 ---
 
@@ -13,10 +13,10 @@ or validated design references.
 We want to change that with something deliberately simple: **one link**.
 
 ```
-https://aipel.co.uk/aipe.txt
+https://aipel.co.uk/aipe.md
 ```
 
-Paste it into your agent and ask it to read the file. It is a plain-text index of
+Paste it into your agent and ask it to read the file. It is a Markdown index of
 everything we publish — semiconductor device data, magnetics and transistor databases,
 converter design references, and our prototype case studies — in a format designed
 for language models to navigate.
@@ -25,7 +25,7 @@ for language models to navigate.
 
 In Claude Code, Codex, or any agent with web access, try a prompt like:
 
-> Read https://aipel.co.uk/aipe.txt and use it to help me design a 10 kW DC-DC
+> Read https://aipel.co.uk/aipe.md and use it to help me design a 10 kW DC-DC
 > converter. Start by shortlisting SiC devices.
 
 The agent will follow the index to the resources it needs, the same way you would
@@ -36,7 +36,7 @@ database in seconds.
 
 This is the first step in a larger plan. The Power Electronics AI Agent we are building
 goes far beyond static resources: topology exploration, loss and thermal modelling,
-control synthesis, and multi-objective optimization, operating across device, converter,
+control synthesis, and multi-objective optimisation, operating across device, converter,
 and system scales.
 
 Follow this blog for engineering notes and progress updates, or

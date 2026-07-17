@@ -25,13 +25,13 @@ description: About Spirit Connect AIPE Labs — building the Power Electronics A
     <h2>Our Mission</h2>
     <p>
       Spirit Connect AIPE Labs was founded with a single conviction: the future of power electronics
-      and artificial intelligence are inseparable. Every AI data center needs efficient, reliable power
+      and artificial intelligence are inseparable. Every AI data centre needs efficient, reliable power
       delivery. Every power system can be designed better with AI. We exist to close that loop.
     </p>
     <p>
       Our <strong>Power Electronics AI Agent</strong> supports engineers across the full design stack — from
-      semiconductor device characterization and converter topology exploration to microgrid architecture
-      and grid-level co-optimization. Each design cycle feeds data back into the agent, making it
+      semiconductor device characterisation and converter topology exploration to microgrid architecture
+      and grid-level co-optimisation. Each design cycle feeds data back into the agent, making it
       smarter, faster, and more accurate over time.
     </p>
   </div>
@@ -46,13 +46,13 @@ description: About Spirit Connect AIPE Labs — building the Power Electronics A
     <div class="grid">
       <div class="card">
         <h3>AI → Power</h3>
-        <p>The AI Agent helps engineers design optimized power converters and energy systems — reducing
+        <p>The AI Agent helps engineers design optimised power converters and energy systems — reducing
         development time, improving efficiency, and exploring design spaces that humans alone cannot cover.</p>
       </div>
       <div class="card">
         <h3>Power → AI</h3>
         <p>The resulting power infrastructure — high-density converters, efficient microgrids, DC distribution
-        networks — delivers the clean, reliable energy that AI data centers and compute clusters demand.</p>
+        networks — delivers the clean, reliable energy that AI data centres and compute clusters demand.</p>
       </div>
       <div class="card">
         <h3>Feedback → Evolution</h3>
@@ -70,17 +70,17 @@ description: About Spirit Connect AIPE Labs — building the Power Electronics A
     <div class="grid">
       <div class="card">
         <h3>Device</h3>
-        <p>SiC, GaN, and Si semiconductor characterization, loss modeling, thermal profiling, and
+        <p>SiC, GaN, and Si semiconductor characterisation, loss modelling, thermal profiling, and
         automated device selection from rich component databases.</p>
       </div>
       <div class="card">
         <h3>Converter</h3>
-        <p>Topology exploration, magnetics sizing, control synthesis, and multi-objective optimization
+        <p>Topology exploration, magnetics sizing, control synthesis, and multi-objective optimisation
         for buck/boost, LLC, DAB, multi-level inverters, and beyond.</p>
       </div>
       <div class="card">
         <h3>System</h3>
-        <p>DC and AC microgrids, hybrid distribution architectures, and grid-level co-optimization
+        <p>DC and AC microgrids, hybrid distribution architectures, and grid-level co-optimisation
         where every converter serves the mission profile of the whole system.</p>
       </div>
     </div>

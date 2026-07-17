@@ -22,17 +22,17 @@ description: Milestones and project updates from Spirit Connect and AIPE Labs.
 
     <div class="grid" style="grid-template-columns:1fr;gap:1.5rem;">
       <div class="card">
-        <span class="small">July 16, 2026</span>
+        <span class="small">16 July 2026</span>
         <h3 style="margin-top:.5rem;">AIPE Labs Website Version 2 Released</h3>
         <p>
           We released the second major version of the website, with a clearer focus on the Power Electronics
-          AI Agent, the public <code>aipe.txt</code> resource index, coding-agent access, open engineering resources,
+          AI Agent, the public <code>aipe.md</code> resource index, coding-agent access, open engineering resources,
           and collaboration. The website and resource ecosystem will continue to be updated as the project grows.
         </p>
       </div>
 
       <div class="card">
-        <span class="small">July 6, 2026</span>
+        <span class="small">6 July 2026</span>
         <h3 style="margin-top:.5rem;">Photovoltaic and Energy-Storage Project Started with an African Partner</h3>
         <p>
           AIPE Labs began working with an African partner on a photovoltaic and energy-storage project.
@@ -42,7 +42,7 @@ description: Milestones and project updates from Spirit Connect and AIPE Labs.
       </div>
 
       <div class="card">
-        <span class="small">March 1, 2026</span>
+        <span class="small">1 March 2026</span>
         <h3 style="margin-top:.5rem;">Technical Engagement with Shanghai University and Panxin Technologies</h3>
         <p>
           We established technical connections with Shanghai University and Panxin Technologies (泮芯科技)
@@ -52,12 +52,12 @@ description: Milestones and project updates from Spirit Connect and AIPE Labs.
       </div>
 
       <div class="card">
-        <span class="small">January 6, 2026</span>
+        <span class="small">6 January 2026</span>
         <h3 style="margin-top:.5rem;">AIPE Labs Initiative Started</h3>
         <p>
           The AIPE Labs initiative began as an open effort to organise power electronics knowledge, tools,
           engineering agents, datasets, and reusable workflows. This established the direction that later
-          developed into the public <code>aipe.txt</code> index and the Power Electronics AI Agent vision.
+          developed into the public <code>aipe.md</code> index and the Power Electronics AI Agent vision.
         </p>
       </div>
     </div>
@@ -66,7 +66,7 @@ description: Milestones and project updates from Spirit Connect and AIPE Labs.
 
     <div class="grid" style="grid-template-columns:1fr;gap:1.5rem;">
       <div class="card">
-        <span class="small">September 28, 2025</span>
+        <span class="small">28 September 2025</span>
         <h3 style="margin-top:.5rem;">First Website Version Published</h3>
         <p>
           The first version of the Spirit Connect website was published to introduce our power electronics
@@ -75,7 +75,7 @@ description: Milestones and project updates from Spirit Connect and AIPE Labs.
       </div>
 
       <div class="card">
-        <span class="small">June 9, 2025</span>
+        <span class="small">9 June 2025</span>
         <h3 style="margin-top:.5rem;">Spirit Connect Founded</h3>
         <p>
           Spirit Connect was founded to explore smarter approaches to power conversion and engineering.

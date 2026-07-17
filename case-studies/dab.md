@@ -2,7 +2,7 @@
 layout: default
 title: DAB Converter Case Study
 permalink: /case-studies/dab/
-description: Case study on AI-assisted optimization of a dual-active-bridge (DAB) converter design.
+description: Case study on AI-assisted optimisation of a dual-active-bridge (DAB) converter design.
 ---
 
 <header class="hero">
@@ -12,13 +12,13 @@ description: Case study on AI-assisted optimization of a dual-active-bridge (DAB
   <div class="bg"></div>
   <div class="container">
     <h1>DAB Converter Case Study</h1>
-    <p class="lead">How our AI-assisted platform optimized a 2 kW DAB stage — switching devices, magnetics, and control loops.</p>
+    <p class="lead">How our AI-assisted platform optimised a 2 kW DAB stage — switching devices, magnetics, and control loops.</p>
   </div>
 </header>
 
 <section class="section">
   <div class="container">
-    <h2>Design Optimization Process</h2>
+    <h2>Design Optimisation Process</h2>
     <p class="lead">
       This case study demonstrates how our AI-assisted design automation platform systematically explores
       the design space to find optimal solutions for a dual-active-bridge converter.

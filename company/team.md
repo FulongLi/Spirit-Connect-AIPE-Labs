@@ -33,7 +33,7 @@ permalink: /company/team/
         <p style="margin-bottom: 0.85rem; line-height: 1.55; font-size: 0.88rem;">
           As <strong>Chief Executive Officer</strong> of <em>Spirit Connect AIPE Labs</em>, Dr. Fulong Li leads company strategy
           and the team delivering the Power Electronics AI Agent. He is also a power electronics engineer and researcher,
-          with deep expertise in <strong>DC microgrids, wide-bandgap devices (SiC/GaN), and converter optimization &amp; validation</strong>.
+          with deep expertise in <strong>DC microgrids, wide-bandgap devices (SiC/GaN), and converter optimisation &amp; validation</strong>.
           He founded the company to close the loop between intelligent design automation and the energy infrastructure that powers AI.
         </p>
         <div style="margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid var(--border);">

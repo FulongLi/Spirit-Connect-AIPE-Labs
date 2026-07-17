@@ -26,10 +26,10 @@ image: /images/background/sst.png
       </div>
       <div class="workflow-prompt">
         <span class="workflow-label">YOU</span>
-        <p>Read <strong>aipel.co.uk/aipe.txt</strong> and find the best AIPE resources to help me analyse a DAB converter.</p>
+        <p>Read <strong>aipel.co.uk/aipe.md</strong> and find the best AIPE resources to help me analyse a DAB converter.</p>
       </div>
       <div class="workflow-route" aria-hidden="true">
-        <span>Coding agent</span><b>→</b><span class="workflow-index">aipe.txt</span><b>→</b><span>Relevant resources</span>
+        <span>Coding agent</span><b>→</b><span class="workflow-index">aipe.md</span><b>→</b><span>Relevant resources</span>
       </div>
       <div class="workflow-resources">
         <span>Simulation</span><span>Finite-element analysis</span><span>Devices</span>
@@ -44,12 +44,12 @@ image: /images/background/sst.png
     <span class="badge">Free · open · no API key</span>
     <h2>One link is the entry point</h2>
     <p class="lead">
-      <code>aipe.txt</code> is a plain-text index written for AI agents. It helps an agent discover
+      <code>aipe.md</code> is a Markdown index written for AI agents. It helps an agent discover
       the most relevant AIPE Labs resources for the task in front of you, without a new app,
       account, or closed platform.
     </p>
     <div class="agent-link">
-      <code id="agent-url">https://aipel.co.uk/aipe.txt</code>
+      <code id="agent-url">https://aipel.co.uk/aipe.md</code>
       <button class="copy-btn" data-copy-target="agent-url" aria-live="polite">Copy link</button>
     </div>
     <p class="agent-steps">
@@ -77,7 +77,7 @@ image: /images/background/sst.png
         <span class="roadmap-state state-live">Available now</span>
         <span class="roadmap-number">01</span>
         <h3>Open resource index</h3>
-        <p><code>aipe.txt</code> gives coding agents a stable entry point to the AIPE Labs knowledge and open-source ecosystem.</p>
+        <p><code>aipe.md</code> gives coding agents a stable entry point to the AIPE Labs knowledge and open-source ecosystem.</p>
       </div>
       <div class="card roadmap-card">
         <span class="roadmap-state state-growing">Growing in public</span>

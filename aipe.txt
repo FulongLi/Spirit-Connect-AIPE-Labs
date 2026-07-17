@@ -1,42 +1,5 @@
-# AIPE Labs
+AIPE Labs has moved its canonical agent-readable resource index to Markdown.
 
-> Power Electronics AI Agent — from device to converter to grid. This file is the
-> agent-readable index of everything AIPE Labs publishes: the skills, packages,
-> and agents we build on GitHub, plus the databases, design references, and case
-> studies on this site. Point your AI coding agent (Claude Code, Codex, etc.) at
-> this file and it can navigate all of it.
+Read: https://aipel.co.uk/aipe.md
 
-## Skills, Packages & Agents (GitHub)
-
-- [AIPE Labs on GitHub](https://github.com/FulongLi): Home of our power electronics packages, skills, and agents — in active development. New skills are published here first.
-- [Spirit-Connect-AIPE-Labs](https://github.com/FulongLi/Spirit-Connect-AIPE-Labs): Source of this website, including this index file.
-
-## Power Electronics
-
-- [Devices](https://aipel.co.uk/power/devices/): Semiconductor device testing, modelling, and characterisation (SiC, GaN, Si) — electrical and thermal characterisation for design automation
-- [Device Characterisation](https://aipel.co.uk/power/characterizations/): Switching characteristics, switching losses, thermal resistance, and junction temperature analysis
-- [Converters](https://aipel.co.uk/power/converters/): Converter topologies, magnetics sizing, control synthesis, and multi-objective optimization (LLC, DAB, multi-level DC-AC, interleaved buck/boost)
-- [Microgrids](https://aipel.co.uk/power/microgrids/): Microgrid architectures, DC distribution networks, and hybrid AC/DC power systems
-
-## Databases
-
-- [Transistor Database](https://aipel.co.uk/database/transistors/): Power semiconductor device database
-- [Magnetics Database](https://aipel.co.uk/database/magnetics/): Magnetic components and core material database
-
-## Case Studies
-
-- [Dual Active Bridge (DAB)](https://aipel.co.uk/case-studies/dab/): DAB converter design case study
-- [Solid-State Transformer (SST)](https://aipel.co.uk/case-studies/sst/): SST design case study
-- [Rogowski Coil](https://aipel.co.uk/case-studies/magnetics/rogowski-coil/): Rogowski coil current transducer design
-
-## Resources
-
-- [Claude Code/Codex Plugin](https://aipel.co.uk/plugin/): How to use these resources inside Claude Code, Codex, or any AI coding agent
-- [Blog](https://aipel.co.uk/resources/blog/): Engineering notes and research updates on AI-driven power electronics design
-- [Design Prototypes](https://aipel.co.uk/resources/prototypes/): Hardware prototypes and AI-assisted design case studies
-
-## Company
-
-- [About](https://aipel.co.uk/company/about/): Mission and vision — a closed-loop energy-AI ecosystem
-- [The AI Agent](https://aipel.co.uk/company/services/): What the Power Electronics AI Agent does
-- [Contact](https://aipel.co.uk/contact/): Get in touch — info@spiritconnect.co.uk
+This compatibility file is retained so previously shared aipe.txt links do not fail.

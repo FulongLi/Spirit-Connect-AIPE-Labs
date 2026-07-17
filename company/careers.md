@@ -40,12 +40,12 @@ description: Join Spirit Connect AIPE Labs — help build the Power Electronics 
     <div class="grid" style="margin-top: 3rem;">
       <div class="card">
         <h3>Power Electronics</h3>
-        <p>Converter design, device characterization, control systems, thermal management, and
+        <p>Converter design, device characterisation, control systems, thermal management, and
         hardware validation — the domain expertise that grounds our AI.</p>
       </div>
       <div class="card">
         <h3>AI & Machine Learning</h3>
-        <p>Physics-informed models, optimization algorithms, surrogate modeling, and agent architectures
+        <p>Physics-informed models, optimisation algorithms, surrogate modelling, and agent architectures
         that reason across the device-converter-system stack.</p>
       </div>
       <div class="card">

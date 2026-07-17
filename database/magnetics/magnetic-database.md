@@ -26,7 +26,7 @@ description: Comprehensive magnetic component database for power electronics des
         <p>Ferrite, powder core, and nanocrystalline materials with B-H curves, Steinmetz parameters, and frequency-dependent loss models.</p>
       </div>
       <div class="card">
-        <h3>Winding Optimization</h3>
+        <h3>Winding Optimisation</h3>
         <p>Winding window analysis, copper loss calculations, and thermal derating for optimal power density and efficiency.</p>
       </div>
       <div class="card">
