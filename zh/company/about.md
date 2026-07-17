@@ -90,7 +90,7 @@ description: 关于 Spirit Connect AIPE Labs —— 打造电力电子 AI 智能
       <div><img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="卡迪夫大学" style="max-width:160px;"></div>
       <div><img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="住友重机械工业" style="max-width:160px;"></div>
       <div><img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="上海大学" style="max-width:160px;"></div>
-      <div><img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="磐芯科技" style="max-width:160px;"></div>
+      <div><img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="泮芯科技" style="max-width:160px;"></div>
       <div><img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="拉夫堡大学" style="max-width:160px;"></div>
       <div><img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="格拉斯哥大学" style="max-width:160px;"></div>
     </div>

@@ -6,7 +6,7 @@ en:
   # nav
   nav_engineering: "Power Engineering"
   nav_resources: "Resources"
-  nav_plugin: "Claude Code/Codex Plugin"
+  nav_plugin: "Claude/Codex Plugin"
   nav_contact: "Contact Us"
   nav_microgrids: "Microgrids"
   nav_converters: "Converters"
@@ -38,7 +38,7 @@ zh:
   # nav
   nav_engineering: "电力工程"
   nav_resources: "资源"
-  nav_plugin: "Claude Code/Codex 插件"
+  nav_plugin: "Claude/Codex 插件"
   nav_contact: "联系我们"
   nav_microgrids: "微电网"
   nav_converters: "变换器"

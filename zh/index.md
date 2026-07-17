@@ -144,7 +144,7 @@ image: /images/background/sst.png
       <img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="卡迪夫大学" loading="lazy" decoding="async">
       <img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="住友重机械工业" loading="lazy" decoding="async">
       <img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="上海大学" loading="lazy" decoding="async">
-      <img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="磐芯科技" loading="lazy" decoding="async">
+      <img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="泮芯科技" loading="lazy" decoding="async">
       <img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="拉夫堡大学" loading="lazy" decoding="async">
       <img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="格拉斯哥大学" loading="lazy" decoding="async">
     </div>
