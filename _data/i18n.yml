@@ -18,7 +18,7 @@ en:
   lang_english: "English"
   lang_chinese: "中文"
   # footer
-  footer_tagline: "Closing the design loop between AI and power infrastructure."
+  footer_tagline: "Closing the AI–power design loop."
   footer_location: "Cardiff, United Kingdom"
   footer_company: "Company"
   footer_resources: "Resources"
@@ -49,7 +49,7 @@ zh:
   lang_english: "English"
   lang_chinese: "中文"
   # footer
-  footer_tagline: "连接 AI 与电力基础设施的设计闭环。"
+  footer_tagline: "连接 AI 与电力设计闭环。"
   footer_location: "英国卡迪夫"
   footer_company: "公司"
   footer_resources: "资源"
