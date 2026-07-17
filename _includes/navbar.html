@@ -17,14 +17,6 @@
     </a>
     <nav id="mainmenu" class="menu">
       <div class="dropdown">
-        <button class="drop-toggle" aria-expanded="false">{{ t.nav_resources }} ▾</button>
-        <div class="drop-menu">
-          <a href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a>
-          <a href="{{ lp | append: '/resources/prototypes/' | relative_url }}">{{ t.nav_prototypes }}</a>
-          <a href="{{ lp | append: '/resources/blog/' | relative_url }}">{{ t.nav_blog }}</a>
-        </div>
-      </div>
-      <div class="dropdown">
         <button class="drop-toggle" aria-expanded="false">{{ t.nav_engineering }} ▾</button>
         <div class="drop-menu">
           <a href="{{ lp | append: '/power/microgrids/' | relative_url }}">{{ t.nav_microgrids }}</a>
@@ -33,7 +25,14 @@
           <a href="{{ lp | append: '/database/magnetics/' | relative_url }}">{{ t.nav_magnetics }}</a>
         </div>
       </div>
-      <a class="nav-plugin" href="{{ lp | append: '/company/services/' | relative_url }}">{{ t.nav_agent }}</a>
+      <div class="dropdown">
+        <button class="drop-toggle" aria-expanded="false">{{ t.nav_resources }} ▾</button>
+        <div class="drop-menu">
+          <a href="{{ lp | append: '/resources/blog/' | relative_url }}">{{ t.nav_blog }}</a>
+          <a href="{{ lp | append: '/resources/prototypes/' | relative_url }}">{{ t.nav_prototypes }}</a>
+        </div>
+      </div>
+      <a class="nav-plugin" href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a>
       <a class="nav-partner-mobile" href="{{ lp | append: '/contact/' | relative_url }}">{{ t.nav_contact }}</a>
     </nav>
     <div class="nav-right">

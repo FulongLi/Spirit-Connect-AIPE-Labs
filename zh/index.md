@@ -9,11 +9,11 @@ image: /images/background/sst.png
 
 <header class="hero home-hero">
   <div class="container">
-    <span class="badge">面向 AI 智能体的电力电子开放资源</span>
-    <h1>把一座电力电子实验室交给你的 Coding Agent</h1>
+    <span class="badge">电力电子 AI 智能体</span>
+    <h1>为 AI 供能的电力系统，由 AI 来设计</h1>
     <p class="lead">
-      通过一条公开链接，让 Claude Code、Codex、Cursor 等 Coding Agent 接入 AIPE Labs 生态：
-      电力电子知识、工程工具、专业智能体、数据与工作流。
+      我们正在打造电力电子 AI 智能体，让智能系统设计与为其供能的能源基础设施形成闭环
+      —— 从半导体器件到变换器，再到电网。
     </p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#agent-link">复制 AIPE 链接</a>

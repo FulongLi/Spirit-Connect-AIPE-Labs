@@ -7,12 +7,12 @@ image: /images/background/sst.png
 
 <header class="hero home-hero">
   <div class="container">
-    <span class="badge">Open power electronics resources for AI agents</span>
-    <h1>Give your coding agent a power electronics lab</h1>
+    <span class="badge">Power Electronics AI Agent</span>
+    <h1>The AI that designs the power systems that power AI</h1>
     <p class="lead">
-      One public link connects Claude Code, Codex, Cursor, and other coding agents to the
-      AIPE Labs ecosystem — open knowledge, engineering tools, specialist agents, datasets,
-      and workflows for power electronics.
+      We are building a Power Electronics AI Agent that closes the loop between intelligent
+      system design and the energy infrastructure that fuels it — from semiconductor device
+      to converter to grid.
     </p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#agent-link">Copy the AIPE link</a>
