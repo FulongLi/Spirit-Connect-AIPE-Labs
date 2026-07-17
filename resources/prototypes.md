@@ -43,25 +43,3 @@ description: Prototype design references for converters, transformers, magnetics
     </div>
   </div>
 </section>
-
-<section class="section section-alt">
-  <div class="container">
-    <h2>Design databases</h2>
-    <p class="lead">The component data behind the prototypes — also readable by your AI agent via
-      <a href="{{ '/aipe.md' | relative_url }}">aipe.md</a>.</p>
-    <div class="grid grid-two">
-      <a class="card post-card" href="{{ '/database/transistors/' | relative_url }}">
-        <span class="small">Database</span>
-        <h3>Transistor Database</h3>
-        <p>Power semiconductor devices — SiC, GaN, and Si — with characterisation data.</p>
-        <span class="post-card-more">Browse →</span>
-      </a>
-      <a class="card post-card" href="{{ '/database/magnetics/' | relative_url }}">
-        <span class="small">Database</span>
-        <h3>Magnetics Database</h3>
-        <p>Magnetic components and core materials for converter design.</p>
-        <span class="post-card-more">Browse →</span>
-      </a>
-    </div>
-  </div>
-</section>

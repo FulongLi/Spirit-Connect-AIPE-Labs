@@ -64,37 +64,6 @@ image: /images/background/sst.png
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <span class="section-badge">Built in public</span>
-    <h2>From an open index to a complete engineering agent</h2>
-    <p class="lead">
-      The useful product starts with open resources developers can use today. The ecosystem grows
-      as new tools, specialist agents, datasets, and validated workflows are published.
-    </p>
-    <div class="grid roadmap-grid">
-      <div class="card roadmap-card">
-        <span class="roadmap-state state-live">Available now</span>
-        <span class="roadmap-number">01</span>
-        <h3>Open resource index</h3>
-        <p><code>aipe.md</code> gives coding agents a stable entry point to the AIPE Labs knowledge and open-source ecosystem.</p>
-      </div>
-      <div class="card roadmap-card">
-        <span class="roadmap-state state-growing">Growing in public</span>
-        <span class="roadmap-number">02</span>
-        <h3>Tools &amp; specialist agents</h3>
-        <p>Simulation, finite-element analysis, device, magnetics, converter, and validation resources are being organised into reusable agent workflows.</p>
-      </div>
-      <div class="card roadmap-card">
-        <span class="roadmap-state state-vision">Long-term platform</span>
-        <span class="roadmap-number">03</span>
-        <h3>Power Electronics AI Agent</h3>
-        <p>A physics-guided design partner that reasons across device, converter, and system — developed with researchers and industry.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section section-alt">
   <div class="container">
     <h2>Engineering knowledge across every scale</h2>

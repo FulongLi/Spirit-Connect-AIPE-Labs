@@ -91,7 +91,7 @@ image: /images/background/sst.png
     <h2 class="section-title-centred">Frequently asked questions</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">What is <code>aipe.md</code>?<span class="faq-icon"></span></button>
+        <button class="faq-q" aria-expanded="false"><span class="faq-q-label">What is <code>aipe.md</code>?</span><span class="faq-icon"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>It is the canonical Markdown resource index for AIPE Labs. It describes the resources currently available and links an agent to the relevant tools, datasets, engineering pages, and repositories.</p></div></div>
       </div>
       <div class="faq-item">

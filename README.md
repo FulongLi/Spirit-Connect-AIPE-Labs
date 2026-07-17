@@ -20,7 +20,7 @@ The Markdown index describes the resources that are currently available and poin
 ## Website content
 
 - **Power Engineering** — converters, power semiconductor devices, characterisation, and microgrids.
-- **Resources** — reusable building blocks and prototype design references.
+- **Resources** — engineering updates, prototype design references, and component databases.
 - **Claude/Codex Plugin** — a simple workflow for giving coding agents access to the public index.
 - **Company** — the AIPE Labs story, team, news, careers, FAQs, and contact details.
 - **English and Chinese pages** — mirrored navigation and content for both audiences.

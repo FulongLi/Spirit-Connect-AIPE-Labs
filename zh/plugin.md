@@ -92,7 +92,7 @@ image: /images/background/sst.png
     <h2 class="section-title-centred">关于这个入口</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false"><code>aipe.md</code> 是什么？<span class="faq-icon"></span></button>
+        <button class="faq-q" aria-expanded="false"><span class="faq-q-label"><code>aipe.md</code> 是什么？</span><span class="faq-icon"></span></button>
         <div class="faq-a"><div class="faq-a-inner"><p>它是 AIPE Labs 面向智能体的正式 Markdown 资源索引，介绍当前可用内容，并把智能体连接到相关工具、数据集、工程页面与代码仓库。</p></div></div>
       </div>
       <div class="faq-item">

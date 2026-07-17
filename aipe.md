@@ -64,6 +64,15 @@ datasheets, models, simulations, standards, and measurements.
 - [Prototype Design References](https://aipel.co.uk/resources/prototypes/) — Hardware
   prototypes, engineering references, and AI-assisted design material.
 
+## Engineering Databases
+
+- [Database](https://aipel.co.uk/resources/database/) — Entry point for reusable
+  semiconductor and magnetics data resources.
+- [Transistor Database](https://aipel.co.uk/database/transistors/) — Power semiconductor
+  device data and selection references.
+- [Magnetics Database](https://aipel.co.uk/database/magnetics/) — Magnetic components,
+  core materials, and design data.
+
 ## Guides and Updates
 
 - [Use AIPE Labs with Your Coding Agent](https://aipel.co.uk/plugin/) — Instructions and

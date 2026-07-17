@@ -62,34 +62,6 @@ image: /images/background/sst.png
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <span class="section-badge">开放建设</span>
-    <h2>从开放索引，逐步走向完整的工程智能体</h2>
-    <p class="lead">
-      产品从开发者今天就能使用的开放资源开始。随着新工具、专业智能体、数据集和经过验证的
-      工程流程持续发布，整个生态也会不断成长。
-    </p>
-    <div class="grid roadmap-grid">
-      <div class="card roadmap-card">
-        <span class="roadmap-state state-live">现在可用</span><span class="roadmap-number">01</span>
-        <h3>开放资源索引</h3>
-        <p><code>aipe.md</code> 为 Coding Agent 提供一个稳定入口，连接 AIPE Labs 的知识与开源生态。</p>
-      </div>
-      <div class="card roadmap-card">
-        <span class="roadmap-state state-growing">持续建设中</span><span class="roadmap-number">02</span>
-        <h3>工具与专业智能体</h3>
-        <p>把仿真、有限元、器件、磁性元件、变换器与验证资源，逐步组织成可复用的智能体工作流。</p>
-      </div>
-      <div class="card roadmap-card">
-        <span class="roadmap-state state-vision">长期平台</span><span class="roadmap-number">03</span>
-        <h3>电力电子 AI 智能体</h3>
-        <p>一个贯通器件、变换器与系统的物理引导设计伙伴，与研究机构和产业伙伴共同建设。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section section-alt">
   <div class="container">
     <h2>覆盖每一个工程尺度</h2>
