@@ -577,6 +577,7 @@ h2 { margin-bottom: 1.5rem; }
 .team-card-body { display: flex; flex: 1; flex-direction: column; width: 100%; }
 .team-card-body h2 { margin-bottom: .35rem; font-size: 1.3rem; }
 .team-role { color: var(--fg) !important; font-weight: 700; margin: 0 0 1rem !important; }
+.team-card-body > p:not(.team-role) + p:not(.team-role) { margin-top: .8rem; }
 .team-links {
   display: flex; flex-direction: column; align-items: center; gap: .4rem;
   margin-top: auto; padding-top: 1.2rem; border-top: 1px solid var(--border);

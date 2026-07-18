@@ -20,13 +20,16 @@ description: 共同建设 Spirit Connect AIPE Labs 的贡献者。
   <div class="container">
     <div class="team-grid">
       <article class="card team-card">
-        <img class="team-photo" src="{{ '/images/team/fulong.jpg' | relative_url }}" alt="李福龙博士">
+        <img class="team-photo" src="{{ '/images/team/fulong.jpg' | relative_url }}" alt="李富龙博士">
         <div class="team-card-body">
-          <h2>李福龙 博士</h2>
+          <h2>李富龙 博士</h2>
           <p class="team-role">创始人</p>
           <p>
-            电力电子工程师与研究者，研究方向覆盖直流微电网、宽禁带器件、
-            变换器优化、测试与验证。
+            李富龙博士负责 Spirit Connect AIPE Labs 的战略方向与整体发展。他是一名电力电子工程师和研究者，
+            在直流微电网、宽禁带器件、变换器优化、测试与验证方面拥有经验。
+          </p>
+          <p>
+            他创立公司的目标，是把智能设计自动化与 AI 和电气化系统所需的实际能源基础设施连接起来。
           </p>
           <div class="team-links">
             <span>英国卡迪夫</span>

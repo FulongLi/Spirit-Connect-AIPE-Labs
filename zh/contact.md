@@ -35,7 +35,7 @@ image: /images/background/sst.png
           <div class="card contact-region-card">
             <p><strong>Spirit Connect AIPE Labs</strong></p>
             <p>英国卡迪夫</p>
-            <p><strong>联系人：</strong>李福龙 博士</p>
+            <p><strong>联系人：</strong>李富龙 博士</p>
             <p>
               <strong>邮箱：</strong>
               <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>
