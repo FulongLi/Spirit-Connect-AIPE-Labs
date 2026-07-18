@@ -17,7 +17,7 @@ document.querySelectorAll('.drop-toggle').forEach(btn => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
   });
 });
-document.querySelectorAll('.copy-btn[data-copy-target]').forEach(btn => {
+document.querySelectorAll('[data-copy-target]').forEach(btn => {
   const idleLabel = btn.textContent.trim();
   const copiedLabel = btn.dataset.copiedLabel || 'Copied!';
   btn.addEventListener('click', () => {

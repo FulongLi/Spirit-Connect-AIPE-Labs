@@ -270,7 +270,7 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
       </a>
     </div>
     <div class="hero-actions section-actions">
-      <a class="btn btn-primary" href="{{ '/aipe.md' | relative_url }}">打开 AIPE 索引</a>
+      <a class="btn btn-primary" href="{{ '/zh/plugin/' | relative_url }}">在 Coding Agent 中使用</a>
       <a class="btn btn-ghost" href="{{ '/zh/database/transistors/' | relative_url }}">晶体管数据库</a>
       <a class="btn btn-ghost" href="{{ '/zh/database/magnetics/' | relative_url }}">磁性元件数据库</a>
     </div>

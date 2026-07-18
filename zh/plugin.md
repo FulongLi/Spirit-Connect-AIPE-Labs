@@ -120,10 +120,10 @@ image: /images/background/sst.png
     <span class="section-badge">从这里开始</span>
     <h2>把 AIPE 链接交给你的智能体</h2>
     <p class="lead">
-      直接打开 Markdown 索引，或者联系我们讨论科研合作、工程试点与更深入的集成。
+      把准备好的提示词复制到你的 Coding Agent，或者联系我们讨论科研合作、工程试点与更深入的集成。
     </p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="{{ '/aipe.md' | relative_url }}">打开 aipe.md</a>
+      <button type="button" class="btn btn-primary" data-copy-target="agent-prompt" data-copied-label="已复制">复制 AIPE 提示词</button>
       <a class="btn btn-ghost" href="{{ '/zh/contact/' | relative_url }}">联系我们</a>
     </div>
   </div>

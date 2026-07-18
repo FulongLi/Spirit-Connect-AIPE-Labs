@@ -119,11 +119,11 @@ image: /images/background/sst.png
     <span class="section-badge">START HERE</span>
     <h2>Give your agent the AIPE link</h2>
     <p class="lead">
-      Open the Markdown index directly, or contact us to discuss research collaboration,
+      Copy the prepared prompt into your coding agent, or contact us to discuss research collaboration,
       engineering pilots, and deeper integrations.
     </p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="{{ '/aipe.md' | relative_url }}">Open aipe.md</a>
+      <button type="button" class="btn btn-primary" data-copy-target="agent-prompt">Copy AIPE prompt</button>
       <a class="btn btn-ghost" href="{{ '/contact/' | relative_url }}">Contact us</a>
     </div>
   </div>

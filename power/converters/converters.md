@@ -271,7 +271,7 @@ description: A structured topology library for industrial power conversion, from
       </a>
     </div>
     <div class="hero-actions section-actions">
-      <a class="btn btn-primary" href="{{ '/aipe.md' | relative_url }}">Open the AIPE index</a>
+      <a class="btn btn-primary" href="{{ '/plugin/' | relative_url }}">Use with a coding agent</a>
       <a class="btn btn-ghost" href="{{ '/database/transistors/' | relative_url }}">Transistor database</a>
       <a class="btn btn-ghost" href="{{ '/database/magnetics/' | relative_url }}">Magnetics database</a>
     </div>
