@@ -21,7 +21,7 @@ datasheets, models, simulations, standards, and measurements.
 
 ## Open-Source Tools, Packages, and Agents
 
-- [AIPE Labs on GitHub](https://github.com/FulongLi) — Power electronics packages,
+- [AIPE Labs on GitHub](https://github.com/AIPE-Labs) — Power electronics packages,
   skills, specialist agents, and engineering tools under active development.
 - [Spirit-Connect-AIPE-Labs](https://github.com/FulongLi/Spirit-Connect-AIPE-Labs) —
   Source repository for this website and resource index.

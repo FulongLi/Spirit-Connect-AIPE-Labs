@@ -16,7 +16,7 @@ image: /images/background/sst.png
     </p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#agent-link">Copy the AIPE link</a>
-      <a class="btn btn-ghost" href="https://github.com/FulongLi" target="_blank" rel="noopener">Explore the open-source work ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/AIPE-Labs" target="_blank" rel="noopener">Explore the open-source work ↗</a>
     </div>
 
     <div class="workflow-panel" aria-label="How a coding agent uses the AIPE Labs resource index">

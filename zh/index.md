@@ -17,7 +17,7 @@ image: /images/background/sst.png
     </p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#agent-link">复制 AIPE 链接</a>
-      <a class="btn btn-ghost" href="https://github.com/FulongLi" target="_blank" rel="noopener">查看开源项目 ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/AIPE-Labs" target="_blank" rel="noopener">查看开源项目 ↗</a>
     </div>
 
     <div class="workflow-panel" aria-label="Coding Agent 如何使用 AIPE Labs 资源索引">
