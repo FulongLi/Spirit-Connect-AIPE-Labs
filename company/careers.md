@@ -7,7 +7,6 @@ description: Join Spirit Connect AIPE Labs — help build the Power Electronics 
 
 <header class="hero hero-compact">
   <div class="container">
-    <span class="badge">Company</span>
     <h1>Careers</h1>
     <p class="lead">We're building a compact, expert team to create the Power Electronics AI Agent — where deep hardware knowledge meets cutting-edge AI.</p>
   </div>

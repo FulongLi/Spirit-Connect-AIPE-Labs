@@ -8,7 +8,6 @@ image: /images/background/sst.png
 
 <header class="hero">
   <div class="container">
-    <span class="badge">Open-source · research · industry</span>
     <h1>Build with AIPE Labs</h1>
     <p class="lead">
       Whether you want to contribute an open resource, validate a workflow, pilot the technology on a

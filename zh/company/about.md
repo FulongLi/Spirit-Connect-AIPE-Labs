@@ -8,7 +8,6 @@ description: 关于 Spirit Connect AIPE Labs —— 打造电力电子 AI 智能
 
 <header class="hero hero-compact">
   <div class="container">
-    <span class="badge">公司</span>
     <h1>关于 Spirit Connect AIPE Labs</h1>
     <p class="lead">
       我们正在打造<strong>电力电子 AI 智能体</strong> —— 一个贯穿器件、变换器与系统的智能设计伙伴，

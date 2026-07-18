@@ -8,7 +8,6 @@ description: A structured topology library for industrial power conversion, from
 <main class="converter-library">
 <header class="hero">
   <div class="container">
-    <span class="badge">Topology library · growing in public</span>
     <h1>Converter Topologies</h1>
     <p class="lead">
       A structured reference for industrial power conversion — from buck, boost, and flyback
@@ -19,7 +18,6 @@ description: A structured topology library for industrial power conversion, from
 
 <section class="section section-alt">
   <div class="container">
-    <span class="section-badge">TOPOLOGY MAP</span>
     <h2>Navigate by conversion interface</h2>
     <p class="lead">
       The primary classification follows the electrical interface. Isolation, bidirectional
@@ -62,7 +60,6 @@ description: A structured topology library for industrial power conversion, from
 
 <section class="section" id="dc-dc">
   <div class="container">
-    <span class="section-badge">DC–DC</span>
     <h2>DC–DC Converter Families</h2>
     <p class="lead">
       DC–DC stages regulate a DC bus, adapt voltage, provide galvanic isolation, or move energy
@@ -104,7 +101,6 @@ description: A structured topology library for industrial power conversion, from
 
 <section class="section section-alt" id="ac-dc">
   <div class="container">
-    <span class="section-badge">AC–DC</span>
     <h2>Rectifier and PFC Families</h2>
     <p class="lead">
       AC–DC selection depends on phase count, power factor, harmonic limits, DC-link voltage,
@@ -135,7 +131,6 @@ description: A structured topology library for industrial power conversion, from
 
 <section class="section" id="dc-ac">
   <div class="container">
-    <span class="section-badge">DC–AC</span>
     <h2>Inverter Families</h2>
     <p class="lead">
       Inverters connect DC sources and buses to motors, grids, uninterruptible power supplies,
@@ -167,7 +162,6 @@ description: A structured topology library for industrial power conversion, from
 
 <section class="section section-alt" id="ac-ac">
   <div class="container">
-    <span class="section-badge">AC–AC</span>
     <h2>AC–AC Converter Families</h2>
     <p class="lead">
       AC–AC systems change voltage, frequency, phase, or power flow either directly or through
@@ -191,7 +185,6 @@ description: A structured topology library for industrial power conversion, from
 
 <section class="section" id="modular">
   <div class="container">
-    <span class="section-badge">MODULAR &amp; MULTISTAGE</span>
     <h2>From Converter Cells to Power Systems</h2>
     <p class="lead">
       High-power and medium-voltage systems are often built by coordinating repeated converter
@@ -221,7 +214,6 @@ description: A structured topology library for industrial power conversion, from
 
 <section class="section section-alt">
   <div class="container">
-    <span class="section-badge">AGENT-READABLE ENGINEERING DATA</span>
     <h2>What Each Topology Reference Will Contain</h2>
     <p class="lead">
       This page is the map. As the library grows, each topology will gain structured engineering
@@ -250,7 +242,6 @@ description: A structured topology library for industrial power conversion, from
 
 <section class="section">
   <div class="container">
-    <span class="section-badge">STARTING REFERENCES</span>
     <h2>Current Design References</h2>
     <p class="lead">
       These early references show how topology, devices, magnetics, modulation, and system

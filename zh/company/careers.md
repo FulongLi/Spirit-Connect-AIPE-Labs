@@ -8,7 +8,6 @@ description: 加入 Spirit Connect AIPE Labs —— 共同打造电力电子 AI 
 
 <header class="hero hero-compact">
   <div class="container">
-    <span class="badge">公司</span>
     <h1>招聘</h1>
     <p class="lead">我们正在组建一支精干的专家团队来打造电力电子 AI 智能体 —— 让深厚的硬件功底与前沿 AI 相遇。</p>
   </div>

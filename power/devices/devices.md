@@ -19,7 +19,6 @@ description: Device testing, modelling, and characterisation for power electroni
         <img class="devices-page-case-img" src="{{ '/power/devices/testing/PXE.png' | relative_url }}" alt="Electrical Characterisation">
       </div>
       <div class="feature-text">
-        <span class="section-badge">DEVICE TESTING</span>
         <h2>Electrical Characterisation</h2>
         <p class="lead">
           Comprehensive testing of semiconductor devices including switching characteristics, switching losses, and electrical performance validation under various operating conditions. Our electrical characterisation services enable accurate design automation and optimisation for power electronics systems.
@@ -36,7 +35,6 @@ description: Device testing, modelling, and characterisation for power electroni
   <div class="container">
     <div class="feature-content">
       <div class="feature-text">
-        <span class="section-badge">DEVICE TESTING</span>
         <h2>Thermal Characterisation</h2>
         <p class="lead">
           Thermal performance testing and validation including thermal resistance measurements, junction temperature analysis, and reliability assessment. Our comprehensive thermal characterisation services enable accurate thermal modelling and optimisation for power electronics systems.
@@ -56,7 +54,6 @@ description: Device testing, modelling, and characterisation for power electroni
   <div class="container">
     <div class="feature-content">
       <div class="feature-text">
-        <span class="section-badge">DESIGN DATA</span>
         <h2>Transistor Database</h2>
         <p class="lead">
           Comprehensive SiC/GaN/IGBT coverage with specifications, switching characteristics, and thermal properties —

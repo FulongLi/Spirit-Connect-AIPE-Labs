@@ -260,7 +260,6 @@ a:hover { opacity: .7; }
 .section-actions { margin-top: 2rem; }
 .section-lead-spaced { margin-bottom: 2rem; }
 .section-title-centred { text-align: center; }
-.section-badge-centred { display: block; margin-inline: auto; }
 
 /* Converter topology library */
 .converter-library section[id] { scroll-margin-top: 96px; }

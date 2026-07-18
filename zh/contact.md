@@ -9,7 +9,6 @@ image: /images/background/sst.png
 
 <header class="hero">
   <div class="container">
-    <span class="badge">开源 · 科研 · 产业</span>
     <h1>与 AIPE Labs 一起建设</h1>
     <p class="lead">
       无论你希望贡献开放资源、共同验证工程流程、在真实项目中试点技术，

@@ -7,7 +7,6 @@ description: Power semiconductor and magnetics databases for power electronics a
 
 <header class="hero hero-compact">
   <div class="container">
-    <span class="badge">Resources</span>
     <h1>Engineering Databases</h1>
     <p class="lead">
       Reusable device and magnetics data for power electronics analysis,

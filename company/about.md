@@ -7,7 +7,6 @@ description: About Spirit Connect AIPE Labs — building the Power Electronics A
 
 <header class="hero hero-compact">
   <div class="container">
-    <span class="badge">Company</span>
     <h1>About Spirit Connect AIPE Labs</h1>
     <p class="lead">
       We are building the <strong>Power Electronics AI Agent</strong> — an intelligent design partner

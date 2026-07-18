@@ -7,7 +7,6 @@ description: Prototype design references for converters, transformers, magnetics
 
 <header class="hero hero-compact">
   <div class="container">
-    <span class="badge">Resources</span>
     <h1>Prototype Design References</h1>
     <p class="lead">
       Reference designs, hardware prototypes, and engineering notes that can inform

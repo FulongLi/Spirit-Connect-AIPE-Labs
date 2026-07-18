@@ -9,7 +9,6 @@ image: /images/background/sst.png
 <main class="agent-guide">
 <header class="hero hero-compact">
   <div class="container">
-    <span class="badge">No installation · no API key</span>
     <h1>Use AIPE Labs with your coding agent</h1>
     <p class="lead">
       Give <strong>Claude Code</strong>, <strong>Codex</strong>, Cursor, or another web-enabled
@@ -25,7 +24,6 @@ image: /images/background/sst.png
 
 <section class="section section-alt">
   <div class="container">
-    <span class="section-badge">ONE OPEN ENTRY POINT</span>
     <h2>Why use the AIPE index</h2>
     <p class="lead">
       The index gives an agent a stable map of the knowledge, data, design references,
@@ -50,7 +48,6 @@ image: /images/background/sst.png
 
 <section class="section">
   <div class="container">
-    <span class="section-badge">EXAMPLE TASKS</span>
     <h2>Start with an engineering question</h2>
     <p class="lead">
       Ask the agent to use the index as a resource map, then require it to state assumptions,
@@ -87,7 +84,6 @@ image: /images/background/sst.png
 
 <section class="section section-alt">
   <div class="container">
-    <span class="section-badge section-badge-centred">COMMON QUESTIONS</span>
     <h2 class="section-title-centred">Frequently asked questions</h2>
     <div class="faq-list">
       <div class="faq-item">
@@ -116,7 +112,6 @@ image: /images/background/sst.png
 
 <section class="section collaboration-section agent-guide-cta">
   <div class="container narrow-center">
-    <span class="section-badge">START HERE</span>
     <h2>Give your agent the AIPE link</h2>
     <p class="lead">
       Copy the prepared prompt into your coding agent, or contact us to discuss research collaboration,

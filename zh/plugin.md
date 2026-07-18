@@ -10,7 +10,6 @@ image: /images/background/sst.png
 <main class="agent-guide">
 <header class="hero hero-compact">
   <div class="container">
-    <span class="badge">无需安装 · 无需 API Key</span>
     <h1>在你的 Coding Agent 中使用 AIPE Labs</h1>
     <p class="lead">
       通过一条开放链接，让 <strong>Claude Code</strong>、<strong>Codex</strong>、Cursor
@@ -26,7 +25,6 @@ image: /images/background/sst.png
 
 <section class="section section-alt">
   <div class="container">
-    <span class="section-badge">一个开放入口</span>
     <h2>为什么使用 AIPE 索引</h2>
     <p class="lead">
       这份索引为智能体提供一张稳定的资源地图，连接 AIPE Labs 已发布的知识、
@@ -51,7 +49,6 @@ image: /images/background/sst.png
 
 <section class="section">
   <div class="container">
-    <span class="section-badge">任务示例</span>
     <h2>从一个工程问题开始</h2>
     <p class="lead">
       让智能体把索引作为资源地图，同时要求它明确说明假设、引用原始来源，
@@ -88,7 +85,6 @@ image: /images/background/sst.png
 
 <section class="section section-alt">
   <div class="container">
-    <span class="section-badge section-badge-centred">常见问题</span>
     <h2 class="section-title-centred">关于这个入口</h2>
     <div class="faq-list">
       <div class="faq-item">
@@ -117,7 +113,6 @@ image: /images/background/sst.png
 
 <section class="section collaboration-section agent-guide-cta">
   <div class="container narrow-center">
-    <span class="section-badge">从这里开始</span>
     <h2>把 AIPE 链接交给你的智能体</h2>
     <p class="lead">
       把准备好的提示词复制到你的 Coding Agent，或者联系我们讨论科研合作、工程试点与更深入的集成。

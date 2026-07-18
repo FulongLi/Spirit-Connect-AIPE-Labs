@@ -16,7 +16,6 @@ description: A PCB Rogowski coil design reference for high-precision current mea
   <div class="container">
     <div class="feature-content">
       <div class="feature-text">
-        <span class="section-badge">PRECISION MEASUREMENT</span>
         <h2>PCB Rogowski Coil</h2>
         <p class="lead">
           High-precision PCB-based Rogowski coil for accurate current measurement in power electronics applications. 

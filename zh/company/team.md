@@ -8,7 +8,6 @@ description: 共同建设 Spirit Connect AIPE Labs 的贡献者。
 
 <header class="hero hero-compact">
   <div class="container">
-    <span class="badge">公司</span>
     <h1>团队</h1>
     <p class="lead">
       连接电力电子、工程验证与 AI 辅助设计的贡献者团队。

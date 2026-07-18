@@ -7,7 +7,6 @@ description: Engineering notes, research updates, and ideas from the team buildi
 
 <header class="hero hero-compact">
   <div class="container">
-    <span class="badge">Resources</span>
     <h1>Blog</h1>
     <p class="lead">
       Engineering notes, research updates, and ideas from the team building

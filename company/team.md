@@ -7,7 +7,6 @@ description: The contributors building Spirit Connect AIPE Labs.
 
 <header class="hero hero-compact">
   <div class="container">
-    <span class="badge">Company</span>
     <h1>Team</h1>
     <p class="lead">
       Contributors connecting power electronics, engineering validation, and AI-assisted design.

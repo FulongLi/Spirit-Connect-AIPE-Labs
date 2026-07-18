@@ -7,7 +7,6 @@ description: Frequently asked questions about AIPE Labs, aipe.md, coding-agent a
 
 <header class="hero hero-compact">
   <div class="container">
-    <span class="badge">FAQ</span>
     <h1>Questions about AIPE Labs</h1>
     <p class="lead">How the open resource index works, what is available today, and how developers, researchers, and companies can take part.</p>
   </div>

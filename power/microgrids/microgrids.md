@@ -40,7 +40,6 @@ description: Designing, modelling, and controlling DC and AC microgrids for resi
   <div class="container">
     <div class="feature-content">
       <div class="feature-text">
-        <span class="section-badge">SYSTEMS &amp; DISTRIBUTION</span>
         <h2>Solid-State Transformer (SST)</h2>
         <p class="lead">
           SSTs replace line-frequency transformers with controllable power electronics — enabling bidirectional flow,

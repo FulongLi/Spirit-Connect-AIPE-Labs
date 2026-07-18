@@ -9,7 +9,6 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
 <main class="converter-library">
 <header class="hero">
   <div class="container">
-    <span class="badge">拓扑资料库 · 持续公开建设</span>
     <h1>变换器拓扑</h1>
     <p class="lead">
       面向工业电能变换的结构化参考 —— 从 Buck、Boost 和 Flyback，
@@ -20,7 +19,6 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
 
 <section class="section section-alt">
   <div class="container">
-    <span class="section-badge">拓扑地图</span>
     <h2>按照电能变换接口查找</h2>
     <p class="lead">
       首先按照输入与输出的电气形式分类，再通过隔离、双向运行、软开关、
@@ -63,7 +61,6 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
 
 <section class="section" id="dc-dc">
   <div class="container">
-    <span class="section-badge">DC–DC</span>
     <h2>DC–DC 变换器系列</h2>
     <p class="lead">
       DC–DC 功率级用于调节直流母线、变换电压、提供电气隔离，或在电源、
@@ -105,7 +102,6 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
 
 <section class="section section-alt" id="ac-dc">
   <div class="container">
-    <span class="section-badge">AC–DC</span>
     <h2>整流与 PFC 拓扑系列</h2>
     <p class="lead">
       AC–DC 拓扑选择取决于相数、功率因数、谐波限制、直流母线电压、
@@ -136,7 +132,6 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
 
 <section class="section" id="dc-ac">
   <div class="container">
-    <span class="section-badge">DC–AC</span>
     <h2>逆变器拓扑系列</h2>
     <p class="lead">
       逆变器将直流电源和母线连接到电机、电网、不间断电源、
@@ -168,7 +163,6 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
 
 <section class="section section-alt" id="ac-ac">
   <div class="container">
-    <span class="section-badge">AC–AC</span>
     <h2>AC–AC 变换器系列</h2>
     <p class="lead">
       AC–AC 系统通过直接变换或中间直流环节改变电压、频率、相位或功率流向。
@@ -191,7 +185,6 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
 
 <section class="section" id="modular">
   <div class="container">
-    <span class="section-badge">模块化与多级架构</span>
     <h2>从变换器单元到电力系统</h2>
     <p class="lead">
       大功率和中压系统通常通过协调重复的变换器单元构建，
@@ -221,7 +214,6 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
 
 <section class="section section-alt">
   <div class="container">
-    <span class="section-badge">面向智能体的工程数据</span>
     <h2>每个拓扑参考页面将包含什么</h2>
     <p class="lead">
       本页是整个资料库的地图。后续每个拓扑都会逐步补充结构化工程资料，
@@ -250,7 +242,6 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
 
 <section class="section">
   <div class="container">
-    <span class="section-badge">现有参考</span>
     <h2>当前设计参考</h2>
     <p class="lead">
       这些初步参考展示了如何在同一设计流程中连接拓扑、器件、磁性元件、调制与系统需求。
