@@ -9,9 +9,8 @@ image: /images/background/sst.png
   <div class="container">
     <h1>The AI that designs the power systems that power AI</h1>
     <p class="lead">
-      We are building a Power Electronics AI Agent that closes the loop between intelligent
-      system design and the energy infrastructure that fuels it — from semiconductor device
-      to converter to grid.
+      We are connecting intelligent system design with the energy infrastructure that fuels it —
+      from semiconductor device to converter to grid.
     </p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#agent-link">Copy the AIPE link</a>

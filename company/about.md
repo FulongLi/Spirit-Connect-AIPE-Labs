@@ -2,15 +2,15 @@
 layout: default
 title: About
 permalink: /company/about/
-description: About Spirit Connect AIPE Labs — building the Power Electronics AI Agent for a closed-loop energy-AI ecosystem.
+description: About Spirit Connect AIPE Labs — connecting AI-assisted engineering with power infrastructure.
 ---
 
 <header class="hero hero-compact">
   <div class="container">
     <h1>About Spirit Connect AIPE Labs</h1>
     <p class="lead">
-      We are building the <strong>Power Electronics AI Agent</strong> — an intelligent design partner
-      that works across device, converter, and system to create a closed-loop ecosystem
+      We are building an intelligent design approach that works across device, converter, and system
+      to create a closed-loop ecosystem
       where AI and energy infrastructure evolve together.
     </p>
   </div>
@@ -25,7 +25,7 @@ description: About Spirit Connect AIPE Labs — building the Power Electronics A
       delivery. Every power system can be designed better with AI. We exist to close that loop.
     </p>
     <p>
-      Our <strong>Power Electronics AI Agent</strong> supports engineers across the full design stack — from
+      Our AI-assisted engineering approach supports the full design stack — from
       semiconductor device characterisation and converter topology exploration to microgrid architecture
       and grid-level co-optimisation. Each design cycle feeds data back into the agent, making it
       smarter, faster, and more accurate over time.
@@ -114,7 +114,7 @@ description: About Spirit Connect AIPE Labs — building the Power Electronics A
   <div class="container">
     <h2>Get in Touch</h2>
     <p>
-      Interested in the Power Electronics AI Agent or want to explore collaboration?
+      Interested in AI-assisted power electronics engineering or want to explore collaboration?
       Reach out at <a href="mailto:info@spiritconnect.co.uk">info@spiritconnect.co.uk</a> or connect on
       <a href="https://www.linkedin.com/in/fulong-li-6bb443127" target="_blank">LinkedIn</a>.
     </p>

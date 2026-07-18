@@ -2,7 +2,7 @@
 layout: default
 title: Blog
 permalink: /resources/blog/
-description: Engineering notes, research updates, and ideas from the team building the Power Electronics AI Agent.
+description: Engineering notes, research updates, and ideas from the team building AI-assisted power electronics tools.
 ---
 
 <header class="hero hero-compact">
@@ -10,7 +10,7 @@ description: Engineering notes, research updates, and ideas from the team buildi
     <h1>Blog</h1>
     <p class="lead">
       Engineering notes, research updates, and ideas from the team building
-      the Power Electronics AI Agent.
+      AI-assisted power electronics tools.
     </p>
   </div>
 </header>

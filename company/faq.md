@@ -17,7 +17,7 @@ description: Frequently asked questions about AIPE Labs, aipe.md, coding-agent a
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">What is AIPE Labs?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>AIPE Labs is an open power electronics initiative developed by Spirit Connect. It brings together domain knowledge, engineering tools, specialist agents, datasets, design references, and repeatable workflows so developers and engineers can use them through the coding agents they already work with. The longer-term goal is a Power Electronics AI Agent that can reason across device, converter, and system levels.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>AIPE Labs is an open power electronics initiative developed by Spirit Connect. It brings together domain knowledge, engineering tools, specialist agents, datasets, design references, and repeatable workflows so developers and engineers can use them through the coding agents they already work with. The longer-term goal is an AI-assisted engineering platform that can reason across device, converter, and system levels.</p></div></div>
       </div>
 
       <div class="faq-item">
@@ -47,7 +47,7 @@ description: Frequently asked questions about AIPE Labs, aipe.md, coding-agent a
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">What is available now, and what is still being built?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>The public <code>aipe.md</code> index and the resources it currently links to are available now. AIPE Labs is actively organising and expanding its packages, specialist agents, engineering data, simulation and finite-element workflows, and validation examples. The full Power Electronics AI Agent is a longer-term platform under development, so the website distinguishes published resources from planned capabilities.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>The public <code>aipe.md</code> index and the resources it currently links to are available now. AIPE Labs is actively organising and expanding its packages, specialist agents, engineering data, simulation and finite-element workflows, and validation examples. Broader AI-assisted engineering capabilities remain under development, so the website distinguishes published resources from planned capabilities.</p></div></div>
       </div>
 
       <div class="faq-item">

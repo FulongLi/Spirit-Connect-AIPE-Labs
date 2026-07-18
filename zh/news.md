@@ -22,7 +22,7 @@ description: Spirit Connect 与 AIPE Labs 的发展里程碑及项目动态。
         <span class="small">2026 年 7 月 16 日</span>
         <h3>AIPE Labs 网站第二版发布</h3>
         <p>
-          网站完成第二次主要版本更新，更清晰地展示电力电子 AI 智能体、公开的
+          网站完成第二次主要版本更新，更清晰地展示 AI 辅助电力电子工程、公开的
           <code>aipe.md</code> 资源索引、Coding Agent 接入、开放工程资源与合作方向。
           随着项目发展，网站和资源生态将继续更新。
         </p>
@@ -52,7 +52,7 @@ description: Spirit Connect 与 AIPE Labs 的发展里程碑及项目动态。
         <p>
           AIPE Labs 作为一个开放项目开始建设，目标是整理电力电子知识、工具、工程智能体、
           数据集和可复用工作流。这一方向随后发展为公开的 <code>aipe.md</code> 索引及
-          电力电子 AI 智能体愿景。
+          更广泛的 AI 辅助工程方向。
         </p>
       </div>
     </div>

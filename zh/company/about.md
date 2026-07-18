@@ -3,15 +3,15 @@ layout: default
 title: 关于我们
 lang: zh
 permalink: /zh/company/about/
-description: 关于 Spirit Connect AIPE Labs —— 打造电力电子 AI 智能体，构建能源与 AI 的闭环生态。
+description: 关于 Spirit Connect AIPE Labs —— 连接 AI 辅助工程与电力基础设施。
 ---
 
 <header class="hero hero-compact">
   <div class="container">
     <h1>关于 Spirit Connect AIPE Labs</h1>
     <p class="lead">
-      我们正在打造<strong>电力电子 AI 智能体</strong> —— 一个贯穿器件、变换器与系统的智能设计伙伴，
-      构建一个 AI 与能源基础设施共同演进的闭环生态。
+      我们正在构建贯穿器件、变换器与系统的智能设计方法，
+      形成 AI 与能源基础设施共同演进的闭环生态。
     </p>
   </div>
 </header>
@@ -25,7 +25,7 @@ description: 关于 Spirit Connect AIPE Labs —— 打造电力电子 AI 智能
       我们的存在，就是为了闭合这个循环。
     </p>
     <p>
-      我们的<strong>电力电子 AI 智能体</strong>覆盖完整的设计技术栈 —— 从半导体器件表征、变换器拓扑探索，
+      我们的 AI 辅助工程方法覆盖完整的设计技术栈 —— 从半导体器件表征、变换器拓扑探索，
       到微电网架构与电网级协同优化。每一次设计迭代都将数据反馈给智能体，让它随时间变得更聪明、更快速、更精准。
     </p>
   </div>
@@ -97,7 +97,7 @@ description: 关于 Spirit Connect AIPE Labs —— 打造电力电子 AI 智能
   <div class="container">
     <h2>联系我们</h2>
     <p>
-      对电力电子 AI 智能体感兴趣，或希望探讨合作？
+      对 AI 辅助电力电子工程感兴趣，或希望探讨合作？
       欢迎发邮件至 <a href="mailto:info@spiritconnect.co.uk">info@spiritconnect.co.uk</a>，或在
       <a href="https://www.linkedin.com/in/fulong-li-6bb443127" target="_blank">领英</a> 上与我们联系。
     </p>

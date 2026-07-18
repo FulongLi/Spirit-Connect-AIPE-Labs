@@ -11,7 +11,7 @@ image: /images/background/sst.png
   <div class="container">
     <h1>为 AI 供能的电力系统，由 AI 来设计</h1>
     <p class="lead">
-      我们正在打造电力电子 AI 智能体，让智能系统设计与为其供能的能源基础设施形成闭环
+      我们正在连接智能系统设计与为其供能的能源基础设施
       —— 从半导体器件到变换器，再到电网。
     </p>
     <div class="hero-actions">

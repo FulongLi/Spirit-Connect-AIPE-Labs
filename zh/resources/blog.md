@@ -3,14 +3,14 @@ layout: default
 title: 博客
 lang: zh
 permalink: /zh/resources/blog/
-description: 来自打造电力电子 AI 智能体团队的工程笔记、研究进展与想法。
+description: 来自建设 AI 辅助电力电子工具团队的工程笔记、研究进展与想法。
 ---
 
 <header class="hero hero-compact">
   <div class="container">
     <h1>博客</h1>
     <p class="lead">
-      来自打造电力电子 AI 智能体团队的工程笔记、研究进展与想法。
+      来自建设 AI 辅助电力电子工具团队的工程笔记、研究进展与想法。
     </p>
   </div>
 </header>

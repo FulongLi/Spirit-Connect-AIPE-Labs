@@ -35,7 +35,7 @@ database in seconds.
 
 ## What's coming
 
-This is the first step in a larger plan. The Power Electronics AI Agent we are building
+This is the first step in a larger plan. The AI-assisted engineering platform we are building
 goes far beyond static resources: topology exploration, loss and thermal modelling,
 control synthesis, and multi-objective optimisation, operating across device, converter,
 and system scales.

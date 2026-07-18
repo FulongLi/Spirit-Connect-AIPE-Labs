@@ -21,8 +21,8 @@ description: Milestones and project updates from Spirit Connect and AIPE Labs.
         <span class="small">16 July 2026</span>
         <h3>AIPE Labs Website Version 2 Released</h3>
         <p>
-          We released the second major version of the website, with a clearer focus on the Power Electronics
-          AI Agent, the public <code>aipe.md</code> resource index, coding-agent access, open engineering resources,
+          We released the second major version of the website, with a clearer focus on AI-assisted power
+          electronics engineering, the public <code>aipe.md</code> resource index, coding-agent access, open engineering resources,
           and collaboration. The website and resource ecosystem will continue to be updated as the project grows.
         </p>
       </div>
@@ -53,7 +53,7 @@ description: Milestones and project updates from Spirit Connect and AIPE Labs.
         <p>
           The AIPE Labs initiative began as an open effort to organise power electronics knowledge, tools,
           engineering agents, datasets, and reusable workflows. This established the direction that later
-          developed into the public <code>aipe.md</code> index and the Power Electronics AI Agent vision.
+          developed into the public <code>aipe.md</code> index and a broader AI-assisted engineering direction.
         </p>
       </div>
     </div>
