@@ -7,7 +7,6 @@ image: /images/background/sst.png
 
 <header class="hero home-hero">
   <div class="container">
-    <span class="badge">Power Electronics AI Agent</span>
     <h1>The AI that designs the power systems that power AI</h1>
     <p class="lead">
       We are building a Power Electronics AI Agent that closes the loop between intelligent
@@ -41,7 +40,6 @@ image: /images/background/sst.png
 
 <section class="section section-alt agent-entry" id="agent-link">
   <div class="container narrow-center">
-    <span class="badge">Free · open · no API key</span>
     <h2>One link is the entry point</h2>
     <p class="lead">
       <code>aipe.md</code> is a Markdown index written for AI agents. It helps an agent discover
@@ -100,7 +98,6 @@ image: /images/background/sst.png
 <section class="section collaboration-section">
   <div class="container collaboration-layout">
     <div>
-      <span class="section-badge">Community + collaboration</span>
       <h2>Built to be useful today — and ambitious enough to grow</h2>
       <p class="lead">
         We welcome developers who want to use or contribute resources, researchers who want to

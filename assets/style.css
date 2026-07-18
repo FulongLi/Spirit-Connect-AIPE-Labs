@@ -163,16 +163,6 @@ a:hover { opacity: .7; }
 }
 .hero-actions { display: flex; gap: .9rem; flex-wrap: wrap; justify-content: center; }
 
-.badge {
-  display: inline-block; padding: .35rem .95rem;
-  background: var(--accent-soft);
-  color: var(--fg) !important;
-  border: 1px solid rgba(214, 178, 40, 0.35);
-  border-radius: var(--pill);
-  font-size: .78rem; font-weight: 600; margin-bottom: 1.4rem;
-  letter-spacing: .05em; text-transform: uppercase;
-}
-
 /* ══════════════════════════════════════
    BUTTONS — black pills, ChatCut style
    ══════════════════════════════════════ */
@@ -312,7 +302,6 @@ a:hover { opacity: .7; }
   font-size: .78rem;
 }
 
-.agent-entry .badge { margin-bottom: 1.2rem; }
 .agent-entry h2 { max-width: 20ch; margin-inline: auto; }
 .agent-entry .lead code {
   padding: .12em .4em; border-radius: 6px; background: rgba(36,28,16,.07);
@@ -345,7 +334,6 @@ a:hover { opacity: .7; }
 .collaboration-section { background: #171713; color: #fff; }
 .collaboration-section h2, .collaboration-section .lead { color: #fff; }
 .collaboration-section .lead { color: rgba(255,255,255,.66); }
-.collaboration-section .section-badge { background: rgba(245,213,74,.12); color: #f8df75; border-color: rgba(245,213,74,.25); }
 .collaboration-section .btn-primary { background: #fff; color: #171713; }
 .collaboration-section .btn-primary:hover { background: #f2efe7; color: #171713; }
 .collaboration-section .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.25); }
@@ -601,13 +589,6 @@ img { max-width: 100%; height: auto; }
 .feature-content { display: grid; gap: 3rem; align-items: center; grid-template-columns: 1fr; }
 @media(min-width:900px) { .feature-content { grid-template-columns: 1fr 1fr; } }
 .feature-text { display: flex; flex-direction: column; }
-.section-badge {
-  display: inline-block; padding: .35rem .9rem;
-  background: var(--accent-soft); color: var(--fg);
-  border: 1px solid rgba(214, 178, 40, 0.35); border-radius: var(--pill);
-  font-size: .76rem; font-weight: 600; margin-bottom: 1.1rem;
-  letter-spacing: .05em; text-transform: uppercase; width: fit-content;
-}
 .feature-text h2 { font-size: clamp(1.6rem,3.5vw,2.3rem); margin: 0 0 1.4rem; }
 .feature-text .lead { max-width: 100%; margin-bottom: 2rem; }
 .feature-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }

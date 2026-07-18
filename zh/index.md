@@ -9,7 +9,6 @@ image: /images/background/sst.png
 
 <header class="hero home-hero">
   <div class="container">
-    <span class="badge">电力电子 AI 智能体</span>
     <h1>为 AI 供能的电力系统，由 AI 来设计</h1>
     <p class="lead">
       我们正在打造电力电子 AI 智能体，让智能系统设计与为其供能的能源基础设施形成闭环
@@ -42,7 +41,6 @@ image: /images/background/sst.png
 
 <section class="section section-alt agent-entry" id="agent-link">
   <div class="container narrow-center">
-    <span class="badge">免费 · 开放 · 无需 API Key</span>
     <h2>一条链接，就是整个生态的入口</h2>
     <p class="lead">
       <code>aipe.md</code> 是一份专门为 AI 智能体编写的 Markdown 索引。它帮助智能体根据当前任务，
@@ -89,7 +87,6 @@ image: /images/background/sst.png
 <section class="section collaboration-section">
   <div class="container collaboration-layout">
     <div>
-      <span class="section-badge">社区 + 合作</span>
       <h2>今天就要有用，也要足够有野心</h2>
       <p class="lead">
         我们欢迎开发者使用或贡献资源，欢迎研究人员共同验证新的工程流程，也期待与企业、
