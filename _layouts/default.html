@@ -9,8 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}"/>
-  <link rel="icon" type="image/svg+xml" href="{{ '/images/general/SC_black.svg' | relative_url }}">
-  <link rel="apple-touch-icon" href="{{ '/images/general/SC_black.svg' | relative_url }}">
+  {% include favicon.html %}
   {% assign social_image = page.image | default: '/images/background/sst.png' %}
   <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ social_image }}">
   <meta property="og:image:width" content="1536">
