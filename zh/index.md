@@ -109,13 +109,29 @@ image: /images/background/sst.png
   <div class="container">
     <h2>合作伙伴</h2>
     <p>连接人工智能、电力电子与能源系统研究的学术和产业合作关系。</p>
-    <div class="partner-grid">
-      <img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="卡迪夫大学" loading="lazy" decoding="async">
-      <img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="住友重机械工业" loading="lazy" decoding="async">
-      <img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="上海大学" loading="lazy" decoding="async">
-      <img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="泮芯科技" loading="lazy" decoding="async">
-      <img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="拉夫堡大学" loading="lazy" decoding="async">
-      <img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="格拉斯哥大学" loading="lazy" decoding="async">
+    <div class="partner-marquee" role="region" aria-label="合作伙伴与协作机构">
+      <div class="partner-track">
+        <div class="partner-list" role="list">
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="卡迪夫大学" loading="lazy" decoding="async"></div>
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="住友重机械工业" loading="lazy" decoding="async"></div>
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="上海大学" loading="lazy" decoding="async"></div>
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="泮芯科技" loading="lazy" decoding="async"></div>
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="拉夫堡大学" loading="lazy" decoding="async"></div>
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="格拉斯哥大学" loading="lazy" decoding="async"></div>
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/nvidia-logo.webp' | relative_url }}" alt="英伟达" loading="lazy" decoding="async"></div>
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/mps_logo.png' | relative_url }}" alt="芯源系统" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="partner-list" aria-hidden="true">
+          <div class="partner-logo"><img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="{{ '/images/general/nvidia-logo.webp' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="{{ '/images/general/mps_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

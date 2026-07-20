@@ -351,16 +351,46 @@ a:hover { opacity: .7; }
 
 .agent-guide-cta .lead { margin-inline: auto; }
 
-.partner-grid {
-  display: grid; grid-template-columns: repeat(6, minmax(0,1fr));
-  gap: 2rem; align-items: center; margin-top: 2.5rem;
+.partner-marquee {
+  --partner-gap: 3rem;
+  --partner-half-gap: 1.5rem;
+  margin-top: 2.5rem;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
 }
-.partner-grid img { width: 100%; max-width: 150px; max-height: 72px; object-fit: contain; justify-self: center; }
+.partner-track {
+  display: flex;
+  width: max-content;
+  gap: var(--partner-gap);
+  animation: partner-scroll 32s linear infinite;
+  will-change: transform;
+}
+.partner-marquee:hover .partner-track { animation-play-state: paused; }
+.partner-list {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--partner-gap);
+}
+.partner-logo {
+  display: flex;
+  flex: 0 0 180px;
+  width: 180px;
+  height: 88px;
+  align-items: center;
+  justify-content: center;
+}
+.partner-logo img { width: 100%; max-width: 150px; max-height: 72px; object-fit: contain; }
+
+@keyframes partner-scroll {
+  to { transform: translateX(calc(-50% - var(--partner-half-gap))); }
+}
 
 @media(max-width:880px) {
   .prompt-grid { grid-template-columns: 1fr; }
   .collaboration-layout { grid-template-columns: 1fr; gap: 3rem; }
-  .partner-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .partner-marquee { --partner-gap: 2rem; --partner-half-gap: 1rem; }
 }
 @media(max-width:600px) {
   .workflow-toolbar { align-items: flex-start; flex-direction: column; }
@@ -368,8 +398,18 @@ a:hover { opacity: .7; }
   .workflow-route b { transform: rotate(90deg); }
   .workflow-prompt, .workflow-resources { padding-left: 1.1rem; padding-right: 1.1rem; }
   .workflow-route { margin-left: 1.1rem; margin-right: 1.1rem; }
-  .partner-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .partner-logo { flex-basis: 150px; width: 150px; }
   .home-hero h1 { font-size: clamp(2.25rem, 11vw, 3.2rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .partner-track { animation: none; }
+  .partner-list[aria-hidden="true"] { display: none; }
 }
 
 /* ══════════════════════════════════════
