@@ -21,7 +21,7 @@ description: Engineering notes, research updates, and ideas from the team buildi
     <div class="grid post-grid">
       {% for post in site.posts %}
       <a class="card post-card" href="{{ post.url | relative_url }}">
-        <span class="small">{{ post.date | date: "%-d %B %Y" }}</span>
+        <span class="small">{{ post.date | date: "%-d %B %Y" }}{% if post.author %} · {{ post.author }}{% endif %}</span>
         <h3>{{ post.title }}</h3>
         <p>{{ post.description | default: post.excerpt | strip_html | truncate: 150 }}</p>
         <span class="post-card-more">Read more →</span>

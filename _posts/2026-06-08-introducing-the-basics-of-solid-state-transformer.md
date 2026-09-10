@@ -3,7 +3,7 @@ layout: post
 title: "Introducing the Basics of Solid-State Transformer"
 description: "How solid-state transformers could connect medium-voltage utility feeds directly to the 800 VDC bus architecture emerging in next-generation AI data centres."
 date: 2026-06-08
-author: "AIPE Labs"
+author: "Dr. Fulong Li"
 zh_url: /zh/resources/blog/
 ---
 

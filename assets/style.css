@@ -469,6 +469,7 @@ a:hover { opacity: .7; }
 .post-card:hover .post-card-more { opacity: .6; }
 
 .post-article { max-width: 720px; }
+.post-article h2, .post-article h3 { scroll-margin-top: 100px; }
 .post-article h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 2.5rem 0 1rem; }
 .post-article h3 { font-size: 1.2rem; margin: 2rem 0 .8rem; }
 .post-article p, .post-article li { color: var(--fg-dim); font-size: 1.05rem; line-height: 1.75; }
@@ -493,6 +494,12 @@ a:hover { opacity: .7; }
   background: var(--bg-alt); border: 1px solid var(--border);
   border-radius: 6px; padding: .12em .4em;
 }
+.post-article .math-display { overflow-x: auto; overflow-y: hidden; padding: .5rem 0; }
+.post-article mjx-container[display="true"] { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: .5rem 0; }
+.post-article table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin: 1.5rem 0; }
+.post-article th, .post-article td { padding: .7rem .85rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+.post-article th { color: var(--fg); }
+.post-article td { color: var(--fg-dim); line-height: 1.6; }
 .post-article img { border-radius: var(--radius-sm); }
 .post-back { margin-top: 3rem; }
 .legal-article { margin-inline: auto; }

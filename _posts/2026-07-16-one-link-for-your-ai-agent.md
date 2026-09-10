@@ -2,7 +2,7 @@
 layout: post
 title: "One link to bring power electronics into your AI agent"
 description: "Why we published aipe.md — and how to use it with Claude Code, Codex, or any AI coding agent to design converters with real component data."
-author: "AIPE Labs"
+author: "Dr. Fulong Li"
 zh_url: /zh/resources/blog/
 ---
 
