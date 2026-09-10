@@ -2,7 +2,7 @@
 layout: post
 title: "DAB Power Transfer and Small-Signal Modelling: A Step-by-Step Derivation"
 description: "Derive dual-active-bridge current waveforms, phase-shift power, RMS current and the low-frequency control plant, with explicit reference directions and modelling assumptions."
-date: 2026-09-10 09:00:00 +0100
+date: 2026-01-19
 author: "Dr. Fulong Li"
 math: true
 sst_series: true

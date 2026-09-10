@@ -2,7 +2,7 @@
 layout: post
 title: "Building a Modular SST: Energy, Sharing and System Integration"
 description: "Connect the three SST stages through explicit energy control, module sharing, startup states and a staged validation plan."
-date: 2026-09-10 09:05:00 +0100
+date: 2026-01-19
 author: Dr. Fulong Li
 math: true
 sst_series: true

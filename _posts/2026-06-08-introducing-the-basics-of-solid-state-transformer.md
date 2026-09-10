@@ -2,8 +2,8 @@
 layout: post
 title: "Solid-State Transformers: Principles, Applications and Design Choices"
 description: "Why solid-state transformers are studied for distribution, data centres, charging and microgrids, and how the application determines the conversion architecture."
-date: 2026-06-08
-last_modified_at: 2026-09-10
+date: 2026-01-19
+last_modified_at: 2026-01-19
 author: "Dr. Fulong Li"
 sst_series: true
 math: true

@@ -835,6 +835,3 @@ img { max-width: 100%; height: auto; }
 .series-nav { margin: 0 0 2rem; padding: 1rem 1.25rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-alt); }
 .series-nav summary { cursor: pointer; font-weight: 650; line-height: 1.5; }
 .series-nav p, .series-nav li { font-size: .95rem; }
-.blog-series-intro { max-width: 850px; margin-bottom: 2.5rem; padding: 1.5rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-alt); }
-.blog-series-intro h2 { margin-top: 0; }
-.blog-series-intro a { font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }

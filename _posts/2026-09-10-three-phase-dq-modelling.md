@@ -2,7 +2,7 @@
 layout: post
 title: "Three-Phase dq Modelling: Coordinates, Power and Synchronisation"
 description: "Derive amplitude-invariant Clarke and Park transforms, their coupling terms and power conventions, then obtain a basic synchronous-reference-frame PLL."
-date: 2026-09-10 09:10:00 +0100
+date: 2026-01-19
 author: "Dr. Fulong Li"
 math: true
 sst_series: true

@@ -2,7 +2,7 @@
 layout: post
 title: "The AC–DC Front End of an SST: Circuit, Modelling and Control"
 description: "From one active bridge to a cascaded H-bridge front end: input-current equations, DC-link energy, modulation and capacitor-voltage balancing."
-date: 2026-09-10 09:20:00 +0100
+date: 2026-01-19
 author: "Dr. Fulong Li"
 math: true
 sst_series: true

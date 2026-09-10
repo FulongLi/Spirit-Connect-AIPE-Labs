@@ -2,7 +2,7 @@
 layout: post
 title: "Three-Stage Solid-State Transformers: From Principles to a Complete System"
 description: "The architecture, energy flow and shared teaching specification for an SST built from a cascaded front end, isolated DAB modules and an AC output stage."
-date: 2026-09-10 09:20:00 +0100
+date: 2026-01-19
 author: "Dr. Fulong Li"
 math: true
 sst_series: true

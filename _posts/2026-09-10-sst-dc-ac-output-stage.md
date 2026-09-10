@@ -2,7 +2,7 @@
 layout: post
 title: "The DC–AC Output Stage of an SST: From Voltage Synthesis to Closed-Loop Control"
 description: "Build the SST AC output from a two-level bridge, derive the LC-filter and dq models, and design cascaded current and voltage control before studying grid connection."
-date: 2026-09-10 09:10:00 +0100
+date: 2026-01-19
 author: "Dr. Fulong Li"
 math: true
 sst_series: true

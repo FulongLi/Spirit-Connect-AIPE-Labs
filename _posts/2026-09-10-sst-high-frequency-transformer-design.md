@@ -2,7 +2,7 @@
 layout: post
 title: "The SST High-Frequency Transformer: From Volt-Seconds to a Testable Design"
 description: "Derive transformer turns, distinguish transfer and magnetising inductance, and connect DAB waveforms to winding, core, thermal and insulation requirements."
-date: 2026-09-10 09:05:00 +0100
+date: 2026-01-19
 author: Dr. Fulong Li
 math: true
 sst_series: true

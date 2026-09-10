@@ -2,7 +2,7 @@
 layout: post
 title: "The DAB Isolation Stage: From Switching Waveforms to Closed-Loop Control"
 description: "A consistent derivation-led introduction to a dual-active-bridge converter, including phase-shift control, device stress, soft switching and laboratory validation."
-date: 2026-09-10 09:20:00 +0100
+date: 2026-01-19
 author: "Dr. Fulong Li"
 math: true
 sst_series: true
