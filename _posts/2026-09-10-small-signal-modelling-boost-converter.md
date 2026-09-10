@@ -2,7 +2,7 @@
 layout: post
 title: "Small-Signal Modelling from First Principles: A Boost Converter Walkthrough"
 description: "Why small-signal models work, and how to derive a boost converter's averaged equations, operating point, transfer functions and right-half-plane zero."
-date: 2026-09-10 08:00:00 +0100
+date: 2025-12-09
 author: "Dr. Fulong Li"
 math: true
 zh_url: /zh/resources/blog/

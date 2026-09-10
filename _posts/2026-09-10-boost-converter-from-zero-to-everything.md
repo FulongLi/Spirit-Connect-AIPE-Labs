@@ -2,7 +2,7 @@
 layout: post
 title: "Boost Converter: From Zero to Everything"
 description: "A practical path from the first switching cycle to modelling, feedback control, simulation, KiCad and a working boost-converter prototype."
-date: 2026-09-10 09:00:00 +0100
+date: 2025-12-09
 author: "Dr. Fulong Li"
 math: true
 zh_url: /zh/resources/blog/
