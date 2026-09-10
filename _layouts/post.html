@@ -11,6 +11,7 @@ layout: default
 <section class="section">
   <div class="container">
     <article class="post-article">
+      {% if page.sst_series %}{% include sst-series.html %}{% endif %}
       {{ content }}
     </article>
     <p class="post-back">

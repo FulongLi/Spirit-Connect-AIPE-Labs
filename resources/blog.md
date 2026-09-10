@@ -17,6 +17,11 @@ description: Engineering notes, research updates, and ideas from the team buildi
 
 <section class="section">
   <div class="container">
+    <aside class="blog-series-intro">
+      <h2>Learn to design a three-stage solid-state transformer</h2>
+      <p>Follow one teaching system from applications and circuit principles through modelling, control, magnetic design and modular integration.</p>
+      <a href="{% post_url 2026-09-10-three-stage-solid-state-transformer %}">Open the SST learning series →</a>
+    </aside>
     {% if site.posts.size > 0 %}
     <div class="grid post-grid">
       {% for post in site.posts %}

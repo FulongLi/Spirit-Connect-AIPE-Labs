@@ -8,9 +8,11 @@ description: Design reference for AI-assisted optimisation of a dual-active-brid
 <header class="hero">
   <div class="container">
     <h1>DAB Converter Design Reference</h1>
-    <p class="lead">How our AI-assisted platform optimised a 2 kW DAB stage — switching devices, magnetics, and control loops.</p>
+    <p class="lead">A design workflow for a DAB stage — switching devices, magnetics, control loops and validation. The teaching series starts with a separate 100 W cell example.</p>
   </div>
 </header>
+
+<section class="section"><div class="container"><p><a href="{% post_url 2026-09-10-dab-converter-from-principles-to-control %}">Read the DAB circuit, modelling and control tutorial →</a></p><p>The linked articles are analytical teaching drafts. They state their assumptions and distinguish planned models and hardware from completed validation.</p></div></section>
 
 <section class="section">
   <div class="container">

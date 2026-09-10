@@ -12,6 +12,8 @@ description: Design reference for an AI-assisted solid-state transformer (SST) a
   </div>
 </header>
 
+<section class="section"><div class="container"><p><a href="{% post_url 2026-09-10-three-stage-solid-state-transformer %}">Read the complete three-stage SST learning series →</a></p><p>The linked articles are analytical teaching drafts. They state their assumptions and distinguish planned models and hardware from completed validation.</p></div></section>
+
 <section class="section">
   <div class="container">
     <h2>Why Solid-State Transformers?</h2>
@@ -33,8 +35,7 @@ description: Design reference for an AI-assisted solid-state transformer (SST) a
       </div>
       <div class="card">
         <h3>Medium-voltage operation</h3>
-        <p>SiC-based designs for 1–10 kV class applications — the AI Agent handles insulation coordination,
-        dv/dt management, and series device balancing.</p>
+        <p>For medium-voltage designs, insulation coordination, dv/dt management and module voltage sharing require dedicated engineering and validation.</p>
       </div>
     </div>
   </div>

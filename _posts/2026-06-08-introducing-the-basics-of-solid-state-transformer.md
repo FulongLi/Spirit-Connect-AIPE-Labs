@@ -1,123 +1,122 @@
 ---
 layout: post
-title: "Introducing the Basics of Solid-State Transformer"
-description: "How solid-state transformers could connect medium-voltage utility feeds directly to the 800 VDC bus architecture emerging in next-generation AI data centres."
+title: "Solid-State Transformers: Principles, Applications and Design Choices"
+description: "Why solid-state transformers are studied for distribution, data centres, charging and microgrids, and how the application determines the conversion architecture."
 date: 2026-06-08
+last_modified_at: 2026-09-10
 author: "Dr. Fulong Li"
+sst_series: true
+math: true
+permalink: /resources/blog/introducing-the-basics-of-solid-state-transformer/
 zh_url: /zh/resources/blog/
 ---
 
-AI data centres are becoming power systems in their own right. As accelerated-computing
-racks move from tens of kilowatts towards hundreds of kilowatts and, eventually, the
-megawatt scale, the path from the utility grid to the processors matters almost as much
-as the processors themselves.
+A conventional transformer transfers power through a magnetic field and changes the relationship between voltage and current. In an AC distribution system it normally performs this task at the grid frequency. A solid-state transformer (SST) combines power-electronic conversion with a transformer operating at a higher internal frequency, allowing additional control of its electrical ports.
 
-This is where two developments meet: the **solid-state transformer (SST)** and the
-**800 VDC distribution architecture** being developed for future NVIDIA-based AI
-infrastructure. The first changes how voltage conversion and isolation can be performed;
-the second changes how power is distributed through the data hall and delivered to the
-compute rack.
+The useful question is not whether an SST is universally better than a conventional transformer. It is which application needs its particular combination of isolation, conversion and control, and whether those functions justify the additional equipment and losses.
 
-## What is a solid-state transformer?
+This article introduces those choices. The [three-stage SST system guide]({% post_url 2026-09-10-three-stage-solid-state-transformer %}) develops a complete learning route through circuit analysis, modelling, control, hardware design and integration.
 
-A conventional transformer transfers energy magnetically at the grid frequency of
-50 or 60 Hz. It is efficient, robust and well understood, but it is also passive: voltage
-conversion, rectification, regulation and power-quality control generally require
-additional equipment around it.
+## 1. Begin with the function of a transformer
 
-An SST combines high-frequency power converters with a medium-frequency transformer.
-A typical medium-voltage-to-DC implementation contains three functional stages:
+For an ideal two-winding transformer, let the turns ratio be n = Np/Ns and define secondary current positive out of the secondary winding towards the load. Then the magnitudes satisfy
 
-1. A controlled front end converts medium-voltage AC into DC and manages input current
-   quality.
-2. An isolated DC-DC stage switches at a much higher frequency than the grid. The higher
-   frequency allows the magnetic components to be substantially smaller.
-3. An output stage regulates the required DC bus voltage and coordinates with downstream
-   loads, energy storage and protection systems.
+$$
+\frac{V_p}{V_s}=n,\qquad \frac{I_s}{I_p}=n,\qquad P_p=P_s.
+\tag{1}
+$$
 
-The exact circuit may use cascaded or modular multilevel cells, dual-active-bridge (DAB)
-converters, resonant converters, or a combination of these. The important idea is not
-one particular topology. It is that galvanic isolation, voltage transformation and active
-control are integrated into a modular power-electronic system.
+A real transformer additionally has winding resistance, leakage inductance, finite magnetising inductance and core loss. It does not independently regulate its input power factor, create a DC port or impose an arbitrary output waveform. Those functions require other equipment.
 
-That integration can provide capabilities that a line-frequency transformer alone cannot:
-bidirectional power flow, fast voltage regulation, power-factor control, load shaping,
-and direct connection to batteries or other DC resources. These benefits come with added
-engineering demands, including semiconductor losses, insulation coordination, EMI,
-cooling, fault isolation and control-system reliability.
+An SST introduces controlled switching stages. The internal transformer remains a physical magnetic component: its winding arrangement provides isolation and its flux must obey volt-second constraints. A higher operating frequency can reduce the magnetic size required for a given applied voltage and flux swing, but insulation, loss, cooling and electromagnetic interference still constrain the design.
 
-## Why 800 VDC is relevant to AI data centres
+## 2. One name covers several architectures
 
-Today's AI racks commonly distribute power internally at approximately 54 VDC. This is
-practical at lower power, but current becomes difficult to manage as rack power rises.
-For an idealised 1 MW load, 54 V corresponds to about 18.5 kA; at 800 V, the same power
-corresponds to 1.25 kA. Real systems must also account for conversion losses, redundancy
-and transient headroom, but the scale of the difference remains clear.
+For clarity, this series uses the following functional classification.
 
-Lower current means smaller conductors, lower I²R losses and less space devoted to
-copper busbars. It also allows power conversion to move out of the compute rack, leaving
-more rack volume and cooling capacity for processors and networking.
+| Architecture | Basic interpretation |
+|---|---|
+| Single stage | Integrated AC conversion and isolation without two independently buffered DC links |
+| Two stages | Two principal conversion stages with one intermediate DC link; arrangements differ |
+| Three stages | AC–DC front end, isolated DC–DC stage and DC–AC output, with DC links on both sides of the isolation stage |
 
-[NVIDIA's published 800 VDC architecture](https://developer.nvidia.com/blog/nvidia-800-v-hvdc-architecture-will-power-the-next-generation-of-ai-factories/)
-centralises the conversion to 800 VDC and distributes it through the data hall to future
-compute racks. The 800 V bus does not power GPU silicon directly: isolated or non-isolated
-DC-DC converters near the compute trays still step the voltage down to the intermediate
-and point-of-load rails required by the electronics.
+The block diagram matters more than the label. A complete three-stage AC-to-AC path is
 
-## Where the SST fits
+**MVAC → AC–DC → high-side DC links → isolated DC–DC → LVDC → DC–AC → LVAC.**
 
-There are several possible stages in the transition to an 800 VDC facility. Existing data
-centres may retain their line-frequency transformers and AC infrastructure, then add
-centralised or row-level AC-to-800 VDC conversion. A purpose-built facility can go further.
+For a DC-only application, the required output can be taken from the LVDC bus. There is no need to add an AC output stage solely to match the three-stage diagram. Also, a modular front end can have separate floating high-side DC links rather than one externally accessible MVDC bus.
 
-In the longer-term arrangement, an SST can accept a medium-voltage AC input and produce a
-regulated, galvanically isolated 800 VDC output. This can replace the conventional sequence
-of medium-voltage transformer, low-voltage AC switchgear and distributed rack-level
-rectifiers with a shorter conversion chain:
+These distinctions are developed in the [architecture chapter]({% post_url 2026-09-10-three-stage-solid-state-transformer %}). They correct a common source of confusion: an MVAC-to-DC supply and a complete AC-to-AC SST need not contain the same stages.
 
-**Medium-voltage AC → modular SST → 800 VDC busway → rack DC-DC converters → processors**
+## 3. Match the application to its ports
 
-The result is not simply a smaller transformer. The SST becomes an actively controlled
-interface between the grid and the AI load. It can regulate the DC bus, limit disturbances,
-coordinate energy storage and potentially smooth the rapid power variations created by
-GPU workloads before they propagate upstream.
+| Application | Useful interfaces and functions | Questions that determine the design |
+|---|---|---|
+| Distribution and local AC supply | MVAC input, regulated LVAC output, optional DC port | Voltage quality, overload capability, grounding, protection and service continuity |
+| DC data-centre distribution | MVAC input and an isolated DC output | Conversion loss, load steps, redundancy, DC fault interruption and maintainability |
+| High-power vehicle charging | MVAC input, isolated DC distribution and downstream charger interfaces | Wide load range, isolation arrangement, modular scaling and cooling |
+| Storage and microgrids | AC and DC interfaces with controlled power flow | Energy availability, voltage/frequency responsibility and mode transitions |
+| Traction and transport | Application-specific supply and vehicle-side ports | Mass, insulation, vibration, supply variation and thermal cycling |
 
-This distinction is important: 800 VDC does not require an SST on day one, and an SST is
-not automatically the best answer for every site. NVIDIA has described both conventional
-transformer-based and SST approaches as part of the industry evaluation. The practical
-choice depends on facility scale, grid connection voltage, availability targets, efficiency,
-maintenance strategy and the maturity of DC protection equipment.
+This table describes engineering motivations, not a claim that every application has adopted SSTs or requires the same topology. Each project must compare the SST against the complete conventional alternative, including the converters needed around its line-frequency transformer.
 
-## The engineering questions that matter
+## 4. An example: the path from an AC utility feed to a DC data hall
 
-For SSTs to become a dependable part of data-centre infrastructure, designers need to
-solve several system-level problems:
+The original motivation for this article was the proposed use of higher-voltage DC distribution in AI data centres. [NVIDIA's published 800 VDC architecture discussion](https://developer.nvidia.com/blog/nvidia-800-v-hvdc-architecture-will-power-the-next-generation-of-ai-factories/) describes an approach to supplying future high-power computing infrastructure. It is an application proposal to examine, not a universal facility specification.
 
-- **Efficiency across the load profile.** A small loss percentage becomes substantial at
-  megawatt scale, especially when conversion is continuous.
-- **Modularity and availability.** Series-connected medium-voltage cells must share voltage
-  correctly, and a failed module should be isolated without taking an entire power block offline.
-- **DC fault protection.** Unlike AC, DC has no natural current zero crossing. Detection,
-  interruption, grounding and safe maintenance procedures must be designed as one system.
-- **Insulation and thermal design.** Fast wide-bandgap switching enables higher power density,
-  but also creates high dv/dt, common-mode currents and demanding electric-field conditions.
-- **Control interaction.** The SST, bus capacitors, battery systems and thousands of downstream
-  converters must remain stable during workload steps, grid events and equipment faults.
+For an idealised 1 MW load, the current corresponding to 54 V is about 18.5 kA, while at 800 V it is 1.25 kA:
 
-These are exactly the kinds of coupled trade-offs that make the SST a compelling target for
-AI-assisted engineering: topology, semiconductor selection, magnetics, control, thermal
-management and reliability cannot be optimised independently.
+$$
+I=\frac{P}{V}.
+\tag{2}
+$$
 
-## A new grid-to-chip boundary
+For equal resistance, conduction loss follows
 
-The shift to 800 VDC moves the boundary between facility power and IT power. The SST could
-move it further still, creating a programmable medium-voltage-to-DC interface designed around
-the behaviour of the compute load.
+$$
+P_{\mathrm{Cu}}=I^2R.
+\tag{3}
+$$
 
-The opportunity is significant: fewer conversion stages, lower distribution current, better
-use of copper and space, and tighter coordination between the grid, energy storage and compute.
-The challenge is equally significant: the new architecture must match the efficiency,
-serviceability and long-term dependability expected from conventional data-centre power systems.
+This comparison illustrates the incentive to raise distribution voltage. It does not establish the total-system efficiency, because the conductor arrangement, conversion stages, insulation and protection also change.
 
-For a closer look at the converter building blocks, see our
-[Solid-State Transformer design reference](/resources/prototypes/sst/).
+An isolated MVAC-to-DC SST could feed the distribution bus. Downstream converters would still provide the rails required by servers and processors. A conventional line-frequency transformer followed by rectifiers is another possible route. The evaluation must include conversion efficiency over the actual load profile, fault handling, maintenance and redundancy.
+
+The 800 V application is separate from the 48 V laboratory bus used in our teaching series. The lower-voltage example is selected to study the architecture and control; it is not an 800 V design scaled only by changing a source parameter.
+
+## 5. Why modularity matters
+
+A modular converter divides electrical stress and power among repeated cells. Series connections distribute voltage; parallel connections distribute current. The arrangement also determines where isolation is needed and which balancing variables must be controlled.
+
+For an ideal group of equally loaded modules,
+
+$$
+V_{\mathrm{series}}=\sum_{k=1}^{N}V_k,\qquad
+I_{\mathrm{parallel}}=\sum_{k=1}^{N}I_k.
+\tag{4}
+$$
+
+Equal loading does not happen automatically. Device tolerances, unequal capacitor energy, timing differences and thermal variation affect sharing. The [modular integration chapter]({% post_url 2026-09-10-modular-sst-system-integration %}) therefore treats balancing and startup as part of the design, rather than as wiring details.
+
+As one practical research example, [Awal et al.](https://arxiv.org/abs/2007.04369) describe a modular medium-voltage AC to low-voltage DC converter for charging, using input-series/output-parallel converter modules. It illustrates how the requested port voltage and power lead to a modular architecture.
+
+## 6. Evaluate the complete system
+
+An SST may provide controlled input current, regulated output voltage, isolation and bidirectional power transfer when the selected converters and protection support those functions. Those capabilities have to be purchased with semiconductor devices, gate drives, sensors, control hardware and cooling.
+
+Compare candidates using the same requirements:
+
+- Loss across the mission profile, including auxiliaries and standby operation.
+- Insulation and common-mode stress at every module and external port.
+- Fault current paths, interruption capability and stored energy.
+- Overload behaviour, thermal limits and recovery after disturbances.
+- Reliability, replacement procedures and the effect of a failed module.
+- Source and load interactions, including weak grids and constant-power loads.
+
+Claims about smaller size or improved efficiency should state the comparison boundary and supporting measurements. A smaller high-frequency transformer alone does not demonstrate a smaller complete installation.
+
+## 7. Follow the design through its three stages
+
+The series uses a CHB front end, one DAB per floating cell and a central LVAC inverter. Begin with the [shared specification and system guide]({% post_url 2026-09-10-three-stage-solid-state-transformer %}), then study the [AC–DC front end]({% post_url 2026-09-10-sst-ac-dc-front-end %}), [DAB isolation stage]({% post_url 2026-09-10-dab-converter-from-principles-to-control %}) and [DC–AC output stage]({% post_url 2026-09-10-sst-dc-ac-output-stage %}).
+
+The final [integration chapter]({% post_url 2026-09-10-modular-sst-system-integration %}) combines them using explicit energy balances, control ownership and test milestones. The current articles are an analytical teaching draft. Prototype measurements and downloadable native design projects should be added as they are completed and verified.
