@@ -940,3 +940,48 @@ img { max-width: 100%; height: auto; }
   .db-figure-wide .db-figure { overflow-x: auto; }
   .db-figure-wide .db-figure > svg { min-width: 620px; }
 }
+
+/* ══════════════════════════════════════
+   DEVICE PHYSICS — SCHEMATICS, EQUATIONS, TABLES
+   ══════════════════════════════════════ */
+.db-figure .fig-sym { fill: none; stroke: var(--fig-ink); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.db-figure .fig-sym-fill { fill: var(--fig-ink); stroke: none; }
+.db-figure .fig-loop { fill: none; stroke: var(--fig-accent); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; opacity: .55; }
+
+.eq-block {
+  margin: 1.6rem 0; padding: 1.1rem 1.3rem;
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent); border-radius: var(--radius-sm);
+  overflow-x: auto; overflow-y: hidden;
+}
+.section-alt .eq-block { background: var(--bg-white); }
+.eq-block mjx-container { margin: 0 !important; }
+.eq-where { margin-top: .7rem !important; color: var(--muted) !important; font-size: .88rem; line-height: 1.6; }
+.eq-lead { max-width: 760px; }
+
+.data-table-wrap {
+  margin-top: 2.5rem; overflow-x: auto;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+}
+.section-alt .data-table-wrap { background: var(--bg-white); }
+.data-table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: .93rem; }
+.data-table th, .data-table td { padding: .85rem 1.15rem; text-align: left; border-bottom: 1px solid var(--border); }
+.data-table thead th {
+  font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); white-space: nowrap;
+}
+.data-table tbody tr:last-child td { border-bottom: 0; }
+.data-table td { color: var(--fg-dim); }
+.data-table th:first-child, .data-table td:first-child { color: var(--fg); font-weight: 650; }
+.data-table caption { caption-side: bottom; padding: .9rem 1.15rem; color: var(--muted); font-size: .84rem; text-align: left; }
+
+.partner-band { display: grid; gap: 2rem; align-items: center; grid-template-columns: 1fr; margin-top: 2.5rem; }
+@media(min-width:820px) { .partner-band { grid-template-columns: 240px 1fr; } }
+.partner-band-mark {
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem 1.5rem; background: var(--bg-white);
+  border: 1px solid var(--border); border-radius: var(--radius);
+}
+.partner-band-mark img { width: auto; max-width: 170px; max-height: 84px; object-fit: contain; }
+.partner-band-body p { margin: 0 0 1rem; }
+.partner-band-body .hero-actions { justify-content: flex-start; }

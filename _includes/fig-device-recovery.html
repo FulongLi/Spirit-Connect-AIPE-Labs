@@ -1,0 +1,48 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<figure class="db-figure">
+  <span class="db-figure-title">{% if zh %}反向恢复：被抽走的存储电荷{% else %}Reverse recovery: the stored charge coming back out{% endif %}</span>
+  <svg viewBox="0 0 440 268" role="img" aria-label="{% if zh %}PiN 二极管与 SiC 肖特基二极管关断电流波形对比{% else %}Turn-off current waveform of a PiN diode compared with a SiC Schottky diode{% endif %}">
+    <g class="fig-grid">
+      <line x1="66" y1="60" x2="392" y2="60"/>
+    </g>
+    <path class="fig-band" d="M200,110 L214,150 L226,178 L238,190 L252,178 L268,150 L286,126 L306,113 L330,110 Z"/>
+    <path class="fig-axis" d="M66,26 V228 M66,110 H392"/>
+    <text class="fig-axis-label" x="380" y="126" text-anchor="end">{% if zh %}时间{% else %}time{% endif %}</text>
+    <text class="fig-axis-label" x="18" y="120" text-anchor="middle" transform="rotate(-90 18 120)">i<tspan dy="3" font-size="8">D</tspan></text>
+
+    <path class="fig-line" stroke="var(--fig-3)" d="M66,60 L120,60 L238,190 C258,178 286,126 306,113 C322,110 356,110 392,110"/>
+    <path class="fig-line fig-dash" stroke="var(--fig-2)" d="M66,60 L120,60 L200,110 L210,128 L222,113 L232,110 L392,110"/>
+
+    <line class="fig-guide" x1="120" y1="60" x2="200" y2="60"/>
+    <line class="fig-guide" x1="200" y1="60" x2="200" y2="228"/>
+    <line class="fig-guide" x1="238" y1="190" x2="392" y2="190"/>
+    <line class="fig-guide" x1="306" y1="110" x2="306" y2="228"/>
+    <text class="fig-note" x="388" y="186" text-anchor="end">I<tspan dy="3" font-size="8">RRM</tspan></text>
+    <text class="fig-note" x="66" y="54">I<tspan dy="3" font-size="8">F</tspan></text>
+    <text class="fig-note" x="150" y="92" transform="rotate(48 150 92)">di/dt</text>
+    <text class="fig-note" x="250" y="146" text-anchor="middle" font-weight="700">Q<tspan dy="3" font-size="8">rr</tspan></text>
+
+    <g class="fig-guide">
+      <line x1="200" y1="214" x2="306" y2="214"/>
+      <line x1="200" y1="210" x2="200" y2="218"/>
+      <line x1="306" y1="210" x2="306" y2="218"/>
+    </g>
+    <text class="fig-note" x="253" y="208" text-anchor="middle">t<tspan dy="3" font-size="8">rr</tspan></text>
+
+    <g class="fig-series">
+      <text x="388" y="76" fill="var(--fig-3)" text-anchor="end">{% if zh %}Si PiN（少子存储）{% else %}Si PiN — minority-carrier storage{% endif %}</text>
+      <text x="388" y="94" fill="var(--fig-2)" text-anchor="end">{% if zh %}SiC 肖特基（仅结电容){% else %}SiC Schottky — junction charge only{% endif %}</text>
+    </g>
+  </svg>
+  <figcaption>
+    {% if zh %}
+      <b>这块阴影面积会变成对管的开通损耗。</b>PiN 二极管漂移区中存储的少子必须被反向电流抽走，形成 Q<sub>rr</sub>；
+      而肖特基与 SiC 肖特基是多子器件，没有存储电荷，反向电流只来自结电容的位移电流 —— 这正是 SiC 二极管几乎不随温度变化的原因。
+    {% else %}
+      <b>That shaded area becomes turn-on loss in the <em>opposite</em> transistor.</b> The minority carriers stored in a PiN diode's drift
+      region have to be swept out by reverse current, and that is Q<sub>rr</sub>. A Schottky — silicon or SiC — is a majority-carrier device
+      with no stored charge at all: its reverse current is only displacement current into the junction capacitance, which is why SiC diode
+      recovery is essentially flat with temperature.
+    {% endif %}
+  </figcaption>
+</figure>

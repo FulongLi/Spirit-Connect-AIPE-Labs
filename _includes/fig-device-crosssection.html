@@ -1,0 +1,93 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<figure class="db-figure">
+  <span class="db-figure-title">{% if zh %}器件剖面：电容究竟长在哪里{% else %}Device cross-sections: where the capacitances physically live{% endif %}</span>
+  <svg viewBox="0 0 880 340" role="img" aria-label="{% if zh %}垂直结构 SiC MOSFET 与横向 GaN HEMT 的剖面示意，标注寄生电容位置{% else %}Cross-sections of a vertical SiC MOSFET and a lateral GaN HEMT with parasitic capacitances marked{% endif %}">
+
+    <!-- ── vertical SiC MOSFET ── -->
+    <g>
+      <rect x="70" y="262" width="340" height="20" fill="var(--fig-copper)" fill-opacity=".8"/>
+      <rect x="70" y="234" width="340" height="28" fill="var(--fig-ink)" fill-opacity=".26" stroke="var(--fig-ink)" stroke-width=".8"/>
+      <rect x="70" y="150" width="340" height="84" fill="var(--fig-ink)" fill-opacity=".10" stroke="var(--fig-ink)" stroke-width=".8"/>
+      <rect x="70" y="120" width="100" height="30" fill="var(--fig-3)" fill-opacity=".28" stroke="var(--fig-ink)" stroke-width=".8"/>
+      <rect x="310" y="120" width="100" height="30" fill="var(--fig-3)" fill-opacity=".28" stroke="var(--fig-ink)" stroke-width=".8"/>
+      <rect x="100" y="108" width="70" height="14" fill="var(--fig-ink)" fill-opacity=".26" stroke="var(--fig-ink)" stroke-width=".8"/>
+      <rect x="310" y="108" width="70" height="14" fill="var(--fig-ink)" fill-opacity=".26" stroke="var(--fig-ink)" stroke-width=".8"/>
+      <rect x="160" y="104" width="160" height="4" fill="var(--fig-accent)"/>
+      <rect x="160" y="88" width="160" height="16" fill="var(--fig-4)" fill-opacity=".5" stroke="var(--fig-ink)" stroke-width=".8"/>
+      <rect x="70" y="88" width="86" height="16" fill="var(--fig-copper)" fill-opacity=".8"/>
+      <rect x="324" y="88" width="86" height="16" fill="var(--fig-copper)" fill-opacity=".8"/>
+
+      <text class="fig-note" x="240" y="100" text-anchor="middle" fill="var(--fig-bg)" font-weight="700">{% if zh %}栅{% else %}gate{% endif %}</text>
+      <text class="fig-note" x="113" y="100" text-anchor="middle" fill="var(--fig-bg)" font-weight="700">{% if zh %}源{% else %}source{% endif %}</text>
+      <text class="fig-note" x="367" y="100" text-anchor="middle" fill="var(--fig-bg)" font-weight="700">{% if zh %}源{% else %}source{% endif %}</text>
+      <text class="fig-note" x="240" y="277" text-anchor="middle" fill="var(--fig-bg)" font-weight="700">{% if zh %}漏{% else %}drain{% endif %}</text>
+      <text class="fig-note" x="240" y="252" text-anchor="middle">n⁺ {% if zh %}衬底{% else %}substrate{% endif %}</text>
+      <text class="fig-note" x="240" y="196" text-anchor="middle">n⁻ {% if zh %}漂移区 —— 阻断 V{% else %}drift region — blocks V{% endif %}<tspan dy="3" font-size="8">DS</tspan></text>
+      <text class="fig-note" x="120" y="140" text-anchor="middle">p {% if zh %}体区{% else %}body{% endif %}</text>
+      <text class="fig-note" x="360" y="140" text-anchor="middle">p {% if zh %}体区{% else %}body{% endif %}</text>
+      <text class="fig-note" x="240" y="140" text-anchor="middle">JFET</text>
+
+      <g class="fig-guide">
+        <line x1="176" y1="96" x2="152" y2="96"/>
+        <line x1="240" y1="108" x2="240" y2="148"/>
+        <line x1="120" y1="152" x2="120" y2="186"/>
+      </g>
+      <text class="fig-series" x="150" y="80" text-anchor="end" fill="var(--fig-ink)">C<tspan dy="3" font-size="8">gs</tspan></text>
+      <text class="fig-series" x="248" y="132" fill="var(--fig-ink)">C<tspan dy="3" font-size="8">gd</tspan></text>
+      <text class="fig-series" x="128" y="176" fill="var(--fig-ink)">C<tspan dy="3" font-size="8">ds</tspan></text>
+
+      <text class="fig-series" x="240" y="308" text-anchor="middle" fill="var(--fig-ink)">{% if zh %}垂直结构 SiC MOSFET（平面栅 DMOS）{% else %}Vertical SiC MOSFET (planar DMOS){% endif %}</text>
+      <text class="fig-note" x="240" y="326" text-anchor="middle">{% if zh %}电流垂直流过芯片 · 漂移区厚度决定阻断电压{% else %}current flows through the die · drift thickness sets the blocking voltage{% endif %}</text>
+    </g>
+
+    <!-- ── lateral GaN HEMT ── -->
+    <g>
+      <rect x="480" y="236" width="340" height="34" fill="var(--fig-ink)" fill-opacity=".22" stroke="var(--fig-ink)" stroke-width=".8"/>
+      <rect x="480" y="196" width="340" height="40" fill="var(--fig-ink)" fill-opacity=".12" stroke="var(--fig-ink)" stroke-width=".8"/>
+      <rect x="480" y="160" width="340" height="36" fill="var(--fig-ink)" fill-opacity=".07" stroke="var(--fig-ink)" stroke-width=".8"/>
+      <rect x="480" y="142" width="340" height="18" fill="var(--fig-2)" fill-opacity=".22" stroke="var(--fig-ink)" stroke-width=".8"/>
+      <line x1="484" y1="161" x2="816" y2="161" stroke="var(--fig-2)" stroke-width="3" stroke-dasharray="7 4"/>
+
+      <rect x="492" y="122" width="58" height="20" fill="var(--fig-copper)" fill-opacity=".8"/>
+      <rect x="750" y="122" width="58" height="20" fill="var(--fig-copper)" fill-opacity=".8"/>
+      <rect x="612" y="130" width="46" height="12" fill="var(--fig-3)" fill-opacity=".45" stroke="var(--fig-ink)" stroke-width=".8"/>
+      <rect x="606" y="114" width="58" height="16" fill="var(--fig-4)" fill-opacity=".5" stroke="var(--fig-ink)" stroke-width=".8"/>
+      <path d="M664,118 H700 V126 H664 Z" fill="var(--fig-4)" fill-opacity=".28" stroke="var(--fig-ink)" stroke-width=".8"/>
+
+      <text class="fig-note" x="521" y="136" text-anchor="middle" fill="var(--fig-bg)" font-weight="700">{% if zh %}源{% else %}source{% endif %}</text>
+      <text class="fig-note" x="779" y="136" text-anchor="middle" fill="var(--fig-bg)" font-weight="700">{% if zh %}漏{% else %}drain{% endif %}</text>
+      <text class="fig-note" x="635" y="126" text-anchor="middle" fill="var(--fig-bg)" font-weight="700">{% if zh %}栅{% else %}gate{% endif %}</text>
+      <text class="fig-note" x="716" y="112">{% if zh %}场板{% else %}field plate{% endif %}</text>
+      <text class="fig-note" x="583" y="154" text-anchor="middle">p-GaN</text>
+      <text class="fig-note" x="820" y="157" text-anchor="end">AlGaN</text>
+      <text class="fig-note" x="500" y="176">2DEG</text>
+      <text class="fig-note" x="650" y="182" text-anchor="middle">GaN {% if zh %}沟道层{% else %}channel{% endif %}</text>
+      <text class="fig-note" x="650" y="221" text-anchor="middle">GaN {% if zh %}缓冲层{% else %}buffer{% endif %}</text>
+      <text class="fig-note" x="650" y="257" text-anchor="middle">Si / SiC {% if zh %}衬底{% else %}substrate{% endif %}</text>
+
+      <g class="fig-guide">
+        <line x1="600" y1="122" x2="556" y2="122"/>
+        <line x1="668" y1="134" x2="744" y2="134"/>
+        <line x1="530" y1="166" x2="530" y2="200"/>
+      </g>
+      <text class="fig-series" x="554" y="114" text-anchor="end" fill="var(--fig-ink)">C<tspan dy="3" font-size="8">gs</tspan></text>
+      <text class="fig-series" x="706" y="150" text-anchor="middle" fill="var(--fig-ink)">C<tspan dy="3" font-size="8">gd</tspan></text>
+      <text class="fig-series" x="538" y="192" fill="var(--fig-ink)">C<tspan dy="3" font-size="8">ds</tspan></text>
+
+      <text class="fig-series" x="650" y="308" text-anchor="middle" fill="var(--fig-ink)">{% if zh %}横向结构 GaN HEMT（p-GaN 栅、增强型）{% else %}Lateral GaN HEMT (e-mode, p-GaN gate){% endif %}</text>
+      <text class="fig-note" x="650" y="326" text-anchor="middle">{% if zh %}电流沿表面 2DEG 流动 · 栅漏间距决定阻断电压{% else %}current flows in the surface 2DEG · gate–drain spacing sets the blocking voltage{% endif %}</text>
+    </g>
+  </svg>
+  <figcaption>
+    {% if zh %}
+      <b>结构决定了电容的量级与非线性。</b>垂直器件的 C<sub>gd</sub> 由栅极正下方的 JFET 区面积决定，C<sub>ds</sub> 是体区–漂移区的结电容，
+      随电压展宽而急剧下降；横向 GaN 的栅漏间距很长，C<sub>gd</sub> 天然极小（米勒电荷低、开关快），但沟道没有体二极管 ——
+      反向导通靠 2DEG，压降高，死区时间必须压到最短。
+    {% else %}
+      <b>Structure sets both the size and the nonlinearity of every capacitance.</b> In a vertical device C<sub>gd</sub> is fixed by the JFET
+      area directly under the gate, and C<sub>ds</sub> is the body–drift junction capacitance, collapsing as the depletion region widens with
+      voltage. A lateral GaN HEMT puts a long gate–drain gap in the way, so C<sub>gd</sub> is inherently tiny — low Miller charge, very fast
+      switching — but there is no body diode: reverse conduction goes through the 2DEG at a high voltage drop, so dead time has to be minimised.
+    {% endif %}
+  </figcaption>
+</figure>

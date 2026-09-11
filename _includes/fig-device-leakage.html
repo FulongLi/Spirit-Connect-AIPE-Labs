@@ -1,0 +1,60 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<figure class="db-figure">
+  <span class="db-figure-title">{% if zh %}阻断态漏电流与结温{% else %}Blocking-state leakage vs. junction temperature{% endif %}</span>
+  <svg viewBox="0 0 440 268" role="img" aria-label="{% if zh %}硅与碳化硅器件漏电流随结温的对数变化{% else %}Logarithmic leakage current versus junction temperature for silicon and silicon carbide{% endif %}">
+    <g class="fig-grid">
+      <line x1="159" y1="26" x2="159" y2="228"/>
+      <line x1="252" y1="26" x2="252" y2="228"/>
+      <line x1="345" y1="26" x2="345" y2="228"/>
+      <line x1="66" y1="194" x2="392" y2="194"/>
+      <line x1="66" y1="160" x2="392" y2="160"/>
+      <line x1="66" y1="126" x2="392" y2="126"/>
+      <line x1="66" y1="92" x2="392" y2="92"/>
+      <line x1="66" y1="58" x2="392" y2="58"/>
+      <line x1="66" y1="24" x2="392" y2="24"/>
+    </g>
+    <path class="fig-axis" d="M66,26 V228 H392"/>
+    <g class="fig-tick" text-anchor="middle">
+      <text x="66" y="244">25</text>
+      <text x="159" y="244">75</text>
+      <text x="252" y="244">125</text>
+      <text x="345" y="244">175</text>
+    </g>
+    <g class="fig-tick" text-anchor="end">
+      <text x="58" y="232">1 nA</text>
+      <text x="58" y="198">10 nA</text>
+      <text x="58" y="164">100 nA</text>
+      <text x="58" y="130">1 µA</text>
+      <text x="58" y="96">10 µA</text>
+      <text x="58" y="62">100 µA</text>
+      <text x="58" y="28">1 mA</text>
+    </g>
+    <text class="fig-axis-label" x="229" y="262" text-anchor="middle">T<tspan dy="3" font-size="8">j</tspan><tspan dy="-3"> (°C)</tspan></text>
+    <text class="fig-axis-label" x="18" y="127" text-anchor="middle" transform="rotate(-90 18 127)">I<tspan dy="3" font-size="8">DSS</tspan><tspan dy="-3"> {% if zh %}（对数）{% else %}(log){% endif %}</tspan></text>
+
+    <path class="fig-line" stroke="var(--fig-3)" d="M66,126 C150,104 250,66 345,24"/>
+    <path class="fig-line" stroke="var(--fig-2)" d="M66,228 C160,214 280,180 392,150"/>
+
+    <g class="fig-guide">
+      <line x1="96" y1="134" x2="96" y2="220"/>
+      <line x1="92" y1="134" x2="100" y2="134"/>
+      <line x1="92" y1="220" x2="100" y2="220"/>
+    </g>
+    <text class="fig-note" x="106" y="182">{% if zh %}≈3 个数量级{% else %}≈3 decades{% endif %}</text>
+
+    <g class="fig-series">
+      <text x="350" y="14" fill="var(--fig-3)" text-anchor="end">{% if zh %}Si（E{% else %}Si (E{% endif %}<tspan dy="3" font-size="8">g</tspan><tspan dy="-3"> = 1.12 eV)</tspan></text>
+      <text x="388" y="142" fill="var(--fig-2)" text-anchor="end">{% if zh %}4H-SiC（E{% else %}4H-SiC (E{% endif %}<tspan dy="3" font-size="8">g</tspan><tspan dy="-3"> = 3.26 eV)</tspan></text>
+    </g>
+  </svg>
+  <figcaption>
+    {% if zh %}
+      <b>宽禁带真正的红利在阻断态。</b>本征载流子浓度 n<sub>i</sub> ∝ e<sup>−E<sub>g</sub>/2kT</sup>，SiC 的禁带宽度约为硅的三倍，
+      室温下 n<sub>i</sub> 相差十个数量级以上，实测漏电流也低数个数量级 —— 这才是 SiC 能在 175 °C 以上稳定阻断而硅会热失控的原因。
+    {% else %}
+      <b>The real wide-bandgap dividend is in the off state.</b> Intrinsic carrier concentration goes as n<sub>i</sub> ∝ e<sup>−E<sub>g</sub>/2kT</sup>,
+      and SiC's bandgap is roughly three times silicon's — over ten orders of magnitude less n<sub>i</sub> at room temperature, and measured
+      leakage several decades lower. That, not the on-resistance, is why SiC still blocks cleanly at 175 °C where silicon runs away.
+    {% endif %}
+  </figcaption>
+</figure>

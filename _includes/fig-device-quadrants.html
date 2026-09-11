@@ -1,0 +1,105 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<figure class="db-figure">
+  <span class="db-figure-title">{% if zh %}开关实现：拓扑决定象限，象限决定器件{% else %}Switch realization: the topology fixes the quadrants{% endif %}</span>
+  <svg viewBox="0 0 880 286" role="img" aria-label="{% if zh %}四类开关在电压-电流平面上的工作象限及其器件实现{% else %}Operating quadrants of four switch classes in the voltage-current plane, with their device realizations{% endif %}">
+    <g>
+      <rect class="fig-band" x="138" y="40" width="52" height="52"/>
+      <path class="fig-axis" d="M80,92 H196 M138,34 V150"/>
+      <text class="fig-note" x="200" y="103">v</text>
+      <text class="fig-note" x="144" y="30">i</text>
+      <g transform="translate(132,168)">
+      <path class="fig-sym" d="M-16,22 H0"/>
+      <path class="fig-sym" d="M0,8 V36"/>
+      <path class="fig-sym" d="M7,8 V16 M7,18 V26 M7,28 V36"/>
+      <path class="fig-sym" d="M7,12 H28 V0"/>
+      <path class="fig-sym" d="M7,32 H28 V44"/>
+      <path class="fig-sym" d="M7,22 H28"/>
+      <path class="fig-sym-fill" d="M18,18 l-8,4 8,4 z"/>
+      </g>
+      <text class="fig-series" x="138" y="252" text-anchor="middle" fill="var(--fig-ink)">{% if zh %}单象限（SPST）{% else %}Single-quadrant (SPST){% endif %}</text>
+      <text class="fig-note" x="138" y="270" text-anchor="middle">{% if zh %}Buck、Boost、正激{% else %}buck, boost, forward{% endif %}</text>
+    </g>
+    <g>
+      <rect class="fig-band" x="348" y="40" width="52" height="52"/>
+      <rect class="fig-band" x="348" y="92" width="52" height="52"/>
+      <path class="fig-axis" d="M290,92 H406 M348,34 V150"/>
+      <text class="fig-note" x="410" y="103">v</text>
+      <text class="fig-note" x="354" y="30">i</text>
+      <g transform="translate(353,168)">
+      <path class="fig-sym" d="M-16,22 H0"/>
+      <path class="fig-sym" d="M0,8 V36"/>
+      <path class="fig-sym" d="M7,8 V16 M7,18 V26 M7,28 V36"/>
+      <path class="fig-sym" d="M7,12 H28 V0"/>
+      <path class="fig-sym" d="M7,32 H28 V44"/>
+      <path class="fig-sym" d="M7,22 H28"/>
+      <path class="fig-sym-fill" d="M18,18 l-8,4 8,4 z"/>
+      <path class="fig-sym" d="M28,4 H-30 V16 M-30,32 V40 H28"/>
+      <path class="fig-sym-fill" d="M-38,30 H-22 L-30,16 z"/>
+      <path class="fig-sym" d="M-38,16 H-22"/>
+      </g>
+      <text class="fig-series" x="348" y="252" text-anchor="middle" fill="var(--fig-ink)">{% if zh %}电流双向{% else %}Current-bidirectional{% endif %}</text>
+      <text class="fig-note" x="348" y="270" text-anchor="middle">{% if zh %}电压型桥臂、同步 Buck、DAB{% else %}VSI leg, synchronous buck, DAB{% endif %}</text>
+    </g>
+    <g>
+      <rect class="fig-band" x="558" y="40" width="52" height="52"/>
+      <rect class="fig-band" x="506" y="40" width="52" height="52"/>
+      <path class="fig-axis" d="M500,92 H616 M558,34 V150"/>
+      <text class="fig-note" x="620" y="103">v</text>
+      <text class="fig-note" x="564" y="30">i</text>
+      <g transform="translate(552,150)">
+      <path class="fig-sym" d="M-16,22 H0"/>
+      <path class="fig-sym" d="M0,8 V36"/>
+      <path class="fig-sym" d="M7,8 V36"/>
+      <path class="fig-sym" d="M7,12 H28 V0"/>
+      <path class="fig-sym" d="M7,32 H28 V44"/>
+      <path class="fig-sym" d="M7,22 H28"/>
+      <path class="fig-sym-fill" d="M20,28 l7,4 -7,4 z"/>
+      </g>
+      <g transform="translate(570,194)"><path class="fig-sym" d="M10,0 V4 M10,18 V24"/><path class="fig-sym-fill" d="M2,18 H18 L10,4 z"/><path class="fig-sym" d="M2,4 H18"/></g>
+      <text class="fig-series" x="558" y="252" text-anchor="middle" fill="var(--fig-ink)">{% if zh %}电压双向{% else %}Voltage-bidirectional{% endif %}</text>
+      <text class="fig-note" x="558" y="270" text-anchor="middle">{% if zh %}电流型桥臂、晶闸管整流{% else %}CSI leg, thyristor rectifier{% endif %}</text>
+    </g>
+    <g>
+      <rect class="fig-band" x="768" y="40" width="52" height="52"/>
+      <rect class="fig-band" x="716" y="40" width="52" height="52"/>
+      <rect class="fig-band" x="716" y="92" width="52" height="52"/>
+      <rect class="fig-band" x="768" y="92" width="52" height="52"/>
+      <path class="fig-axis" d="M710,92 H826 M768,34 V150"/>
+      <text class="fig-note" x="830" y="103">v</text>
+      <text class="fig-note" x="774" y="30">i</text>
+      <g transform="translate(710,160)">
+      <path class="fig-sym" d="M-16,22 H0"/>
+      <path class="fig-sym" d="M0,8 V36"/>
+      <path class="fig-sym" d="M7,8 V16 M7,18 V26 M7,28 V36"/>
+      <path class="fig-sym" d="M7,12 H28 V0"/>
+      <path class="fig-sym" d="M7,32 H28 V44"/>
+      <path class="fig-sym" d="M7,22 H28"/>
+      <path class="fig-sym-fill" d="M18,18 l-8,4 8,4 z"/>
+      </g>
+      <g transform="translate(826,160) scale(-1,1)">
+      <path class="fig-sym" d="M-16,22 H0"/>
+      <path class="fig-sym" d="M0,8 V36"/>
+      <path class="fig-sym" d="M7,8 V16 M7,18 V26 M7,28 V36"/>
+      <path class="fig-sym" d="M7,12 H28 V0"/>
+      <path class="fig-sym" d="M7,32 H28 V44"/>
+      <path class="fig-sym" d="M7,22 H28"/>
+      <path class="fig-sym-fill" d="M18,18 l-8,4 8,4 z"/>
+      </g>
+      <path class="fig-sym" d="M738,204 H798"/>
+      <text class="fig-series" x="768" y="252" text-anchor="middle" fill="var(--fig-ink)">{% if zh %}四象限{% else %}Four-quadrant{% endif %}</text>
+      <text class="fig-note" x="768" y="270" text-anchor="middle">{% if zh %}矩阵变换器、交流固态开关{% else %}matrix converter, AC solid-state switch{% endif %}</text>
+    </g>
+  </svg>
+  <figcaption>
+    {% if zh %}
+      <b>先看象限，再选器件。</b>变换器拓扑规定了开关必须承受的 (v, i) 象限：导通时电流的极性、阻断时电压的极性。
+      单象限只需一只晶体管；电流双向需要反并联二极管（MOSFET 的体二极管天然满足）；电压双向需要串联二极管，
+      因而 IGBT 或晶闸管更合适；四象限则由两个两象限开关反串联构成。
+    {% else %}
+      <b>Pick the quadrants first, the device second.</b> The topology dictates which (v,&#160;i) quadrants the switch must occupy —
+      which polarity of current it conducts, which polarity of voltage it blocks. One quadrant needs a bare transistor;
+      current-bidirectional needs an antiparallel diode (a MOSFET body diode supplies it for free); voltage-bidirectional
+      needs a series diode, which is why IGBTs and thyristors live there; four-quadrant is two two-quadrant switches back to back.
+    {% endif %}
+  </figcaption>
+</figure>

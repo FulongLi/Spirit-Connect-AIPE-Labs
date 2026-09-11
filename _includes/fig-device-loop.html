@@ -1,0 +1,97 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<figure class="db-figure">
+  <span class="db-figure-title">{% if zh %}换流回路与栅极回路的寄生参数{% else %}Parasitics of the power loop and the gate loop{% endif %}</span>
+  <svg viewBox="0 0 880 340" role="img" aria-label="{% if zh %}半桥换流回路的杂散电感，以及含共源电感与开尔文源的栅极回路{% else %}Half-bridge commutation loop stray inductance, and the gate loop with common-source inductance and a Kelvin source connection{% endif %}">
+
+    <!-- ══ power loop ══ -->
+    <g>
+      <path class="fig-loop" d="M150,64 H328 V96 M328,140 V196 M328,240 V276 H150 V64"/>
+
+      <path class="fig-sym" d="M150,64 H328 M150,276 H470"/>
+      <path class="fig-sym" d="M150,64 V156 M126,156 H174 M126,174 H174 M150,174 V276"/>
+      <path class="fig-sym" d="M196,64 a6,6 0 0,1 12,0 a6,6 0 0,1 12,0 a6,6 0 0,1 12,0"/>
+      <path class="fig-sym" d="M196,276 a6,6 0 0,1 12,0 a6,6 0 0,1 12,0 a6,6 0 0,1 12,0"/>
+
+      <g transform="translate(300,96)">
+        <path class="fig-sym" d="M-16,22 H0"/>
+        <path class="fig-sym" d="M0,8 V36"/>
+        <path class="fig-sym" d="M7,8 V16 M7,18 V26 M7,28 V36"/>
+        <path class="fig-sym" d="M7,12 H28 V0"/>
+        <path class="fig-sym" d="M7,32 H28 V44"/>
+        <path class="fig-sym" d="M7,22 H28"/>
+        <path class="fig-sym-fill" d="M18,18 l-8,4 8,4 z"/>
+      </g>
+      <g transform="translate(300,196)">
+        <path class="fig-sym" d="M-16,22 H0"/>
+        <path class="fig-sym" d="M0,8 V36"/>
+        <path class="fig-sym" d="M7,8 V16 M7,18 V26 M7,28 V36"/>
+        <path class="fig-sym" d="M7,12 H28 V0"/>
+        <path class="fig-sym" d="M7,32 H28 V44"/>
+        <path class="fig-sym" d="M7,22 H28"/>
+        <path class="fig-sym-fill" d="M18,18 l-8,4 8,4 z"/>
+      </g>
+      <path class="fig-sym" d="M328,64 V96 M328,140 V196 M328,240 V276"/>
+      <path class="fig-sym" d="M328,168 H400"/>
+      <path class="fig-sym" d="M400,168 a6,6 0 0,1 12,0 a6,6 0 0,1 12,0"/>
+      <path class="fig-sym" d="M424,168 H436 M436,159 h26 v18 h-26 z M462,168 H470 V276"/>
+      <circle cx="328" cy="168" r="3.5" fill="var(--fig-ink)"/>
+
+      <text class="fig-note" x="150" y="46" text-anchor="middle">DC+</text>
+      <text class="fig-note" x="150" y="296" text-anchor="middle">DC−</text>
+      <text class="fig-note" x="118" y="170" text-anchor="end">C<tspan dy="3" font-size="8">dc</tspan></text>
+      <text class="fig-note" x="214" y="50" text-anchor="middle">L<tspan dy="3" font-size="8">σ</tspan></text>
+      <text class="fig-note" x="214" y="306" text-anchor="middle">L<tspan dy="3" font-size="8">σ</tspan></text>
+      <text class="fig-note" x="449" y="151" text-anchor="middle">{% if zh %}负载{% else %}load{% endif %}</text>
+      <text class="fig-note" x="282" y="122" text-anchor="end">G</text>
+      <text class="fig-note" x="282" y="222" text-anchor="end">G</text>
+      <text class="fig-series" x="239" y="170" text-anchor="middle" fill="var(--fig-3)">{% if zh %}换流回路{% else %}commutation loop{% endif %}</text>
+      <text class="fig-series" x="300" y="326" text-anchor="middle" fill="var(--fig-ink)">{% if zh %}功率回路 —— 面积即电感{% else %}Power loop — area is inductance{% endif %}</text>
+    </g>
+
+    <!-- ══ gate loop ══ -->
+    <g>
+      <path class="fig-loop" d="M600,268 H792 V192 H728"/>
+
+      <g transform="translate(700,140)">
+        <path class="fig-sym" d="M-16,22 H0"/>
+        <path class="fig-sym" d="M0,8 V36"/>
+        <path class="fig-sym" d="M7,8 V16 M7,18 V26 M7,28 V36"/>
+        <path class="fig-sym" d="M7,12 H28 V0"/>
+        <path class="fig-sym" d="M7,32 H28 V44"/>
+        <path class="fig-sym" d="M7,22 H28"/>
+        <path class="fig-sym-fill" d="M18,18 l-8,4 8,4 z"/>
+      </g>
+      <path class="fig-sym" d="M728,112 V140"/>
+      <path class="fig-sym" d="M728,184 V200"/>
+      <path class="fig-sym" d="M728,200 a6,6 0 0,1 0,12 a6,6 0 0,1 0,12 a6,6 0 0,1 0,12"/>
+      <path class="fig-sym" d="M728,236 V300"/>
+      <path class="fig-sym" d="M660,300 H820"/>
+
+      <path class="fig-sym" d="M566,128 h68 v72 h-68 z"/>
+      <path class="fig-sym" d="M634,162 H652 M652,153 h26 v18 h-26 z M678,162 H684"/>
+      <path class="fig-sym" d="M600,200 V268 H792 V192 H728"/>
+      <circle cx="728" cy="192" r="3.5" fill="var(--fig-ink)"/>
+
+      <text class="fig-note" x="600" y="167" text-anchor="middle">{% if zh %}驱动器{% else %}gate driver{% endif %}</text>
+      <text class="fig-note" x="665" y="146" text-anchor="middle">R<tspan dy="3" font-size="8">g</tspan></text>
+      <text class="fig-note" x="744" y="220">L<tspan dy="3" font-size="8">s</tspan></text>
+      <text class="fig-note" x="744" y="236">{% if zh %}共源电感{% else %}common source{% endif %}</text>
+      <text class="fig-note" x="800" y="186">{% if zh %}开尔文源{% else %}Kelvin{% endif %}</text>
+      <text class="fig-note" x="728" y="106" text-anchor="middle">{% if zh %}至 DC+{% else %}to DC+{% endif %}</text>
+      <text class="fig-note" x="818" y="316" text-anchor="end">{% if zh %}功率地{% else %}power return{% endif %}</text>
+      <text class="fig-series" x="690" y="326" text-anchor="middle" fill="var(--fig-ink)">{% if zh %}栅极回路 —— 共源电感的负反馈{% else %}Gate loop — common-source negative feedback{% endif %}</text>
+    </g>
+  </svg>
+  <figcaption>
+    {% if zh %}
+      <b>两个回路，两种代价。</b>功率回路的包围面积决定 L<sub>σ</sub>，关断过冲即 ΔV = L<sub>σ</sub>·di/dt，并与 C<sub>oss</sub> 谐振产生振铃；
+      共源电感 L<sub>s</sub> 同时处在功率回路与栅极回路中，开通时 L<sub>s</sub>·di<sub>D</sub>/dt 会直接抵消驱动电压，把开关速度拉慢 ——
+      开尔文源引脚把栅极回路从功率电流路径上摘出来，正是为了消除这个负反馈。
+    {% else %}
+      <b>Two loops, two different penalties.</b> The area enclosed by the power loop <em>is</em> L<sub>σ</sub>: turn-off overshoot is
+      ΔV = L<sub>σ</sub>·di/dt, and it rings against C<sub>oss</sub>. The common-source inductance L<sub>s</sub> sits in the power loop and the
+      gate loop at once, so during turn-on L<sub>s</sub>·di<sub>D</sub>/dt subtracts directly from the drive voltage and slows the device down.
+      A Kelvin source pin exists purely to lift the gate loop off the power current path and kill that feedback.
+    {% endif %}
+  </figcaption>
+</figure>

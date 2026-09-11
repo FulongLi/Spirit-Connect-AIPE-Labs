@@ -1,0 +1,53 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<figure class="db-figure">
+  <span class="db-figure-title">{% if zh %}单极型极限：比导通电阻与阻断电压{% else %}The unipolar limit: specific on-resistance vs. blocking voltage{% endif %}</span>
+  <svg viewBox="0 0 440 268" role="img" aria-label="{% if zh %}硅、碳化硅与氮化镓单极型器件比导通电阻理论极限的双对数图{% else %}Log-log plot of the theoretical unipolar specific on-resistance limit for silicon, silicon carbide and gallium nitride{% endif %}">
+    <g class="fig-grid">
+      <line x1="229" y1="26" x2="229" y2="228"/>
+      <line x1="66" y1="177" x2="392" y2="177"/>
+      <line x1="66" y1="127" x2="392" y2="127"/>
+      <line x1="66" y1="76" x2="392" y2="76"/>
+      <line x1="66" y1="26" x2="392" y2="26"/>
+    </g>
+    <path class="fig-axis" d="M66,26 V228 H392"/>
+    <g class="fig-tick" text-anchor="middle">
+      <text x="66" y="244">100</text>
+      <text x="229" y="244">1 000</text>
+      <text x="390" y="244">10 000</text>
+    </g>
+    <g class="fig-tick" text-anchor="end">
+      <text x="58" y="232">0.01</text>
+      <text x="58" y="181">0.1</text>
+      <text x="58" y="131">1</text>
+      <text x="58" y="80">10</text>
+      <text x="58" y="30">100</text>
+    </g>
+    <text class="fig-axis-label" x="229" y="262" text-anchor="middle">V<tspan dy="3" font-size="8">BR</tspan><tspan dy="-3"> (V)</tspan></text>
+    <text class="fig-axis-label" x="18" y="127" text-anchor="middle" transform="rotate(-90 18 127)">R<tspan dy="3" font-size="8">on,sp</tspan><tspan dy="-3"> (mΩ·cm²)</tspan></text>
+
+    <path class="fig-line" stroke="var(--fig-3)" d="M66,139 L212,26"/>
+    <path class="fig-line" stroke="var(--fig-1)" d="M120,228 L381,26"/>
+    <path class="fig-line" stroke="var(--fig-4)" d="M151,228 L392,41"/>
+
+    <text class="fig-series" x="120" y="112" fill="var(--fig-3)" transform="rotate(-37.7 120 112)">{% if zh %}Si 极限{% else %}Si limit{% endif %}</text>
+    <text class="fig-series" x="262" y="142" fill="var(--fig-1)" transform="rotate(-37.7 262 142)">{% if zh %}4H-SiC 极限{% else %}4H-SiC limit{% endif %}</text>
+    <text class="fig-series" x="290" y="160" fill="var(--fig-4)" transform="rotate(-37.7 290 160)">{% if zh %}GaN 极限{% else %}GaN limit{% endif %}</text>
+
+    <circle cx="198" cy="77" r="4.5" fill="var(--fig-3)"/>
+    <text class="fig-note" x="209" y="70">{% if zh %}Si 超结{% else %}Si superjunction —{% endif %}</text>
+    <text class="fig-note" x="209" y="84">{% if zh %}突破一维极限{% else %}beats the 1-D limit{% endif %}</text>
+  </svg>
+  <figcaption>
+    {% if zh %}
+      <b>E<sub>c</sub> 的三次方决定一切。</b>漂移区的理论比导通电阻为 R<sub>on,sp</sub> = 4V<sub>BR</sub>²⁄(ε<sub>s</sub>µ<sub>n</sub>E<sub>c</sub>³)。
+      SiC 的临界击穿场强约为硅的八倍，立方后带来两到三个数量级的优势 —— 同样的阻断电压，漂移区可以薄十倍、掺杂高得多。
+      硅超结用电荷补偿绕过了一维极限，但代价是工艺复杂度与恢复特性。
+    {% else %}
+      <b>Everything follows from E<sub>c</sub> cubed.</b> The drift region's theoretical specific on-resistance is
+      R<sub>on,sp</sub> = 4V<sub>BR</sub>²⁄(ε<sub>s</sub>µ<sub>n</sub>E<sub>c</sub>³). SiC's critical field is roughly eight times silicon's,
+      and it enters cubed — two to three orders of magnitude of headroom, because the same blocking voltage is held off by a drift region
+      ten times thinner and far more heavily doped. Silicon superjunction sidesteps the 1-D limit by charge compensation, at the price of
+      process complexity and recovery behaviour.
+    {% endif %}
+  </figcaption>
+</figure>
