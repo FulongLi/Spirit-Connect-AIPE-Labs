@@ -72,6 +72,7 @@ description: A structured topology library for industrial power conversion, from
         <p><strong>Boost</strong> · step-up conversion, renewable interfaces, and PFC building blocks.</p>
         <p><strong>Buck–boost</strong> · inverting or non-inverting conversion when the input crosses the output range.</p>
         <p><strong>SEPIC, Ćuk &amp; Zeta</strong> · extended step-up/down families with different ripple and polarity characteristics.</p>
+        <p class="card-link"><a href="{% post_url 2026-09-11-buck-converter-from-zero-to-everything %}" class="text-link">Non-isolated tutorial series →</a></p>
       </div>
       <div class="card">
         <h3>Interleaved &amp; bidirectional</h3>
@@ -86,6 +87,7 @@ description: A structured topology library for industrial power conversion, from
         <p><strong>Forward &amp; active-clamp forward</strong> · transformer-isolated transfer with an output inductor.</p>
         <p><strong>Push–pull &amp; half-bridge</strong> · double-ended transformer excitation for higher utilisation.</p>
         <p><strong>Full-bridge &amp; PSFB</strong> · higher-power isolated conversion with phase-shift control and soft-switching potential.</p>
+        <p class="card-link"><a href="{% post_url 2026-09-11-flyback-converter-from-zero-to-everything %}" class="text-link">Isolated tutorial series →</a></p>
       </div>
       <div class="card">
         <h3>Resonant &amp; active-bridge</h3>
@@ -93,6 +95,7 @@ description: A structured topology library for industrial power conversion, from
         <p><strong>LLC</strong> · high-efficiency isolated conversion around a designed resonant operating range.</p>
         <p><strong>CLLC</strong> · bidirectional resonant conversion with active bridges on both sides.</p>
         <p><strong>Dual active bridge (DAB)</strong> · isolated bidirectional power transfer using phase shift between two active bridges.</p>
+        <p class="card-link"><a href="{% post_url 2026-09-11-llc-resonant-converter %}" class="text-link">LLC resonant tutorial →</a></p>
         <p class="card-link"><a href="{{ '/resources/prototypes/dab/' | relative_url }}" class="text-link">DAB design reference →</a></p>
       </div>
     </div>

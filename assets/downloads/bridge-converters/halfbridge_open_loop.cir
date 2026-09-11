@@ -1,0 +1,41 @@
+* 48 V to approximately 12 V half-bridge -- open-loop LTspice draft
+* Dr. Fulong Li -- September 2026. Native LTspice execution pending.
+* Generic lossy elements, not a selected or validated hardware BOM.
+* Half-bridge: the split capacitors put Vin/2 across the primary, so each
+* switch blocks only Vin (48 V) -- against 2*Vin for a push-pull.
+* Np:Ns(half) = 1:1, per-switch duty 0.25 -> Vout = Vin*D/n = 12 V.
+.param VIN=48 FS=100k DUTY=0.25
+.param LP=500u LS=500u LOUT=150u CVAL=100u RLOAD=4.8 CDC=100u
+Vinput in 0 {VIN}
+* Split DC link: "mid" sits at Vin/2 and also blocks any DC flux walk.
+C1 in mid {CDC}
+C2 mid 0 {CDC}
+S1 in a g1 0 SWMOD
+S2 a 0 g2 0 SWMOD
+Lpri a mid {LP}
+* Centre-tapped secondary: opposite dot order gives full-wave rectification.
+Lsec1 s1 0 {LS}
+Lsec2 0 s2 {LS}
+K1 Lpri Lsec1 Lsec2 0.995
+D1 s1 n1 DMOD
+D2 s2 n1 DMOD
+Lo n1 out {LOUT}
+Cout out 0 {CVAL}
+Rload out 0 {RLOAD}
+* Two gate signals, 180 degrees apart, each 2.5 us on out of a 10 us period.
+* The gap between them is the dead time -- never let them overlap.
+Vg1 g1 0 PULSE(0 5 1u 10n 10n {DUTY/FS} {1/FS})
+Vg2 g2 0 PULSE(0 5 {1u+0.5/FS} 10n 10n {DUTY/FS} {1/FS})
+.model SWMOD SW(Ron=0.05 Roff=100Meg Vt=2.5 Vh=0)
+.model DMOD D(Is=1u N=1.1 Rs=0.02 Cjo=100p Tt=0)
+* V(n1) shows TWO pulses per switching period, so the output filter sees
+* 200 kHz -- double the switching frequency. That is the whole point of a
+* double-ended topology, and why Lo and Cout can be small.
+.tran 0 10m 8m 20n
+.options plotwinsize=0
+.meas tran Vout_avg AVG V(out) FROM 8m TO 10m
+.meas tran Vout_pp PP V(out) FROM 9.98m TO 10m
+.meas tran Vmid_avg AVG V(mid) FROM 8m TO 10m
+.meas tran ILo_avg AVG I(Lo) FROM 8m TO 10m
+.meas tran Va_max MAX V(a) FROM 8m TO 10m
+.end
