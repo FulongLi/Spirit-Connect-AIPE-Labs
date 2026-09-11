@@ -18,18 +18,6 @@ description: 面向变换器、变压器、磁性元件与电力电子测量的�
 <section class="section">
   <div class="container">
     <div class="grid">
-      <a class="card post-card" href="{{ '/zh/resources/prototypes/dab/' | relative_url }}">
-        <span class="small">变换器</span>
-        <h3>双有源桥变换器</h3>
-        <p>AI 辅助优化的双有源桥（DAB）变换器 —— 拓扑、磁性元件与控制在一次流程中协同设计。</p>
-        <span class="post-card-more">查看设计参考 →</span>
-      </a>
-      <a class="card post-card" href="{{ '/zh/resources/prototypes/sst/' | relative_url }}">
-        <span class="small">系统</span>
-        <h3>固态变压器</h3>
-        <p>AI 辅助设计面向下一代电力配电网络的固态变压器（SST）。</p>
-        <span class="post-card-more">查看设计参考 →</span>
-      </a>
       <a class="card post-card" href="{{ '/zh/resources/prototypes/rogowski-coil/' | relative_url }}">
         <span class="small">测量</span>
         <h3>PCB 罗氏线圈</h3>

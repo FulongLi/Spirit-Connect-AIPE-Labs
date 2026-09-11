@@ -18,20 +18,6 @@ description: Prototype design references for converters, transformers, magnetics
 <section class="section">
   <div class="container">
     <div class="grid">
-      <a class="card post-card" href="{{ '/resources/prototypes/dab/' | relative_url }}">
-        <span class="small">Converter</span>
-        <h3>Dual Active Bridge Converter</h3>
-        <p>AI-assisted optimisation of a dual-active-bridge (DAB) converter — topology, magnetics,
-           and control co-designed in a single pass.</p>
-        <span class="post-card-more">View design reference →</span>
-      </a>
-      <a class="card post-card" href="{{ '/resources/prototypes/sst/' | relative_url }}">
-        <span class="small">System</span>
-        <h3>Solid-State Transformer</h3>
-        <p>AI-assisted design of a solid-state transformer (SST) for next-generation
-           power distribution networks.</p>
-        <span class="post-card-more">View design reference →</span>
-      </a>
       <a class="card post-card" href="{{ '/resources/prototypes/rogowski-coil/' | relative_url }}">
         <span class="small">Measurement</span>
         <h3>PCB Rogowski Coil</h3>
