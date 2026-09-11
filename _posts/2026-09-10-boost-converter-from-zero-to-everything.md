@@ -5,6 +5,7 @@ description: "A practical path from the first switching cycle to modelling, feed
 date: 2025-12-09
 author: "Dr. Fulong Li"
 math: true
+converter_series: true
 zh_url: /zh/resources/blog/
 ---
 

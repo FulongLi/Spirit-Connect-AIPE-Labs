@@ -5,6 +5,7 @@ description: "Why small-signal models work, and how to derive a boost converter'
 date: 2025-12-09
 author: "Dr. Fulong Li"
 math: true
+converter_series: true
 zh_url: /zh/resources/blog/
 ---
 

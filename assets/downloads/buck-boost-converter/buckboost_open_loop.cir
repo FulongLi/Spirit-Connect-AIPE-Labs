@@ -1,0 +1,25 @@
+* 12 V to approximately -12 V inverting buck-boost -- open-loop LTspice draft
+* Dr. Fulong Li -- September 2026. Native LTspice execution pending.
+* Generic lossy elements, not a selected or validated hardware BOM.
+.param VIN=12 FS=100k DUTY=0.5 LVAL=150u CVAL=330u RLOAD=4.8
+Vinput in 0 {VIN}
+S1 in sw gate 0 SWMOD
+Rwind sw lin 0.05
+L1 lin 0 {LVAL}
+* Diode returns inductor current from the negative output node into sw.
+D1 out sw DMOD
+Cout out 0 {CVAL}
+Rload out 0 {RLOAD}
+Vgate gate 0 PULSE(0 5 10u 10n 10n {DUTY/FS} {1/FS})
+.model SWMOD SW(Ron=0.02 Roff=100Meg Vt=2.5 Vh=0)
+.model DMOD D(Is=1u N=1.1 Rs=0.03 Cjo=100p Tt=0)
+* Output settles NEGATIVE (about -12 V). The stage is lightly damped, so
+* allow a long settling time before measuring. PWM-enable, not a startup study.
+.tran 0 30m 25m 100n
+.options plotwinsize=0
+.meas tran Vout_avg AVG V(out) FROM 25m TO 30m
+.meas tran Vout_pp PP V(out) FROM 29.98m TO 30m
+.meas tran IL_avg AVG I(L1) FROM 25m TO 30m
+.meas tran IL_peak MAX I(L1) FROM 25m TO 30m
+.meas tran Vsw_max MAX V(sw) FROM 25m TO 30m
+.end
