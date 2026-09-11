@@ -1,0 +1,69 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<figure class="db-figure">
+  <span class="db-figure-title">{% if zh %}直流微电网 —— 单一母线，单一控制变量{% else %}DC microgrid — one bus, one control variable{% endif %}</span>
+  <svg viewBox="0 0 440 300" role="img" aria-label="{% if zh %}光伏、储能与电网接口汇入公共直流母线的直流微电网框图{% else %}Block diagram of a DC microgrid with PV, battery and grid interface feeding a common DC bus{% endif %}">
+      <path class="fig-bus fig-bus-dc" d="M34,162 H406"/>
+      <text class="fig-note" x="34" y="150" font-weight="700" fill="var(--fig-3)">{% if zh %}直流母线{% else %}DC bus{% endif %}</text>
+      <text class="fig-note" x="406" y="182" text-anchor="end">±380 V / 800 V</text>
+      <rect class="fig-block" x="46" y="27" width="76" height="26" rx="4"/>
+      <text class="fig-note" x="84" y="43.5" text-anchor="middle" font-size="10">{% if zh %}光伏{% else %}PV{% endif %}</text>
+      <path class="fig-sym" d="M84,53 L84,72"/>
+      <rect class="fig-block" x="61" y="75" width="46" height="34" rx="3"/>
+      <path class="fig-sym-thin" d="M61,109 L107,75"/>
+      <path class="fig-sym-thin" d="M65,85 h13 M65,89 h2.6 M70.2,89 h2.6 M75.4,89 h2.6"/>
+      <path class="fig-sym-thin" d="M89,98 h13 M89,102 h2.6 M94.2,102 h2.6 M99.4,102 h2.6"/>
+      <path class="fig-sym" d="M84,109 L84,159"/>
+      <path class="fig-sym-fill" d="M84.0,159.0 L80.5,152.9 L87.5,152.9 z"/>
+      <rect class="fig-block" x="166" y="27" width="76" height="26" rx="4"/>
+      <text class="fig-note" x="204" y="43.5" text-anchor="middle" font-size="10">{% if zh %}储能电池{% else %}Battery{% endif %}</text>
+      <path class="fig-sym" d="M204,53 L204,72"/>
+      <rect class="fig-block" x="181" y="75" width="46" height="34" rx="3"/>
+      <path class="fig-sym-thin" d="M181,109 L227,75"/>
+      <path class="fig-sym-thin" d="M185,85 h13 M185,89 h2.6 M190.2,89 h2.6 M195.4,89 h2.6"/>
+      <path class="fig-sym-thin" d="M209,98 h13 M209,102 h2.6 M214.2,102 h2.6 M219.4,102 h2.6"/>
+      <path class="fig-sym" d="M204,109 L204,159"/>
+      <path class="fig-sym-fill" d="M204.0,159.0 L200.5,152.9 L207.5,152.9 z"/>
+      <path class="fig-sym-fill" d="M204.0,109.0 L207.5,115.1 L200.5,115.1 z"/>
+      <rect class="fig-block" x="292" y="27" width="76" height="26" rx="4"/>
+      <text class="fig-note" x="330" y="43.5" text-anchor="middle" font-size="10">{% if zh %}交流电网{% else %}AC grid{% endif %}</text>
+      <path class="fig-sym" d="M330,53 L330,72"/>
+      <rect class="fig-block" x="307" y="75" width="46" height="34" rx="3"/>
+      <path class="fig-sym-thin" d="M307,109 L353,75"/>
+      <path class="fig-sym-thin" d="M311,85 q3.5,-6 7,0 q3.5,6 7,0"/>
+      <path class="fig-sym-thin" d="M335,98 h13 M335,102 h2.6 M340.2,102 h2.6 M345.4,102 h2.6"/>
+      <path class="fig-sym" d="M330,109 L330,159"/>
+      <path class="fig-sym-fill" d="M330.0,159.0 L326.5,152.9 L333.5,152.9 z"/>
+      <path class="fig-sym-fill" d="M330.0,109.0 L333.5,115.1 L326.5,115.1 z"/>
+      <path class="fig-sym" d="M120,165 L120,214"/>
+      <path class="fig-sym-fill" d="M120.0,214.0 L116.5,207.9 L123.5,207.9 z"/>
+      <rect class="fig-block" x="97" y="215" width="46" height="34" rx="3"/>
+      <path class="fig-sym-thin" d="M97,249 L143,215"/>
+      <path class="fig-sym-thin" d="M101,225 h13 M101,229 h2.6 M106.2,229 h2.6 M111.4,229 h2.6"/>
+      <path class="fig-sym-thin" d="M125,238 h13 M125,242 h2.6 M130.2,242 h2.6 M135.4,242 h2.6"/>
+      <path class="fig-sym" d="M120,249 L120,268"/>
+      <rect class="fig-block" x="77" y="268" width="86" height="26" rx="4"/>
+      <text class="fig-note" x="120" y="284.5" text-anchor="middle" font-size="10">{% if zh %}直流负载{% else %}DC loads{% endif %}</text>
+      <path class="fig-sym" d="M280,165 L280,214"/>
+      <path class="fig-sym-fill" d="M280.0,214.0 L276.5,207.9 L283.5,207.9 z"/>
+      <rect class="fig-block" x="257" y="215" width="46" height="34" rx="3"/>
+      <path class="fig-sym-thin" d="M257,249 L303,215"/>
+      <path class="fig-sym-thin" d="M261,225 h13 M261,229 h2.6 M266.2,229 h2.6 M271.4,229 h2.6"/>
+      <path class="fig-sym-thin" d="M285,238 q3.5,-6 7,0 q3.5,6 7,0"/>
+      <path class="fig-sym" d="M280,249 L280,268"/>
+      <rect class="fig-block" x="237" y="268" width="86" height="26" rx="4"/>
+      <text class="fig-note" x="280" y="284.5" text-anchor="middle" font-size="10">{% if zh %}交流负载{% else %}AC loads{% endif %}</text>
+  </svg>
+  <figcaption>
+    {% if zh %}
+      <b>变换级数更少，且无需同步。</b>所有电源与负载汇聚于同一条直流母线，因此没有频率、没有相角、没有无功需要管理 ——
+      母线电压本身就携带了功率平衡信息，这正是直流下垂控制如此简洁的原因。难点转移到了别处：
+      直流故障电流没有自然过零点，开断困难；以及恒功率负载的负增量阻抗会主动对抗电源侧滤波器，母线稳定性需要专门设计。
+    {% else %}
+      <b>Fewer conversions, and nothing to synchronise.</b> Every source and load meets on one DC bus, so there is no
+      frequency, no phase angle and no reactive power to manage — bus voltage alone carries the power-balance
+      information, which is what makes DC droop control so simple. The hard parts move elsewhere: interrupting DC
+      fault current with no natural zero crossing, and keeping the bus stable against constant-power loads, whose
+      negative incremental impedance actively works against the source filters.
+    {% endif %}
+  </figcaption>
+</figure>

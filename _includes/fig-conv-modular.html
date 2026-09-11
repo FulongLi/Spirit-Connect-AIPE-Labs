@@ -1,0 +1,27 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<span class="db-card-visual" aria-hidden="true">
+  <svg viewBox="0 0 320 112">
+    <rect class="fig-block" x="47" y="8" width="46" height="24" rx="3"/>
+      <path class="fig-sym-thin" d="M47,32 L93,8"/>
+      <path class="fig-sym-thin" d="M51,18 q3.5,-6 7,0 q3.5,6 7,0"/>
+      <path class="fig-sym-thin" d="M75,21 h13 M75,25 h2.6 M80.2,25 h2.6 M85.4,25 h2.6"/>
+    <rect class="fig-block" x="47" y="40" width="46" height="24" rx="3"/>
+      <path class="fig-sym-thin" d="M47,64 L93,40"/>
+      <path class="fig-sym-thin" d="M51,50 h13 M51,54 h2.6 M56.2,54 h2.6 M61.4,54 h2.6"/>
+      <path class="fig-sym-thin" d="M75,53 h13 M75,57 h2.6 M80.2,57 h2.6 M85.4,57 h2.6"/>
+    <rect class="fig-block" x="47" y="72" width="46" height="24" rx="3"/>
+      <path class="fig-sym-thin" d="M47,96 L93,72"/>
+      <path class="fig-sym-thin" d="M51,82 h13 M51,86 h2.6 M56.2,86 h2.6 M61.4,86 h2.6"/>
+      <path class="fig-sym-thin" d="M75,85 h13 M75,89 h2.6 M80.2,89 h2.6 M85.4,89 h2.6"/>
+    <path class="fig-sym" d="M47,20 H32 V84 H47 M47,52 H32"/>
+    <path class="fig-sym" d="M93,20 H112 V84 H93 M93,52 H112"/>
+    <path class="fig-sym" d="M112,52 L150,52"/>
+      <path class="fig-sym-fill" d="M150.0,52.0 L143.9,55.5 L143.9,48.5 z"/>
+    <rect class="fig-block-accent" x="152" y="26" width="86" height="52" rx="5"/>
+    <text x="195" y="49" text-anchor="middle">{% if zh %}级联{% else %}cascaded{% endif %}</text>
+    <text x="195" y="63" text-anchor="middle">{% if zh %}系统{% else %}system{% endif %}</text>
+    <path class="fig-sym" d="M238,52 L274,52"/>
+      <path class="fig-sym-fill" d="M274.0,52.0 L267.9,55.5 L267.9,48.5 z"/>
+    <path class="fig-bus fig-bus-ac" d="M282,22 V82"/>
+  </svg>
+</span>

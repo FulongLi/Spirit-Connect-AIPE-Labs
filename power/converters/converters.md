@@ -25,30 +25,35 @@ description: A structured topology library for industrial power conversion, from
     </p>
     <div class="grid">
       <a class="card post-card" href="#dc-dc">
+        {% include fig-conv-dcdc.html lang=page.lang %}
         <span class="small">DC → DC</span>
         <h3>DC–DC conversion</h3>
         <p>Non-isolated, isolated, resonant, interleaved, and bidirectional power stages.</p>
         <span class="post-card-more">Explore topologies ↓</span>
       </a>
       <a class="card post-card" href="#ac-dc">
+        {% include fig-conv-acdc.html lang=page.lang %}
         <span class="small">AC → DC</span>
         <h3>Rectifiers &amp; PFC</h3>
         <p>Passive rectifiers, boost-derived PFC, totem-pole, Vienna, and active front ends.</p>
         <span class="post-card-more">Explore topologies ↓</span>
       </a>
       <a class="card post-card" href="#dc-ac">
+        {% include fig-conv-dcac.html lang=page.lang %}
         <span class="small">DC → AC</span>
         <h3>Inverters</h3>
         <p>Single- and three-phase bridges, voltage-source inverters, and multilevel families.</p>
         <span class="post-card-more">Explore topologies ↓</span>
       </a>
       <a class="card post-card" href="#ac-ac">
+        {% include fig-conv-acac.html lang=page.lang %}
         <span class="small">AC → AC</span>
         <h3>AC–AC conversion</h3>
         <p>Back-to-back conversion, AC controllers, cycloconverters, and matrix converters.</p>
         <span class="post-card-more">Explore topologies ↓</span>
       </a>
       <a class="card post-card" href="#modular">
+        {% include fig-conv-modular.html lang=page.lang %}
         <span class="small">CELLS → SYSTEM</span>
         <h3>Modular &amp; multistage</h3>
         <p>Parallel phases, cascaded cells, MMCs, and solid-state transformer architectures.</p>

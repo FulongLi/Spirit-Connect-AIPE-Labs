@@ -1,0 +1,42 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<figure class="db-figure">
+  <span class="db-figure-title">{% if zh %}分层控制：按时间尺度划分职责{% else %}Hierarchical control: responsibility split by timescale{% endif %}</span>
+  <svg viewBox="0 0 440 268" role="img" aria-label="{% if zh %}微电网一次、二次、三次控制的分层结构与各自时间尺度{% else %}Primary, secondary and tertiary microgrid control layers with their respective timescales{% endif %}">
+    <rect class="fig-block-soft" x="40" y="26" width="330" height="54" rx="6"/>
+    <rect class="fig-block-soft" x="40" y="96" width="330" height="54" rx="6"/>
+    <rect class="fig-block-accent" x="40" y="166" width="330" height="54" rx="6"/>
+
+    <text class="fig-series" x="56" y="48" fill="var(--fig-ink)">{% if zh %}三次控制 —— 调度{% else %}Tertiary — dispatch{% endif %}</text>
+    <text class="fig-note" x="354" y="48" text-anchor="end">{% if zh %}分钟–小时{% else %}minutes–hours{% endif %}</text>
+    <text class="fig-note" x="56" y="66" font-size="9.5">{% if zh %}经济优化 · 与主网交换计划 · 荷电状态管理{% else %}economic optimisation · grid exchange · state of charge{% endif %}</text>
+
+    <text class="fig-series" x="56" y="118" fill="var(--fig-ink)">{% if zh %}二次控制 —— 恢复{% else %}Secondary — restoration{% endif %}</text>
+    <text class="fig-note" x="354" y="118" text-anchor="end">{% if zh %}秒{% else %}seconds{% endif %}</text>
+    <text class="fig-note" x="56" y="136" font-size="9.5">{% if zh %}消除下垂偏差 · 同步与重新并网{% else %}removes the droop deviation · resynchronisation{% endif %}</text>
+
+    <text class="fig-series" x="56" y="188" fill="var(--fig-ink)">{% if zh %}一次控制 —— 下垂与内环{% else %}Primary — droop and inner loops{% endif %}</text>
+    <text class="fig-note" x="354" y="188" text-anchor="end">{% if zh %}毫秒{% else %}milliseconds{% endif %}</text>
+    <text class="fig-note" x="56" y="206" font-size="9.5">{% if zh %}本地自主 · 功率分配 · 构网或跟网{% else %}local and autonomous · power sharing · grid-forming or following{% endif %}</text>
+
+    <path class="fig-sym" d="M30,80 V96"/>
+    <path class="fig-sym-fill" d="M30,102 L26.5,95 L33.5,95 z"/>
+    <path class="fig-sym" d="M30,150 V166"/>
+    <path class="fig-sym-fill" d="M30,172 L26.5,165 L33.5,165 z"/>
+    <text class="fig-note" x="22" y="124" text-anchor="middle" transform="rotate(-90 22 124)">{% if zh %}设定值下发{% else %}setpoints down{% endif %}</text>
+
+    <text class="fig-note" x="205" y="242" text-anchor="middle">{% if zh %}下层越快越自主，上层越慢越全局{% else %}faster and more autonomous at the bottom, slower and more global at the top{% endif %}</text>
+  </svg>
+  <figcaption>
+    {% if zh %}
+      <b>层与层之间靠时间尺度解耦。</b>一次控制必须在毫秒内完成，因此只能用本地量、不能等通信；
+      二次控制在秒级把偏差修回来；三次控制在分钟级决定该买该卖、该充该放。
+      把职责放错层次是微电网控制最常见的失败模式 —— 例如让一个依赖通信的环路去承担本该本地自主的功率分配。
+    {% else %}
+      <b>The layers are decoupled by timescale, and that is the whole design.</b> Primary control has to act within
+      milliseconds, so it may use only local measurements and cannot wait for a communication link. Secondary control
+      pulls the deviation back out over seconds. Tertiary control decides over minutes what to buy, sell, charge or
+      discharge. Putting a responsibility on the wrong layer — a communication-dependent loop doing work that should be
+      locally autonomous — is the most common way a microgrid control scheme fails.
+    {% endif %}
+  </figcaption>
+</figure>

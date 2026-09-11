@@ -985,3 +985,34 @@ img { max-width: 100%; height: auto; }
 .partner-band-mark img { width: auto; max-width: 170px; max-height: 84px; object-fit: contain; }
 .partner-band-body p { margin: 0 0 1rem; }
 .partner-band-body .hero-actions { justify-content: flex-start; }
+
+/* ══════════════════════════════════════
+   BLOCK DIAGRAMS — microgrid & converter figures
+   ══════════════════════════════════════ */
+.db-figure .fig-block { fill: var(--fig-bg); stroke: var(--fig-ink); stroke-width: 1.4; }
+.section-alt .db-figure .fig-block { fill: var(--fig-bg); }
+.db-figure .fig-block-accent { fill: var(--fig-accent); fill-opacity: .3; stroke: var(--fig-ink); stroke-width: 1.4; }
+.db-figure .fig-block-soft { fill: var(--fig-ink); fill-opacity: .07; stroke: var(--fig-ink); stroke-width: 1.4; }
+.db-figure .fig-sym-thin { fill: none; stroke: var(--fig-ink); stroke-width: 1.2; stroke-linecap: round; }
+.db-figure .fig-bus { fill: none; stroke: var(--fig-ink); stroke-width: 4; stroke-linecap: round; }
+.db-figure .fig-bus-ac { stroke: var(--fig-2); }
+.db-figure .fig-bus-dc { stroke: var(--fig-3); }
+.db-figure .fig-wave { fill: none; stroke: var(--fig-2); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.db-figure .fig-wave-dc { stroke: var(--fig-3); }
+
+.db-card-visual .fig-block { fill: var(--bg-alt); stroke: var(--fig-ink); stroke-width: 1.4; }
+.section-alt .db-card-visual .fig-block { fill: var(--bg-white); }
+.db-card-visual .fig-sym-thin { fill: none; stroke: var(--fig-ink); stroke-width: 1.2; stroke-linecap: round; }
+.db-card-visual .fig-sym { fill: none; stroke: var(--fig-ink); stroke-width: 1.6; stroke-linecap: round; }
+.db-card-visual .fig-sym-fill { fill: var(--fig-ink); stroke: none; }
+.db-card-visual .fig-wave { fill: none; stroke: var(--fig-2); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.db-card-visual .fig-wave-dc { stroke: var(--fig-3); }
+.db-card-visual .fig-block-accent { fill: var(--fig-accent); fill-opacity: .35; stroke: var(--fig-ink); stroke-width: 1.4; }
+.db-card-visual .fig-block-soft { fill: var(--fig-ink); fill-opacity: .07; stroke: var(--fig-ink); stroke-width: 1.4; }
+.db-card-visual .fig-bus { fill: none; stroke: var(--fig-ink); stroke-width: 4; stroke-linecap: round; }
+.db-card-visual .fig-bus-ac { stroke: var(--fig-2); }
+.db-card-visual .fig-bus-dc { stroke: var(--fig-3); }
+.db-card-visual .fig-dash { stroke-dasharray: 5 4; }
+.db-card-visual text { font-family: var(--font); fill: var(--muted); font-size: 10px; }
+
+.post-card .db-card-visual { margin-bottom: 1.2rem; }

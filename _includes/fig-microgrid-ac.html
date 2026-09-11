@@ -1,0 +1,64 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<figure class="db-figure">
+  <span class="db-figure-title">{% if zh %}交流微电网 —— 成熟的设备，更难的控制{% else %}AC microgrid — mature equipment, harder control{% endif %}</span>
+  <svg viewBox="0 0 440 300" role="img" aria-label="{% if zh %}含光伏、储能、发电机组以及与公网并网点的交流微电网框图{% else %}Block diagram of an AC microgrid with PV, battery, generator and a point of common coupling to the utility{% endif %}">
+      <path class="fig-bus fig-bus-ac" d="M34,162 H318"/>
+      <text class="fig-note" x="34" y="150" font-weight="700" fill="var(--fig-2)">{% if zh %}交流母线{% else %}AC bus{% endif %}</text>
+      <path class="fig-sym" d="M318,162 L340,162"/>
+      <path class="fig-sym" d="M340,162 L356,150"/>
+      <circle class="fig-block" cx="340" cy="162" r="3"/>
+      <circle class="fig-block" cx="360" cy="162" r="3"/>
+      <path class="fig-sym" d="M363,162 L378,162"/>
+      <rect class="fig-block" x="378" y="149" width="44" height="26" rx="4"/>
+      <text class="fig-note" x="400" y="165.5" text-anchor="middle" font-size="10">{% if zh %}电网{% else %}grid{% endif %}</text>
+      <text class="fig-note" x="350" y="140" text-anchor="middle">PCC</text>
+      <rect class="fig-block" x="46" y="27" width="76" height="26" rx="4"/>
+      <text class="fig-note" x="84" y="43.5" text-anchor="middle" font-size="10">{% if zh %}光伏{% else %}PV{% endif %}</text>
+      <path class="fig-sym" d="M84,53 L84,72"/>
+      <rect class="fig-block" x="61" y="75" width="46" height="34" rx="3"/>
+      <path class="fig-sym-thin" d="M61,109 L107,75"/>
+      <path class="fig-sym-thin" d="M65,85 h13 M65,89 h2.6 M70.2,89 h2.6 M75.4,89 h2.6"/>
+      <path class="fig-sym-thin" d="M89,98 q3.5,-6 7,0 q3.5,6 7,0"/>
+      <path class="fig-sym" d="M84,109 L84,159"/>
+      <path class="fig-sym-fill" d="M84.0,159.0 L80.5,152.9 L87.5,152.9 z"/>
+      <rect class="fig-block" x="166" y="27" width="76" height="26" rx="4"/>
+      <text class="fig-note" x="204" y="43.5" text-anchor="middle" font-size="10">{% if zh %}储能电池{% else %}Battery{% endif %}</text>
+      <path class="fig-sym" d="M204,53 L204,72"/>
+      <rect class="fig-block" x="181" y="75" width="46" height="34" rx="3"/>
+      <path class="fig-sym-thin" d="M181,109 L227,75"/>
+      <path class="fig-sym-thin" d="M185,85 h13 M185,89 h2.6 M190.2,89 h2.6 M195.4,89 h2.6"/>
+      <path class="fig-sym-thin" d="M209,98 q3.5,-6 7,0 q3.5,6 7,0"/>
+      <path class="fig-sym" d="M204,109 L204,159"/>
+      <path class="fig-sym-fill" d="M204.0,159.0 L200.5,152.9 L207.5,152.9 z"/>
+      <path class="fig-sym-fill" d="M204.0,109.0 L207.5,115.1 L200.5,115.1 z"/>
+      <rect class="fig-block" x="268" y="27" width="84" height="26" rx="4"/>
+      <text class="fig-note" x="310" y="43.5" text-anchor="middle" font-size="10">{% if zh %}发电机组{% else %}Genset / CHP{% endif %}</text>
+      <path class="fig-sym" d="M310,53 L310,159"/>
+      <path class="fig-sym-fill" d="M310.0,159.0 L306.5,152.9 L313.5,152.9 z"/>
+      <path class="fig-sym" d="M120,165 L120,268"/>
+      <path class="fig-sym-fill" d="M120.0,268.0 L116.5,261.9 L123.5,261.9 z"/>
+      <rect class="fig-block" x="77" y="268" width="86" height="26" rx="4"/>
+      <text class="fig-note" x="120" y="284.5" text-anchor="middle" font-size="10">{% if zh %}交流负载{% else %}AC loads{% endif %}</text>
+      <path class="fig-sym" d="M250,165 L250,214"/>
+      <path class="fig-sym-fill" d="M250.0,214.0 L246.5,207.9 L253.5,207.9 z"/>
+      <rect class="fig-block" x="227" y="215" width="46" height="34" rx="3"/>
+      <path class="fig-sym-thin" d="M227,249 L273,215"/>
+      <path class="fig-sym-thin" d="M231,225 q3.5,-6 7,0 q3.5,6 7,0"/>
+      <path class="fig-sym-thin" d="M255,238 h13 M255,242 h2.6 M260.2,242 h2.6 M265.4,242 h2.6"/>
+      <path class="fig-sym" d="M250,249 L250,268"/>
+      <rect class="fig-block" x="207" y="268" width="86" height="26" rx="4"/>
+      <text class="fig-note" x="250" y="284.5" text-anchor="middle" font-size="10">{% if zh %}直流负载{% else %}DC loads{% endif %}</text>
+  </svg>
+  <figcaption>
+    {% if zh %}
+      <b>一切都是现成的 —— 保护、开关柜、变压器、电机。</b>代价是功率平衡此时表现为频率与电压，
+      而所有电源必须就这两者达成一致。至少要有一台变流器工作在<em>构网</em>模式 —— 由它建立电压与频率，其余跟随 ——
+      并网点的静态切换开关则必须在孤岛与重新并网之间完成切换，且不能产生足以让下游全部跳闸的相位突变。
+    {% else %}
+      <b>Everything already exists — protection, switchgear, transformers, motors.</b> The cost is that power balance
+      now shows up as frequency and voltage, and every source has to agree on both. At least one converter must be
+      <em>grid-forming</em> — setting the voltage and frequency the others follow — and the static transfer switch at
+      the PCC has to island and resynchronise without the phase step that trips everything downstream.
+    {% endif %}
+  </figcaption>
+</figure>

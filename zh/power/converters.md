@@ -26,30 +26,35 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
     </p>
     <div class="grid">
       <a class="card post-card" href="#dc-dc">
+        {% include fig-conv-dcdc.html lang=page.lang %}
         <span class="small">DC → DC</span>
         <h3>DC–DC 变换</h3>
         <p>非隔离、隔离、谐振、交错并联与双向功率级。</p>
         <span class="post-card-more">查看拓扑 ↓</span>
       </a>
       <a class="card post-card" href="#ac-dc">
+        {% include fig-conv-acdc.html lang=page.lang %}
         <span class="small">AC → DC</span>
         <h3>整流与 PFC</h3>
         <p>无源整流、Boost 型 PFC、图腾柱、Vienna 与有源前端。</p>
         <span class="post-card-more">查看拓扑 ↓</span>
       </a>
       <a class="card post-card" href="#dc-ac">
+        {% include fig-conv-dcac.html lang=page.lang %}
         <span class="small">DC → AC</span>
         <h3>逆变器</h3>
         <p>单相与三相桥式、电压源型以及多电平逆变器。</p>
         <span class="post-card-more">查看拓扑 ↓</span>
       </a>
       <a class="card post-card" href="#ac-ac">
+        {% include fig-conv-acac.html lang=page.lang %}
         <span class="small">AC → AC</span>
         <h3>AC–AC 变换</h3>
         <p>背靠背变换、交流调压、周波变换与矩阵变换器。</p>
         <span class="post-card-more">查看拓扑 ↓</span>
       </a>
       <a class="card post-card" href="#modular">
+        {% include fig-conv-modular.html lang=page.lang %}
         <span class="small">单元 → 系统</span>
         <h3>模块化与多级架构</h3>
         <p>并联功率级、级联单元、MMC 与固态变压器架构。</p>

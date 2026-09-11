@@ -1,0 +1,63 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<figure class="db-figure">
+  <span class="db-figure-title">{% if zh %}下垂特性：无需通信的功率分配{% else %}Droop: power sharing without communication{% endif %}</span>
+  <svg viewBox="0 0 440 268" role="img" aria-label="{% if zh %}直流母线电压下垂与交流频率下垂特性曲线{% else %}DC bus-voltage droop and AC frequency droop characteristics{% endif %}">
+    <!-- DC droop -->
+    <g>
+      <g class="fig-grid">
+        <line x1="36" y1="72" x2="196" y2="72"/>
+        <line x1="36" y1="132" x2="196" y2="132"/>
+      </g>
+      <path class="fig-axis" d="M36,30 V186 H200"/>
+      <path class="fig-line" stroke="var(--fig-3)" d="M36,58 L190,146"/>
+      <path class="fig-line fig-dash" stroke="var(--fig-3)" d="M36,58 L190,102"/>
+      <line class="fig-guide" x1="113" y1="102" x2="113" y2="186"/>
+      <circle cx="113" cy="102" r="4" fill="var(--fig-3)"/>
+      <circle cx="113" cy="72" r="4" fill="none" stroke="var(--fig-3)" stroke-width="2"/>
+      <text class="fig-note" x="30" y="62" text-anchor="end">V<tspan dy="3" font-size="8">nom</tspan></text>
+      <text class="fig-note" x="30" y="150" text-anchor="end">V<tspan dy="3" font-size="8">min</tspan></text>
+      <text class="fig-axis-label" x="200" y="202" text-anchor="end">P</text>
+      <text class="fig-axis-label" x="14" y="108" text-anchor="middle" transform="rotate(-90 14 108)">V<tspan dy="3" font-size="8">bus</tspan></text>
+      <text class="fig-note" x="120" y="130" transform="rotate(30 120 130)">{% if zh %}斜率 = −R{% else %}slope = −R{% endif %}<tspan dy="3" font-size="8">d</tspan></text>
+      <text class="fig-series" x="118" y="222" text-anchor="middle" fill="var(--fig-3)">{% if zh %}直流：电压下垂{% else %}DC — voltage droop{% endif %}</text>
+      <text class="fig-note" x="118" y="240" text-anchor="middle">V = V<tspan dy="3" font-size="8">nom</tspan><tspan dy="-3"> − R</tspan><tspan dy="3" font-size="8">d</tspan><tspan dy="-3"> P</tspan></text>
+    </g>
+    <!-- AC droop -->
+    <g>
+      <g class="fig-grid">
+        <line x1="252" y1="72" x2="412" y2="72"/>
+        <line x1="252" y1="132" x2="412" y2="132"/>
+      </g>
+      <path class="fig-axis" d="M252,30 V186 H416"/>
+      <path class="fig-line" stroke="var(--fig-2)" d="M252,58 L406,146"/>
+      <path class="fig-line fig-dash" stroke="var(--fig-2)" d="M252,58 L406,102"/>
+      <line class="fig-guide" x1="329" y1="102" x2="329" y2="186"/>
+      <circle cx="329" cy="102" r="4" fill="var(--fig-2)"/>
+      <circle cx="329" cy="72" r="4" fill="none" stroke="var(--fig-2)" stroke-width="2"/>
+      <text class="fig-note" x="246" y="62" text-anchor="end">50 Hz</text>
+      <text class="fig-note" x="246" y="150" text-anchor="end">f<tspan dy="3" font-size="8">min</tspan></text>
+      <text class="fig-axis-label" x="416" y="202" text-anchor="end">P</text>
+      <text class="fig-axis-label" x="230" y="108" text-anchor="middle" transform="rotate(-90 230 108)">f</text>
+      <text class="fig-note" x="336" y="130" transform="rotate(30 336 130)">{% if zh %}斜率 = −m{% else %}slope = −m{% endif %}<tspan dy="3" font-size="8">p</tspan></text>
+      <text class="fig-series" x="334" y="222" text-anchor="middle" fill="var(--fig-2)">{% if zh %}交流：频率下垂{% else %}AC — frequency droop{% endif %}</text>
+      <text class="fig-note" x="334" y="240" text-anchor="middle">f = f<tspan dy="3" font-size="8">0</tspan><tspan dy="-3"> − m</tspan><tspan dy="3" font-size="8">p</tspan><tspan dy="-3"> P</tspan></text>
+    </g>
+    <g transform="translate(36,10)">
+      <line class="fig-line-thin" stroke="var(--fig-label)" x1="0" y1="0" x2="20" y2="0"/>
+      <text class="fig-note" x="26" y="4">{% if zh %}一次下垂{% else %}primary droop{% endif %}</text>
+      <line class="fig-line-thin fig-dash" stroke="var(--fig-label)" x1="180" y1="0" x2="200" y2="0"/>
+      <text class="fig-note" x="206" y="4">{% if zh %}二次恢复后{% else %}after secondary restoration{% endif %}</text>
+    </g>
+  </svg>
+  <figcaption>
+    {% if zh %}
+      <b>下垂就是用偏差换取自主。</b>每台变流器只看本地量 —— 直流看母线电压，交流看频率 —— 就能按各自斜率自动分担功率，
+      无需任何通信。代价是稳态偏差：功率越大，电压或频率就越低。二次控制随后把整条特性曲线平移回额定值（虚线）。
+    {% else %}
+      <b>Droop trades a steady-state error for autonomy.</b> Each converter watches only a local quantity — bus voltage on
+      DC, frequency on AC — and shares power in proportion to its own slope, with no communication at all. The price is
+      the deviation itself: more power always means lower voltage or lower frequency. Secondary control then shifts the
+      whole characteristic back up to nominal (dashed).
+    {% endif %}
+  </figcaption>
+</figure>
