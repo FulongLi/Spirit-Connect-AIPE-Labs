@@ -1,0 +1,51 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<figure class="db-figure">
+  <span class="db-figure-title">{% if zh %}输出特性{% else %}Output characteristics{% endif %}</span>
+  <svg viewBox="0 0 440 268" role="img" aria-label="{% if zh %}不同栅源电压下漏极电流与漏源电压的关系曲线{% else %}Drain current versus drain-source voltage for four gate-source voltages{% endif %}">
+    <g class="fig-grid">
+      <line x1="147" y1="26" x2="147" y2="228"/>
+      <line x1="228" y1="26" x2="228" y2="228"/>
+      <line x1="309" y1="26" x2="309" y2="228"/>
+      <line x1="66" y1="177" x2="390" y2="177"/>
+      <line x1="66" y1="126" x2="390" y2="126"/>
+      <line x1="66" y1="75" x2="390" y2="75"/>
+      <line x1="66" y1="24" x2="390" y2="24"/>
+    </g>
+    <path class="fig-axis" d="M66,26 V228 H392"/>
+    <g class="fig-tick" text-anchor="middle">
+      <text x="66" y="244">0</text>
+      <text x="147" y="244">2</text>
+      <text x="228" y="244">4</text>
+      <text x="309" y="244">6</text>
+      <text x="390" y="244">8</text>
+    </g>
+    <g class="fig-tick" text-anchor="end">
+      <text x="58" y="232">0</text>
+      <text x="58" y="181">20</text>
+      <text x="58" y="130">40</text>
+      <text x="58" y="79">60</text>
+      <text x="58" y="28">80</text>
+    </g>
+    <text class="fig-axis-label" x="228" y="262" text-anchor="middle">V<tspan dy="3" font-size="8">DS</tspan><tspan dy="-3"> (V)</tspan></text>
+    <text class="fig-axis-label" x="18" y="127" text-anchor="middle" transform="rotate(-90 18 127)">I<tspan dy="3" font-size="8">D</tspan><tspan dy="-3"> (A)</tspan></text>
+    <path class="fig-line" stroke="var(--fig-1)" d="M66,228 C99,114 142,70 175,70 L390,60"/>
+    <path class="fig-line" stroke="var(--fig-2)" d="M66,228 C92,140 126,106 152,106 L390,98"/>
+    <path class="fig-line" stroke="var(--fig-3)" d="M66,228 C85,168 111,144 130,144 L390,138"/>
+    <path class="fig-line" stroke="var(--fig-4)" d="M66,228 C79,195 97,182 110,182 L390,178"/>
+    <g class="fig-series">
+      <text x="396" y="44" class="fig-note">V<tspan dy="3" font-size="8">GS</tspan></text>
+      <text x="396" y="64" fill="var(--fig-1)">18 V</text>
+      <text x="396" y="102" fill="var(--fig-2)">16 V</text>
+      <text x="396" y="142" fill="var(--fig-3)">14 V</text>
+      <text x="396" y="182" fill="var(--fig-4)">12 V</text>
+    </g>
+    <text class="fig-note" x="250" y="46">{% if zh %}饱和区 · T<tspan dy="3" font-size="8">j</tspan><tspan dy="-3"> = 25 °C</tspan>{% else %}saturation · T<tspan dy="3" font-size="8">j</tspan><tspan dy="-3"> = 25 °C</tspan>{% endif %}</text>
+  </svg>
+  <figcaption>
+    {% if zh %}
+      <b>数据来源：</b>数据手册曲线数字化 + 曲线追踪仪实测。每条记录存储 25 °C / 125 °C / 175 °C 下的 I<sub>D</sub>–V<sub>DS</sub> 族曲线，用于导出 R<sub>DS(on)</sub>、跨导与去饱和阈值。
+    {% else %}
+      <b>Source:</b> digitised datasheet families plus curve-tracer measurements. Each record stores I<sub>D</sub>–V<sub>DS</sub> families at 25 / 125 / 175 °C, from which R<sub>DS(on)</sub>, transconductance and de-saturation thresholds are extracted.
+    {% endif %}
+  </figcaption>
+</figure>

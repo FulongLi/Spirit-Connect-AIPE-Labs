@@ -1,0 +1,57 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<figure class="db-figure">
+  <span class="db-figure-title">{% if zh %}双脉冲测试波形（原始记录）{% else %}Double-pulse test waveform (raw record){% endif %}</span>
+  <svg viewBox="0 0 880 330" role="img" aria-label="{% if zh %}双脉冲测试中的栅极电压、漏极电流与漏源电压波形{% else %}Gate voltage, drain current and drain-source voltage during a double-pulse test{% endif %}">
+    <g class="fig-grid">
+      <line x1="70" y1="100" x2="840" y2="100"/>
+      <line x1="70" y1="196" x2="840" y2="196"/>
+      <line x1="70" y1="286" x2="840" y2="286"/>
+    </g>
+
+    <rect class="fig-band" x="518" y="112" width="30" height="176" rx="4"/>
+    <rect class="fig-band" x="638" y="112" width="34" height="176" rx="4"/>
+    <text class="fig-note" x="533" y="106" text-anchor="middle" font-weight="700">E<tspan dy="3" font-size="8">on</tspan></text>
+    <text class="fig-note" x="655" y="106" text-anchor="middle" font-weight="700">E<tspan dy="3" font-size="8">off</tspan></text>
+
+    <line class="fig-guide" x1="70" y1="140" x2="840" y2="140"/>
+    <line class="fig-guide" x1="70" y1="222" x2="840" y2="222"/>
+    <text class="fig-note" x="838" y="136" text-anchor="end">I<tspan dy="3" font-size="8">test</tspan></text>
+    <text class="fig-note" x="838" y="218" text-anchor="end">V<tspan dy="3" font-size="8">DC</tspan></text>
+
+    <polyline class="fig-line" stroke="var(--fig-4)" points="70,88 110,88 116,46 430,46 436,88 520,88 526,46 640,46 646,88 840,88"/>
+    <polyline class="fig-line" stroke="var(--fig-2)" points="70,190 112,190 430,140 434,140 442,198 450,178 458,190 464,186 470,190 520,190 526,122 532,148 538,138 544,142 640,132 644,132 652,200 660,178 668,190 674,186 680,190 840,190"/>
+    <polyline class="fig-line" stroke="var(--fig-3)" points="70,222 110,222 118,272 124,280 130,269 136,272 430,272 438,204 446,236 454,218 462,224 468,221 474,222 520,222 526,272 532,281 538,268 544,272 640,272 648,204 656,236 664,218 672,224 678,221 684,222 840,222"/>
+
+    <g class="fig-series" text-anchor="end">
+      <text x="62" y="70" fill="var(--fig-4)">V<tspan dy="3" font-size="8">GS</tspan></text>
+      <text x="62" y="170" fill="var(--fig-2)">I<tspan dy="3" font-size="8">D</tspan></text>
+      <text x="62" y="250" fill="var(--fig-3)">V<tspan dy="3" font-size="8">DS</tspan></text>
+    </g>
+
+    <g class="fig-guide">
+      <line x1="110" y1="300" x2="430" y2="300"/>
+      <line x1="436" y1="300" x2="518" y2="300"/>
+      <line x1="524" y1="300" x2="640" y2="300"/>
+      <line x1="110" y1="296" x2="110" y2="304"/>
+      <line x1="430" y1="296" x2="430" y2="304"/>
+      <line x1="436" y1="296" x2="436" y2="304"/>
+      <line x1="518" y1="296" x2="518" y2="304"/>
+      <line x1="524" y1="296" x2="524" y2="304"/>
+      <line x1="640" y1="296" x2="640" y2="304"/>
+    </g>
+    <g class="fig-note" text-anchor="middle">
+      <text x="270" y="318">{% if zh %}电感储能（设定 I{% else %}inductor charging (sets I{% endif %}<tspan dy="3" font-size="8">test</tspan><tspan dy="-3">{% if zh %}）{% else %}){% endif %}</tspan></text>
+      <text x="477" y="318">{% if zh %}续流{% else %}freewheel{% endif %}</text>
+      <text x="582" y="318">{% if zh %}测量脉冲{% else %}measurement pulse{% endif %}</text>
+    </g>
+    <text class="fig-note" x="512" y="126" text-anchor="end">{% if zh %}反向恢复 / C{% else %}reverse recovery + C{% endif %}<tspan dy="3" font-size="8">oss</tspan><tspan dy="-3"> {% if zh %}尖峰{% else %}spike{% endif %}</tspan></text>
+    <text class="fig-note" x="838" y="252" text-anchor="end">L<tspan dy="3" font-size="8">σ</tspan><tspan dy="-3"> di/dt {% if zh %}过冲与振铃{% else %}overshoot &amp; ringing{% endif %}</tspan></text>
+  </svg>
+  <figcaption>
+    {% if zh %}
+      <b>每个器件都有实测记录。</b>在给定母线电压、栅极电阻、回路电感与结温下采集完整的 v/i 波形，据此积分得到 E<sub>on</sub>、E<sub>off</sub>，并提取 dv/dt、di/dt、电压过冲与振铃频率。数据手册的单点损耗数值无法覆盖你的实际换流回路，波形可以。
+    {% else %}
+      <b>Every device carries measured waveforms, not just a number.</b> Full v/i captures at a stated DC-link voltage, gate resistance, loop inductance and junction temperature give integrated E<sub>on</sub> and E<sub>off</sub> plus dv/dt, di/dt, overshoot and ringing frequency. A single datasheet energy figure does not transfer to your commutation loop — a waveform does.
+    {% endif %}
+  </figcaption>
+</figure>

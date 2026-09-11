@@ -1,0 +1,46 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<figure class="db-figure">
+  <span class="db-figure-title">{% if zh %}磁芯损耗密度{% else %}Core loss density{% endif %}</span>
+  <svg viewBox="0 0 440 268" role="img" aria-label="{% if zh %}三个开关频率下损耗密度随峰值磁密的双对数曲线{% else %}Log-log loss density versus peak flux density at three switching frequencies{% endif %}">
+    <g class="fig-grid">
+      <line x1="229" y1="26" x2="229" y2="228"/>
+      <line x1="66" y1="161" x2="392" y2="161"/>
+      <line x1="66" y1="95" x2="392" y2="95"/>
+      <line x1="66" y1="28" x2="392" y2="28"/>
+    </g>
+    <path class="fig-axis" d="M66,26 V228 H392"/>
+    <g class="fig-tick" text-anchor="middle">
+      <text x="66" y="244">10</text>
+      <text x="229" y="244">100</text>
+      <text x="392" y="244">1000</text>
+    </g>
+    <g class="fig-tick" text-anchor="end">
+      <text x="58" y="232">1</text>
+      <text x="58" y="165">10</text>
+      <text x="58" y="99">100</text>
+      <text x="58" y="32">1000</text>
+    </g>
+    <text class="fig-axis-label" x="229" y="262" text-anchor="middle">B̂ (mT)</text>
+    <text class="fig-axis-label" x="18" y="127" text-anchor="middle" transform="rotate(-90 18 127)">P<tspan dy="3" font-size="8">v</tspan><tspan dy="-3"> (kW/m³)</tspan></text>
+    <path class="fig-line" stroke="var(--fig-1)" d="M99,228 L296,26"/>
+    <path class="fig-line" stroke="var(--fig-2)" d="M69,228 L267,26"/>
+    <path class="fig-line" stroke="var(--fig-3)" d="M66,192 L228,26"/>
+    <g class="fig-series">
+      <text x="209" y="137" fill="var(--fig-1)" transform="rotate(-45.6 209 137)">100 kHz</text>
+      <text x="180" y="137" fill="var(--fig-2)" transform="rotate(-45.6 180 137)">200 kHz</text>
+      <text x="151" y="119" fill="var(--fig-3)" transform="rotate(-45.6 151 119)">500 kHz</text>
+    </g>
+    <circle cx="229" cy="95" r="3.5" fill="var(--fig-1)"/>
+    <circle cx="180" cy="115" r="3.5" fill="var(--fig-2)"/>
+    <circle cx="110" cy="147" r="3.5" fill="var(--fig-3)"/>
+    <text class="fig-note" x="300" y="200" text-anchor="middle">P<tspan dy="3" font-size="8">v</tspan><tspan dy="-3"> = k f</tspan><tspan dy="-4" font-size="8">α</tspan><tspan dy="4"> B̂</tspan><tspan dy="-4" font-size="8">β</tspan></text>
+    <text class="fig-note" x="300" y="216" text-anchor="middle">{% if zh %}● 实测点{% else %}● measured points{% endif %}</text>
+  </svg>
+  <figcaption>
+    {% if zh %}
+      <b>不是只存三个 Steinmetz 系数。</b>库中保存实测损耗面（频率 × 磁密 × 温度），并附 iGSE / 改进 Steinmetz 拟合及其有效区间——非正弦波形与直流偏磁下，单组 k/α/β 会给出误导性结果。
+    {% else %}
+      <b>Not just three Steinmetz coefficients.</b> The measured loss surface (frequency × flux density × temperature) is stored alongside iGSE / improved-Steinmetz fits <em>and their valid range</em> — under non-sinusoidal excitation and DC bias, one set of k/α/β is quietly misleading.
+    {% endif %}
+  </figcaption>
+</figure>

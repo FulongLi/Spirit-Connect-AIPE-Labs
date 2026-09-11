@@ -1,0 +1,76 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<figure class="db-figure">
+  <span class="db-figure-title">{% if zh %}绕组导体（横截面）{% else %}Winding conductors (cross-section){% endif %}</span>
+  <svg viewBox="0 0 880 250" role="img" aria-label="{% if zh %}实心圆线、利兹线、铜箔与 PCB 平面绕组的横截面对比{% else %}Cross-sections of solid round wire, litz bundle, copper foil and a PCB planar winding{% endif %}">
+
+    <!-- solid round -->
+    <g>
+      <circle cx="110" cy="108" r="44" fill="none" stroke="var(--fig-ink)" stroke-width="1.3" stroke-dasharray="4 3" opacity=".55"/>
+      <circle class="fig-copper" cx="110" cy="108" r="38"/>
+      <circle cx="110" cy="108" r="26" fill="var(--fig-bg)" opacity=".6"/>
+      <text class="fig-note" x="110" y="113" text-anchor="middle" fill="var(--fig-ink)" font-size="13" font-weight="700">δ</text>
+      <text class="fig-series" x="110" y="188" text-anchor="middle" fill="var(--fig-ink)">{% if zh %}实心圆线{% else %}Solid round{% endif %}</text>
+      <text class="fig-note" x="110" y="208" text-anchor="middle">{% if zh %}AWG / 公制 · 低频{% else %}AWG / metric · low f{% endif %}</text>
+      <text class="fig-note" x="110" y="226" text-anchor="middle">{% if zh %}趋肤效应受限{% else %}skin-effect limited{% endif %}</text>
+    </g>
+
+    <!-- litz -->
+    <g>
+      <circle cx="330" cy="108" r="44" fill="none" stroke="var(--fig-ink)" stroke-width="1.3" stroke-dasharray="4 3" opacity=".55"/>
+      <g class="fig-copper">
+        <circle cx="312.3" cy="77.3" r="5.2"/><circle cx="324.1" cy="77.3" r="5.2"/><circle cx="335.9" cy="77.3" r="5.2"/><circle cx="347.7" cy="77.3" r="5.2"/>
+        <circle cx="306.4" cy="87.6" r="5.2"/><circle cx="318.2" cy="87.6" r="5.2"/><circle cx="330.0" cy="87.6" r="5.2"/><circle cx="341.8" cy="87.6" r="5.2"/><circle cx="353.6" cy="87.6" r="5.2"/>
+        <circle cx="300.5" cy="97.8" r="5.2"/><circle cx="312.3" cy="97.8" r="5.2"/><circle cx="324.1" cy="97.8" r="5.2"/><circle cx="335.9" cy="97.8" r="5.2"/><circle cx="347.7" cy="97.8" r="5.2"/><circle cx="359.5" cy="97.8" r="5.2"/>
+        <circle cx="294.6" cy="108.0" r="5.2"/><circle cx="306.4" cy="108.0" r="5.2"/><circle cx="318.2" cy="108.0" r="5.2"/><circle cx="330.0" cy="108.0" r="5.2"/><circle cx="341.8" cy="108.0" r="5.2"/><circle cx="353.6" cy="108.0" r="5.2"/><circle cx="365.4" cy="108.0" r="5.2"/>
+        <circle cx="300.5" cy="118.2" r="5.2"/><circle cx="312.3" cy="118.2" r="5.2"/><circle cx="324.1" cy="118.2" r="5.2"/><circle cx="335.9" cy="118.2" r="5.2"/><circle cx="347.7" cy="118.2" r="5.2"/><circle cx="359.5" cy="118.2" r="5.2"/>
+        <circle cx="306.4" cy="128.4" r="5.2"/><circle cx="318.2" cy="128.4" r="5.2"/><circle cx="330.0" cy="128.4" r="5.2"/><circle cx="341.8" cy="128.4" r="5.2"/><circle cx="353.6" cy="128.4" r="5.2"/>
+        <circle cx="312.3" cy="138.7" r="5.2"/><circle cx="324.1" cy="138.7" r="5.2"/><circle cx="335.9" cy="138.7" r="5.2"/><circle cx="347.7" cy="138.7" r="5.2"/>
+      </g>
+      <text class="fig-series" x="330" y="188" text-anchor="middle" fill="var(--fig-ink)">{% if zh %}利兹线{% else %}Litz bundle{% endif %}</text>
+      <text class="fig-note" x="330" y="208" text-anchor="middle">{% if zh %}股数 × 股径 · 换位{% else %}strand count × dia · transposed{% endif %}</text>
+      <text class="fig-note" x="330" y="226" text-anchor="middle">{% if zh %}高频交流电阻最优{% else %}best AC resistance at high f{% endif %}</text>
+    </g>
+
+    <!-- foil -->
+    <g>
+      <g class="fig-copper">
+        <rect x="480" y="66" width="140" height="11" rx="1.5"/>
+        <rect x="480" y="87" width="140" height="11" rx="1.5"/>
+        <rect x="480" y="108" width="140" height="11" rx="1.5"/>
+        <rect x="480" y="129" width="140" height="11" rx="1.5"/>
+      </g>
+      <g stroke="var(--fig-ink)" stroke-width="1" opacity=".3">
+        <line x1="480" y1="82" x2="620" y2="82"/><line x1="480" y1="103" x2="620" y2="103"/><line x1="480" y1="124" x2="620" y2="124"/>
+      </g>
+      <g class="fig-guide"><line x1="636" y1="66" x2="636" y2="140"/><line x1="630" y1="66" x2="642" y2="66"/><line x1="630" y1="140" x2="642" y2="140"/></g>
+      <text class="fig-note" x="648" y="106">h<tspan dy="3" font-size="8">w</tspan></text>
+      <text class="fig-series" x="550" y="188" text-anchor="middle" fill="var(--fig-ink)">{% if zh %}铜箔{% else %}Copper foil{% endif %}</text>
+      <text class="fig-note" x="550" y="208" text-anchor="middle">{% if zh %}厚度 × 高度 · 窗口填充率高{% else %}thickness × height · high fill{% endif %}</text>
+      <text class="fig-note" x="550" y="226" text-anchor="middle">{% if zh %}边缘场与端部损耗敏感{% else %}sensitive to fringing at the gap{% endif %}</text>
+    </g>
+
+    <!-- PCB planar -->
+    <g>
+      <rect class="fig-outline" x="700" y="60" width="160" height="94" rx="3"/>
+      <g class="fig-copper">
+        <rect x="708" y="66" width="30" height="8"/><rect x="748" y="66" width="30" height="8"/><rect x="788" y="66" width="30" height="8"/><rect x="824" y="66" width="28" height="8"/>
+        <rect x="708" y="88" width="30" height="8"/><rect x="748" y="88" width="30" height="8"/><rect x="788" y="88" width="30" height="8"/><rect x="824" y="88" width="28" height="8"/>
+        <rect x="708" y="110" width="30" height="8"/><rect x="748" y="110" width="30" height="8"/><rect x="788" y="110" width="30" height="8"/><rect x="824" y="110" width="28" height="8"/>
+        <rect x="708" y="132" width="30" height="8"/><rect x="748" y="132" width="30" height="8"/><rect x="788" y="132" width="30" height="8"/><rect x="824" y="132" width="28" height="8"/>
+      </g>
+      <g class="fig-copper">
+        <rect x="730" y="66" width="6" height="74"/><rect x="812" y="66" width="6" height="74"/>
+      </g>
+      <text class="fig-series" x="780" y="188" text-anchor="middle" fill="var(--fig-ink)">{% if zh %}PCB 平面绕组{% else %}PCB planar{% endif %}</text>
+      <text class="fig-note" x="780" y="208" text-anchor="middle">{% if zh %}铜厚 oz · 层叠 · 过孔{% else %}copper weight · stack-up · vias{% endif %}</text>
+      <text class="fig-note" x="780" y="226" text-anchor="middle">{% if zh %}可重复、可制造{% else %}repeatable, manufacturable{% endif %}</text>
+    </g>
+  </svg>
+  <figcaption>
+    {% if zh %}
+      <b>绕组材料与磁芯材料同等重要。</b>库中记录导体类型、截面、绝缘、填充系数与温度相关的电阻率，据此计算直流电阻、Dowell 交错下的交流电阻比 F<sub>R</sub>、邻近效应损耗与气隙边缘场附加损耗。
+    {% else %}
+      <b>Winding material matters as much as core material.</b> The library records conductor type, cross-section, insulation, fill factor and temperature-dependent resistivity — enough to compute DC resistance, the AC resistance ratio F<sub>R</sub> under Dowell/interleaving, proximity loss and the extra loss a fringing field drives into conductors near the gap.
+    {% endif %}
+  </figcaption>
+</figure>

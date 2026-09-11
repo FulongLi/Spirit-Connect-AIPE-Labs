@@ -849,7 +849,7 @@ img { max-width: 100%; height: auto; }
   --fig-2: #2f6f8f;
   --fig-3: #b4622f;
   --fig-4: #5f7a3f;
-  --fig-core: rgba(36, 28, 16, 0.14);
+  --fig-core: rgba(36, 28, 16, 0.17);
   --fig-copper: #b4622f;
   --fig-accent: #f5d54a;
 }
@@ -879,6 +879,7 @@ img { max-width: 100%; height: auto; }
 .db-figure-grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; margin-top: 2.5rem; }
 @media(min-width:900px) { .db-figure-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .db-figure-wide { margin-top: 2.5rem; }
+.db-figure-note { margin-top: 1.5rem; }
 .db-figure-grid + .db-figure-wide,
 .db-figure-wide + .db-figure-grid { margin-top: 1.25rem; }
 
@@ -915,7 +916,7 @@ img { max-width: 100%; height: auto; }
   padding: .4rem .75rem; border: 1px solid var(--border); border-radius: var(--pill);
   background: var(--bg-alt); color: var(--fg-dim); font-size: .8rem; font-weight: 600;
 }
-.section-alt .db-tags li, .card .db-tags li { background: var(--bg-white); }
+.section-alt .db-tags li { background: var(--bg-white); }
 
 /* Database index cards with a preview graphic */
 .db-card-visual {
@@ -935,4 +936,7 @@ img { max-width: 100%; height: auto; }
 
 @media(max-width:720px) {
   .db-figure { padding: 1.1rem 1.1rem .9rem; }
+  /* wide figures keep legible type on phones by scrolling instead of shrinking */
+  .db-figure-wide .db-figure { overflow-x: auto; }
+  .db-figure-wide .db-figure > svg { min-width: 620px; }
 }
