@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 625" role="img" aria-label="Double-pulse timing: build current, freewheel, then measure">
+<title>Double-pulse timing: build current, freewheel, then measure</title>
+<rect width="900" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8" fill="#175d85"/></marker></defs>
+<g font-family="Arial, sans-serif" fill="#202b35">
+<text x="30.00" y="35.00" font-size="23" text-anchor="start" fill="#202b35" font-weight="bold">Double-pulse timing: build current, freewheel, then measure</text>
+<text x="30.00" y="101.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="bold">Gate</text>
+<line x1="120.00" y1="153.00" x2="850.00" y2="153.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="158.00" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">0</text>
+<line x1="120.00" y1="115.50" x2="850.00" y2="115.50" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="120.50" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">0.5</text>
+<line x1="120.00" y1="78.00" x2="850.00" y2="78.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="83.00" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">1</text>
+<line x1="158.42" y1="78.00" x2="158.42" y2="153.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="542.63" y1="78.00" x2="542.63" y2="153.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="619.47" y1="78.00" x2="619.47" y2="153.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="696.32" y1="78.00" x2="696.32" y2="153.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="850.00" y1="78.00" x2="850.00" y2="153.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="619.47" y1="78.00" x2="619.47" y2="153.00" stroke="#175d85" stroke-width="1.3" stroke-dasharray="4 4"/>
+<line x1="696.32" y1="78.00" x2="696.32" y2="153.00" stroke="#175d85" stroke-width="1.3" stroke-dasharray="4 4"/>
+<polyline points="120.00,153.00 158.42,153.00 158.42,78.00 542.63,78.00 542.63,153.00 619.47,153.00 619.47,78.00 696.32,78.00 696.32,153.00 850.00,153.00" fill="none" stroke="#175d85" stroke-width="2.8" stroke-linejoin="round"/>
+<text x="30.00" y="226.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="bold">iL / I*</text>
+<line x1="120.00" y1="278.00" x2="850.00" y2="278.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="283.00" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">0</text>
+<line x1="120.00" y1="240.50" x2="850.00" y2="240.50" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="245.50" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">0.65</text>
+<line x1="120.00" y1="203.00" x2="850.00" y2="203.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="208.00" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">1.3</text>
+<line x1="158.42" y1="203.00" x2="158.42" y2="278.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="542.63" y1="203.00" x2="542.63" y2="278.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="619.47" y1="203.00" x2="619.47" y2="278.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="696.32" y1="203.00" x2="696.32" y2="278.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="850.00" y1="203.00" x2="850.00" y2="278.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="619.47" y1="203.00" x2="619.47" y2="278.00" stroke="#175d85" stroke-width="1.3" stroke-dasharray="4 4"/>
+<line x1="696.32" y1="203.00" x2="696.32" y2="278.00" stroke="#175d85" stroke-width="1.3" stroke-dasharray="4 4"/>
+<polyline points="120.00,278.00 158.42,278.00 542.63,220.31 619.47,221.46 696.32,209.92 850.00,214.54" fill="none" stroke="#175d85" stroke-width="2.8" stroke-linejoin="round"/>
+<text x="30.00" y="351.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="bold">iD / I*</text>
+<line x1="120.00" y1="403.00" x2="850.00" y2="403.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="408.00" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">0</text>
+<line x1="120.00" y1="365.50" x2="850.00" y2="365.50" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="370.50" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">0.65</text>
+<line x1="120.00" y1="328.00" x2="850.00" y2="328.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="333.00" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">1.3</text>
+<line x1="158.42" y1="328.00" x2="158.42" y2="403.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="542.63" y1="328.00" x2="542.63" y2="403.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="619.47" y1="328.00" x2="619.47" y2="403.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="696.32" y1="328.00" x2="696.32" y2="403.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="850.00" y1="328.00" x2="850.00" y2="403.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="619.47" y1="328.00" x2="619.47" y2="403.00" stroke="#175d85" stroke-width="1.3" stroke-dasharray="4 4"/>
+<line x1="696.32" y1="328.00" x2="696.32" y2="403.00" stroke="#175d85" stroke-width="1.3" stroke-dasharray="4 4"/>
+<polyline points="120.00,403.00 158.42,403.00 542.63,345.31 542.63,403.00 619.47,403.00 619.47,346.46 696.32,334.92 696.32,403.00 850.00,403.00" fill="none" stroke="#175d85" stroke-width="2.8" stroke-linejoin="round"/>
+<text x="30.00" y="476.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="bold">vDS / V*</text>
+<line x1="120.00" y1="528.00" x2="850.00" y2="528.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="533.00" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">0</text>
+<line x1="120.00" y1="490.50" x2="850.00" y2="490.50" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="495.50" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">0.5</text>
+<line x1="120.00" y1="453.00" x2="850.00" y2="453.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="458.00" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">1</text>
+<line x1="158.42" y1="453.00" x2="158.42" y2="528.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="158.42" y="554.00" font-size="16" text-anchor="middle" fill="#202b35" font-weight="normal">Start</text>
+<line x1="542.63" y1="453.00" x2="542.63" y2="528.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="542.63" y="554.00" font-size="16" text-anchor="middle" fill="#202b35" font-weight="normal">Off</text>
+<line x1="619.47" y1="453.00" x2="619.47" y2="528.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="619.47" y="554.00" font-size="16" text-anchor="middle" fill="#202b35" font-weight="normal">2nd on</text>
+<line x1="696.32" y1="453.00" x2="696.32" y2="528.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="696.32" y="554.00" font-size="16" text-anchor="middle" fill="#202b35" font-weight="normal">2nd off</text>
+<line x1="850.00" y1="453.00" x2="850.00" y2="528.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="850.00" y="554.00" font-size="16" text-anchor="middle" fill="#202b35" font-weight="normal">Time →</text>
+<line x1="619.47" y1="453.00" x2="619.47" y2="528.00" stroke="#175d85" stroke-width="1.3" stroke-dasharray="4 4"/>
+<line x1="696.32" y1="453.00" x2="696.32" y2="528.00" stroke="#175d85" stroke-width="1.3" stroke-dasharray="4 4"/>
+<polyline points="120.00,453.00 158.42,453.00 158.42,528.00 542.63,528.00 542.63,453.00 619.47,453.00 619.47,528.00 696.32,528.00 696.32,453.00 850.00,453.00" fill="none" stroke="#175d85" stroke-width="2.8" stroke-linejoin="round"/>
+<text x="30.00" y="583.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Idealised timing, not measured traces. iL continues during freewheel while DUT current iD is</text>
+<text x="30.00" y="603.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">zero.</text>
+</g></svg>

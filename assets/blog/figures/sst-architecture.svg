@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" role="img" aria-label="Three stages, with two different DC interfaces">
+<title>Three stages, with two different DC interfaces</title>
+<rect width="900" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8" fill="#175d85"/></marker></defs>
+<g font-family="Arial, sans-serif" fill="#202b35">
+<text x="30.00" y="35.00" font-size="23" text-anchor="start" fill="#202b35" font-weight="bold">Three stages, with two different DC interfaces</text>
+<rect x="55" y="125" width="200" height="95" rx="6" fill="#edf4f8" stroke="#175d85"/>
+<text x="155.00" y="167.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">AC–DC</text>
+<text x="155.00" y="191.50" font-size="17" text-anchor="middle" fill="#687581" font-weight="normal">Input current</text>
+<rect x="350" y="125" width="200" height="95" rx="6" fill="#edf4f8" stroke="#175d85"/>
+<text x="450.00" y="167.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">Isolated DC–DC</text>
+<text x="450.00" y="191.50" font-size="17" text-anchor="middle" fill="#687581" font-weight="normal">DAB modules</text>
+<rect x="645" y="125" width="200" height="95" rx="6" fill="#edf4f8" stroke="#175d85"/>
+<text x="745.00" y="167.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">DC–AC</text>
+<text x="745.00" y="191.50" font-size="17" text-anchor="middle" fill="#687581" font-weight="normal">Output voltage</text>
+<text x="55.00" y="91.00" font-size="19" text-anchor="start" fill="#202b35" font-weight="normal">MVAC input</text>
+<text x="300.00" y="109.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">Floating HVDC</text>
+<text x="598.00" y="109.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">Common LVDC</text>
+<text x="845.00" y="91.00" font-size="19" text-anchor="end" fill="#202b35" font-weight="normal">LVAC output</text>
+<line x1="255.00" y1="172.00" x2="344.00" y2="172.00" stroke="#175d85" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="550.00" y1="172.00" x2="639.00" y2="172.00" stroke="#175d85" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="596.00" y1="173.00" x2="596.00" y2="270.00" stroke="#175d85" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="450" y="278" width="294" height="58" rx="6" fill="#f7f8f9" stroke="#bac4cc"/>
+<text x="597.00" y="313.00" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">DC load / storage port</text>
+<text x="449.00" y="244.00" font-size="18" text-anchor="middle" fill="#175d85" font-weight="normal">Magnetic isolation is inside stage 2</text>
+<text x="30.00" y="378.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Arrows show the reference power direction. Bidirectional hardware and control can reverse it.</text>
+</g></svg>

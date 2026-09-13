@@ -40,6 +40,8 @@ $$
 
 Use independent gate supplies, sensing and communication arrangements appropriate to the floating cell potentials. Series AC terminals do not imply series DC capacitors or a common primary ground.
 
+{% include blog-figure.html file="circuit-full_bridge" alt="Full bridge capable of positive, zero and negative AC-port voltage" caption="Use this as a bridge-cell illustration: R1 identifies the AC terminal pair, which connects to the source/series chain in the SST; C1 is the floating local DC link. The source and resistor shown are test-port representations, not the complete SST front-end wiring." circuit="full_bridge" %}
+
 ## 2. Derive the input-current equation
 
 Let input current be positive from source to converter. With phase inductance $$L_g$$ and resistance $$r_g$$,
@@ -84,6 +86,8 @@ p_k(t)\approx P_k[1-\cos(2\omega_gt)],
 $$
 
 For 100 W, 50 Hz, 2200 µF and 48 V, this estimate is 3.01 V peak-to-peak. The derivation integrates the oscillating power into capacitor energy and uses small voltage ripple. It must be revised if the DAB deliberately transfers the 100 Hz pulsation to the common bus.
+
+{% include blog-figure.html file="cell-energy-ripple" alt="100 Hz capacitor ripple from a single-phase power imbalance" caption="The capacitor absorbs the difference between pulsating cell input power and constant DAB power. Integrating that mismatch gives the voltage ripple; it is not evidence of an unstable loop." %}
 
 ## 4. Obtain the dq current plant
 

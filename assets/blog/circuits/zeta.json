@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "name": "ZETA converter",
+  "components": [
+    {
+      "ref": "Co",
+      "kind": "cap",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "Cs",
+      "kind": "cap",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "D1",
+      "kind": "diode",
+      "ports": [
+        "a",
+        "k"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "G1",
+      "kind": "terminal",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": "control",
+      "attrs": {}
+    },
+    {
+      "ref": "GND1",
+      "kind": "gnd",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "L1",
+      "kind": "ind",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "L2",
+      "kind": "ind",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "Q1",
+      "kind": "nmos",
+      "ports": [
+        "d",
+        "s",
+        "g"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "R1",
+      "kind": "res",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "V1",
+      "kind": "vsource",
+      "ports": [
+        "p",
+        "n"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    }
+  ],
+  "nets": {
+    "A": [
+      "Cs.a",
+      "L1.a",
+      "Q1.s"
+    ],
+    "B": [
+      "Cs.b",
+      "D1.k",
+      "L2.a"
+    ],
+    "DC_NEG": [
+      "Co.b",
+      "D1.a",
+      "GND1.t",
+      "L1.b",
+      "R1.b",
+      "V1.n"
+    ],
+    "GATE": [
+      "G1.t",
+      "Q1.g"
+    ],
+    "VIN": [
+      "Q1.d",
+      "V1.p"
+    ],
+    "VOUT": [
+      "Co.a",
+      "L2.b",
+      "R1.a"
+    ]
+  }
+}

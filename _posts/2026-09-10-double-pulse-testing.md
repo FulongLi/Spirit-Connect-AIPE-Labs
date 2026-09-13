@@ -26,6 +26,8 @@ Use a low-side n-channel MOSFET DUT. Connect its source to the negative DC rail 
 
 Place the pulse-energy DC capacitor close to the semiconductor pair. During fast commutation, the capacitor, DUT and opposing device form the critical loop; the remote bench supply does not behave as an ideal source at the device terminals. For a GaN upper switch, off-state reverse channel conduction can provide the freewheel path, subject to its device-specific gate conditions. [Tektronix's DPT introduction](https://www.tek.com/power-efficiency/double-pulse-testing) illustrates the basic sequence.
 
+{% include blog-figure.html file="circuit-dpt" alt="DPT inductor in parallel with the upper freewheel diode" caption="L1 and D1 connect between the positive rail and switch node. When Q1 turns off, inductor current circulates through D1. C1 is the local DC pulse-energy capacitor; gate drive and probes are omitted." circuit="dpt" %}
+
 ## 2. Derive the pulse durations
 
 During the first pulse, neglect resistance, DUT voltage drop and bus droop initially:
@@ -48,6 +50,8 @@ $$
 For a short off interval, the approximate reduction is $$\Delta I\approx(V_F+R_fI)t_{\mathrm{gap}}/L$$. A 1 V drop over 2 µs in 100 µH gives 0.02 A when resistance is neglected. Measure the actual second-pulse current; it is the relevant turn-on test condition.
 
 The second pulse must be long enough for the chosen extraction windows and short enough to respect current and thermal limits. Its current rises again, so second turn-on and second turn-off do not automatically occur at equal current. After the last pulse, provide a controlled path for remaining inductor energy and verify recovery before repetition.
+
+{% include blog-figure.html file="dpt-sequence" alt="Gate, inductor current, DUT current and DUT voltage during a double-pulse sequence" caption="Compare iL with iD during the off interval. Inductor current continues while the low-side DUT is off. Real edges add capacitive current, recovery and ringing to these idealised traces." %}
 
 ## 3. Bound the available energy
 

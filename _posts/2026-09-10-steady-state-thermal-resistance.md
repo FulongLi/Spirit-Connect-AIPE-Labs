@@ -35,6 +35,8 @@ Datasheet thermal metrics belong to their measurement conventions:
 
 A heatsink attached to the top of a dual-side-cooled device can change how heat divides between paths. The measured top temperature difference divided by total power cannot then automatically be used as the resistance carrying all heat to that surface.
 
+{% include blog-figure.html file="thermal-path" alt="Junction-to-case-to-coolant thermal path" caption="Define both temperature references and the heat flowing through the path. A package-top reading is not a direct measurement of junction temperature." %}
+
 ## 2. Control the mechanical and cooling boundary
 
 Specify the mounting surface, flatness, thermal interface material (TIM), thickness or application method, pressure/torque, cold-plate temperature and coolant flow. For a PCB-cooled device, copper area, layers, vias and airflow are part of the test article.
@@ -77,6 +79,8 @@ R_{\mathrm{th}}=45/30=1.50\ \mathrm{K/W}.
 $$
 
 This number has no useful package meaning until the reference location and heat-flow assumptions are stated.
+
+{% include blog-figure.html file="thermal-resistance" alt="Temperature rise proportional to dissipated power in a linear teaching example" caption="Read Rth from the temperature-rise slope. Real data may reveal an offset, nonlinearity or changing boundary; those observations need explanation before fitting." %}
 
 ## 5. Separate the interface from the package
 

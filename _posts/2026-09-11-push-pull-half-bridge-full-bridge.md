@@ -11,7 +11,7 @@ zh_url: /zh/resources/blog/
 
 The [forward converter]({% post_url 2026-09-11-forward-converter-from-zero-to-everything %}) ends with a complaint: its core is magnetised in one direction, then reset back to zero, and never swings negative. Only **half** of the available B–H loop is used. At higher power that wasted capability translates directly into a larger, heavier, more expensive transformer.
 
-The fix is to drive the primary with an **alternating** voltage so the core swings both positive and negative. Doing so roughly halves the required core area for the same power, removes the need for a reset mechanism, and doubles the effective ripple frequency at the output filter.
+Alternating primary voltage permits a bipolar flux excursion. This can improve core utilisation for a given allowed flux-density range, but does not by itself halve core area at fixed power: turns, frequency, window utilisation and losses also matter. Equal positive and negative volt-seconds provide reset, and full-wave secondary rectification produces two energy-delivery intervals per magnetic period.
 
 Three topologies achieve this — **push–pull**, **half-bridge** and **full-bridge**. They differ mainly in how many switches they use and what voltage those switches must block. All three are examined here against the same **48 V to 12 V, 30 W** specification used throughout the isolated chapters, then placed in their real power ranges.
 
@@ -35,15 +35,7 @@ The core also never needs a reset winding: the negative half-cycle *is* the rese
 
 ## 2. Push–pull {#pushpull}
 
-```text
-              Np
-  Vin + --o---3||E---o  S1        Ns   Dfwd
-          |   3||E   |            (centre-tapped
-        (centre      |             secondary feeds
-         tap)        |             a buck-style LC)
-          |   3||E   |  S2
-  Vin - --o---3||E---o
-```
+{% include blog-figure.html file="bridge-excitation" alt="Positive and negative primary voltage pulses" caption="These are winding-voltage waveforms, not a centre-tapped wiring schematic. A push-pull winding referenced to a fixed core polarity has alternating excitation too; its turns ratio is defined per half-primary." %}
 
 Two switches, both **ground-referenced** — the great practical attraction, because neither needs a floating gate drive. The primary is centre-tapped: S1 energises one half, S2 the other, producing an alternating flux.
 
@@ -63,23 +55,13 @@ $$
 \tag{2}
 $$
 
-**96 V for a 48 V input**, before any leakage overshoot. This is the push–pull's defining weakness, and it confines the topology to **low input voltages** — typically 12 V, 24 V or 48 V systems, where a 100 V or 150 V MOSFET is cheap and fast. Nobody builds an offline push–pull from a 400 V rail, because it would need 800 V devices.
+**96 V for a 48 V input**, before leakage overshoot. This higher switch stress is one reason push–pull is often considered for lower-voltage inputs. Device selection must use the maximum input, measured or simulated overshoot and protection limits; nominal input alone cannot justify a voltage rating.
 
 The push–pull is also the topology most vulnerable to **flux walking**, because its two halves are driven by physically different switches and windings.
 
 ## 3. Half-bridge {#halfbridge}
 
-```text
-  Vin + --o----o S1
-          |    |
-         C1    o---3||E---  (primary between the
-          |    |   3||E      switch node and the
-         mid---+   3||E      capacitor midpoint)
-          |    |
-         C2    o S2
-          |    |
-  Vin - --o----o
-```
+{% include blog-figure.html file="circuit-half_bridge" alt="One half-bridge switching leg" caption="This drawing isolates the Q1/Q2 switching leg. For the transformer-fed half bridge discussed here, connect the primary between this switching output and a separate split-capacitor midpoint; that midpoint and transformer are not shown in this leg-only figure." circuit="half_bridge" %}
 
 Two capacitors split the DC link, holding the midpoint at $$V_g/2$$. The primary is connected between the switch node and that midpoint, so it sees **±$$V_g/2$$**:
 
@@ -99,18 +81,11 @@ $$
 
 Each switch blocks only the input voltage — **half** the push–pull's stress. This is why the half-bridge, not the push–pull, is the standard choice for offline supplies: a 400 V DC link needs 500–600 V devices rather than 800 V ones.
 
-Two further advantages come almost free. The primary is **capacitively coupled** through the split capacitors, which blocks any DC component and therefore provides **inherent protection against flux walking**. And only two switches are needed. The costs are a high-side gate drive (bootstrap or isolated), two bulk capacitors carrying substantial ripple current, and — because the primary only sees half the input — **twice the primary current** of a full bridge at the same power.
+The split capacitors provide the primary return at their midpoint. Their balance and the actual positive/negative volt-seconds must still be checked, particularly during startup and unequal loading. A dedicated series DC-blocking capacitor can help constrain flux bias in suitable designs, but the split bus is not unconditional protection against flux walking. The half bridge also requires a suitable high-side drive and carries more primary current than a full bridge at equal transferred power and waveform assumptions.
 
 ## 4. Full-bridge {#fullbridge}
 
-```text
-  Vin + --o----o S1        S3 o----o
-          |    |              |    |
-          |    o---3||E-------o    |
-          |    |   3||E       |    |
-          |    o S2        S4 o    |
-  Vin - --o----o---------------o---o
-```
+{% include blog-figure.html file="circuit-full_bridge" alt="Full bridge and its two switching midpoints" caption="Q1/Q4 and Q2/Q3 apply opposite voltage across the AC port. R1 here marks that port with a resistive load; an isolated converter connects its transformer primary there and adds the secondary rectifier and filter." circuit="full_bridge" %}
 
 Four switches in two legs. Diagonal pairs conduct together: S1+S4, then S2+S3. The primary sees the **full ±$$V_g$$**:
 
@@ -126,7 +101,7 @@ $$
 \tag{6}
 $$
 
-This is the best of both: full voltage across the primary (so half the primary current of a half-bridge for the same power) **and** only $$V_g$$ of switch stress. Like the half-bridge, it is naturally protected against flux walking if a small DC-blocking capacitor is placed in series with the primary, which most designs include.
+This is the best of both: full voltage across the primary (so half the primary current of a half-bridge for the same power) **and** only $$V_g$$ of switch stress. Like the half-bridge, it is naturally protected against flux walking if a small DC-blocking capacitor is placed in series with the primary, where the chosen design includes one; its startup and resonant effects still need analysis.
 
 The price is four switches and two high-side drives. That overhead is irrelevant at high power, where semiconductor *stress* dominates the cost, which is why the full bridge owns the high-power end of isolated conversion.
 
@@ -154,6 +129,8 @@ The decision is usually straightforward:
 - **High power?** Full bridge. Lowest combination of voltage and current stress; the extra switches pay for themselves.
 
 Note what does **not** change: every one of these is a buck downstream of the rectifier, so the output-stage sizing, the small-signal plant and the compensator design follow the [forward converter's treatment]({% post_url 2026-09-11-forward-converter-from-zero-to-everything %}#control) exactly, with $$G_{d0}$$ adjusted for the topology's conversion ratio and the ripple frequency doubled to $$2f_s$$.
+
+{% include blog-figure.html file="magnetic-flux" alt="Equal positive and negative winding volt-seconds create balanced flux" caption="The voltage is rectangular but flux is its integral. This separate 48 V, 50 kHz magnetic example illustrates the relationship; use the winding voltage and turns of your own bridge design." %}
 
 ## 6. Flux walking: the failure mode to design against {#flux}
 

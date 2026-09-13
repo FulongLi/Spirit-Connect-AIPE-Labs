@@ -41,6 +41,8 @@ A chamber sensor reports the environment. The device, baseplate and board respon
 
 Temperature cycling and thermal shock are related but distinct methods. Abrupt transfer between environments can impose gradients different from a controlled ramp. Use the procedure appropriate to the mechanism and applicable equipment requirements.
 
+{% include blog-figure.html file="passive-cycling" alt="Specimen temperature lags the chamber during ramps and dwell" caption="A chamber reaches its setpoint before the specimen does. Establish the required specimen condition before interpreting dwell or accumulated cycles." %}
+
 ## 3. Build a defensible test sequence
 
 First characterise electrical parameters and accessible thermal/mechanical indicators. Inspect representative initial assemblies. Instrument a suitable subset to verify that the prescribed specimen temperature history is actually achieved.

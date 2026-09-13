@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" role="img" aria-label="One control responsibility per energy buffer">
+<title>One control responsibility per energy buffer</title>
+<rect width="900" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8" fill="#175d85"/></marker></defs>
+<g font-family="Arial, sans-serif" fill="#202b35">
+<text x="30.00" y="35.00" font-size="23" text-anchor="start" fill="#202b35" font-weight="bold">One control responsibility per energy buffer</text>
+<rect x="45" y="70" width="265" height="65" rx="6" fill="#edf4f8" stroke="#175d85"/>
+<text x="177.50" y="108.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">AFE current loops</text>
+<text x="345.00" y="98.00" font-size="19" text-anchor="start" fill="#202b35" font-weight="normal">Shape the AC input current.</text>
+<text x="345.00" y="122.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Fast inner loops track the d/q current references.</text>
+<line x1="177.00" y1="137.00" x2="177.00" y2="161.00" stroke="#175d85" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="45" y="165" width="265" height="65" rx="6" fill="#f7f8f9" stroke="#bac4cc"/>
+<text x="177.50" y="203.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">High-side energy</text>
+<text x="345.00" y="193.00" font-size="19" text-anchor="start" fill="#202b35" font-weight="normal">Adjust the total input active power.</text>
+<text x="345.00" y="217.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Separate cell balancing controls unequal local energies.</text>
+<line x1="177.00" y1="232.00" x2="177.00" y2="256.00" stroke="#175d85" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="45" y="260" width="265" height="65" rx="6" fill="#f7f8f9" stroke="#bac4cc"/>
+<text x="177.50" y="298.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">LVDC bus controller</text>
+<text x="345.00" y="288.00" font-size="19" text-anchor="start" fill="#202b35" font-weight="normal">Request total DAB output power.</text>
+<text x="345.00" y="312.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Allocate the request among available modules.</text>
+<line x1="177.00" y1="327.00" x2="177.00" y2="351.00" stroke="#175d85" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="45" y="355" width="265" height="65" rx="6" fill="#f7f8f9" stroke="#bac4cc"/>
+<text x="177.50" y="393.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">Output inverter</text>
+<text x="345.00" y="383.00" font-size="19" text-anchor="start" fill="#202b35" font-weight="normal">Stand-alone: establish voltage and frequency.</text>
+<text x="345.00" y="407.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Grid-following: synchronise and track current commands.</text>
+<text x="30.00" y="528.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">The controller roles shown apply to the initial forward-power, stand-alone SST mode.</text>
+</g></svg>

@@ -48,6 +48,8 @@ For a DC-only application, the required output can be taken from the LVDC bus. T
 
 These distinctions are developed in the [architecture chapter]({% post_url 2026-09-10-three-stage-solid-state-transformer %}). They correct a common source of confusion: an MVAC-to-DC supply and a complete AC-to-AC SST need not contain the same stages.
 
+{% include blog-figure.html file="sst-architecture" alt="Three-stage SST and optional DC service port" caption="This architecture exposes a DC port before the final inverter. A DC-only application can stop there; supplying AC also requires the output stage." %}
+
 ## 3. Match the application to its ports
 
 | Application | Useful interfaces and functions | Questions that determine the design |

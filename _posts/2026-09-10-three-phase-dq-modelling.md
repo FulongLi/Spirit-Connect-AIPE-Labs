@@ -50,6 +50,8 @@ $$
 
 If zero sequence exists, add $$x_0$$ to each reconstructed phase. Two coordinates alone cannot represent three independent phase quantities.
 
+{% include blog-figure.html file="dq-axes" alt="Stationary alpha-beta axes and rotating d-q axes" caption="Project the same vector onto axes rotated by θ. When d follows the balanced voltage vector, its d projection is constant and its q projection is zero." %}
+
 ## 3. Rotate the axes
 
 For the controller's chosen angle $$\theta_r$$, define the Park transform as
@@ -62,6 +64,8 @@ $$
 $$
 
 Thus $$x_d=X\cos(\theta-\theta_r)$$ and $$x_q=X\sin(\theta-\theta_r)$$. When the reference angle follows the waveform, $$x_d=X$$ and $$x_q=0$$. Reconstruction uses $$T^{-1}=T^T$$ followed by the inverse Clarke transform. These explicit matrices prevent ambiguity: another source may use a different q direction or normalisation.
+
+{% include blog-figure.html file="abc-dq" alt="Sinusoidal abc quantities and aligned dq constants" caption="The upper traces rotate in time; the lower components remain constant only because the frame rotates at the matching angle and speed. A wrong angle produces a q component." %}
 
 ## 4. Derive the speed-coupling terms
 

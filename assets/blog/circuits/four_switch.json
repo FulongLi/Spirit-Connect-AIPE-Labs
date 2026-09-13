@@ -1,0 +1,206 @@
+{
+  "version": 1,
+  "name": "Four-switch non-inverting buck-boost: common return, distinct positive rails",
+  "components": [
+    {
+      "ref": "C1",
+      "kind": "cap",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "C2",
+      "kind": "cap",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "G1",
+      "kind": "terminal",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": "control",
+      "attrs": {}
+    },
+    {
+      "ref": "G2",
+      "kind": "terminal",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": "control",
+      "attrs": {}
+    },
+    {
+      "ref": "G3",
+      "kind": "terminal",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": "control",
+      "attrs": {}
+    },
+    {
+      "ref": "G4",
+      "kind": "terminal",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": "control",
+      "attrs": {}
+    },
+    {
+      "ref": "GND1",
+      "kind": "gnd",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "L1",
+      "kind": "ind",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "Q1",
+      "kind": "nmos",
+      "ports": [
+        "d",
+        "s",
+        "g"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "Q2",
+      "kind": "nmos",
+      "ports": [
+        "d",
+        "s",
+        "g"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "Q3",
+      "kind": "nmos",
+      "ports": [
+        "d",
+        "s",
+        "g"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "Q4",
+      "kind": "nmos",
+      "ports": [
+        "d",
+        "s",
+        "g"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "R1",
+      "kind": "res",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "V1",
+      "kind": "vsource",
+      "ports": [
+        "p",
+        "n"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    }
+  ],
+  "nets": {
+    "DC_NEG": [
+      "C1.b",
+      "C2.b",
+      "GND1.t",
+      "Q2.s",
+      "Q4.s",
+      "R1.b",
+      "V1.n"
+    ],
+    "DC_POS": [
+      "C1.a",
+      "Q1.d",
+      "V1.p"
+    ],
+    "GATE1": [
+      "G1.t",
+      "Q1.g"
+    ],
+    "GATE2": [
+      "G2.t",
+      "Q2.g"
+    ],
+    "GATE3": [
+      "G3.t",
+      "Q3.g"
+    ],
+    "GATE4": [
+      "G4.t",
+      "Q4.g"
+    ],
+    "SW1": [
+      "L1.a",
+      "Q1.s",
+      "Q2.d"
+    ],
+    "SW2": [
+      "L1.b",
+      "Q3.s",
+      "Q4.d"
+    ],
+    "VOUT": [
+      "C2.a",
+      "Q3.d",
+      "R1.a"
+    ]
+  }
+}

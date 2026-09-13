@@ -30,6 +30,8 @@ $$
 
 Choose a device technology and package before planning the matrix. Silicon MOSFETs, IGBTs, SiC MOSFETs and GaN devices have different conduction, reverse-current, gate and ageing behaviours. Module interconnects also introduce failure mechanisms that may differ from those of discrete packages.
 
+{% include blog-figure.html file="device-test-map" alt="Electrical, thermal and reliability tests connected to a lifetime estimate" caption="Read this as a learning sequence: define the electrical behaviour, measure its thermal consequence, then interpret ageing under known stress." %}
+
 ## 2. Electrical characterisation: the test inventory
 
 | Test family | What to measure | Why it matters | Detailed tutorial |

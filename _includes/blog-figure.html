@@ -1,0 +1,8 @@
+<figure class="blog-figure">
+  <div class="blog-figure-canvas">
+    <a href="{{ '/assets/blog/figures/' | append: include.file | append: '.svg' | relative_url }}" aria-label="{{ include.alt | escape }} — open full-size figure">
+      <img src="{{ '/assets/blog/figures/' | append: include.file | append: '.svg' | relative_url }}" alt="{{ include.alt | escape }}" loading="lazy" decoding="async">
+    </a>
+  </div>
+  <figcaption>{{ include.caption }} <a class="figure-expand" href="{{ '/assets/blog/figures/' | append: include.file | append: '.svg' | relative_url }}">Open full size</a>{% if include.circuit %} · <a href="{{ '/assets/blog/circuits/' | append: include.circuit | append: '.json' | relative_url }}">Circuit source</a> · Drawn with <a href="https://github.com/FulongLi/AIPE-Sketch">AIPE-Sketch</a>{% endif %}</figcaption>
+</figure>

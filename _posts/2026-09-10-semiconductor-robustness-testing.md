@@ -59,6 +59,8 @@ As an illustrative calculation, 100 µH carrying 10 A stores 5 mJ. With a connec
 
 Do not assume that a GaN device or an unqualified device has the avalanche behaviour of a rated silicon MOSFET. Device technology and manufacturer limits determine whether this is an appropriate test at all.
 
+{% include blog-figure.html file="uis-energy" alt="Inductor current, avalanche voltage and absorbed power in UIS" caption="The avalanche-energy area is 10 mJ in the ideal connected-supply example, although initial inductor energy is only 5 mJ. The supply contributes the difference." %}
+
 ## 3. Define a short-circuit event precisely
 
 A short present before turn-on and a fault arising during conduction create different electrical and thermal trajectories. Relevant conditions include bus voltage, gate bias, source inductance, initial junction temperature, fault-loop impedance and turn-off behaviour.

@@ -13,6 +13,7 @@ layout: default
     <article class="post-article">
       {% if page.sst_series %}{% include sst-series.html %}{% endif %}
       {% if page.converter_series %}{% include converter-series.html %}{% endif %}
+      {% if page.device_testing_series %}{% include device-testing-series.html %}{% endif %}
       {{ content }}
     </article>
     <p class="post-back">
@@ -24,3 +25,4 @@ layout: default
     </p>
   </div>
 </section>
+{% if page.converter_explorer %}<script defer src="{{ '/assets/blog/converter-explorer.js' | relative_url }}"></script>{% endif %}

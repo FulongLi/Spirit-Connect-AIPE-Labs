@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "name": "LLC first-harmonic equivalent: load referred to primary",
+  "components": [
+    {
+      "ref": "Cr",
+      "kind": "cap",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "GND1",
+      "kind": "gnd",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "Lm",
+      "kind": "ind",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "Lr",
+      "kind": "ind",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "R1",
+      "kind": "res",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "V1",
+      "kind": "vsource",
+      "ports": [
+        "p",
+        "n"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    }
+  ],
+  "nets": {
+    "INPUT": [
+      "Cr.a",
+      "V1.p"
+    ],
+    "PRIMARY": [
+      "Lm.a",
+      "Lr.b",
+      "R1.a"
+    ],
+    "RETURN": [
+      "GND1.t",
+      "Lm.b",
+      "R1.b",
+      "V1.n"
+    ],
+    "SERIES": [
+      "Cr.b",
+      "Lr.a"
+    ]
+  }
+}

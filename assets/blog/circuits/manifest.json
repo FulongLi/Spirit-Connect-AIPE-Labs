@@ -1,0 +1,122 @@
+{
+  "buck": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "Buck Converter",
+    "connectivity_validated": true,
+    "report": "quality  (cost 10,784)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      76\n  alignment              100\n  routing                100\n  crossings              100\n  collision              100\n  topology_readability    99\n  visual_rhythm           93\n  clearance              100\n  labelling              100\n  power_path             100\n  conventions            100\n  overall                 97"
+  },
+  "boost": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "Boost Converter",
+    "connectivity_validated": true,
+    "report": "quality  (cost 2,334)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      88\n  alignment              100\n  routing                100\n  crossings              100\n  collision              100\n  topology_readability   100\n  visual_rhythm          100\n  clearance              100\n  labelling              100\n  power_path             100\n  conventions            100\n  overall                 99"
+  },
+  "buck_boost": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "Inverting buck-boost: output below the common return",
+    "connectivity_validated": true,
+    "report": "quality  (cost 2,690)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      88\n  alignment              100\n  routing                 93\n  crossings              100\n  collision              100\n  topology_readability   100\n  visual_rhythm          100\n  clearance              100\n  labelling              100\n  power_path              95\n  conventions            100\n  overall                 98\n  faults:\n    - net VOUT_NEG: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band\n    - net GATE bends 0.87 cells from V1.p"
+  },
+  "sepic": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "SEPIC converter",
+    "connectivity_validated": true,
+    "report": "quality  (cost 2,408)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      88\n  alignment              100\n  routing                100\n  crossings              100\n  collision              100\n  topology_readability   100\n  visual_rhythm          100\n  clearance              100\n  labelling              100\n  power_path             100\n  conventions            100\n  overall                 99"
+  },
+  "zeta": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "ZETA converter",
+    "connectivity_validated": true,
+    "report": "quality  (cost 2,800)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      88\n  alignment              100\n  routing                 94\n  crossings              100\n  collision              100\n  topology_readability   100\n  visual_rhythm           99\n  clearance              100\n  labelling              100\n  power_path              95\n  conventions            100\n  overall                 98\n  faults:\n    - net B: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band\n    - net B: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band\n    - net VOUT: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band\n    - net GATE bends 0.87 cells from V1.p"
+  },
+  "half_bridge": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "Half Bridge",
+    "connectivity_validated": true,
+    "report": "quality  (cost 8,552)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      88\n  alignment              100\n  routing                100\n  crossings              100\n  collision              100\n  topology_readability    99\n  visual_rhythm          100\n  clearance              100\n  labelling              100\n  power_path             100\n  conventions            100\n  overall                 99"
+  },
+  "full_bridge": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "Full Bridge",
+    "connectivity_validated": true,
+    "report": "quality  (cost 29,938)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      88\n  alignment              100\n  routing                100\n  crossings              100\n  collision              100\n  topology_readability    97\n  visual_rhythm           99\n  clearance               98\n  labelling              100\n  power_path             100\n  conventions            100\n  overall                 99\n  faults:\n    - net OUT_A: a 0.5 cell run between adjacent components is outside the 0.75-1.5 band\n    - net OUT_A: a 0.5 cell run between adjacent components is outside the 0.75-1.5 band\n    - net OUT_B: a 0.5 cell run between adjacent components is outside the 0.75-1.5 band\n    - net OUT_B: a 0.5 cell run between adjacent components is outside the 0.75-1.5 band"
+  },
+  "three_phase": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "Three-Phase Two-Level Inverter",
+    "connectivity_validated": true,
+    "report": "quality  (cost 32,233)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      88\n  alignment              100\n  routing                 98\n  crossings               86\n  collision              100\n  topology_readability    92\n  visual_rhythm           94\n  clearance               96\n  labelling              100\n  power_path             100\n  conventions            100\n  overall                 97"
+  },
+  "llc_fha": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "LLC first-harmonic equivalent: load referred to primary",
+    "connectivity_validated": true,
+    "report": "quality  (cost 15,368)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      76\n  alignment              100\n  routing                100\n  crossings              100\n  collision              100\n  topology_readability    97\n  visual_rhythm          100\n  clearance              100\n  labelling              100\n  power_path             100\n  conventions            100\n  overall                 98"
+  },
+  "cuk": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "CUK converter",
+    "connectivity_validated": true,
+    "report": "quality  (cost 87,317)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      88\n  alignment              100\n  routing                100\n  crossings              100\n  collision              100\n  topology_readability    91\n  visual_rhythm           99\n  clearance              100\n  labelling              100\n  power_path             100\n  conventions            100\n  overall                 99\n  faults:\n    - net B: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band\n    - net B: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band\n    - net VOUT_NEG: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band"
+  },
+  "forward_2sw": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "Two-switch forward with reset diodes and separate returns",
+    "connectivity_validated": true,
+    "report": "quality  (cost 3,184)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      88\n  alignment              100\n  routing                100\n  crossings               95\n  collision              100\n  topology_readability    97\n  visual_rhythm           95\n  clearance               99\n  labelling              100\n  power_path             100\n  conventions            100\n  overall                 98\n  faults:\n    - net RECT: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band\n    - net RECT: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band\n    - net VOUT: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band"
+  },
+  "dpt": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "Double-pulse test: low-side DUT and upper freewheel diode",
+    "connectivity_validated": true,
+    "report": "quality  (cost 9,620)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      88\n  alignment              100\n  routing                100\n  crossings              100\n  collision              100\n  topology_readability    99\n  visual_rhythm           92\n  clearance               75\n  labelling              100\n  power_path             100\n  conventions            100\n  overall                 96\n  faults:\n    - net DC_POS: a 1.5 cell run between adjacent components is outside the 0.75-1.5 band\n    - net DC_POS: a 1.75 cell run between adjacent components is outside the 0.75-1.5 band\n    - net SW: a 1.75 cell run between adjacent components is outside the 0.75-1.5 band"
+  },
+  "dab": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "DAB with explicit primary-referred transfer inductance",
+    "connectivity_validated": true,
+    "report": "quality  (cost 54,582)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      76\n  alignment              100\n  routing                100\n  crossings               94\n  collision              100\n  topology_readability    94\n  visual_rhythm           94\n  clearance               95\n  labelling              100\n  power_path             100\n  conventions            100\n  overall                 97\n  faults:\n    - net TRANSFER: a 1.69 cell run between adjacent components is outside the 0.75-1.5 band"
+  },
+  "flyback": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "Flyback: separate primary and secondary returns",
+    "connectivity_validated": true,
+    "report": "quality  (cost 2,746)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      88\n  alignment              100\n  routing                100\n  crossings              100\n  collision              100\n  topology_readability   100\n  visual_rhythm           93\n  clearance               88\n  labelling              100\n  power_path             100\n  conventions            100\n  overall                 98\n  faults:\n    - net DC_NEG: a 0.5 cell run between adjacent components is outside the 0.75-1.5 band\n    - net VOUT: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band"
+  },
+  "four_switch": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "Four-switch non-inverting buck-boost: common return, distinct positive rails",
+    "connectivity_validated": true,
+    "report": "quality  (cost 14,953)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      76\n  alignment              100\n  routing                100\n  crossings              100\n  collision              100\n  topology_readability    99\n  visual_rhythm           95\n  clearance              100\n  labelling              100\n  power_path              55\n  conventions            100\n  overall                 94\n  faults:\n    - Q4: shunt branch is lopsided -- 0.50 cells above, 0.00 below"
+  }
+}

@@ -1,0 +1,28 @@
+<details class="converter-explorer" data-converter="{{ include.kind }}">
+  <summary>Explore it: change duty ratio and follow one switching cycle</summary>
+  <p>This recalculates an <strong>ideal CCM steady state</strong> at each duty ratio. It is not a startup or transient simulation. Input voltage, resistance, L = 150 µH and fs = 100 kHz stay fixed.</p>
+  <label>Duty ratio D
+    <input type="range" min="0.20" max="0.75" step="0.01" value="0.50" aria-label="Duty ratio D">
+  </label>
+  <p class="explorer-values" aria-live="polite" data-values>At D = 0.50: {% if include.kind == 'buck' %}24 V → 12 V, R = 4.8 Ω{% else %}12 V → 24 V, R = 19.2 Ω{% endif %}. Inductor current = 2.50 A; ripple = 0.40 A peak-to-peak.</p>
+  <svg viewBox="0 0 720 270" role="img" aria-label="One switching period: gate state above and inductor-current ripple below">
+    <title>Gate state and inductor current during one switching period</title>
+    <rect x="85" y="25" width="295" height="185" fill="#edf4f8" data-on-band></rect>
+    <g stroke="#d4dce1" stroke-width="1"><path d="M85 40H675 M85 90H675 M85 135H675 M85 210H675"/></g>
+    <g fill="#202b35" font-family="Arial,sans-serif" font-size="16">
+      <text x="15" y="63">Q on</text><text x="15" y="172">iL / A</text>
+      <text x="85" y="239">0</text><text x="620" y="239">Ts = 10 µs</text>
+      <text x="200" y="20" data-on-label>On: 5.00 µs</text><text x="470" y="20" data-off-label>Off: 5.00 µs</text>
+      <text x="90" y="133" data-current-high>2.70 A</text><text x="90" y="205" data-current-low>2.30 A</text>
+    </g>
+    <path d="M85 40H380V90H675" fill="none" stroke="#202b35" stroke-width="3" data-gate></path>
+    <path d="M85 210L380 135L675 210" fill="none" stroke="#175d85" stroke-width="3" data-current></path>
+  </svg>
+  <p class="small">The current axis follows the calculated minimum and maximum; compare the numeric ripple values as well as the shape.</p>
+  <div class="explorer-states" role="group" aria-label="Inspect a switching state">
+    <button type="button" data-state="on" aria-pressed="true">Q on</button>
+    <button type="button" data-state="off" aria-pressed="false">Q off</button>
+  </div>
+  <p data-state-description aria-live="polite">{% if include.kind == 'buck' %}Q on: input → Q → L → output. The diode blocks; vL = Vin − Vo, so inductor current rises.{% else %}Q on: input → L → Q → return. The output diode blocks, so the output capacitor supplies the load while inductor current rises.{% endif %}</p>
+  <noscript><p>The nominal waveform remains visible. Enable JavaScript to adjust duty and inspect the off interval.</p></noscript>
+</details>

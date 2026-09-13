@@ -13,6 +13,8 @@ The dual-active-bridge (DAB) connects two DC ports through a switching-frequency
 
 The transformer provides galvanic isolation and voltage scaling. A series inductance limits the rate of current change and participates in power transfer. It may consist of transformer leakage inductance, an external inductor, or both.
 
+{% include blog-figure.html file="circuit-dab" alt="DAB full bridges separated by a transformer and series transfer inductance" caption="A full bridge applies either DC-link polarity to its winding port. Ls is the total primary-referred transfer inductance used as Lσ in the text. The two returns are separate nets; the transformer provides isolation." circuit="dab" %}
+
 ## 1. Define every reference before deriving power
 
 Let $$V_1$$ be the primary DC voltage and $$V_2$$ the secondary DC voltage. Define
@@ -65,6 +67,8 @@ P_{\max}=\frac{nV_1V_2}{8f_sL_\sigma}.
 $$
 
 This mathematical maximum is not a thermal or current rating.
+
+{% include blog-figure.html file="dab-waveforms" alt="DAB bridge voltages and transfer current at the 100 W teaching point" caption="During the phase-shift interval the bridge voltages oppose, so the current ramps. At matched voltages they then agree, giving a flat current segment. Voltage mismatch changes that second slope." %}
 
 ## 3. Work the 100 W cell example
 

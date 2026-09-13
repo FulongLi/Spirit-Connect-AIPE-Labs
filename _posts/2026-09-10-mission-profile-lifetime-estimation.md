@@ -89,6 +89,8 @@ $$
 
 For example, B10 life uses $$p=0.10$$. A fitted B10 value and a lower confidence bound on B10 are different quantities. [NIST's Weibull reference](https://www.itl.nist.gov/div898/handbook/apr/section1/apr162.htm) provides the distribution and its properties. A convenient distribution fit alone does not establish the physical failure mechanism.
 
+{% include blog-figure.html file="weibull-life" alt="Illustrative Weibull populations with equal scale and different shape" caption="Both curves reach 63.2% failures at η, but their low-percentile lives differ. A characteristic life is not a guaranteed lifetime for every specimen." %}
+
 ## 6. Keep survivors and inspection intervals in the fit
 
 A specimen still operating when observation stops is right-censored. If failure is found only at a checkpoint, its failure time lies between the last passing and first failing inspections. These observations carry information.
@@ -104,6 +106,8 @@ $$
 $$
 
 Here f is the failure density, E denotes exact failures, R survivors observed to $$c_j$$, and I failures in intervals $$(a_k,b_k]$$. Maximising this likelihood uses all three kinds of evidence; fitting only failed specimens generally biases the result. [NIST's maximum-likelihood tutorial](https://www.itl.nist.gov/div898/handbook/apr/section4/apr422.htm) explains this approach. Removal because a specimen appears close to failure may be informative and needs explicit treatment.
+
+{% include blog-figure.html file="censored-observations" alt="Exact failure, interval failure and a right-censored survivor" caption="A survivor says that life exceeds its observation time. A checkpoint failure supplies an interval. Both are useful evidence and belong in the fit." %}
 
 ## 7. Understand what zero failures establish
 

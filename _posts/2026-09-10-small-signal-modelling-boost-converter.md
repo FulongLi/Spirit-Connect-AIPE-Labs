@@ -92,6 +92,8 @@ $$
 
 A frequent error is to write $$i_C=i_L$$ during the off interval. The load is still drawing current, so it must be subtracted.
 
+{% include blog-figure.html file="model-levels" alt="Switching, averaged and small-signal models answer different questions" caption="A switching average removes the fast ripple. Linearisation then approximates the averaged equations near one equilibrium; these are two separate operations." %}
+
 ## 4. Average over a switching period {#averaging}
 
 A switching-period average is defined by
@@ -152,6 +154,8 @@ $$
 The ripple still exists in the switching circuit; “steady” here means that its cycle averages are constant.
 
 These equilibrium identities are essential. We will use them to remove constant terms during linearisation. Linearising around numbers that do not satisfy equilibrium creates an unwanted forcing term and is not the steady operating-point model intended here.
+
+{% include blog-figure.html file="boost-linearisation" alt="Exact boost conversion ratio compared with its tangent at duty 0.5" caption="At D = 0.55 the exact CCM output is 26.67 V and the tangent predicts 26.40 V. The local error grows as the operating point moves away from D = 0.5." %}
 
 ## 6. Introduce perturbations and keep first-order terms {#linearisation}
 
@@ -342,6 +346,8 @@ $$
 The ideal model gives $$Z_o(0)=0$$: its fixed-duty CCM DC gain is independent of load. This does not mean the real converter has zero output impedance, or that its transient voltage cannot dip.
 
 For a small resistance change, linearisation of $$v_o/R$$ gives an equivalent added current $$\hat i_\ell=-V\hat R/R^2$$. A constant-power load has a different incremental characteristic and requires its own load model.
+
+{% include blog-figure.html file="feedback-loop" alt="Control plant within a closed feedback loop" caption="The derived Gvd is the power-stage block, not the complete loop. Sensor scaling, compensator, PWM gain and delay must be added separately." %}
 
 ## 9. Read the physical meaning of the poles and zero {#physical-meaning}
 

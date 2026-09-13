@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Ćuk, SEPIC and Zeta: The Fourth-Order Family"
-description: "Three single-switch converters that step up or down without inverting — how capacitive energy transfer works, and how to choose between them."
+description: "Three converters that step up or down: the inverting Ćuk and non-inverting SEPIC and Zeta, with capacitive energy transfer and different port-current waveforms."
 date: 2025-12-12
 author: "Dr. Fulong Li"
 math: true
@@ -19,11 +19,11 @@ There is a family of single-switch converters that pays those penalties differen
 
 ## 1. The shared idea: transfer energy through a capacitor {#idea}
 
-In a buck, boost or buck–boost, the **inductor** is the energy-transfer element. Energy goes into it from the source, then comes out of it into the load.
+Inductors and capacitors both store energy in a switching converter. What distinguishes this family is the series coupling capacitor: it carries the energy-transfer current between switching nodes, while two inductors establish different port-current properties.
 
-In this family, the **capacitor** does the transferring. Look at what the coupling capacitor $$C_s$$ does over a cycle: during one interval it is charged by the input-side inductor, and during the other it is discharged into the output-side inductor. The two inductors are there mainly to *smooth* the currents at each port, not to shuttle the energy.
+Follow the switch and diode states before deciding which element supplies a port. The capacitor voltage cannot jump instantaneously, and each inductor current must remain continuous under finite applied voltage. These two facts determine the interval circuits and explain the three arrangements below.
 
-That distinction produces the family's defining advantage. Because an inductor now sits permanently in series with a port, the current at that port becomes **continuous** rather than pulsating — and continuous port current means smaller filter capacitors, lower EMI and less ripple stress.
+An inductor permanently in series with a port makes that port current continuous in CCM. Ćuk has inductors at both ports; SEPIC has a continuous input current; Zeta has a continuous output current. These arrangements can ease filtering, but capacitor ripple, layout and common-mode paths still determine practical EMI performance.
 
 The price is a fourth state variable. Two inductor currents and two capacitor voltages give a **fourth-order** system with two resonances that can interact, which makes both the dynamics and the compensator design meaningfully harder than the second-order basics.
 
@@ -42,14 +42,7 @@ and in each one the coupling capacitor's DC voltage follows from a rule worth in
 
 ### Ćuk — continuous current at both ports
 
-```text
-        L1        Cs        L2
-  Vin --coil--o---||---o---coil---o--- Vout - (negative)
-              |        |          |
-              Q        D        Cout || R
-              |        |          |
-  ground -----o--------o----------o--- ground
-```
+{% include blog-figure.html file="circuit-cuk" alt="CUK power schematic" caption="The output is negative: D1 anode is at the right-hand coupling-capacitor node and its cathode is at return. L1 and L2 provide continuous CCM currents at both ports." circuit="cuk" %}
 
 Named after Slobodan Ćuk, this is the buck–boost's dual. The switch Q pulls node A to ground; the diode D returns current at node B. Because L1 is in series with the input and L2 is in series with the output, **neither port has pulsating current** — the only topology in this article with that property.
 
@@ -64,14 +57,7 @@ The coupling capacitor must withstand the sum of input and output voltage — th
 
 ### SEPIC — continuous input current, non-inverting
 
-```text
-        L1             Cs        D
-  Vin --coil--o--------||---o---|>|---o--- Vout + (positive)
-              |             |         |
-              Q            L2       Cout || R
-              |             |         |
-  ground -----o-------------o---------o--- ground
-```
+{% include blog-figure.html file="circuit-sepic" alt="SEPIC power schematic" caption="The output is positive. L1 supplies continuous input current; the output receives pulsed current through D1. Cs has an average voltage approximately equal to the input." circuit="sepic" %}
 
 The Single-Ended Primary-Inductor Converter rearranges the same parts so the output is **positive**. L1 still gives continuous input current, but L2 now sits to ground and the **diode feeds the output**, so the output current is pulsating exactly as in a boost.
 
@@ -86,14 +72,7 @@ A lower capacitor stress than the Ćuk, and a non-inverted output — which is w
 
 ### Zeta — continuous output current, non-inverting
 
-```text
-        Q        Cs        L2
-  Vin --/ --o----||----o--coil---o--- Vout + (positive)
-            |          |         |
-           L1          D       Cout || R
-            |          |         |
-  ground ---o----------o---------o--- ground
-```
+{% include blog-figure.html file="circuit-zeta" alt="ZETA power schematic" caption="The output is positive. Q1 chops the input current, while L2 continuously feeds the output. D1 freewheels from return into the node before L2." circuit="zeta" %}
 
 The Zeta is the SEPIC's mirror image: the switch is now in series with the input (so the **input** current is pulsating) while L2 is in series with the output (so the **output** current is continuous). The output is positive.
 

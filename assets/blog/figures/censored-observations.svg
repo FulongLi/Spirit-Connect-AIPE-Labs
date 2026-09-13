@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 395" role="img" aria-label="Keep failed specimens and survivors in the reliability record">
+<title>Keep failed specimens and survivors in the reliability record</title>
+<rect width="900" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8" fill="#175d85"/></marker></defs>
+<g font-family="Arial, sans-serif" fill="#202b35">
+<text x="30.00" y="35.00" font-size="23" text-anchor="start" fill="#202b35" font-weight="bold">Keep failed specimens and survivors in the reliability record</text>
+<text x="130.00" y="83.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="normal">Observation time / cycles →</text>
+<text x="65.00" y="146.00" font-size="20" text-anchor="start" fill="#202b35" font-weight="bold">A</text>
+<line x1="130.00" y1="140.00" x2="400.00" y2="140.00" stroke="#175d85" stroke-width="3"/>
+<line x1="393.00" y1="133.00" x2="407.00" y2="147.00" stroke="#202b35" stroke-width="2"/>
+<line x1="393.00" y1="147.00" x2="407.00" y2="133.00" stroke="#202b35" stroke-width="2"/>
+<text x="425.00" y="146.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="normal">Exact failure</text>
+<text x="65.00" y="231.00" font-size="20" text-anchor="start" fill="#202b35" font-weight="bold">B</text>
+<line x1="130.00" y1="225.00" x2="590.00" y2="225.00" stroke="#175d85" stroke-width="3"/>
+<rect x="520" y="210" width="70" height="30" rx="6" fill="#edf4f8" stroke="#175d85"/>
+<text x="555.00" y="269.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">(a, b]</text>
+<text x="615.00" y="231.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="normal">Interval failure</text>
+<text x="65.00" y="316.00" font-size="20" text-anchor="start" fill="#202b35" font-weight="bold">C</text>
+<line x1="130.00" y1="310.00" x2="710.00" y2="310.00" stroke="#175d85" stroke-width="3"/>
+<line x1="690.00" y1="310.00" x2="720.00" y2="310.00" stroke="#175d85" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="735.00" y="316.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="normal">Still operating</text>
+<text x="30.00" y="353.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Right-censored survivors and interval-censored failures contribute likelihood terms; do not</text>
+<text x="30.00" y="373.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">discard them.</text>
+</g></svg>

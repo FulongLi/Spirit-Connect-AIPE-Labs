@@ -90,6 +90,8 @@ $$
 
 For an illustrative 12 nC and 0.6 A, the estimate is 20 ns. Driver output impedance, gate resistance and source inductance modify the actual current. Treat the estimate as a starting point and compare it with measured waveforms. Gate-charge extraction is described in [Keysight's parameter documentation](https://helpfiles.keysight.com/sp/PD1000A/Content/PD1500A%20DPT%20Tests/Parameter%20Extraction/ParameterExtractionTechniques.htm).
 
+{% include blog-figure.html file="gate-charge" alt="Gate-voltage plateau versus accumulated gate charge" caption="The plateau is a switching trajectory under stated conditions. Its width is charge, not time; divide by the actual gate current to estimate a duration." %}
+
 ## 4. Give dynamic on-resistance a time reference
 
 Dynamic on-resistance is the conduction resistance measured after a specified electrical history, at a specified delay after turn-on:
@@ -105,6 +107,8 @@ Define the reference using matched current, gate voltage and junction temperatur
 The instrument must resolve a small on-state drop immediately after a large blocking voltage. A protected clamp or specialised measurement channel can preserve low-voltage resolution, but its offset, recovery time and loading become part of the experiment. [Keysight's dynamic-resistance measurement article](https://www.keysight.com/ca/en/assets/7122-1079/article-reprints/Dynamic-On-Resistance-Measurement-Technique-for-GaN-Power-Transistors.pdf) discusses a clamp-based implementation.
 
 First validate clamp recovery against a known low-voltage signal after a representative high-voltage excursion. Then apply the off-state stress, turn on at controlled current and sample only after both the measurement channel and the defined gate-drive condition have settled. Report that delay: waiting longer can miss fast recovery. If settling obscures the desired interval, identify it as unmeasured rather than extrapolating an apparent peak.
+
+{% include blog-figure.html file="dynamic-ron-sequence" alt="Off-state stress followed by a timed dynamic resistance readout" caption="The readout delay is part of the measurand. Waiting for an unclamped probe to recover can hide the short-lived resistance increase being investigated." %}
 
 ## 5. Construct a reproducible comparison
 

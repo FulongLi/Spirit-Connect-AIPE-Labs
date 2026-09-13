@@ -36,6 +36,8 @@ $$
 
 The first interval imposes the sum of the DC voltages across the inductance. The second imposes their difference. At matched voltages, the second slope is zero; at mismatched voltages it is not.
 
+{% include blog-figure.html file="dab-waveforms" alt="Current endpoints in a matched-voltage DAB switching cycle" caption="Locate I0, Iφ and Iπ on this waveform before using the endpoint equations. The plotted zero-offset solution is an explicit symmetry condition." %}
+
 ## 2. Determine the current endpoints
 
 Write $$I_0=i_\sigma(0)$$, $$I_\phi=i_\sigma(\phi)$$ and $$I_\pi=i_\sigma(\pi)$$. Integrating each slope gives
@@ -100,6 +102,8 @@ P=\frac{nV_1V_2}{\omega_sL_\sigma}\phi\left(1-\frac{|\phi|}{\pi}\right),
 $$
 
 The positive-power maximum occurs at $$\phi=\pi/2$$; beyond it, increasing phase reduces power. Controllers normally select a monotonic branch. At zero phase with mismatched voltages, (5) predicts circulating AC current although (8) predicts zero average power. Zero transferred power therefore does not imply zero conduction loss in a real converter.
+
+{% include blog-figure.html file="dab-power" alt="Signed phase-shift power curve on the normal control branch" caption="The same positive phase shift used in the waveform gives positive secondary-port power. Beyond ±90 degrees the power law is not monotonic, so this plot deliberately shows the usual monotonic branch." %}
 
 ## 4. Calculate current stress
 

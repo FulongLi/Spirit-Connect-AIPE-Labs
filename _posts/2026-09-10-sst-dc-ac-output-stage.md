@@ -17,13 +17,7 @@ We first develop an LC-filtered voltage source using the [shared SST specificati
 
 Each of three half bridges connects a phase pole either to the positive or negative DC rail. The upper and lower devices require complementary control and dead time. Their reverse-current paths let inductor current continue when the applied voltage changes. A series inductor limits current ripple; a shunt capacitor diverts switching-frequency current away from the load.
 
-```text
-48 V DC bus → three half bridges → La, Lb, Lc → three-phase output
-                                                  │
-                                        Ca, Cb, Cc in star
-                                                  │
-                                        floating filter star
-```
+{% include blog-figure.html file="circuit-three_phase" alt="Three-phase two-level inverter bridge" caption="The drawing shows the switching bridge and its A/B/C pole terminals. Each pole then feeds the series inductor and shunt capacitor described below. The filter and load star points are floating, not connected to the DC return." circuit="three_phase" %}
 
 The balanced star load has its own floating star point; neither star point is connected to a DC rail. Per-phase equations below use the zero-sequence-free representation. A neutral-connected or four-wire system needs a separate zero-sequence model and a suitable return path.
 
@@ -111,6 +105,8 @@ C_f\dot v_q=i_q-i_{o,q}-\omega C_fv_d.
 $$
 
 The cross terms come from rotating coordinates, not extra circuit components. Establish $$\dot\theta=2\pi50$$ internally for this stand-alone test. The voltage references are $$v_d^*=\sqrt2(24/\sqrt3)=19.60\ \mathrm V$$ and $$v_q^*=0$$. At steady state the inverter also supplies $$i_q=\omega C_fv_d=0.135\ \mathrm A$$ to the filter capacitor, even though the load has zero reactive current. Substituting these currents into the steady inductor equations gives a required bridge modulation of approximately 0.845, including the nominal filter drop. Bus-voltage sag and transients consume the remaining modulation margin.
+
+{% include blog-figure.html file="abc-dq" alt="Balanced phase voltages become constant d and q components" caption="A controller can regulate a constant d-axis reference after the transform. The coordinate change does not remove the physical LC filter, delay or voltage limits." %}
 
 ## 5. Close the inductor-current loops
 

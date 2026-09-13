@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 410" role="img" aria-label="dq is a rotation of coordinates, not a different circuit">
+<title>dq is a rotation of coordinates, not a different circuit</title>
+<rect width="900" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8" fill="#175d85"/></marker></defs>
+<g font-family="Arial, sans-serif" fill="#202b35">
+<text x="30.00" y="35.00" font-size="23" text-anchor="start" fill="#202b35" font-weight="bold">dq is a rotation of coordinates, not a different circuit</text>
+<line x1="100.00" y1="220.00" x2="460.00" y2="220.00" stroke="#202b35" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="275.00" y1="345.00" x2="275.00" y2="65.00" stroke="#202b35" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="470.00" y="226.00" font-size="23" text-anchor="start" fill="#202b35" font-weight="normal">α</text>
+<text x="282.00" y="66.00" font-size="23" text-anchor="start" fill="#202b35" font-weight="normal">β</text>
+<line x1="275.00" y1="220.00" x2="426.55" y2="132.50" stroke="#175d85" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="434.55" y="124.50" font-size="22" text-anchor="start" fill="#175d85" font-weight="normal">d</text>
+<line x1="275.00" y1="220.00" x2="202.50" y2="94.43" stroke="#175d85" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="210.50" y="86.43" font-size="22" text-anchor="start" fill="#175d85" font-weight="normal">q</text>
+<polyline points="330.00,220.00 329.99,219.18 329.98,218.35 329.94,217.53 329.90,216.71 329.85,215.89 329.78,215.07 329.70,214.25 329.61,213.43 329.50,212.62 329.39,211.80 329.26,210.99 329.12,210.18 328.96,209.37 328.80,208.56 328.62,207.76 328.43,206.96 328.23,206.16 328.02,205.37 327.79,204.58 327.56,203.79 327.31,203.00 327.05,202.22 326.78,201.45 326.49,200.67 326.20,199.91 325.89,199.14 325.57,198.38 325.25,197.63 324.90,196.88 324.55,196.14 324.19,195.40 323.82,194.66 323.43,193.94 323.04,193.22 322.63,192.50" fill="none" stroke="#687581" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="340.00" y="205.00" font-size="21" text-anchor="start" fill="#202b35" font-weight="normal">θ</text>
+<rect x="510" y="115" width="340" height="80" rx="6" fill="#f7f8f9" stroke="#bac4cc"/>
+<text x="680.00" y="150.00" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">Stationary αβ</text>
+<text x="680.00" y="174.00" font-size="17" text-anchor="middle" fill="#687581" font-weight="normal">The vector rotates at electrical speed.</text>
+<rect x="510" y="235" width="340" height="80" rx="6" fill="#edf4f8" stroke="#175d85"/>
+<text x="680.00" y="270.00" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">Synchronous dq</text>
+<text x="680.00" y="294.00" font-size="17" text-anchor="middle" fill="#687581" font-weight="normal">The axes rotate with the vector.</text>
+<text x="30.00" y="388.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Positive q is 90° ahead of d. Projection uses the article’s negative-sine q-row convention.</text>
+</g></svg>

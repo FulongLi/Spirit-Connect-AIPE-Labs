@@ -39,6 +39,8 @@ $$
 
 Thirty turns is the minimum under these nominal assumptions, with no allowance for voltage tolerance or reduced switching frequency. A 52.8 V winding voltage would require 33 turns at the same flux limit. The chosen 0.10 T is a design target, not a verified material limit; select it using temperature-dependent saturation and loss data.
 
+{% include blog-figure.html file="magnetic-flux" alt="Square winding voltage integrated into triangular flux density" caption="One positive half-cycle moves B from −0.1 T to +0.1 T in this nominal example. That peak-to-peak change, together with the half-period, explains the factor four in the turns equation." %}
+
 ## 2. Keep two inductances distinct
 
 The DAB transfer inductance $$L_\sigma=20\ \mu\mathrm H$$ carries the differential voltage between the bridges. Magnetising inductance $$L_m$$ describes the current needed to establish core flux:

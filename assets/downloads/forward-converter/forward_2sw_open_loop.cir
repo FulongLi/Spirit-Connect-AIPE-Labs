@@ -14,28 +14,30 @@ S2 b 0 gate 0 SWMOD
 * secondary dot at "sec" means they are IN PHASE -- the secondary conducts
 * while the switches are ON. That is what makes this a FORWARD converter.
 Lpri a b {LP}
-Lsec sec 0 {LS}
+Lsec sec sec0 {LS}
 K1 Lpri Lsec 0.995
 * Clamp / reset diodes: return magnetising energy to the input during OFF.
 Dc1 0 a DMOD
 Dc2 b in DMOD
 * Secondary: forward diode, freewheel diode, then a normal buck-style LC.
 Dfwd sec n1 DMOD
-Dfw 0 n1 DMOD
+Dfw sec0 n1 DMOD
 Lo n1 out {LOUT}
-Cout out 0 {CVAL}
-Rload out 0 {RLOAD}
+Cout out sec0 {CVAL}
+Rload out sec0 {RLOAD}
 Vgate gate 0 PULSE(0 5 10u 10n 10n {DUTY/FS} {1/FS})
 .model SWMOD SW(Ron=0.05 Roff=100Meg Vt=2.5 Vh=0)
 .model DMOD D(Is=1u N=1.1 Rs=0.02 Cjo=100p Tt=0)
 * DUTY MUST STAY BELOW 0.5 or the core will not reset and will walk into
-* saturation. Try 0.55 and watch the magnetising current stair-case away.
+* flux bias. Linear coupled inductors do not model saturation or failure.
 * V(n1) is a clean rectangular buck input at Vin/n = 36 V.
 .tran 0 10m 8m 20n
 .options plotwinsize=0
-.meas tran Vout_avg AVG V(out) FROM 8m TO 10m
-.meas tran Vout_pp PP V(out) FROM 9.98m TO 10m
+.meas tran Vout_avg AVG V(out,sec0) FROM 8m TO 10m
+.meas tran Vout_pp PP V(out,sec0) FROM 9.98m TO 10m
 .meas tran Va_max MAX V(a) FROM 8m TO 10m
 .meas tran ILo_avg AVG I(Lo) FROM 8m TO 10m
-.meas tran Imag_pk MAX I(Lpri) FROM 8m TO 10m
+.meas tran Ipri_pk MAX I(Lpri) FROM 8m TO 10m
+* Numerical DC reference only; not a physical connection across isolation.
+Rref sec0 0 1T
 .end

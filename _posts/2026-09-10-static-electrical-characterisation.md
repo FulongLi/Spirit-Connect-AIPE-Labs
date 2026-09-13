@@ -48,6 +48,8 @@ For an illustrative 10 A pulse and 0.120 V sensed drop, the result is 12 mΩ. An
 
 Two source-measure channels can provide gate bias and pulsed drain excitation. Verify the actual pulse and settling rather than relying exclusively on programmed settings. [Keithley's on-state measurement discussion](https://download.tek.com/document/AUTO_eKIT_Power.pdf) describes the need for Kelvin connections and low-voltage measurement capability.
 
+{% include blog-figure.html file="static-on-state" alt="On-state voltage versus current for two illustrative resistances" caption="The slope is meaningful only under matched gate bias, temperature and pulse conditions. Kelvin voltage sensing removes force-lead drops from the intended measurement." %}
+
 ## 3. Separate electrical settling from self-heating
 
 Choose a sampling window after ringing and source-measure settling, but before appreciable temperature rise. There may be no suitable window if the fixture is slow or the pulse dissipates too much power; improve the setup instead of assuming the requested temperature.

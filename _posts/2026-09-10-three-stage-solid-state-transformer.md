@@ -19,15 +19,7 @@ The aim is to progress from circuit equations to a scaled laboratory system. Thi
 
 For this series, a three-stage AC-to-AC SST contains an AC–DC stage, an isolated DC–DC stage and a DC–AC stage. Stage count describes the conversion architecture; it does not count every transistor bridge or every repeated module.
 
-```text
-MVAC port
-    ↕  AC–DC front end
-High-side DC links
-    ↕  Isolated DC–DC conversion, including magnetic isolation
-Common LVDC bus ─── optional DC load or storage interface
-    ↕  DC–AC output stage
-LVAC port
-```
+{% include blog-figure.html file="sst-architecture" alt="SST AC-DC, isolated DC-DC and DC-AC conversion chain" caption="Follow the energy from left to right. The intermediate ports have different roles: floating high-side links feed individual isolation stages; their outputs join the common low-voltage bus." %}
 
 A single-stage architecture performs the required AC conversion and isolation without two independently buffered DC links. Two-stage arrangements retain one intermediate DC link; the location and combination of functions can differ. The three-stage arrangement provides separate input, isolation and output control interfaces, at the cost of more conversion hardware and energy-storage elements. Classification should always be accompanied by the actual block diagram.
 
@@ -37,18 +29,7 @@ An SST supplying only a DC load may end at the LVDC port. The LVAC inverter is t
 
 We select a star-connected, three-phase cascaded H-bridge (CHB) front end. Each phase contains N series-connected H-bridge AC terminals. Each bridge has its own floating DC capacitor and supplies one DAB. The isolated DAB outputs join a common LVDC bus. A central three-phase inverter supplies the LVAC port.
 
-```text
-One input phase branch, repeated for a, b and c:
-phase ─ Lg ─ [CHB cell 1 AC port] ─ [CHB cell 2 AC port] ─ star point
-                    │ local DC link       │ local DC link
-                  [DAB 1]               [DAB 2]
-                    ║ isolation           ║ isolation
-                    └──────── common LVDC ─┘
-                                  │
-                        three-phase inverter
-                                  │
-                           filter → LVAC
-```
+{% include blog-figure.html file="sst-modules" alt="Series AC cells with individual DABs and a common DC output" caption="Series connection shares AC voltage; parallel isolated outputs share current. The diagram shows one phase with two cells. Each local high-side DC link stays separate." %}
 
 The vertical connections are functional port connections, not shared primary-side grounds. There are six separate high-side DC links when N = 2. They must not be wired together. “High side” identifies the primary side of the isolation barrier; in the scaled prototype its nominal voltage is only 48 V.
 

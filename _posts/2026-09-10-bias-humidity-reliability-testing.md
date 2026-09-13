@@ -58,6 +58,8 @@ Condensation is a separate physical condition from humid air. An unintended liqu
 
 Fixture contamination, ionic residues, insulation materials and connectors can dominate a low-leakage measurement. Run suitable blank-fixture and reference checks. Guarding can reduce unwanted measurement currents, but a guard must not remove a DUT surface path that the experiment is intended to assess.
 
+{% include blog-figure.html file="bias-test-sequence" alt="Baseline, bias stress, timed readout and mechanism assessment" caption="The stress condition and the measurement condition are different. Record the transition between them so that recovery is not mistaken for an absence of degradation." %}
+
 ## 4. Establish the baseline and readout schedule
 
 Measure the [static electrical baseline]({% post_url 2026-09-10-static-electrical-characterisation %}) before stress. Retain sample and lot identifiers, mounting, cleaning/preconditioning history, threshold extraction criterion, gate leakage, blocking leakage and on-state parameters.

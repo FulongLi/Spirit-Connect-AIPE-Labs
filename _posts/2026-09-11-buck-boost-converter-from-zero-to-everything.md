@@ -21,14 +21,7 @@ This tutorial follows one **12 V to −12 V, 30 W inverting buck–boost** throu
 
 A buck–boost converter produces an output voltage that can be **lower or higher** than the input. The classical single-switch version uses the same four parts as a buck or a boost — switch, diode, inductor, capacitor — rearranged so that the inductor is never connected to the input and the output at the same time. Its output is **inverted**: negative with respect to the input ground.
 
-```text
-        Q                       diode
-  Vin + --/ ---o-------------------|<|------o------ Vout - (negative)
-               |                            |
-               L                          C || Rload
-               |                            |
-  Vin ---------o----------------------------o------ ground
-```
+{% include blog-figure.html file="circuit-buck_boost" alt="Inverting buck-boost schematic" caption="The output node at D1, C1 and R1 is negative relative to the common return. D1 has its anode at the negative output and cathode at the switching node. C1 is shown with a non-polarised symbol." circuit="buck_boost" %}
 
 Here Q is a high-side MOSFET. The inductor sits from the switching node to ground. The diode anode faces the output node and its cathode faces the switching node, so current is pulled *out of* the output node — which is why the output goes negative.
 
@@ -60,6 +53,8 @@ C\frac{dv_o}{dt}=i_L-\frac{v_o}{R}.
 $$
 
 Note the contrast with a buck, where the inductor feeds the output in *both* intervals, and with a boost, where the input feeds the inductor in both. Here each source is connected for exactly one interval and never together.
+
+{% include blog-figure.html file="buck-boost-paths" alt="Buck-boost inductor current with pulsed input and rectifier currents" caption="Continuous inductor current does not imply continuous port currents: each port conducts in a different interval. I* is an arbitrary current scale, not a measured current." %}
 
 ### Derive the conversion ratio
 
@@ -313,24 +308,17 @@ Remember the output is negative: the sensing chain needs a level shift or an inv
 
 The inverting topology has three practical problems: the output is the wrong polarity for most loads, the switch is not ground-referenced, and the stress is high. The **four-switch non-inverting buck–boost** solves all three and is what you will find inside USB-PD adapters, battery chargers and automotive pre-regulators.
 
-```text
-        Q1        L        Q4
-  Vin --/ --o---coil---o---/ --o--- Vout + (positive)
-            |          |       |
-           Q2         Q3     C || Rload
-            |          |       |
-  ground ---o----------o-------o--- ground
-```
+{% include blog-figure.html file="circuit-four_switch" alt="Four-switch non-inverting buck-boost schematic" caption="The input and output positive rails are distinct; the lower rail is shared. L1 joins the two bridge midpoints. Q1/Q2 form the input leg and Q3/Q4 the output leg." circuit="four_switch" %}
 
 It is literally a **synchronous buck cascaded with a synchronous boost sharing one inductor**. Q1/Q2 form the buck leg, Q3/Q4 the boost leg. That gives three operating modes:
 
 | Mode | Condition | Behaviour |
 |---|---|---|
-| Buck | $$V_g$$ comfortably above $$V$$ | Q4 held on, Q3 off; Q1/Q2 switch with $$V=DV_g$$ |
+| Buck | $$V_g$$ comfortably above $$V$$ | Q3 held on, Q4 off; Q1/Q2 switch with $$V=DV_g$$ |
 | Boost | $$V_g$$ comfortably below $$V$$ | Q1 held on, Q2 off; Q3/Q4 switch with $$V=V_g/(1-D)$$ |
 | Buck–boost | $$V_g\approx V$$ | Both legs switch, blended over a transition band |
 
-The payoff is large. In pure buck or pure boost mode only one leg switches, so switching loss halves and each device only blocks $$\max(V_g,V)$$ instead of $$V_g+V$$. Efficiency in those regions approaches that of a dedicated buck or boost.
+In a pure buck or boost mode, only one leg needs high-frequency commutation. That can reduce switching loss, but does not guarantee a factor-of-two reduction. The input-leg devices block approximately Vg and the output-leg devices approximately V, before overshoot; all four devices still contribute conduction and drive losses.
 
 The difficulty moves into the **control**: the transition region near $$V_g\approx V$$ must be handled without duty-cycle discontinuities, audible subharmonics or output glitches. Common strategies overlap the two modes across a hysteresis band, or run a genuine four-switch buck–boost mode with a fixed minimum duty on each leg. Mode-transition behaviour, not steady-state efficiency, is what separates a good implementation from a poor one.
 

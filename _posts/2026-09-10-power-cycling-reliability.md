@@ -27,6 +27,8 @@ The midpoint is not necessarily the time-average temperature for an asymmetric w
 
 A short pulse mainly heats the die and nearby structures. Longer cycles can involve a larger fraction of the package and cooling assembly. Equal junction-temperature swing with different durations does not guarantee equal strain or failure mechanisms.
 
+{% include blog-figure.html file="active-cycling" alt="Self-heating cycles and measured junction-temperature extrema" caption="A pulse count alone omits the actual thermal stress. Retain temperature range, temperature level and heating/cooling duration for each specimen." %}
+
 ## 2. Choose the heating method and control policy
 
 Conduction heating can provide a controlled pulse of loss; application-like switching cycles can reproduce additional electrical stress. A published [AC power-cycling study](https://arxiv.org/abs/2307.10110) illustrates the latter and its condition-monitoring requirements. The chosen heating method belongs in the test definition.

@@ -5,6 +5,7 @@ description: "A practical path from the first switching cycle to modelling, feed
 date: 2025-12-09
 author: "Dr. Fulong Li"
 math: true
+converter_explorer: true
 converter_series: true
 zh_url: /zh/resources/blog/
 ---
@@ -23,14 +24,7 @@ If you already know the basic circuit and want the mathematics, open [Small-Sign
 
 A boost converter is a switching DC–DC converter that raises an input voltage to a higher output voltage. The basic circuit uses an inductor, a controlled switch, a diode and an output capacitor. It is non-isolated: input and output share a ground connection. In this topology, there is no transformer.
 
-```text
-                 L                  diode
-  Vin + --------coil-------o---------|>|-------o------ Vout +
-                           |                   |
-                           Q                 C || Rload
-                           |                   |
-  Vin - -------------------o-------------------o------ ground
-```
+{% include blog-figure.html file="circuit-boost" alt="Boost converter power schematic" caption="L1 connects the input to the switch node. Q1 pulls that node to return during the on interval; D1 supplies C1 and R1 during the off interval. The output shares the input return." circuit="boost" %}
 
 Here Q is normally a MOSFET. The diode anode faces the switching node; its cathode faces the output. C and the load are connected in parallel.
 
@@ -70,6 +64,10 @@ C\frac{dv_o}{dt}=i_L-\frac{v_o}{R}.
 $$
 
 An inductor obeys $$v_L=L\,di_L/dt$$, so its current cannot change instantaneously under a finite voltage. This continuity is the reason it can keep delivering current when the switch opens. Its stored energy is $$E_L=Li_L^2/2$$.
+
+{% include blog-figure.html file="boost-waveforms" alt="Gate, inductor voltage and current, and capacitor current over two cycles" caption="Read down one dashed switching boundary: the gate changes the inductor voltage, which changes the current slope. The current itself stays continuous. The plotted values use the nominal example." %}
+
+{% include converter-explorer.html kind="boost" %}
 
 ### Derive the conversion ratio
 
@@ -295,6 +293,8 @@ For this example, $$f_0\approx358\ \mathrm{Hz}$$, $$Q\approx14.24$$ and $$f_{z,\
 Increasing duty initially shortens the time during which the inductor feeds the output. The capacitor can therefore begin to discharge faster, even though the eventual output voltage rises. The model captures this inverse response with the numerator factor $$1-s/\omega_{z,\mathrm{RHP}}$$.
 
 This zero adds phase lag and constrains useful bandwidth. It cannot be safely cancelled by placing an unstable pole in the controller. Its frequency also changes with load and operating point. [Analog Devices AN-149](https://www.analog.com/en/resources/app-notes/an-149.html) discusses the boost power stage and this control limitation.
+
+{% include blog-figure.html file="feedback-loop" alt="Negative feedback from measured output through controller and PWM" caption="Start with the sign of the error: a low measured output should command the correction required by this plant. Include sensor and PWM gains before calculating the loop gain." %}
 
 ## 5. Close the feedback loop deliberately {#feedback}
 

@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "name": "Inverting buck-boost: output below the common return",
+  "components": [
+    {
+      "ref": "C1",
+      "kind": "cap",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "D1",
+      "kind": "diode",
+      "ports": [
+        "a",
+        "k"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "G1",
+      "kind": "terminal",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": "control",
+      "attrs": {}
+    },
+    {
+      "ref": "GND1",
+      "kind": "gnd",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "L1",
+      "kind": "ind",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "Q1",
+      "kind": "nmos",
+      "ports": [
+        "d",
+        "s",
+        "g"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "R1",
+      "kind": "res",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "V1",
+      "kind": "vsource",
+      "ports": [
+        "p",
+        "n"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    }
+  ],
+  "nets": {
+    "DC_NEG": [
+      "C1.b",
+      "GND1.t",
+      "L1.b",
+      "R1.b",
+      "V1.n"
+    ],
+    "GATE": [
+      "G1.t",
+      "Q1.g"
+    ],
+    "SW": [
+      "D1.k",
+      "L1.a",
+      "Q1.s"
+    ],
+    "VIN": [
+      "Q1.d",
+      "V1.p"
+    ],
+    "VOUT_NEG": [
+      "C1.a",
+      "D1.a",
+      "R1.a"
+    ]
+  }
+}

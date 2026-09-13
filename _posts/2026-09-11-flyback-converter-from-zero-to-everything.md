@@ -27,23 +27,16 @@ A transformer gives you all three. But a conventional transformer transfers powe
 
 Take the [inverting buck–boost]({% post_url 2026-09-11-buck-boost-converter-from-zero-to-everything %}). Its inductor charges from the input during the on interval and discharges into the output during the off interval. Now split that single inductor into **two magnetically coupled windings**: one connected to the input side, one to the output side, wound on the same core.
 
-```text
-              Np : Ns
-  Vin + --o------3||E------o------|>|-----o---- Vout +
-          |      3||E      |    diode     |
-         ===     3||E     ===           Cout || R
-          |       ||       |              |
-          Q       ||      sec return      |
-          |       ||                      |
-  Vin - --o-------o----------------------o---- isolated ground
-```
+{% include blog-figure.html file="circuit-flyback" alt="Flyback with separate primary and secondary returns" caption="Read the dots together with the connections: the secondary dotted end is its return, shown at the top; the lower diode/capacitor node is positive relative to it. The two return symbols are separate electrical nets. T1 represents the coupled energy-storage element; the clamp is omitted here." circuit="flyback" %}
 
-The dots (winding-start markers) are deliberately placed on **opposite** sides. That single choice is what makes it a flyback rather than a forward converter:
+The winding polarity and diode orientation make the secondary rectifier block during primary excitation. A dot alone is insufficient: in this drawing, the primary dotted end is at the positive input and the secondary dotted end is at its local return.
 
-- **Switch on:** the input is applied across the primary, and primary current ramps up, storing energy in the core. The secondary voltage is reversed, so the output diode is blocked. **No power reaches the output.** The output capacitor alone supplies the load.
+- **Switch on:** the input is applied across the primary, and primary current ramps up, storing magnetic-field energy, predominantly in the gap of a typical gapped design. The secondary voltage is reversed, so the output diode is blocked. **No power reaches the output.** The output capacitor alone supplies the load.
 - **Switch off:** the primary current is interrupted. The core's stored energy must go somewhere, so the voltage across every winding reverses until the output diode conducts, and the energy is dumped into the output capacitor through the secondary.
 
-So a flyback transformer is **not really a transformer** — it is a *coupled inductor* that stores energy in one interval and releases it in the next. Primary and secondary current never flow at the same time. This is why a flyback core needs an **air gap**: it must store energy, and a gapped core stores far more of it than an ungapped one.
+So a flyback transformer is **not really a transformer** — it is a *coupled inductor* that stores energy in one interval and releases it in the next. In the ideal interval model, primary and secondary load-current pulses occupy different intervals; real commutation, capacitance and leakage add transition currents. This is why a flyback core needs an **air gap**: it must store energy, and a gapped core stores far more of it than an ungapped one.
+
+{% include blog-figure.html file="flyback-forward-timing" alt="Flyback and forward currents compared across a switching cycle" caption="The flyback secondary transfers energy during the off interval. The forward secondary transfers load energy during the on interval, while its separate output inductor continues supplying the load afterwards." %}
 
 ## 2. The turns ratio and the conversion ratio {#turns}
 
@@ -139,7 +132,7 @@ $$
 
 As always in this family, **ripple current rating selects the capacitor, not capacitance**. ESR usually dominates the measured ripple.
 
-## 4. Leakage inductance: the problem unique to isolated converters {#leakage}
+## 4. Leakage inductance and the turn-off clamp {#leakage}
 
 Here is the thing that catches every beginner. Equations (1)–(8) assume perfect coupling between primary and secondary. Real windings are not perfectly coupled: a small **leakage inductance** $$L_{lk}$$ stores energy that is *not* coupled to the secondary and therefore has nowhere to go when the switch turns off.
 

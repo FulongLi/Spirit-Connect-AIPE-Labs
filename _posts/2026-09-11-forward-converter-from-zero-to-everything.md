@@ -9,9 +9,9 @@ converter_series: true
 zh_url: /zh/resources/blog/
 ---
 
-The [flyback]({% post_url 2026-09-11-flyback-converter-from-zero-to-everything %}) stores energy in its core and dumps it into the output. That works beautifully at low power and becomes punishing above roughly 100 W, because every joule delivered has to be stored first.
+The [flyback]({% post_url 2026-09-11-flyback-converter-from-zero-to-everything %}) stores energy in the magnetic field of a coupled inductor, usually predominantly in its gap, then transfers that energy to the output during another switching interval. Increasing power raises the demands on stored energy, peak current and temperature; there is no universal power threshold at which the topology stops being usable.
 
-The **forward converter** takes the opposite approach: it uses a genuine transformer that passes power to the secondary *at the same instant* the switch conducts. Nothing is stored in the core on purpose. The result is a converter that behaves, in every way that matters, like an **isolated buck**.
+The **forward converter** transfers power through the transformer while the primary switch conducts. Its output inductor smooths the rectified current, giving a buck-like output stage. The transformer still stores magnetising energy, which must be reset each cycle; that energy is not the main load-energy transfer mechanism.
 
 This article follows the same **48 V to 12 V, 30 W** specification at 100 kHz used for the other isolated topologies in this series.
 
@@ -21,18 +21,9 @@ This article follows the same **48 V to 12 V, 30 W** specification at 100 kHz us
 
 ## 1. An isolated buck {#principles}
 
-```text
-           Np : Ns        Dfwd      Lo
-  Vin + --o---3||E---o-----|>|----coil----o---- Vout +
-          |   3||E   |      |             |
-         ===  3||E   |     Dfw          Cout || R
-          |    ||    |      |             |
-          Q  (reset) |      |             |
-          |          |      |             |
-  Vin - --o----------o------o-------------o---- isolated ground
-```
+{% include blog-figure.html file="circuit-forward_2sw" alt="Two-switch forward with isolated secondary and reset diodes" caption="This is the two-switch implementation used by the downloadable example. Q1/Q2 switch together; D1/D2 return magnetising energy to the input. D3 is the forward rectifier, D4 the freewheel diode. The secondary return is separate. The reset-winding derivation below describes a different reset option." circuit="forward_2sw" %}
 
-The dots are on the **same** side this time — the opposite of a flyback. That one change transforms the behaviour:
+Winding polarity and rectifier orientation are chosen so that positive primary excitation forward-biases the output rectifier. Read the current paths, not the position of a dot alone:
 
 - **Switch on:** the primary sees $$V_g$$, and the secondary immediately produces $$V_g/n$$ where $$n=N_p/N_s$$. The forward diode `Dfwd` conducts and delivers power **straight through** to the output inductor. Power flows while the switch is on.
 - **Switch off:** the secondary voltage collapses, `Dfwd` blocks, and the output inductor current freewheels through `Dfw`, exactly as in a buck.
@@ -48,7 +39,7 @@ $$
 
 Compare this with the buck's $$V=DV_g$$. The transformer contributes a fixed ratio $$1/n$$; the duty cycle does the regulating. And because the output inductor conducts continuously into the load, the forward converter inherits the buck's best property: **continuous output current and very low output ripple**.
 
-There is one important structural difference from the flyback. The transformer here is a true transformer — primary and secondary currents flow **simultaneously**. The core is not an energy store, so it needs **no air gap**, and it can be much smaller for the same throughput power.
+Primary and secondary load-current components flow simultaneously during the forward interval. The transformer therefore does not need to store the full transferred load energy as a flyback coupled inductor does. Core gap, magnetising inductance and winding structure remain design choices; reset and transient flux must still be checked.
 
 ## 2. The reset problem, and where the duty limit comes from {#reset}
 
@@ -61,12 +52,11 @@ $$
 
 This current does no useful work — it just magnetises the core. And here is the problem: **the core must be demagnetised before the next cycle**, or the flux staircases upward, cycle after cycle, until the core saturates and the switch fails. Volt-second balance on the magnetising inductance is not optional; it is a survival requirement.
 
-The classical solution adds a third **reset winding** with $$N_r$$ turns, arranged so that during the off interval the magnetising current flows out through a diode back into the input. The core sees $$-V_gN_p/N_r$$ during reset, so volt-second balance demands
+The classical single-switch solution uses a third reset winding with Nr turns and a diode that returns magnetising energy to the input. During reset the primary sees −Vg Np/Nr. If the reset interval occupies a fraction δr of the period, volt-second balance gives the following duty limit. The rest of the off interval can be a zero-magnetising-current dwell.
 
 $$
-DV_g=(1-D)V_g\frac{N_p}{N_r}
-\qquad\Longrightarrow\qquad
-D_{\max}=\frac{1}{1+N_p/N_r}.
+\delta_r=D\frac{N_r}{N_p},\qquad D+\delta_r\leq1
+\quad\Longrightarrow\quad D_{\max}=\frac{1}{1+N_r/N_p}.
 \tag{3}
 $$
 
@@ -77,7 +67,7 @@ $$
 \tag{4}
 $$
 
-**This is the forward converter's defining limitation.** You cannot exceed 50 % duty, which caps the usable input range and forces a smaller $$n$$ than you might want. And the cost is paid twice, because during reset the switch must block the input *plus* the reflected reset voltage:
+**The 0.5 limit belongs to the 1:1 reset arrangement and the ideal two-switch reset.** Other reset ratios and active-clamp arrangements change the allowable duty. During reset the single-switch device blocks the input plus the reflected reset voltage:
 
 $$
 V_{\mathrm{DS,off}}=V_g\left(1+\frac{N_p}{N_r}\right)=2V_g
@@ -86,6 +76,8 @@ V_{\mathrm{DS,off}}=V_g\left(1+\frac{N_p}{N_r}\right)=2V_g
 $$
 
 At our 72 V maximum input that is **144 V**, requiring a 200 V device to switch a 48 V rail. Both of these penalties — the duty ceiling and the doubled voltage stress — are what the [variants in section 4](#variants) exist to solve.
+
+{% include blog-figure.html file="forward-reset" alt="Forward primary voltage and magnetising current during reset" caption="For equal on and reset voltage magnitudes, reset takes as long as excitation. At D = 1/3, one third of the period remains as dwell; at D = 1/2, the ideal reset margin disappears." %}
 
 ## 3. Sizing the example {#design}
 
@@ -133,16 +125,9 @@ $$
 
 Put a switch in **both** primary legs, driven together, and add two clamp diodes to the opposite rails.
 
-```text
-  Vin + --o---Q1---o---3||E---o---Q2---o--- Vin -
-          |        |   3||E   |        |
-          |       Dc1  3||E  Dc2       |
-          +--------+           +-------+
-```
-
 When both switches turn off, the magnetising current flows through the two clamp diodes back into the input. This has three simultaneous benefits:
 
-- Each switch blocks **only $$V_g$$**, not $$2V_g$$ — a 100 V device now suffices for our 72 V maximum instead of a 200 V one.
+- Each switch blocks **only $$V_g$$**, not $$2V_g$$ — a candidate voltage class must still allow for overshoot, tolerances and the protection limit at 72 V input.
 - The magnetising energy is **returned to the input** rather than dissipated.
 - **No reset winding** is needed, simplifying the transformer.
 
@@ -150,16 +135,16 @@ The duty limit remains $$D\le0.5$$, because the reset voltage is still $$V_g$$. 
 
 ### Active-clamp forward
 
-Replace the reset mechanism with a small MOSFET and a clamp capacitor. The clamp voltage becomes
+An active clamp uses an auxiliary switch and capacitor to establish the reset voltage. For the common low-side main-switch arrangement, define the ideal total off-state voltage across the main switch as Vclamp:
 
 $$
 V_{\mathrm{clamp}}=\frac{V_g}{1-D},
 \tag{8}
 $$
 
-which is 72 V at our nominal operating point. Two things improve dramatically:
+which is 72 V at the nominal point. The clamp capacitor voltage itself depends on its connection; it must not be identified with this total switch voltage without drawing that connection. Two useful consequences are:
 
-- **The $$D\le0.5$$ limit disappears.** Duty can exceed 0.5, allowing a larger $$n$$, lower primary currents and a wider input range.
+- **Duty can exceed 0.5 in suitable active-clamp arrangements.** Switch stress, reset time, flux excursion and controller limits still bound the usable duty.
 - **Zero-voltage switching** becomes available, because the magnetising and leakage energy is used to discharge the switch capacitance before turn-on. Switching loss drops sharply, enabling higher frequencies and smaller magnetics.
 
 The trade-off is complexity: complementary gate drive with carefully chosen dead time, and a clamp voltage that rises with duty, so the device rating must cover the worst case.
@@ -168,7 +153,7 @@ The trade-off is complexity: complementary gate drive with carefully chosen dead
 |---|---|---|---|---|
 | Single-switch, reset winding | $$2V_g$$ | 0.5 | returned to input | low cost, < 150 W |
 | Two-switch | $$V_g$$ | 0.5 | returned to input | 100–500 W workhorse |
-| Active clamp | $$V_g/(1-D)$$ | none | recycled, enables ZVS | high efficiency, high density |
+| Active clamp | $$V_g/(1-D)$$ | topology/controller limits | recycled, enables ZVS | high efficiency, high density |
 
 ## 5. Control: the easiest plant in this series {#control}
 
@@ -199,10 +184,10 @@ Open [forward_2sw_open_loop.cir]({{ '/assets/downloads/forward-converter/forward
 
 1. **`V(n1)` is a clean rectangle** switching between about 36 V and 0. That is the isolated buck's switching node — compare it directly with the buck article's `V(sw)`.
 2. **`I(Lo)` is a triangle centred on 2.5 A** with about 0.53 A of ripple, never touching zero.
-3. **`V(a)` never exceeds the input rail**, because the clamp diodes hold it there. This is the two-switch topology's headline benefit, visible in one trace.
+3. **Measure the voltage across each switch**, rather than treating one node voltage as both switch stresses. Ideal reset clamps the winding terminals to the rails; real parasitics create overshoot.
 4. **`I(Lpri)` contains a small ramp** riding on the reflected load current — that ramp is the magnetising current, and it returns to zero each cycle.
 
-Then run the experiment that matters most: **set `DUTY` to 0.55 and re-run.** The magnetising current no longer resets. Watch it staircase upward cycle after cycle — that is a core walking into saturation, and it is the failure mode equation (4) exists to prevent. Seeing it happen in simulation is far more memorable than reading the inequality.
+In the ideal teaching model, increasing duty beyond the reset allowance should reveal a persistent volt-second error and increasing magnetising-current offset. The supplied linear coupled inductors do not model saturation, so they cannot demonstrate a real core entering saturation or predict switch failure. Add a validated nonlinear magnetic model before making that claim.
 
 ## 7. Where forward converters are used {#applications}
 
@@ -212,7 +197,7 @@ Then run the experiment that matters most: **set `DUTY` to 0.55 and re-run.** Th
 
 **Applications needing low output ripple.** Because the output current is continuous, the forward converter produces far cleaner rails than a flyback for the same capacitance — valuable for analogue, RF and sensor supplies.
 
-**Where not to use one.** Below about 75 W the extra magnetics, the output inductor and the reset arrangement cost more than a flyback is worth. Above roughly 500 W the transformer core is only used in **one direction of the B–H curve** — a single-ended topology magnetises and then resets, never swinging negative — so it is only half utilised. Beyond that power level it pays to excite the core in both directions, which is exactly what [push–pull, half-bridge and full-bridge]({% post_url 2026-09-11-push-pull-half-bridge-full-bridge %}) converters do. That is the next chapter.
+**Selection boundary.** Compare a forward design with flyback and double-ended alternatives using the actual voltage range, current stress, reset allowance, magnetics and loss budget. Single-ended excitation uses a different flux excursion from bipolar excitation; it does not establish a universal power cutoff. The next chapter develops [push–pull, half-bridge and full-bridge]({% post_url 2026-09-11-push-pull-half-bridge-full-bridge %}) alternatives.
 
 ## Further study
 

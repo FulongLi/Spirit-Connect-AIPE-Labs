@@ -5,6 +5,7 @@ description: "A practical path from the first switching cycle to modelling, feed
 date: 2025-12-10
 author: "Dr. Fulong Li"
 math: true
+converter_explorer: true
 converter_series: true
 zh_url: /zh/resources/blog/
 ---
@@ -23,14 +24,7 @@ This article is the step-down companion to [Boost Converter: From Zero to Everyt
 
 A buck converter is a switching DC–DC converter that lowers an input voltage to a lower output voltage. The basic circuit uses a controlled switch, a diode (or a second switch), an inductor and an output capacitor. It is non-isolated: input and output share a ground connection. In this topology, there is no transformer.
 
-```text
-        Q                L
-  Vin + --/ ---o--------coil--------o------ Vout +
-               |                    |
-             diode                C || Rload
-               |                    |
-  Vin ---------o--------------------o------ ground
-```
+{% include blog-figure.html file="circuit-buck" alt="Buck converter power schematic" caption="Q1 is the high-side switch; D1 freewheels from the common return to the switch node. L1 feeds C2 and R1 in both intervals. C1 is the local input capacitor." circuit="buck" %}
 
 Here Q is normally a high-side MOSFET. The diode cathode faces the switching node; its anode faces ground, so it conducts only when the switching node is pulled below ground. The inductor connects the switching node to the output; C and the load are connected in parallel. The inductor and capacitor together form a low-pass LC filter — remembering that will explain most of the buck's behaviour later.
 
@@ -44,7 +38,7 @@ $$
 
 Delivering 30 W from 24 V draws 1.25 A at ideal efficiency, or about 1.39 A if efficiency is provisionally assumed to be 90%. That 90% is a sizing assumption, not a prediction. Note that unlike a linear regulator, the average input current is *lower* than the output current: the converter trades voltage for current rather than dissipating the surplus.
 
-The basic diode buck cannot regulate above its input voltage. When Q is on there is a direct path from input to output through the switch and inductor, so disabling PWM does not by itself guarantee a safe output or interrupt every fault; plan protection explicitly.
+The basic diode buck regulates below its input. In normal operation, turning the high-side switch off interrupts the input path while inductor current freewheels through the diode. This does not provide galvanic isolation or protection against a shorted switch, stored output energy or every external backfeed path; those faults need separate protection.
 
 ### Analysis conventions
 
@@ -72,6 +66,10 @@ $$
 Notice that in **both** intervals the inductor stays connected to the output, so the inductor current is continuous and the capacitor only has to absorb its ripple. This is the structural reason a buck output is quiet — and, as we will see, the reason its *input* current is the choppy one.
 
 An inductor obeys $$v_L=L\,di_L/dt$$, so its current cannot change instantaneously under a finite voltage. This continuity is what lets it keep delivering current when the switch opens. Its stored energy is $$E_L=Li_L^2/2$$.
+
+{% include blog-figure.html file="buck-waveforms" alt="Gate, inductor voltage and current, and capacitor current over two cycles" caption="Read down one dashed switching boundary: the gate changes the inductor voltage, which changes the current slope. The current itself stays continuous. The plotted values use the nominal example." %}
+
+{% include converter-explorer.html kind="buck" %}
 
 ### Derive the conversion ratio
 
@@ -302,6 +300,8 @@ $$
 For this example, $$f_0\approx1.30\ \mathrm{kHz}$$ and $$Q\approx3.92$$. Frequencies in hertz are angular frequencies divided by $$2\pi$$. The DC duty-to-output gain is simply $$V_g=24$$ V per unit duty, and with this light damping the response peaks near $$V_gQ\approx94$$ (about 39 dB) at $$f_0$$. That tall, lightly damped resonance — not a right-half-plane zero — is the obstacle the compensator must handle.
 
 The line-to-output response $$G_{vg}=D/(LCs^2+(L/R)s+1)$$ and the output impedance $$Z_o=Ls/(LCs^2+(L/R)s+1)$$ share the same denominator. The general method for introducing perturbations and discarding the right terms is worked step by step in [Small-Signal Modelling from First Principles: A Boost Converter Walkthrough]({% post_url 2026-09-10-small-signal-modelling-boost-converter %}); the algebra transfers directly, and the buck is the easier case because the numerator collapses to a constant.
+
+{% include blog-figure.html file="feedback-loop" alt="Negative feedback from measured output through controller and PWM" caption="Start with the sign of the error: a low measured output should command the correction required by this plant. Include sensor and PWM gains before calculating the loop gain." %}
 
 ## 5. Close the feedback loop deliberately {#feedback}
 

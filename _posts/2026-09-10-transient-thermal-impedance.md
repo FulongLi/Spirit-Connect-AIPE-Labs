@@ -25,6 +25,8 @@ $$
 
 Z has units K/W. It is a time-domain step response, not the electrical switching impedance of the device. If coolant temperature changes during the experiment, it is another input to the thermal system; subtracting an arbitrary changing surface temperature does not necessarily recover the fixed-boundary response.
 
+{% include blog-figure.html file="thermal-impedance" alt="Thermal step response over logarithmic time" caption="The same device can tolerate a short power pulse with a smaller temperature rise than steady heating. Use the entire power history to predict repeated-pulse peaks." %}
+
 ## 2. Measure heating or cooling with a known history
 
 A heating measurement observes the rise after power application. A cooling measurement heats the device, removes heating power and uses a low-power TSEP to observe the decay. Cooling often makes electrical sensing easier, but the initial heating duration must be known.

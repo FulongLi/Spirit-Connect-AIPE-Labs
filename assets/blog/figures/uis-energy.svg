@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-label="UIS: the connected supply adds energy during avalanche">
+<title>UIS: the connected supply adds energy during avalanche</title>
+<rect width="900" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8" fill="#175d85"/></marker></defs>
+<g font-family="Arial, sans-serif" fill="#202b35">
+<text x="30.00" y="35.00" font-size="23" text-anchor="start" fill="#202b35" font-weight="bold">UIS: the connected supply adds energy during avalanche</text>
+<text x="30.00" y="101.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="bold">iL / A</text>
+<line x1="120.00" y1="153.00" x2="850.00" y2="153.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="158.00" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">0</text>
+<line x1="120.00" y1="115.50" x2="850.00" y2="115.50" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="120.50" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">5</text>
+<line x1="120.00" y1="78.00" x2="850.00" y2="78.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="83.00" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">10</text>
+<line x1="120.00" y1="78.00" x2="120.00" y2="153.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="485.00" y1="78.00" x2="485.00" y2="153.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="850.00" y1="78.00" x2="850.00" y2="153.00" stroke="#e0e5e8" stroke-width="1"/>
+<polyline points="120.00,153.00 485.00,78.00 850.00,153.00" fill="none" stroke="#175d85" stroke-width="2.8" stroke-linejoin="round"/>
+<text x="30.00" y="226.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="bold">vDS / V</text>
+<line x1="120.00" y1="278.00" x2="850.00" y2="278.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="283.00" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">0</text>
+<line x1="120.00" y1="240.50" x2="850.00" y2="240.50" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="245.50" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">50</text>
+<line x1="120.00" y1="203.00" x2="850.00" y2="203.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="208.00" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">100</text>
+<line x1="120.00" y1="203.00" x2="120.00" y2="278.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="485.00" y1="203.00" x2="485.00" y2="278.00" stroke="#e0e5e8" stroke-width="1"/>
+<line x1="850.00" y1="203.00" x2="850.00" y2="278.00" stroke="#e0e5e8" stroke-width="1"/>
+<polyline points="120.00,278.00 485.00,278.00 485.00,203.00 850.00,203.00" fill="none" stroke="#175d85" stroke-width="2.8" stroke-linejoin="round"/>
+<text x="30.00" y="351.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="bold">pD / W</text>
+<line x1="120.00" y1="403.00" x2="850.00" y2="403.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="408.00" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">0</text>
+<line x1="120.00" y1="365.50" x2="850.00" y2="365.50" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="370.50" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">500</text>
+<line x1="120.00" y1="328.00" x2="850.00" y2="328.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="108.00" y="333.00" font-size="16" text-anchor="end" fill="#202b35" font-weight="normal">1000</text>
+<line x1="120.00" y1="328.00" x2="120.00" y2="403.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="120.00" y="429.00" font-size="16" text-anchor="middle" fill="#202b35" font-weight="normal">0</text>
+<line x1="485.00" y1="328.00" x2="485.00" y2="403.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="485.00" y="429.00" font-size="16" text-anchor="middle" fill="#202b35" font-weight="normal">Turn off</text>
+<line x1="850.00" y1="328.00" x2="850.00" y2="403.00" stroke="#e0e5e8" stroke-width="1"/>
+<text x="850.00" y="429.00" font-size="16" text-anchor="middle" fill="#202b35" font-weight="normal">40 µs</text>
+<polyline points="120.00,403.00 485.00,403.00 485.00,328.00 850.00,403.00" fill="none" stroke="#175d85" stroke-width="2.8" stroke-linejoin="round"/>
+<text x="30.00" y="478.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Ideal example: L = 100 µH, VDD = 50 V, Vav = 100 V, I0 = 10 A. Avalanche integral = 10 mJ.</text>
+</g></svg>

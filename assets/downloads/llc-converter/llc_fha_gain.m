@@ -39,17 +39,19 @@ legend(arrayfun(@(q)sprintf('Q = %.3f',q),Qlist,'UniformOutput',false));
 fprintf('\nGain at fn = 1 for each Q (should all be exactly 1):\n');
 for q = Qlist, fprintf('  Q = %.3f -> M = %.6f\n',q,M(1,q)); end
 
-% Peak gain at full load sets the hold-up / low-line capability.
+% The unconstrained voltage-gain peak is NOT the inductive-region boundary.
 fns = linspace(0.2,1,4000);
 [Mpk,idx] = max(M(fns,Q));
-fprintf('\nFull-load peak gain M = %.3f at fn = %.3f (%.1f kHz)\n', ...
-    Mpk,fns(idx),fns(idx)*fr/1e3);
-fprintf('Minimum input voltage still regulating = %.0f V\n',Vout*n*2/Mpk);
-
-% Design rule: stay ABOVE the peak-gain frequency at every operating point.
-% To the left of the peak the tank turns capacitive, ZVS is lost, and the
-% body diodes hard-commutate -- the classic way to destroy an LLC bridge.
-fprintf('\nKeep fs above %.1f kHz at all loads to stay inductive (ZVS).\n', ...
-    fns(idx)*fr/1e3);
-% Not modelled: dead time, magnetising current needed for ZVS, transformer
-% losses, rectifier drops, or burst-mode light-load behaviour.
+fprintf('Unconstrained peak M = %.3f at fn = %.4f\n',Mpk,fns(idx));
+% Input reactance: series Lr/Cr plus the parallel Lm/Rac branch.
+Xnorm = @(x,q) x-1./x + x*Ln./(1+(x*Ln*q).^2);
+fb = fzero(@(x) Xnorm(x,Q),[1/sqrt(1+Ln),1]);
+fprintf('Nominal FHA inductive boundary: fn = %.4f, fs = %.2f kHz\n',fb,fb*fr/1e3);
+fprintf('Boundary gain = %.4f; add inductive and commutation margin.\n',M(fb,Q));
+figure; plot(fn,Xnorm(fn,Q),'LineWidth',1.2); hold on; grid on;
+yline(0,'k--'); xline(fb,'k--');
+xlabel('normalised frequency f_s / f_r'); ylabel('Im(Zin) / Z0');
+title('FHA input reactance: positive is inductive');
+% Being inductive does not guarantee sufficient dead-time charge for ZVS.
+% Not modelled: nonlinear Coss, gate timing, losses, parasitics or burst mode.
+% This nominal-load calculation does not establish an all-load frequency limit.

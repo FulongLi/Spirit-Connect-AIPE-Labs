@@ -27,6 +27,8 @@ $$
 
 Two 48 V cells provide an ideal 96 V peak synthesis limit. The 48 V line-to-line input has a 39.19 V phase peak, giving approximately 0.408 nominal utilisation before inductor drop. Series connection provides voltage capability; parallel isolated outputs share current. [Awal et al.](https://arxiv.org/abs/2007.04369) give an external example of modular input-series/output-parallel conversion.
 
+{% include blog-figure.html file="sst-modules" alt="Individual high-side cells feeding a common low-side bus" caption="First identify what is in series, what is in parallel and what remains isolated. Module count is separate from the number of conversion stages." %}
+
 ## 2. Begin with energy conservation
 
 Let positive power flow from the input source to the output load. Define cell energy and bus energy by
@@ -73,6 +75,8 @@ $$
 A high-energy branch therefore exports more DAB power. Under ideal conversion and equal average AFE branch powers, its differential energy obeys approximately $$\dot{(E_j-\bar E)}=-k_E(E_j-\bar E)$$. This establishes the correction sign. Loss mismatch, filtering and current-loop dynamics modify this approximation.
 
 Enable this allocation only above a defined bus-voltage threshold. Saturation requires redistribution among modules with remaining capacity; independently clipping commands destroys the zero-sum property. Report any unmet total current demand to the bus supervisor and apply anti-windup. Near zero power, forward-only limits can remove balancing authority.
+
+{% include blog-figure.html file="sst-control-roles" alt="Control responsibilities for each SST stage and energy buffer" caption="Avoid two independent controllers fighting to regulate the same bus. The figure follows the initial stand-alone forward-power mode; mode changes need a deliberate reassignment." %}
 
 ## 4. Derive the common-bus voltage loop
 

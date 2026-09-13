@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "name": "Flyback: separate primary and secondary returns",
+  "components": [
+    {
+      "ref": "C1",
+      "kind": "cap",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "D1",
+      "kind": "diode",
+      "ports": [
+        "a",
+        "k"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "G1",
+      "kind": "terminal",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": "control",
+      "attrs": {}
+    },
+    {
+      "ref": "GND1",
+      "kind": "gnd",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "GND2",
+      "kind": "gnd",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "Q1",
+      "kind": "nmos",
+      "ports": [
+        "d",
+        "s",
+        "g"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "R1",
+      "kind": "res",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "T1",
+      "kind": "transformer",
+      "ports": [
+        "p1",
+        "p2",
+        "s1",
+        "s2"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "V1",
+      "kind": "vsource",
+      "ports": [
+        "p",
+        "n"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    }
+  ],
+  "nets": {
+    "DC_NEG": [
+      "GND1.t",
+      "Q1.s",
+      "V1.n"
+    ],
+    "GATE": [
+      "G1.t",
+      "Q1.g"
+    ],
+    "SEC": [
+      "D1.a",
+      "T1.s2"
+    ],
+    "SEC_RETURN": [
+      "C1.b",
+      "GND2.t",
+      "R1.b",
+      "T1.s1"
+    ],
+    "SW": [
+      "Q1.d",
+      "T1.p2"
+    ],
+    "VIN": [
+      "T1.p1",
+      "V1.p"
+    ],
+    "VOUT": [
+      "C1.a",
+      "D1.k",
+      "R1.a"
+    ]
+  }
+}

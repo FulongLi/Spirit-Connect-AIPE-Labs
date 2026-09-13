@@ -59,6 +59,8 @@ $$
 
 This is a synthetic example, not a material specification.
 
+{% include blog-figure.html file="tsep-calibration" alt="Illustrative temperature-sensitive voltage calibration" caption="Use the calibrated slope and intercept to invert the sensed voltage. The curve applies only to the same sensing current and electrical history." %}
+
 ## 4. Change from heating to sensing without hiding the transient
 
 During a thermal test, apply a known heating power, then switch to the calibrated sensing condition. Large heating current may prevent simultaneous low-current sensing. Switching the circuit introduces a finite electrical settling time, and the die begins cooling during that time.
