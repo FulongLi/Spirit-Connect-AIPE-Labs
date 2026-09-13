@@ -2,13 +2,13 @@
 layout: default
 title: Microgrids
 permalink: /power/microgrids/
-description: DC, AC and hybrid AC/DC microgrid architectures — bus choice, droop and hierarchical control, islanding and protection, and the solid-state transformer as a power router.
+description: Integrating wind, solar PV, fuel cells and energy storage within DC, AC and hybrid AC/DC microgrids — from power interfaces to control, protection and energy management.
 ---
 
 <header class="hero">
   <div class="container">
     <h1>Microgrids</h1>
-    <p class="lead">Designing, modelling, and controlling DC and AC microgrids for resilient and efficient energy distribution.</p>
+    <p class="lead">Integrating renewable generation and storage while designing, modelling, and controlling resilient DC and AC microgrids.</p>
   </div>
 </header>
 
@@ -37,7 +37,9 @@ description: DC, AC and hybrid AC/DC microgrid architectures — bus choice, dro
   </div>
 </section>
 
-<section class="section section-alt">
+{% include microgrid-energy-sources.html lang=page.lang %}
+
+<section class="section">
   <div class="container">
     <h2>Three architectures, three different problems</h2>
     <p class="lead section-lead-spaced">
@@ -74,7 +76,7 @@ description: DC, AC and hybrid AC/DC microgrid architectures — bus choice, dro
   </div>
 </section>
 
-<section class="section">
+<section class="section section-alt">
   <div class="container">
     <h2>Control and operation</h2>
     <p class="lead section-lead-spaced">
@@ -116,7 +118,7 @@ description: DC, AC and hybrid AC/DC microgrid architectures — bus choice, dro
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section">
   <div class="container">
     <h2>The solid-state transformer — a power router</h2>
     <p class="lead section-lead-spaced">

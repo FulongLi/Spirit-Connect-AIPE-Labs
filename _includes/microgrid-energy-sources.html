@@ -1,0 +1,167 @@
+{%- assign zh = false -%}{%- if include.lang == 'zh' -%}{%- assign zh = true -%}{%- endif -%}
+<section class="section section-alt microgrid-resources" id="distributed-energy">
+  <div class="container">
+    <span class="section-kicker">{% if zh %}微网接入{% else %}Microgrid integration{% endif %}</span>
+    <h2>{% if zh %}分布式能源与储能{% else %}Distributed energy and storage{% endif %}</h2>
+    <p class="lead section-lead-spaced">
+      {% if zh %}
+        微电网把不同电气特性的能源汇聚到同一套配电与控制体系中。风能、太阳能和燃料电池负责供能，
+        储能负责在发电与用电之间调节时间差；每一种资源都需要与其特性相匹配的功率变换、控制和保护接口。
+      {% else %}
+        A microgrid brings energy resources with very different electrical characteristics into one distribution and
+        control system. Wind, solar and fuel cells supply energy; storage manages the timing mismatch between generation
+        and demand. Each resource needs a power-conversion, control and protection interface matched to its behaviour.
+      {% endif %}
+    </p>
+
+    <nav class="energy-source-nav" aria-label="{% if zh %}分布式能源分类{% else %}Distributed energy categories{% endif %}">
+      <a class="energy-source-link energy-source-link--wind" href="#wind-energy">
+        <span>01</span>
+        <strong>{% if zh %}风能{% else %}Wind energy{% endif %}</strong>
+        <small>{% if zh %}可变频交流输入{% else %}Variable-frequency AC{% endif %}</small>
+      </a>
+      <a class="energy-source-link energy-source-link--solar" href="#solar-energy">
+        <span>02</span>
+        <strong>{% if zh %}太阳能{% else %}Solar PV{% endif %}</strong>
+        <small>{% if zh %}直流发电与 MPPT{% else %}DC generation and MPPT{% endif %}</small>
+      </a>
+      <a class="energy-source-link energy-source-link--fuel" href="#fuel-cell">
+        <span>03</span>
+        <strong>{% if zh %}燃料电池{% else %}Fuel cells{% endif %}</strong>
+        <small>{% if zh %}可调度直流电源{% else %}Dispatchable DC source{% endif %}</small>
+      </a>
+      <a class="energy-source-link energy-source-link--storage" href="#energy-storage">
+        <span>04</span>
+        <strong>{% if zh %}储能{% else %}Energy storage{% endif %}</strong>
+        <small>{% if zh %}双向能量缓冲{% else %}Bidirectional energy buffer{% endif %}</small>
+      </a>
+    </nav>
+
+    <div class="energy-source-list">
+      <section class="energy-source" id="wind-energy">
+        <div class="energy-source-identity energy-source-identity--wind">
+          <span class="energy-source-number">01 · {% if zh %}可再生能源{% else %}Renewable generation{% endif %}</span>
+          <div class="energy-source-icon" aria-hidden="true">
+            <svg viewBox="0 0 96 96">
+              <circle cx="48" cy="37" r="5"></circle>
+              <path d="M48 42v37M39 79h18M48 37 28 19c10-2 19 2 24 12M48 37l26-8c-3 10-10 17-20 18M48 37l-6 27c-7-8-9-18-3-27"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="energy-source-copy">
+          <h3>{% if zh %}风能接入{% else %}Wind-energy integration{% endif %}</h3>
+          <p>
+            {% if zh %}
+              风机输出随风速和转速变化的交流电。全功率或双馈变流器将机械侧转速与微网频率解耦，使风机能够执行最大功率跟踪，
+              同时按微网要求提供有功、无功和故障穿越能力。直流微网中可由整流级直接接入直流母线；交流微网中则通过并网逆变器完成同步。
+            {% else %}
+              A wind turbine produces AC whose voltage and frequency move with rotor speed. A full-scale or doubly-fed
+              converter decouples that mechanical speed from the microgrid, enabling maximum-power tracking while meeting
+              active-power, reactive-power and fault-ride-through requirements. The rectified link can feed a DC bus, or a
+              grid-side inverter can synchronise it to an AC bus.
+            {% endif %}
+          </p>
+          <dl class="energy-source-facts">
+            <div><dt>{% if zh %}原生输出{% else %}Native output{% endif %}</dt><dd>{% if zh %}可变频交流{% else %}Variable-frequency AC{% endif %}</dd></div>
+            <div><dt>{% if zh %}典型接口{% else %}Typical interface{% endif %}</dt><dd>{% if zh %}AC–DC–AC 变流器{% else %}AC–DC–AC converter{% endif %}</dd></div>
+            <div><dt>{% if zh %}控制重点{% else %}Control focus{% endif %}</dt><dd>{% if zh %}MPPT、桨距与故障穿越{% else %}MPPT, pitch and ride-through{% endif %}</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="energy-source" id="solar-energy">
+        <div class="energy-source-identity energy-source-identity--solar">
+          <span class="energy-source-number">02 · {% if zh %}可再生能源{% else %}Renewable generation{% endif %}</span>
+          <div class="energy-source-icon" aria-hidden="true">
+            <svg viewBox="0 0 96 96">
+              <circle cx="70" cy="24" r="9"></circle>
+              <path d="M70 8v6M70 34v6M54 24h6M80 24h6M59 13l4 4M77 31l4 4M81 13l-4 4M63 31l-4 4M22 46h48l8 30H14l8-30Zm-3 15h56M38 46l-3 30M54 46l3 30"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="energy-source-copy">
+          <h3>{% if zh %}太阳能光伏接入{% else %}Solar-PV integration{% endif %}</h3>
+          <p>
+            {% if zh %}
+              光伏阵列天然输出直流，其工作点随辐照度和温度变化。接入直流母线时，DC–DC 变换器负责最大功率点跟踪和母线适配；
+              接入交流母线时，还需要逆变器完成同步、功率因数与电能质量控制。能量管理层还要协调限发、预测误差和可用储能。
+            {% else %}
+              A PV array is natively DC, with an operating point that moves with irradiance and temperature. On a DC bus,
+              a DC–DC stage performs maximum-power-point tracking and bus matching; on an AC bus, an inverter also manages
+              synchronisation, power factor and power quality. The energy manager coordinates curtailment, forecast error
+              and the storage available to smooth production.
+            {% endif %}
+          </p>
+          <dl class="energy-source-facts">
+            <div><dt>{% if zh %}原生输出{% else %}Native output{% endif %}</dt><dd>{% if zh %}可变直流{% else %}Variable DC{% endif %}</dd></div>
+            <div><dt>{% if zh %}典型接口{% else %}Typical interface{% endif %}</dt><dd>{% if zh %}DC–DC 或 DC–AC{% else %}DC–DC or DC–AC{% endif %}</dd></div>
+            <div><dt>{% if zh %}控制重点{% else %}Control focus{% endif %}</dt><dd>{% if zh %}MPPT、限发与母线支撑{% else %}MPPT, curtailment and bus support{% endif %}</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="energy-source" id="fuel-cell">
+        <div class="energy-source-identity energy-source-identity--fuel">
+          <span class="energy-source-number">03 · {% if zh %}可调度电源{% else %}Dispatchable generation{% endif %}</span>
+          <div class="energy-source-icon" aria-hidden="true">
+            <svg viewBox="0 0 96 96">
+              <path d="M48 12c15 19 24 31 24 45a24 24 0 1 1-48 0c0-14 9-26 24-45Z"></path>
+              <path d="M35 56h26M42 46v20M54 46v20M32 72h32"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="energy-source-copy">
+          <h3>{% if zh %}燃料电池接入{% else %}Fuel-cell integration{% endif %}</h3>
+          <p>
+            {% if zh %}
+              燃料电池是可调度的直流电源，但堆栈电压会随电流变化，气体供给和热过程也比电气负载变化慢。
+              升压型 DC–DC 变换器负责稳压和限流，电池或超级电容则承担快速功率阶跃。接入设计需同时协调燃料利用率、堆栈寿命与微网功率指令。
+            {% else %}
+              A fuel cell is a dispatchable DC source, but stack voltage changes with current and its reactant and thermal
+              systems respond more slowly than electrical loads. A boost-derived DC–DC interface regulates voltage and
+              limits current, while a battery or supercapacitor absorbs fast power steps. Dispatch must balance fuel use,
+              stack life and the microgrid's power request.
+            {% endif %}
+          </p>
+          <dl class="energy-source-facts">
+            <div><dt>{% if zh %}原生输出{% else %}Native output{% endif %}</dt><dd>{% if zh %}低压直流{% else %}Low-voltage DC{% endif %}</dd></div>
+            <div><dt>{% if zh %}典型接口{% else %}Typical interface{% endif %}</dt><dd>{% if zh %}隔离或非隔离升压{% else %}Isolated or non-isolated boost{% endif %}</dd></div>
+            <div><dt>{% if zh %}控制重点{% else %}Control focus{% endif %}</dt><dd>{% if zh %}限流、慢动态与寿命{% else %}Current limits, dynamics and life{% endif %}</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="energy-source" id="energy-storage">
+        <div class="energy-source-identity energy-source-identity--storage">
+          <span class="energy-source-number">04 · {% if zh %}灵活性资源{% else %}Flexibility resource{% endif %}</span>
+          <div class="energy-source-icon" aria-hidden="true">
+            <svg viewBox="0 0 96 96">
+              <rect x="18" y="27" width="60" height="45" rx="7"></rect>
+              <path d="M78 41h6v17h-6M44 36 34 52h12l-4 12 20-22H49l5-6"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="energy-source-copy">
+          <h3>{% if zh %}储能接入{% else %}Energy-storage integration{% endif %}</h3>
+          <p>
+            {% if zh %}
+              储能是微电网中的双向调节层：吸收可再生能源富余，在功率短缺、孤岛切换或负荷突变时迅速释放能量。
+              电池提供分钟至小时级能量，超级电容等高功率储能处理更快的瞬态；双向变流器可进一步承担母线稳压、构网和黑启动。
+              调度必须把荷电状态、功率裕度、温度和衰减成本一起纳入约束。
+            {% else %}
+              Storage is the microgrid's bidirectional flexibility layer: it absorbs renewable surplus and releases energy
+              during deficits, islanding transitions and load steps. Batteries provide minutes-to-hours energy, while
+              high-power devices such as supercapacitors handle faster transients. Their bidirectional converters can also
+              regulate the bus, form the grid and support black start, subject to state-of-charge, thermal and ageing limits.
+            {% endif %}
+          </p>
+          <dl class="energy-source-facts">
+            <div><dt>{% if zh %}功率方向{% else %}Power direction{% endif %}</dt><dd>{% if zh %}双向充放电{% else %}Bidirectional charge/discharge{% endif %}</dd></div>
+            <div><dt>{% if zh %}典型接口{% else %}Typical interface{% endif %}</dt><dd>{% if zh %}双向 DC–DC 或 DC–AC{% else %}Bidirectional DC–DC or DC–AC{% endif %}</dd></div>
+            <div><dt>{% if zh %}控制重点{% else %}Control focus{% endif %}</dt><dd>{% if zh %}SOC、构网与衰减管理{% else %}SoC, grid forming and ageing{% endif %}</dd></div>
+          </dl>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

@@ -3,13 +3,13 @@ layout: default
 title: 微电网
 lang: zh
 permalink: /zh/power/microgrids/
-description: 直流、交流与交直流混合微电网架构 —— 母线选择、下垂与分层控制、孤岛与保护，以及作为功率路由器的固态变压器。
+description: 风能、太阳能光伏、燃料电池与储能在直流、交流及交直流混合微电网中的接入 —— 涵盖功率接口、控制、保护与能量管理。
 ---
 
 <header class="hero">
   <div class="container">
     <h1>微电网</h1>
-    <p class="lead">设计、建模与控制直流和交流微电网，实现韧性且高效的能源分配。</p>
+    <p class="lead">将可再生能源与储能接入直流和交流微电网，并对系统进行设计、建模与控制，实现韧性且高效的能源分配。</p>
   </div>
 </header>
 
@@ -38,7 +38,9 @@ description: 直流、交流与交直流混合微电网架构 —— 母线选�
   </div>
 </section>
 
-<section class="section section-alt">
+{% include microgrid-energy-sources.html lang=page.lang %}
+
+<section class="section">
   <div class="container">
     <h2>三种架构，三类不同的问题</h2>
     <p class="lead section-lead-spaced">
@@ -75,7 +77,7 @@ description: 直流、交流与交直流混合微电网架构 —— 母线选�
   </div>
 </section>
 
-<section class="section">
+<section class="section section-alt">
   <div class="container">
     <h2>控制与运行</h2>
     <p class="lead section-lead-spaced">
@@ -117,7 +119,7 @@ description: 直流、交流与交直流混合微电网架构 —— 母线选�
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section">
   <div class="container">
     <h2>固态变压器 —— 功率路由器</h2>
     <p class="lead section-lead-spaced">
