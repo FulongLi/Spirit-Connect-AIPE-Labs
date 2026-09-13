@@ -1,0 +1,260 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# AIPE capability registry
+#
+# One source of truth for what the AIPE platform exposes today. It is read by
+# the human interface (/resources/ and the pages beneath it, the homepage) and
+# by the machine interface (/aipe.md), so both describe the same ecosystem.
+#
+# The layers come from the AIPE platform model:
+#
+#   knowledge          engineering knowledge, organised by domain
+#                      -> lives in _data/domains.yml, not repeated here
+#   databases          machine-readable engineering data that tools and agents query
+#   tools              a bounded engineering operation: input -> operation -> output
+#   agents             specialist engineering reasoning and orchestration; an agent
+#                      reads knowledge, queries databases, calls tools and evaluates
+#                      results
+#   workflows          knowledge, data, tools and agents combined into a complete
+#                      engineering task
+#   design_references  worked examples produced with AIPE capabilities
+#
+# Shared fields
+#   id            stable slug; never translated, safe to reference from elsewhere
+#   url           page on this site; /zh is prefixed for Chinese readers unless
+#                 `lang_neutral: true` says the page exists in English only
+#   repository    canonical source repository, when the resource is code or data
+#   domains       ids from _data/domains.yml
+#   status        key from _data/statuses.yml — see the honesty rule in that file
+#   en / zh       title and summary per language
+#
+# Rule: nothing goes in this file that the repository or a linked repository
+# cannot currently evidence. Empty is an honest answer.
+# ─────────────────────────────────────────────────────────────────────────────
+
+databases:
+  - id: transistors
+    url: /resources/databases/transistors/
+    domains: [devices]
+    status: experimental
+    provides:
+      - iv_cv_curves
+      - switching_energy_tables
+      - thermal_networks
+      - package_parasitics
+    en:
+      title: Transistor Database
+      summary: >-
+        SiC, GaN, IGBT and silicon device records stored as curves, surfaces and
+        thermal networks, with the measurement conditions attached to every value.
+    zh:
+      title: 晶体管数据库
+      summary: >-
+        SiC、GaN、IGBT 与硅器件记录，以曲线、曲面与热网络形式存储，每个数值都附带测试条件。
+
+  - id: magnetics
+    url: /resources/databases/magnetics/
+    domains: [magnetics]
+    status: experimental
+    provides:
+      - core_geometries
+      - core_loss_surfaces
+      - permeability_vs_dc_bias
+      - winding_conductors
+    en:
+      title: Magnetics Database
+      summary: >-
+        Core geometries, ferrite and powder materials, measured loss surfaces,
+        permeability under DC bias, and winding conductor data.
+    zh:
+      title: 磁性元件数据库
+      summary: >-
+        磁芯几何、铁氧体与粉芯材料、实测损耗曲面、直流偏磁下的磁导率，以及绕组导体数据。
+
+  - id: aipe-power-device-library
+    repository: https://github.com/AIPE-Labs/AIPE-Power-Device-Library
+    domains: [devices]
+    status: experimental
+    en:
+      title: AIPE Power Device Library
+      summary: >-
+        Open repository that normalises power-device records into searchable
+        summaries and exposes search and comparison endpoints. Early stage; it
+        does not generate simulation models.
+    zh:
+      title: AIPE 功率器件库
+      summary: >-
+        开源仓库，将功率器件记录归一化为可检索的数据集，并提供检索与比较接口。
+        处于早期阶段，本身不生成仿真模型。
+
+tools:
+  # A tool performs one bounded engineering operation. If something reasons
+  # about requirements or coordinates several operations, it is an agent.
+  - id: converter-explorer
+    url: /resources/blog/buck-converter-from-zero-to-everything/
+    # English-only page: do not prefix /zh, there is no Chinese counterpart.
+    lang_neutral: true
+    domains: [converters]
+    status: available
+    inputs: [duty_ratio]
+    outputs: [steady_state_waveforms, ripple]
+    en:
+      title: Converter Explorer
+      summary: >-
+        Interactive ideal-CCM steady-state explorer embedded in the converter
+        notes. Recalculates one switching cycle as you change duty ratio.
+    zh:
+      title: 变换器交互工具
+      summary: >-
+        嵌入变换器笔记中的理想 CCM 稳态交互工具，随占空比变化重新计算一个开关周期。
+
+  - id: aipe-sketch
+    repository: https://github.com/FulongLi/AIPE-Sketch
+    domains: [converters, devices]
+    status: experimental
+    inputs: [circuit_netlist]
+    outputs: [schematic_svg, quality_report]
+    en:
+      title: AIPE-Sketch
+      summary: >-
+        Schematic generator that renders an electrical netlist to a checked SVG
+        drawing. Every converter schematic on this site is generated with it,
+        and each drawing carries its connectivity and quality report.
+    zh:
+      title: AIPE-Sketch
+      summary: >-
+        原理图生成工具，将电路网表渲染为经过检查的 SVG 图。本站所有变换器原理图均由其生成，
+        并附带连通性与质量报告。
+
+agents:
+  # No AIPE specialist agent is published yet, so this list is deliberately
+  # empty. It is not a placeholder for marketing copy — add an entry only when
+  # a repository exists that a reader can open.
+  #
+  # Schema for a future entry:
+  #
+  #   - id: magnetics-design-agent
+  #     repository: https://github.com/AIPE-Labs/...
+  #     domains: [magnetics]
+  #     status: experimental
+  #     capabilities: [transformer_design, inductor_design, core_selection, winding_design]
+  #     uses:
+  #       databases: [magnetics]
+  #       tools: [fem, optimisation, plotting]
+  #     inputs:  [voltage, current, frequency, topology]
+  #     outputs: [geometry, material, turns, loss, temperature]
+  #     en: { title: Magnetics Design Agent, summary: ... }
+  #     zh: { title: 磁性元件设计智能体, summary: ... }
+
+workflows:
+  # A workflow is a complete engineering task. The entries below are documented
+  # workflows: they describe the sequence and link the material for each step.
+  # None of them is an executable pipeline yet, and `status: documented` says so.
+  - id: converter-design
+    url: /resources/design-references/dab/
+    domains: [converters, devices, magnetics]
+    status: documented
+    steps: [design, analyse, simulate, validate]
+    uses:
+      databases: [transistors, magnetics]
+      tools: [aipe-sketch]
+      agents: []
+    en:
+      title: Isolated converter design
+      summary: >-
+        Requirement, topology and modulation, device selection, transformer and
+        inductor sizing, small-signal model, control design and a test plan.
+        Worked through for a dual-active-bridge stage.
+    zh:
+      title: 隔离型变换器设计
+      summary: >-
+        需求、拓扑与调制、器件选型、变压器与电感设计、小信号模型、控制设计与测试方案，
+        以双有源桥为例完整走通。
+
+  - id: system-integration
+    url: /resources/design-references/sst/
+    domains: [systems, converters, magnetics]
+    status: documented
+    steps: [design, analyse, simulate]
+    uses:
+      databases: [transistors, magnetics]
+      tools: [aipe-sketch]
+      agents: []
+    en:
+      title: Multi-stage system integration
+      summary: >-
+        AC–DC front end, isolated DC–DC stage and DC–AC output stage co-designed
+        against one system specification, then integrated as modular cells.
+    zh:
+      title: 多级系统集成
+      summary: >-
+        AC–DC 前级、隔离 DC–DC 级与 DC–AC 输出级围绕同一系统规格协同设计，并按模块化单元集成。
+
+  - id: device-characterisation
+    url: /power/devices/characterisation/
+    domains: [devices]
+    status: documented
+    steps: [analyse, validate]
+    uses:
+      databases: [transistors]
+      tools: []
+      agents: []
+    en:
+      title: Device characterisation
+      summary: >-
+        Static and dynamic measurement, double-pulse testing, thermal impedance
+        extraction and reliability testing, with the conditions recorded so the
+        result is comparable.
+    zh:
+      title: 器件表征
+      summary: >-
+        静态与动态测量、双脉冲测试、热阻抗提取与可靠性测试，并记录测试条件以保证结果可比。
+
+design_references:
+  - id: dab
+    url: /resources/design-references/dab/
+    domains: [converters, devices, magnetics]
+    status: analytical
+    workflow: converter-design
+    en:
+      title: DAB Converter
+      kicker: Converter
+      summary: >-
+        Dual-active-bridge design workflow — switching devices, magnetics,
+        control loops and validation planning.
+    zh:
+      title: DAB 变换器
+      kicker: 变换器
+      summary: 双有源桥设计流程 —— 开关器件、磁性元件、控制环路与验证规划。
+
+  - id: sst
+    url: /resources/design-references/sst/
+    domains: [systems, converters, magnetics]
+    status: analytical
+    workflow: system-integration
+    en:
+      title: Solid-State Transformer
+      kicker: System
+      summary: >-
+        Modular SST architecture, from cell-level converter optimisation to
+        system-level integration and control.
+    zh:
+      title: 固态变压器
+      kicker: 系统
+      summary: 模块化固态变压器架构，从单元级变换器优化到系统级集成与控制。
+
+  - id: rogowski-coil
+    url: /resources/design-references/rogowski-coil/
+    domains: [magnetics, devices]
+    status: hardware-tested
+    workflow: device-characterisation
+    en:
+      title: PCB Rogowski Coil
+      kicker: Measurement
+      summary: >-
+        Air-cored PCB current transducer with an integrated active integrator.
+        Designed, fabricated and bench-verified; demo boards are available.
+    zh:
+      title: PCB 罗氏线圈
+      kicker: 测量
+      summary: >-
+        带集成有源积分器的空心 PCB 电流传感器。已完成设计、制板与台架验证，可提供样板。

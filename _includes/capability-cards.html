@@ -1,0 +1,17 @@
+{%- comment -%}
+Task cards: what AIPE can help you do, from _data/capabilities.yml.
+Each card states what supports the task today, so the section stays honest
+about the difference between direction and current availability.
+{%- endcomment -%}
+{% assign lang = page.lang | default: 'en' %}
+{%- if lang == 'zh' -%}{%- assign lp = '/zh' -%}{%- else -%}{%- assign lp = '' -%}{%- endif -%}
+<div class="grid">
+  {%- for capability in site.data.capabilities -%}
+  {%- assign c = capability[lang] -%}
+  <a class="card task-card" href="{{ lp | append: capability.url | relative_url }}">
+    <h3>{{ c.label }}</h3>
+    <p>{{ c.summary }}</p>
+    <p class="task-today">{{ c.today }}</p>
+  </a>
+  {%- endfor -%}
+</div>

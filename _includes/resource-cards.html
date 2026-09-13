@@ -1,0 +1,48 @@
+{%- comment -%}
+Generic renderer for one layer of the capability registry (_data/resources.yml):
+databases, tools, agents, workflows or design references.
+
+Usage: {% include resource-cards.html items=site.data.resources.databases %}
+  items  the layer to render; an empty layer prints the honest "nothing
+         published yet" note rather than an empty grid
+
+An entry links to its page on this site when it has `url`, and to its source
+repository when it has `repository`. `lang_neutral: true` marks a page that
+exists in English only, so the /zh prefix is not applied to it. Domain tags resolve through
+_data/domains.yml so a renamed domain label updates everywhere at once.
+{%- endcomment -%}
+{% assign lang = page.lang | default: 'en' %}
+{% assign t = site.data.i18n[lang] %}
+{%- if lang == 'zh' -%}{%- assign lp = '/zh' -%}{%- else -%}{%- assign lp = '' -%}{%- endif -%}
+{%- assign items = include.items -%}
+{%- if items == nil or items.size == 0 -%}
+<p class="resource-empty">{{ t.none_published }}</p>
+{%- else -%}
+<div class="grid">
+  {%- for entry in items -%}
+  {%- assign e = entry[lang] -%}
+  <article class="card resource-card">
+    <div class="resource-card-head">
+      <h3>{{ e.title }}</h3>
+      {% include status.html key=entry.status %}
+    </div>
+    <p>{{ e.summary }}</p>
+    {%- if entry.domains %}
+    <ul class="db-tags resource-domains" aria-label="{{ t.domains_label }}">
+      {%- for id in entry.domains -%}
+        {%- assign domain = site.data.domains | where: 'id', id | first -%}
+        {%- if domain %}<li>{{ domain[lang].label }}</li>{% endif -%}
+      {%- endfor -%}
+    </ul>
+    {%- endif %}
+    <p class="resource-links">
+      {%- if entry.url -%}
+        {%- if entry.lang_neutral -%}{%- assign entry_url = entry.url -%}{%- else -%}{%- assign entry_url = lp | append: entry.url -%}{%- endif -%}
+        <a class="text-link" href="{{ entry_url | relative_url }}">{{ t.view_link }}</a>
+      {%- endif -%}
+      {%- if entry.repository %}<a class="text-link" href="{{ entry.repository }}" target="_blank" rel="noopener">{{ t.repository_link }}</a>{% endif -%}
+    </p>
+  </article>
+  {%- endfor -%}
+</div>
+{%- endif -%}

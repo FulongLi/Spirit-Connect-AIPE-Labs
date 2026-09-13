@@ -1,0 +1,16 @@
+/* Shared responsive overrides. Loaded late so it can override earlier rules. */
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════ */
+@media(max-width:720px) {
+  .hero { padding: 4.5rem 0 3rem; }
+  .section { padding: 3.5rem 0; }
+  .card { padding: 1.4rem; }
+  .feature-content { gap: 2rem; }
+  .feature-actions { flex-direction: column; }
+  .feature-actions .btn { width: 100%; justify-content: center; }
+  .contact-page .phone-field-wrap { flex-direction: column; }
+  .contact-page .phone-field-wrap select { flex: 0 0 auto; width: 100%; max-width: none; }
+  .contact-page .phone-field-wrap input[type="tel"] { width: 100%; flex: 1 1 auto; }
+}

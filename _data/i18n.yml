@@ -1,65 +1,45 @@
 # UI chrome strings for both languages.
-# Referenced in _includes/navbar.html and _includes/footer.html via
+#
+# Scope: short strings that appear inside shared includes, where the markup is
+# written once and rendered for both languages. Referenced as
 #   {% assign t = site.data.i18n[page.lang | default: 'en'] %}
+#
+# Navigation labels are NOT here — they live with their links in
+# _data/navigation.yml, and engineering domain labels in _data/domains.yml, so
+# a link and its label can never drift apart. Page body copy stays in the page.
 
 en:
-  # nav
-  nav_engineering: "Power Engineering"
-  nav_resources: "Resources"
-  nav_plugin: "Claude/Codex Plugin"
+  # chrome
   nav_contact: "Contact Us"
-  nav_microgrids: "Microgrids"
-  nav_converters: "Converters"
-  nav_devices: "Devices"
-  nav_blog: "Blogs"
-  nav_prototypes: "Prototype Design References"
-  nav_database: "Database"
   lang_label: "EN"
   lang_english: "English"
   lang_chinese: "中文"
+  # shared includes
+  partners_heading: "Partners &amp; collaborations"
+  partners_aria: "Partners and collaborators"
+  none_published: "Nothing is published in this layer yet. The structure is in place so that new work can be listed here as it is released."
+  repository_link: "Repository ↗"
+  view_link: "View →"
+  domains_label: "Domains"
   # footer
   footer_tagline: "Closing the AI–power design loop."
   footer_location: "Cardiff, United Kingdom"
-  footer_company: "Company"
-  footer_resources: "Resources"
-  footer_legal: "Legal"
-  footer_about: "About"
-  footer_team: "Team"
-  footer_faq: "FAQ"
-  footer_careers: "Careers"
-  footer_news: "News"
-  footer_privacy: "Privacy Policy"
-  footer_terms: "Terms of Use"
-  footer_cookies: "Cookie Policy"
   footer_rights: "© 2026 AIPE Labs，Spirit Connect Ltd. All rights reserved."
 
 zh:
-  # nav
-  nav_engineering: "电力工程"
-  nav_resources: "资源"
-  nav_plugin: "Claude/Codex 插件"
+  # chrome
   nav_contact: "联系我们"
-  nav_microgrids: "微电网"
-  nav_converters: "变换器"
-  nav_devices: "器件"
-  nav_blog: "博客"
-  nav_prototypes: "原型设计参考"
-  nav_database: "数据库"
   lang_label: "中文"
   lang_english: "English"
   lang_chinese: "中文"
+  # shared includes
+  partners_heading: "合作伙伴"
+  partners_aria: "合作伙伴与协作机构"
+  none_published: "该层尚未发布内容。结构已经就位，新的成果发布后会列在这里。"
+  repository_link: "代码仓库 ↗"
+  view_link: "查看 →"
+  domains_label: "工程领域"
   # footer
   footer_tagline: "连接 AI 与电力设计闭环。"
   footer_location: "英国卡迪夫"
-  footer_company: "公司"
-  footer_resources: "资源"
-  footer_legal: "法律"
-  footer_about: "关于我们"
-  footer_team: "团队"
-  footer_faq: "常见问题"
-  footer_careers: "招聘"
-  footer_news: "新闻"
-  footer_privacy: "隐私政策"
-  footer_terms: "使用条款"
-  footer_cookies: "Cookie 政策"
   footer_rights: "© 2026 Spirit Connect AIPE Labs Ltd. 版权所有。"

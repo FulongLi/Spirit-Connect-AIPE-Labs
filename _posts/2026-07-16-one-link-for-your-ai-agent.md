@@ -19,7 +19,7 @@ https://aipel.co.uk/aipe.md
 
 Paste it into your agent and ask it to read the file. It is a Markdown index of
 everything we publish — semiconductor device data, magnetics and transistor databases,
-converter design references and prototype reference designs — in a format designed
+converter design references and hardware design references — in a format designed
 for language models to navigate.
 
 ## How to use it

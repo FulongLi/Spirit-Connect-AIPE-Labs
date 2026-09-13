@@ -1,0 +1,90 @@
+# Engineering domains — the AIPE power-engineering domain model.
+#
+# Four domains, ordered by physical scale: device -> magnetics -> converter -> system.
+# These ids are the shared vocabulary used by every other registry:
+#   _data/resources.yml   tags each database, tool, agent, workflow and design
+#                         reference with the domains it belongs to
+#   _includes/navbar.html builds the Engineering menu from this file
+#   _includes/domain-cards.html   renders the homepage domain grid
+#   aipe.md               publishes the same domain list to coding agents
+#
+# Adding a fifth domain means adding it here, not editing markup in six places.
+#
+# Fields
+#   id       stable slug — referenced from other registries, never translated
+#   url      language-neutral path; /zh is prefixed for the Chinese site
+#   image    card artwork, or
+#   figure   an _includes/ SVG figure used when no photograph exists
+#   en / zh  label, kicker, summary and call to action per language
+
+- id: devices
+  url: /power/devices/
+  image: /images/research/components.png
+  en:
+    label: Devices
+    kicker: 01 · DEVICE LEVEL
+    alt: Power semiconductor devices
+    summary: >-
+      Semiconductor switch physics, conduction and switching loss, package
+      parasitics, characterisation methods and thermal behaviour.
+    cta: Explore device knowledge →
+  zh:
+    label: 器件
+    kicker: 01 · 器件层
+    alt: 功率半导体器件
+    summary: 半导体开关物理、导通与开关损耗、封装寄生参数、表征方法与热特性。
+    cta: 查看器件知识 →
+
+- id: magnetics
+  url: /power/magnetics/
+  figure: fig-db-card-magnetics.html
+  en:
+    label: Magnetics
+    kicker: 02 · MAGNETICS LEVEL
+    alt: Magnetic cores and windings
+    summary: >-
+      Core materials and geometries, loss and permeability data, winding
+      design, and high-frequency transformer and inductor sizing.
+    cta: Explore magnetics knowledge →
+  zh:
+    label: 磁性元件
+    kicker: 02 · 磁性元件层
+    alt: 磁芯与绕组
+    summary: 磁芯材料与几何、损耗与磁导率数据、绕组设计，以及高频变压器与电感的设计。
+    cta: 查看磁性元件知识 →
+
+- id: converters
+  url: /power/converters/
+  image: /images/research/converter.png
+  en:
+    label: Converters
+    kicker: 03 · CONVERTER LEVEL
+    alt: Power converter design
+    summary: >-
+      A structured topology library, converter modelling, control synthesis
+      and multi-objective optimisation, from classical DC–DC to modular multilevel.
+    cta: Explore converter knowledge →
+  zh:
+    label: 变换器
+    kicker: 03 · 变换器层
+    alt: 功率变换器设计
+    summary: 结构化拓扑资料库、变换器建模、控制综合与多目标优化，覆盖经典 DC–DC 到模块化多电平。
+    cta: 查看变换器知识 →
+
+- id: systems
+  url: /power/systems/
+  image: /images/research/microgrids.png
+  en:
+    label: Systems
+    kicker: 04 · SYSTEM LEVEL
+    alt: Electrical systems and microgrids
+    summary: >-
+      DC, AC and hybrid microgrids, distribution architecture, the solid-state
+      transformer as a power router, mission profiles and validation planning.
+    cta: Explore system knowledge →
+  zh:
+    label: 系统
+    kicker: 04 · 系统层
+    alt: 电力系统与微电网
+    summary: 直流、交流与混合微电网，配电架构、作为功率路由器的固态变压器、任务工况与验证规划。
+    cta: 查看系统知识 →

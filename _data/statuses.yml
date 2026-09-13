@@ -1,0 +1,47 @@
+# Maturity vocabulary shared by every registry and rendered by
+# _includes/status.html. Rule: a status is a claim about what this repository
+# (or a linked repository) can currently evidence. Never promote an entry to a
+# stronger status to make a page read better.
+#
+#   available       published and usable now
+#   experimental    published but early; interfaces, coverage and results may change
+#   documented      described here as engineering reference material, not an
+#                   executable pipeline or a downloadable artefact
+#   analytical      worked through with analysis and stated assumptions only
+#   simulated       supported by simulation results
+#   hardware-tested hardware has been built and bench-verified
+#   validated       verified against an agreed specification or standard
+#   planned         intended direction; nothing published yet
+
+available:
+  en: Available
+  zh: 可用
+  note: published and usable now
+experimental:
+  en: Experimental
+  zh: 实验阶段
+  note: published but early; interfaces, coverage and results may change
+documented:
+  en: Documented
+  zh: 文档说明
+  note: written up as engineering reference material, not an executable pipeline or a downloadable artefact
+analytical:
+  en: Analytical
+  zh: 解析分析
+  note: worked through with analysis and stated assumptions only
+simulated:
+  en: Simulated
+  zh: 仿真验证
+  note: supported by simulation results
+hardware-tested:
+  en: Hardware-tested
+  zh: 硬件实测
+  note: hardware has been built and bench-verified
+validated:
+  en: Validated
+  zh: 已验证
+  note: verified against an agreed specification or standard
+planned:
+  en: Planned
+  zh: 规划中
+  note: intended direction; nothing published yet

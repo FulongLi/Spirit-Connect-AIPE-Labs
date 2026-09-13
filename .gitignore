@@ -1,10 +1,20 @@
+# Jekyll build output and caches
 _site/
 .jekyll-cache/
 .jekyll-metadata
 .sass-cache/
+
+# Local Ruby / Bundler environment (machine-specific, never commit)
+.bundle/
+vendor/
 Gemfile.lock
+
+# Local tool and editor state
+.claude/settings.local.json
 .idea/
 *.swp
 *~
+
+# OS cruft
 .DS_Store
 Thumbs.db

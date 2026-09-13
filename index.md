@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Power Electronics AI Resources for Coding Agents
-description: Give Claude Code, Codex, Cursor, and other coding agents access to AIPE Labs' open power electronics knowledge, tools, specialist agents, and engineering workflows through one link.
+title: AI for Power Engineering
+description: AIPE Labs is an open platform for AI in power engineering — engineering knowledge, databases, tools, specialist agents and workflows spanning devices, magnetics, converters and systems. Open to engineers through this site and to coding agents through aipe.md.
 image: /images/background/sst.png
 ---
 
@@ -9,17 +9,19 @@ image: /images/background/sst.png
   <div class="container">
     <h1>The AI that designs the power systems that power AI</h1>
     <p class="lead">
-      We are connecting intelligent system design with the energy infrastructure that fuels it —
-      from semiconductor device to converter to grid.
+      AIPE Labs is an open platform for <strong>AI in power engineering</strong>.
+      It brings engineering knowledge, machine-readable data, tools, specialist
+      agents and workflows together so real engineering tasks can be carried
+      out end to end — from semiconductor device to converter to grid.
     </p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#agent-link">Copy the AIPE link</a>
-      <a class="btn btn-ghost" href="https://github.com/AIPE-Labs" target="_blank" rel="noopener">Explore the open-source work ↗</a>
+      <a class="btn btn-ghost" href="{{ '/resources/' | relative_url }}">Browse the resources</a>
     </div>
 
-    <div class="workflow-panel" aria-label="How a coding agent uses the AIPE Labs resource index">
+    <div class="workflow-panel" aria-label="How a coding agent uses the AIPE Labs capability index">
       <div class="workflow-toolbar">
-        <span class="workflow-brand"><span class="status-dot"></span> AIPE Labs resource graph</span>
+        <span class="workflow-brand"><span class="status-dot"></span> AIPE Labs capability index</span>
         <span class="workflow-status">Open · growing in public</span>
       </div>
       <div class="workflow-prompt">
@@ -27,70 +29,93 @@ image: /images/background/sst.png
         <p>Read <strong>aipel.co.uk/aipe.md</strong> and find the best AIPE resources to help me analyse a DAB converter.</p>
       </div>
       <div class="workflow-route" aria-hidden="true">
-        <span>Coding agent</span><b>→</b><span class="workflow-index">aipe.md</span><b>→</b><span>Relevant resources</span>
+        <span>Coding agent</span><b>→</b><span class="workflow-index">aipe.md</span><b>→</b><span>Relevant capabilities</span>
       </div>
       <div class="workflow-resources">
-        <span>Simulation</span><span>Finite-element analysis</span><span>Devices</span>
-        <span>Magnetics</span><span>Converters</span><span>Validation</span>
+        <span>Knowledge</span><span>Databases</span><span>Tools</span>
+        <span>Agents</span><span>Workflows</span><span>Design references</span>
       </div>
     </div>
   </div>
 </header>
 
 <section class="section section-alt agent-entry" id="agent-link">
-  <div class="container narrow-center">
-    <h2>One link is the entry point</h2>
-    <p class="lead">
-      <code>aipe.md</code> is a Markdown index written for AI agents. It helps an agent discover
-      the most relevant AIPE Labs resources for the task in front of you, without a new app,
-      account, or closed platform.
-    </p>
-    <div class="agent-link">
-      <code id="agent-url">https://aipel.co.uk/aipe.md</code>
-      <button class="copy-btn" data-copy-target="agent-url" aria-live="polite">Copy link</button>
+  <div class="container">
+    <h2 class="section-title-centred">Two ways into the same platform</h2>
+    <div class="grid grid-two">
+      <div class="card entry-card">
+        <span class="scope-kicker">FOR ENGINEERS</span>
+        <h3>This website</h3>
+        <p>
+          Engineering knowledge organised by domain, machine-readable databases,
+          and design references you can read, argue with and reuse.
+        </p>
+        <a class="text-link" href="{{ '/resources/' | relative_url }}">Browse the capability stack →</a>
+      </div>
+      <div class="card entry-card">
+        <span class="scope-kicker">FOR CODING AGENTS</span>
+        <h3><code>aipe.md</code></h3>
+        <p>
+          The same ecosystem as a plain-Markdown index: what AIPE knows, which
+          databases, tools, agents and workflows exist, and how they relate.
+          No account, no extension, no closed platform.
+        </p>
+        <div class="agent-link">
+          <code id="agent-url">https://aipel.co.uk/aipe.md</code>
+          <button class="copy-btn" data-copy-target="agent-url" aria-live="polite">Copy link</button>
+        </div>
+        <a class="text-link" href="{{ '/plugin/' | relative_url }}">How to use it with your agent →</a>
+      </div>
     </div>
-    <p class="agent-steps">
-      Paste the link into your coding agent, then describe the engineering task you want to complete.
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>What can AIPE help you do?</h2>
+    <p class="lead section-lead-spaced">
+      The platform is organised around engineering tasks rather than academic
+      categories. Each card says plainly what supports that task today.
     </p>
-    <div class="prompt-grid">
-      <div class="prompt-card"><span>SIMULATION</span><p>“Find the available AIPE resources for setting up and checking this converter simulation.”</p></div>
-      <div class="prompt-card"><span>FINITE-ELEMENT ANALYSIS</span><p>“Use the AIPE index to help me plan a magnetic or thermal finite-element workflow.”</p></div>
-      <div class="prompt-card"><span>DESIGN &amp; VALIDATION</span><p>“Find relevant device, magnetics, control, and validation resources for this specification.”</p></div>
-    </div>
-    <a class="text-link" href="{{ '/plugin/' | relative_url }}">See how to use AIPE with your coding agent →</a>
+    {% include capability-cards.html %}
   </div>
 </section>
 
 <section class="section section-alt">
   <div class="container">
-    <h2>Engineering knowledge across every scale</h2>
-    <p class="lead">
-      AIPE Labs connects the layers that power electronics engineers already work across, so an
-      agent can find context beyond a single isolated calculation.
+    <h2>Four engineering domains</h2>
+    <p class="lead section-lead-spaced">
+      Knowledge, data and capabilities are tagged to the same four domains, so a
+      device question and a system question reach the same library.
     </p>
-    <div class="grid scope-grid">
-      <a class="card scope-card" href="{{ '/power/devices/' | relative_url }}">
-        <img src="{{ '/images/research/components.png' | relative_url }}" alt="Power semiconductor devices" loading="lazy" decoding="async">
-        <span class="scope-kicker">01 · COMPONENT LEVEL</span>
-        <h3>Devices &amp; magnetics</h3>
-        <p>Characterisation, modelling, component data, loss estimation, thermal behaviour, and magnetic design resources.</p>
-        <strong>Explore device resources →</strong>
-      </a>
-      <a class="card scope-card" href="{{ '/power/converters/' | relative_url }}">
-        <img src="{{ '/images/research/converter.png' | relative_url }}" alt="Power converter design" loading="lazy" decoding="async">
-        <span class="scope-kicker">02 · CONVERTER LEVEL</span>
-        <h3>Converters &amp; control</h3>
-        <p>Topology comparison, converter modelling, control, optimisation, and repeatable design workflows.</p>
-        <strong>Explore converter resources →</strong>
-      </a>
-      <a class="card scope-card" href="{{ '/power/microgrids/' | relative_url }}">
-        <img src="{{ '/images/research/microgrids.png' | relative_url }}" alt="Power electronics systems and microgrids" loading="lazy" decoding="async">
-        <span class="scope-kicker">03 · SYSTEM LEVEL</span>
-        <h3>Systems &amp; microgrids</h3>
-        <p>DC distribution, microgrid architecture, system integration, mission profiles, and validation planning.</p>
-        <strong>Explore system resources →</strong>
-      </a>
-    </div>
+    {% include domain-cards.html %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>How the platform is put together</h2>
+    <p class="lead section-lead-spaced">
+      Separating these layers is what lets an engineering task be assembled from
+      parts. Design references are the evidence of what the combination produces.
+    </p>
+    <ol class="layer-flow">
+      <li><strong>Knowledge</strong><span>Explanation, equations, methodology</span></li>
+      <li><strong>Databases</strong><span>Machine-readable engineering data</span></li>
+      <li><strong>Tools</strong><span>Input → operation → output</span></li>
+      <li><strong>Agents</strong><span>Specialist reasoning and orchestration</span></li>
+      <li><strong>Workflows</strong><span>A complete engineering task</span></li>
+    </ol>
+    <p class="small reference-note">
+      Not every layer is equally mature. Databases and knowledge are published
+      now; tools are early; no AIPE specialist agent is published yet, and the
+      <a href="{{ '/resources/' | relative_url }}">resources page</a> marks the
+      status of every entry.
+    </p>
+
+    <h3 class="layer-outcome-heading">What it produces</h3>
+    {% include resource-cards.html items=site.data.resources.design_references %}
+    <p><a class="text-link" href="{{ '/resources/design-references/' | relative_url }}">All design references →</a></p>
   </div>
 </section>
 
@@ -101,11 +126,11 @@ image: /images/background/sst.png
       <p class="lead">
         We welcome developers who want to use or contribute resources, researchers who want to
         validate new workflows, and companies or strategic partners interested in building the
-        next generation of AI-assisted power electronics engineering.
+        next generation of AI-assisted power engineering.
       </p>
       <div class="hero-actions align-left">
         <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Discuss a collaboration</a>
-        <a class="btn btn-ghost" href="{{ '/resources/prototypes/' | relative_url }}">Explore design work</a>
+        <a class="btn btn-ghost" href="https://github.com/AIPE-Labs" target="_blank" rel="noopener">Explore the open-source work ↗</a>
       </div>
     </div>
     <div class="collaboration-list">
@@ -116,33 +141,4 @@ image: /images/background/sst.png
   </div>
 </section>
 
-<section class="section section-alt partners-section">
-  <div class="container">
-    <h2>Partners &amp; collaborations</h2>
-    <p>Academic and industrial relationships supporting our work across AI, power electronics, and energy systems.</p>
-    <div class="partner-marquee" role="region" aria-label="Partners and collaborators">
-      <div class="partner-track">
-        <div class="partner-list" role="list">
-          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="Cardiff University" loading="lazy" decoding="async"></div>
-          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="Sumitomo Heavy Industries" loading="lazy" decoding="async"></div>
-          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="Shanghai University" loading="lazy" decoding="async"></div>
-          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="Panxin Technologies" loading="lazy" decoding="async"></div>
-          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="Loughborough University" loading="lazy" decoding="async"></div>
-          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="University of Glasgow" loading="lazy" decoding="async"></div>
-          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/nvidia-logo.webp' | relative_url }}" alt="NVIDIA" loading="lazy" decoding="async"></div>
-          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/mps_logo.png' | relative_url }}" alt="Monolithic Power Systems" loading="lazy" decoding="async"></div>
-        </div>
-        <div class="partner-list" aria-hidden="true">
-          <div class="partner-logo"><img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="{{ '/images/general/nvidia-logo.webp' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
-          <div class="partner-logo"><img src="{{ '/images/general/mps_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+{% include partners.html intro="Academic and industrial relationships supporting our work across AI, power engineering, and energy systems." %}

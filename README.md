@@ -2,54 +2,103 @@
 
 [![Jekyll](https://img.shields.io/badge/Jekyll-4.0-blue)](https://jekyllrb.com/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-enabled-brightgreen)](https://pages.github.com/)
-[![Category: power electronics](https://img.shields.io/badge/category-power%20electronics-lightgrey)](https://aipel.co.uk/)
+[![Category: power engineering](https://img.shields.io/badge/category-power%20engineering-lightgrey)](https://aipel.co.uk/)
 [![Status: active](https://img.shields.io/badge/status-active-success)](https://aipel.co.uk/)
 
-This repository contains the public website and agent-readable resource index for [AIPE Labs](https://aipel.co.uk/). The project connects practical power engineering knowledge with coding agents so engineers can move more efficiently from research and modelling to design, validation, and documentation.
+Public website and agent-readable capability index for [AIPE Labs](https://aipel.co.uk/), an open platform for **AI in power engineering**.
 
-## One link for coding agents
+## The platform model
 
-Give a compatible coding agent this URL:
+The whole repository is organised around one model. Read this before moving anything.
+
+| Layer | What it is | Where it lives |
+| --- | --- | --- |
+| **Knowledge** | Engineering explanation, design equations, testing methodology, standards | `power/` — one page per engineering domain |
+| **Databases** | The same engineering reality as machine-readable data: curves, surfaces, loss models, thermal networks, with measurement conditions | `resources/databases/` |
+| **Tools** | One bounded engineering operation each: input → operation → output | registered in `_data/resources.yml` |
+| **Agents** | Specialist reasoning that reads knowledge, queries databases, calls tools and judges the result | registered in `_data/resources.yml` (none published yet) |
+| **Workflows** | Knowledge, data, tools and agents combined into a complete engineering task | registered in `_data/resources.yml` |
+| **Design References** | Worked examples showing what the combination produces | `resources/design-references/` |
+
+Knowledge is organised into four **engineering domains** — Devices, Magnetics, Converters, Systems — defined once in `_data/domains.yml`. Every database, tool, agent, workflow and design reference is tagged with those domain ids.
+
+Use **Design Reference** as the term for a worked engineering example. Not "prototype", not "case study", not "reference design".
+
+## Two interfaces, one registry
+
+The site serves people; `aipe.md` serves coding agents. Both are generated from the same registries, so they cannot describe different ecosystems.
 
 ```text
-https://aipel.co.uk/aipe.md
+https://aipel.co.uk/          human interface
+https://aipel.co.uk/aipe.md   machine interface  (built from aipe-index.html)
 ```
 
-The Markdown index describes the resources that are currently available and points the agent towards relevant packages, specialist agents, databases, prototype design references, and engineering guidance. It is a public index, not an executable model or application.
+`aipe-index.html` carries an `.html` extension deliberately: Jekyll converts any `.md` source to HTML, and this file must publish as plain Markdown. The `.html` source is passed through untouched while Liquid still runs.
 
-## Website content
+## Shared data
 
-- **Power Engineering** — converters, power semiconductor devices, characterisation, and microgrids.
-- **Resources** — engineering updates, prototype design references, and component databases.
-- **Claude/Codex Plugin** — a simple workflow for giving coding agents access to the public index.
-- **Company** — the AIPE Labs story, team, news, careers, FAQs, and contact details.
-- **English and Chinese pages** — mirrored navigation and content for both audiences.
+| File | Purpose |
+| --- | --- |
+| `_data/domains.yml` | The four engineering domains, with bilingual labels and card artwork |
+| `_data/capabilities.yml` | Engineering tasks — Design, Analyse, Simulate, Validate, Build, Document — each with an honest statement of what supports it today |
+| `_data/resources.yml` | The capability registry: databases, tools, agents, workflows, design references |
+| `_data/statuses.yml` | The maturity vocabulary, and the rule for using it |
+| `_data/navigation.yml` | Navbar and footer structure for both languages |
+| `_data/partners.yml` | Partner logos and alt text |
+| `_data/i18n.yml` | Short UI strings used inside shared includes |
+
+Edit the registry, not the markup. A new database, tool, agent, workflow or design reference should appear on the homepage, on `/resources/`, on its catalogue page and in `aipe.md` from a single entry.
+
+### Engineering honesty
+
+Every registry entry carries a `status` from `_data/statuses.yml`, and it is rendered on the page. A status is a claim about evidence, not ambition — do not promote one to make a page read better. `analytical` is not `simulated`; `simulated` is not `hardware-tested`. An empty layer (`agents:` today) is an honest answer and is rendered as such.
 
 ## Project structure
 
 ```text
-├── _includes/       Shared navigation, footer, and scripts
-├── _layouts/        Default, post, legal, and legacy redirect layouts
-├── _posts/          News and project updates
-├── accessories/     Engineering reference assets
-├── assets/          Stylesheets and site assets
-├── case-studies/    Source files for prototype design reference pages
-├── company/         About, team, careers, and FAQ pages
-├── database/        Magnetics and transistor database pages
-├── legacy/          Redirects from superseded public URLs
-├── legal/           Privacy, terms, and cookie pages
-├── power/           Power engineering pages
-├── resources/       Resource landing pages
-├── zh/              Chinese-language pages
-├── aipe.md          Agent-readable public index
-└── index.md         English homepage
+├── _data/                 Shared registries — see the table above
+├── _includes/             Shared markup: navbar, footer, cards, engineering figures
+├── _layouts/              default, post, legal, redirect
+├── _posts/                Engineering notes
+├── _sass/                 Stylesheet partials, imported in order by assets/style.scss
+├── power/                 Engineering knowledge, one page per domain
+│   ├── devices.md         /power/devices/
+│   ├── devices/           /power/devices/characterisation/
+│   ├── magnetics.md       /power/magnetics/
+│   ├── converters.md      /power/converters/
+│   └── systems.md         /power/systems/  (microgrids are covered here)
+├── resources/             The capability stack
+│   ├── index.md           /resources/
+│   ├── databases.md       /resources/databases/          catalogue
+│   ├── databases/         /resources/databases/*/        the database pages
+│   ├── design-references.md   /resources/design-references/       catalogue
+│   ├── design-references/     /resources/design-references/*/     the references
+│   └── blog.md            /resources/blog/
+├── company/               About, team, careers, FAQ
+├── legal/                 Privacy, terms, cookies
+├── redirects/             Redirect stubs for superseded public URLs (en/ and zh/)
+├── zh/                    Chinese pages, mirroring the English tree
+├── aipe-index.html        Source of /aipe.md
+└── index.md               English homepage
 ```
 
-The source directories do not always match the final public URL. Prototype references, for example, are published under `/resources/prototypes/`. Existing public links under the former `/case-studies/` hierarchy are retained as redirects.
+Source paths now mirror public URLs. The exception is `redirects/`, which exists only to keep old public URLs working — never delete a stub without checking what links to it.
+
+## English and Chinese
+
+Every English page has a Chinese counterpart at the same path under `/zh/`. Navigation labels come from `_data/navigation.yml` and `_data/domains.yml`, which carry both languages side by side, so the two navigations cannot drift apart. Adding an English page means adding its Chinese counterpart.
+
+Body copy stays in the page, in its own language. Do not force translated prose into a data file.
+
+A registry entry whose page exists in English only (an engineering note, for example) must set `lang_neutral: true` so the `/zh` prefix is not applied to it.
+
+## Styling
+
+Plain Jekyll and Sass — no React, no Tailwind, no SPA framework. `assets/style.scss` imports the partials in `_sass/` and the import order *is* the cascade, so do not reorder it casually.
+
+CSS `min()` and `max()` are written as `#{"min(...)"}` throughout `_sass/`: Sass owns those function names, and libsass — which GitHub Pages uses — fails on CSS units it cannot compare. The interpolation passes the CSS through untouched on both libsass and dart-sass.
 
 ## Local development
-
-The site is built with Jekyll and is compatible with GitHub Pages.
 
 ```bash
 bundle install

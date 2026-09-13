@@ -1,0 +1,102 @@
+# Engineering tasks AIPE is being built to support, in the order an engineer
+# meets them. These are the task-oriented entry points on the homepage and in
+# aipe.md — they are not a second set of navigation links.
+#
+# `today` is a factual statement of how AIPE supports the task right now. It
+# exists so the homepage can be ambitious about direction without implying that
+# an automated capability already exists. Update it when something ships.
+#
+# Fields
+#   id      stable slug, referenced from _data/resources.yml workflow steps
+#   url     the most useful page for that task today
+#   en / zh label, summary and `today`
+
+- id: design
+  url: /power/converters/
+  en:
+    label: Design
+    summary: >-
+      Move from a requirement to a topology, a device shortlist, magnetics and
+      a control structure.
+    today: >-
+      Today this is supported by the topology library, the engineering
+      databases and design equations an agent can read.
+  zh:
+    label: 设计
+    summary: 从需求出发，确定拓扑、器件选型、磁性元件与控制结构。
+    today: 目前由拓扑资料库、工程数据库以及智能体可读取的设计公式支持。
+
+- id: analyse
+  url: /power/devices/
+  en:
+    label: Analyse
+    summary: >-
+      Estimate conduction and switching loss, junction temperature, efficiency
+      and small-signal behaviour.
+    today: >-
+      Today this is supported by device physics, characterisation methods and
+      measured-condition data rather than by an automated solver.
+  zh:
+    label: 分析
+    summary: 估算导通与开关损耗、结温、效率与小信号特性。
+    today: 目前由器件物理、表征方法与带测试条件的数据支持，尚无自动求解器。
+
+- id: simulate
+  url: /resources/blog/
+  en:
+    label: Simulate
+    summary: >-
+      Set up circuit, magnetic and thermal models, and check that the results
+      are trustworthy.
+    today: >-
+      Today the engineering notes publish open netlists and analysis scripts;
+      model generation is not automated.
+  zh:
+    label: 仿真
+    summary: 建立电路、磁场与热模型，并检查结果是否可信。
+    today: 目前工程笔记提供开放的网表与分析脚本，模型生成尚未自动化。
+
+- id: validate
+  url: /power/devices/characterisation/
+  en:
+    label: Validate
+    summary: >-
+      Plan characterisation and converter tests, and record the conditions that
+      make a result comparable.
+    today: >-
+      Today this is supported by published test methodology and by the
+      measurement hardware described in the design references.
+  zh:
+    label: 验证
+    summary: 规划器件表征与变换器测试，并记录使结果可比的测试条件。
+    today: 目前由公开的测试方法，以及设计参考中描述的测量硬件支持。
+
+- id: build
+  url: /resources/design-references/
+  en:
+    label: Build
+    summary: >-
+      Take a design into magnetics construction, PCB and mechanical work, and
+      a working prototype.
+    today: >-
+      Today this is demonstrated through design references rather than offered
+      as a generative CAD or PCB capability.
+  zh:
+    label: 制造
+    summary: 将设计推进到磁性元件制作、PCB 与结构设计，直至可运行的样机。
+    today: 目前通过设计参考展示，尚未提供自动生成 CAD 或 PCB 的能力。
+
+- id: document
+  url: /resources/blog/
+  en:
+    label: Document
+    summary: >-
+      Turn a design into reviewable engineering documentation, figures and
+      reporting.
+    today: >-
+      Today the engineering notes and their reproducible figure tooling are the
+      worked examples; a documentation agent is not published.
+  zh:
+    label: 文档
+    summary: 将设计整理为可复核的工程文档、图表与报告。
+    today: 目前以工程笔记及其可复现绘图工具作为示例，尚未发布文档智能体。
