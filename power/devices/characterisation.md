@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Device Characterisation
+title: Characterisations
 permalink: /power/devices/characterisation/
 description: Device testing, characterisation, and modelling services for power electronics design automation.
 ---
 
 <header class="hero">
   <div class="container">
-    <h1>Device Characterisation</h1>
+    <h1>Characterisations</h1>
     <p class="lead">Device testing, characterisation, and modelling services for power electronics design automation.</p>
   </div>
 </header>

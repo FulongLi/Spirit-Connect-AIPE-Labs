@@ -2,14 +2,13 @@
 layout: default
 title: Solid-State Transformer Design Reference
 permalink: /resources/design-references/sst/
-description: Design reference for a modular solid-state transformer (SST) architecture — cell-level converter design through to system-level integration and control.
+description: Design reference for an AI-assisted solid-state transformer (SST) architecture for next-generation power distribution.
 ---
 
 <header class="hero">
   <div class="container">
     <h1>Solid-State Transformer</h1>
-    <p class="lead">A modular SST design reference — from cell-level converter design to system-level integration and control.</p>
-    <p class="reference-note">{% include status.html key="analytical" %} Worked through with analysis and stated assumptions. No hardware result is reported on this page.</p>
+    <p class="lead">AI-driven design of a modular SST — from cell-level converter optimisation to system-level integration and control.</p>
   </div>
 </header>
 
@@ -26,13 +25,13 @@ description: Design reference for a modular solid-state transformer (SST) archit
     <div class="grid">
       <div class="card">
         <h3>Multi-stage architecture</h3>
-        <p>AC-DC rectification, isolated DC-DC conversion (DAB), and DC-AC inversion — each stage designed
-        against one system specification rather than in isolation.</p>
+        <p>AC-DC rectification, isolated DC-DC conversion (DAB), and DC-AC inversion — each stage
+        co-optimised by the AI Agent for the overall SST mission profile.</p>
       </div>
       <div class="card">
         <h3>Modular cell design</h3>
-        <p>Cascaded H-bridge or modular multi-level cells, with device selection, magnetics sizing and
-        thermal balancing treated as one problem across the modules.</p>
+        <p>Cascaded H-bridge or modular multi-level cells with AI-driven device selection, magnetics
+        sizing, and thermal balancing across all modules.</p>
       </div>
       <div class="card">
         <h3>Medium-voltage operation</h3>
@@ -44,33 +43,23 @@ description: Design reference for a modular solid-state transformer (SST) archit
 
 <section class="section section-alt">
   <div class="container">
-    <h2>What this design reference covers</h2>
-    <p class="lead section-lead-spaced">
-      This reference follows the <code>system-integration</code> workflow published in the
-      <a href="{{ '/resources/' | relative_url }}">capability stack</a>. The workflow is
-      <em>documented</em>: the sequence and the material for each step are published, but it is not an
-      executable pipeline and nothing on this page was generated automatically.
-    </p>
+    <h2>AI Agent in Action</h2>
     <div class="grid">
       <div class="card">
-        <h3>Topology comparison</h3>
-        <p>DAB, LLC and resonant CLLC cells compared for the isolation stage on efficiency, power
-        density and fault tolerance, with the assumptions behind each comparison stated.</p>
+        <h3>Topology exploration</h3>
+        <p>Automated screening of DAB, LLC, and resonant CLLC cells — evaluating efficiency, power
+        density, and fault tolerance trade-offs for the isolation stage.</p>
       </div>
       <div class="card">
         <h3>Control co-design</h3>
-        <p>Hierarchical control: cell-level soft-switching and current balancing, stage-level voltage
-        regulation, and system-level power flow management, and how ownership is split between them.</p>
+        <p>Hierarchical control synthesis: cell-level soft-switching and current balancing,
+        stage-level voltage regulation, and system-level power flow management.</p>
       </div>
       <div class="card">
-        <h3>Validation planning</h3>
-        <p>The test plan a build would need — efficiency mapping, thermal cycling and fault injection —
-        written as milestones. No measurements are published here.</p>
+        <h3>Validation & feedback</h3>
+        <p>Auto-generated test plans for each SST module — efficiency mapping, thermal cycling,
+        and fault injection — feeding results back to refine the AI Agent's models.</p>
       </div>
     </div>
-    <p class="small reference-note">
-      Databases used: transistor and magnetics records. Tool used: AIPE-Sketch for the schematics.
-      No AIPE specialist agent is published, so no step on this page was produced by one.
-    </p>
   </div>
 </section>

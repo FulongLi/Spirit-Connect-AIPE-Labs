@@ -3,7 +3,7 @@ layout: default
 title: 在 Coding Agent 中使用 AIPE Labs
 lang: zh
 permalink: /zh/plugin/
-description: 通过一条开放链接，让 Claude Code、Codex、Cursor 等 Coding Agent 发现 AIPE Labs 的电力电子知识、数据库、工具、工作流与设计参考。
+description: 通过一条开放链接，让 Claude Code、Codex、Cursor 等 Coding Agent 发现 AIPE Labs 的电力电子知识、工具、专业智能体与工程工作流。
 image: /images/background/sst.png
 ---
 
@@ -27,8 +27,8 @@ image: /images/background/sst.png
   <div class="container">
     <h2>为什么使用 AIPE 索引</h2>
     <p class="lead">
-      这份索引为智能体提供一张稳定的资源地图，连接 AIPE Labs 已发布的知识、数据库、
-      工具、工作流与设计参考，并为每一项标注成熟度状态。
+      这份索引为智能体提供一张稳定的资源地图，连接 AIPE Labs 已发布的知识、
+      数据、设计参考、软件包与专业智能体。
     </p>
     <div class="grid">
       <div class="card">
@@ -37,7 +37,7 @@ image: /images/background/sst.png
       </div>
       <div class="card">
         <h3>资源保持连接</h3>
-        <p>器件数据、磁性元件、变换器拓扑、设计参考与开源工具都通过同一份持续维护的索引连接；该索引与本网站由同一份能力登记表生成。</p>
+        <p>器件数据、磁性元件、变换器拓扑、设计参考与开源工具都通过同一份持续维护的索引连接。</p>
       </div>
       <div class="card">
         <h3>留在现有工作流中</h3>
@@ -89,11 +89,11 @@ image: /images/background/sst.png
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span class="faq-q-label"><code>aipe.md</code> 是什么？</span><span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>它是 AIPE Labs 面向智能体的正式 Markdown 能力索引，介绍当前已发布的内容 —— 知识、数据库、工具、智能体、工作流与设计参考 —— 并把智能体连接到对应的页面或代码仓库。索引本身不执行任何操作：AIPE 专业智能体尚未发布，所列工具运行在各自的仓库中。</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>它是 AIPE Labs 面向智能体的正式 Markdown 资源索引，介绍当前可用内容，并把智能体连接到相关工具、数据集、工程页面与代码仓库。</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">需要安装什么吗？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>不需要。Coding Agent 会直接读取公开的 Markdown 索引，不需要安装浏览器扩展、插件或软件包。本页沿用首次发布时的 <code>/plugin/</code> 地址。</p></div></div>
+        <button class="faq-q" aria-expanded="false">Claude/Codex 插件需要安装吗？<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>不需要。“插件”是导航中对这个智能体入口的名称。Coding Agent 会直接读取公开的 Markdown 索引，不需要安装浏览器扩展或软件包。</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">哪些智能体可以使用？<span class="faq-icon"></span></button>

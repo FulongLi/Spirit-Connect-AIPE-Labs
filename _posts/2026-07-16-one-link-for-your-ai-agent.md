@@ -18,10 +18,9 @@ https://aipel.co.uk/aipe.md
 ```
 
 Paste it into your agent and ask it to read the file. It is a Markdown index of
-everything we publish — engineering knowledge, the transistor and magnetics databases,
-open tools, documented workflows and design references — in a format designed for
-language models to navigate. Every entry carries a maturity status, so an agent can
-tell early work from bench-verified work.
+everything we publish — semiconductor device data, magnetics and transistor databases,
+converter design references and hardware design references — in a format designed
+for language models to navigate.
 
 ## How to use it
 

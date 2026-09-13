@@ -10,7 +10,7 @@ description: 关于 Spirit Connect AIPE Labs —— 连接 AI 辅助工程与电
   <div class="container">
     <h1>关于 Spirit Connect AIPE Labs</h1>
     <p class="lead">
-      我们正在构建贯穿器件、磁性元件、变换器与系统的智能设计方法，
+      我们正在构建贯穿器件、变换器与系统的智能设计方法，
       形成 AI 与能源基础设施共同演进的闭环生态。
     </p>
   </div>
@@ -40,7 +40,7 @@ description: 关于 Spirit Connect AIPE Labs —— 连接 AI 辅助工程与电
     <div class="grid">
       <div class="card">
         <h3>AI → 电力</h3>
-        <p>AI 辅助设计帮助工程师得到更优的电力变换器与能源系统 —— 缩短开发周期、提升效率，
+        <p>AI 智能体帮助工程师设计更优的电力变换器与能源系统 —— 缩短开发周期、提升效率，
         并探索人力难以覆盖的设计空间。</p>
       </div>
       <div class="card">
@@ -50,8 +50,8 @@ description: 关于 Spirit Connect AIPE Labs —— 连接 AI 辅助工程与电
       </div>
       <div class="card">
         <h3>反馈 → 演进</h3>
-        <p>运行数据、验证结果与真实性能回流到工程数据库与工作流中，
-        使下一轮设计从实测证据出发，而不是从假设出发。</p>
+        <p>运行数据、验证结果与真实性能反馈给 AI 智能体。它不断完善模型、从每次部署中学习，
+        并在下一轮迭代中产出更优的设计。</p>
       </div>
     </div>
   </div>
@@ -59,17 +59,22 @@ description: 关于 Spirit Connect AIPE Labs —— 连接 AI 辅助工程与电
 
 <section class="section">
   <div class="container">
-    <h2>四个工程领域</h2>
-    <p class="lead section-lead-spaced">
-      全站使用同样的四个工程领域，按物理尺度排列。每一项能力都标注它所属的领域，
-      因此器件层面的问题与系统层面的问题指向同一个资料库。
-    </p>
-    {% include domain-cards.html %}
-    <p class="small reference-note">
-      四个领域的覆盖程度并不相同。
-      <a href="{{ '/zh/resources/' | relative_url }}">能力体系页面</a>
-      标注了每一个已发布数据库、工具、工作流与设计参考的当前状态。
-    </p>
+    <h2>三个设计尺度</h2>
+    <p>我们的 AI 智能体并非只在单一层级工作 —— 它贯穿完整的电力电子层级进行推理。</p>
+    <div class="grid">
+      <div class="card">
+        <h3>器件</h3>
+        <p>SiC、GaN 与 Si 半导体表征、损耗建模、热特性分析，以及从丰富的元件数据库中自动选型。</p>
+      </div>
+      <div class="card">
+        <h3>变换器</h3>
+        <p>面向 Buck/Boost、LLC、DAB、多电平逆变器等的拓扑探索、磁性元件设计、控制综合与多目标优化。</p>
+      </div>
+      <div class="card">
+        <h3>系统</h3>
+        <p>直流与交流微电网、混合配电架构，以及电网级协同优化 —— 让每一台变换器都服务于整个系统的任务需求。</p>
+      </div>
+    </div>
   </div>
 </section>
 

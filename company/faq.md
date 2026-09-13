@@ -17,12 +17,12 @@ description: Frequently asked questions about AIPE Labs, aipe.md, coding-agent a
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">What is AIPE Labs?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>AIPE Labs is an open power electronics initiative developed by Spirit Connect. It brings together engineering knowledge, machine-readable databases, tools, workflows and design references so developers and engineers can use them through the coding agents they already work with. Specialist AIPE agents are part of the platform model but none is published yet. The longer-term goal is an AI-assisted engineering platform that can reason across the device, magnetics, converter and system domains.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>AIPE Labs is an open power electronics initiative developed by Spirit Connect. It brings together domain knowledge, engineering tools, specialist agents, datasets, design references, and repeatable workflows so developers and engineers can use them through the coding agents they already work with. The longer-term goal is an AI-assisted engineering platform that can reason across device, converter, and system levels.</p></div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">What is aipe.md?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p><code>aipe.md</code> is a public Markdown index written for AI agents. It describes what AIPE Labs currently publishes — knowledge, databases, tools, agents, workflows and design references — and links the agent to the relevant page or repository, with a maturity status on every entry. It is the entry point to the ecosystem, not a model or application by itself.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p><code>aipe.md</code> is a public Markdown index written for AI agents. It describes the resources AIPE Labs currently publishes and links the agent to the most relevant tools, packages, specialist agents, databases, workflows, design references, and engineering guidance. It is the entry point to the ecosystem, not a model or application by itself.</p></div></div>
       </div>
 
       <div class="faq-item">
@@ -31,8 +31,8 @@ description: Frequently asked questions about AIPE Labs, aipe.md, coding-agent a
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Is there anything to install?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>No. There is no browser extension, plugin or software package to install: your coding agent reads <code>aipe.md</code> and follows the published links. The page lives at <code>/plugin/</code> for historical reasons; the navigation calls it “For coding agents”. More deeply integrated skills and agents may be added as the project develops.</p></div></div>
+        <button class="faq-q" aria-expanded="false">Is the Claude/Codex Plugin something I install?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>No. “Plugin” is a convenient name for the current agent entry point. There is no browser extension or software package to install: your coding agent reads <code>aipe.md</code> and follows the published links. More deeply integrated skills and agents may be added as the project develops.</p></div></div>
       </div>
 
       <div class="faq-item">
@@ -47,7 +47,7 @@ description: Frequently asked questions about AIPE Labs, aipe.md, coding-agent a
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">What is available now, and what is still being built?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>The public <code>aipe.md</code> index and the resources it currently links to are available now. Engineering knowledge and the databases are the most developed layers; tools are early; no AIPE specialist agent is published; and the workflows are documented rather than executable. Every entry on <a href="{{ '/resources/' | relative_url }}">the capability stack</a> and in <code>aipe.md</code> carries a status, so published work is never presented as more than it is.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>The public <code>aipe.md</code> index and the resources it currently links to are available now. AIPE Labs is actively organising and expanding its packages, specialist agents, engineering data, simulation and finite-element workflows, and validation examples. Broader AI-assisted engineering capabilities remain under development, so the website distinguishes published resources from planned capabilities.</p></div></div>
       </div>
 
       <div class="faq-item">

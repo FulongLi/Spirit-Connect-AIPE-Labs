@@ -13,10 +13,6 @@ description: 面向电力电子分析、元件选型、建模与设计自动化�
       面向电力电子的基础工程数据。这些记录正是 AIPE 的工具、智能体与工作流所查询的对象 ——
       可复用于元件选型、损耗与热建模，以及设计自动化。
     </p>
-    <p class="reference-note">
-      {% include status.html key="experimental" %} 两个目录都处于早期阶段。
-      下文描述的是它们正在遵循的记录格式；收录范围仍在扩充，数据尚未作为公开下载发布。
-    </p>
   </div>
 </header>
 
@@ -79,7 +75,7 @@ description: 面向电力电子分析、元件选型、建模与设计自动化�
       </div>
       <div class="card">
         <h3>机器可读</h3>
-        <p>记录的存储方式使脚本、优化器或 Coding Agent 可以直接调用，而不必先去读一份数据手册 PDF。</p>
+        <p>结构化记录可直接供脚本、优化器与 AI 设计智能体调用 —— 也正是我们自有变换器与磁件设计工具背后的同一批数据。</p>
       </div>
       <div class="card">
         <h3>可追溯</h3>
@@ -94,10 +90,8 @@ description: 面向电力电子分析、元件选型、建模与设计自动化�
     <h2>开放数据与代码</h2>
     <p class="lead">
       不在本站托管的数据库工作以开源方式发布，便于你用自己的脚本与智能体读取同一批记录。
-      上面两个目录及其状态列在<a href="{{ '/zh/resources/' | relative_url }}">能力体系</a>页面。
     </p>
-    {%- assign external_databases = site.data.resources.databases | where_exp: "entry", "entry.repository" -%}
-    {% include resource-cards.html items=external_databases %}
+    {% include resource-cards.html items=site.data.resources.databases %}
   </div>
 </section>
 

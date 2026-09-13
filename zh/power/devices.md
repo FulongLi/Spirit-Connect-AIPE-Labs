@@ -275,7 +275,7 @@ description: 开关如何实现 —— 功率二极管、MOSFET、IGBT、SiC 与
   </div>
 </section>
 
-<section class="section section-feature devices-page-strip">
+<section class="section section-feature devices-page-strip devices-page-strip--a">
   <div class="container">
     <div class="feature-content">
       <div class="feature-text">
@@ -290,7 +290,7 @@ description: 开关如何实现 —— 功率二极管、MOSFET、IGBT、SiC 与
         </div>
       </div>
       <div class="feature-visual">
-        <img class="devices-page-case-img" src="{{ '/images/research/transistor-database.jpg' | relative_url }}" alt="晶体管数据库">
+        <img class="devices-page-case-img" src="{{ '/power/converters/testing/Database/database.jpg' | relative_url }}" alt="晶体管数据库">
       </div>
     </div>
   </div>
