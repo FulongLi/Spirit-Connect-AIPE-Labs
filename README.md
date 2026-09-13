@@ -22,7 +22,9 @@ The whole repository is organised around one model. Read this before moving anyt
 
 Knowledge is organised into four **engineering domains** — Devices, Magnetics, Converters, Systems — defined once in `_data/domains.yml`. Every database, tool, agent, workflow and design reference is tagged with those domain ids.
 
-Use **Design Reference** as the term for a worked engineering example. Not "prototype", not "case study", not "reference design".
+Use **Design Reference** as the term for a worked engineering example. Not "prototype", not "case study", not "reference design". The old `/case-studies/` and `/resources/prototypes/` URLs survive only as redirect stubs in `redirects/`.
+
+Use **Engineering Notes** as the public name for `/resources/blog/`. The permalink keeps the word `blog`; the label does not.
 
 ## Two interfaces, one registry
 
@@ -53,6 +55,10 @@ Edit the registry, not the markup. A new database, tool, agent, workflow or desi
 
 Every registry entry carries a `status` from `_data/statuses.yml`, and it is rendered on the page. A status is a claim about evidence, not ambition — do not promote one to make a page read better. `analytical` is not `simulated`; `simulated` is not `hardware-tested`. An empty layer (`agents:` today) is an honest answer and is rendered as such.
 
+The same rule applies to page copy, not just to registry entries. No AIPE specialist agent is published, so no page may describe one working — not as "the AI Agent", not as automated search, tuning or test-plan generation. A page describing a `documented` workflow says that the steps are published, not that a pipeline ran.
+
+The English and Chinese versions of a page make the same claims. When a claim is corrected in one language, correct it in the other in the same change.
+
 ## Project structure
 
 ```text
@@ -73,16 +79,24 @@ Every registry entry carries a `status` from `_data/statuses.yml`, and it is ren
 │   ├── databases/         /resources/databases/*/        the database pages
 │   ├── design-references.md   /resources/design-references/       catalogue
 │   ├── design-references/     /resources/design-references/*/     the references
-│   └── blog.md            /resources/blog/
+│   └── blog.md            /resources/blog/                    Engineering Notes
 ├── company/               About, team, careers, FAQ
 ├── legal/                 Privacy, terms, cookies
 ├── redirects/             Redirect stubs for superseded public URLs (en/ and zh/)
 ├── zh/                    Chinese pages, mirroring the English tree
+├── accessories/           Rogowski-coil board renders, kept at their original public paths
+├── assets/                Stylesheet, engineering-note figures, circuit data, downloads
+├── images/                Photographs, logos and card artwork
+├── tools/                 Figure-generation scripts (excluded from the build)
 ├── aipe-index.html        Source of /aipe.md
+├── aipe.txt               Compatibility stub pointing at /aipe.md
 └── index.md               English homepage
 ```
 
-Source paths now mirror public URLs. The exception is `redirects/`, which exists only to keep old public URLs working — never delete a stub without checking what links to it.
+Source paths mirror public URLs. Two exceptions, both deliberate:
+
+- `redirects/` exists only to keep old public URLs working — never delete a stub without checking what links to it.
+- `accessories/transducers/images/` holds the Rogowski board renders at the paths they were first published at. Moving them would break externally hot-linked images and cannot be redirected the way a page can, so they stay.
 
 ## English and Chinese
 
@@ -91,6 +105,8 @@ Every English page has a Chinese counterpart at the same path under `/zh/`. Navi
 Body copy stays in the page, in its own language. Do not force translated prose into a data file.
 
 A registry entry whose page exists in English only (an engineering note, for example) must set `lang_neutral: true` so the `/zh` prefix is not applied to it.
+
+Engineering notes are the one deliberate exception to the mirror rule: they are published in English only. Every post must therefore set `zh_url: /zh/resources/blog/` in its front matter, so the language switcher lands on the Chinese notes index instead of a page that does not exist.
 
 ## Styling
 

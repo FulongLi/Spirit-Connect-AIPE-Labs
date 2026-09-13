@@ -2,7 +2,7 @@
 layout: default
 title: Use AIPE Labs with Your Coding Agent
 permalink: /plugin/
-description: Give Claude Code, Codex, Cursor, and other coding agents an open entry point to AIPE Labs power electronics knowledge, tools, specialist agents, and workflows.
+description: Give Claude Code, Codex, Cursor, and other coding agents an open entry point to AIPE Labs power electronics knowledge, databases, tools, workflows, and design references.
 image: /images/background/sst.png
 ---
 
@@ -26,8 +26,8 @@ image: /images/background/sst.png
   <div class="container">
     <h2>Why use the AIPE index</h2>
     <p class="lead">
-      The index gives an agent a stable map of the knowledge, data, design references,
-      packages, and specialist agents that AIPE Labs has published.
+      The index gives an agent a stable map of the knowledge, databases, tools, workflows and
+      design references that AIPE Labs has published, with a maturity status on every entry.
     </p>
     <div class="grid">
       <div class="card">
@@ -36,7 +36,7 @@ image: /images/background/sst.png
       </div>
       <div class="card">
         <h3>Resources stay connected</h3>
-        <p>Device data, magnetics, converter topologies, design references, and open-source tools remain reachable through one maintained index.</p>
+        <p>Device data, magnetics, converter topologies, design references, and open-source tools remain reachable through one maintained index, generated from the same registry as this website.</p>
       </div>
       <div class="card">
         <h3>Works in your current workflow</h3>
@@ -88,11 +88,11 @@ image: /images/background/sst.png
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false"><span class="faq-q-label">What is <code>aipe.md</code>?</span><span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>It is the canonical Markdown resource index for AIPE Labs. It describes the resources currently available and links an agent to the relevant tools, datasets, engineering pages, and repositories.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>It is the canonical Markdown capability index for AIPE Labs. It describes what is published today — knowledge, databases, tools, agents, workflows and design references — and links an agent to the relevant page or repository. Nothing in it executes: no AIPE specialist agent is hosted, and the listed tools run in their own repositories.</p></div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Is the Claude/Codex Plugin something I install?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>No. “Plugin” is the navigation name for this agent entry point. Your coding agent reads the public Markdown index directly; there is no browser extension or software package to install.</p></div></div>
+        <button class="faq-q" aria-expanded="false">Is there anything to install?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>No. Your coding agent reads the public Markdown index directly; there is no browser extension, plugin or software package to install. This page keeps the <code>/plugin/</code> address it was first published at.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Which agents can use it?<span class="faq-icon"></span></button>

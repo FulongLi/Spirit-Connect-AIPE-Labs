@@ -24,12 +24,6 @@ h2 { margin-bottom: 1.5rem; }
 .news-card h3 { margin-top: .5rem; }
 
 /* Company pages */
-.partner-logo-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 2rem; align-items: center; margin-top: 2.5rem;
-}
-.partner-logo-grid > div { display: flex; align-items: center; justify-content: center; min-height: 88px; }
-.partner-logo-grid img { width: auto; max-width: 160px; max-height: 72px; object-fit: contain; }
 .team-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
 .team-card { display: flex; flex-direction: column; align-items: center; min-height: 100%; text-align: center; }
 .team-photo,
@@ -48,8 +42,6 @@ h2 { margin-bottom: 1.5rem; }
   margin-top: auto; padding-top: 1.2rem; border-top: 1px solid var(--border);
   font-size: .86rem; color: var(--muted);
 }
-.team-card-reserved { color: var(--muted); }
-.team-profile-pending { margin-top: auto !important; color: var(--muted) !important; }
 /* Careers — one clear status, one open invitation */
 .careers-hero { padding: 5.5rem 0 4.5rem; border-bottom: 1px solid var(--border); }
 .careers-hero h1 { max-width: 15ch; margin-bottom: 1.15rem; }
@@ -126,9 +118,7 @@ img { max-width: 100%; height: auto; }
 /* ══════════════════════════════════════
    DEVICES PAGE — light band alternation
    ══════════════════════════════════════ */
-.devices-page-strip.devices-page-strip--a { background: var(--bg); }
-.devices-page-strip.devices-page-strip--b { background: var(--bg-alt); }
-.devices-page-strip.section-alt.devices-page-strip--b { background: var(--bg-alt); }
+.devices-page-strip { background: var(--bg); }
 .devices-page-strip .feature-visual { display: flex; align-items: center; justify-content: center; }
 .devices-page-case-img {
   max-width: #{"min(88%, 440px)"};

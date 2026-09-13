@@ -10,6 +10,7 @@ description: 面向电力电子验证与监测的高精度 PCB 罗氏线圈设�
   <div class="container">
     <h1>PCB 罗氏线圈设计参考</h1>
     <p class="lead">面向电力电子精确电流测量的实用传感参考方案。</p>
+    <p class="reference-note">{% include status.html key="hardware-tested" %} 已完成设计、制板与台架验证。所列指标为设计包络目标，不等同于有保证的规格书。</p>
   </div>
 </header>
 

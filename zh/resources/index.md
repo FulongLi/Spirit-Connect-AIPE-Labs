@@ -72,8 +72,9 @@ description: AIPE 能力体系 —— 面向电力工程的工程知识、数据
     </p>
     {% include resource-cards.html items=site.data.resources.agents %}
     <p class="small reference-note">
-      在此之前，你可以让自己的 Coding Agent 读取
-      <a href="{{ '/zh/plugin/' | relative_url }}">aipe.md</a> 索引，
+      AIPE 专业智能体尚未发布。在此之前，你可以让自己的 Coding Agent 读取能力索引
+      <a href="{{ '/aipe.md' | relative_url }}"><code>aipe.md</code></a>
+      （<a href="{{ '/zh/plugin/' | relative_url }}">使用方法</a>），
       直接使用这里公开的知识、数据与设计参考。
     </p>
   </div>

@@ -10,6 +10,7 @@ description: SiC、GaN、IGBT 与硅 MOSFET 数据库 —— 实测开关波形�
   <div class="container">
     <h1>晶体管数据库</h1>
     <p class="lead">在你的任务需求下进行 SiC/GaN/IGBT 选型。</p>
+    <p class="reference-note">{% include status.html key="experimental" %} 处于早期并持续扩充。本页描述的是每条记录所遵循的存储格式；收录范围尚不完整，数据也尚未作为公开下载发布。</p>
   </div>
 </header>
 
@@ -17,7 +18,7 @@ description: SiC、GaN、IGBT 与硅 MOSFET 数据库 —— 实测开关波形�
   <div class="container">
     <h2>综合器件库</h2>
     <p class="lead">
-      我们的晶体管数据库包含各类功率半导体器件的详细规格、开关特性与热特性。
+      晶体管数据库按下列类别，收录功率半导体器件的详细规格、开关特性与热特性。
     </p>
     <div class="grid">
       <div class="card">
@@ -135,8 +136,8 @@ description: SiC、GaN、IGBT 与硅 MOSFET 数据库 —— 实测开关波形�
         <p>开关损耗表与 Z<sub>th</sub> 网络联立求解，结温、损耗与降额随之收敛，而不是靠假设。</p>
       </div>
       <div class="card">
-        <h3>供智能体调用</h3>
-        <p>同一批记录向 AI 辅助设计流程开放，因此器件选择会连同支撑它的条件与实测数据一并给出。</p>
+        <h3>可被智能体读取</h3>
+        <p>记录格式的设计目标，是让 Coding Agent 给出器件选择时能同时给出支撑它的测试条件与实测数据，而不是只给一个型号。</p>
       </div>
     </div>
     <div class="hero-actions section-actions align-left">

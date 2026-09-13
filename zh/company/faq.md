@@ -18,12 +18,12 @@ description: 关于 AIPE Labs、aipe.md、Coding Agent 接入、开放资源、�
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">什么是 AIPE Labs？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>AIPE Labs 是由 Spirit Connect 推动的开放电力电子项目。它把领域知识、工程工具、专业智能体、数据集、设计参考和可复现工作流组织起来，让开发者和工程师能够通过自己日常使用的 Coding Agent 调用这些资源。长期目标是构建一个能够贯通器件、变换器与系统层级的 AI 辅助工程平台。</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>AIPE Labs 是由 Spirit Connect 推动的开放电力电子项目。它把工程知识、机器可读数据库、工具、工作流与设计参考组织起来，让开发者和工程师能够通过自己日常使用的 Coding Agent 调用这些资源。专业智能体是平台模型的一部分，但目前尚未发布任何一个。长期目标是构建一个能够贯通器件、磁性元件、变换器与系统四个领域的 AI 辅助工程平台。</p></div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">aipe.md 是什么？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p><code>aipe.md</code> 是一份面向 AI 智能体的公开 Markdown 索引。它介绍 AIPE Labs 当前发布的资源，并把智能体引导到相关的工具、软件包、专业智能体、数据库、案例和工程参考。它是整个生态的入口，本身不是模型或独立应用。</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p><code>aipe.md</code> 是一份面向 AI 智能体的公开 Markdown 索引。它介绍 AIPE Labs 当前发布的内容 —— 知识、数据库、工具、智能体、工作流与设计参考 —— 并把智能体引导到对应的页面或代码仓库，每一项都附带成熟度状态。它是整个生态的入口，本身不是模型或独立应用。</p></div></div>
       </div>
 
       <div class="faq-item">
@@ -32,8 +32,8 @@ description: 关于 AIPE Labs、aipe.md、Coding Agent 接入、开放资源、�
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Claude/Codex 插件需要安装吗？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>不需要。“插件”是当前智能体入口的便捷名称，并不是浏览器扩展或需要安装的软件包。Coding Agent 会读取 <code>aipe.md</code>，再访问其中已经发布的链接。随着项目发展，后续可能会增加集成程度更高的 Skill 和专业智能体。</p></div></div>
+        <button class="faq-q" aria-expanded="false">需要安装什么吗？<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>不需要。没有浏览器扩展、插件或需要安装的软件包：Coding Agent 直接读取 <code>aipe.md</code>，再访问其中已经发布的链接。该页面位于 <code>/plugin/</code> 仅出于历史原因，导航中的名称是「面向 Coding Agent」。随着项目发展，后续可能会增加集成程度更高的 Skill 和专业智能体。</p></div></div>
       </div>
 
       <div class="faq-item">
@@ -48,7 +48,7 @@ description: 关于 AIPE Labs、aipe.md、Coding Agent 接入、开放资源、�
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">哪些内容现在可以使用，哪些仍在建设？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>公开的 <code>aipe.md</code> 索引以及其中当前链接的资源已经可以使用。AIPE Labs 正在持续整理和扩展软件包、专业智能体、工程数据、仿真与有限元工作流和验证案例。更完整的 AI 辅助工程能力仍在建设中，因此网站会区分已发布资源与规划中的能力。</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>公开的 <code>aipe.md</code> 索引以及其中当前链接的资源已经可以使用。工程知识与数据库是最成熟的层；工具尚处早期；AIPE 专业智能体尚未发布；工作流目前是文档说明，而不是可直接执行的流水线。<a href="{{ '/zh/resources/' | relative_url }}">能力体系页面</a>与 <code>aipe.md</code> 中的每一项都标注了状态，因此已发布的工作不会被写成超出其实际程度的样子。</p></div></div>
       </div>
 
       <div class="faq-item">

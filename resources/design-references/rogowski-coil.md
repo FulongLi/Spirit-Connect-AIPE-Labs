@@ -24,6 +24,7 @@ math: true
   <div class="container">
     <h1>PCB Rogowski Coil</h1>
     <p class="lead">A high-precision, air-cored current transducer printed directly on a PCB — wide bandwidth, no saturation, and repeatable geometry for validation, monitoring and control. This page covers how it works, why the coil shape matters, and how ours is built.</p>
+    <p class="reference-note">{% include status.html key="hardware-tested" %} Designed, fabricated and bench-verified. Figures in the table below are design-envelope targets, not a guaranteed datasheet.</p>
     <div class="hero-actions">
       <a href="#order" class="btn btn-primary">Order a demo board</a>
       <a href="#principles" class="btn btn-ghost">How it works ↓</a>

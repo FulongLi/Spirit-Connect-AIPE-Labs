@@ -9,6 +9,7 @@ description: SiC, GaN, IGBT and silicon MOSFET database — measured switching w
   <div class="container">
     <h1>Transistor Database</h1>
     <p class="lead">SiC/GaN/IGBT selection under your mission profile.</p>
+    <p class="reference-note">{% include status.html key="experimental" %} Early and growing. This page describes the record format each entry is stored in; coverage is incomplete and the data is not yet a public download.</p>
   </div>
 </header>
 
@@ -16,8 +17,8 @@ description: SiC, GaN, IGBT and silicon MOSFET database — measured switching w
   <div class="container">
     <h2>Comprehensive Device Library</h2>
     <p class="lead">
-      Our transistor database includes detailed specifications, switching characteristics, and thermal properties
-      for a wide range of power semiconductor devices.
+      The transistor database holds detailed specifications, switching characteristics and thermal properties
+      for power semiconductor devices, in the categories below.
     </p>
     <div class="grid">
       <div class="card">
@@ -138,8 +139,8 @@ description: SiC, GaN, IGBT and silicon MOSFET database — measured switching w
         <p>Switching-energy tables and Z<sub>th</sub> networks solve together, so junction temperature, loss and derating converge instead of being assumed.</p>
       </div>
       <div class="card">
-        <h3>Feed the agent</h3>
-        <p>The same records are exposed to AI-assisted design workflows, so a device choice comes back with the conditions and measurements that justify it.</p>
+        <h3>Readable by an agent</h3>
+        <p>The record format is designed so that a coding agent can return a device choice together with the conditions and measurements that justify it, rather than a bare part number.</p>
       </div>
     </div>
     <div class="hero-actions section-actions align-left">

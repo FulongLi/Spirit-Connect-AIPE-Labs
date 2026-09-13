@@ -296,7 +296,7 @@ description: How the switch is realised — power diodes, MOSFETs, IGBTs, SiC an
   </div>
 </section>
 
-<section class="section section-feature devices-page-strip devices-page-strip--a">
+<section class="section section-feature devices-page-strip">
   <div class="container">
     <div class="feature-content">
       <div class="feature-text">
@@ -312,7 +312,7 @@ description: How the switch is realised — power diodes, MOSFETs, IGBTs, SiC an
         </div>
       </div>
       <div class="feature-visual">
-        <img class="devices-page-case-img" src="{{ '/power/converters/testing/Database/database.jpg' | relative_url }}" alt="Transistor database">
+        <img class="devices-page-case-img" src="{{ '/images/research/transistor-database.jpg' | relative_url }}" alt="Transistor database">
       </div>
     </div>
   </div>

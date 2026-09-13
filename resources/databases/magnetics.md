@@ -1,14 +1,15 @@
 ---
 layout: default
-title: Magnetic Database
+title: Magnetics Database
 permalink: /resources/databases/magnetics/
 description: Magnetics database — core geometries, ferrite and powder core materials, measured loss surfaces, permeability under DC bias, and winding conductor data for transformer and inductor design automation.
 ---
 
 <header class="hero">
   <div class="container">
-    <h1>Magnetic Database</h1>
+    <h1>Magnetics Database</h1>
     <p class="lead">Core materials, Steinmetz parameters, winding windows, and thermal data — for automated magnetics sizing.</p>
+    <p class="reference-note">{% include status.html key="experimental" %} Early and growing. This page describes the record format each entry is stored in; coverage is incomplete and the data is not yet a public download.</p>
   </div>
 </header>
 

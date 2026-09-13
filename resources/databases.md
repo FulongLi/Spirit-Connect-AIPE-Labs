@@ -13,6 +13,11 @@ description: Power semiconductor and magnetics databases for power electronics a
       records that AIPE tools, agents and workflows query — reusable for
       component selection, loss and thermal modelling, and design automation.
     </p>
+    <p class="reference-note">
+      {% include status.html key="experimental" %} Both catalogues are early. The sections
+      below describe the record format they are being built to; coverage is still growing and
+      the data is not yet published as a public download.
+    </p>
   </div>
 </header>
 
@@ -76,7 +81,7 @@ description: Power semiconductor and magnetics databases for power electronics a
       </div>
       <div class="card">
         <h3>Machine-readable</h3>
-        <p>Structured records feed scripts, optimisers and AI design agents directly — the same data behind our own converter and magnetics sizing tools.</p>
+        <p>Records are stored so that a script, an optimiser or a coding agent can consume them directly, rather than having to read a datasheet PDF first.</p>
       </div>
       <div class="card">
         <h3>Traceable</h3>
@@ -91,9 +96,12 @@ description: Power semiconductor and magnetics databases for power electronics a
     <h2>Open data and code</h2>
     <p class="lead">
       Database work that lives outside this website is published in the open, so
-      the same records can be read by your own scripts and agents.
+      the same records can be read by your own scripts and agents. The two catalogues
+      above are listed with their status on the
+      <a href="{{ '/resources/' | relative_url }}">capability stack</a>.
     </p>
-    {% include resource-cards.html items=site.data.resources.databases %}
+    {%- assign external_databases = site.data.resources.databases | where_exp: "entry", "entry.repository" -%}
+    {% include resource-cards.html items=external_databases %}
   </div>
 </section>
 

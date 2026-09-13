@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 表征
+title: 器件表征
 lang: zh
 permalink: /zh/power/devices/characterisation/
 description: 面向电力电子设计自动化的器件测试、表征与建模服务。
@@ -8,7 +8,7 @@ description: 面向电力电子设计自动化的器件测试、表征与建模�
 
 <header class="hero">
   <div class="container">
-    <h1>表征</h1>
+    <h1>器件表征</h1>
     <p class="lead">面向电力电子设计自动化的器件测试、表征与建模服务。</p>
   </div>
 </header>

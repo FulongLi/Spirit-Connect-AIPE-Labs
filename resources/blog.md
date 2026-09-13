@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Blogs
+title: Engineering Notes
 permalink: /resources/blog/
 description: Engineering notes, research updates, and ideas from the team building AI-assisted power electronics tools.
 ---
 
 <header class="hero hero-compact">
   <div class="container">
-    <h1>Blogs</h1>
+    <h1>Engineering Notes</h1>
     <p class="lead">
       Engineering notes, research updates, and ideas from the team building
       AI-assisted power electronics tools.

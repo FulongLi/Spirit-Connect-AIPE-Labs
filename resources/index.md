@@ -78,8 +78,9 @@ description: The AIPE capability stack — engineering knowledge, databases, too
     </p>
     {% include resource-cards.html items=site.data.resources.agents %}
     <p class="small reference-note">
-      In the meantime, your own coding agent can read the AIPE index at
-      <a href="{{ '/plugin/' | relative_url }}">aipe.md</a> and work with the
+      No AIPE specialist agent is published yet. In the meantime, your own coding agent can read
+      the capability index at <a href="{{ '/aipe.md' | relative_url }}"><code>aipe.md</code></a> —
+      see <a href="{{ '/plugin/' | relative_url }}">how to use it</a> — and work with the
       knowledge, data and design references published here.
     </p>
   </div>
