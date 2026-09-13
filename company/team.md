@@ -23,17 +23,10 @@ description: The contributors building Spirit Connect AIPE Labs.
           <h2>Dr Fulong Li</h2>
           <p class="team-role">Founder</p>
           <p>
-            Dr Fulong Li is the founder of AIPE Labs and leads its strategy and technical
-            direction — setting how open power electronics knowledge is structured, validated,
-            and made usable by both engineers and AI coding agents.
-          </p>
-          <p>
-            Dr Fulong Li is a power electronics engineer and researcher specialising in DC microgrids,
-            wide-bandgap devices, converter optimisation, testing, and validation.
-          </p>
-          <p>
-            He writes and maintains the converter tutorial series, design references, and device
-            characterisation material published here.
+            Power electronics engineer and researcher working on DC microgrids, wide-bandgap
+            devices, converter design and optimisation, and device testing and validation. He
+            founded AIPE Labs and leads its technical direction, and writes the converter
+            tutorials, design references, and characterisation material published here.
           </p>
           <div class="team-links">
             <span>Cardiff, United Kingdom</span>
@@ -49,19 +42,11 @@ description: The contributors building Spirit Connect AIPE Labs.
           <h2>Dr Zhengyu Lin</h2>
           <p class="team-role">Technical Reviewer</p>
           <p>
-            Dr Zhengyu Lin is Reader in Power Electronics at Loughborough University, based in the
-            Centre for Renewable Energy Systems Technology (CREST). His research covers power
-            electronics, renewable energy, energy storage, machine drives, and microgrids.
-          </p>
-          <p>
-            Before joining Loughborough in 2019 he was a Lecturer at Aston University, and spent
-            more than six years in UK industry as a senior researcher at Sharp Laboratories of
-            Europe and an R&amp;D engineer at Nidec Control Techniques. He holds a PhD in power
-            electronics from Heriot-Watt University.
-          </p>
-          <p>
-            He is a Senior Member of the IEEE, a Chartered Engineer and member of the IET, and
-            serves on the EPSRC Peer Review College. At AIPE Labs he reviews published technical
+            Reader in Power Electronics at Loughborough University, in the Centre for Renewable
+            Energy Systems Technology (CREST), working on power electronics, renewable energy,
+            energy storage, machine drives, and microgrids. He moved to academia after more than
+            six years in UK industry, holds a PhD from Heriot-Watt University, and is an IEEE
+            Senior Member and Chartered Engineer. At AIPE Labs he reviews published technical
             content for accuracy and engineering rigour.
           </p>
           <div class="team-links">

@@ -118,5 +118,21 @@
     "title": "Four-switch non-inverting buck-boost: common return, distinct positive rails",
     "connectivity_validated": true,
     "report": "quality  (cost 14,953)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity      76\n  alignment              100\n  routing                100\n  crossings              100\n  collision              100\n  topology_readability    99\n  visual_rhythm           95\n  clearance              100\n  labelling              100\n  power_path              55\n  conventions            100\n  overall                 94\n  faults:\n    - Q4: shunt branch is lopsided -- 0.50 cells above, 0.00 below"
+  },
+  "wpt_ss": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "Series-series compensated wireless link: T1 is the loosely coupled coil pair",
+    "connectivity_validated": true,
+    "report": "quality  (cost 246)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity     100\n  alignment              100\n  routing                100\n  crossings              100\n  collision              100\n  topology_readability   100\n  visual_rhythm           97\n  clearance               99\n  labelling              100\n  power_path             100\n  conventions            100\n  overall                100"
+  },
+  "wpt_lcc": {
+    "generator": "AIPE-Sketch",
+    "source": "https://github.com/FulongLi/AIPE-Sketch",
+    "revision": "5efe98ced730c254742e36ae87f3ce31549bfce6",
+    "title": "Double-sided LCC compensation around the same coupled coil pair",
+    "connectivity_validated": true,
+    "report": "quality  (cost 442)\n  connectivity           100\n  symmetry               100\n  spacing_uniformity     100\n  alignment              100\n  routing                100\n  crossings              100\n  collision              100\n  topology_readability   100\n  visual_rhythm           99\n  clearance               99\n  labelling              100\n  power_path             100\n  conventions            100\n  overall                100\n  faults:\n    - net A: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band\n    - net A: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band\n    - net B: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band\n    - net B: a 1.25 cell run between adjacent components is outside the 0.75-1.5 band"
   }
 }

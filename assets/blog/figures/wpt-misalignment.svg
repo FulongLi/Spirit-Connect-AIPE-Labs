@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img" aria-label="Lateral offset weakens coupling, then reverses its sign">
+<title>Lateral offset weakens coupling, then reverses its sign</title>
+<rect width="900" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8" fill="#175d85"/></marker></defs>
+<g font-family="Arial, sans-serif" fill="#202b35">
+<text x="30.00" y="35.00" font-size="23" text-anchor="start" fill="#202b35" font-weight="bold">Lateral offset weakens coupling, then reverses its sign</text>
+<text x="30.00" y="86.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="normal">Mutual inductance M / M(aligned)</text>
+<line x1="100.00" y1="105.00" x2="100.00" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="100.00" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">0</text>
+<line x1="266.67" y1="105.00" x2="266.67" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="266.67" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">100</text>
+<line x1="433.33" y1="105.00" x2="433.33" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="433.33" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">200</text>
+<line x1="600.00" y1="105.00" x2="600.00" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="600.00" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">300</text>
+<line x1="766.67" y1="105.00" x2="766.67" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="766.67" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">400</text>
+<line x1="100.00" y1="365.00" x2="850.00" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="87.00" y="371.00" font-size="17" text-anchor="end" fill="#202b35" font-weight="normal">-0.2</text>
+<line x1="100.00" y1="321.67" x2="850.00" y2="321.67" stroke="#e4e8eb" stroke-width="1"/>
+<text x="87.00" y="327.67" font-size="17" text-anchor="end" fill="#202b35" font-weight="normal">0</text>
+<line x1="100.00" y1="213.33" x2="850.00" y2="213.33" stroke="#e4e8eb" stroke-width="1"/>
+<text x="87.00" y="219.33" font-size="17" text-anchor="end" fill="#202b35" font-weight="normal">0.5</text>
+<line x1="100.00" y1="105.00" x2="850.00" y2="105.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="87.00" y="111.00" font-size="17" text-anchor="end" fill="#202b35" font-weight="normal">1</text>
+<line x1="100.00" y1="105.00" x2="100.00" y2="365.00" stroke="#202b35" stroke-width="1.6"/>
+<line x1="100.00" y1="365.00" x2="850.00" y2="365.00" stroke="#202b35" stroke-width="1.6"/>
+<polyline points="100.00,105.00 120.83,105.82 141.67,108.26 162.50,112.24 183.33,117.66 204.17,124.35 225.00,132.17 245.83,140.93 266.67,150.47 287.50,160.62 308.33,171.22 329.17,182.14 350.00,193.23 370.83,204.38 391.67,215.49 412.50,226.45 433.33,237.17 454.17,247.57 475.00,257.58 495.83,267.11 516.67,276.10 537.50,284.49 558.33,292.23 579.17,299.26 600.00,305.56 620.83,311.12 641.67,315.92 662.50,319.98 683.33,323.34 704.17,326.06 725.00,328.18 745.83,329.78 766.67,330.95 787.50,331.74 808.33,332.23 829.17,332.48 850.00,332.54" fill="none" stroke="#175d85" stroke-width="2.8" stroke-linejoin="round"/>
+<line x1="340.00" y1="77.00" x2="366.00" y2="77.00" stroke="#175d85" stroke-width="2.8"/>
+<text x="373.00" y="83.00" font-size="17" text-anchor="start" fill="#202b35" font-weight="normal">150 mm gap</text>
+<polyline points="100.00,321.67 850.00,321.67" fill="none" stroke="#202b35" stroke-width="2.8" stroke-linejoin="round" stroke-dasharray="8 5"/>
+<line x1="485.00" y1="77.00" x2="511.00" y2="77.00" stroke="#202b35" stroke-width="2.8" stroke-dasharray="8 5"/>
+<text x="518.00" y="83.00" font-size="17" text-anchor="start" fill="#202b35" font-weight="normal">Zero</text>
+<text x="475.00" y="426.00" font-size="18" text-anchor="middle" fill="#202b35" font-weight="normal">Lateral offset between pad centres / mm</text>
+<text x="30.00" y="458.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Air-cored 175 mm-radius filament pair at 150 mm separation; the null is a real pad feature.</text>
+</g></svg>

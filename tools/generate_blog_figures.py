@@ -409,4 +409,134 @@ for y,label,end,kind in [(140,'A',400,'Exact failure'),(225,'B',590,'Interval fa
 f.note('Right-censored survivors and interval-censored failures contribute likelihood terms; do not discard them.')
 f.save('censored-observations')
 
+# Wireless power transfer: coupling geometry, the kQ limit and the conducting-medium penalty.
+MU0 = 4e-7 * math.pi
+
+
+def filament_M(a, b, z, d=0.0, n=240):
+    """Neumann mutual inductance of two parallel circular filaments, offset d, separation z."""
+    if d == 0.0:
+        total = 0.0
+        for i in range(n):
+            phi = 2 * math.pi * (i + .5) / n
+            total += math.cos(phi) / math.sqrt(a * a + b * b + z * z - 2 * a * b * math.cos(phi))
+        return MU0 * a * b / 2 * total * (2 * math.pi / n)
+    total = 0.0
+    for i in range(n):
+        p1 = 2 * math.pi * (i + .5) / n
+        ca, sa = a * math.cos(p1), a * math.sin(p1)
+        for j in range(n):
+            p2 = 2 * math.pi * (j + .5) / n
+            dx = ca - b * math.cos(p2) - d
+            dy = sa - b * math.sin(p2)
+            total += math.cos(p1 - p2) / math.sqrt(dx * dx + dy * dy + z * z)
+    return MU0 / (4 * math.pi) * a * b * total * (2 * math.pi / n) ** 2
+
+
+def filament_L(a, r):
+    """Single-turn loop self-inductance; the turns count cancels in k for identical coils."""
+    return MU0 * a * (math.log(8 * a / r) - 2)
+
+
+f = Figure('Wireless charging is a converter chain with an air gap inside it', 400)
+for x, heading, sub in [(40, 'HF inverter', 'Square-wave drive'), (300, 'Coupled coils', 'k well below 1'),
+                        (560, 'Rectifier', 'AC back to DC')]:
+    f.block(x, 130, 205, 95, heading, sub, True)
+f.block(790, 130, 75, 95, 'Load', '')
+f.text(40, 96, 'DC input', 19)
+f.line(245, 177, 294, 177, BLUE, 2.5, arrow=True)
+f.line(505, 177, 554, 177, BLUE, 2.5, arrow=True)
+f.line(765, 177, 784, 177, BLUE, 2.5, arrow=True)
+f.text(402, 118, 'Compensation each side', 17, 'middle', BLUE)
+f.block(300, 280, 205, 50, 'Feedback link', 'In-band or radio')
+f.line(402, 276, 402, 232, BLUE, 2, arrow=True)
+f.text(555, 300, 'The gap is the only new element; the rest', 18)
+f.text(555, 324, 'is ordinary power conversion.', 18)
+f.note('Functional blocks and reference power direction. Filtering, protection and control are omitted.')
+f.save('wpt-chain')
+
+a_ph, r_ph = .020, .0005
+L_ph = filament_L(a_ph, r_ph)
+gaps = [1 + i * .25 for i in range(77)]
+chart('wpt-coupling-gap', 'Coupling falls steeply with gap at phone-coil dimensions', (1, 20), (0, .8),
+      'Coil-to-coil separation / mm', 'Coupling coefficient k',
+      [('20 mm radius pair', [(g, filament_M(a_ph, a_ph, g / 1000) / L_ph) for g in gaps])],
+      [(x, str(x)) for x in [1, 5, 10, 15, 20]], [(x, str(x)) for x in [0, .2, .4, .6, .8]],
+      'Air-cored filament pair, 20 mm mean radius, 0.5 mm conductor. Ferrite backing raises k.')
+
+kqs = [10 ** (x / 60) for x in range(-30, 141)]
+eta = lambda fom: fom * fom / (1 + math.sqrt(1 + fom * fom)) ** 2
+chart('wpt-kq-efficiency', 'One number bounds a two-coil link: the kQ product', (.5, 300), (0, 1),
+      'Figure of merit  kQ = k times the geometric mean of Q1 and Q2', 'Maximum coil-to-coil efficiency',
+      [('Optimal load', [(x, eta(x)) for x in kqs]), ('90% line', [(.5, .9), (300, .9)])],
+      [(.5, '0.5'), (1, '1'), (3, '3'), (10, '10'), (30, '30'), (100, '100'), (300, '300')],
+      [(x, str(x)) for x in [0, .25, .5, .75, 1]],
+      'Optimally loaded coils only; kQ near 22 reaches 90%. Converter losses are additional.', logx=True)
+
+sequence('wpt-qi-phases', 'A Qi pad spends most of its time not transferring power', [
+    ('Analogue and digital ping', ['Excite the coil briefly and look for a response.',
+                                   'An unanswered ping returns the pad to standby.']),
+    ('Identification and configuration', ['The receiver reports its version and requested power.',
+                                          'The transmitter accepts the contract or refuses it.']),
+    ('Power transfer', ['Control-error packets ask for more or less power.',
+                        'The transmitter adjusts frequency, duty or rail voltage.']),
+    ('Monitoring and end', ['Power-loss accounting runs continuously against the contract.',
+                            'A fault, a full battery or a removed phone ends the session.'])],
+    'Phase names follow the Qi specification; packet contents and timing are defined there, not here.')
+
+a_ev, r_ev = .175, .005
+L_ev = filament_L(a_ev, r_ev)
+M0 = filament_M(a_ev, a_ev, .15, 0., 480)
+offs = [i * 12.5 for i in range(37)]
+chart('wpt-misalignment', 'Lateral offset weakens coupling, then reverses its sign', (0, 450), (-.2, 1),
+      'Lateral offset between pad centres / mm', 'Mutual inductance M / M(aligned)',
+      [('150 mm gap', [(d, filament_M(a_ev, a_ev, .15, d / 1000, 180) / M0) for d in offs]),
+       ('Zero', [(0, 0), (450, 0)])],
+      [(x, str(x)) for x in [0, 100, 200, 300, 400]], [(x, str(x)) for x in [-.2, 0, .5, 1]],
+      'Air-cored 175 mm-radius filament pair at 150 mm separation; the null is a real pad feature.')
+
+f = Figure('Ground assembly, vehicle assembly, and the checks between them', 470)
+for x, heading, sub in [(40, 'Grid input', 'PFC front end'), (300, 'HF inverter', '85 kHz band'),
+                        (560, 'GA network', 'Compensation + pad')]:
+    f.block(x, 90, 205, 88, heading, sub, x > 100)
+f.line(245, 134, 294, 134, BLUE, 2.5, arrow=True)
+f.line(505, 134, 554, 134, BLUE, 2.5, arrow=True)
+for x, heading, sub in [(560, 'VA network', 'Pad + compensation'), (300, 'Rectifier', 'Optional DC–DC'),
+                        (40, 'Battery', 'BMS limits')]:
+    f.block(x, 292, 205, 88, heading, sub, x > 100)
+f.line(554, 336, 505, 336, BLUE, 2.5, arrow=True)
+f.line(294, 336, 245, 336, BLUE, 2.5, arrow=True)
+f.line(662, 182, 662, 288, BLUE, 3, arrow=True)
+f.text(690, 240, 'Air gap 100–250 mm', 18)
+f.text(690, 264, 'k roughly 0.1–0.3', 17, color=GREY)
+f.rect(60, 196, 420, 78)
+f.text(270, 224, 'Object and living-object detection', 19, 'middle', weight='bold')
+f.text(270, 250, 'Runs before and during transfer, on the ground side', 17, 'middle', GREY)
+f.note('Functional layout for unidirectional charging. Bidirectional hardware reverses the arrows; '
+       'alignment, communication and safety interlocks are not optional additions.')
+f.save('wpt-ev-architecture')
+
+freqs = [10 ** (3 + x / 40) for x in range(0, 181)]
+skin = lambda f_hz, sigma: 1 / math.sqrt(math.pi * f_hz * MU0 * sigma)
+chart('wpt-seawater-skin', 'Seawater is conductive: the usable frequency window closes from above',
+      (1e3, 1e7), (.02, 200), 'Frequency / Hz', 'Skin depth in the medium / m',
+      [('Seawater 4 S/m', [(x, skin(x, 4)) for x in freqs]),
+       ('Fresh 0.01 S/m', [(x, skin(x, .01)) for x in freqs])],
+      [(1e3, '1 k'), (1e4, '10 k'), (1e5, '100 k'), (1e6, '1 M'), (1e7, '10 M')],
+      [(.02, '0.02'), (.1, '0.1'), (1, '1'), (10, '10'), (200, '200')],
+      'Non-magnetic medium. Seawater gives 0.80 m at 100 kHz; induced loss still grows with f².',
+      logx=True, logy=True)
+
+sequence('wpt-underwater-dock', 'Docked charging replaces a wet-mate connector with a controlled approach', [
+    ('Homing and approach', ['Acoustic or optical guidance brings the vehicle to the cradle.',
+                             'The cradle geometry, not the control loop, sets final alignment.']),
+    ('Seating and gap check', ['Mechanical capture fixes separation and angle.',
+                               'Measure the achieved coupling before raising power.']),
+    ('Power negotiation', ['Agree voltage and current with the vehicle battery system.',
+                           'Communication shares the link or uses a separate channel.']),
+    ('Charge and monitor', ['Track coupler and electronics temperature through the housing.',
+                            'Log coupling drift: biofouling and sediment widen the gap over months.'])],
+    'A functional sequence, not a docking-system specification. Pressure, corrosion and fouling are '
+    'design constraints on every stage above.')
+
 print(f'Generated {len(list(OUT.glob("*.svg")))} total SVG assets, including circuit schematics.')

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" role="img" aria-label="Docked charging replaces a wet-mate connector with a controlled approach">
+<title>Docked charging replaces a wet-mate connector with a controlled approach</title>
+<rect width="900" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8" fill="#175d85"/></marker></defs>
+<g font-family="Arial, sans-serif" fill="#202b35">
+<text x="30.00" y="35.00" font-size="23" text-anchor="start" fill="#202b35" font-weight="bold">Docked charging replaces a wet-mate connector with a controlled approach</text>
+<rect x="45" y="70" width="265" height="65" rx="6" fill="#edf4f8" stroke="#175d85"/>
+<text x="177.50" y="108.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">Homing and approach</text>
+<text x="345.00" y="98.00" font-size="19" text-anchor="start" fill="#202b35" font-weight="normal">Acoustic or optical guidance brings the vehicle to the cradle.</text>
+<text x="345.00" y="122.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">The cradle geometry, not the control loop, sets final alignment.</text>
+<line x1="177.00" y1="137.00" x2="177.00" y2="161.00" stroke="#175d85" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="45" y="165" width="265" height="65" rx="6" fill="#f7f8f9" stroke="#bac4cc"/>
+<text x="177.50" y="203.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">Seating and gap check</text>
+<text x="345.00" y="193.00" font-size="19" text-anchor="start" fill="#202b35" font-weight="normal">Mechanical capture fixes separation and angle.</text>
+<text x="345.00" y="217.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Measure the achieved coupling before raising power.</text>
+<line x1="177.00" y1="232.00" x2="177.00" y2="256.00" stroke="#175d85" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="45" y="260" width="265" height="65" rx="6" fill="#f7f8f9" stroke="#bac4cc"/>
+<text x="177.50" y="298.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">Power negotiation</text>
+<text x="345.00" y="288.00" font-size="19" text-anchor="start" fill="#202b35" font-weight="normal">Agree voltage and current with the vehicle battery system.</text>
+<text x="345.00" y="312.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Communication shares the link or uses a separate channel.</text>
+<line x1="177.00" y1="327.00" x2="177.00" y2="351.00" stroke="#175d85" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="45" y="355" width="265" height="65" rx="6" fill="#f7f8f9" stroke="#bac4cc"/>
+<text x="177.50" y="393.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">Charge and monitor</text>
+<text x="345.00" y="383.00" font-size="19" text-anchor="start" fill="#202b35" font-weight="normal">Track coupler and electronics temperature through the housing.</text>
+<text x="345.00" y="407.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Log coupling drift: biofouling and sediment widen the gap over months.</text>
+<text x="30.00" y="508.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">A functional sequence, not a docking-system specification. Pressure, corrosion and fouling are</text>
+<text x="30.00" y="528.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">design constraints on every stage above.</text>
+</g></svg>

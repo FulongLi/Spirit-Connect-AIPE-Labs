@@ -98,6 +98,23 @@ def llc_fha():
              RETURN='V1.n Lm.b R1.b GND1.t'))
 
 
+def wpt_ss():
+    return circuit('Series-series compensated wireless link: T1 is the loosely coupled coil pair',
+        dict(V1='vsource', C1='cap', T1='transformer', C2='cap', R1='res', GND1='gnd', GND2='gnd'),
+        dict(INV='V1.p C1.a', PRI='C1.b T1.p1', PRI_RET='V1.n T1.p2 GND1.t',
+             SEC='T1.s1 C2.a', OUT='C2.b R1.a', SEC_RET='T1.s2 R1.b GND2.t'))
+
+
+def wpt_lcc():
+    return circuit('Double-sided LCC compensation around the same coupled coil pair',
+        dict(V1='vsource', Lf1='ind', Cf1='cap', C1='cap', T1='transformer',
+             C2='cap', Cf2='cap', Lf2='ind', R1='res', GND1='gnd', GND2='gnd'),
+        dict(INV='V1.p Lf1.a', A='Lf1.b Cf1.a C1.a', PRI='C1.b T1.p1',
+             PRI_RET='V1.n Cf1.b T1.p2 GND1.t',
+             SEC='T1.s1 C2.a', B='C2.b Cf2.a Lf2.a', OUT='Lf2.b R1.a',
+             SEC_RET='T1.s2 Cf2.b R1.b GND2.t'))
+
+
 def four_switch():
     return circuit('Four-switch non-inverting buck-boost: common return, distinct positive rails',
         dict(V1='vsource', C1='cap', Q1='nmos', Q2='nmos', Q3='nmos', Q4='nmos',
@@ -173,7 +190,8 @@ BUILDERS = dict(buck=topologies.buck, boost=topologies.boost,
     sepic=lambda: capacitor_transfer('sepic'), zeta=lambda: capacitor_transfer('zeta'),
     flyback=flyback, forward_2sw=forward, dpt=dpt, dab=dab,
     half_bridge=topologies.half_bridge, full_bridge=topologies.full_bridge,
-    three_phase=topologies.three_phase_inverter, llc_fha=llc_fha, four_switch=four_switch)
+    three_phase=topologies.three_phase_inverter, llc_fha=llc_fha, four_switch=four_switch,
+    wpt_ss=wpt_ss, wpt_lcc=wpt_lcc)
 out = ROOT / 'assets/blog/figures'
 ir = ROOT / 'assets/blog/circuits'
 out.mkdir(parents=True, exist_ok=True)

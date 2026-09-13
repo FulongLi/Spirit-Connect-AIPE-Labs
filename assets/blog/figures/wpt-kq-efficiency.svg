@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img" aria-label="One number bounds a two-coil link: the kQ product">
+<title>One number bounds a two-coil link: the kQ product</title>
+<rect width="900" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8" fill="#175d85"/></marker></defs>
+<g font-family="Arial, sans-serif" fill="#202b35">
+<text x="30.00" y="35.00" font-size="23" text-anchor="start" fill="#202b35" font-weight="bold">One number bounds a two-coil link: the kQ product</text>
+<text x="30.00" y="86.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="normal">Maximum coil-to-coil efficiency</text>
+<line x1="100.00" y1="105.00" x2="100.00" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="100.00" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">0.5</text>
+<line x1="181.27" y1="105.00" x2="181.27" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="181.27" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">1</text>
+<line x1="310.07" y1="105.00" x2="310.07" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="310.07" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">3</text>
+<line x1="451.23" y1="105.00" x2="451.23" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="451.23" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">10</text>
+<line x1="580.04" y1="105.00" x2="580.04" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="580.04" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">30</text>
+<line x1="721.19" y1="105.00" x2="721.19" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="721.19" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">100</text>
+<line x1="850.00" y1="105.00" x2="850.00" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="850.00" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">300</text>
+<line x1="100.00" y1="365.00" x2="850.00" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="87.00" y="371.00" font-size="17" text-anchor="end" fill="#202b35" font-weight="normal">0</text>
+<line x1="100.00" y1="300.00" x2="850.00" y2="300.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="87.00" y="306.00" font-size="17" text-anchor="end" fill="#202b35" font-weight="normal">0.25</text>
+<line x1="100.00" y1="235.00" x2="850.00" y2="235.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="87.00" y="241.00" font-size="17" text-anchor="end" fill="#202b35" font-weight="normal">0.5</text>
+<line x1="100.00" y1="170.00" x2="850.00" y2="170.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="87.00" y="176.00" font-size="17" text-anchor="end" fill="#202b35" font-weight="normal">0.75</text>
+<line x1="100.00" y1="105.00" x2="850.00" y2="105.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="87.00" y="111.00" font-size="17" text-anchor="end" fill="#202b35" font-weight="normal">1</text>
+<line x1="100.00" y1="105.00" x2="100.00" y2="365.00" stroke="#202b35" stroke-width="1.6"/>
+<line x1="100.00" y1="365.00" x2="850.00" y2="365.00" stroke="#202b35" stroke-width="1.6"/>
+<polyline points="46.29,358.81 50.78,358.34 55.28,357.83 59.78,357.29 64.28,356.72 68.78,356.10 73.28,355.44 77.78,354.74 82.28,353.99 86.78,353.18 91.28,352.33 95.78,351.42 100.28,350.45 104.78,349.42 109.28,348.33 113.78,347.17 118.28,345.94 122.78,344.64 127.27,343.27 131.77,341.82 136.27,340.29 140.77,338.68 145.27,336.99 149.77,335.22 154.27,333.36 158.77,331.42 163.27,329.39 167.77,327.27 172.27,325.06 176.77,322.77 181.27,320.39 185.77,317.93 190.27,315.38 194.77,312.75 199.26,310.05 203.76,307.26 208.26,304.40 212.76,301.48 217.26,298.48 221.76,295.43 226.26,292.31 230.76,289.15 235.26,285.93 239.76,282.67 244.26,279.37 248.76,276.04 253.26,272.68 257.76,269.30 262.26,265.90 266.76,262.49 271.26,259.06 275.75,255.64 280.25,252.22 284.75,248.81 289.25,245.40 293.75,242.02 298.25,238.65 302.75,235.31 307.25,231.99 311.75,228.71 316.25,225.46 320.75,222.25 325.25,219.09 329.75,215.96 334.25,212.88 338.75,209.85 343.25,206.87 347.74,203.94 352.24,201.06 356.74,198.23 361.24,195.46 365.74,192.75 370.24,190.10 374.74,187.50 379.24,184.96 383.74,182.48 388.24,180.05 392.74,177.69 397.24,175.38 401.74,173.13 406.24,170.94 410.74,168.81 415.24,166.73 419.74,164.71 424.23,162.74 428.73,160.83 433.23,158.97 437.73,157.16 442.23,155.41 446.73,153.71 451.23,152.06 455.73,150.46 460.23,148.90 464.73,147.40 469.23,145.94 473.73,144.52 478.23,143.15 482.73,141.83 487.23,140.54 491.73,139.30 496.22,138.10 500.72,136.93 505.22,135.80 509.72,134.72 514.22,133.66 518.72,132.64 523.22,131.66 527.72,130.71 532.22,129.79 536.72,128.90 541.22,128.04 545.72,127.21 550.22,126.41 554.72,125.64 559.22,124.89 563.72,124.17 568.22,123.48 572.71,122.81 577.21,122.16 581.71,121.53 586.21,120.93 590.71,120.35 595.21,119.79 599.71,119.25 604.21,118.73 608.71,118.22 613.21,117.74 617.71,117.27 622.21,116.82 626.71,116.38 631.21,115.96 635.71,115.56 640.21,115.17 644.70,114.79 649.20,114.43 653.70,114.08 658.20,113.75 662.70,113.42 667.20,113.11 671.70,112.81 676.20,112.52 680.70,112.24 685.20,111.97 689.70,111.71 694.20,111.46 698.70,111.22 703.20,110.99 707.70,110.77 712.20,110.55 716.70,110.35 721.19,110.15 725.69,109.96 730.19,109.77 734.69,109.59 739.19,109.42 743.69,109.26 748.19,109.10 752.69,108.94 757.19,108.80 761.69,108.66 766.19,108.52 770.69,108.39 775.19,108.26 779.69,108.14 784.19,108.02 788.69,107.91 793.18,107.80 797.68,107.69 802.18,107.59 806.68,107.50 811.18,107.40" fill="none" stroke="#175d85" stroke-width="2.8" stroke-linejoin="round"/>
+<line x1="340.00" y1="77.00" x2="366.00" y2="77.00" stroke="#175d85" stroke-width="2.8"/>
+<text x="373.00" y="83.00" font-size="17" text-anchor="start" fill="#202b35" font-weight="normal">Optimal load</text>
+<polyline points="100.00,131.00 850.00,131.00" fill="none" stroke="#202b35" stroke-width="2.8" stroke-linejoin="round" stroke-dasharray="8 5"/>
+<line x1="485.00" y1="77.00" x2="511.00" y2="77.00" stroke="#202b35" stroke-width="2.8" stroke-dasharray="8 5"/>
+<text x="518.00" y="83.00" font-size="17" text-anchor="start" fill="#202b35" font-weight="normal">90% line</text>
+<text x="475.00" y="426.00" font-size="18" text-anchor="middle" fill="#202b35" font-weight="normal">Figure of merit  kQ = k times the geometric mean of Q1 and Q2</text>
+<text x="30.00" y="458.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Optimally loaded coils only; kQ near 22 reaches 90%. Converter losses are additional.</text>
+</g></svg>

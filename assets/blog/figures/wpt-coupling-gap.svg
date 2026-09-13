@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img" aria-label="Coupling falls steeply with gap at phone-coil dimensions">
+<title>Coupling falls steeply with gap at phone-coil dimensions</title>
+<rect width="900" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8" fill="#175d85"/></marker></defs>
+<g font-family="Arial, sans-serif" fill="#202b35">
+<text x="30.00" y="35.00" font-size="23" text-anchor="start" fill="#202b35" font-weight="bold">Coupling falls steeply with gap at phone-coil dimensions</text>
+<text x="30.00" y="86.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="normal">Coupling coefficient k</text>
+<line x1="100.00" y1="105.00" x2="100.00" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="100.00" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">1</text>
+<line x1="257.89" y1="105.00" x2="257.89" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="257.89" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">5</text>
+<line x1="455.26" y1="105.00" x2="455.26" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="455.26" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">10</text>
+<line x1="652.63" y1="105.00" x2="652.63" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="652.63" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">15</text>
+<line x1="850.00" y1="105.00" x2="850.00" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="850.00" y="392.00" font-size="17" text-anchor="middle" fill="#202b35" font-weight="normal">20</text>
+<line x1="100.00" y1="365.00" x2="850.00" y2="365.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="87.00" y="371.00" font-size="17" text-anchor="end" fill="#202b35" font-weight="normal">0</text>
+<line x1="100.00" y1="300.00" x2="850.00" y2="300.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="87.00" y="306.00" font-size="17" text-anchor="end" fill="#202b35" font-weight="normal">0.2</text>
+<line x1="100.00" y1="235.00" x2="850.00" y2="235.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="87.00" y="241.00" font-size="17" text-anchor="end" fill="#202b35" font-weight="normal">0.4</text>
+<line x1="100.00" y1="170.00" x2="850.00" y2="170.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="87.00" y="176.00" font-size="17" text-anchor="end" fill="#202b35" font-weight="normal">0.6</text>
+<line x1="100.00" y1="105.00" x2="850.00" y2="105.00" stroke="#e4e8eb" stroke-width="1"/>
+<text x="87.00" y="111.00" font-size="17" text-anchor="end" fill="#202b35" font-weight="normal">0.8</text>
+<line x1="100.00" y1="105.00" x2="100.00" y2="365.00" stroke="#202b35" stroke-width="1.6"/>
+<line x1="100.00" y1="365.00" x2="850.00" y2="365.00" stroke="#202b35" stroke-width="1.6"/>
+<polyline points="100.00,99.59 109.87,118.74 119.74,134.36 129.61,147.53 139.47,158.91 149.34,168.92 159.21,177.84 169.08,185.89 178.95,193.21 188.82,199.92 198.68,206.10 208.55,211.84 218.42,217.18 228.29,222.17 238.16,226.86 248.03,231.27 257.89,235.43 267.76,239.37 277.63,243.11 287.50,246.66 297.37,250.04 307.24,253.26 317.11,256.34 326.97,259.29 336.84,262.11 346.71,264.81 356.58,267.41 366.45,269.90 376.32,272.30 386.18,274.60 396.05,276.83 405.92,278.97 415.79,281.04 425.66,283.04 435.53,284.97 445.39,286.83 455.26,288.64 465.13,290.39 475.00,292.08 484.87,293.72 494.74,295.30 504.61,296.84 514.47,298.34 524.34,299.79 534.21,301.20 544.08,302.56 553.95,303.89 563.82,305.18 573.68,306.44 583.55,307.66 593.42,308.85 603.29,310.00 613.16,311.13 623.03,312.22 632.89,313.29 642.76,314.32 652.63,315.34 662.50,316.32 672.37,317.28 682.24,318.22 692.11,319.13 701.97,320.02 711.84,320.89 721.71,321.74 731.58,322.56 741.45,323.37 751.32,324.16 761.18,324.93 771.05,325.68 780.92,326.41 790.79,327.13 800.66,327.83 810.53,328.51 820.39,329.18 830.26,329.83 840.13,330.47 850.00,331.09" fill="none" stroke="#175d85" stroke-width="2.8" stroke-linejoin="round"/>
+<line x1="340.00" y1="77.00" x2="366.00" y2="77.00" stroke="#175d85" stroke-width="2.8"/>
+<text x="373.00" y="83.00" font-size="17" text-anchor="start" fill="#202b35" font-weight="normal">20 mm radius pair</text>
+<text x="475.00" y="426.00" font-size="18" text-anchor="middle" fill="#202b35" font-weight="normal">Coil-to-coil separation / mm</text>
+<text x="30.00" y="458.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Air-cored filament pair, 20 mm mean radius, 0.5 mm conductor. Ferrite backing raises k.</text>
+</g></svg>

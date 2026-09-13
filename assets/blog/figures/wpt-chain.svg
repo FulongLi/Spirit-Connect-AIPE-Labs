@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" role="img" aria-label="Wireless charging is a converter chain with an air gap inside it">
+<title>Wireless charging is a converter chain with an air gap inside it</title>
+<rect width="900" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8" fill="#175d85"/></marker></defs>
+<g font-family="Arial, sans-serif" fill="#202b35">
+<text x="30.00" y="35.00" font-size="23" text-anchor="start" fill="#202b35" font-weight="bold">Wireless charging is a converter chain with an air gap inside it</text>
+<rect x="40" y="130" width="205" height="95" rx="6" fill="#edf4f8" stroke="#175d85"/>
+<text x="142.50" y="172.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">HF inverter</text>
+<text x="142.50" y="196.50" font-size="17" text-anchor="middle" fill="#687581" font-weight="normal">Square-wave drive</text>
+<rect x="300" y="130" width="205" height="95" rx="6" fill="#edf4f8" stroke="#175d85"/>
+<text x="402.50" y="172.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">Coupled coils</text>
+<text x="402.50" y="196.50" font-size="17" text-anchor="middle" fill="#687581" font-weight="normal">k well below 1</text>
+<rect x="560" y="130" width="205" height="95" rx="6" fill="#edf4f8" stroke="#175d85"/>
+<text x="662.50" y="172.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">Rectifier</text>
+<text x="662.50" y="196.50" font-size="17" text-anchor="middle" fill="#687581" font-weight="normal">AC back to DC</text>
+<rect x="790" y="130" width="75" height="95" rx="6" fill="#f7f8f9" stroke="#bac4cc"/>
+<text x="827.50" y="183.50" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">Load</text>
+<text x="40.00" y="96.00" font-size="19" text-anchor="start" fill="#202b35" font-weight="normal">DC input</text>
+<line x1="245.00" y1="177.00" x2="294.00" y2="177.00" stroke="#175d85" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="505.00" y1="177.00" x2="554.00" y2="177.00" stroke="#175d85" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="765.00" y1="177.00" x2="784.00" y2="177.00" stroke="#175d85" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="402.00" y="118.00" font-size="17" text-anchor="middle" fill="#175d85" font-weight="normal">Compensation each side</text>
+<rect x="300" y="280" width="205" height="50" rx="6" fill="#f7f8f9" stroke="#bac4cc"/>
+<text x="402.50" y="300.00" font-size="20" text-anchor="middle" fill="#202b35" font-weight="bold">Feedback link</text>
+<text x="402.50" y="324.00" font-size="17" text-anchor="middle" fill="#687581" font-weight="normal">In-band or radio</text>
+<line x1="402.00" y1="276.00" x2="402.00" y2="232.00" stroke="#175d85" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="555.00" y="300.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="normal">The gap is the only new element; the rest</text>
+<text x="555.00" y="324.00" font-size="18" text-anchor="start" fill="#202b35" font-weight="normal">is ordinary power conversion.</text>
+<text x="30.00" y="378.00" font-size="17" text-anchor="start" fill="#687581" font-weight="normal">Functional blocks and reference power direction. Filtering, protection and control are omitted.</text>
+</g></svg>

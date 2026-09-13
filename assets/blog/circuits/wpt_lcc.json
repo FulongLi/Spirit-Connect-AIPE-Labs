@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "name": "Double-sided LCC compensation around the same coupled coil pair",
+  "components": [
+    {
+      "ref": "C1",
+      "kind": "cap",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "C2",
+      "kind": "cap",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "Cf1",
+      "kind": "cap",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "Cf2",
+      "kind": "cap",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "GND1",
+      "kind": "gnd",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "GND2",
+      "kind": "gnd",
+      "ports": [
+        "t"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "Lf1",
+      "kind": "ind",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "Lf2",
+      "kind": "ind",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "R1",
+      "kind": "res",
+      "ports": [
+        "a",
+        "b"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "T1",
+      "kind": "transformer",
+      "ports": [
+        "p1",
+        "p2",
+        "s1",
+        "s2"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    },
+    {
+      "ref": "V1",
+      "kind": "vsource",
+      "ports": [
+        "p",
+        "n"
+      ],
+      "role": null,
+      "interface": null,
+      "attrs": {}
+    }
+  ],
+  "nets": {
+    "A": [
+      "C1.a",
+      "Cf1.a",
+      "Lf1.b"
+    ],
+    "B": [
+      "C2.b",
+      "Cf2.a",
+      "Lf2.a"
+    ],
+    "INV": [
+      "Lf1.a",
+      "V1.p"
+    ],
+    "OUT": [
+      "Lf2.b",
+      "R1.a"
+    ],
+    "PRI": [
+      "C1.b",
+      "T1.p1"
+    ],
+    "PRI_RET": [
+      "Cf1.b",
+      "GND1.t",
+      "T1.p2",
+      "V1.n"
+    ],
+    "SEC": [
+      "C2.a",
+      "T1.s1"
+    ],
+    "SEC_RET": [
+      "Cf2.b",
+      "GND2.t",
+      "R1.b",
+      "T1.s2"
+    ]
+  }
+}
