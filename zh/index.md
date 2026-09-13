@@ -1,9 +1,9 @@
 ---
 layout: default
-title: 面向电力工程的 AI 平台
+title: 面向 Coding Agent 的电力电子 AI 开放资源
 lang: zh
 permalink: /zh/
-description: AIPE Labs 是面向电力工程的开放 AI 平台 —— 工程知识、数据库、工具、专业智能体与工作流，覆盖器件、磁性元件、变换器与系统。工程师通过本网站进入，Coding Agent 通过 aipe.md 进入。
+description: 通过一条链接，让 Claude Code、Codex、Cursor 等 Coding Agent 接入 AIPE Labs 的电力电子开放知识、工具、专业智能体与工程工作流。
 image: /images/background/sst.png
 ---
 
@@ -11,18 +11,17 @@ image: /images/background/sst.png
   <div class="container">
     <h1>为 AI 供能的电力系统，由 AI 来设计</h1>
     <p class="lead">
-      AIPE Labs 是面向<strong>电力工程的开放 AI 平台</strong>。
-      它把工程知识、机器可读数据、工具、专业智能体与工作流整合在一起，
-      让真实的工程任务可以端到端完成 —— 从半导体器件到变换器，再到电网。
+      我们正在连接智能系统设计与为其供能的能源基础设施
+      —— 从半导体器件到变换器，再到电网。
     </p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#agent-link">复制 AIPE 链接</a>
-      <a class="btn btn-ghost" href="{{ '/zh/resources/' | relative_url }}">浏览全部资源</a>
+      <a class="btn btn-ghost" href="https://github.com/AIPE-Labs" target="_blank" rel="noopener">查看开源项目 ↗</a>
     </div>
 
-    <div class="workflow-panel" aria-label="Coding Agent 如何使用 AIPE Labs 能力索引">
+    <div class="workflow-panel" aria-label="Coding Agent 如何使用 AIPE Labs 资源索引">
       <div class="workflow-toolbar">
-        <span class="workflow-brand"><span class="status-dot"></span> AIPE Labs 能力索引</span>
+        <span class="workflow-brand"><span class="status-dot"></span> AIPE Labs 资源图谱</span>
         <span class="workflow-status">开放 · 持续建设中</span>
       </div>
       <div class="workflow-prompt">
@@ -30,87 +29,58 @@ image: /images/background/sst.png
         <p>阅读 <strong>aipel.co.uk/aipe.md</strong>，找到合适的 AIPE 资源，帮助我分析一台 DAB 变换器。</p>
       </div>
       <div class="workflow-route" aria-hidden="true">
-        <span>Coding Agent</span><b>→</b><span class="workflow-index">aipe.md</span><b>→</b><span>相关能力</span>
+        <span>Coding Agent</span><b>→</b><span class="workflow-index">aipe.md</span><b>→</b><span>相关资源</span>
       </div>
       <div class="workflow-resources">
-        <span>知识</span><span>数据库</span><span>工具</span>
-        <span>智能体</span><span>工作流</span><span>设计参考</span>
+        <span>仿真</span><span>有限元分析</span><span>器件</span>
+        <span>磁性元件</span><span>变换器</span><span>验证</span>
       </div>
     </div>
   </div>
 </header>
 
 <section class="section section-alt agent-entry" id="agent-link">
-  <div class="container">
-    <h2 class="section-title-centred">同一个平台，两个入口</h2>
-    <div class="grid grid-two">
-      <div class="card entry-card">
-        <span class="scope-kicker">面向工程师</span>
-        <h3>本网站</h3>
-        <p>
-          按工程领域组织的工程知识、机器可读的数据库，以及可阅读、可质疑、可复用的设计参考。
-        </p>
-        <a class="text-link" href="{{ '/zh/resources/' | relative_url }}">浏览能力体系 →</a>
-      </div>
-      <div class="card entry-card">
-        <span class="scope-kicker">面向 Coding Agent</span>
-        <h3><code>aipe.md</code></h3>
-        <p>
-          同一套生态的纯 Markdown 索引：AIPE 掌握哪些知识，有哪些数据库、工具、智能体与工作流，
-          以及它们之间的关系。无需账号、无需插件、不依赖封闭平台。
-        </p>
-        <div class="agent-link">
-          <code id="agent-url">https://aipel.co.uk/aipe.md</code>
-          <button class="copy-btn" data-copy-target="agent-url" data-copied-label="已复制!" aria-live="polite">复制链接</button>
-        </div>
-        <a class="text-link" href="{{ '/zh/plugin/' | relative_url }}">了解如何在 Coding Agent 中使用 →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2>AIPE 能帮你做什么？</h2>
-    <p class="lead section-lead-spaced">
-      平台按工程任务组织，而不是按学科分类。每张卡片都如实说明该任务目前由什么来支撑。
+  <div class="container narrow-center">
+    <h2>一条链接，就是整个生态的入口</h2>
+    <p class="lead">
+      <code>aipe.md</code> 是一份专门为 AI 智能体编写的 Markdown 索引。它帮助智能体根据当前任务，
+      找到最相关的 AIPE Labs 资源；不需要安装新应用、注册账号，也不受封闭平台限制。
     </p>
-    {% include capability-cards.html %}
+    <div class="agent-link">
+      <code id="agent-url">https://aipel.co.uk/aipe.md</code>
+      <button class="copy-btn" data-copy-target="agent-url" data-copied-label="已复制!" aria-live="polite">复制链接</button>
+    </div>
+    <p class="agent-steps">把链接粘贴给你的 Coding Agent，然后直接描述你想完成的工程任务。</p>
+    <div class="prompt-grid">
+      <div class="prompt-card"><span>仿真</span><p>“找到可用的 AIPE 资源，帮助我建立并检查这台变换器的仿真模型。”</p></div>
+      <div class="prompt-card"><span>有限元分析</span><p>“使用 AIPE 索引，帮我规划磁场或热场有限元分析流程。”</p></div>
+      <div class="prompt-card"><span>设计与验证</span><p>“根据这个规格，找到相关的器件、磁性元件、控制与验证资源。”</p></div>
+    </div>
+    <a class="text-link" href="{{ '/zh/plugin/' | relative_url }}">了解如何在 Coding Agent 中使用 AIPE →</a>
   </div>
 </section>
 
 <section class="section section-alt">
   <div class="container">
-    <h2>四个工程领域</h2>
-    <p class="lead section-lead-spaced">
-      知识、数据与能力都按同样的四个领域标注，因此器件层面的问题与系统层面的问题指向同一个资料库。
-    </p>
-    {% include domain-cards.html %}
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2>平台是如何组织的</h2>
-    <p class="lead section-lead-spaced">
-      把这些层次区分开，工程任务才能由现成的部件组装出来。设计参考则是这种组合成果的证据。
-    </p>
-    <ol class="layer-flow">
-      <li><strong>知识</strong><span>解释、公式与方法</span></li>
-      <li><strong>数据库</strong><span>机器可读的工程数据</span></li>
-      <li><strong>工具</strong><span>输入 → 运算 → 输出</span></li>
-      <li><strong>智能体</strong><span>专业推理与编排</span></li>
-      <li><strong>工作流</strong><span>一项完整的工程任务</span></li>
-    </ol>
-    <p class="small reference-note">
-      各层的成熟度并不相同。数据库与知识已经公开；工具尚处早期；
-      AIPE 专业智能体尚未发布。<a href="{{ '/zh/resources/' | relative_url }}">资源总览页面</a>
-      标注了每一项的当前状态。
-    </p>
-
-    <h3 class="layer-outcome-heading">平台产出什么</h3>
-    {% include resource-cards.html items=site.data.resources.design_references %}
-    <p><a class="text-link" href="{{ '/zh/resources/design-references/' | relative_url }}">全部设计参考 →</a></p>
+    <h2>覆盖每一个工程尺度</h2>
+    <p class="lead">AIPE Labs 连接电力电子工程师日常工作的多个层级，让智能体获得超越单一计算的完整上下文。</p>
+    <div class="grid scope-grid">
+      <a class="card scope-card" href="{{ '/zh/power/devices/' | relative_url }}">
+        <img src="{{ '/images/research/components.png' | relative_url }}" alt="功率半导体器件" loading="lazy" decoding="async">
+        <span class="scope-kicker">01 · 元件层</span><h3>器件与磁性元件</h3>
+        <p>器件表征、模型、数据、损耗估算、热特性与磁性元件设计资源。</p><strong>查看器件资源 →</strong>
+      </a>
+      <a class="card scope-card" href="{{ '/zh/power/converters/' | relative_url }}">
+        <img src="{{ '/images/research/converter.png' | relative_url }}" alt="功率变换器设计" loading="lazy" decoding="async">
+        <span class="scope-kicker">02 · 变换器层</span><h3>变换器与控制</h3>
+        <p>拓扑比较、变换器建模、控制、优化与可复现设计流程。</p><strong>查看变换器资源 →</strong>
+      </a>
+      <a class="card scope-card" href="{{ '/zh/power/microgrids/' | relative_url }}">
+        <img src="{{ '/images/research/microgrids.png' | relative_url }}" alt="电力电子系统与微电网" loading="lazy" decoding="async">
+        <span class="scope-kicker">03 · 系统层</span><h3>系统与微电网</h3>
+        <p>直流配电、微电网架构、系统集成、任务工况与验证规划。</p><strong>查看系统资源 →</strong>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -120,11 +90,11 @@ image: /images/background/sst.png
       <h2>今天就要有用，也要足够有野心</h2>
       <p class="lead">
         我们欢迎开发者使用或贡献资源，欢迎研究人员共同验证新的工程流程，也期待与企业、
-        投资机构和战略合作伙伴一起建设下一代 AI 辅助电力工程平台。
+        投资机构和战略合作伙伴一起建设下一代 AI 辅助电力电子工程平台。
       </p>
       <div class="hero-actions align-left">
         <a class="btn btn-primary" href="{{ '/zh/contact/' | relative_url }}">讨论合作</a>
-        <a class="btn btn-ghost" href="https://github.com/AIPE-Labs" target="_blank" rel="noopener">查看开源项目 ↗</a>
+        <a class="btn btn-ghost" href="{{ '/zh/resources/prototypes/' | relative_url }}">查看设计工作</a>
       </div>
     </div>
     <div class="collaboration-list">
@@ -135,4 +105,33 @@ image: /images/background/sst.png
   </div>
 </section>
 
-{% include partners.html intro="连接人工智能、电力工程与能源系统研究的学术和产业合作关系。" %}
+<section class="section section-alt partners-section">
+  <div class="container">
+    <h2>合作伙伴</h2>
+    <p>连接人工智能、电力电子与能源系统研究的学术和产业合作关系。</p>
+    <div class="partner-marquee" role="region" aria-label="合作伙伴与协作机构">
+      <div class="partner-track">
+        <div class="partner-list" role="list">
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="卡迪夫大学" loading="lazy" decoding="async"></div>
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="住友重机械工业" loading="lazy" decoding="async"></div>
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="上海大学" loading="lazy" decoding="async"></div>
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="泮芯科技" loading="lazy" decoding="async"></div>
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="拉夫堡大学" loading="lazy" decoding="async"></div>
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="格拉斯哥大学" loading="lazy" decoding="async"></div>
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/nvidia-logo.webp' | relative_url }}" alt="英伟达" loading="lazy" decoding="async"></div>
+          <div class="partner-logo" role="listitem"><img src="{{ '/images/general/mps_logo.png' | relative_url }}" alt="芯源系统" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="partner-list" aria-hidden="true">
+          <div class="partner-logo"><img src="{{ '/images/general/CU_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="{{ '/images/general/SHI_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="{{ '/images/general/SHU_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="{{ '/images/general/PX_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="{{ '/images/general/LU_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="{{ '/images/general/UG_logo.webp' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="{{ '/images/general/nvidia-logo.webp' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="partner-logo"><img src="{{ '/images/general/mps_logo.png' | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

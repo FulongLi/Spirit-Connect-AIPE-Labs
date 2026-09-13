@@ -1,5 +1,5 @@
 title: "Spirit Connect AIPE Labs"
-description: "An open platform for AI in power engineering — engineering knowledge, databases, tools, specialist agents and workflows across devices, magnetics, converters and systems."
+description: "Open power electronics knowledge and design resources for coding agents"
 email: "info@spiritconnect.co.uk"
 url: "https://aipel.co.uk"
 baseurl: ""
@@ -7,19 +7,12 @@ timezone: Europe/London
 
 permalink: /resources/blog/:title/
 
-sass:
-  sass_dir: _sass
-  style: expanded
-
 exclude:
   - README.md
   - LICENSE.md
   - Gemfile
   - Gemfile.lock
   - tools
-  - vendor
-  - .bundle
-  - .claude
   - .idea
   - .gitignore
 

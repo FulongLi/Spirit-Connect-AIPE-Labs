@@ -36,7 +36,7 @@ image: /images/background/sst.png
       </div>
       <div class="card">
         <h3>Resources stay connected</h3>
-        <p>Device data, magnetics, converter topologies, design references, and open-source tools remain reachable through one maintained index.</p>
+        <p>Device data, magnetics, converter topologies, prototype design references, and open-source tools remain reachable through one maintained index.</p>
       </div>
       <div class="card">
         <h3>Works in your current workflow</h3>

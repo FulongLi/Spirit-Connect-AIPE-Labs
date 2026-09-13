@@ -285,7 +285,7 @@ description: 开关如何实现 —— 功率二极管、MOSFET、IGBT、SiC 与
           开关波形、电容曲线与热网络，专为自动器件选型与任务需求感知的设计而构建。
         </p>
         <div class="feature-actions">
-          <a href="{{ '/zh/resources/databases/transistors/' | relative_url }}" class="btn btn-primary">查看数据库</a>
+          <a href="{{ '/zh/database/transistors/' | relative_url }}" class="btn btn-primary">查看数据库</a>
           <a href="{{ '/zh/contact/' | relative_url }}" class="btn btn-ghost">联系我们</a>
         </div>
       </div>

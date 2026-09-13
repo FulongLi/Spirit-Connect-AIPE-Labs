@@ -1,7 +1,3 @@
-{%- comment -%}
-Site header. Menu structure comes from _data/navigation.yml (header:) and the
-engineering menu from _data/domains.yml, so English and Chinese cannot drift.
-{%- endcomment -%}
 {% assign lang = page.lang | default: 'en' %}
 {% assign t = site.data.i18n[lang] %}
 {%- if lang == 'zh' -%}
@@ -19,21 +15,23 @@ engineering menu from _data/domains.yml, so English and Chinese cannot drift.
       <img class="nav-logo" src="{{ '/images/general/AIPE_logo_black.svg' | relative_url }}" alt="AIPE Labs">
     </a>
     <nav id="mainmenu" class="menu">
-      {%- for group in site.data.navigation.header -%}
-        {%- if group.url -%}
-      <a class="{{ group.class }}" href="{{ lp | append: group.url | relative_url }}">{{ group[lang] }}</a>
-        {%- else -%}
-          {%- if group.source == 'domains' -%}{%- assign links = site.data.domains -%}{%- else -%}{%- assign links = group.items -%}{%- endif -%}
       <div class="dropdown">
-        <button class="drop-toggle" aria-expanded="false">{{ group[lang] }} ▾</button>
+        <button class="drop-toggle" aria-expanded="false">{{ t.nav_engineering }} ▾</button>
         <div class="drop-menu">
-          {%- for link in links -%}
-          <a href="{{ lp | append: link.url | relative_url }}">{% if group.source == 'domains' %}{{ link[lang].label }}{% else %}{{ link[lang] }}{% endif %}</a>
-          {%- endfor -%}
+          <a href="{{ lp | append: '/power/microgrids/' | relative_url }}">{{ t.nav_microgrids }}</a>
+          <a href="{{ lp | append: '/power/converters/' | relative_url }}">{{ t.nav_converters }}</a>
+          <a href="{{ lp | append: '/power/devices/' | relative_url }}">{{ t.nav_devices }}</a>
         </div>
       </div>
-        {%- endif -%}
-      {%- endfor -%}
+      <div class="dropdown">
+        <button class="drop-toggle" aria-expanded="false">{{ t.nav_resources }} ▾</button>
+        <div class="drop-menu">
+          <a href="{{ lp | append: '/resources/blog/' | relative_url }}">{{ t.nav_blog }}</a>
+          <a href="{{ lp | append: '/resources/database/' | relative_url }}">{{ t.nav_database }}</a>
+          <a href="{{ lp | append: '/resources/prototypes/' | relative_url }}">{{ t.nav_prototypes }}</a>
+        </div>
+      </div>
+      <a class="nav-plugin" href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a>
       <a class="nav-partner-mobile" href="{{ lp | append: '/contact/' | relative_url }}">{{ t.nav_contact }}</a>
     </nav>
     <div class="nav-right">

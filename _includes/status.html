@@ -1,7 +1,0 @@
-{%- comment -%}
-Maturity badge. Renders a key from _data/statuses.yml in the reader's language.
-Usage: {% include status.html key=entry.status %}
-{%- endcomment -%}
-{%- assign lang = page.lang | default: 'en' -%}
-{%- assign status = site.data.statuses[include.key] -%}
-{%- if status -%}<span class="status-tag status-tag--{{ include.key }}">{{ status[lang] }}</span>{%- endif -%}
