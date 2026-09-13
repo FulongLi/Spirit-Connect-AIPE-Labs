@@ -1,0 +1,18 @@
+{% assign partner_lang = page.lang | default: 'en' %}
+{% assign partner_alt_key = 'alt_' | append: partner_lang %}
+<div class="partner-marquee" role="region" aria-label="{% if partner_lang == 'zh' %}合作伙伴与协作机构{% else %}Partners and collaborators{% endif %}">
+  <div class="partner-track">
+    <div class="partner-list" role="list">
+      {% for partner in site.data.partners %}
+      {% assign partner_image = '/images/general/' | append: partner.image %}
+      <div class="partner-logo" role="listitem"><img src="{{ partner_image | relative_url }}" alt="{{ partner[partner_alt_key] }}" loading="lazy" decoding="async"></div>
+      {% endfor %}
+    </div>
+    <div class="partner-list" aria-hidden="true">
+      {% for partner in site.data.partners %}
+      {% assign partner_image = '/images/general/' | append: partner.image %}
+      <div class="partner-logo"><img src="{{ partner_image | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+- image: CU_logo.png
+  alt_en: Cardiff University
+  alt_zh: 卡迪夫大学
+- image: SHI_logo.png
+  alt_en: Sumitomo Heavy Industries
+  alt_zh: 住友重机械工业
+- image: SHU_logo.png
+  alt_en: Shanghai University
+  alt_zh: 上海大学
+- image: PX_logo.png
+  alt_en: Panxin Technologies
+  alt_zh: 泮芯科技
+- image: LU_logo.png
+  alt_en: Loughborough University
+  alt_zh: 拉夫堡大学
+- image: UG_logo.webp
+  alt_en: University of Glasgow
+  alt_zh: 格拉斯哥大学
+- image: nvidia-logo.webp
+  alt_en: NVIDIA
+  alt_zh: 英伟达
+- image: mps_logo.png
+  alt_en: Monolithic Power Systems
+  alt_zh: 芯源系统

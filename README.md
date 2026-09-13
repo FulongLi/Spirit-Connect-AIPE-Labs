@@ -28,24 +28,24 @@ The Markdown index describes the resources that are currently available and poin
 ## Project structure
 
 ```text
-├── _includes/       Shared navigation, footer, and scripts
-├── _layouts/        Default, post, legal, and legacy redirect layouts
-├── _posts/          News and project updates
-├── accessories/     Engineering reference assets
-├── assets/          Stylesheets and site assets
-├── case-studies/    Source files for prototype design reference pages
+├── _data/           Translation, partner, and shared content data
+├── _includes/       Shared navigation, footer, figures, and components
+├── _layouts/        Default, post, legal, and redirect layouts
+├── _posts/          Engineering articles and project updates
+├── accessories/     Published engineering reference assets
+├── assets/          Stylesheets, article figures, circuits, and downloads
 ├── company/         About, team, careers, and FAQ pages
-├── database/        Magnetics and transistor database pages
+├── database/        Magnetics and transistor database sections
 ├── legacy/          Redirects from superseded public URLs
 ├── legal/           Privacy, terms, and cookie pages
-├── power/           Power engineering pages
-├── resources/       Resource landing pages
-├── zh/              Chinese-language pages
+├── power/           Converter, device, and microgrid sections
+├── resources/       Blog, database, and prototype sections
+├── zh/              Chinese mirror of the public site structure
 ├── aipe.md          Agent-readable public index
 └── index.md         English homepage
 ```
 
-The source directories do not always match the final public URL. Prototype references, for example, are published under `/resources/prototypes/`. Existing public links under the former `/case-studies/` hierarchy are retained as redirects.
+Source directories mirror the final public URL hierarchy. Existing public links under superseded paths such as `/case-studies/` are retained through the files in `legacy/`.
 
 ## Local development
 
