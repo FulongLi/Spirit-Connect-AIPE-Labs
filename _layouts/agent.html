@@ -1,0 +1,27 @@
+---
+layout: default
+---
+{% assign agent_lang = page.lang | default: 'en' %}
+<header class="hero hero-compact">
+  <div class="container">
+    <p class="post-meta">{{ site.data.i18n[agent_lang].nav_agents }} · {{ page.role }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="lead">{{ page.intro }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#quick-start">{% if page.lang == 'zh' %}开始使用{% else %}Get started{% endif %}</a>
+      <a class="btn btn-ghost" href="{{ page.repository }}">{% if page.lang == 'zh' %}查看 GitHub 仓库{% else %}View on GitHub{% endif %} →</a>
+    </div>
+  </div>
+</header>
+<section class="section">
+  <div class="container">
+    <article class="post-article">{{ content }}</article>
+    <p class="post-back">
+      {% if page.lang == 'zh' %}
+      <a href="{{ '/zh/resources/ai-agent-team/' | relative_url }}">← 返回 AI Agent 团队</a>
+      {% else %}
+      <a href="{{ '/resources/ai-agent-team/' | relative_url }}">← Back to AI Agent Team</a>
+      {% endif %}
+    </p>
+  </div>
+</section>

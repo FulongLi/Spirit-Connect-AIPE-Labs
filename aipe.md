@@ -26,6 +26,15 @@ datasheets, models, simulations, standards, and measurements.
 - [Spirit-Connect-AIPE-Labs](https://github.com/FulongLi/Spirit-Connect-AIPE-Labs) —
   Source repository for this website and resource index.
 
+## AI Agent Team
+
+- [AI Agent Team](https://aipel.co.uk/resources/ai-agent-team/) — Introductions to
+  specialist agents and tools, their roles, and how to use them.
+- [AIPE-Sketch Guide](https://aipel.co.uk/resources/ai-agent-team/aipe-sketch/) —
+  Automatic circuit-to-SVG schematic generation, quick start, and Python usage.
+- [AIPE-Sketch](https://github.com/FulongLi/AIPE-Sketch) — Open-source Python
+  drawing backend with graph planning, routing, and connectivity validation.
+
 ## Power Engineering
 
 ### Devices and Characterisation

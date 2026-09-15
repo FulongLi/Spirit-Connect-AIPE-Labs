@@ -20,7 +20,7 @@ The Markdown index describes the resources that are currently available and poin
 ## Website content
 
 - **Power Engineering** — converters, power semiconductor devices, characterisation, and microgrids.
-- **Resources** — engineering updates, prototype design references, and component databases.
+- **Resources** — engineering updates, prototype design references, component databases, and the AI Agent Team.
 - **Claude/Codex Plugin** — a simple workflow for giving coding agents access to the public index.
 - **Company** — the AIPE Labs story, team, news, careers, FAQs, and contact details.
 - **English and Chinese pages** — mirrored navigation and content for both audiences.
@@ -39,7 +39,7 @@ The Markdown index describes the resources that are currently available and poin
 ├── legacy/          Redirects from superseded public URLs
 ├── legal/           Privacy, terms, and cookie pages
 ├── power/           Converter, device, and microgrid sections
-├── resources/       Blog, database, and prototype sections
+├── resources/       Blog, database, prototype, and AI Agent Team sections
 ├── zh/              Chinese mirror of the public site structure
 ├── aipe.md          Agent-readable public index
 └── index.md         English homepage
