@@ -4,15 +4,8 @@
     <div class="blog-knowledge-map" data-blog-knowledge-map>
       <div class="blog-graph-intro">
         <span class="blog-graph-eyebrow">{% if include.lang == 'zh' %}交互式知识地图{% else %}Interactive knowledge map{% endif %}</span>
-        <h2>{% if include.lang == 'zh' %}从主题进入，也沿关联探索。{% else %}Enter through a topic. Follow the connections.{% endif %}</h2>
-        <p>{% if include.lang == 'zh' %}大节点代表技术主题，小节点代表文章。拖动节点重新组织视图，滚动或使用按钮缩放，点击文章即可阅读。{% else %}Large nodes are engineering themes; small nodes are articles. Drag to reorganise, scroll or use the controls to zoom, and select an article to read it.{% endif %}</p>
-        <div class="blog-graph-legend" aria-label="{% if include.lang == 'zh' %}知识地图图例{% else %}Knowledge map legend{% endif %}">
-          <span style="--topic-color:#f5d54a">{% if include.lang == 'zh' %}变换器设计{% else %}Converter design{% endif %}</span>
-          <span style="--topic-color:#78a7ff">{% if include.lang == 'zh' %}器件测试{% else %}Device testing{% endif %}</span>
-          <span style="--topic-color:#a88cff">{% if include.lang == 'zh' %}固态变压器{% else %}Solid-state transformers{% endif %}</span>
-          <span style="--topic-color:#58cfaa">{% if include.lang == 'zh' %}无线电能传输{% else %}Wireless power{% endif %}</span>
-          <span style="--topic-color:#ff8e72">{% if include.lang == 'zh' %}AIPE 动态{% else %}AIPE updates{% endif %}</span>
-        </div>
+        <h2>{% if include.lang == 'zh' %}沿三维关系探索文章。{% else %}Explore the library in 3D.{% endif %}</h2>
+        <p>{% if include.lang == 'zh' %}拖动空白处旋转，点击节点阅读。{% else %}Drag the space to rotate it. Select a node to read.{% endif %}</p>
       </div>
       <div class="blog-graph-stage">
         <canvas class="blog-graph-canvas" tabindex="0" role="img" aria-label="{% if include.lang == 'zh' %}展示 34 篇文章及其技术关联的交互式知识地图{% else %}Interactive knowledge map showing 34 articles and their technical relationships{% endif %}"></canvas>
@@ -22,7 +15,7 @@
           <button type="button" data-graph-action="zoom-out" aria-label="{% if include.lang == 'zh' %}缩小{% else %}Zoom out{% endif %}">−</button>
           <button type="button" data-graph-action="reset" aria-label="{% if include.lang == 'zh' %}重置视图{% else %}Reset view{% endif %}">↺</button>
         </div>
-        <span class="blog-graph-hint">{% if include.lang == 'zh' %}拖动 · 缩放 · 点击探索{% else %}Drag · zoom · select to explore{% endif %}</span>
+        <span class="blog-graph-hint">{% if include.lang == 'zh' %}旋转 · 缩放 · 选择{% else %}Rotate · zoom · select{% endif %}</span>
       </div>
       <script type="application/json" class="blog-graph-data">
         {

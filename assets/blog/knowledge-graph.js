@@ -2,11 +2,11 @@
   'use strict';
 
   const palette = {
-    converter: '#f5d54a',
-    device: '#78a7ff',
-    sst: '#a88cff',
-    wpt: '#58cfaa',
-    updates: '#ff8e72'
+    converter: '#e6c62e',
+    device: '#5f8fe0',
+    sst: '#8d70dc',
+    wpt: '#3fb58e',
+    updates: '#e8775f'
   };
 
   const topicPairs = [
@@ -20,25 +20,24 @@
   ];
 
   const topicSeeds = {
-    converter: [0.28, 0.28],
-    device: [0.73, 0.24],
-    sst: [0.62, 0.69],
-    wpt: [0.22, 0.72],
-    updates: [0.50, 0.46]
+    converter: [-0.38, -0.24, -0.16],
+    device: [0.38, -0.25, 0.18],
+    sst: [0.34, 0.28, -0.14],
+    wpt: [-0.40, 0.28, 0.18],
+    updates: [0, 0, 0]
   };
 
   function hash(text) {
     let value = 2166136261;
-    for (let i = 0; i < text.length; i += 1) {
-      value ^= text.charCodeAt(i);
+    for (let index = 0; index < text.length; index += 1) {
+      value ^= text.charCodeAt(index);
       value = Math.imul(value, 16777619);
     }
     return value >>> 0;
   }
 
   function randomFrom(text, offset) {
-    const value = hash(text + ':' + offset);
-    return (value % 10000) / 10000;
+    return (hash(`${text}:${offset}`) % 10000) / 10000;
   }
 
   function hexToRgba(hex, alpha) {
@@ -66,21 +65,26 @@
 
     let width = 0;
     let height = 0;
+    let space = 0;
     let pixelRatio = 1;
     let nodes = [];
     let edges = [];
-    let stars = [];
     let hovered = null;
     let selectedTopic = null;
     let pointer = null;
     let dragNode = null;
-    let panning = false;
+    let rotating = false;
     let moved = false;
     let lastPointer = { x: 0, y: 0 };
     let zoom = 1;
-    let panX = 0;
-    let panY = 0;
+    let yaw = -0.26;
+    let pitch = -0.14;
     let settledFrames = 0;
+
+    function clampView() {
+      yaw = Math.max(-0.74, Math.min(0.74, yaw));
+      pitch = Math.max(-0.44, Math.min(0.44, pitch));
+    }
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -93,24 +97,27 @@
       nodes = [];
       edges = [];
 
-      Object.keys(palette).forEach((key, index) => {
+      Object.keys(palette).forEach((key) => {
         const seed = topicSeeds[key];
-        const topicMargin = width < 480 ? Math.min(82, width * 0.27) : 54;
-        const homeX = Math.max(topicMargin, Math.min(width - topicMargin, seed[0] * width));
+        const x = seed[0] * space;
+        const y = seed[1] * space;
+        const z = seed[2] * space;
         nodes.push({
           id: `topic:${key}`,
           key,
           type: 'topic',
           title: data.topics[key],
           color: palette[key],
-          x: homeX,
-          y: seed[1] * height,
-          homeX,
-          homeY: seed[1] * height,
+          x,
+          y,
+          z,
+          homeX: x,
+          homeY: y,
+          homeZ: z,
           vx: 0,
           vy: 0,
-          z: 0.34 + index * 0.035,
-          radius: 31
+          vz: 0,
+          radius: 14
         });
       });
 
@@ -118,8 +125,10 @@
         const categories = categoriesFor(post);
         const primary = categories[0];
         const anchor = topicSeeds[primary];
-        const angle = randomFrom(post.id, 1) * Math.PI * 2;
-        const distance = 72 + randomFrom(post.id, 2) * 118;
+        const theta = randomFrom(post.id, 1) * Math.PI * 2;
+        const phi = Math.acos(2 * randomFrom(post.id, 2) - 1);
+        const distance = space * (0.09 + randomFrom(post.id, 3) * 0.10);
+        const sinPhi = Math.sin(phi);
         nodes.push({
           id: `post:${post.id}`,
           postId: post.id,
@@ -129,29 +138,31 @@
           date: post.date,
           categories,
           color: palette[primary],
-          x: anchor[0] * width + Math.cos(angle) * distance,
-          y: anchor[1] * height + Math.sin(angle) * distance,
+          x: anchor[0] * space + Math.cos(theta) * sinPhi * distance,
+          y: anchor[1] * space + Math.sin(theta) * sinPhi * distance * 0.78,
+          z: anchor[2] * space + Math.cos(phi) * distance,
           vx: 0,
           vy: 0,
-          z: -0.22 + randomFrom(post.id, 3) * 0.62,
-          phase: randomFrom(post.id, 4) * Math.PI * 2,
-          radius: 5.5 + randomFrom(post.id, 5) * 2.8,
+          vz: 0,
+          radius: 3.4 + randomFrom(post.id, 4) * 1.5,
           index
         });
       });
 
       const byId = new Map(nodes.map((node) => [node.id, node]));
+      const edgeIds = new Set();
       const addEdge = (sourceId, targetId, type, color, strength) => {
         const source = byId.get(sourceId);
         const target = byId.get(targetId);
         if (!source || !target) return;
-        const edgeId = [sourceId, targetId].sort().join('|');
-        if (edges.some((edge) => edge.id === edgeId)) return;
-        edges.push({ id: edgeId, source, target, type, color, strength });
+        const id = [sourceId, targetId].sort().join('|');
+        if (edgeIds.has(id)) return;
+        edgeIds.add(id);
+        edges.push({ id, source, target, type, color, strength });
       };
 
       topicPairs.forEach(([source, target]) => {
-        addEdge(`topic:${source}`, `topic:${target}`, 'topic', '#ffffff', 0.6);
+        addEdge(`topic:${source}`, `topic:${target}`, 'topic', '#8e877b', 0.58);
       });
 
       const groups = {};
@@ -166,25 +177,24 @@
 
       Object.keys(groups).forEach((category) => {
         groups[category]
-          .sort((a, b) => a.date.localeCompare(b.date) || a.index - b.index)
+          .sort((first, second) => first.date.localeCompare(second.date) || first.index - second.index)
           .forEach((node, index, group) => {
-            if (index > 0) addEdge(group[index - 1].id, node.id, 'article', palette[category], 0.48);
+            if (index > 0) addEdge(group[index - 1].id, node.id, 'article', palette[category], 0.42);
           });
       });
 
-      const clusters = ['dab', 'thermal', 'cycling', 'reliability', 'boost', 'wireless', 'transformer', 'characterisation'];
-      clusters.forEach((term) => {
+      ['dab', 'thermal', 'cycling', 'reliability', 'boost', 'wireless', 'transformer', 'characterisation'].forEach((term) => {
         const matches = nodes.filter((node) => node.type === 'post' && node.postId.includes(term));
         matches.slice(1).forEach((node, index) => {
-          addEdge(matches[index].id, node.id, 'article', '#ffffff', 0.38);
+          addEdge(matches[index].id, node.id, 'article', '#8e877b', 0.34);
         });
       });
     }
 
     function resetView() {
       zoom = 1;
-      panX = 0;
-      panY = 0;
+      yaw = -0.26;
+      pitch = -0.14;
       selectedTopic = null;
       buildGraph();
       settledFrames = 0;
@@ -193,21 +203,17 @@
     function resize() {
       const rect = stage.getBoundingClientRect();
       const nextWidth = Math.max(1, Math.round(rect.width));
-      const nextHeight = Math.max(430, Math.round(rect.height));
+      const nextHeight = Math.max(340, Math.round(rect.height));
       if (nextWidth === width && nextHeight === height) return;
       width = nextWidth;
       height = nextHeight;
+      space = Math.min(width, height);
       pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(width * pixelRatio);
       canvas.height = Math.round(height * pixelRatio);
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-      stars = Array.from({ length: Math.round(width * height / 11500) }, (_, index) => ({
-        x: randomFrom('star', index * 2) * width,
-        y: randomFrom('star', index * 2 + 1) * height,
-        r: 0.35 + randomFrom('star-radius', index) * 1.1
-      }));
       resetView();
     }
 
@@ -221,141 +227,201 @@
 
     function isDimmed(node) {
       const focus = focusNode();
-      if (!focus) return false;
-      return node !== focus && !linkedTo(focus, node);
+      return Boolean(focus && node !== focus && !linkedTo(focus, node));
     }
 
     function simulate() {
-      if (reducedMotion || settledFrames > 420) return;
+      if (reducedMotion || settledFrames > 360) return;
       const movable = nodes.filter((node) => node !== dragNode);
 
-      for (let i = 0; i < nodes.length; i += 1) {
-        for (let j = i + 1; j < nodes.length; j += 1) {
-          const first = nodes[i];
-          const second = nodes[j];
+      for (let firstIndex = 0; firstIndex < nodes.length; firstIndex += 1) {
+        for (let secondIndex = firstIndex + 1; secondIndex < nodes.length; secondIndex += 1) {
+          const first = nodes[firstIndex];
+          const second = nodes[secondIndex];
           let dx = second.x - first.x;
           let dy = second.y - first.y;
-          const distanceSquared = Math.max(120, dx * dx + dy * dy);
+          let dz = second.z - first.z;
+          const distanceSquared = Math.max(90, dx * dx + dy * dy + dz * dz);
           const distance = Math.sqrt(distanceSquared);
-          const force = ((first.type === 'topic' || second.type === 'topic') ? 500 : 165) / distanceSquared;
+          const force = ((first.type === 'topic' || second.type === 'topic') ? 310 : 110) / distanceSquared;
           dx /= distance;
           dy /= distance;
-          if (first !== dragNode) { first.vx -= dx * force; first.vy -= dy * force; }
-          if (second !== dragNode) { second.vx += dx * force; second.vy += dy * force; }
+          dz /= distance;
+          if (first !== dragNode) {
+            first.vx -= dx * force;
+            first.vy -= dy * force;
+            first.vz -= dz * force;
+          }
+          if (second !== dragNode) {
+            second.vx += dx * force;
+            second.vy += dy * force;
+            second.vz += dz * force;
+          }
         }
       }
 
       edges.forEach((edge) => {
         const dx = edge.target.x - edge.source.x;
         const dy = edge.target.y - edge.source.y;
-        const distance = Math.max(1, Math.hypot(dx, dy));
-        const targetDistance = edge.type === 'topic' ? Math.min(width, height) * 0.36 : edge.type === 'membership' ? 105 : 62;
-        const force = (distance - targetDistance) * (edge.type === 'topic' ? 0.0009 : 0.0018) * edge.strength;
+        const dz = edge.target.z - edge.source.z;
+        const distance = Math.max(1, Math.hypot(dx, dy, dz));
+        const targetDistance = edge.type === 'topic' ? space * 0.42 : edge.type === 'membership' ? space * 0.18 : space * 0.11;
+        const force = (distance - targetDistance) * (edge.type === 'topic' ? 0.0008 : 0.0016) * edge.strength;
         const fx = dx / distance * force;
         const fy = dy / distance * force;
-        if (edge.source !== dragNode) { edge.source.vx += fx; edge.source.vy += fy; }
-        if (edge.target !== dragNode) { edge.target.vx -= fx; edge.target.vy -= fy; }
+        const fz = dz / distance * force;
+        if (edge.source !== dragNode) {
+          edge.source.vx += fx;
+          edge.source.vy += fy;
+          edge.source.vz += fz;
+        }
+        if (edge.target !== dragNode) {
+          edge.target.vx -= fx;
+          edge.target.vy -= fy;
+          edge.target.vz -= fz;
+        }
       });
 
       nodes.filter((node) => node.type === 'topic').forEach((node) => {
-        node.vx += (node.homeX - node.x) * 0.00045;
-        node.vy += (node.homeY - node.y) * 0.00045;
+        node.vx += (node.homeX - node.x) * 0.0005;
+        node.vy += (node.homeY - node.y) * 0.0005;
+        node.vz += (node.homeZ - node.z) * 0.0005;
       });
 
+      const radialLimit = space * 0.42;
       movable.forEach((node) => {
-        node.vx += (width * 0.5 - node.x) * 0.00003;
-        node.vy += (height * 0.5 - node.y) * 0.00003;
-        node.vx *= 0.91;
-        node.vy *= 0.91;
-        node.x += Math.max(-3.5, Math.min(3.5, node.vx));
-        node.y += Math.max(-3.5, Math.min(3.5, node.vy));
-        const margin = node.type === 'topic' ? (width < 480 ? Math.min(82, width * 0.27) : 54) : 18;
-        node.x = Math.max(margin, Math.min(width - margin, node.x));
-        node.y = Math.max(margin, Math.min(height - margin, node.y));
+        node.vx *= 0.9;
+        node.vy *= 0.9;
+        node.vz *= 0.9;
+        node.x += Math.max(-3, Math.min(3, node.vx));
+        node.y += Math.max(-3, Math.min(3, node.vy));
+        node.z += Math.max(-3, Math.min(3, node.vz));
+        const radius = Math.hypot(node.x, node.y, node.z);
+        if (radius > radialLimit) {
+          const fit = radialLimit / radius;
+          node.x *= fit;
+          node.y *= fit;
+          node.z *= fit;
+        }
       });
       settledFrames += 1;
     }
 
-    function screenPosition(node, time) {
-      const float = reducedMotion || node.type === 'topic' ? 0 : Math.sin(time * 0.00055 + node.phase) * 2.2;
+    function rotatePoint(x, y, z) {
+      const cosYaw = Math.cos(yaw);
+      const sinYaw = Math.sin(yaw);
+      const cosPitch = Math.cos(pitch);
+      const sinPitch = Math.sin(pitch);
+      const yawX = x * cosYaw + z * sinYaw;
+      const yawZ = -x * sinYaw + z * cosYaw;
       return {
-        x: node.x * zoom + panX + node.z * 8,
-        y: (node.y + float) * zoom + panY - node.z * 5,
-        scale: Math.max(0.75, 1 + node.z * 0.22)
+        x: yawX,
+        y: y * cosPitch - yawZ * sinPitch,
+        z: y * sinPitch + yawZ * cosPitch
       };
     }
 
-    function drawEdge(edge, time) {
-      const source = screenPosition(edge.source, time);
-      const target = screenPosition(edge.target, time);
+    function screenPosition(node) {
+      const rotated = rotatePoint(node.x, node.y, node.z);
+      const camera = Math.max(640, space * 4);
+      const perspective = camera / Math.max(camera * 0.45, camera - rotated.z);
+      return {
+        x: width * 0.5 + rotated.x * perspective * zoom,
+        y: height * 0.5 + rotated.y * perspective * zoom,
+        scale: perspective,
+        depth: rotated.z
+      };
+    }
+
+    function drawEdge(edge) {
+      const source = screenPosition(edge.source);
+      const target = screenPosition(edge.target);
       const focus = focusNode();
       const active = !focus || edge.source === focus || edge.target === focus;
-      const alpha = active ? (edge.type === 'topic' ? 0.2 : edge.type === 'membership' ? 0.25 : 0.11) : 0.025;
+      const baseAlpha = edge.type === 'topic' ? 0.28 : edge.type === 'membership' ? 0.22 : 0.11;
       context.beginPath();
       context.moveTo(source.x, source.y);
-      const midX = (source.x + target.x) / 2;
-      const midY = (source.y + target.y) / 2;
-      const curve = edge.type === 'topic' ? 18 : 6;
-      context.quadraticCurveTo(midX + (target.y - source.y) / Math.max(8, curve), midY - (target.x - source.x) / Math.max(8, curve), target.x, target.y);
-      context.strokeStyle = edge.color === '#ffffff' ? `rgba(255,255,255,${alpha})` : hexToRgba(edge.color, alpha);
-      context.lineWidth = active && focus ? 1.35 : edge.type === 'topic' ? 1.1 : 0.7;
+      context.lineTo(target.x, target.y);
+      context.strokeStyle = edge.color === '#8e877b'
+        ? `rgba(102,94,80,${active ? baseAlpha : 0.035})`
+        : hexToRgba(edge.color, active ? baseAlpha : 0.035);
+      context.lineWidth = active && focus ? 1.25 : edge.type === 'topic' ? 1 : 0.65;
       context.stroke();
     }
 
-    function drawNode(node, time) {
-      const position = screenPosition(node, time);
+    function drawNode(node) {
+      const position = screenPosition(node);
       const dimmed = isDimmed(node);
       const radius = node.radius * position.scale * zoom;
       const active = node === hovered || node === selectedTopic;
+      const labelWidth = width < 480 ? 112 : 148;
+      const labelX = Math.max(labelWidth / 2 + 8, Math.min(width - labelWidth / 2 - 8, position.x));
+
       context.save();
-      context.globalAlpha = dimmed ? 0.16 : 1;
-      context.shadowColor = hexToRgba(node.color, active ? 0.9 : node.type === 'topic' ? 0.55 : 0.36);
-      context.shadowBlur = active ? 26 : node.type === 'topic' ? 19 : 10;
-      const gradient = context.createRadialGradient(position.x - radius * 0.34, position.y - radius * 0.38, radius * 0.08, position.x, position.y, radius);
-      gradient.addColorStop(0, '#ffffff');
-      gradient.addColorStop(0.17, node.color);
-      gradient.addColorStop(1, node.type === 'topic' ? hexToRgba(node.color, 0.54) : hexToRgba(node.color, 0.38));
-      context.fillStyle = gradient;
+      context.globalAlpha = dimmed ? 0.12 : Math.max(0.5, Math.min(1, 0.78 + position.depth / Math.max(space, 1) * 0.32));
+      context.fillStyle = node.color;
       context.beginPath();
       context.arc(position.x, position.y, radius, 0, Math.PI * 2);
       context.fill();
-      context.shadowBlur = 0;
-      context.strokeStyle = active ? '#ffffff' : hexToRgba(node.color, node.type === 'topic' ? 0.72 : 0.48);
-      context.lineWidth = active ? 1.8 : 0.8;
+      context.strokeStyle = active ? '#241c10' : node.type === 'topic' ? 'rgba(255,255,255,.92)' : 'rgba(36,28,16,.28)';
+      context.lineWidth = active ? 2 : node.type === 'topic' ? 1.5 : 0.7;
       context.stroke();
 
       if (node.type === 'topic') {
-        context.fillStyle = dimmed ? 'rgba(255,255,255,.2)' : 'rgba(255,255,255,.94)';
-        context.font = `700 ${Math.max(10, (width < 480 ? 11 : 13) * zoom)}px Inter, sans-serif`;
+        context.globalAlpha = dimmed ? 0.22 : 1;
+        context.fillStyle = '#241c10';
+        context.font = `700 ${width < 480 ? 10 : 11}px Inter, sans-serif`;
         context.textAlign = 'center';
         context.textBaseline = 'top';
-        context.fillText(node.title, position.x, position.y + radius + 11, (width < 480 ? 126 : 150) * zoom);
-      } else if ((active || zoom > 1.42) && !dimmed) {
-        context.fillStyle = 'rgba(255,255,255,.9)';
-        context.font = `600 ${Math.max(9, 10 * zoom)}px Inter, sans-serif`;
+        context.fillText(node.title, labelX, position.y + radius + 7, labelWidth);
+      } else if (active && !dimmed) {
+        context.fillStyle = '#241c10';
+        context.font = '600 10px Inter, sans-serif';
         context.textAlign = 'center';
         context.textBaseline = 'top';
-        context.fillText(node.title, position.x, position.y + radius + 7, 185 * zoom);
+        context.fillText(node.title, labelX, position.y + radius + 6, width < 480 ? 150 : 190);
       }
       context.restore();
     }
 
-    function draw(time) {
-      context.clearRect(0, 0, width, height);
-      stars.forEach((star) => {
+    function drawAxes() {
+      const origin = { x: 28, y: height - 27 };
+      const length = 23;
+      const axes = [
+        { label: 'X', color: '#c3a51f', vector: rotatePoint(length, 0, 0) },
+        { label: 'Y', color: '#4b9a7f', vector: rotatePoint(0, -length, 0) },
+        { label: 'Z', color: '#7660b5', vector: rotatePoint(0, 0, length) }
+      ];
+      context.save();
+      context.font = '700 8px Inter, sans-serif';
+      axes.forEach((axis) => {
+        const endX = origin.x + axis.vector.x;
+        const endY = origin.y + axis.vector.y;
         context.beginPath();
-        context.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-        context.fillStyle = 'rgba(255,255,255,.14)';
-        context.fill();
+        context.moveTo(origin.x, origin.y);
+        context.lineTo(endX, endY);
+        context.strokeStyle = axis.color;
+        context.lineWidth = 1.2;
+        context.stroke();
+        context.fillStyle = axis.color;
+        context.fillText(axis.label, endX + 3, endY + 3);
       });
-      edges.forEach((edge) => drawEdge(edge, time));
-      nodes.filter((node) => node.type === 'post').sort((a, b) => a.z - b.z).forEach((node) => drawNode(node, time));
-      nodes.filter((node) => node.type === 'topic').forEach((node) => drawNode(node, time));
+      context.restore();
     }
 
-    function animate(time) {
+    function draw() {
+      context.clearRect(0, 0, width, height);
+      edges.forEach(drawEdge);
+      nodes
+        .slice()
+        .sort((first, second) => screenPosition(first).depth - screenPosition(second).depth)
+        .forEach(drawNode);
+      drawAxes();
+    }
+
+    function animate() {
       simulate();
-      draw(time);
+      draw();
       window.requestAnimationFrame(animate);
     }
 
@@ -364,12 +430,12 @@
       return { x: event.clientX - rect.left, y: event.clientY - rect.top };
     }
 
-    function hitTest(point, time) {
-      const ordered = nodes.slice().sort((a, b) => (a.type === 'topic' ? 1 : 0) - (b.type === 'topic' ? 1 : 0));
+    function hitTest(point) {
+      const ordered = nodes.slice().sort((first, second) => screenPosition(first).depth - screenPosition(second).depth);
       for (let index = ordered.length - 1; index >= 0; index -= 1) {
         const node = ordered[index];
-        const position = screenPosition(node, time || performance.now());
-        const radius = Math.max(12, node.radius * position.scale * zoom + 5);
+        const position = screenPosition(node);
+        const radius = Math.max(10, node.radius * position.scale * zoom + 4);
         if (Math.hypot(point.x - position.x, point.y - position.y) <= radius) return node;
       }
       return null;
@@ -390,19 +456,15 @@
       tooltip.style.transform = `translate(${left}px, ${top}px)`;
     }
 
-    function zoomAt(factor, point) {
-      const nextZoom = Math.max(0.62, Math.min(2.35, zoom * factor));
-      const anchor = point || { x: width / 2, y: height / 2 };
-      panX = anchor.x - (anchor.x - panX) * (nextZoom / zoom);
-      panY = anchor.y - (anchor.y - panY) * (nextZoom / zoom);
-      zoom = nextZoom;
+    function zoomBy(factor) {
+      zoom = Math.max(0.68, Math.min(2.1, zoom * factor));
     }
 
     canvas.addEventListener('pointerdown', (event) => {
       pointer = pointerCoordinates(event);
       lastPointer = pointer;
       dragNode = hitTest(pointer);
-      panning = !dragNode;
+      rotating = !dragNode;
       moved = false;
       canvas.setPointerCapture(event.pointerId);
       canvas.classList.add('is-grabbing');
@@ -416,13 +478,18 @@
         const dy = point.y - lastPointer.y;
         if (Math.abs(point.x - pointer.x) + Math.abs(point.y - pointer.y) > 4) moved = true;
         if (dragNode) {
-          dragNode.x += dx / zoom;
-          dragNode.y += dy / zoom;
+          const position = screenPosition(dragNode);
+          const divisor = Math.max(0.45, position.scale * zoom);
+          dragNode.x += (dx * Math.cos(yaw)) / divisor;
+          dragNode.y += (dy * Math.cos(pitch)) / divisor;
+          dragNode.z += (dx * Math.sin(yaw) - dy * Math.sin(pitch)) / divisor;
           dragNode.vx = 0;
           dragNode.vy = 0;
-        } else if (panning) {
-          panX += dx;
-          panY += dy;
+          dragNode.vz = 0;
+        } else if (rotating) {
+          yaw += dx * 0.008;
+          pitch += dy * 0.006;
+          clampView();
         }
         lastPointer = point;
         return;
@@ -437,15 +504,12 @@
       const point = pointerCoordinates(event);
       const releasedNode = dragNode || hitTest(point);
       if (!moved && releasedNode) {
-        if (releasedNode.type === 'post') {
-          window.location.href = releasedNode.url;
-        } else {
-          selectedTopic = selectedTopic === releasedNode ? null : releasedNode;
-        }
+        if (releasedNode.type === 'post') window.location.href = releasedNode.url;
+        else selectedTopic = selectedTopic === releasedNode ? null : releasedNode;
       }
       pointer = null;
       dragNode = null;
-      panning = false;
+      rotating = false;
       canvas.classList.remove('is-grabbing');
     }
 
@@ -459,24 +523,25 @@
     });
     canvas.addEventListener('wheel', (event) => {
       event.preventDefault();
-      zoomAt(event.deltaY < 0 ? 1.1 : 0.9, pointerCoordinates(event));
+      zoomBy(event.deltaY < 0 ? 1.1 : 0.9);
     }, { passive: false });
     canvas.addEventListener('keydown', (event) => {
-      if (event.key === '+' || event.key === '=') zoomAt(1.12);
-      else if (event.key === '-' || event.key === '_') zoomAt(0.88);
-      else if (event.key === 'ArrowLeft') panX += 24;
-      else if (event.key === 'ArrowRight') panX -= 24;
-      else if (event.key === 'ArrowUp') panY += 24;
-      else if (event.key === 'ArrowDown') panY -= 24;
+      if (event.key === '+' || event.key === '=') zoomBy(1.12);
+      else if (event.key === '-' || event.key === '_') zoomBy(0.88);
+      else if (event.key === 'ArrowLeft') yaw -= 0.1;
+      else if (event.key === 'ArrowRight') yaw += 0.1;
+      else if (event.key === 'ArrowUp') pitch -= 0.08;
+      else if (event.key === 'ArrowDown') pitch += 0.08;
       else if (event.key === 'Escape' || event.key === '0') resetView();
       else return;
+      clampView();
       event.preventDefault();
     });
 
     map.querySelectorAll('[data-graph-action]').forEach((button) => {
       button.addEventListener('click', () => {
-        if (button.dataset.graphAction === 'zoom-in') zoomAt(1.18);
-        else if (button.dataset.graphAction === 'zoom-out') zoomAt(0.82);
+        if (button.dataset.graphAction === 'zoom-in') zoomBy(1.18);
+        else if (button.dataset.graphAction === 'zoom-out') zoomBy(0.82);
         else resetView();
       });
     });
