@@ -8,22 +8,30 @@ layout: default
   </div>
 </header>
 
-<section class="section">
-  <div class="container">
-    <article class="post-article">
-      {% if page.sst_series %}{% include sst-series.html %}{% endif %}
-      {% if page.converter_series %}{% include converter-series.html %}{% endif %}
-      {% if page.device_testing_series %}{% include device-testing-series.html %}{% endif %}
-      {% if page.wpt_series %}{% include wpt-series.html %}{% endif %}
-      {{ content }}
-    </article>
-    <p class="post-back">
-      {% if page.lang == 'zh' %}
-      <a href="{{ '/zh/resources/blog/' | relative_url }}">← 返回博客</a>
-      {% else %}
-      <a href="{{ '/resources/blog/' | relative_url }}">← Back to blog</a>
-      {% endif %}
-    </p>
+<section class="section post-content-section">
+  <div class="container post-content-shell">
+    <aside class="post-page-nav" aria-label="{% if page.lang == 'zh' %}本页目录{% else %}On this page{% endif %}">
+      <span>{% if page.lang == 'zh' %}本页目录{% else %}On this page{% endif %}</span>
+      <nav data-post-toc>
+        <a class="is-active" href="#article-overview" aria-current="location">{% if page.lang == 'zh' %}文章概览{% else %}Overview{% endif %}</a>
+      </nav>
+    </aside>
+    <div class="post-article-column">
+      <article class="post-article blog-post-article" id="article-overview">
+        {% if page.sst_series %}{% include sst-series.html %}{% endif %}
+        {% if page.converter_series %}{% include converter-series.html %}{% endif %}
+        {% if page.device_testing_series %}{% include device-testing-series.html %}{% endif %}
+        {% if page.wpt_series %}{% include wpt-series.html %}{% endif %}
+        {{ content }}
+      </article>
+      <p class="post-back">
+        {% if page.lang == 'zh' %}
+        <a href="{{ '/zh/resources/blog/' | relative_url }}">← 返回博客</a>
+        {% else %}
+        <a href="{{ '/resources/blog/' | relative_url }}">← Back to blog</a>
+        {% endif %}
+      </p>
+    </div>
   </div>
 </section>
 {% if page.converter_explorer %}<script defer src="{{ '/assets/blog/converter-explorer.js' | relative_url }}"></script>{% endif %}

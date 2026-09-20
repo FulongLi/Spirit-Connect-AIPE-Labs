@@ -7,8 +7,9 @@ description: 认识开源原理图绘制工具 AIPE-Sketch，学习快速运行�
 role: 原理图生成
 intro: 描述电路怎样连接，让 AIPE-Sketch 完成器件布局、布线和标注。
 repository: https://github.com/FulongLi/AIPE-Sketch
-visual: /assets/blog/figures/circuit-dab.svg
-visual_alt: AIPE-Sketch 生成的 DAB 变换器原理图
+video: /videos/AIPE-Sketch.mp4
+video_poster: /images/general/aipe-sketch-video-poster.png
+video_alt: AIPE-Sketch 原理图工作流动画介绍
 ---
 
 ## 认识团队中的原理图绘制工具

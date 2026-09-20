@@ -61,6 +61,72 @@ window.addEventListener('resize', () => {
   });
 });
 
+document.querySelectorAll('[data-post-toc]').forEach(toc => {
+  const shell = toc.closest('.post-content-shell');
+  const article = shell && shell.querySelector('.blog-post-article');
+  if (!article) return;
+
+  const headings = Array.from(article.querySelectorAll('h2'));
+  const usedIds = new Set(Array.from(document.querySelectorAll('[id]')).map(element => element.id));
+  const links = [{ target: article, link: toc.querySelector('a[href="#article-overview"]') }];
+
+  headings.forEach((heading, index) => {
+    if (!heading.id) {
+      let candidate = `article-section-${index + 1}`;
+      while (usedIds.has(candidate)) candidate += '-section';
+      heading.id = candidate;
+      usedIds.add(candidate);
+    }
+    const link = document.createElement('a');
+    link.href = `#${heading.id}`;
+    link.textContent = heading.textContent.trim();
+    link.title = heading.textContent.trim();
+    toc.appendChild(link);
+    links.push({ target: heading, link });
+  });
+
+  if (headings.length > 7) toc.closest('.post-page-nav').classList.add('has-long-toc');
+
+  toc.addEventListener('click', event => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link) return;
+    const target = document.getElementById(link.hash.slice(1));
+    if (!target) return;
+    event.preventDefault();
+    const previousScrollBehaviour = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = 'auto';
+    target.scrollIntoView({ block: 'start' });
+    window.history.pushState(null, '', link.hash);
+    window.requestAnimationFrame(() => {
+      document.documentElement.style.scrollBehavior = previousScrollBehaviour;
+    });
+  });
+
+  let scheduled = false;
+  const updateCurrentSection = () => {
+    const threshold = 150;
+    let current = links[0];
+    links.slice(1).forEach(item => {
+      if (item.target.getBoundingClientRect().top <= threshold) current = item;
+    });
+    links.forEach(item => {
+      const active = item === current;
+      item.link.classList.toggle('is-active', active);
+      if (active) item.link.setAttribute('aria-current', 'location');
+      else item.link.removeAttribute('aria-current');
+    });
+    scheduled = false;
+  };
+  const scheduleUpdate = () => {
+    if (scheduled) return;
+    scheduled = true;
+    window.requestAnimationFrame(updateCurrentSection);
+  };
+  window.addEventListener('scroll', scheduleUpdate, { passive: true });
+  window.addEventListener('resize', scheduleUpdate);
+  updateCurrentSection();
+});
+
 const showcaseVideos = document.querySelectorAll('.agent-tool-video');
 if (showcaseVideos.length) {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

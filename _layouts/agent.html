@@ -13,6 +13,13 @@ layout: default
         <a class="btn btn-ghost" href="{{ page.repository }}">{% if page.lang == 'zh' %}查看 GitHub 仓库{% else %}View on GitHub{% endif %} →</a>
       </div>
     </div>
+    {% if page.video %}
+    <div class="agent-preview agent-preview-media">
+      <video class="agent-tool-video agent-preview-video" autoplay muted loop playsinline preload="metadata" poster="{{ page.video_poster | relative_url }}" aria-label="{{ page.video_alt | default: page.title }}">
+        <source src="{{ page.video | relative_url }}" type="video/mp4">
+      </video>
+    </div>
+    {% else %}
     <div class="agent-preview" aria-label="{% if page.lang == 'zh' %}AIPE-Sketch 输出预览{% else %}AIPE-Sketch output preview{% endif %}">
       <div class="agent-preview-bar">
         <span><i></i>{% if page.lang == 'zh' %}自动生成的 SVG{% else %}Generated SVG{% endif %}</span>
@@ -22,6 +29,7 @@ layout: default
         <img src="{{ page.visual | default: '/assets/blog/figures/circuit-dab.svg' | relative_url }}" alt="{{ page.visual_alt | default: page.title }}">
       </div>
     </div>
+    {% endif %}
   </div>
 </header>
 <section class="section agent-content-section">
