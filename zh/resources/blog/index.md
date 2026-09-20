@@ -13,7 +13,10 @@ translation_key: blog-index
 {% assign device_posts = english_posts | where: "device_testing_series", true %}
 {% assign sst_posts = english_posts | where: "sst_series", true %}
 {% assign wpt_posts = english_posts | where: "wpt_series", true %}
-{% assign update_posts = english_posts | where_exp: "post", "post.converter_series != true and post.device_testing_series != true and post.sst_series != true and post.wpt_series != true" %}
+{% assign update_posts = english_posts | where_exp: "post", "post.converter_series != true" %}
+{% assign update_posts = update_posts | where_exp: "post", "post.device_testing_series != true" %}
+{% assign update_posts = update_posts | where_exp: "post", "post.sst_series != true" %}
+{% assign update_posts = update_posts | where_exp: "post", "post.wpt_series != true" %}
 
 <header class="blog-hero">
   <div class="container blog-hero-grid">
