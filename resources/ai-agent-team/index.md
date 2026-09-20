@@ -5,22 +5,49 @@ permalink: /resources/ai-agent-team/
 description: Meet the specialist agents and tools in the AIPE Labs ecosystem, discover what each does, and learn how to use it.
 ---
 
-<header class="hero hero-compact">
-  <div class="container">
-    <h1>AI Agent Team</h1>
-    <p class="lead">Meet the specialist agents and tools helping turn power electronics ideas into engineering outputs. Each introduction explains its role, how it works, and how to get started.</p>
+<header class="agent-team-hero">
+  <div class="container agent-team-hero-grid">
+    <div>
+      <span class="section-kicker">Specialist engineering tools</span>
+      <h1>A team built around the engineering workflow.</h1>
+    </div>
+    <p class="lead">Each AIPE Labs tool owns a clear part of the path from an engineering idea to a result that can be inspected, tested and reused.</p>
   </div>
 </header>
 
-<section class="section">
+<section class="section agent-team-feature-section">
   <div class="container">
-    <div class="grid post-grid">
-      <a class="card post-card" href="{{ '/resources/ai-agent-team/aipe-sketch/' | relative_url }}">
-        <span class="small">Schematic generation · Open-source Python tool</span>
-        <h3>AIPE-Sketch</h3>
-        <p>Turn an electrical circuit graph into an SVG schematic with automatic placement, routing, and connectivity checks. A drawing tool for engineers and coding agents.</p>
-        <span class="post-card-more">Meet AIPE-Sketch &amp; learn how to use it →</span>
-      </a>
+    <a class="agent-team-feature" href="{{ '/resources/ai-agent-team/aipe-sketch/' | relative_url }}">
+      <div class="agent-team-feature-copy">
+        <div class="agent-team-status"><span></span>Available now · Open source</div>
+        <p class="agent-team-index">Agent tool 01</p>
+        <h2>AIPE-Sketch</h2>
+        <p class="lead">Turn electrical connectivity into a clear SVG schematic. AIPE‑Sketch plans component placement, routes wires and checks that the drawing still represents the circuit you described.</p>
+        <div class="agent-team-tags" aria-label="AIPE-Sketch capabilities">
+          <span>Graph planning</span><span>SVG output</span><span>Connectivity checks</span>
+        </div>
+        <strong class="agent-team-link">Meet AIPE-Sketch and start drawing →</strong>
+      </div>
+      <div class="agent-team-feature-visual">
+        <div class="agent-tool-window">
+          <div class="agent-tool-window-bar"><i></i><span>aipe-sketch / circuit.svg</span></div>
+          <img src="{{ '/assets/blog/figures/circuit-dab.svg' | relative_url }}" alt="DAB circuit schematic generated as SVG">
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="section section-alt agent-team-method">
+  <div class="container">
+    <div class="agent-team-method-heading">
+      <span class="section-kicker">How the team is organised</span>
+      <h2>Small tools, explicit responsibilities.</h2>
+    </div>
+    <div class="agent-team-principles">
+      <div><span>01</span><h3>Describe</h3><p>Keep the engineering intent in a form that both people and coding agents can inspect.</p></div>
+      <div><span>02</span><h3>Generate</h3><p>Use a deterministic backend for the drawing, model, dataset or calculation being produced.</p></div>
+      <div><span>03</span><h3>Verify</h3><p>Return checks, warnings and source data alongside the result instead of hiding uncertainty.</p></div>
     </div>
   </div>
 </section>

@@ -4,6 +4,7 @@ _site/
 .sass-cache/
 .bundle/
 vendor/
+output/
 .idea/
 *.swp
 *~

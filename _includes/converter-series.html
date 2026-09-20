@@ -1,24 +1,25 @@
-<nav class="series-nav" aria-label="DC–DC converter learning series">
+{% assign zh = false %}{% if page.lang == 'zh' %}{% assign zh = true %}{% endif %}
+<nav class="series-nav" aria-label="{% if zh %}DC–DC 变换器学习系列{% else %}DC–DC converter learning series{% endif %}">
   <details>
-    <summary>DC–DC converter learning series — topologies from zero to everything</summary>
-    <p><strong>Non-isolated fundamentals</strong></p>
+    <summary>{% if zh %}DC–DC 变换器学习系列——从零开始理解各类拓扑{% else %}DC–DC converter learning series — topologies from zero to everything{% endif %}</summary>
+    <p><strong>{% if zh %}非隔离基础拓扑{% else %}Non-isolated fundamentals{% endif %}</strong></p>
     <ol>
-      <li><a href="{% post_url 2026-09-10-boost-converter-from-zero-to-everything %}">Boost — step-up</a></li>
-      <li><a href="{% post_url 2026-09-11-buck-converter-from-zero-to-everything %}">Buck — step-down</a></li>
-      <li><a href="{% post_url 2026-09-11-buck-boost-converter-from-zero-to-everything %}">Buck–boost — step up or down</a></li>
-      <li><a href="{% post_url 2026-09-11-cuk-sepic-zeta-converters %}">Ćuk, SEPIC &amp; Zeta — the fourth-order family</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/boost-converter-from-zero-to-everything/' | relative_url }}{% else %}{% post_url 2026-09-10-boost-converter-from-zero-to-everything %}{% endif %}">{% if zh %}Boost——升压{% else %}Boost — step-up{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/buck-converter-from-zero-to-everything/' | relative_url }}{% else %}{% post_url 2026-09-11-buck-converter-from-zero-to-everything %}{% endif %}">{% if zh %}Buck——降压{% else %}Buck — step-down{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/buck-boost-converter-from-zero-to-everything/' | relative_url }}{% else %}{% post_url 2026-09-11-buck-boost-converter-from-zero-to-everything %}{% endif %}">{% if zh %}Buck–Boost——升压或降压{% else %}Buck–boost — step up or down{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/cuk-sepic-zeta-converters/' | relative_url }}{% else %}{% post_url 2026-09-11-cuk-sepic-zeta-converters %}{% endif %}">{% if zh %}Ćuk、SEPIC 与 Zeta——四阶变换器家族{% else %}Ćuk, SEPIC &amp; Zeta — the fourth-order family{% endif %}</a></li>
     </ol>
-    <p><strong>Isolated topologies</strong></p>
+    <p><strong>{% if zh %}隔离型拓扑{% else %}Isolated topologies{% endif %}</strong></p>
     <ol>
-      <li><a href="{% post_url 2026-09-11-flyback-converter-from-zero-to-everything %}">Flyback — cheapest isolation</a></li>
-      <li><a href="{% post_url 2026-09-11-forward-converter-from-zero-to-everything %}">Forward — the isolated buck</a></li>
-      <li><a href="{% post_url 2026-09-11-push-pull-half-bridge-full-bridge %}">Push–pull, half-bridge &amp; full-bridge</a></li>
-      <li><a href="{% post_url 2026-09-11-llc-resonant-converter %}">LLC resonant — soft switching</a></li>
-      <li><a href="{% post_url 2026-09-10-dab-converter-from-principles-to-control %}">Dual active bridge — bidirectional</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/flyback-converter-from-zero-to-everything/' | relative_url }}{% else %}{% post_url 2026-09-11-flyback-converter-from-zero-to-everything %}{% endif %}">{% if zh %}Flyback——成本最低的隔离方案{% else %}Flyback — cheapest isolation{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/forward-converter-from-zero-to-everything/' | relative_url }}{% else %}{% post_url 2026-09-11-forward-converter-from-zero-to-everything %}{% endif %}">{% if zh %}Forward——隔离型 Buck{% else %}Forward — the isolated buck{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/push-pull-half-bridge-full-bridge/' | relative_url }}{% else %}{% post_url 2026-09-11-push-pull-half-bridge-full-bridge %}{% endif %}">{% if zh %}推挽、半桥与全桥{% else %}Push–pull, half-bridge &amp; full-bridge{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/llc-resonant-converter/' | relative_url }}{% else %}{% post_url 2026-09-11-llc-resonant-converter %}{% endif %}">{% if zh %}LLC 谐振——软开关{% else %}LLC resonant — soft switching{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/dab-converter-from-principles-to-control/' | relative_url }}{% else %}{% post_url 2026-09-10-dab-converter-from-principles-to-control %}{% endif %}">{% if zh %}双有源桥——双向能量传输{% else %}Dual active bridge — bidirectional{% endif %}</a></li>
     </ol>
-    <p>Supporting derivations:
-      <a href="{% post_url 2026-09-10-small-signal-modelling-boost-converter %}">Small-signal modelling from first principles</a> ·
-      <a href="{% post_url 2026-09-10-dab-power-transfer-and-small-signal-model %}">DAB power and small-signal derivation</a>
+    <p>{% if zh %}配套推导：{% else %}Supporting derivations:{% endif %}
+      <a href="{% if zh %}{{ '/zh/resources/blog/small-signal-modelling-boost-converter/' | relative_url }}{% else %}{% post_url 2026-09-10-small-signal-modelling-boost-converter %}{% endif %}">{% if zh %}从第一性原理建立小信号模型{% else %}Small-signal modelling from first principles{% endif %}</a> ·
+      <a href="{% if zh %}{{ '/zh/resources/blog/dab-power-transfer-and-small-signal-model/' | relative_url }}{% else %}{% post_url 2026-09-10-dab-power-transfer-and-small-signal-model %}{% endif %}">{% if zh %}DAB 功率与小信号模型推导{% else %}DAB power and small-signal derivation{% endif %}</a>
     </p>
   </details>
 </nav>

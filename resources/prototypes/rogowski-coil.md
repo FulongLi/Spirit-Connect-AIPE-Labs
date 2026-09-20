@@ -6,20 +6,6 @@ description: Principles, geometry, winding patterns and design considerations fo
 math: true
 ---
 
-<style>
-  .rc-eq { overflow-x: auto; overflow-y: hidden; margin: 1.4rem 0; padding: .4rem 0; }
-  .rc-table-wrap { overflow-x: auto; margin-top: 2.2rem; }
-  .rc-table { width: 100%; border-collapse: collapse; font-size: .96rem; min-width: 540px; }
-  .rc-table caption { text-align: left; color: var(--fg-dim); font-size: .9rem; margin-bottom: .8rem; }
-  .rc-table th, .rc-table td { text-align: left; padding: .7rem .9rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-  .rc-table thead th { border-bottom: 2px solid var(--border-hover); font-weight: 700; }
-  .rc-table tbody th { font-weight: 600; white-space: nowrap; }
-  .rc-figure { margin: 0; }
-  .rc-figure img { width: 100%; border-radius: var(--radius-sm); background: var(--bg-white); }
-  .rc-figure figcaption { color: var(--fg-dim); font-size: .9rem; margin-top: .7rem; line-height: 1.55; }
-  .rc-note { color: var(--fg-dim); font-size: .92rem; margin-top: 1.6rem; }
-</style>
-
 <header class="hero hero-compact">
   <div class="container">
     <h1>PCB Rogowski Coil</h1>

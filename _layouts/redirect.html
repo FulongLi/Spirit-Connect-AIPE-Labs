@@ -8,6 +8,7 @@
   <link rel="canonical" href="{{ site.url }}{{ page.redirect_to | relative_url }}">
   <meta http-equiv="refresh" content="0; url={{ page.redirect_to | relative_url }}">
   <title>{{ page.title | default: 'Page moved' }} – {{ site.title }}</title>
+  <meta name="description" content="{% if page.lang == 'zh' %}此页面已永久移动，请使用新的规范网址。{% else %}This page has moved permanently; use the new canonical URL.{% endif %}">
 </head>
 <body>
   <p>

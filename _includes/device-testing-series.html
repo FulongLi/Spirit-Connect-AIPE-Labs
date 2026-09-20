@@ -1,26 +1,27 @@
-<nav class="series-nav" aria-label="Power semiconductor testing series">
+{% assign zh = false %}{% if page.lang == 'zh' %}{% assign zh = true %}{% endif %}
+<nav class="series-nav" aria-label="{% if zh %}功率半导体测试系列{% else %}Power semiconductor testing series{% endif %}">
   <details>
-    <summary>Power semiconductor testing — guide and detailed tutorials</summary>
-    <p><a href="{% post_url 2026-09-10-power-semiconductor-characterisation-guide %}">Start here: electrical, thermal and reliability characterisation</a></p>
-    <p><strong>Electrical measurements</strong></p>
+    <summary>{% if zh %}功率半导体测试——总览与专题教程{% else %}Power semiconductor testing — guide and detailed tutorials{% endif %}</summary>
+    <p><a href="{% if zh %}{{ '/zh/resources/blog/power-semiconductor-characterisation-guide/' | relative_url }}{% else %}{% post_url 2026-09-10-power-semiconductor-characterisation-guide %}{% endif %}">{% if zh %}从这里开始：电气、热学与可靠性表征{% else %}Start here: electrical, thermal and reliability characterisation{% endif %}</a></p>
+    <p><strong>{% if zh %}电气测量{% else %}Electrical measurements{% endif %}</strong></p>
     <ol>
-      <li><a href="{% post_url 2026-09-10-static-electrical-characterisation %}">Static electrical characteristics</a></li>
-      <li><a href="{% post_url 2026-09-10-double-pulse-testing %}">Double-pulse testing and switching energy</a></li>
-      <li><a href="{% post_url 2026-09-10-gate-charge-capacitance-dynamic-resistance %}">Charge, capacitance and dynamic on-resistance</a></li>
-      <li><a href="{% post_url 2026-09-10-semiconductor-robustness-testing %}">SOA, avalanche and short-circuit robustness</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/static-electrical-characterisation/' | relative_url }}{% else %}{% post_url 2026-09-10-static-electrical-characterisation %}{% endif %}">{% if zh %}静态电气特性{% else %}Static electrical characteristics{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/double-pulse-testing/' | relative_url }}{% else %}{% post_url 2026-09-10-double-pulse-testing %}{% endif %}">{% if zh %}双脉冲测试与开关能量{% else %}Double-pulse testing and switching energy{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/gate-charge-capacitance-dynamic-resistance/' | relative_url }}{% else %}{% post_url 2026-09-10-gate-charge-capacitance-dynamic-resistance %}{% endif %}">{% if zh %}栅极电荷、电容与动态导通电阻{% else %}Charge, capacitance and dynamic on-resistance{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/semiconductor-robustness-testing/' | relative_url }}{% else %}{% post_url 2026-09-10-semiconductor-robustness-testing %}{% endif %}">{% if zh %}SOA、雪崩与短路鲁棒性{% else %}SOA, avalanche and short-circuit robustness{% endif %}</a></li>
     </ol>
-    <p><strong>Thermal measurements</strong></p>
+    <p><strong>{% if zh %}热学测量{% else %}Thermal measurements{% endif %}</strong></p>
     <ol>
-      <li><a href="{% post_url 2026-09-10-junction-temperature-measurement %}">Junction-temperature measurement</a></li>
-      <li><a href="{% post_url 2026-09-10-steady-state-thermal-resistance %}">Steady-state thermal resistance</a></li>
-      <li><a href="{% post_url 2026-09-10-transient-thermal-impedance %}">Transient thermal impedance and RC models</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/junction-temperature-measurement/' | relative_url }}{% else %}{% post_url 2026-09-10-junction-temperature-measurement %}{% endif %}">{% if zh %}结温测量{% else %}Junction-temperature measurement{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/steady-state-thermal-resistance/' | relative_url }}{% else %}{% post_url 2026-09-10-steady-state-thermal-resistance %}{% endif %}">{% if zh %}稳态热阻{% else %}Steady-state thermal resistance{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/transient-thermal-impedance/' | relative_url }}{% else %}{% post_url 2026-09-10-transient-thermal-impedance %}{% endif %}">{% if zh %}瞬态热阻抗与 RC 模型{% else %}Transient thermal impedance and RC models{% endif %}</a></li>
     </ol>
-    <p><strong>Ageing and life estimation</strong></p>
+    <p><strong>{% if zh %}老化与寿命估算{% else %}Ageing and life estimation{% endif %}</strong></p>
     <ol>
-      <li><a href="{% post_url 2026-09-10-power-cycling-reliability %}">Active power cycling</a></li>
-      <li><a href="{% post_url 2026-09-10-temperature-cycling-reliability %}">Passive temperature cycling</a></li>
-      <li><a href="{% post_url 2026-09-10-bias-humidity-reliability-testing %}">Bias and humidity stresses</a></li>
-      <li><a href="{% post_url 2026-09-10-mission-profile-lifetime-estimation %}">Mission profile and lifetime estimation</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/power-cycling-reliability/' | relative_url }}{% else %}{% post_url 2026-09-10-power-cycling-reliability %}{% endif %}">{% if zh %}主动功率循环{% else %}Active power cycling{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/temperature-cycling-reliability/' | relative_url }}{% else %}{% post_url 2026-09-10-temperature-cycling-reliability %}{% endif %}">{% if zh %}被动温度循环{% else %}Passive temperature cycling{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/bias-humidity-reliability-testing/' | relative_url }}{% else %}{% post_url 2026-09-10-bias-humidity-reliability-testing %}{% endif %}">{% if zh %}偏压与湿热应力{% else %}Bias and humidity stresses{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/mission-profile-lifetime-estimation/' | relative_url }}{% else %}{% post_url 2026-09-10-mission-profile-lifetime-estimation %}{% endif %}">{% if zh %}任务剖面与寿命估算{% else %}Mission profile and lifetime estimation{% endif %}</a></li>
     </ol>
   </details>
 </nav>

@@ -7,9 +7,12 @@ description: 认识开源原理图绘制工具 AIPE-Sketch，学习快速运行�
 role: 原理图生成
 intro: 描述电路怎样连接，让 AIPE-Sketch 完成器件布局、布线和标注。
 repository: https://github.com/FulongLi/AIPE-Sketch
+visual: /assets/blog/figures/circuit-dab.svg
+visual_alt: AIPE-Sketch 生成的 DAB 变换器原理图
 ---
 
 ## 认识团队中的原理图绘制工具
+{: #overview }
 
 解释变换器、讨论设计方案或整理工程文档时，我们经常需要先画一张电路图。手工绘制意味着每次修改电路，都要重新排列器件、调整走线，再挪动标注。
 
@@ -18,6 +21,7 @@ repository: https://github.com/FulongLi/AIPE-Sketch
 项目代码公开在 [AIPE-Sketch GitHub 仓库](https://github.com/FulongLi/AIPE-Sketch)。
 
 ## 它负责哪些工作？
+{: #capabilities }
 
 - **分析结构与规划布局：** 识别串联通路、并联支路、桥臂和变压器隔离等结构，将器件之间的关系转换成绘图计划。
 - **放置符号与布线：** 使用主 SVG 符号库，排列器件，并生成由水平、垂直线段组成的走线。
@@ -51,6 +55,7 @@ python3 build.py --manual buck   # 与已保存的手工布局基线比较
 ```
 
 ## 绘制自己的电路
+{: #custom-circuit }
 
 将下面的代码保存为仓库根目录下的 `my_circuit.py`。它描述了一个由电压源、1 mH 电感和 10 Ω 电阻构成的闭合串联支路。
 
@@ -78,6 +83,7 @@ schematic.render('out/branch.svg')
 绘图前先验证电路。未知端口、悬空端口和只有一个端口的网络会被拒绝。新增器件类型还需要对应的符号和端口映射，才能生成原理图。
 
 ## 怎样与 AI 编程助手一起使用？
+{: #agent-workflow }
 
 让 AI 编程助手读取仓库，再描述需要绘制的器件和连接关系。第一次使用时，可以给它这样的任务：
 
@@ -86,6 +92,7 @@ schematic.render('out/branch.svg')
 绘制自定义电路时，可以让助手先编写 `Netlist`，验证端口与连接，再通过 `Schematic.from_netlist()` 绘图，最后与你一起查看结果。这样，助手有了明确的绘图工具，电气描述也保留下来，便于检查。当前工具不包含独立的对话式 Agent，也没有内置的自然语言转电路接口。
 
 ## 使用结果前，需要了解什么？
+{: #limits }
 
 连通性检查可以确认图纸是否符合声明的电路，但不能证明电路在实际工况下能正确运行。功率通路推断基于结构；复杂或存在歧义的电路可能需要人工检查或专家布局覆盖。当前规则识别的是由两个器件组成的桥臂，主符号表中的很多符号也还没有可用于绘图的工程端口映射。
 

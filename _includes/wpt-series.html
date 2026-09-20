@@ -1,11 +1,12 @@
-<nav class="series-nav" aria-label="Wireless power transfer series">
+{% assign zh = false %}{% if page.lang == 'zh' %}{% assign zh = true %}{% endif %}
+<nav class="series-nav" aria-label="{% if zh %}无线电能传输系列{% else %}Wireless power transfer series{% endif %}">
   <details>
-    <summary>Wireless power transfer series — the same physics at three power levels</summary>
+    <summary>{% if zh %}无线电能传输系列——相同物理规律，不同功率等级{% else %}Wireless power transfer series — the same physics at three power levels{% endif %}</summary>
     <ol>
-      <li><a href="{% post_url 2026-09-13-wireless-charging-phones-inductive-basics %}">Phones — the inductive link from first principles</a></li>
-      <li><a href="{% post_url 2026-09-13-wireless-charging-electric-vehicles %}">Electric vehicles — kilowatts across a 150 mm gap</a></li>
-      <li><a href="{% post_url 2026-09-13-underwater-wireless-power-transfer %}">Underwater — charging through a conducting medium</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/wireless-charging-phones-inductive-basics/' | relative_url }}{% else %}{% post_url 2026-09-13-wireless-charging-phones-inductive-basics %}{% endif %}">{% if zh %}手机——从第一性原理理解感应耦合{% else %}Phones — the inductive link from first principles{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/wireless-charging-electric-vehicles/' | relative_url }}{% else %}{% post_url 2026-09-13-wireless-charging-electric-vehicles %}{% endif %}">{% if zh %}电动汽车——跨越 150 mm 气隙传输千瓦级功率{% else %}Electric vehicles — kilowatts across a 150 mm gap{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/underwater-wireless-power-transfer/' | relative_url }}{% else %}{% post_url 2026-09-13-underwater-wireless-power-transfer %}{% endif %}">{% if zh %}水下系统——穿过导电介质充电{% else %}Underwater — charging through a conducting medium{% endif %}</a></li>
     </ol>
-    <p>Each article uses the same coupling coefficient, compensation and kQ framework; the power level, gap and surrounding medium are what change.</p>
+    <p>{% if zh %}三篇文章使用相同的耦合系数、补偿网络和 kQ 分析框架；变化的是功率等级、气隙和周围介质。{% else %}Each article uses the same coupling coefficient, compensation and kQ framework; the power level, gap and surrounding medium are what change.{% endif %}</p>
   </details>
 </nav>

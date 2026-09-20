@@ -97,7 +97,7 @@ description: About Spirit Connect AIPE Labs — connecting AI-assisted engineeri
     <p>
       Interested in AI-assisted power electronics engineering or want to explore collaboration?
       Reach out at <a href="mailto:info@spiritconnect.co.uk">info@spiritconnect.co.uk</a> or connect on
-      <a href="https://www.linkedin.com/in/fulong-li-6bb443127" target="_blank">LinkedIn</a>.
+      <a href="https://www.linkedin.com/in/fulong-li-6bb443127" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
     </p>
   </div>
 </section>

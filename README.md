@@ -62,6 +62,17 @@ Then open `http://localhost:4000/`.
 
 English copy uses British English. Public navigation labels, page titles, URL paths, and cross-language links should remain aligned across the English and Chinese versions.
 
+Blog articles live in `_posts/` (English) and `_posts/zh/` (Chinese). A translated article should use the same filename slug as its source and set `lang: zh`; the layouts then discover the matching article automatically and render language-switch and `hreflang` links. If matching slugs are not possible, give both files the same `translation_key`. Keep series navigation in the shared files under `_includes/` rather than duplicating it inside articles.
+
+Generated build output (`_site/`, `.jekyll-cache/`), local dependencies (`vendor/`, `.bundle/`) and scratch output (`output/`) are ignored. Public assets belong in `assets/`, `images/` or `accessories/`; one-off generation utilities belong in `tools/` and are excluded from the published site.
+
+Before publishing, run:
+
+```bash
+bundle exec jekyll build --trace
+git diff --check
+```
+
 ## Licence and contact
 
 See [LICENSE.md](LICENSE.md) for licensing details.

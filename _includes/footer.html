@@ -1,5 +1,6 @@
 {% assign lang = page.lang | default: 'en' %}
 {% assign t = site.data.i18n[lang] %}
+{% assign current_year = site.time | date: '%Y' %}
 {%- if lang == 'zh' -%}{%- assign lp = '/zh' -%}{%- else -%}{%- assign lp = '' -%}{%- endif -%}
 <footer class="footer">
   <div class="container cols">
@@ -48,7 +49,7 @@
 
   <div class="container footer-bottom">
     <p class="small">
-      {{ t.footer_rights }}
+      © {{ current_year }} {{ t.footer_rights }}
     </p>
   </div>
 </footer>

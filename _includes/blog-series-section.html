@@ -1,0 +1,14 @@
+<section class="blog-series" id="{{ include.id }}">
+  <div class="blog-series-heading">
+    <div>
+      <span class="section-kicker">{{ include.kicker }}</span>
+      <h2>{{ include.title }}</h2>
+    </div>
+    <p>{{ include.description }}</p>
+  </div>
+  <div class="blog-article-grid">
+    {% for post in include.posts %}
+      {% include blog-index-card.html post=post lang=include.lang series=include.title %}
+    {% endfor %}
+  </div>
+</section>

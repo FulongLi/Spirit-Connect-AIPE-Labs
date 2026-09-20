@@ -1,0 +1,28 @@
+{% assign source_post = include.post %}
+{% assign display_post = source_post %}
+{% assign translated = false %}
+{% if include.lang == 'zh' %}
+  {% assign source_translation_key = source_post.translation_key | default: source_post.slug %}
+  {% for candidate in site.posts %}
+    {% assign candidate_translation_key = candidate.translation_key | default: candidate.slug %}
+    {% if candidate.lang == 'zh' and candidate_translation_key == source_translation_key %}
+      {% assign display_post = candidate %}
+      {% assign translated = true %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+<a class="blog-index-card" href="{{ display_post.url | relative_url }}">
+  <div class="blog-card-meta">
+    {% if include.lang == 'zh' %}
+      <span class="blog-language-status{% unless translated %} is-source{% endunless %}">{% if translated %}中文{% else %}英文原文{% endif %}</span>
+      <time datetime="{{ display_post.date | date_to_xmlschema }}">{{ display_post.date | date: "%Y.%m.%d" }}</time>
+    {% else %}
+      <span>{{ include.series }}</span>
+      <time datetime="{{ display_post.date | date_to_xmlschema }}">{{ display_post.date | date: "%-d %B %Y" }}</time>
+    {% endif %}
+  </div>
+  <h3>{{ display_post.title }}</h3>
+  <p>{{ display_post.description | default: display_post.excerpt | strip_html | truncate: 165 }}</p>
+  <span class="blog-card-arrow">{% if include.lang == 'zh' %}{% if translated %}阅读中文文章{% else %}阅读英文文章{% endif %}{% else %}Read article{% endif %} →</span>
+</a>

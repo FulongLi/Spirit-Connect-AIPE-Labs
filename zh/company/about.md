@@ -92,7 +92,7 @@ description: 关于 Spirit Connect AIPE Labs —— 连接 AI 辅助工程与电
     <p>
       对 AI 辅助电力电子工程感兴趣，或希望探讨合作？
       欢迎发邮件至 <a href="mailto:info@spiritconnect.co.uk">info@spiritconnect.co.uk</a>，或在
-      <a href="https://www.linkedin.com/in/fulong-li-6bb443127" target="_blank">领英</a> 上与我们联系。
+      <a href="https://www.linkedin.com/in/fulong-li-6bb443127" target="_blank" rel="noopener noreferrer">领英</a> 上与我们联系。
     </p>
   </div>
 </section>

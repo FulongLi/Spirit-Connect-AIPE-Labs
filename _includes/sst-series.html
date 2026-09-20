@@ -1,19 +1,20 @@
-<nav class="series-nav" aria-label="Solid-state transformer learning series">
+{% assign zh = false %}{% if page.lang == 'zh' %}{% assign zh = true %}{% endif %}
+<nav class="series-nav" aria-label="{% if zh %}固态变压器学习系列{% else %}Solid-state transformer learning series{% endif %}">
   <details>
-    <summary>Solid-state transformer learning series — chapters and derivations</summary>
-    <p><a href="{% post_url 2026-09-10-three-stage-solid-state-transformer %}">Start here: Three-stage SST system guide</a></p>
+    <summary>{% if zh %}固态变压器学习系列——章节与推导{% else %}Solid-state transformer learning series — chapters and derivations{% endif %}</summary>
+    <p><a href="{% if zh %}{{ '/zh/resources/blog/three-stage-solid-state-transformer/' | relative_url }}{% else %}{% post_url 2026-09-10-three-stage-solid-state-transformer %}{% endif %}">{% if zh %}从这里开始：三级 SST 系统指南{% else %}Start here: Three-stage SST system guide{% endif %}</a></p>
     <ol>
-      <li><a href="{% post_url 2026-06-08-introducing-the-basics-of-solid-state-transformer %}">Applications and motivation</a></li>
-      <li><a href="{% post_url 2026-09-10-three-stage-solid-state-transformer %}">Architecture and shared teaching specification</a></li>
-      <li><a href="{% post_url 2026-09-10-sst-ac-dc-front-end %}">AC–DC front end</a></li>
-      <li><a href="{% post_url 2026-09-10-dab-converter-from-principles-to-control %}">DAB isolation stage</a></li>
-      <li><a href="{% post_url 2026-09-10-sst-dc-ac-output-stage %}">DC–AC output stage</a></li>
-      <li><a href="{% post_url 2026-09-10-modular-sst-system-integration %}">Modular integration and testing</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/introducing-the-basics-of-solid-state-transformer/' | relative_url }}{% else %}{% post_url 2026-06-08-introducing-the-basics-of-solid-state-transformer %}{% endif %}">{% if zh %}应用与设计动机{% else %}Applications and motivation{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/three-stage-solid-state-transformer/' | relative_url }}{% else %}{% post_url 2026-09-10-three-stage-solid-state-transformer %}{% endif %}">{% if zh %}系统架构与统一教学规格{% else %}Architecture and shared teaching specification{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/sst-ac-dc-front-end/' | relative_url }}{% else %}{% post_url 2026-09-10-sst-ac-dc-front-end %}{% endif %}">{% if zh %}AC–DC 前端{% else %}AC–DC front end{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/dab-converter-from-principles-to-control/' | relative_url }}{% else %}{% post_url 2026-09-10-dab-converter-from-principles-to-control %}{% endif %}">{% if zh %}DAB 隔离级{% else %}DAB isolation stage{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/sst-dc-ac-output-stage/' | relative_url }}{% else %}{% post_url 2026-09-10-sst-dc-ac-output-stage %}{% endif %}">{% if zh %}DC–AC 输出级{% else %}DC–AC output stage{% endif %}</a></li>
+      <li><a href="{% if zh %}{{ '/zh/resources/blog/modular-sst-system-integration/' | relative_url }}{% else %}{% post_url 2026-09-10-modular-sst-system-integration %}{% endif %}">{% if zh %}模块化集成与测试{% else %}Modular integration and testing{% endif %}</a></li>
     </ol>
-    <p>Supporting tutorials:
-      <a href="{% post_url 2026-09-10-three-phase-dq-modelling %}">Three-phase coordinates and control signs</a> ·
-      <a href="{% post_url 2026-09-10-dab-power-transfer-and-small-signal-model %}">DAB power and small-signal derivation</a> ·
-      <a href="{% post_url 2026-09-10-sst-high-frequency-transformer-design %}">High-frequency transformer design</a>
+    <p>{% if zh %}配套教程：{% else %}Supporting tutorials:{% endif %}
+      <a href="{% if zh %}{{ '/zh/resources/blog/three-phase-dq-modelling/' | relative_url }}{% else %}{% post_url 2026-09-10-three-phase-dq-modelling %}{% endif %}">{% if zh %}三相坐标变换与控制符号{% else %}Three-phase coordinates and control signs{% endif %}</a> ·
+      <a href="{% if zh %}{{ '/zh/resources/blog/dab-power-transfer-and-small-signal-model/' | relative_url }}{% else %}{% post_url 2026-09-10-dab-power-transfer-and-small-signal-model %}{% endif %}">{% if zh %}DAB 功率与小信号推导{% else %}DAB power and small-signal derivation{% endif %}</a> ·
+      <a href="{% if zh %}{{ '/zh/resources/blog/sst-high-frequency-transformer-design/' | relative_url }}{% else %}{% post_url 2026-09-10-sst-high-frequency-transformer-design %}{% endif %}">{% if zh %}高频变压器设计{% else %}High-frequency transformer design{% endif %}</a>
     </p>
   </details>
 </nav>

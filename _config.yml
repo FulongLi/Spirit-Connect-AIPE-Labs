@@ -7,6 +7,16 @@ timezone: Europe/London
 
 permalink: /resources/blog/:title/
 
+# English is the default publishing language. A translated post overrides this
+# with `lang: zh` and keeps the same slug (or supplies a shared
+# `translation_key`) so the language switch can discover its counterpart.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      lang: en
+
 exclude:
   - README.md
   - LICENSE.md
