@@ -7,7 +7,7 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
 ---
 
 <main class="converter-library">
-<header class="hero">
+<header class="hero power-library-hero">
   <div class="container">
     <h1>变换器拓扑</h1>
     <p class="lead">
@@ -17,43 +17,46 @@ description: 面向工业电能变换的结构化拓扑资料库，覆盖经典 
   </div>
 </header>
 
-<section class="section section-alt">
+<section class="section section-alt power-overview-section">
   <div class="container">
-    <h2>按照电能变换接口查找</h2>
-    <p class="lead">
-      首先按照输入与输出的电气形式分类，再通过隔离、双向运行、软开关、
-      相数和模块化方式进一步缩小设计空间。
-    </p>
-    <div class="grid">
-      <a class="card post-card" href="#dc-dc">
+    <div class="power-overview-heading">
+      <span class="section-kicker">从电气接口开始</span>
+      <h2>按照电能变换接口查找</h2>
+      <p class="lead">
+        首先按照输入与输出的电气形式分类，再通过隔离、双向运行、软开关、
+        相数和模块化方式进一步缩小设计空间。
+      </p>
+    </div>
+    <div class="grid power-overview-grid converter-overview-grid">
+      <a class="card post-card power-overview-card" href="#dc-dc">
         {% include fig-conv-dcdc.html lang=page.lang %}
         <span class="small">DC → DC</span>
         <h3>DC–DC 变换</h3>
         <p>非隔离、隔离、谐振、交错并联与双向功率级。</p>
         <span class="post-card-more">查看拓扑 ↓</span>
       </a>
-      <a class="card post-card" href="#ac-dc">
+      <a class="card post-card power-overview-card" href="#ac-dc">
         {% include fig-conv-acdc.html lang=page.lang %}
         <span class="small">AC → DC</span>
         <h3>整流与 PFC</h3>
         <p>无源整流、Boost 型 PFC、图腾柱、Vienna 与有源前端。</p>
         <span class="post-card-more">查看拓扑 ↓</span>
       </a>
-      <a class="card post-card" href="#dc-ac">
+      <a class="card post-card power-overview-card" href="#dc-ac">
         {% include fig-conv-dcac.html lang=page.lang %}
         <span class="small">DC → AC</span>
         <h3>逆变器</h3>
         <p>单相与三相桥式、电压源型以及多电平逆变器。</p>
         <span class="post-card-more">查看拓扑 ↓</span>
       </a>
-      <a class="card post-card" href="#ac-ac">
+      <a class="card post-card power-overview-card" href="#ac-ac">
         {% include fig-conv-acac.html lang=page.lang %}
         <span class="small">AC → AC</span>
         <h3>AC–AC 变换</h3>
         <p>背靠背变换、交流调压、周波变换与矩阵变换器。</p>
         <span class="post-card-more">查看拓扑 ↓</span>
       </a>
-      <a class="card post-card" href="#modular">
+      <a class="card post-card power-overview-card" href="#modular">
         {% include fig-conv-modular.html lang=page.lang %}
         <span class="small">单元 → 系统</span>
         <h3>模块化与多级架构</h3>

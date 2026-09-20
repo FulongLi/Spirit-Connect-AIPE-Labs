@@ -6,31 +6,34 @@ permalink: /zh/power/microgrids/
 description: 风能、太阳能光伏、燃料电池与储能在直流、交流及交直流混合微电网中的接入 —— 涵盖功率接口、控制、保护与能量管理。
 ---
 
-<header class="hero">
+<header class="hero power-library-hero">
   <div class="container">
     <h1>微电网</h1>
     <p class="lead">将可再生能源与储能接入直流和交流微电网，并对系统进行设计、建模与控制，实现韧性且高效的能源分配。</p>
   </div>
 </header>
 
-<section class="section">
+<section class="section power-overview-section">
   <div class="container">
-    <h2>微电网解决方案</h2>
-    <p class="lead">
-      微电网是一组边界清晰的电源、储能与负荷，既可并网运行，也可独立运行。
-      正是"孤岛"这一项能力，使架构选择变得举足轻重：控制、保护与电能质量的一切，
-      都取决于能量究竟落在哪条母线上。
-    </p>
-    <div class="grid">
-      <div class="card">
+    <div class="power-overview-heading">
+      <span class="section-kicker">选择系统架构</span>
+      <h2>微电网解决方案</h2>
+      <p class="lead">
+        微电网是一组边界清晰的电源、储能与负荷，既可并网运行，也可独立运行。
+        正是“孤岛”这一项能力，使架构选择变得举足轻重：控制、保护与电能质量的一切，
+        都取决于能量究竟落在哪条母线上。
+      </p>
+    </div>
+    <div class="grid power-overview-grid">
+      <div class="card power-overview-card">
         <h3>直流微电网</h3>
         <p>高效的直流配电系统，配以先进控制策略，实现最优的能量管理与可靠性。</p>
       </div>
-      <div class="card">
+      <div class="card power-overview-card">
         <h3>交流微电网</h3>
         <p>并网与孤岛运行的交流微电网架构，具备无缝切换能力与电能质量管理。</p>
       </div>
-      <div class="card">
+      <div class="card power-overview-card">
         <h3>交直流混合架构</h3>
         <p>融合交流与直流配电优势的一体化系统，实现最高的效率与灵活性。</p>
       </div>

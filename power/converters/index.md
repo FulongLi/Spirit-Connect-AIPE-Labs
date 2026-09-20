@@ -6,7 +6,7 @@ description: A structured topology library for industrial power conversion, from
 ---
 
 <main class="converter-library">
-<header class="hero">
+<header class="hero power-library-hero">
   <div class="container">
     <h1>Converter Topologies</h1>
     <p class="lead">
@@ -16,43 +16,46 @@ description: A structured topology library for industrial power conversion, from
   </div>
 </header>
 
-<section class="section section-alt">
+<section class="section section-alt power-overview-section">
   <div class="container">
-    <h2>Navigate by conversion interface</h2>
-    <p class="lead">
-      The primary classification follows the electrical interface. Isolation, bidirectional
-      operation, soft switching, phase count, and modularity then narrow the design space.
-    </p>
-    <div class="grid">
-      <a class="card post-card" href="#dc-dc">
+    <div class="power-overview-heading">
+      <span class="section-kicker">Start with the electrical interface</span>
+      <h2>Navigate by conversion interface</h2>
+      <p class="lead">
+        The primary classification follows the electrical interface. Isolation, bidirectional
+        operation, soft switching, phase count, and modularity then narrow the design space.
+      </p>
+    </div>
+    <div class="grid power-overview-grid converter-overview-grid">
+      <a class="card post-card power-overview-card" href="#dc-dc">
         {% include fig-conv-dcdc.html lang=page.lang %}
         <span class="small">DC → DC</span>
         <h3>DC–DC conversion</h3>
         <p>Non-isolated, isolated, resonant, interleaved, and bidirectional power stages.</p>
         <span class="post-card-more">Explore topologies ↓</span>
       </a>
-      <a class="card post-card" href="#ac-dc">
+      <a class="card post-card power-overview-card" href="#ac-dc">
         {% include fig-conv-acdc.html lang=page.lang %}
         <span class="small">AC → DC</span>
         <h3>Rectifiers &amp; PFC</h3>
         <p>Passive rectifiers, boost-derived PFC, totem-pole, Vienna, and active front ends.</p>
         <span class="post-card-more">Explore topologies ↓</span>
       </a>
-      <a class="card post-card" href="#dc-ac">
+      <a class="card post-card power-overview-card" href="#dc-ac">
         {% include fig-conv-dcac.html lang=page.lang %}
         <span class="small">DC → AC</span>
         <h3>Inverters</h3>
         <p>Single- and three-phase bridges, voltage-source inverters, and multilevel families.</p>
         <span class="post-card-more">Explore topologies ↓</span>
       </a>
-      <a class="card post-card" href="#ac-ac">
+      <a class="card post-card power-overview-card" href="#ac-ac">
         {% include fig-conv-acac.html lang=page.lang %}
         <span class="small">AC → AC</span>
         <h3>AC–AC conversion</h3>
         <p>Back-to-back conversion, AC controllers, cycloconverters, and matrix converters.</p>
         <span class="post-card-more">Explore topologies ↓</span>
       </a>
-      <a class="card post-card" href="#modular">
+      <a class="card post-card power-overview-card" href="#modular">
         {% include fig-conv-modular.html lang=page.lang %}
         <span class="small">CELLS → SYSTEM</span>
         <h3>Modular &amp; multistage</h3>

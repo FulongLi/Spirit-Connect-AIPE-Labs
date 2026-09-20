@@ -5,12 +5,10 @@ permalink: /resources/ai-agent-team/
 description: Meet the specialist agents and tools in the AIPE Labs ecosystem, discover what each does, and learn how to use it.
 ---
 
-<header class="agent-team-hero">
-  <div class="container agent-team-hero-grid">
-    <div>
-      <span class="section-kicker">Specialist engineering tools</span>
-      <h1>A team built around the engineering workflow.</h1>
-    </div>
+<header class="agent-team-hero library-hero">
+  <div class="container">
+    <span class="section-kicker">Specialist engineering tools</span>
+    <h1>A team built around the engineering workflow.</h1>
     <p class="lead">Each AIPE Labs tool owns a clear part of the path from an engineering idea to a result that can be inspected, tested and reused.</p>
   </div>
 </header>

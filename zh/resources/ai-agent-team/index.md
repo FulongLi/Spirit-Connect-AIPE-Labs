@@ -6,12 +6,10 @@ permalink: /zh/resources/ai-agent-team/
 description: 认识 AIPE Labs 生态中的专业 Agent 与工具，了解各自的用途、工作方式和使用方法。
 ---
 
-<header class="agent-team-hero">
-  <div class="container agent-team-hero-grid">
-    <div>
-      <span class="section-kicker">专业工程工具</span>
-      <h1>围绕工程工作流组建的 Agent 团队。</h1>
-    </div>
+<header class="agent-team-hero library-hero">
+  <div class="container">
+    <span class="section-kicker">专业工程工具</span>
+    <h1>围绕工程工作流组建的 Agent 团队。</h1>
     <p class="lead">每一个 AIPE Labs 工具都负责从工程想法到可检查、可验证、可复用结果之间的一段明确流程。</p>
   </div>
 </header>

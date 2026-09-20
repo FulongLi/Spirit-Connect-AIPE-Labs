@@ -5,12 +5,10 @@ permalink: /resources/database/
 description: Power semiconductor and magnetics databases for power electronics analysis, component selection, modelling, and design automation.
 ---
 
-<header class="database-hero">
-  <div class="container database-hero-grid">
-    <div>
-      <span class="section-kicker">Engineering evidence, structured</span>
-      <h1>Data that behaves like part of the design.</h1>
-    </div>
+<header class="database-hero library-hero">
+  <div class="container">
+    <span class="section-kicker">Engineering evidence, structured</span>
+    <h1>Data that behaves like part of the design.</h1>
     <p class="lead">Reusable device and magnetics data for component selection, loss modelling and AI-assisted engineering workflows — with the conditions and provenance kept attached.</p>
   </div>
 </header>

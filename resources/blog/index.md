@@ -17,12 +17,10 @@ translation_key: blog-index
 {% assign update_posts = update_posts | where_exp: "post", "post.sst_series != true" %}
 {% assign update_posts = update_posts | where_exp: "post", "post.wpt_series != true" %}
 
-<header class="blog-hero">
-  <div class="container blog-hero-grid">
-    <div>
-      <span class="section-kicker">Engineering library</span>
-      <h1>Ideas built from first principles.</h1>
-    </div>
+<header class="blog-hero library-hero">
+  <div class="container">
+    <span class="section-kicker">Engineering library</span>
+    <h1>Ideas built from first principles.</h1>
     <p class="lead">Deep technical guides for engineers working across converters, semiconductor devices, solid-state transformers and wireless power.</p>
   </div>
 </header>

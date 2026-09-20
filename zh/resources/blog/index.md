@@ -18,12 +18,10 @@ translation_key: blog-index
 {% assign update_posts = update_posts | where_exp: "post", "post.sst_series != true" %}
 {% assign update_posts = update_posts | where_exp: "post", "post.wpt_series != true" %}
 
-<header class="blog-hero">
-  <div class="container blog-hero-grid">
-    <div>
-      <span class="section-kicker">工程知识库</span>
-      <h1>从第一性原理出发的工程文章。</h1>
-    </div>
+<header class="blog-hero library-hero">
+  <div class="container">
+    <span class="section-kicker">工程知识库</span>
+    <h1>从第一性原理出发的工程文章。</h1>
     <p class="lead">围绕变换器、功率半导体器件、固态变压器和无线电能传输整理的深入技术指南。</p>
   </div>
 </header>

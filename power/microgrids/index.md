@@ -5,31 +5,34 @@ permalink: /power/microgrids/
 description: Integrating wind, solar PV, fuel cells and energy storage within DC, AC and hybrid AC/DC microgrids — from power interfaces to control, protection and energy management.
 ---
 
-<header class="hero">
+<header class="hero power-library-hero">
   <div class="container">
     <h1>Microgrids</h1>
     <p class="lead">Integrating renewable generation and storage while designing, modelling, and controlling resilient DC and AC microgrids.</p>
   </div>
 </header>
 
-<section class="section">
+<section class="section power-overview-section">
   <div class="container">
-    <h2>Microgrid Solutions</h2>
-    <p class="lead">
-      A microgrid is a bounded set of sources, storage and loads that can operate connected to the utility or on its
-      own. That single capability — islanding — is what makes the architecture choice consequential: everything about
-      control, protection and power quality follows from which bus the energy actually sits on.
-    </p>
-    <div class="grid">
-      <div class="card">
+    <div class="power-overview-heading">
+      <span class="section-kicker">Choose the system architecture</span>
+      <h2>Microgrid solutions</h2>
+      <p class="lead">
+        A microgrid is a bounded set of sources, storage and loads that can operate connected to the utility or on its
+        own. That single capability — islanding — is what makes the architecture choice consequential: everything about
+        control, protection and power quality follows from which bus the energy actually sits on.
+      </p>
+    </div>
+    <div class="grid power-overview-grid">
+      <div class="card power-overview-card">
         <h3>DC Microgrids</h3>
         <p>Efficient DC power distribution systems with advanced control strategies for optimal energy management and reliability.</p>
       </div>
-      <div class="card">
+      <div class="card power-overview-card">
         <h3>AC Microgrids</h3>
         <p>Grid-connected and islanded AC microgrid architectures with seamless transition capabilities and power quality management.</p>
       </div>
-      <div class="card">
+      <div class="card power-overview-card">
         <h3>Hybrid AC/DC Architectures</h3>
         <p>Integrated systems combining the benefits of both AC and DC distribution for maximum efficiency and flexibility.</p>
       </div>
