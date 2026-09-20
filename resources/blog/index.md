@@ -8,7 +8,6 @@ translation_key: blog-index
 ---
 
 {% assign english_posts = site.posts | where: "lang", "en" %}
-{% assign featured_post = english_posts.first %}
 {% assign converter_posts = english_posts | where: "converter_series", true %}
 {% assign device_posts = english_posts | where: "device_testing_series", true %}
 {% assign sst_posts = english_posts | where: "sst_series", true %}
@@ -28,25 +27,7 @@ translation_key: blog-index
   </div>
 </header>
 
-{% if featured_post %}
-<section class="section blog-featured-section">
-  <div class="container">
-    <a class="blog-featured" href="{{ featured_post.url | relative_url }}">
-      <div class="blog-featured-copy">
-        <span class="blog-featured-label">Latest article · {{ featured_post.date | date: "%-d %B %Y" }}</span>
-        <h2>{{ featured_post.title }}</h2>
-        <p>{{ featured_post.description }}</p>
-        <span class="blog-featured-link">Read the latest article →</span>
-      </div>
-      <div class="blog-featured-visual" aria-hidden="true">
-        <span>AIPE</span>
-        <strong>Engineering<br>notes</strong>
-        <small>Device · Converter · System</small>
-      </div>
-    </a>
-  </div>
-</section>
-{% endif %}
+{% include blog-knowledge-graph.html lang=page.lang %}
 
 <section class="section section-alt blog-library">
   <div class="container">

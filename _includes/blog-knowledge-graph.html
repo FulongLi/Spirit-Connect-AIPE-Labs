@@ -1,0 +1,69 @@
+{% assign graph_posts = site.posts | where: "lang", "en" %}
+<section class="section blog-knowledge-section">
+  <div class="container">
+    <div class="blog-knowledge-map" data-blog-knowledge-map>
+      <div class="blog-graph-intro">
+        <span class="blog-graph-eyebrow">{% if include.lang == 'zh' %}交互式知识地图{% else %}Interactive knowledge map{% endif %}</span>
+        <h2>{% if include.lang == 'zh' %}从主题进入，也沿关联探索。{% else %}Enter through a topic. Follow the connections.{% endif %}</h2>
+        <p>{% if include.lang == 'zh' %}大节点代表技术主题，小节点代表文章。拖动节点重新组织视图，滚动或使用按钮缩放，点击文章即可阅读。{% else %}Large nodes are engineering themes; small nodes are articles. Drag to reorganise, scroll or use the controls to zoom, and select an article to read it.{% endif %}</p>
+        <div class="blog-graph-legend" aria-label="{% if include.lang == 'zh' %}知识地图图例{% else %}Knowledge map legend{% endif %}">
+          <span style="--topic-color:#f5d54a">{% if include.lang == 'zh' %}变换器设计{% else %}Converter design{% endif %}</span>
+          <span style="--topic-color:#78a7ff">{% if include.lang == 'zh' %}器件测试{% else %}Device testing{% endif %}</span>
+          <span style="--topic-color:#a88cff">{% if include.lang == 'zh' %}固态变压器{% else %}Solid-state transformers{% endif %}</span>
+          <span style="--topic-color:#58cfaa">{% if include.lang == 'zh' %}无线电能传输{% else %}Wireless power{% endif %}</span>
+          <span style="--topic-color:#ff8e72">{% if include.lang == 'zh' %}AIPE 动态{% else %}AIPE updates{% endif %}</span>
+        </div>
+      </div>
+      <div class="blog-graph-stage">
+        <canvas class="blog-graph-canvas" tabindex="0" role="img" aria-label="{% if include.lang == 'zh' %}展示 34 篇文章及其技术关联的交互式知识地图{% else %}Interactive knowledge map showing 34 articles and their technical relationships{% endif %}"></canvas>
+        <div class="blog-graph-tooltip" role="status" aria-live="polite" hidden></div>
+        <div class="blog-graph-controls" aria-label="{% if include.lang == 'zh' %}知识地图控制{% else %}Knowledge map controls{% endif %}">
+          <button type="button" data-graph-action="zoom-in" aria-label="{% if include.lang == 'zh' %}放大{% else %}Zoom in{% endif %}">+</button>
+          <button type="button" data-graph-action="zoom-out" aria-label="{% if include.lang == 'zh' %}缩小{% else %}Zoom out{% endif %}">−</button>
+          <button type="button" data-graph-action="reset" aria-label="{% if include.lang == 'zh' %}重置视图{% else %}Reset view{% endif %}">↺</button>
+        </div>
+        <span class="blog-graph-hint">{% if include.lang == 'zh' %}拖动 · 缩放 · 点击探索{% else %}Drag · zoom · select to explore{% endif %}</span>
+      </div>
+      <script type="application/json" class="blog-graph-data">
+        {
+          "lang": {{ include.lang | jsonify }},
+          "topics": {
+            "converter": {% if include.lang == 'zh' %}"变换器设计"{% else %}"Converter design"{% endif %},
+            "device": {% if include.lang == 'zh' %}"器件测试与可靠性"{% else %}"Device testing & reliability"{% endif %},
+            "sst": {% if include.lang == 'zh' %}"固态变压器"{% else %}"Solid-state transformers"{% endif %},
+            "wpt": {% if include.lang == 'zh' %}"无线电能传输"{% else %}"Wireless power transfer"{% endif %},
+            "updates": {% if include.lang == 'zh' %}"AIPE Labs 动态"{% else %}"AIPE Labs updates"{% endif %}
+          },
+          "posts": [
+          {% for source_post in graph_posts %}
+            {% assign graph_post = source_post %}
+            {% if include.lang == 'zh' %}
+              {% assign source_key = source_post.translation_key | default: source_post.slug %}
+              {% for candidate in site.posts %}
+                {% assign candidate_key = candidate.translation_key | default: candidate.slug %}
+                {% if candidate.lang == 'zh' and candidate_key == source_key %}
+                  {% assign graph_post = candidate %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            {
+              "id": {{ source_post.slug | jsonify }},
+              "title": {{ graph_post.title | jsonify }},
+              "url": {{ graph_post.url | relative_url | jsonify }},
+              "date": {{ graph_post.date | date_to_xmlschema | jsonify }},
+              "series": {
+                "converter": {% if source_post.converter_series %}true{% else %}false{% endif %},
+                "device": {% if source_post.device_testing_series %}true{% else %}false{% endif %},
+                "sst": {% if source_post.sst_series %}true{% else %}false{% endif %},
+                "wpt": {% if source_post.wpt_series %}true{% else %}false{% endif %}
+              }
+            }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+          ]
+        }
+      </script>
+    </div>
+  </div>
+</section>
+<script defer src="{{ '/assets/blog/knowledge-graph.js' | relative_url }}"></script>

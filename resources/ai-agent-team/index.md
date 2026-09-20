@@ -30,8 +30,10 @@ description: Meet the specialist agents and tools in the AIPE Labs ecosystem, di
       </div>
       <div class="agent-team-feature-visual">
         <div class="agent-tool-window">
-          <div class="agent-tool-window-bar"><i></i><span>aipe-sketch / circuit.svg</span></div>
-          <img src="{{ '/assets/blog/figures/circuit-dab.svg' | relative_url }}" alt="DAB circuit schematic generated as SVG">
+          <div class="agent-tool-window-bar"><i></i><span>aipe-sketch / workflow.mp4</span></div>
+          <video class="agent-tool-video" autoplay muted loop playsinline preload="metadata" poster="{{ '/images/general/aipe-sketch-video-poster.png' | relative_url }}" aria-label="Animated introduction to the AIPE-Sketch schematic workflow">
+            <source src="{{ '/videos/AIPE-Sketch.mp4' | relative_url }}" type="video/mp4">
+          </video>
         </div>
       </div>
     </a>

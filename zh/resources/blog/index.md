@@ -28,6 +28,8 @@ translation_key: blog-index
   </div>
 </header>
 
+{% include blog-knowledge-graph.html lang=page.lang %}
+
 <section class="section blog-translation-intro">
   <div class="container">
     <div class="translation-status-panel">

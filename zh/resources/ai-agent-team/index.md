@@ -31,8 +31,10 @@ description: 认识 AIPE Labs 生态中的专业 Agent 与工具，了解各自�
       </div>
       <div class="agent-team-feature-visual">
         <div class="agent-tool-window">
-          <div class="agent-tool-window-bar"><i></i><span>aipe-sketch / circuit.svg</span></div>
-          <img src="{{ '/assets/blog/figures/circuit-dab.svg' | relative_url }}" alt="AIPE-Sketch 生成的 DAB 电路原理图">
+          <div class="agent-tool-window-bar"><i></i><span>aipe-sketch / workflow.mp4</span></div>
+          <video class="agent-tool-video" autoplay muted loop playsinline preload="metadata" poster="{{ '/images/general/aipe-sketch-video-poster.png' | relative_url }}" aria-label="AIPE-Sketch 原理图工作流动画介绍">
+            <source src="{{ '/videos/AIPE-Sketch.mp4' | relative_url }}" type="video/mp4">
+          </video>
         </div>
       </div>
     </a>

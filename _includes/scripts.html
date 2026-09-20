@@ -60,4 +60,30 @@ window.addEventListener('resize', () => {
     a.style.maxHeight = a.scrollHeight + 'px';
   });
 });
+
+const showcaseVideos = document.querySelectorAll('.agent-tool-video');
+if (showcaseVideos.length) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  showcaseVideos.forEach(video => {
+    if (reduceMotion) {
+      video.removeAttribute('autoplay');
+      video.pause();
+    }
+  });
+
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const videoObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          const playback = video.play();
+          if (playback && playback.catch) playback.catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { rootMargin: '80px 0px', threshold: 0.15 });
+    showcaseVideos.forEach(video => videoObserver.observe(video));
+  }
+}
 </script>
