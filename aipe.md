@@ -1,8 +1,10 @@
 # AIPE Labs Resource Index
 
-> AIPE Labs is building an open Power Electronics AI ecosystem — from device to
-> converter to grid. This Markdown file is the agent-readable index of the tools,
-> packages, specialist agents, datasets, design references, and engineering notes we publish.
+> AIPE (AI for Power Electronics) is an open-source community for AI-assisted power
+> electronics automation — from requirements and device selection to converter design,
+> simulation, optimisation, validation, and system integration. This Markdown file is
+> the agent-readable index of the tools, packages, specialist agents, datasets, design
+> references, research projects, and engineering notes published across the ecosystem.
 
 ## How to Use This Index
 
@@ -19,12 +21,78 @@ The agent should treat linked resources as engineering references, check the lic
 and documentation of each source, and verify important outputs against original
 datasheets, models, simulations, standards, and measurements.
 
+## GitHub Project Hubs
+
+- [AIPE Labs community](https://github.com/AIPE-Labs) — The community home for
+  open-source AI-assisted power electronics automation.
+- [Fulong Li's GitHub projects](https://github.com/FulongLi) — The current project hub
+  for AIPE tools, research code, converter resources, databases, sensing projects, and
+  related power engineering work.
+- [Spirit-Connect-AIPE-Labs](https://github.com/FulongLi/Spirit-Connect-AIPE-Labs) —
+  Source repository for the AIPE Labs website and this resource index.
+
+Repository ownership may move from the personal project hub to the AIPE Labs community
+as projects mature. The links below point to their current public locations.
+
 ## Open-Source Tools, Packages, and Agents
 
-- [AIPE Labs on GitHub](https://github.com/AIPE-Labs) — Power electronics packages,
-  skills, specialist agents, and engineering tools under active development.
-- [Spirit-Connect-AIPE-Labs](https://github.com/FulongLi/Spirit-Connect-AIPE-Labs) —
-  Source repository for this website and resource index.
+### Design and Engineering Agents
+
+- [AIPE Power Electronics Design Agent](https://github.com/FulongLi/AIPE-Power-Electronics-Design-Agent) —
+  AI-assisted topology selection, converter calculations, magnetics design, component
+  guidance, optimisation, and design reporting.
+- [AIPE Converter Optimisation Agent](https://github.com/FulongLi/AIPE-Converter-Optimisation-Agent) —
+  Converter volume-loss exploration, multi-objective optimisation, and surrogate modelling.
+- [AIPE Simulation Agents](https://github.com/FulongLi/AIPE-Simulation-Agents) —
+  Reusable agent workflows for circuit simulation, debugging, digital control,
+  electromagnetics, and thermal analysis.
+- [AIPE IEEE Paper Agent](https://github.com/FulongLi/AIPE-IEEE-Paper-Agent) —
+  LaTeX and AI-assisted workflow for preparing IEEE-style engineering papers.
+
+### Engineering Data, Models, and Libraries
+
+- [AIPE Power Device Library](https://github.com/AIPE-Labs/AIPE-Power-Device-Library) —
+  Community-owned power semiconductor device library.
+- [AIPE Power Device Database](https://github.com/FulongLi/AIPE-Power-Device-Database) —
+  Structured power semiconductor data and device-selection resources.
+- [Power Electronics Device Library](https://github.com/FulongLi/PowerElectronicsDeviceLibrary) —
+  Python-based power electronics device reference library.
+- [AIPE MOSFET ANN Modelling](https://github.com/FulongLi/AIPE-MOSFET-ANN-Modelling) —
+  Neural-network models for MOSFET electrical, loss, and thermal behaviour.
+- [AIPE Magnetics Library](https://github.com/FulongLi/AIPE-Magnetics-Library) —
+  Magnetic component data, design resources, and reference assets.
+- [AIPE Inductor Design Example](https://github.com/FulongLi/AIPE-Magnetics-Agnet-Inductor-Design-Example) —
+  Agent-assisted inductor design documentation and technical drawings.
+
+### Schematics, Converters, and Systems
+
+- [AIPE-Sketch](https://github.com/FulongLi/AIPE-Sketch) — Open-source Python
+  circuit-to-SVG drawing backend with graph planning, routing, and connectivity validation.
+- [AIPE Solid-State Transformer](https://github.com/FulongLi/AIPE-Solid-State-Transformer) —
+  Solid-state transformer modelling, multi-stage conversion, control, and integration.
+- [Isolated Converters](https://github.com/FulongLi/IsolatedCoverters) — Reference
+  material and models for isolated converter topologies.
+- [Non-Isolated Converters](https://github.com/FulongLi/NonisolatedCoverters) —
+  Reference material and models for non-isolated converter topologies.
+- [Buck Converter Optimisation](https://github.com/FulongLi/BuckConverterOptimisation) —
+  Multi-objective buck-converter optimisation workflows.
+- [DC Microgrid Test Bench](https://github.com/FulongLi/DCMicrogridTestBench) —
+  Low-voltage DC microgrid platform for converter, control, and energy-management research.
+- [Wireless Power Transfer Test Bench](https://github.com/FulongLi/WirelessPowerTransferTestBench) —
+  Hardware and research resources for wireless power transfer.
+- [AIPS Microgrid EMS Agent](https://github.com/FulongLi/AIPS-Microgrid-EMS-Agent) —
+  Agent-based energy management for microgrids.
+- [AIPS EV Charging Planning](https://github.com/FulongLi/AIPS-EV-Charging-Planning) —
+  Grid-aware electric-vehicle charging-station planning.
+
+### Magnetics, Sensing, and Thermal Design
+
+- [PCB Rogowski Coil](https://github.com/FulongLi/PCB-Rogowski-Coil) — PCB-based
+  Rogowski coil designs for current sensing and power electronics development.
+- [PCB Current Transformer Transducer](https://github.com/FulongLi/Magnetics-PCBCurrentTransformerTransducer) —
+  PCB current-transformer transducer research and design assets.
+- [Heat Sink Optimisation](https://github.com/FulongLi/HeatSinkOptimisation) —
+  Thermal modelling and heat-sink optimisation resources.
 
 ## AI Agent Team
 
@@ -32,8 +100,6 @@ datasheets, models, simulations, standards, and measurements.
   specialist agents and tools, their roles, and how to use them.
 - [AIPE-Sketch Guide](https://aipel.co.uk/resources/ai-agent-team/aipe-sketch/) —
   Automatic circuit-to-SVG schematic generation, quick start, and Python usage.
-- [AIPE-Sketch](https://github.com/FulongLi/AIPE-Sketch) — Open-source Python
-  drawing backend with graph planning, routing, and connectivity validation.
 
 ## Power Engineering
 
