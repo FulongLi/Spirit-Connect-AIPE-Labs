@@ -36,37 +36,6 @@ description: The contributors building Spirit Connect AIPE Labs.
         </div>
       </article>
 
-      <article class="card team-card">
-        <div class="team-photo-placeholder" aria-hidden="true"></div>
-        <div class="team-card-body">
-          <h2>Dr Zhengyu Lin</h2>
-          <p class="team-role">Technical Reviewer</p>
-          <p>
-            Reader in Power Electronics at Loughborough University, in the Centre for Renewable
-            Energy Systems Technology (CREST), working on power electronics, renewable energy,
-            energy storage, machine drives, and microgrids. He moved to academia after more than
-            six years in UK industry, holds a PhD from Heriot-Watt University, and is an IEEE
-            Senior Member and Chartered Engineer. At AIPE Labs he reviews published technical
-            content for accuracy and engineering rigour.
-          </p>
-          <div class="team-links">
-            <span>Loughborough, United Kingdom</span>
-            <a href="https://www.lboro.ac.uk/departments/meme/staff/zhengyu-lin/" target="_blank" rel="noopener">University profile ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="card team-card">
-        <div class="team-photo-placeholder" aria-hidden="true"></div>
-        <div class="team-card-body">
-          <h2>Johnny Qian</h2>
-          <p class="team-role">Contributor</p>
-          <p>
-            Johnny Qian is an engineer at NVIDIA. He contributes to the engineering work
-            published by AIPE Labs.
-          </p>
-        </div>
-      </article>
     </div>
   </div>
 </section>
