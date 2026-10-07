@@ -25,6 +25,11 @@ exclude:
   - .bundle
   - vendor
   - tools
+  - tests
+  - docs
+  - requirements-dev.txt
+  - aipe.yaml
+  - .ecosystem-sources
   - .idea
   - .gitignore
 

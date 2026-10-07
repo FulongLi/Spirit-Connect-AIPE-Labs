@@ -1,16 +1,31 @@
 ---
-layout: post
-academy_source: /academy/power-electronics/buck-converter/
-canonical_url: https://aipel.co.uk/academy/power-electronics/buck-converter/
-title: "Buck Converter: From Zero to Everything"
-description: "A practical path from the first switching cycle to modelling, feedback control, simulation, KiCad and a working buck-converter prototype."
-date: 2025-12-10
-author: "Dr. Fulong Li"
+academy_page: true
+en_url: /academy/
+estimated_time: 120
+lang: en
+layout: academy
+lesson_status: draft
+lesson_type: tutorial
 math: true
-converter_explorer: true
-converter_series: true
-zh_url: /zh/resources/blog/
+next_links:
+- title: Predict and check an ideal buck converter
+  url: /academy/power-electronics/buck-open-lab/
+permalink: /academy/power-electronics/buck-converter/
+prerequisite_links:
+- title: Steady-state converters
+  url: /academy/power-electronics/converters/
+render_with_liquid: false
+source_path: curriculum/03-converters/buck-converter.md
+source_sha256: 19dc19d2f1cfb0919259c4a4768bcf432acb68427f42313fb4575caf79cf5e0f
+title: 'Buck converter: from principles to design'
+zh_url: /academy/foundations/prerequisite-path-zh/
 ---
+
+> Canonical teaching source: AIPE Academy. Adapted from Dr. Fulong Li's AIPE Labs
+> article under CC BY 4.0; migration details are in `references/website-migration.json`.
+> Start with the [open Python lab](/academy/power-electronics/buck-open-lab/). MATLAB/PLECS and LTspice
+> sections below are optional historical variants requiring their own licences;
+> the core calculation lab needs only open-source Python. This tutorial remains a draft.
 
 A supply rail gives you 24 V, but your load needs 12 V. A linear regulator would simply burn the difference as heat. How can a circuit step the voltage down efficiently, choose its components, hold the output steady, and become a board that works on the bench?
 
@@ -20,13 +35,15 @@ This tutorial follows one **24 V to 12 V, 30 W buck converter** through that pro
 
 **Reading route:** [principles](#principles) → [design](#design) → [open loop](#open-loop) → [models](#models) → [feedback](#feedback) → [implementation](#implementation) → [simulation](#simulation) → [PCB](#pcb) → [bench](#bench) → [product](#product).
 
-This article is the step-down companion to [Boost Converter: From Zero to Everything]({% post_url 2026-09-10-boost-converter-from-zero-to-everything %}). The two converters are deliberately mirror images: same 30 W, same 100 kHz, same 150 µH, and the same 0.5 nominal duty. Reading them side by side is the fastest way to see which properties belong to *switching conversion in general* and which belong to *one particular topology*. The sharpest difference — the boost's right-half-plane zero, absent here — appears in [Section 4](#models).
+This article is the step-down companion to [Boost Converter: From Zero to Everything](https://aipel.co.uk/resources/blog/boost-converter-from-zero-to-everything/). The two converters are deliberately mirror images: same 30 W, same 100 kHz, same 150 µH, and the same 0.5 nominal duty. Reading them side by side is the fastest way to see which properties belong to *switching conversion in general* and which belong to *one particular topology*. The sharpest difference — the boost's right-half-plane zero, absent here — appears in [Section 4](#models).
 
 ## 1. What is a buck converter? {#principles}
 
 A buck converter is a switching DC–DC converter that lowers an input voltage to a lower output voltage. The basic circuit uses a controlled switch, a diode (or a second switch), an inductor and an output capacitor. It is non-isolated: input and output share a ground connection. In this topology, there is no transformer.
 
-{% include blog-figure.html file="circuit-buck" alt="Buck converter power schematic" caption="Q1 is the high-side switch; D1 freewheels from the common return to the switch node. L1 feeds C2 and R1 in both intervals. C1 is the local input capacitor." circuit="buck" %}
+![Buck converter power schematic](/assets/academy/migrated/buck/circuit-buck.svg)
+
+*Q1 is the high-side switch; D1 freewheels from the common return to the switch node. L1 feeds C2 and R1 in both intervals. C1 is the local input capacitor.*
 
 Here Q is normally a high-side MOSFET. The diode cathode faces the switching node; its anode faces ground, so it conducts only when the switching node is pulled below ground. The inductor connects the switching node to the output; C and the load are connected in parallel. The inductor and capacitor together form a low-pass LC filter — remembering that will explain most of the buck's behaviour later.
 
@@ -69,9 +86,11 @@ Notice that in **both** intervals the inductor stays connected to the output, so
 
 An inductor obeys $$v_L=L\,di_L/dt$$, so its current cannot change instantaneously under a finite voltage. This continuity is what lets it keep delivering current when the switch opens. Its stored energy is $$E_L=Li_L^2/2$$.
 
-{% include blog-figure.html file="buck-waveforms" alt="Gate, inductor voltage and current, and capacitor current over two cycles" caption="Read down one dashed switching boundary: the gate changes the inductor voltage, which changes the current slope. The current itself stays continuous. The plotted values use the nominal example." %}
+![Gate, inductor voltage and current, and capacitor current over two cycles](/assets/academy/migrated/buck/buck-waveforms.svg)
 
-{% include converter-explorer.html kind="buck" %}
+*Read down one dashed switching boundary: the gate changes the inductor voltage, which changes the current slope. The current itself stays continuous. The plotted values use the nominal example.*
+
+[Open the interactive switching explorer](https://aipel.co.uk/resources/blog/buck-converter-from-zero-to-everything/#principles).
 
 ### Derive the conversion ratio
 
@@ -287,7 +306,7 @@ $$
 
 ### Why the buck has no right-half-plane zero
 
-This is the single most important control difference between the two converters. The buck's duty-to-output numerator is a **constant**, $$V_g$$ — there is no $$s$$ term, so there is no zero at all. Compare the boost, whose numerator $$(1-D)V-LI_Ls$$ produces a [right-half-plane zero]({% post_url 2026-09-10-boost-converter-from-zero-to-everything %}#models) that adds phase lag and caps the achievable bandwidth.
+This is the single most important control difference between the two converters. The buck's duty-to-output numerator is a **constant**, $$V_g$$ — there is no $$s$$ term, so there is no zero at all. Compare the boost, whose numerator $$(1-D)V-LI_Ls$$ produces a [right-half-plane zero](https://aipel.co.uk/resources/blog/boost-converter-from-zero-to-everything/#models) that adds phase lag and caps the achievable bandwidth.
 
 The physical reason is structural. In a buck the inductor feeds the output in *every* interval, so raising the duty immediately raises the output — the response has the same sign as the command. In a boost, raising the duty first *disconnects* the output from the inductor for longer, so the output initially dips before it rises. The buck has no such inverse response, and that is precisely what a right-half-plane zero encodes.
 
@@ -301,9 +320,11 @@ $$
 
 For this example, $$f_0\approx1.30\ \mathrm{kHz}$$ and $$Q\approx3.92$$. Frequencies in hertz are angular frequencies divided by $$2\pi$$. The DC duty-to-output gain is simply $$V_g=24$$ V per unit duty, and with this light damping the response peaks near $$V_gQ\approx94$$ (about 39 dB) at $$f_0$$. That tall, lightly damped resonance — not a right-half-plane zero — is the obstacle the compensator must handle.
 
-The line-to-output response $$G_{vg}=D/(LCs^2+(L/R)s+1)$$ and the output impedance $$Z_o=Ls/(LCs^2+(L/R)s+1)$$ share the same denominator. The general method for introducing perturbations and discarding the right terms is worked step by step in [Small-Signal Modelling from First Principles: A Boost Converter Walkthrough]({% post_url 2026-09-10-small-signal-modelling-boost-converter %}); the algebra transfers directly, and the buck is the easier case because the numerator collapses to a constant.
+The line-to-output response $$G_{vg}=D/(LCs^2+(L/R)s+1)$$ and the output impedance $$Z_o=Ls/(LCs^2+(L/R)s+1)$$ share the same denominator. The general method for introducing perturbations and discarding the right terms is worked step by step in [Small-Signal Modelling from First Principles: A Boost Converter Walkthrough](https://aipel.co.uk/resources/blog/small-signal-modelling-boost-converter/); the algebra transfers directly, and the buck is the easier case because the numerator collapses to a constant.
 
-{% include blog-figure.html file="feedback-loop" alt="Negative feedback from measured output through controller and PWM" caption="Start with the sign of the error: a low measured output should command the correction required by this plant. Include sensor and PWM gains before calculating the loop gain." %}
+![Negative feedback from measured output through controller and PWM](/assets/academy/migrated/buck/feedback-loop.svg)
+
+*Start with the sign of the error: a low measured output should command the correction required by this plant. Include sensor and PWM gains before calculating the loop gain.*
 
 ## 5. Close the feedback loop deliberately {#feedback}
 
@@ -339,7 +360,7 @@ $$
 
 Its nominal crossover is about 31 Hz with a large phase margin. This is deliberately slow, and for a specific reason: the LC resonance near 1.30 kHz peaks at roughly 39 dB, so any proportional gain large enough to push crossover towards that peak makes the peak itself cross unity and creates extra gain crossings. A pure PI therefore cannot be both simple and fast on this plant. This controller demonstrates regulation; it is not offered as a production transient-performance design.
 
-The [MATLAB analysis script]({{ '/assets/downloads/buck-converter/buck_ccm_analysis.m' | relative_url }}) builds the plant and controller, lists all stability margins and plots the small-signal responses. It requires MATLAB with Control System Toolbox. The supplied values and continuous-time stability have been independently checked numerically; the script has not yet been run in MATLAB.
+The [MATLAB analysis script](/assets/academy/migrated/buck/buck_ccm_analysis.m) builds the plant and controller, lists all stability margins and plots the small-signal responses. It requires MATLAB with Control System Toolbox. The supplied values and continuous-time stability have been independently checked numerically; the script has not yet been run in MATLAB.
 
 ### Move from the baseline to a useful design
 
@@ -444,7 +465,7 @@ Do not use the averaged model to claim switching ripple: averaging has deliberat
 
 ### Open the LTspice starter
 
-Download [buck_open_loop.cir]({{ '/assets/downloads/buck-converter/buck_open_loop.cir' | relative_url }}) and open it in LTspice. It uses a voltage-controlled switch, a simple diode and illustrative winding resistance, so the output will not be exactly the ideal 12 V. These are generic parts, not a selected production BOM.
+Download [buck_open_loop.cir](/assets/academy/migrated/buck/buck_open_loop.cir) and open it in LTspice. It uses a voltage-controlled switch, a simple diode and illustrative winding resistance, so the output will not be exactly the ideal 12 V. These are generic parts, not a selected production BOM.
 
 Run its transient analysis and plot `V(out)`, `V(sw)` and `I(L1)`. Compare the last few switching periods with the earlier calculations. The switch is off at the start, so the output ramps up from zero when PWM begins; this is a PWM-enable transient, not a characterised startup. Increase the simulation duration if the waveform has not settled.
 
@@ -507,7 +528,7 @@ Once the basic converter is understood, extensions include synchronous rectifica
 
 The central habit remains the same: write down the requirement, explain the energy flow, calculate, simulate, build, measure and revise. A model is valuable because it helps you make and test a design decision.
 
-**Read the step-up counterpart:** [Boost Converter: From Zero to Everything]({% post_url 2026-09-10-boost-converter-from-zero-to-everything %}), and the derivation it builds on, [Small-Signal Modelling from First Principles]({% post_url 2026-09-10-small-signal-modelling-boost-converter %}).
+**Read the step-up counterpart:** [Boost Converter: From Zero to Everything](https://aipel.co.uk/resources/blog/boost-converter-from-zero-to-everything/), and the derivation it builds on, [Small-Signal Modelling from First Principles](https://aipel.co.uk/resources/blog/small-signal-modelling-boost-converter/).
 
 ## Further study
 

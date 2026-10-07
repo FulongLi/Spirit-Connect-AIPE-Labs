@@ -1,0 +1,692 @@
+{
+  "schema_version": "0.1.0",
+  "checked_on": "2026-10-07",
+  "allowed_categories": [
+    "LEARN",
+    "RESEARCH",
+    "BUILD",
+    "NEWS"
+  ],
+  "posts": [
+    {
+      "source": "_posts/2026-06-08-introducing-the-basics-of-solid-state-transformer.md",
+      "title": "Solid-State Transformers: Principles, Applications and Design Choices",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/introducing-the-basics-of-solid-state-transformer/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-07-16-one-link-for-your-ai-agent.md",
+      "title": "One link to bring power electronics into your AI agent",
+      "category": "NEWS",
+      "reason": "Product/ecosystem announcement",
+      "url": "/resources/blog/one-link-for-your-ai-agent/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-bias-humidity-reliability-testing.md",
+      "title": "Bias and Humidity Reliability Tests: HTRB, HTGB and Moisture Stress",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/bias-humidity-reliability-testing/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-boost-converter-from-zero-to-everything.md",
+      "title": "Boost Converter: From Zero to Everything",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/boost-converter-from-zero-to-everything/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-dab-converter-from-principles-to-control.md",
+      "title": "The DAB Isolation Stage: From Switching Waveforms to Closed-Loop Control",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/dab-converter-from-principles-to-control/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-dab-power-transfer-and-small-signal-model.md",
+      "title": "DAB Power Transfer and Small-Signal Modelling: A Step-by-Step Derivation",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/dab-power-transfer-and-small-signal-model/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-double-pulse-testing.md",
+      "title": "Double-Pulse Testing: Switching Physics, Measurement and Loss Extraction",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/double-pulse-testing/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-gate-charge-capacitance-dynamic-resistance.md",
+      "title": "Gate Charge, Nonlinear Capacitance and Dynamic On-Resistance",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/gate-charge-capacitance-dynamic-resistance/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-junction-temperature-measurement.md",
+      "title": "Measuring Junction Temperature: Calibration, TSEPs and Measurement Delay",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/junction-temperature-measurement/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-mission-profile-lifetime-estimation.md",
+      "title": "From Mission Profile to Lifetime: Damage Models, Weibull Statistics and Uncertainty",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/mission-profile-lifetime-estimation/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-modular-sst-system-integration.md",
+      "title": "Building a Modular SST: Energy, Sharing and System Integration",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/modular-sst-system-integration/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-power-cycling-reliability.md",
+      "title": "Power Cycling Reliability: Controlled Self-Heating and Degradation Evidence",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/power-cycling-reliability/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-power-semiconductor-characterisation-guide.md",
+      "title": "Power Semiconductor Characterisation: Electrical, Thermal and Reliability Testing",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/power-semiconductor-characterisation-guide/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-semiconductor-robustness-testing.md",
+      "title": "Power Semiconductor Robustness: SOA, Avalanche and Short-Circuit Testing",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/semiconductor-robustness-testing/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-small-signal-modelling-boost-converter.md",
+      "title": "Small-Signal Modelling from First Principles: A Boost Converter Walkthrough",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/small-signal-modelling-boost-converter/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-sst-ac-dc-front-end.md",
+      "title": "The AC–DC Front End of an SST: Circuit, Modelling and Control",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/sst-ac-dc-front-end/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-sst-dc-ac-output-stage.md",
+      "title": "The DC–AC Output Stage of an SST: From Voltage Synthesis to Closed-Loop Control",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/sst-dc-ac-output-stage/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-sst-high-frequency-transformer-design.md",
+      "title": "The SST High-Frequency Transformer: From Volt-Seconds to a Testable Design",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/sst-high-frequency-transformer-design/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-static-electrical-characterisation.md",
+      "title": "Static Electrical Characterisation: From Terminal Measurements to a Device Model",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/static-electrical-characterisation/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-steady-state-thermal-resistance.md",
+      "title": "Thermal Resistance Measurements: Define the Heat Path Before Dividing Temperature by Power",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/steady-state-thermal-resistance/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-temperature-cycling-reliability.md",
+      "title": "Temperature Cycling Reliability: Package Strain, Dwell and Failure Analysis",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/temperature-cycling-reliability/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-three-phase-dq-modelling.md",
+      "title": "Three-Phase dq Modelling: Coordinates, Power and Synchronisation",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/three-phase-dq-modelling/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-three-stage-solid-state-transformer.md",
+      "title": "Three-Stage Solid-State Transformers: From Principles to a Complete System",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/three-stage-solid-state-transformer/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-10-transient-thermal-impedance.md",
+      "title": "Transient Thermal Impedance: From Heating Curves to Validated RC Models",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/transient-thermal-impedance/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-11-buck-boost-converter-from-zero-to-everything.md",
+      "title": "Buck–Boost Converter: From Zero to Everything",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/buck-boost-converter-from-zero-to-everything/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-11-buck-converter-from-zero-to-everything.md",
+      "title": "Buck Converter: From Zero to Everything",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/buck-converter-from-zero-to-everything/",
+      "language": "en",
+      "canonical_owner": "AIPE-Academy",
+      "migration": "Canonical teaching source migrated; historical public copy retained"
+    },
+    {
+      "source": "_posts/2026-09-11-cuk-sepic-zeta-converters.md",
+      "title": "Ćuk, SEPIC and Zeta: The Fourth-Order Family",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/cuk-sepic-zeta-converters/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-11-flyback-converter-from-zero-to-everything.md",
+      "title": "Flyback Converter: From Zero to Everything",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/flyback-converter-from-zero-to-everything/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-11-forward-converter-from-zero-to-everything.md",
+      "title": "Forward Converter: From Zero to Everything",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/forward-converter-from-zero-to-everything/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-11-llc-resonant-converter.md",
+      "title": "LLC Resonant Converter: From Zero to Everything",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/llc-resonant-converter/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-11-push-pull-half-bridge-full-bridge.md",
+      "title": "Push–Pull, Half-Bridge and Full-Bridge Converters",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/push-pull-half-bridge-full-bridge/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-13-underwater-wireless-power-transfer.md",
+      "title": "Underwater Wireless Power Transfer: Charging Through a Conducting Medium",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/underwater-wireless-power-transfer/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-13-wireless-charging-electric-vehicles.md",
+      "title": "Wireless Charging for Electric Vehicles: Kilowatts Across a 150 mm Gap",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/wireless-charging-electric-vehicles/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/2026-09-13-wireless-charging-phones-inductive-basics.md",
+      "title": "Wireless Charging for Phones: Coupling, Compensation and the kQ Limit",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/resources/blog/wireless-charging-phones-inductive-basics/",
+      "language": "en",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-06-08-introducing-the-basics-of-solid-state-transformer.md",
+      "title": "固态变压器：原理、应用与架构选择",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/introducing-the-basics-of-solid-state-transformer/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-07-16-one-link-for-your-ai-agent.md",
+      "title": "用一条链接把电力电子资源接入你的 AI Agent",
+      "category": "NEWS",
+      "reason": "Product/ecosystem announcement",
+      "url": "/zh/resources/blog/one-link-for-your-ai-agent/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-bias-humidity-reliability-testing.md",
+      "title": "偏压与湿热可靠性测试：HTRB、HTGB 和湿气应力",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/bias-humidity-reliability-testing/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-boost-converter-from-zero-to-everything.md",
+      "title": "Boost 升压变换器：从零开始的完整指南",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/boost-converter-from-zero-to-everything/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-dab-converter-from-principles-to-control.md",
+      "title": "DAB 隔离级：从开关波形到闭环控制",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/dab-converter-from-principles-to-control/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-dab-power-transfer-and-small-signal-model.md",
+      "title": "DAB 功率传输与小信号建模：逐步推导",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/dab-power-transfer-and-small-signal-model/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-double-pulse-testing.md",
+      "title": "双脉冲测试：开关物理、测量与损耗提取",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/double-pulse-testing/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-gate-charge-capacitance-dynamic-resistance.md",
+      "title": "栅极电荷、非线性电容与动态导通电阻",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/gate-charge-capacitance-dynamic-resistance/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-junction-temperature-measurement.md",
+      "title": "结温测量：校准、电敏参数与测量延时",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/junction-temperature-measurement/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-mission-profile-lifetime-estimation.md",
+      "title": "从任务剖面到寿命：损伤模型、Weibull 统计与不确定度",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/mission-profile-lifetime-estimation/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-modular-sst-system-integration.md",
+      "title": "构建模块化 SST：能量、均流与系统集成",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/modular-sst-system-integration/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-power-cycling-reliability.md",
+      "title": "功率循环可靠性：受控自热与退化证据",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/power-cycling-reliability/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-power-semiconductor-characterisation-guide.md",
+      "title": "功率半导体表征：电气、热与可靠性测试指南",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/power-semiconductor-characterisation-guide/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-semiconductor-robustness-testing.md",
+      "title": "功率半导体鲁棒性：SOA、雪崩与短路测试",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/semiconductor-robustness-testing/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-small-signal-modelling-boost-converter.md",
+      "title": "从第一性原理建立小信号模型：Boost 变换器推导",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/small-signal-modelling-boost-converter/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-sst-ac-dc-front-end.md",
+      "title": "固态变压器的 AC–DC 前端：电路、建模与控制",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/sst-ac-dc-front-end/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-sst-dc-ac-output-stage.md",
+      "title": "固态变压器的 DC–AC 输出级：从电压合成到闭环控制",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/sst-dc-ac-output-stage/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-sst-high-frequency-transformer-design.md",
+      "title": "固态变压器高频变压器设计：从伏秒到可测试方案",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/sst-high-frequency-transformer-design/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-static-electrical-characterisation.md",
+      "title": "静态电气表征：从端口测量到器件模型",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/static-electrical-characterisation/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-steady-state-thermal-resistance.md",
+      "title": "稳态热阻测量：相除之前先定义热流路径",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/steady-state-thermal-resistance/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-temperature-cycling-reliability.md",
+      "title": "温度循环可靠性：封装应变、停留与失效分析",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/temperature-cycling-reliability/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-three-phase-dq-modelling.md",
+      "title": "三相 dq 建模：坐标、功率与同步",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/three-phase-dq-modelling/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-three-stage-solid-state-transformer.md",
+      "title": "三级固态变压器：从基本原理到完整系统",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/three-stage-solid-state-transformer/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-10-transient-thermal-impedance.md",
+      "title": "瞬态热阻抗：从温升曲线到验证过的 RC 模型",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/transient-thermal-impedance/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-11-buck-boost-converter-from-zero-to-everything.md",
+      "title": "Buck–Boost 变换器：从零开始的完整指南",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/buck-boost-converter-from-zero-to-everything/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-11-buck-converter-from-zero-to-everything.md",
+      "title": "Buck 降压变换器：从零开始的完整指南",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/buck-converter-from-zero-to-everything/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-11-cuk-sepic-zeta-converters.md",
+      "title": "Ćuk、SEPIC 与 Zeta：四阶升降压拓扑家族",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/cuk-sepic-zeta-converters/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-11-flyback-converter-from-zero-to-everything.md",
+      "title": "反激变换器：从零开始的完整指南",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/flyback-converter-from-zero-to-everything/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-11-forward-converter-from-zero-to-everything.md",
+      "title": "正激变换器：从零开始的完整指南",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/forward-converter-from-zero-to-everything/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-11-llc-resonant-converter.md",
+      "title": "LLC 谐振变换器：从增益曲线到软开关",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/llc-resonant-converter/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-11-push-pull-half-bridge-full-bridge.md",
+      "title": "推挽、半桥与全桥隔离变换器",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/push-pull-half-bridge-full-bridge/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-13-underwater-wireless-power-transfer.md",
+      "title": "水下无线电能传输：穿过导电介质充电",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/underwater-wireless-power-transfer/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-13-wireless-charging-electric-vehicles.md",
+      "title": "电动汽车无线充电：跨越 150 mm 气隙传输千瓦级功率",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/wireless-charging-electric-vehicles/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    },
+    {
+      "source": "_posts/zh/2026-09-13-wireless-charging-phones-inductive-basics.md",
+      "title": "手机无线充电：耦合、补偿与 kQ 极限",
+      "category": "LEARN",
+      "reason": "Instructional engineering explanation, derivation or design walkthrough",
+      "url": "/zh/resources/blog/wireless-charging-phones-inductive-basics/",
+      "language": "zh",
+      "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "migration": "Retain current source pending individual review"
+    }
+  ]
+}

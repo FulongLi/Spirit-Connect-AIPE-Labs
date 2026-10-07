@@ -18,6 +18,7 @@ layout: default
     </aside>
     <div class="post-article-column">
       <article class="post-article blog-post-article" id="article-overview">
+        {% if page.academy_source %}<p>This article is preserved at its original address. Continue with the <a href="{{ page.academy_source | relative_url }}">canonical Academy lesson and open lab path</a>.</p>{% endif %}
         {% if page.sst_series %}{% include sst-series.html %}{% endif %}
         {% if page.converter_series %}{% include converter-series.html %}{% endif %}
         {% if page.device_testing_series %}{% include device-testing-series.html %}{% endif %}
