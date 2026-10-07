@@ -7,6 +7,7 @@ description: Meet the specialist agents and tools in the AIPE Labs ecosystem, di
 
 <header class="agent-team-hero library-hero">
   <div class="container">
+    {% include hub-breadcrumb.html category='tools' %}
     <span class="section-kicker">Specialist engineering tools</span>
     <h1>A team built around the engineering workflow.</h1>
     <p class="lead">Each AIPE Labs tool owns a clear part of the path from an engineering idea to a result that can be inspected, tested and reused.</p>

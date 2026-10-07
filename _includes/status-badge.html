@@ -1,0 +1,7 @@
+{%- comment -%}
+  Maturity / publication badge.
+  Params: status (Registry maturity, Academy status or website status), lang.
+{%- endcomment -%}
+{%- assign badge_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- assign badge_label = site.data.hub.status_labels[include.status][badge_lang] | default: include.status -%}
+<span class="status-badge status-{{ include.status | slugify }}">{{ badge_label }}</span>

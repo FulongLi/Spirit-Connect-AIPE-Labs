@@ -10,6 +10,7 @@ en_url: /resources/prototypes/rogowski-coil/
 
 <header class="hero hero-compact">
   <div class="container">
+    {% include hub-breadcrumb.html category='designs' %}
     <h1>PCB 罗氏线圈</h1>
     <p class="lead">一种直接印制在 PCB 上的高精度空芯电流传感器：带宽宽、不饱和，几何结构高度可重复，适用于电力电子验证、监测与控制。本页介绍其工作原理、线圈形状为何重要，以及我们的实现方式。</p>
     <div class="hero-actions">

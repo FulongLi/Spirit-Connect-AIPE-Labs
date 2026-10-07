@@ -8,6 +8,7 @@ description: 面向下一代电力配电的 AI 辅助固态变压器（SST）架
 
 <header class="hero">
   <div class="container">
+    {% include hub-breadcrumb.html category='designs' %}
     <h1>固态变压器</h1>
     <p class="lead">AI 驱动设计模块化 SST —— 从单元级变换器优化到系统级集成与控制。</p>
   </div>

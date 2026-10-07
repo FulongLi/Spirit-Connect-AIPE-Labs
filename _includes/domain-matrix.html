@@ -1,0 +1,36 @@
+{%- comment -%}
+  Two-dimensional discovery: engineering domain × artifact type.
+  Each cell counts Hub artifacts carrying that domain in that category and links
+  to the category page filtered by domain. Empty cells are shown as empty: they
+  mark where the hub has not grown yet. Params: lang.
+{%- endcomment -%}
+{%- assign mx_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- if mx_lang == 'zh' -%}{%- assign mx_lp = '/zh' -%}{%- else -%}{%- assign mx_lp = '' -%}{%- endif -%}
+<div class="domain-matrix-wrap">
+  <table class="domain-matrix">
+    <caption class="visually-hidden">{% if mx_lang == 'zh' %}按工程领域和产物类型统计的 Hub 条目数量{% else %}Number of Hub artifacts by engineering domain and artifact type{% endif %}</caption>
+    <thead>
+      <tr>
+        <th scope="col"><span class="domain-matrix-axis">{% if mx_lang == 'zh' %}领域 ↓ · 类型 →{% else %}Domain ↓ · Type →{% endif %}</span></th>
+        {%- for category in site.data.hub.categories %}
+        <th scope="col"><a href="{{ mx_lp | append: category.url | relative_url }}">{{ category.title[mx_lang] }}</a></th>
+        {%- endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {%- for domain in site.data.hub.domains %}
+      {%- if domain.url %}{% assign domain_href = domain.url %}{% else %}{% assign domain_href = '/engineering/#' | append: domain.key %}{% endif %}
+      <tr>
+        <th scope="row"><a href="{{ mx_lp | append: domain_href | relative_url }}">{{ domain.title[mx_lang] }}</a></th>
+        {%- for category in site.data.hub.categories %}
+        {%- assign cell = 0 %}
+        {%- for item in site.data.hub.artifacts %}
+          {%- if item.category == category.key and item.domains contains domain.key %}{% assign cell = cell | plus: 1 %}{% endif %}
+        {%- endfor %}
+        <td>{% if cell > 0 %}<a class="domain-matrix-cell" href="{{ mx_lp | append: category.url | append: '?domain=' | append: domain.key | relative_url }}" aria-label="{{ cell }} {{ category.title[mx_lang] }} · {{ domain.title[mx_lang] }}">{{ cell }}</a>{% else %}<span class="domain-matrix-empty" aria-label="0">·</span>{% endif %}</td>
+        {%- endfor %}
+      </tr>
+      {%- endfor %}
+    </tbody>
+  </table>
+</div>

@@ -8,6 +8,7 @@ description: AI 辅助优化双有源桥（DAB）变换器的设计参考。
 
 <header class="hero">
   <div class="container">
+    {% include hub-breadcrumb.html category='designs' %}
     <h1>DAB 变换器设计参考</h1>
     <p class="lead">我们的 AI 辅助平台如何优化一台 2 kW DAB 级 —— 开关器件、磁性元件与控制环路。</p>
   </div>

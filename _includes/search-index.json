@@ -1,0 +1,48 @@
+{%- comment -%}
+  Client-side search index for one language. Fields: t title, u URL, k kind,
+  d description, x extra keywords, w ranking weight. Params: lang.
+{%- endcomment -%}
+{%- assign si_lang = include.lang | default: 'en' -%}
+{%- if si_lang == 'zh' -%}{%- assign si_lp = '/zh' -%}{%- else -%}{%- assign si_lp = '' -%}{%- endif -%}
+{%- assign si_t = site.data.i18n[si_lang] -%}
+{%- assign hub = site.data.hub -%}
+[
+{%- for category in hub.categories -%}
+{"t":{{ category.title[si_lang] | jsonify }},"u":{{ si_lp | append: category.url | relative_url | jsonify }},"k":{{ si_t.nav_hub | jsonify }},"d":{{ category.summary[si_lang] | jsonify }},"w":2},
+{%- endfor -%}
+{%- for domain in hub.domains -%}
+{%- if domain.url %}{% assign d_href = domain.url %}{% else %}{% assign d_href = '/engineering/#' | append: domain.key %}{% endif -%}
+{"t":{{ domain.title[si_lang] | jsonify }},"u":{{ si_lp | append: d_href | relative_url | jsonify }},"k":{{ si_t.nav_engineering | jsonify }},"d":{{ domain.summary[si_lang] | jsonify }},"x":{{ domain.title.en | append: ' ' | append: domain.key | jsonify }},"w":2},
+{%- endfor -%}
+{%- for item in hub.artifacts -%}
+{%- assign category = hub.categories | where: "key", item.category | first -%}
+{%- if category -%}{%- assign kind = category.title[si_lang] -%}{%- else -%}{%- assign kind = si_t.nav_hub -%}{%- endif -%}
+{%- assign keywords = item.domains | join: ' ' -%}
+{%- if item.registry -%}
+{%- assign rec = site.data.registry.capabilities | where: "id", item.registry | first -%}
+{%- assign tool_names = rec.tools | map: "name" | join: ' ' -%}
+{%- assign cap_names = rec.capabilities | join: ' ' -%}
+{%- if item.links and item.links.size > 0 -%}{%- assign first_link = item.links | first -%}{%- if first_link.localised -%}{%- assign href = si_lp | append: first_link.url -%}{%- else -%}{%- assign href = first_link.url -%}{%- endif -%}{%- else -%}{%- assign href = rec.repository -%}{%- endif -%}
+{"t":{{ rec.name | jsonify }},"u":{% if href contains '://' %}{{ href | jsonify }}{% else %}{{ href | relative_url | jsonify }}{% endif %},"k":{{ kind | append: ' · ' | append: hub.type_labels[rec.type][si_lang] | jsonify }},"d":{{ rec.description | jsonify }},"x":{{ rec.id | append: ' ' | append: keywords | append: ' ' | append: rec.type | append: ' ' | append: tool_names | append: ' ' | append: cap_names | jsonify }},"w":3},
+{%- elsif item.academy -%}
+{%- assign lesson = site.pages | where: "url", item.academy | first -%}
+{"t":{{ lesson.title | jsonify }},"u":{{ item.academy | relative_url | jsonify }},"k":{{ kind | append: ' · ' | append: si_t.nav_academy | jsonify }},"d":{{ item.description[si_lang] | jsonify }},"x":{{ keywords | append: ' lab python' | jsonify }},"w":3},
+{%- else -%}
+{%- assign site_tools = item.tools | join: ' ' -%}
+{%- if item.url -%}{%- if item.localised -%}{%- assign href = si_lp | append: item.url -%}{%- else -%}{%- assign href = item.url -%}{%- endif -%}{%- elsif item.links -%}{%- assign first_link = item.links | first -%}{%- if first_link.localised -%}{%- assign href = si_lp | append: first_link.url -%}{%- else -%}{%- assign href = first_link.url -%}{%- endif -%}{%- else -%}{%- assign href = item.files | first -%}{%- endif -%}
+{"t":{{ item.title[si_lang] | jsonify }},"u":{{ href | relative_url | jsonify }},"k":{{ kind | append: ' · ' | append: hub.type_labels[item.type][si_lang] | jsonify }},"d":{{ item.description[si_lang] | jsonify }},"x":{{ item.title.en | append: ' ' | append: keywords | append: ' ' | append: site_tools | jsonify }},"w":3},
+{%- endif -%}
+{%- endfor -%}
+{%- for candidate in site.pages -%}
+{%- if candidate.academy_page and candidate.lesson_status -%}
+{"t":{{ candidate.title | jsonify }},"u":{{ candidate.url | relative_url | jsonify }},"k":{{ si_t.nav_academy | append: ' · ' | append: hub.status_labels[candidate.lesson_status][si_lang] | jsonify }},"x":{{ candidate.lesson_type | append: ' academy lesson' | jsonify }},"w":1},
+{%- endif -%}
+{%- endfor -%}
+{%- assign si_posts = site.posts | where: "lang", si_lang -%}
+{%- for post in si_posts -%}
+{"t":{{ post.title | jsonify }},"u":{{ post.url | relative_url | jsonify }},"k":{{ si_t.nav_articles | jsonify }},"d":{{ post.description | strip_html | truncate: 160 | jsonify }}},
+{%- endfor -%}
+{"t":"aipe.md","u":{{ '/aipe.md' | relative_url | jsonify }},"k":{{ si_t.nav_agent_index | jsonify }},"x":"agent registry markdown plugin codex claude","w":2},
+{"t":"aipe.json","u":{{ '/aipe.json' | relative_url | jsonify }},"k":{{ si_t.nav_machine_index | jsonify }},"x":"machine registry json api","w":2},
+{"t":{{ si_t.nav_plugin_overview | jsonify }},"u":{{ si_lp | append: '/plugin/' | relative_url | jsonify }},"k":{{ si_t.nav_plugin | jsonify }},"x":"agent plugin codex claude code skills install","w":2}
+]

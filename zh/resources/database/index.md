@@ -8,6 +8,7 @@ description: 面向电力电子分析、元件选型、建模与设计自动化�
 
 <header class="database-hero library-hero">
   <div class="container">
+    {% include hub-breadcrumb.html category='data' %}
     <span class="section-kicker">结构化的工程证据</span>
     <h1>让数据真正成为设计的一部分。</h1>
     <p class="lead">面向器件选型、损耗建模和 AI 辅助工程流程的可复用半导体与磁性元件数据，并始终保留测试条件和数据来源。</p>

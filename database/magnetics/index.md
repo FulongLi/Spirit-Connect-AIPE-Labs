@@ -7,6 +7,7 @@ description: Magnetics database — core geometries, ferrite and powder core mat
 
 <header class="hero">
   <div class="container">
+    {% include hub-breadcrumb.html category='data' %}
     <h1>Magnetic Database</h1>
     <p class="lead">Core materials, Steinmetz parameters, winding windows, and thermal data — for automated magnetics sizing.</p>
   </div>

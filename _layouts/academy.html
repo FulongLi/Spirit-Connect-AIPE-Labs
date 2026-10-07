@@ -1,14 +1,184 @@
 ---
 layout: default
 ---
-<header class="hero hero-compact">
+{%- comment -%}
+  Academy pages are generated from a pinned AIPE Academy revision and are
+  hash-locked (see docs/ecosystem-v0.1.md); never edit academy/*.md here.
+  This layout owns only presentation: the /academy/ landing page is rebuilt from
+  lesson front matter and _data/academy.yml, and the generated catalogue table is
+  kept as the complete, secondary listing.
+{%- endcomment -%}
+{%- assign academy = site.data.academy -%}
+{%- assign lessons = "" | split: "" -%}
+{%- for candidate in site.pages -%}
+  {%- if candidate.academy_page and candidate.lesson_status -%}{%- assign lessons = lessons | push: candidate -%}{%- endif -%}
+{%- endfor -%}
+{%- assign lessons = lessons | sort: "source_path" -%}
+{%- assign lab_items = site.data.hub.artifacts | where: "category", "labs" -%}
+{%- if page.url == '/academy/' -%}
+{%- assign count_available = 0 -%}{%- assign count_draft = 0 -%}{%- assign count_outline = 0 -%}
+{%- for lesson in lessons -%}
+  {%- case lesson.lesson_status -%}
+    {%- when 'available' -%}{%- assign count_available = count_available | plus: 1 -%}
+    {%- when 'draft' -%}{%- assign count_draft = count_draft | plus: 1 -%}
+    {%- when 'outline' -%}{%- assign count_outline = count_outline | plus: 1 -%}
+  {%- endcase -%}
+{%- endfor -%}
+<header class="academy-hero">
   <div class="container">
+    <span class="section-kicker">AIPE Academy · AI for Power Engineering</span>
     <h1>{{ page.title | escape }}</h1>
-    {% if page.lesson_status %}<p>{{ page.lesson_type | escape }} · {{ page.lesson_status | escape }} · {{ page.estimated_time }} min</p>{% endif %}
+    <p class="lead">{{ academy.intro.en }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ academy.stages[0].lessons[0] | relative_url }}">Start with orientation</a>
+      <a class="btn btn-ghost" href="#labs">Open labs</a>
+      <a class="btn btn-ghost" href="{{ '/academy/foundations/prerequisite-path-zh/' | relative_url }}" lang="zh">中文先修路线</a>
+    </div>
+    <dl class="academy-stats">
+      <div><dt>Lessons</dt><dd>{{ lessons.size }}</dd></div>
+      <div><dt>{% include status-badge.html status='available' lang='en' %}</dt><dd>{{ count_available }}</dd></div>
+      <div><dt>{% include status-badge.html status='draft' lang='en' %}</dt><dd>{{ count_draft }}</dd></div>
+      <div><dt>{% include status-badge.html status='outline' lang='en' %}</dt><dd>{{ count_outline }}</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section class="section academy-path-section">
+  <div class="container">
+    <div class="academy-path-heading">
+      <div>
+        <span class="section-kicker">Learning path</span>
+        <h2>From first principles to AI-assisted engineering.</h2>
+      </div>
+      <p>Four stages build on each other. <strong>Outlines</strong> describe planned coverage, <strong>drafts</strong> are complete enough to study with care, and <strong>available</strong> lessons and labs are ready to work through. Core practice uses open tools; commercial variants are optional.</p>
+    </div>
+
+    {%- assign mapped = "" -%}
+    <ol class="academy-path">
+      {%- for stage in academy.stages %}
+      <li class="academy-stage" id="stage-{{ stage.key }}">
+        <div class="academy-stage-head">
+          <span class="academy-stage-number">{{ stage.number }}</span>
+          <div>
+            <h3>{{ stage.title }}</h3>
+            <p>{{ stage.summary }}</p>
+            <ul class="academy-topics" aria-label="Topics in {{ stage.title }}">
+              {%- for topic in stage.topics %}<li>{{ topic }}</li>{% endfor %}
+            </ul>
+            {%- if stage.hub %}
+            <p class="academy-stage-hub">In the Hub:
+              {%- for key in stage.hub %}
+              {%- assign domain = site.data.hub.domains | where: "key", key | first %}
+              {%- if domain.url %}{% assign domain_href = domain.url %}{% else %}{% assign domain_href = '/engineering/#' | append: domain.key %}{% endif %}
+              <a href="{{ domain_href | relative_url }}">{{ domain.title.en }}</a>{% unless forloop.last %} ·{% endunless %}
+              {%- endfor %}
+            </p>
+            {%- endif %}
+          </div>
+        </div>
+        <div class="academy-stage-lessons">
+          {%- for url in stage.lessons %}
+          {%- assign mapped = mapped | append: url | append: "|" %}
+          {%- assign lesson = lessons | where: "url", url | first %}
+          {%- if lesson %}{% include academy-path-card.html lesson=lesson %}{% endif %}
+          {%- endfor %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+
+    {%- for item in lab_items %}{% assign mapped = mapped | append: item.academy | append: "|" %}{% endfor %}
+    {%- assign unmapped = "" | split: "" %}
+    {%- for lesson in lessons %}
+      {%- assign marker = lesson.url | append: "|" %}
+      {%- unless mapped contains marker %}{% assign unmapped = unmapped | push: lesson %}{% endunless %}
+    {%- endfor %}
+    {%- if unmapped.size > 0 %}
+    <div class="academy-stage academy-stage-extra">
+      <div class="academy-stage-head"><span class="academy-stage-number">+</span><div><h3>More from the catalogue</h3><p>Lessons published by AIPE Academy that are not yet placed in a stage.</p></div></div>
+      <div class="academy-stage-lessons">
+        {%- for lesson in unmapped %}{% include academy-path-card.html lesson=lesson %}{% endfor %}
+      </div>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="section section-alt academy-labs-section" id="labs">
+  <div class="container">
+    <div class="academy-path-heading">
+      <div>
+        <span class="section-kicker">Open labs</span>
+        <h2>Predict, run, compare, explain.</h2>
+      </div>
+      <p>Labs turn a lesson into a reproducible engineering task with stated inputs, assumptions and pass criteria. They run on open tools and make no hardware-validation claims.</p>
+    </div>
+    <div class="artifact-grid artifact-grid-labs">
+      {%- for item in lab_items %}{% include artifact-card.html item=item lang='en' %}{% endfor %}
+      <div class="planned-list">
+        <span class="section-kicker">Planned labs</span>
+        <p>Proposed next labs. None is available yet, so none is linked.</p>
+        <ul>
+          {%- for lab in site.data.hub.planned_labs %}
+          <li><span>{{ lab.en }}</span>{% include status-badge.html status='planned' lang='en' %}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section academy-route-section">
+  <div class="container">
+    <div class="academy-path-heading">
+      <div>
+        <span class="section-kicker">Learn with real artifacts</span>
+        <h2>Every lesson leads into the Hub.</h2>
+      </div>
+      <p>Academy teaches the reasoning; the Hub holds the data, tools and designs you apply it with. One route through the current material:</p>
+    </div>
+    <ol class="hub-route">
+      {%- for step in academy.hub_route %}
+      <li><a href="{{ step.url | relative_url }}"><span>{{ step.label }}</span><strong>{{ step.title }}</strong></a></li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section section-alt academy-catalogue-section" id="catalogue">
+  <div class="container">
+    <div class="academy-path-heading">
+      <div>
+        <span class="section-kicker">Complete catalogue</span>
+        <h2>Every lesson, as published.</h2>
+      </div>
+      <p>The full generated listing from the pinned AIPE Academy revision, with lesson type, status and suggested minutes.</p>
+    </div>
+    <article class="post-article academy-catalogue">
+      {{ content }}
+    </article>
+  </div>
+</section>
+{%- else -%}
+{%- assign current_stage = nil -%}
+{%- for stage in academy.stages -%}
+  {%- if stage.lessons contains page.url -%}{%- assign current_stage = stage -%}{%- endif -%}
+{%- endfor -%}
+{%- assign is_lab = false -%}
+{%- for item in lab_items -%}{%- if item.academy == page.url -%}{%- assign is_lab = true -%}{%- endif -%}{%- endfor -%}
+<header class="hero hero-compact academy-lesson-hero">
+  <div class="container">
+    <nav class="hub-breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ '/academy/' | relative_url }}">Academy</a>
+      {%- if current_stage %}<span aria-hidden="true">/</span><a href="{{ '/academy/' | append: '#stage-' | append: current_stage.key | relative_url }}">{{ current_stage.number }} {{ current_stage.title }}</a>{% endif %}
+      {%- if is_lab %}<span aria-hidden="true">/</span><a href="{{ '/academy/#labs' | relative_url }}">Open labs</a>{% endif %}
+    </nav>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.lesson_status %}<p class="academy-lesson-badges"><span class="academy-lesson-type">{{ page.lesson_type | escape }}</span>{% include status-badge.html status=page.lesson_status lang='en' %}<span>{{ page.estimated_time }} min</span></p>{% endif %}
   </div>
 </header>
 <section class="section post-content-section">
-  <div class="container post-content-shell">
+  <div class="container post-content-shell academy-lesson-shell">
     <div class="post-article-column">
       <article class="post-article blog-post-article">
         {% if page.lesson_status == 'outline' %}<p><strong>This page is a curriculum outline. Detailed lessons are still being developed.</strong></p>{% endif %}
@@ -19,8 +189,9 @@ layout: default
         {% if page.next_links.size > 0 %}
         <p>Continue: {% for item in page.next_links %}<a href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
         {% endif %}
-        <p><a href="{{ '/academy/' | relative_url }}">Academy learning map</a></p>
+        <p><a href="{{ '/academy/' | relative_url }}">Academy learning map</a>{% if is_lab %} · <a href="{{ '/hub/labs/' | relative_url }}">Labs in the Hub</a>{% endif %}</p>
       </article>
     </div>
   </div>
 </section>
+{%- endif -%}

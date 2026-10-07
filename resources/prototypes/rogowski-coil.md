@@ -8,6 +8,7 @@ math: true
 
 <header class="hero hero-compact">
   <div class="container">
+    {% include hub-breadcrumb.html category='designs' %}
     <h1>PCB Rogowski Coil</h1>
     <p class="lead">A high-precision, air-cored current transducer printed directly on a PCB — wide bandwidth, no saturation, and repeatable geometry for validation, monitoring and control. This page covers how it works, why the coil shape matters, and how ours is built.</p>
     <div class="hero-actions">

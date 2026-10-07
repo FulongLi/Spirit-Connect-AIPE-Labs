@@ -1,0 +1,312 @@
+# AIPE Hub presentation mapping.
+#
+# This file decides only WHERE an artifact appears on the website (Hub category,
+# engineering domains, featured order and on-site pages). It must not restate
+# capability metadata. Registry artifacts (`registry:`) take their name, type,
+# maturity, integration, licence, capabilities, limitations and repository from
+# _data/registry.json, a byte-identical mirror of the published /aipe.json.
+# Academy artifacts (`academy:`) take title, status and duration from the
+# generated lesson page front matter. Only artifacts owned by this website
+# (`id: site.*`) describe themselves here.
+#
+# tests/test_hub.py fails when a Registry capability is not placed, when an ID or
+# URL does not resolve, or when the mirror drifts from /aipe.json. Add new
+# capabilities by refreshing the Registry snapshot, then placing them below.
+
+# Artifact dimension, in display order.
+categories:
+  - key: data
+    url: /hub/data/
+    title: {en: "Data", zh: "数据"}
+    summary:
+      en: "Engineering datasets, measurements and characterised component data."
+      zh: "工程数据集、测量数据与经过表征的元器件数据。"
+  - key: models
+    url: /hub/models/
+    title: {en: "Models", zh: "模型"}
+    summary:
+      en: "Simulation, behavioural, surrogate and analytical models."
+      zh: "仿真、行为级、代理与解析模型。"
+  - key: designs
+    url: /hub/designs/
+    title: {en: "Designs", zh: "设计"}
+    summary:
+      en: "Reusable converter, magnetics, PCB and system reference designs."
+      zh: "可复用的变换器、磁性元件、PCB 与系统参考设计。"
+  - key: tools
+    url: /hub/tools/
+    title: {en: "Tools & Agents", zh: "工具与智能体"}
+    summary:
+      en: "Engineering software integrations, AI agents and reusable skills."
+      zh: "工程软件集成、AI 智能体与可复用技能。"
+  - key: labs
+    url: /hub/labs/
+    title: {en: "Labs", zh: "实验"}
+    summary:
+      en: "Interactive engineering workflows and reproducible engineering tasks."
+      zh: "交互式工程工作流与可复现的工程任务。"
+
+# Engineering (domain) dimension. `url` is the dedicated domain page when one
+# exists; otherwise the domain is presented on /engineering/#<key>.
+# `blog_anchor` points to the matching series on /resources/blog/ and
+# `blog_flag` is the post front-matter flag that series uses.
+domains:
+  - key: devices
+    url: /power/devices/
+    blog_anchor: device-series
+    blog_flag: device_testing_series
+    title: {en: "Devices", zh: "器件"}
+    summary:
+      en: "Power semiconductors, characterisation, losses and reliability."
+      zh: "功率半导体、器件表征、损耗与可靠性。"
+  - key: magnetics
+    title: {en: "Magnetics", zh: "磁性元件"}
+    summary:
+      en: "Cores, windings, inductors, transformers and current sensing."
+      zh: "磁芯、绕组、电感、变压器与电流传感。"
+  - key: converters
+    url: /power/converters/
+    blog_anchor: converter-series
+    blog_flag: converter_series
+    title: {en: "Converters", zh: "变换器"}
+    summary:
+      en: "Topologies, steady-state design, simulation and wireless power."
+      zh: "拓扑、稳态设计、仿真与无线电能传输。"
+  - key: control
+    title: {en: "Control", zh: "控制"}
+    summary:
+      en: "Averaged models, loop design and digital control debugging."
+      zh: "平均模型、环路设计与数字控制调试。"
+  - key: storage
+    title: {en: "Energy Storage", zh: "储能"}
+    summary:
+      en: "Battery and storage interfaces for power conversion systems."
+      zh: "面向功率变换系统的电池与储能接口。"
+  - key: microgrids
+    url: /power/microgrids/
+    title: {en: "Microgrids", zh: "微电网"}
+    summary:
+      en: "DC, AC and hybrid microgrids, control and energy management."
+      zh: "直流、交流与交直流混合微电网，控制与能量管理。"
+  - key: systems
+    blog_anchor: sst-series
+    blog_flag: sst_series
+    title: {en: "Energy Systems", zh: "能源系统"}
+    summary:
+      en: "Solid-state transformers, system integration and grid interfaces."
+      zh: "固态变压器、系统集成与电网接口。"
+
+# Display labels for Registry `type` values and website artifact types.
+type_labels:
+  database: {en: "Database", zh: "数据库"}
+  tool: {en: "Tool", zh: "工具"}
+  agent: {en: "Agent", zh: "智能体"}
+  skill_collection: {en: "Skill collection", zh: "技能集"}
+  catalogue: {en: "Catalogue", zh: "目录"}
+  education: {en: "Education", zh: "教育"}
+  standard: {en: "Standard", zh: "标准"}
+  registry: {en: "Registry", zh: "注册表"}
+  presentation: {en: "Presentation", zh: "展示层"}
+  simulation_model: {en: "Simulation model", zh: "仿真模型"}
+  analytical_model: {en: "Analytical model", zh: "解析模型"}
+  reference_design: {en: "Reference design", zh: "参考设计"}
+  lab: {en: "Lab", zh: "实验"}
+
+# Registry maturity values plus website/Academy publication states.
+status_labels:
+  usable: {en: "Usable", zh: "可用"}
+  prototype: {en: "Prototype", zh: "原型"}
+  scaffold: {en: "Scaffold", zh: "框架"}
+  available: {en: "Available", zh: "可用"}
+  draft: {en: "Draft", zh: "草稿"}
+  outline: {en: "Outline", zh: "大纲"}
+  planned: {en: "Planned", zh: "规划中"}
+  reference: {en: "Reference", zh: "参考"}
+
+# Placement of every artifact. `featured` orders the homepage feed.
+# `pending_repository: true` marks Registry entries whose canonical GitHub
+# repository was still empty when checked on 2026-10-07; remove the flag once the
+# repository is published.
+artifacts:
+  # ── Data ──
+  - registry: aipe.semiconductor-database
+    category: data
+    domains: [devices]
+    featured: 1
+    links:
+      - url: /database/transistors/
+        localised: true
+        label: {en: "Transistor data overview", zh: "晶体管数据概览"}
+  - registry: aipe.magnetics-database
+    category: data
+    domains: [magnetics]
+    featured: 2
+    pending_repository: true
+    links:
+      - url: /database/magnetics/
+        localised: true
+        label: {en: "Magnetics data overview", zh: "磁性元件数据概览"}
+
+  # ── Models ── (files published by this website)
+  - id: site.converter-netlists
+    category: models
+    type: simulation_model
+    status: draft
+    domains: [converters]
+    title: {en: "Open-loop converter netlists", zh: "开环变换器网表"}
+    description:
+      en: "LTspice teaching netlists for nine converter stages with generic lossy elements. Each file states that native LTspice execution is pending; none is a validated hardware BOM."
+      zh: "九种变换器的 LTspice 教学网表，采用通用有损元件。每个文件均注明尚待在 LTspice 中原生运行，且不是经过验证的硬件物料清单。"
+    tools: [LTspice]
+    files:
+      - /assets/downloads/buck-converter/buck_open_loop.cir
+      - /assets/downloads/boost-converter/boost_open_loop.cir
+      - /assets/downloads/buck-boost-converter/buckboost_open_loop.cir
+      - /assets/downloads/cuk-sepic-zeta/cuk_open_loop.cir
+      - /assets/downloads/cuk-sepic-zeta/sepic_open_loop.cir
+      - /assets/downloads/flyback-converter/flyback_open_loop.cir
+      - /assets/downloads/forward-converter/forward_2sw_open_loop.cir
+      - /assets/downloads/bridge-converters/halfbridge_open_loop.cir
+      - /assets/downloads/llc-converter/llc_open_loop.cir
+    links:
+      - url: /resources/blog/#converter-series
+        localised: true
+        label: {en: "Source tutorials", zh: "对应教程"}
+    featured: 7
+  - id: site.ccm-analysis-scripts
+    category: models
+    type: analytical_model
+    status: draft
+    domains: [converters, control]
+    title: {en: "Ideal CCM analysis scripts", zh: "理想 CCM 分析脚本"}
+    description:
+      en: "MATLAB teaching scripts for ideal continuous-conduction buck, boost, buck-boost and flyback stages with a resistive load. They require MATLAB and the Control System Toolbox."
+      zh: "用于理想连续导通模式 Buck、Boost、Buck-Boost 与反激变换器（电阻负载）的 MATLAB 教学脚本，需要 MATLAB 与 Control System Toolbox。"
+    tools: [MATLAB]
+    files:
+      - /assets/downloads/buck-converter/buck_ccm_analysis.m
+      - /assets/downloads/boost-converter/boost_ccm_analysis.m
+      - /assets/downloads/buck-boost-converter/buckboost_ccm_analysis.m
+      - /assets/downloads/flyback-converter/flyback_ccm_analysis.m
+    links:
+      - url: /resources/blog/#converter-series
+        localised: true
+        label: {en: "Source tutorials", zh: "对应教程"}
+  - id: site.llc-fha-gain
+    category: models
+    type: analytical_model
+    status: draft
+    domains: [converters]
+    title: {en: "LLC first-harmonic gain curves", zh: "LLC 基波近似增益曲线"}
+    description:
+      en: "First-harmonic-approximation gain curves for an LLC resonant converter. Runs in MATLAB or GNU Octave without a toolbox."
+      zh: "LLC 谐振变换器的基波近似（FHA）增益曲线，可在 MATLAB 或 GNU Octave 中运行，无需工具箱。"
+    tools: [MATLAB, GNU Octave]
+    files:
+      - /assets/downloads/llc-converter/llc_fha_gain.m
+    links:
+      - url: /resources/blog/llc-resonant-converter/
+        localised: true
+        label: {en: "LLC tutorial", zh: "LLC 教程"}
+
+  # ── Designs ── (reference pages published by this website)
+  - id: site.dab-reference
+    category: designs
+    type: reference_design
+    status: reference
+    domains: [converters]
+    featured: 6
+    url: /resources/prototypes/dab/
+    localised: true
+    title: {en: "DAB converter design reference", zh: "DAB 变换器设计参考"}
+    description:
+      en: "Design workflow for a dual-active-bridge stage covering devices, magnetics, control and validation planning. Linked tutorials are analytical teaching drafts."
+      zh: "双有源桥变换器的设计流程，涵盖器件、磁性元件、控制与验证规划。所链接的教程为解析性教学草稿。"
+  - id: site.sst-reference
+    category: designs
+    type: reference_design
+    status: reference
+    domains: [converters, systems]
+    url: /resources/prototypes/sst/
+    localised: true
+    title: {en: "Solid-state transformer design reference", zh: "固态变压器设计参考"}
+    description:
+      en: "Modular solid-state transformer architecture and system-integration reference."
+      zh: "模块化固态变压器架构与系统集成参考。"
+  - id: site.rogowski-coil
+    category: designs
+    type: reference_design
+    status: reference
+    domains: [magnetics]
+    url: /resources/prototypes/rogowski-coil/
+    localised: true
+    title: {en: "PCB Rogowski coil", zh: "PCB 罗氏线圈"}
+    description:
+      en: "Principles, geometry, winding patterns and design considerations for a PCB Rogowski coil current transducer."
+      zh: "PCB 罗氏线圈电流传感器的原理、几何结构、绕线方式与设计要点。"
+
+  # ── Tools & Agents ──
+  - registry: aipe.sketch
+    category: tools
+    domains: [converters]
+    featured: 3
+    links:
+      - url: /resources/ai-agent-team/aipe-sketch/
+        localised: true
+        label: {en: "Guide", zh: "使用指南"}
+  - registry: aipe.simulation-skills
+    category: tools
+    domains: [converters, control, magnetics]
+    featured: 4
+  - registry: aipe.design-agent
+    category: tools
+    domains: [converters]
+    featured: 5
+  - registry: aipe.ieee-paper-agent
+    category: tools
+    domains: []
+  - registry: aipe.open-source-catalogue
+    category: tools
+    domains: []
+
+  # ── Labs ── (Academy lessons of type `lab`)
+  - academy: /academy/power-electronics/buck-open-lab/
+    category: labs
+    type: lab
+    domains: [converters]
+    featured: 8
+    description:
+      en: "Predict duty ratio, output current and inductor ripple for an ideal 24 V to 12 V buck, then check them with an open Python script. No commercial licence, API key or hardware is needed."
+      zh: "预测理想 24 V 转 12 V Buck 变换器的占空比、输出电流与电感纹波，并用开源 Python 脚本核对。无需商业许可、API 密钥或硬件。"
+
+  # ── Platform layer ── (infrastructure that the artifacts above build on)
+  - registry: aipe.core
+    category: platform
+    domains: []
+    pending_repository: true
+  - registry: aipe.registry
+    category: platform
+    domains: []
+    pending_repository: true
+    links:
+      - url: /aipe.md
+        label: {en: "aipe.md", zh: "aipe.md"}
+      - url: /aipe.json
+        label: {en: "aipe.json", zh: "aipe.json"}
+  - registry: aipe.academy
+    category: platform
+    domains: []
+    links:
+      - url: /academy/
+        label: {en: "Academy", zh: "学院"}
+  - registry: aipe.presentation
+    category: platform
+    domains: []
+
+# Labs proposed for the Academy. None of these exists yet; they are always shown
+# with the Planned badge and never linked.
+planned_labs:
+  - {en: "DAB design lab", zh: "DAB 设计实验"}
+  - {en: "Device selection lab", zh: "器件选型实验"}
+  - {en: "Magnetics design lab", zh: "磁性元件设计实验"}
+  - {en: "Control design lab", zh: "控制设计实验"}

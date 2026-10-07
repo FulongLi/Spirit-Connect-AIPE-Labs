@@ -1,0 +1,35 @@
+{%- comment -%}
+  Closing the AI–power design loop: how humans and agents reach the same Registry,
+  Core and capabilities, and how project results return as data. Params: lang.
+{%- endcomment -%}
+{%- assign el_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- if el_lang == 'zh' -%}{%- assign el_lp = '/zh' -%}{%- else -%}{%- assign el_lp = '' -%}{%- endif -%}
+<figure class="eco-loop" aria-labelledby="eco-loop-caption">
+  <div class="eco-row eco-row-two">
+    <div class="eco-node"><span>{% if el_lang == 'zh' %}人{% else %}Human{% endif %}</span><strong>aipel.co.uk</strong></div>
+    <div class="eco-node"><span>{% if el_lang == 'zh' %}智能体{% else %}Agent{% endif %}</span><strong>aipe.md · {% if el_lang == 'zh' %}AIPE 插件（规划中）{% else %}AIPE Plugin (planned){% endif %}</strong></div>
+  </div>
+  <div class="eco-join" aria-hidden="true"></div>
+  <div class="eco-row">
+    <div class="eco-node eco-node-core"><span>{% if el_lang == 'zh' %}发现{% else %}Discovery{% endif %}</span><strong>AIPE Registry</strong></div>
+  </div>
+  <div class="eco-arrow" aria-hidden="true">↓</div>
+  <div class="eco-row">
+    <div class="eco-node eco-node-core"><span>{% if el_lang == 'zh' %}共同工程语言{% else %}Common engineering language{% endif %}</span><strong>AIPE Core</strong></div>
+  </div>
+  <div class="eco-split" aria-hidden="true"></div>
+  <div class="eco-row eco-row-three">
+    <a class="eco-node" href="{{ el_lp | append: '/hub/data/' | relative_url }}"><span>{{ site.data.hub.categories[0].title[el_lang] }}</span><strong>{% if el_lang == 'zh' %}半导体 · 磁性元件{% else %}Semiconductors · Magnetics{% endif %}</strong></a>
+    <a class="eco-node" href="{{ el_lp | append: '/hub/tools/' | relative_url }}"><span>{% if el_lang == 'zh' %}工具{% else %}Tools{% endif %}</span><strong>Sketch · SPICE · KiCad · FreeCAD · FEA</strong></a>
+    <a class="eco-node" href="{{ el_lp | append: '/hub/tools/' | relative_url }}"><span>{% if el_lang == 'zh' %}智能体{% else %}Agents{% endif %}</span><strong>{% if el_lang == 'zh' %}设计智能体 · 仿真技能{% else %}Design Agent · Simulation Skills{% endif %}</strong></a>
+  </div>
+  <div class="eco-join" aria-hidden="true"></div>
+  <ol class="eco-flow">
+    <li>{% if el_lang == 'zh' %}工程项目{% else %}Engineering project{% endif %}</li>
+    <li>{% if el_lang == 'zh' %}仿真 / PCB / CAD{% else %}Simulation / PCB / CAD{% endif %}</li>
+    <li>{% if el_lang == 'zh' %}硬件{% else %}Hardware{% endif %}</li>
+    <li>{% if el_lang == 'zh' %}验证{% else %}Validation{% endif %}</li>
+    <li class="eco-flow-return">{% if el_lang == 'zh' %}数据 ↺ 回到 Hub{% else %}Data ↺ back into the Hub{% endif %}</li>
+  </ol>
+  <figcaption id="eco-loop-caption">{% if el_lang == 'zh' %}连接 AI 与电力设计闭环：人和智能体通过同一个注册表抵达同一套能力，工程结果再以数据形式回到生态。{% else %}Closing the AI–power design loop: people and agents reach the same capabilities through one Registry, and engineering results return to the ecosystem as data.{% endif %}</figcaption>
+</figure>
