@@ -22,6 +22,8 @@ Academy catalogue, verifies lesson hashes/references, converts relative links,
 and copies teaching assets. It rejects source Liquid and path escapes before
 writing. Only generated presentation artifacts are copied; no external code is
 executed. Text uses canonical UTF-8/LF for Windows/Linux reproducibility.
+CI uses Ruby 3.3 and Bundler 2.6.9; the legacy Bundler 1.17 lock metadata was
+incompatible with Ruby 3.3. Existing gem dependency versions remain pinned.
 
 `_data/ecosystem-lock.json` records canonical source identities, actual checkout
 repositories, immutable commits, input hashes and every generated artifact hash.
