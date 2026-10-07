@@ -17,9 +17,10 @@
 {%- if include.suggestions %}
 <p class="hub-search-suggestions">
   {%- if s_lang == 'zh' %}试试：{% else %}Try:{% endif %}
-  {%- assign suggestions = "SiC,buck,magnetics,LTspice,schematic,DAB" | split: "," %}
+  {%- assign suggestions = s_t.hub_search_suggestions %}
   {%- for suggestion in suggestions %}
-  <a href="{{ s_lp | append: '/hub/?q=' | append: suggestion | relative_url }}" data-hub-suggest="{{ suggestion }}">{{ suggestion }}</a>
+  {%- assign suggestion_query = suggestion | url_encode %}
+  <a href="{{ s_lp | append: '/hub/?q=' | append: suggestion_query | relative_url }}" data-hub-suggest="{{ suggestion }}">{{ suggestion }}</a>
   {%- endfor %}
 </p>
 {%- endif %}

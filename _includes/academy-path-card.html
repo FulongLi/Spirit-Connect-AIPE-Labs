@@ -1,16 +1,19 @@
 {%- comment -%}
   One Academy lesson inside a learning stage. Params: lesson (a generated
-  academy/*.md page). Title, type, status and time come from its front matter.
+  academy/*.md page), lang (the Academy entry point's language). Title, type,
+  status and time come from its front matter; the stage only lists lessons whose
+  own language matches the page.
 {%- endcomment -%}
 {%- assign lesson = include.lesson -%}
-<a class="academy-lesson" href="{{ lesson.url | relative_url }}"{% if lesson.lang == 'zh' %} lang="zh"{% endif %}>
+{%- assign card_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- assign card_t = site.data.i18n[card_lang] -%}
+<a class="academy-lesson" href="{{ lesson.url | relative_url }}">
   <span class="academy-lesson-meta">
-    <span class="academy-lesson-type">{{ lesson.lesson_type }}</span>
-    {% include status-badge.html status=lesson.lesson_status lang='en' %}
+    <span class="academy-lesson-type">{{ card_t.academy_types[lesson.lesson_type] | default: lesson.lesson_type }}</span>
+    {% include status-badge.html status=lesson.lesson_status lang=card_lang %}
   </span>
   <strong>{{ lesson.title }}</strong>
   <span class="academy-lesson-foot">
-    <span>{{ lesson.estimated_time }} min</span>
-    {%- if lesson.lang == 'zh' %}<span class="academy-lesson-lang">中文</span>{% endif %}
+    <span>{{ lesson.estimated_time }} {{ card_t.hub_minutes }}</span>
   </span>
 </a>

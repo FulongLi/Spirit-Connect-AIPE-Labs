@@ -1,9 +1,11 @@
 # AIPE Plugin — proposed architecture
 
 Status: **planned**. No plugin package or `AIPE-Plugin` repository exists yet.
-This note records the architecture that the public `/plugin/` page describes, so
-the future repository starts from the same contract. It is a design note, not an
-implementation.
+This note records the architecture behind the public `/plugin/` page, so the
+future repository starts from the same contract. It is a design note, not an
+implementation. The public page deliberately stays product-level (what the plugin
+gives access to, how to use AIPE today, what comes next); the layers, Registry
+relationships and responsibilities below belong here, not on the website.
 
 ## Position in the ecosystem
 

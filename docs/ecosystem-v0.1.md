@@ -53,14 +53,20 @@ canonical capability set. Its original terminology describes that older snapshot
 The public site is organised as an **AIPE Hub** (artifact dimension: Data,
 Models, Designs, Tools & Agents, Labs) and **Engineering** domains (Devices,
 Magnetics, Converters, Control, Energy Storage, Microgrids, Energy Systems).
-Both views, the homepage feed, the Plugin page tables and the client-side search
-index are rendered from three data files:
+Both views, the homepage feed, the Plugin page capability cards and the
+client-side search index are rendered from these data files:
 
 | File | Owner | Role |
 | --- | --- | --- |
 | `_data/registry.json` | derived | Byte-identical mirror of `/aipe.json`. GitHub Pages cannot read a root file from Liquid, so `tools/hub_data.py --write` copies it after every Registry sync. Never edit it by hand. |
 | `_data/hub.yml` | this site | Placement only: Hub category, engineering domains, featured order and on-site pages for each artifact. Registry artifacts carry no restated metadata; only website-owned artifacts (`id: site.*`) describe themselves. |
-| `_data/academy.yml` | this site | Groups generated lesson URLs into learning stages for `/academy/`. Lesson titles, status and durations come from the generated pages. |
+| `_data/academy.yml` | this site | Groups generated lesson URLs into learning stages for `/academy/` and `/zh/academy/`, with stage labels and a Hub route in both languages. Lesson titles, language, status and durations come from the generated pages. |
+| `_data/plugin.yml` | this site | The plain-language capability areas on `/plugin/`; each names the Registry IDs it draws on, whose names and maturity are read from the mirror. |
+
+Registry descriptions are English. Each Registry placement in `_data/hub.yml`
+carries a reviewed `zh_summary`, so Chinese cards and search never show the
+English description; capability identifiers and limitations are not shown on
+Chinese cards, which instead point to the English technical index.
 
 `tools/hub_data.py --check` (also run by `tests/test_hub.py` and CI) fails when
 the mirror drifts from `/aipe.json`, when a Registry capability is not placed
@@ -69,8 +75,23 @@ adds a capability therefore needs a one-line placement in `_data/hub.yml` in the
 same reviewed PR. A new Academy lesson not yet placed in a stage only produces a
 warning: `/academy/` lists it automatically under "More from the catalogue".
 
-The Academy landing page is rendered by `_layouts/academy.html`; the generated,
-hash-locked `academy/index.md` table is kept unchanged as its complete catalogue.
+### Academy language separation
+
+The Academy has two single-language entry points rendered by
+`_layouts/academy.html`: `/academy/` (the generated, hash-locked
+`academy/index.md`) lists lessons whose front matter says `lang: en`, and
+`/zh/academy/` (the site-owned `zh/academy/index.md`) lists `lang: zh` lessons.
+Neither falls back to the other language: a stage without a lesson in the page
+language shows a planned state, and Prerequisite/Continue links on a lesson are
+limited to lessons in the same language. The catalogue table is rebuilt from the
+same filtered lessons; the generated bilingual table inside `academy/index.md` is
+kept byte-for-byte but no longer displayed. Generated lessons still carry
+`zh_url: /academy/foundations/prerequisite-path-zh/`; the navbar ignores those
+fields on Academy pages and switches between the two entry points instead. A
+future Academy refresh can drop them in `tools/sync_ecosystem.py`; that is a
+hash-locked regeneration and needs its own reviewed PR. Wording inside lesson
+bodies (for example "prerequisite path (中文)" in the English foundations outline)
+is canonical Academy content and is corrected in AIPE Academy, not here.
 `aipe.md` and `aipe.json` keep their role as the agent- and machine-readable
 Registry interfaces; the installable AIPE Plugin is planned
 ([architecture note](aipe-plugin-architecture.md)) and the site labels it so.
@@ -94,9 +115,9 @@ is intentionally retained to preserve existing links and functionality. Future
 teaching corrections belong in Academy. Its Chinese counterpart and all other
 posts retain their original paths pending individual migration reviews.
 
-The Academy has no invented bilingual counterpart URLs: its navigation links to
-actual English and Chinese entry points, and equivalent-language SEO links are
-omitted unless translations are explicitly provided.
+The Academy has no invented bilingual counterpart URLs. Equivalent-language SEO
+links connect only `/academy/` and `/zh/academy/`; individual lessons omit them
+unless translations are explicitly provided.
 
 ## Delivery boundary
 

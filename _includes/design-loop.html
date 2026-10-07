@@ -1,0 +1,24 @@
+{%- comment -%}
+  Closing the AI–power design loop: the public idea of the loop, shown as what
+  people do (learn, design, validate, build, share) rather than how AIPE is
+  implemented. Internal architecture lives in docs/. Params: lang.
+{%- endcomment -%}
+{%- assign dl_lang = include.lang | default: page.lang | default: 'en' -%}
+<figure class="design-loop" aria-labelledby="design-loop-caption">
+  <ol class="design-loop-steps">
+    {%- if dl_lang == 'zh' %}
+    <li><span>01</span><strong>学习</strong><p>理解基本原理，以及它们在真实工程中的意义。</p></li>
+    <li><span>02</span><strong>设计</strong><p>借助 AI 辅助工具、工程数据与参考设计开展设计。</p></li>
+    <li><span>03</span><strong>仿真与验证</strong><p>在投入制作之前，先用仿真和计算检验设计。</p></li>
+    <li><span>04</span><strong>制作与测量</strong><p>把设计变成真实硬件，并测量它的实际表现。</p></li>
+    <li><span>05</span><strong>分享与改进</strong><p>把数据、模型与经验带回 Hub，供下一个人使用。</p></li>
+    {%- else %}
+    <li><span>01</span><strong>Learn</strong><p>Understand the principles and what they mean in real engineering.</p></li>
+    <li><span>02</span><strong>Design</strong><p>Work with AI-assisted tools, engineering data and reference designs.</p></li>
+    <li><span>03</span><strong>Simulate &amp; validate</strong><p>Check the design with simulation and calculation before building it.</p></li>
+    <li><span>04</span><strong>Build &amp; measure</strong><p>Turn the design into real hardware and measure how it performs.</p></li>
+    <li><span>05</span><strong>Share &amp; improve</strong><p>Return data, models and lessons to the Hub for the next engineer.</p></li>
+    {%- endif %}
+  </ol>
+  <figcaption id="design-loop-caption" class="design-loop-return"><span aria-hidden="true">↺</span> {% if dl_lang == 'zh' %}每完成一轮，下一次设计都会更好一些。{% else %}Every cycle makes the next design a little better.{% endif %}</figcaption>
+</figure>

@@ -56,7 +56,7 @@ layout: default
           {%- endif %}
           {%- for stage in site.data.academy.stages %}
           {%- if stage.hub contains domain.key %}
-          <li><a href="{{ '/academy/#stage-' | append: stage.key | relative_url }}">{{ t.nav_academy }} · {{ stage.number }} {{ stage.title }} →</a></li>
+          <li><a href="{{ lp | append: '/academy/#stage-' | append: stage.key | relative_url }}">{{ t.nav_academy }} · {{ stage.number }} {{ stage.title[lang] }} →</a></li>
           {%- endif %}
           {%- endfor %}
         </ul>

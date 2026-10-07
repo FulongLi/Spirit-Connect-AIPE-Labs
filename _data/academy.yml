@@ -1,22 +1,36 @@
 # AIPE Academy learning-path presentation.
 #
-# Lesson content, titles, status and durations are owned by AIPE Academy and
-# arrive as generated pages in academy/*.md. This file only groups those lesson
-# URLs into learning stages for the /academy/ landing page. Topics are labels
-# for what a stage covers; they are not links and do not imply finished lessons.
+# Lesson content, titles, language, status and durations are owned by AIPE
+# Academy and arrive as generated pages in academy/*.md. This file only groups
+# those lesson URLs into learning stages for the two Academy entry points:
+#
+#   /academy/     lists English lessons only (lesson front matter `lang: en`)
+#   /zh/academy/  lists Chinese lessons only (`lang: zh`)
+#
+# A stage may hold lessons in either language; each entry point shows only the
+# lessons in its own language and marks a stage without any as planned, never
+# falling back to the other language. Stage labels therefore need en and zh.
+# Topics are labels for what a stage covers; they are not links and do not imply
+# finished lessons.
 #
 # A generated lesson missing from every stage is still listed automatically
-# under "More from the catalogue", and tests/test_hub.py reports it.
+# under "More from the catalogue" in its own language, and tests/test_hub.py
+# reports it.
 
 intro:
   en: "Learn power electronics from first principles to AI-assisted engineering."
+  zh: "从基本原理到 AI 辅助工程，系统学习电力电子。"
 
 stages:
   - number: "01"
     key: foundations
-    title: "Foundations"
-    summary: "Build the map of the field and the circuit, energy and signal ideas every later stage relies on."
-    topics: [Electricity, Circuits, Energy, Signals]
+    title: {en: "Foundations", zh: "基础"}
+    summary:
+      en: "Build the map of the field and the circuit, energy and signal ideas every later stage relies on."
+      zh: "建立对本领域的整体认识，掌握后续各阶段都要用到的电路、能量与信号概念。"
+    topics:
+      en: [Electricity, Circuits, Energy, Signals]
+      zh: [电学基础, 电路, 能量, 信号]
     lessons:
       - /academy/foundations/orientation/
       - /academy/foundations/foundations/
@@ -25,9 +39,13 @@ stages:
     hub: [devices]
   - number: "02"
     key: power-electronics
-    title: "Power Electronics"
-    summary: "Model the switch, then use volt-second and charge balance to design steady-state converters."
-    topics: [Devices, Switching, Converters]
+    title: {en: "Power Electronics", zh: "电力电子"}
+    summary:
+      en: "Model the switch, then use volt-second and charge balance to design steady-state converters."
+      zh: "建立开关器件模型，再用伏秒平衡与电荷平衡设计稳态变换器。"
+    topics:
+      en: [Devices, Switching, Converters]
+      zh: [器件, 开关过程, 变换器]
     lessons:
       - /academy/power-electronics/components/
       - /academy/power-electronics/converters/
@@ -35,36 +53,59 @@ stages:
     hub: [devices, converters]
   - number: "03"
     key: design-simulation
-    title: "Design & Simulation"
-    summary: "Move from ideal waveforms to dynamics, control, magnetics and the practical constraints of a real build."
-    topics: [Magnetics, Control, Simulation, Thermal, PCB / CAD]
+    title: {en: "Design & Simulation", zh: "设计与仿真"}
+    summary:
+      en: "Move from ideal waveforms to dynamics, control, magnetics and the practical constraints of a real build."
+      zh: "从理想波形走向动态特性、控制、磁性元件，以及实际制作中的工程约束。"
+    topics:
+      en: [Magnetics, Control, Simulation, Thermal, PCB / CAD]
+      zh: [磁性元件, 控制, 仿真, 热设计, PCB / CAD]
     lessons:
       - /academy/power-electronics/dynamics-and-control/
       - /academy/power-electronics/practical-design/
     hub: [magnetics, control]
   - number: "04"
     key: systems-energy
-    title: "Systems & Energy"
-    summary: "Place converters inside storage, microgrid and wider energy systems."
-    topics: [Energy Storage, Microgrids, Energy Systems]
+    title: {en: "Systems & Energy", zh: "系统与能源"}
+    summary:
+      en: "Place converters inside storage, microgrid and wider energy systems."
+      zh: "把变换器放进储能、微电网以及更大的能源系统中理解。"
+    topics:
+      en: [Energy Storage, Microgrids, Energy Systems]
+      zh: [储能, 微电网, 能源系统]
     lessons:
       - /academy/power-electronics/systems-applications/
     hub: [microgrids, systems]
 
-# The lesson-to-Hub route shown on /academy/. Every step links to a real page.
+# The lesson-to-Hub route shown on each Academy entry point. Every step links to
+# a real page in that language; a language without a lab omits the lab step.
 hub_route:
-  - label: "Academy lesson"
-    title: "Buck converter: principles to design"
-    url: /academy/power-electronics/buck-converter/
-  - label: "Data"
-    title: "AIPE Semiconductor Database"
-    url: /hub/data/
-  - label: "Tools & Agents"
-    title: "AIPE Simulation Skills"
-    url: /hub/tools/
-  - label: "Design"
-    title: "DAB converter design reference"
-    url: /resources/prototypes/dab/
-  - label: "Lab"
-    title: "Ideal buck open lab"
-    url: /academy/power-electronics/buck-open-lab/
+  en:
+    - label: "Academy lesson"
+      title: "Buck converter: principles to design"
+      url: /academy/power-electronics/buck-converter/
+    - label: "Data"
+      title: "AIPE Semiconductor Database"
+      url: /hub/data/
+    - label: "Tools & Agents"
+      title: "AIPE Simulation Skills"
+      url: /hub/tools/
+    - label: "Design"
+      title: "DAB converter design reference"
+      url: /resources/prototypes/dab/
+    - label: "Lab"
+      title: "Ideal buck open lab"
+      url: /academy/power-electronics/buck-open-lab/
+  zh:
+    - label: "学院课程"
+      title: "一个简单电路用了多少电？"
+      url: /academy/foundations/first-circuit-zh/
+    - label: "数据"
+      title: "AIPE 半导体数据库"
+      url: /zh/hub/data/
+    - label: "工具与智能体"
+      title: "AIPE 仿真技能"
+      url: /zh/hub/tools/
+    - label: "设计"
+      title: "DAB 变换器设计参考"
+      url: /zh/resources/prototypes/dab/

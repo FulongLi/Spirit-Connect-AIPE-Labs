@@ -42,7 +42,15 @@
       {% endif %}
     {% endif %}
   {% endif %}
-  {% if alternate_en and alternate_zh and page.academy_page != true %}
+  {% assign show_alternates = true %}
+  {% if page.academy_page %}{% assign show_alternates = false %}{% endif %}
+  {% if page.url == '/academy/' or page.url == '/zh/academy/' %}
+    {% comment %} The two Academy entry points are each other's translation; individual lessons are not. {% endcomment %}
+    {% assign alternate_en = '/academy/' %}
+    {% assign alternate_zh = '/zh/academy/' %}
+    {% assign show_alternates = true %}
+  {% endif %}
+  {% if alternate_en and alternate_zh and show_alternates %}
   <link rel="alternate" hreflang="en" href="{{ site.url }}{{ alternate_en }}">
   <link rel="alternate" hreflang="zh-Hans" href="{{ site.url }}{{ alternate_zh }}">
   <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ alternate_en }}">

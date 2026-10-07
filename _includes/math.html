@@ -16,5 +16,5 @@ window.MathJax = {
 };
 </script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
-<noscript><p class="container">Enable JavaScript to typeset the mathematical equations on this page.</p></noscript>
+<noscript><p class="container">{% if page.lang == 'zh' %}启用 JavaScript 后即可显示本页的数学公式。{% else %}Enable JavaScript to typeset the mathematical equations on this page.{% endif %}</p></noscript>
 {% endif %}
