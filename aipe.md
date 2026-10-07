@@ -27,8 +27,8 @@ Licence: `CC-BY-4.0`. Validation: `tested`.
 - [Python](https://www.python.org/): open_source; required; interfaces: cli, python.
 - Limitation: Most curriculum stages remain outlines, not completed courses.
 - Limitation: The buck lab is ideal analytical teaching, not hardware validation.
-- [Documentation: README.md](https://github.com/FulongLi/AIPE-Academy/blob/HEAD/README.md)
-- [Documentation: docs/ecosystem-v0.1.md](https://github.com/FulongLi/AIPE-Academy/blob/HEAD/docs/ecosystem-v0.1.md)
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-Academy/blob/f8ad52f95fdb4c36ee63de5b68610fa1cee4f55f/README.md)
+- [Documentation: docs/ecosystem-v0.1.md](https://github.com/FulongLi/AIPE-Academy/blob/f8ad52f95fdb4c36ee63de5b68610fa1cee4f55f/docs/ecosystem-v0.1.md)
 
 ## AIPE Core
 
@@ -41,10 +41,10 @@ Licence: `MIT`. Validation: `tested`.
 - [Python](https://www.python.org/): open_source; required; interfaces: cli, python.
 - Limitation: Schema and semantic checks do not prove engineering correctness or authenticate artifacts.
 - Limitation: v0.1.0 schema URLs are logical identifiers until a release tag exists; resolve locally.
-- [Documentation: README.md](https://github.com/FulongLi/AIPE-Core/blob/HEAD/README.md)
-- [Documentation: docs/metadata.md](https://github.com/FulongLi/AIPE-Core/blob/HEAD/docs/metadata.md)
-- [Documentation: docs/architecture-v0.1.md](https://github.com/FulongLi/AIPE-Core/blob/HEAD/docs/architecture-v0.1.md)
-- [Documentation: contracts/README.md](https://github.com/FulongLi/AIPE-Core/blob/HEAD/contracts/README.md)
+- Documentation staged locally (publication pending): `README.md`
+- Documentation staged locally (publication pending): `docs/metadata.md`
+- Documentation staged locally (publication pending): `docs/architecture-v0.1.md`
+- Documentation staged locally (publication pending): `contracts/README.md`
 
 ## AIPE Design Agent
 
@@ -58,9 +58,9 @@ Licence: `MIT`. Validation: `tested`.
 - Limitation: Technical suitability and fidelity require an explicit assessment; metadata alone is not an engineering guarantee.
 - Limitation: Only a built-in nominal operating-point adapter executes through the new orchestrator; other tools remain reviewable plans.
 - Limitation: Existing PEA calculator/UI APIs remain separate from the additive Core state path.
-- [Documentation: README.md](https://github.com/FulongLi/AIPE-Design-Agent/blob/HEAD/README.md)
-- [Documentation: docs/ecosystem-orchestration.md](https://github.com/FulongLi/AIPE-Design-Agent/blob/HEAD/docs/ecosystem-orchestration.md)
-- [Documentation: pea/review/README.md](https://github.com/FulongLi/AIPE-Design-Agent/blob/HEAD/pea/review/README.md)
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-Design-Agent/blob/8e252479048912a321260872de238ac86eca7c69/README.md)
+- [Documentation: docs/ecosystem-orchestration.md](https://github.com/FulongLi/AIPE-Design-Agent/blob/8e252479048912a321260872de238ac86eca7c69/docs/ecosystem-orchestration.md)
+- [Documentation: pea/review/README.md](https://github.com/FulongLi/AIPE-Design-Agent/blob/8e252479048912a321260872de238ac86eca7c69/pea/review/README.md)
 
 ## AIPE IEEE Paper Agent
 
@@ -74,8 +74,8 @@ Licence: `NOASSERTION`. Validation: `tested`.
 - Limitation: Semantic Core mapping only; no automatic state converter.
 - Limitation: Static checks do not verify citation truth or compile a PDF.
 - Limitation: Repository-wide licence is unresolved; third-party assets retain rights.
-- [Documentation: README.md](https://github.com/FulongLi/AIPE-IEEE-Paper-Agent/blob/HEAD/README.md)
-- [Documentation: docs/aipe-integration.md](https://github.com/FulongLi/AIPE-IEEE-Paper-Agent/blob/HEAD/docs/aipe-integration.md)
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-IEEE-Paper-Agent/blob/a521016da02e4a96e11fa1052644095e477f3387/README.md)
+- [Documentation: docs/aipe-integration.md](https://github.com/FulongLi/AIPE-IEEE-Paper-Agent/blob/a521016da02e4a96e11fa1052644095e477f3387/docs/aipe-integration.md)
 
 ## AIPE Magnetics Database
 
@@ -90,10 +90,10 @@ Licence: `NOASSERTION`. Validation: `tested`.
 - Limitation: Core integration is documented mapping only; no executed Core export.
 - Limitation: No field solver or measurement validation claimed.
 - Limitation: Repository licence remains NOASSERTION pending owner decision.
-- [Documentation: README.md](https://github.com/FulongLi/AIPE-Magnetics-Database/blob/HEAD/README.md)
-- [Documentation: docs/core-integration.md](https://github.com/FulongLi/AIPE-Magnetics-Database/blob/HEAD/docs/core-integration.md)
-- [Documentation: references/README.md](https://github.com/FulongLi/AIPE-Magnetics-Database/blob/HEAD/references/README.md)
-- [Documentation: LICENSING.md](https://github.com/FulongLi/AIPE-Magnetics-Database/blob/HEAD/LICENSING.md)
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-Magnetics-Database/blob/f3168b2596292f12b7b1a69c8711d6b72afad851/README.md)
+- [Documentation: docs/core-integration.md](https://github.com/FulongLi/AIPE-Magnetics-Database/blob/f3168b2596292f12b7b1a69c8711d6b72afad851/docs/core-integration.md)
+- [Documentation: references/README.md](https://github.com/FulongLi/AIPE-Magnetics-Database/blob/f3168b2596292f12b7b1a69c8711d6b72afad851/references/README.md)
+- [Documentation: LICENSING.md](https://github.com/FulongLi/AIPE-Magnetics-Database/blob/f3168b2596292f12b7b1a69c8711d6b72afad851/LICENSING.md)
 
 ## Open Engineering Tool Catalogue
 
@@ -105,9 +105,9 @@ Licence: `NOASSERTION`. Validation: `tested`.
 
 - [Python](https://www.python.org/): open_source; required; interfaces: cli.
 - Limitation: No external solver or MCP execution validated. Catalogue inclusion does not imply AIPE support.
-- [Documentation: README.md](https://github.com/FulongLi/awesome-open-source-power-electronics/blob/HEAD/README.md)
-- [Documentation: CONTRIBUTING.md](https://github.com/FulongLi/awesome-open-source-power-electronics/blob/HEAD/CONTRIBUTING.md)
-- [Documentation: generated/audit.md](https://github.com/FulongLi/awesome-open-source-power-electronics/blob/HEAD/generated/audit.md)
+- [Documentation: README.md](https://github.com/FulongLi/awesome-open-source-power-electronics/blob/2ff81b28669d8c9a27a150eb2b2fd85bb70a76a5/README.md)
+- [Documentation: CONTRIBUTING.md](https://github.com/FulongLi/awesome-open-source-power-electronics/blob/2ff81b28669d8c9a27a150eb2b2fd85bb70a76a5/CONTRIBUTING.md)
+- [Documentation: generated/audit.md](https://github.com/FulongLi/awesome-open-source-power-electronics/blob/2ff81b28669d8c9a27a150eb2b2fd85bb70a76a5/generated/audit.md)
 
 ## AIPE Labs Presentation
 
@@ -122,8 +122,8 @@ Licence: `CC-BY-4.0`. Validation: `tested`.
 - Limitation: Presentation validation does not validate engineering claims.
 - Limitation: Deployment follows reviewed PR merges; no live deployment performed.
 - Limitation: Registry initialization has a local-only baseline until upstream empty-repository permissions are resolved.
-- [Documentation: README.md](https://github.com/FulongLi/Spirit-Connect-AIPE-Labs/blob/HEAD/README.md)
-- [Documentation: docs/ecosystem-v0.1.md](https://github.com/FulongLi/Spirit-Connect-AIPE-Labs/blob/HEAD/docs/ecosystem-v0.1.md)
+- [Documentation: README.md](https://github.com/FulongLi/Spirit-Connect-AIPE-Labs/blob/fa6cc2d4032c8964b0da717410b7e5522684e793/README.md)
+- [Documentation: docs/ecosystem-v0.1.md](https://github.com/FulongLi/Spirit-Connect-AIPE-Labs/blob/fa6cc2d4032c8964b0da717410b7e5522684e793/docs/ecosystem-v0.1.md)
 
 ## AIPE Registry
 
@@ -137,8 +137,8 @@ Licence: `MIT`. Validation: `tested`.
 - Limitation: Core and Engineering State version identifiers are recognized; Registry does not transform engineering states.
 - Limitation: Staging snapshots may precede upstream merge; inspect sources/snapshots.lock.json before deployment.
 - Limitation: Snapshot-only checks cannot verify repository-relative documentation existence; use --checkouts for that audit.
-- [Documentation: README.md](https://github.com/FulongLi/AIPE-Registry/blob/HEAD/README.md)
-- [Documentation: CONTRIBUTING.md](https://github.com/FulongLi/AIPE-Registry/blob/HEAD/CONTRIBUTING.md)
+- Documentation staged locally (publication pending): `README.md`
+- Documentation staged locally (publication pending): `CONTRIBUTING.md`
 
 ## AIPE Semiconductor Database
 
@@ -154,10 +154,10 @@ Licence: `NOASSERTION`. Validation: `tested`.
 - Limitation: Identity/source mapping only; detailed ratings and curves stay in V3 records.
 - Limitation: Manufacturer model data is not converted into measured evidence.
 - Limitation: Existing code and data rights remain NOASSERTION; see LICENSING.md.
-- [Documentation: README.md](https://github.com/FulongLi/AIPE-Semiconductor-Database/blob/HEAD/README.md)
-- [Documentation: docs/core-integration.md](https://github.com/FulongLi/AIPE-Semiconductor-Database/blob/HEAD/docs/core-integration.md)
-- [Documentation: docs/architecture.md](https://github.com/FulongLi/AIPE-Semiconductor-Database/blob/HEAD/docs/architecture.md)
-- [Documentation: LICENSING.md](https://github.com/FulongLi/AIPE-Semiconductor-Database/blob/HEAD/LICENSING.md)
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-Semiconductor-Database/blob/75e548af4e6ccb900ff2e6d3cb6359aa28368424/README.md)
+- [Documentation: docs/core-integration.md](https://github.com/FulongLi/AIPE-Semiconductor-Database/blob/75e548af4e6ccb900ff2e6d3cb6359aa28368424/docs/core-integration.md)
+- [Documentation: docs/architecture.md](https://github.com/FulongLi/AIPE-Semiconductor-Database/blob/75e548af4e6ccb900ff2e6d3cb6359aa28368424/docs/architecture.md)
+- [Documentation: LICENSING.md](https://github.com/FulongLi/AIPE-Semiconductor-Database/blob/75e548af4e6ccb900ff2e6d3cb6359aa28368424/LICENSING.md)
 
 ## AIPE Simulation Skills
 
@@ -186,11 +186,11 @@ Licence: `NOASSERTION`. Validation: `tested`.
 - Limitation: Local Python numerical tests passed; ngspice requires separate installed runtime and is run in Ubuntu CI.
 - Limitation: FreeCAD, KiCad, FEA solvers and MCP connectors not installed or executed.
 - Limitation: No measurements or full Engineering State round-trip adapter claimed.
-- [Documentation: README.md](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/HEAD/README.md)
-- [Documentation: docs/tool-policy.md](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/HEAD/docs/tool-policy.md)
-- [Documentation: docs/core-mapping.md](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/HEAD/docs/core-mapping.md)
-- [Documentation: skills.json](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/HEAD/skills.json)
-- [Documentation: docs/validation.md](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/HEAD/docs/validation.md)
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/a964edb75c41408003d7c75cb4f0c2de37165348/README.md)
+- [Documentation: docs/tool-policy.md](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/a964edb75c41408003d7c75cb4f0c2de37165348/docs/tool-policy.md)
+- [Documentation: docs/core-mapping.md](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/a964edb75c41408003d7c75cb4f0c2de37165348/docs/core-mapping.md)
+- [Documentation: skills.json](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/a964edb75c41408003d7c75cb4f0c2de37165348/skills.json)
+- [Documentation: docs/validation.md](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/a964edb75c41408003d7c75cb4f0c2de37165348/docs/validation.md)
 
 ## AIPE Sketch
 
@@ -203,6 +203,6 @@ Licence: `NOASSERTION`. Validation: `tested`.
 - [Inkscape](https://inkscape.org/): open_source; optional; interfaces: cli, gui.
 - [Python](https://www.python.org/): open_source; required; interfaces: python, cli.
 - Limitation: Explicit Circuit IR and complete Core validation are required separately; no device sizing or physical results are inferred.
-- [Documentation: README.md](https://github.com/FulongLi/AIPE-Sketch/blob/HEAD/README.md)
-- [Documentation: docs/engineering-state.md](https://github.com/FulongLi/AIPE-Sketch/blob/HEAD/docs/engineering-state.md)
-- [Documentation: docs/architecture.md](https://github.com/FulongLi/AIPE-Sketch/blob/HEAD/docs/architecture.md)
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-Sketch/blob/19c83796da30138b195eea1ab5890a3a5b3ee328/README.md)
+- [Documentation: docs/engineering-state.md](https://github.com/FulongLi/AIPE-Sketch/blob/19c83796da30138b195eea1ab5890a3a5b3ee328/docs/engineering-state.md)
+- [Documentation: docs/architecture.md](https://github.com/FulongLi/AIPE-Sketch/blob/19c83796da30138b195eea1ab5890a3a5b3ee328/docs/architecture.md)

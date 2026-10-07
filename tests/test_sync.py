@@ -105,6 +105,13 @@ class SyncTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             sync.write_plan({"../outside":b"x"},self.site)
 
+    def test_retired_page_cannot_silently_survive_build(self):
+        plan=sync.make_plan(self.registry,self.academy)
+        lock=json.loads(plan[sync.LOCK])
+        lock["artifacts"]["academy/retired.md"]="0"*64
+        with self.assertRaisesRegex(ValueError,"artifact set"):
+            sync.verify_plan_set(plan,lock)
+
 
 if __name__ == "__main__":
     unittest.main()

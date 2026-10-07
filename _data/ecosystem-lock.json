@@ -13,7 +13,7 @@
     "academy/prerequisite-path-zh.md": "6ed033f7bd183cb63b08e109483287d1f18d988c1f07ccc50f0247ba1579ccc0",
     "academy/systems-applications.md": "33b48ed28a08e3f7ec0638758dc2982c30a992b308112e3cb08598ae3358c61b",
     "aipe.json": "ffe3eb586ea1bf52dee690aca2828b0840138a423d36e7663930ddaf7da5d287",
-    "aipe.md": "cbf939b22ebf1ac7569be854d7d247d4b41baca5265ac5b5008535bb7f4a5577",
+    "aipe.md": "4daf649661c903116b8f8856c8807bc1d4831ff60c2ff2c4655283ed9528cc81",
     "assets/academy/migrated/buck/buck-waveforms.svg": "f1e4f94ab7f690d28304ffed8c23ed46d641ccf0c0257dfbe635f5346d4b9574",
     "assets/academy/migrated/buck/buck_ccm_analysis.m": "1d928af3e0b755b18bd53a2cb732f984fb2403f7384c3f23828ecaba66422318",
     "assets/academy/migrated/buck/buck_open_loop.cir": "8c1c58c4c452a5e89e547b7da56f77509f22358ae7ac8ec03cd382050f7aec1f",
@@ -50,9 +50,9 @@
     "registry": {
       "aipe_json_sha256": "ffe3eb586ea1bf52dee690aca2828b0840138a423d36e7663930ddaf7da5d287",
       "checkout_repository": "FulongLi/AIPE-Registry",
-      "dirty": true,
+      "dirty": false,
       "repository": "FulongLi/AIPE-Registry",
-      "revision": "a0570c12669c51939211ee5c4961fcbae60cb107"
+      "revision": "95738a7f4756f4ee98edca779bb275b03db0339f"
     }
   }
 }

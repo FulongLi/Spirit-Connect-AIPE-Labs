@@ -40,6 +40,10 @@ Retiring a generated URL requires a reviewed redirect; synchronization refuses
 to silently delete it. The Academy index shows whether each item is an outline,
 draft or available lesson. Public readers do not need to open GitHub for lessons.
 Supporting curriculum-research documents may link to their canonical repository.
+The former manually curated index is preserved unchanged as
+[the historical v0 resource index](../legacy/aipe-resource-index-v0.md), so useful
+legacy hardware/reference links remain accessible without polluting Registry's
+canonical capability set. Its original terminology describes that older snapshot.
 
 ## Content ownership and URL preservation
 

@@ -198,6 +198,11 @@ def verify(output):
     return len(lock["artifacts"])
 
 
+def verify_plan_set(plan, lock):
+    if set(plan) - {LOCK} != set(lock["artifacts"]):
+        raise ValueError("Generated artifact set differs from the reviewed source lock")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--registry",type=Path)
