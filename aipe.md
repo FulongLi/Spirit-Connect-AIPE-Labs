@@ -1,171 +1,208 @@
-# AIPE Labs Resource Index
+# AIPE — AI for Power Engineering
 
-> AIPE (AI for Power Electronics) is an open-source community for AI-assisted power
-> electronics automation — from requirements and device selection to converter design,
-> simulation, optimisation, validation, and system integration. This Markdown file is
-> the agent-readable index of the tools, packages, specialist agents, datasets, design
-> references, research projects, and engineering notes published across the ecosystem.
+Generated from validated capability manifests. Open-source first, commercial compatible.
 
-## How to Use This Index
+| Capability | Type | Maturity | Integration | Canonical repository |
+| --- | --- | --- | --- | --- |
+| AIPE Academy (`aipe.academy`) | education | prototype | mapped | [Repository](https://github.com/FulongLi/AIPE-Academy) |
+| AIPE Core (`aipe.core`) | standard | prototype | native | [Repository](https://github.com/FulongLi/AIPE-Core) |
+| AIPE Design Agent (`aipe.design-agent`) | agent | prototype | mapped | [Repository](https://github.com/FulongLi/AIPE-Design-Agent) |
+| AIPE IEEE Paper Agent (`aipe.ieee-paper-agent`) | agent | usable | mapped | [Repository](https://github.com/FulongLi/AIPE-IEEE-Paper-Agent) |
+| AIPE Magnetics Database (`aipe.magnetics-database`) | database | scaffold | mapped | [Repository](https://github.com/FulongLi/AIPE-Magnetics-Database) |
+| Open Engineering Tool Catalogue (`aipe.open-source-catalogue`) | catalogue | usable | none | [Repository](https://github.com/FulongLi/awesome-open-source-power-electronics) |
+| AIPE Labs Presentation (`aipe.presentation`) | presentation | prototype | none | [Repository](https://github.com/FulongLi/Spirit-Connect-AIPE-Labs) |
+| AIPE Registry (`aipe.registry`) | registry | prototype | none | [Repository](https://github.com/FulongLi/AIPE-Registry) |
+| AIPE Semiconductor Database (`aipe.semiconductor-database`) | database | usable | mapped | [Repository](https://github.com/FulongLi/AIPE-Semiconductor-Database) |
+| AIPE Simulation Skills (`aipe.simulation-skills`) | skill_collection | prototype | mapped | [Repository](https://github.com/FulongLi/AIPE-Simulation-Skills) |
+| AIPE Sketch (`aipe.sketch`) | tool | usable | mapped | [Repository](https://github.com/FulongLi/AIPE-Sketch) |
 
-Give your coding agent this URL:
+## AIPE Academy
 
-`https://aipel.co.uk/aipe.md`
+Original Power Engineering learning paths, with power electronics as the v0.1 curriculum.
 
-Then describe the engineering task you want to complete. For example:
+Capabilities: guided-engineering-education, open-source-converter-labs.
 
-> Read https://aipel.co.uk/aipe.md, find the relevant AIPE Labs resources, and
-> help me plan a magnetic finite-element analysis for a DAB converter.
+Licence: `CC-BY-4.0`. Validation: `tested`.
 
-The agent should treat linked resources as engineering references, check the licence
-and documentation of each source, and verify important outputs against original
-datasheets, models, simulations, standards, and measurements.
+- [Python](https://www.python.org/): open_source; required; interfaces: cli, python.
+- Limitation: Most curriculum stages remain outlines, not completed courses.
+- Limitation: The buck lab is ideal analytical teaching, not hardware validation.
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-Academy/blob/HEAD/README.md)
+- [Documentation: docs/ecosystem-v0.1.md](https://github.com/FulongLi/AIPE-Academy/blob/HEAD/docs/ecosystem-v0.1.md)
 
-## GitHub Project Hubs
+## AIPE Core
 
-- [AIPE Labs community](https://github.com/AIPE-Labs) — The community home for
-  open-source AI-assisted power electronics automation.
-- [Fulong Li's GitHub projects](https://github.com/FulongLi) — The current project hub
-  for AIPE tools, research code, converter resources, databases, sensing projects, and
-  related power engineering work.
-- [Spirit-Connect-AIPE-Labs](https://github.com/FulongLi/Spirit-Connect-AIPE-Labs) —
-  Source repository for the AIPE Labs website and this resource index.
+Versioned SI Engineering State schemas, evidence conventions and semantic interoperability contracts.
 
-Repository ownership may move from the personal project hub to the AIPE Labs community
-as projects mature. The links below point to their current public locations.
+Capabilities: engineering-state-schema, engineering-evidence-contracts, offline-state-validation.
 
-## Open-Source Tools, Packages, and Agents
+Licence: `MIT`. Validation: `tested`.
 
-### Design and Engineering Agents
+- [Python](https://www.python.org/): open_source; required; interfaces: cli, python.
+- Limitation: Schema and semantic checks do not prove engineering correctness or authenticate artifacts.
+- Limitation: v0.1.0 schema URLs are logical identifiers until a release tag exists; resolve locally.
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-Core/blob/HEAD/README.md)
+- [Documentation: docs/metadata.md](https://github.com/FulongLi/AIPE-Core/blob/HEAD/docs/metadata.md)
+- [Documentation: docs/architecture-v0.1.md](https://github.com/FulongLi/AIPE-Core/blob/HEAD/docs/architecture-v0.1.md)
+- [Documentation: contracts/README.md](https://github.com/FulongLi/AIPE-Core/blob/HEAD/contracts/README.md)
 
-- [AIPE Power Electronics Design Agent](https://github.com/FulongLi/AIPE-Power-Electronics-Design-Agent) —
-  AI-assisted topology selection, converter calculations, magnetics design, component
-  guidance, optimisation, and design reporting.
-- [AIPE Converter Optimisation Agent](https://github.com/FulongLi/AIPE-Converter-Optimisation-Agent) —
-  Converter volume-loss exploration, multi-objective optimisation, and surrogate modelling.
-- [AIPE Simulation Agents](https://github.com/FulongLi/AIPE-Simulation-Agents) —
-  Reusable agent workflows for circuit simulation, debugging, digital control,
-  electromagnetics, and thermal analysis.
-- [AIPE IEEE Paper Agent](https://github.com/FulongLi/AIPE-IEEE-Paper-Agent) —
-  LaTeX and AI-assisted workflow for preparing IEEE-style engineering papers.
+## AIPE Design Agent
 
-### Engineering Data, Models, and Libraries
+Incrementally orchestrate evidence-linked engineering work through Core state and Registry capabilities while retaining existing PEA calculators and interfaces.
 
-- [AIPE Power Device Library](https://github.com/AIPE-Labs/AIPE-Power-Device-Library) —
-  Community-owned power semiconductor device library.
-- [AIPE Power Device Database](https://github.com/FulongLi/AIPE-Power-Device-Database) —
-  Structured power semiconductor data and device-selection resources.
-- [Power Electronics Device Library](https://github.com/FulongLi/PowerElectronicsDeviceLibrary) —
-  Python-based power electronics device reference library.
-- [AIPE MOSFET ANN Modelling](https://github.com/FulongLi/AIPE-MOSFET-ANN-Modelling) —
-  Neural-network models for MOSFET electrical, loss, and thermal behaviour.
-- [AIPE Magnetics Library](https://github.com/FulongLi/AIPE-Magnetics-Library) —
-  Magnetic component data, design resources, and reference assets.
-- [AIPE Inductor Design Example](https://github.com/FulongLi/AIPE-Magnetics-Agnet-Inductor-Design-Example) —
-  Agent-assisted inductor design documentation and technical drawings.
+Capabilities: engineering-orchestration, operating-point-analysis, converter-concept-calculation.
 
-### Schematics, Converters, and Systems
+Licence: `MIT`. Validation: `tested`.
 
-- [AIPE-Sketch](https://github.com/FulongLi/AIPE-Sketch) — Open-source Python
-  circuit-to-SVG drawing backend with graph planning, routing, and connectivity validation.
-- [AIPE Solid-State Transformer](https://github.com/FulongLi/AIPE-Solid-State-Transformer) —
-  Solid-state transformer modelling, multi-stage conversion, control, and integration.
-- [Isolated Converters](https://github.com/FulongLi/IsolatedCoverters) — Reference
-  material and models for isolated converter topologies.
-- [Non-Isolated Converters](https://github.com/FulongLi/NonisolatedCoverters) —
-  Reference material and models for non-isolated converter topologies.
-- [Buck Converter Optimisation](https://github.com/FulongLi/BuckConverterOptimisation) —
-  Multi-objective buck-converter optimisation workflows.
-- [DC Microgrid Test Bench](https://github.com/FulongLi/DCMicrogridTestBench) —
-  Low-voltage DC microgrid platform for converter, control, and energy-management research.
-- [Wireless Power Transfer Test Bench](https://github.com/FulongLi/WirelessPowerTransferTestBench) —
-  Hardware and research resources for wireless power transfer.
-- [AIPS Microgrid EMS Agent](https://github.com/FulongLi/AIPS-Microgrid-EMS-Agent) —
-  Agent-based energy management for microgrids.
-- [AIPS EV Charging Planning](https://github.com/FulongLi/AIPS-EV-Charging-Planning) —
-  Grid-aware electric-vehicle charging-station planning.
+- [Python](https://www.python.org/): open_source; required; interfaces: cli, python.
+- Limitation: Technical suitability and fidelity require an explicit assessment; metadata alone is not an engineering guarantee.
+- Limitation: Only a built-in nominal operating-point adapter executes through the new orchestrator; other tools remain reviewable plans.
+- Limitation: Existing PEA calculator/UI APIs remain separate from the additive Core state path.
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-Design-Agent/blob/HEAD/README.md)
+- [Documentation: docs/ecosystem-orchestration.md](https://github.com/FulongLi/AIPE-Design-Agent/blob/HEAD/docs/ecosystem-orchestration.md)
+- [Documentation: pea/review/README.md](https://github.com/FulongLi/AIPE-Design-Agent/blob/HEAD/pea/review/README.md)
 
-### Magnetics, Sensing, and Thermal Design
+## AIPE IEEE Paper Agent
 
-- [PCB Rogowski Coil](https://github.com/FulongLi/PCB-Rogowski-Coil) — PCB-based
-  Rogowski coil designs for current sensing and power electronics development.
-- [PCB Current Transformer Transducer](https://github.com/FulongLi/Magnetics-PCBCurrentTransformerTransducer) —
-  PCB current-transformer transducer research and design assets.
-- [Heat Sink Optimisation](https://github.com/FulongLi/HeatSinkOptimisation) —
-  Thermal modelling and heat-sink optimisation resources.
+Evidence-linked research planning and IEEE venue-specific manuscript production.
 
-## AI Agent Team
+Capabilities: research-evidence-planning, ieee-manuscript-production.
 
-- [AI Agent Team](https://aipel.co.uk/resources/ai-agent-team/) — Introductions to
-  specialist agents and tools, their roles, and how to use them.
-- [AIPE-Sketch Guide](https://aipel.co.uk/resources/ai-agent-team/aipe-sketch/) —
-  Automatic circuit-to-SVG schematic generation, quick start, and Python usage.
+Licence: `NOASSERTION`. Validation: `tested`.
 
-## Power Engineering
+- [Python](https://www.python.org/): open_source; required; interfaces: cli, python.
+- Limitation: Semantic Core mapping only; no automatic state converter.
+- Limitation: Static checks do not verify citation truth or compile a PDF.
+- Limitation: Repository-wide licence is unresolved; third-party assets retain rights.
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-IEEE-Paper-Agent/blob/HEAD/README.md)
+- [Documentation: docs/aipe-integration.md](https://github.com/FulongLi/AIPE-IEEE-Paper-Agent/blob/HEAD/docs/aipe-integration.md)
 
-### Devices and Characterisation
+## AIPE Magnetics Database
 
-- [Devices](https://aipel.co.uk/power/devices/) — Semiconductor device testing,
-  modelling, and electrical and thermal characterisation for SiC, GaN, and Si devices.
-- [Device Characterisation](https://aipel.co.uk/power/devices/characterisation/) — Switching
-  characteristics, switching losses, thermal resistance, and junction-temperature analysis.
-- [Transistor Database](https://aipel.co.uk/database/transistors/) — Power semiconductor
-  device data and selection references.
+Evidence-first magnetic material, geometry, winding, component, loss-model and measurement record scaffold with explicit SI units.
 
-### Magnetics and Measurement
+Capabilities: magnetics-record-schema, magnetics-data-import, magnetics-data-validation.
 
-- [Magnetics Database](https://aipel.co.uk/database/magnetics/) — Magnetic components,
-  core materials, and design data.
-- [PCB Rogowski Coil](https://aipel.co.uk/resources/prototypes/rogowski-coil/) —
-  Current-transducer design reference for power electronics measurement and validation.
+Licence: `NOASSERTION`. Validation: `tested`.
 
-### Converters and Control
+- [Python](https://www.python.org/): open_source; required; interfaces: cli, python.
+- Limitation: No real manufacturer or measurement records bundled.
+- Limitation: Core integration is documented mapping only; no executed Core export.
+- Limitation: No field solver or measurement validation claimed.
+- Limitation: Repository licence remains NOASSERTION pending owner decision.
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-Magnetics-Database/blob/HEAD/README.md)
+- [Documentation: docs/core-integration.md](https://github.com/FulongLi/AIPE-Magnetics-Database/blob/HEAD/docs/core-integration.md)
+- [Documentation: references/README.md](https://github.com/FulongLi/AIPE-Magnetics-Database/blob/HEAD/references/README.md)
+- [Documentation: LICENSING.md](https://github.com/FulongLi/AIPE-Magnetics-Database/blob/HEAD/LICENSING.md)
 
-- [Converters](https://aipel.co.uk/power/converters/) — Converter topologies, magnetics
-  sizing, control synthesis, and multi-objective optimisation, including LLC, DAB,
-  multilevel DC-AC, and interleaved buck/boost converters.
-- [Dual Active Bridge Design Reference](https://aipel.co.uk/resources/prototypes/dab/) — DAB converter
-  design reference covering devices, magnetics, and control.
-- [Solid-State Transformer Design Reference](https://aipel.co.uk/resources/prototypes/sst/) — Modular
-  solid-state transformer architecture and system-integration reference.
+## Open Engineering Tool Catalogue
 
-### Systems, Microgrids, and Energy Storage
+Community-curated external engineering tools with dated maintenance, licence and automation evidence.
 
-- [Microgrids](https://aipel.co.uk/power/microgrids/) — DC distribution networks,
-  AC/DC microgrids, system integration, and mission-profile design.
+Capabilities: external-tool-discovery, external-tool-maintenance-audit.
 
-## Prototype Design References
+Licence: `NOASSERTION`. Validation: `tested`.
 
-- [Prototype Design References](https://aipel.co.uk/resources/prototypes/) — Hardware
-  prototypes, engineering references, and AI-assisted design material.
+- [Python](https://www.python.org/): open_source; required; interfaces: cli.
+- Limitation: No external solver or MCP execution validated. Catalogue inclusion does not imply AIPE support.
+- [Documentation: README.md](https://github.com/FulongLi/awesome-open-source-power-electronics/blob/HEAD/README.md)
+- [Documentation: CONTRIBUTING.md](https://github.com/FulongLi/awesome-open-source-power-electronics/blob/HEAD/CONTRIBUTING.md)
+- [Documentation: generated/audit.md](https://github.com/FulongLi/awesome-open-source-power-electronics/blob/HEAD/generated/audit.md)
 
-## Engineering Databases
+## AIPE Labs Presentation
 
-- [Database](https://aipel.co.uk/resources/database/) — Entry point for reusable
-  semiconductor and magnetics data resources.
-- [Transistor Database](https://aipel.co.uk/database/transistors/) — Power semiconductor
-  device data and selection references.
-- [Magnetics Database](https://aipel.co.uk/database/magnetics/) — Magnetic components,
-  core materials, and design data.
+Jekyll presentation and stable public URLs for Registry capabilities and Academy lessons.
 
-## Guides and Updates
+Capabilities: ecosystem-presentation, academy-publication.
 
-- [Use AIPE Labs with Your Coding Agent](https://aipel.co.uk/plugin/) — Instructions and
-  examples for using this index with Claude, Codex, Cursor, or another web-enabled agent.
-- [Blog](https://aipel.co.uk/resources/blog/) — Engineering notes and project updates.
-- [News](https://aipel.co.uk/news/) — AIPE Labs milestones and collaboration updates.
+Licence: `CC-BY-4.0`. Validation: `tested`.
 
-## About and Collaboration
+- [Jekyll](https://jekyllrb.com/): open_source; required; interfaces: cli.
+- [Python](https://www.python.org/): open_source; required; interfaces: cli, python.
+- Limitation: Presentation validation does not validate engineering claims.
+- Limitation: Deployment follows reviewed PR merges; no live deployment performed.
+- Limitation: Registry initialization has a local-only baseline until upstream empty-repository permissions are resolved.
+- [Documentation: README.md](https://github.com/FulongLi/Spirit-Connect-AIPE-Labs/blob/HEAD/README.md)
+- [Documentation: docs/ecosystem-v0.1.md](https://github.com/FulongLi/Spirit-Connect-AIPE-Labs/blob/HEAD/docs/ecosystem-v0.1.md)
 
-- [About AIPE Labs](https://aipel.co.uk/company/about/) — Mission, direction, and the
-  design loop between AI and power infrastructure.
-- [Frequently Asked Questions](https://aipel.co.uk/company/faq/) — Current scope,
-  limitations, access, data handling, and contribution guidance.
-- [Contact](https://aipel.co.uk/contact/) — Research collaboration, engineering pilots,
-  open-source contribution, and strategic partnership enquiries.
+## AIPE Registry
 
-## Project Status
+Discover and validate canonical AIPE capabilities and publish reproducible machine-readable and Markdown indexes.
 
-AIPE Labs is under active development. The public resources linked above are available
-now; coverage and maturity vary by topic. New tools, agents, datasets, and validated
-workflows will be added to this index as they are published.
+Capabilities: capability-discovery, capability-manifest-validation, deterministic-registry-publication.
+
+Licence: `MIT`. Validation: `tested`.
+
+- [Python](https://www.python.org/): open_source; required; interfaces: cli, python.
+- Limitation: Core and Engineering State version identifiers are recognized; Registry does not transform engineering states.
+- Limitation: Staging snapshots may precede upstream merge; inspect sources/snapshots.lock.json before deployment.
+- Limitation: Snapshot-only checks cannot verify repository-relative documentation existence; use --checkouts for that audit.
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-Registry/blob/HEAD/README.md)
+- [Documentation: CONTRIBUTING.md](https://github.com/FulongLi/AIPE-Registry/blob/HEAD/CONTRIBUTING.md)
+
+## AIPE Semiconductor Database
+
+Canonical V3 power semiconductor records with SI curves, source rights, evidence lineage and a conservative Core candidate adapter.
+
+Capabilities: semiconductor-data, semiconductor-query, semiconductor-core-candidate-export.
+
+Licence: `NOASSERTION`. Validation: `tested`.
+
+- [MATLAB](https://www.mathworks.com/products/matlab.html): commercial; optional; interfaces: file.
+- [PLECS](https://www.plexim.com/plecs): commercial; optional; interfaces: file.
+- [Python](https://www.python.org/): open_source; required; interfaces: cli, python.
+- Limitation: Identity/source mapping only; detailed ratings and curves stay in V3 records.
+- Limitation: Manufacturer model data is not converted into measured evidence.
+- Limitation: Existing code and data rights remain NOASSERTION; see LICENSING.md.
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-Semiconductor-Database/blob/HEAD/README.md)
+- [Documentation: docs/core-integration.md](https://github.com/FulongLi/AIPE-Semiconductor-Database/blob/HEAD/docs/core-integration.md)
+- [Documentation: docs/architecture.md](https://github.com/FulongLi/AIPE-Semiconductor-Database/blob/HEAD/docs/architecture.md)
+- [Documentation: LICENSING.md](https://github.com/FulongLi/AIPE-Semiconductor-Database/blob/HEAD/LICENSING.md)
+
+## AIPE Simulation Skills
+
+Engineering-purpose simulation, control, CAD, PCB and field-analysis skills with an open-source default and preserved optional proprietary workflows.
+
+Capabilities: averaged-control-analysis, switching-circuit-simulation, mechanical-packaging, pcb-power-stage-review, field-analysis-problem-setup, digital-control-debugging.
+
+Licence: `NOASSERTION`. Validation: `tested`.
+
+- [ANSYS](https://www.ansys.com/): commercial; optional; interfaces: scripting.
+- [CalculiX](https://www.calculix.de/): open_source; optional; interfaces: cli, inp.
+- [COMSOL](https://www.comsol.com/): commercial; optional; interfaces: java-api, batch.
+- [Elmer FEM](https://github.com/ElmerCSC/elmerfem): open_source; optional; interfaces: cli, sif.
+- [FreeCAD](https://www.freecad.org/): open_source; optional; interfaces: python, cli.
+- [GetDP](https://getdp.info/): open_source; optional; interfaces: cli, pro.
+- [Gmsh](https://gmsh.info/): open_source; optional; interfaces: cli, python.
+- [KiCad](https://www.kicad.org/): open_source; optional; interfaces: cli, ipc, python.
+- [LTspice](https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html): free_proprietary; optional; interfaces: batch, netlist.
+- [MATLAB / Simulink](https://www.mathworks.com/products/simulink.html): commercial; optional; interfaces: matlab, batch.
+- [ngspice](https://ngspice.sourceforge.io/): open_source; optional; interfaces: cli, netlist.
+- [openEMS](https://www.openems.de/): open_source; optional; interfaces: python, octave.
+- [PLECS](https://www.plexim.com/plecs): commercial; optional; interfaces: scripting, xml-rpc.
+- [Python](https://www.python.org/): open_source; required; interfaces: cli, python.
+- [python-control](https://python-control.org/): open_source; optional; interfaces: python.
+- [SIMetrix / SIMPLIS](https://www.simetrix.co.uk/): commercial; optional; interfaces: scripting, netlist.
+- Limitation: Local Python numerical tests passed; ngspice requires separate installed runtime and is run in Ubuntu CI.
+- Limitation: FreeCAD, KiCad, FEA solvers and MCP connectors not installed or executed.
+- Limitation: No measurements or full Engineering State round-trip adapter claimed.
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/HEAD/README.md)
+- [Documentation: docs/tool-policy.md](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/HEAD/docs/tool-policy.md)
+- [Documentation: docs/core-mapping.md](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/HEAD/docs/core-mapping.md)
+- [Documentation: skills.json](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/HEAD/skills.json)
+- [Documentation: docs/validation.md](https://github.com/FulongLi/AIPE-Simulation-Skills/blob/HEAD/docs/validation.md)
+
+## AIPE Sketch
+
+Render explicit electrical Circuit IR into connectivity-checked SVG schematic artifacts with provenance.
+
+Capabilities: schematic-generation, circuit-connectivity-validation.
+
+Licence: `NOASSERTION`. Validation: `tested`.
+
+- [Inkscape](https://inkscape.org/): open_source; optional; interfaces: cli, gui.
+- [Python](https://www.python.org/): open_source; required; interfaces: python, cli.
+- Limitation: Explicit Circuit IR and complete Core validation are required separately; no device sizing or physical results are inferred.
+- [Documentation: README.md](https://github.com/FulongLi/AIPE-Sketch/blob/HEAD/README.md)
+- [Documentation: docs/engineering-state.md](https://github.com/FulongLi/AIPE-Sketch/blob/HEAD/docs/engineering-state.md)
+- [Documentation: docs/architecture.md](https://github.com/FulongLi/AIPE-Sketch/blob/HEAD/docs/architecture.md)

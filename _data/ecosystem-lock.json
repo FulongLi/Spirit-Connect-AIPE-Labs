@@ -1,0 +1,58 @@
+{
+  "artifacts": {
+    "academy/buck-converter.md": "ef5f53de888e5e20b01128f36298f15d5ac35e15a20f9841f4dff3b93e47f34d",
+    "academy/buck-open-lab.md": "2170c522996680c4a0eca792cf8583d4d37a015440395b1f6155219a9ddac3f8",
+    "academy/components.md": "4a0bb2214139dc5fba900808c3a8fa5151984cba044dc3be4eb6a5dd261bdb08",
+    "academy/converters.md": "727dcbda8500b489bd4a5070b969f11f6aaa3f054ab3fe86c304a75d918b329d",
+    "academy/dynamics-and-control.md": "6ceffb17cbee6e71a81d44376397d853c6524729821855f80df37a07c8193bfc",
+    "academy/first-circuit-zh.md": "bb7ef092a6da55c80e27e970ff35f572f4722ddcb0e76c959dd72ded7f470aaf",
+    "academy/foundations.md": "8a1025354c131cfbbcded8d2283de89889996feec04067ffc8429a8ddde244db",
+    "academy/index.md": "a7a34bcb29c9d58de819616402b34b12d4bd8353b533c302fc87103969a9217f",
+    "academy/orientation.md": "1914f8d0b4d98f901d0fbd35bc04de1e09ad04806d272ceeefb13a3f9baa3665",
+    "academy/practical-design.md": "03ead43d1f904340001d7bceb9fa458671ef4ecd88e00d90575334ad5af3e490",
+    "academy/prerequisite-path-zh.md": "6ed033f7bd183cb63b08e109483287d1f18d988c1f07ccc50f0247ba1579ccc0",
+    "academy/systems-applications.md": "33b48ed28a08e3f7ec0638758dc2982c30a992b308112e3cb08598ae3358c61b",
+    "aipe.json": "ffe3eb586ea1bf52dee690aca2828b0840138a423d36e7663930ddaf7da5d287",
+    "aipe.md": "cbf939b22ebf1ac7569be854d7d247d4b41baca5265ac5b5008535bb7f4a5577",
+    "assets/academy/migrated/buck/buck-waveforms.svg": "f1e4f94ab7f690d28304ffed8c23ed46d641ccf0c0257dfbe635f5346d4b9574",
+    "assets/academy/migrated/buck/buck_ccm_analysis.m": "1d928af3e0b755b18bd53a2cb732f984fb2403f7384c3f23828ecaba66422318",
+    "assets/academy/migrated/buck/buck_open_loop.cir": "8c1c58c4c452a5e89e547b7da56f77509f22358ae7ac8ec03cd382050f7aec1f",
+    "assets/academy/migrated/buck/circuit-buck.svg": "5c68f09363f44f8fa142d0ef212c2e076d3673bdfb9d2ceb48b444511e1085ba",
+    "assets/academy/migrated/buck/feedback-loop.svg": "13b1e64fde8f95f246bf2ee3b0b40d68976b9f6762db16202972966e2cbd68fb"
+  },
+  "schema_version": "0.1.0",
+  "sources": {
+    "academy": {
+      "catalogue_sha256": "f233acd36f26fcb226db314ffb1d1e587e899f17eb627e19613b76aa36074afc",
+      "checkout_repository": "MrCoconut616/AIPE-Academy",
+      "dirty": false,
+      "files": {
+        "assets/migrated/buck/buck-waveforms.svg": "f1e4f94ab7f690d28304ffed8c23ed46d641ccf0c0257dfbe635f5346d4b9574",
+        "assets/migrated/buck/buck_ccm_analysis.m": "1d928af3e0b755b18bd53a2cb732f984fb2403f7384c3f23828ecaba66422318",
+        "assets/migrated/buck/buck_open_loop.cir": "8c1c58c4c452a5e89e547b7da56f77509f22358ae7ac8ec03cd382050f7aec1f",
+        "assets/migrated/buck/circuit-buck.svg": "5c68f09363f44f8fa142d0ef212c2e076d3673bdfb9d2ceb48b444511e1085ba",
+        "assets/migrated/buck/feedback-loop.svg": "13b1e64fde8f95f246bf2ee3b0b40d68976b9f6762db16202972966e2cbd68fb",
+        "curriculum/00-orientation/README.md": "b3336c884facec23e40ec5a860fcfe0b59fc75047c36fbd48a2d72db1086054a",
+        "curriculum/01-foundations/README.md": "f81b5b9165ed920d1e51d9de59f33616dac560073c1eeb6c4443d19cb220d82f",
+        "curriculum/01-foundations/first-lesson.zh-CN.md": "4d386288d6f351affa22386ec3dcd59a80544673116e8bffdedc0c550847dbef",
+        "curriculum/01-foundations/prerequisite-path.zh-CN.md": "5fafaae38dc7777970dae69aadb942ad9da2f16872d8429a2a9de7c4ddaf85a7",
+        "curriculum/02-components/README.md": "bc580623a495a2a2227aa8be07829ba76383b9de73e4a19ae01e8eac156d17c4",
+        "curriculum/03-converters/README.md": "24772bb3427435be9368b06441efa3b4bb479402c6b40ceead21917a20ddb480",
+        "curriculum/03-converters/buck-converter.md": "19dc19d2f1cfb0919259c4a4768bcf432acb68427f42313fb4575caf79cf5e0f",
+        "curriculum/03-converters/buck-open-lab.md": "3e4ab946e91b69ad737efddd9aa62608dac19ccf8047bd65ffb006465c9363b5",
+        "curriculum/04-modeling-and-control/README.md": "adcd1619f4fec35787f871547c46b98e30a052a36f760231c9f6fc60fbb04bd9",
+        "curriculum/05-practical-design/README.md": "8195423937dd858df65190c6c055eef95d1a832e9ec61fe5575b48be5a1366a3",
+        "curriculum/06-systems-and-applications/README.md": "cef74ab2df57e0cfc3c5a7716bdec5b7a50ed54ead853cb2418c33a2f69b78df"
+      },
+      "repository": "FulongLi/AIPE-Academy",
+      "revision": "f8ad52f95fdb4c36ee63de5b68610fa1cee4f55f"
+    },
+    "registry": {
+      "aipe_json_sha256": "ffe3eb586ea1bf52dee690aca2828b0840138a423d36e7663930ddaf7da5d287",
+      "checkout_repository": "FulongLi/AIPE-Registry",
+      "dirty": true,
+      "repository": "FulongLi/AIPE-Registry",
+      "revision": "a0570c12669c51939211ee5c4961fcbae60cb107"
+    }
+  }
+}

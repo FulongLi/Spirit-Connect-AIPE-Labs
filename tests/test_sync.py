@@ -78,6 +78,29 @@ class SyncTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"drift"):
             sync.verify(self.site)
 
+    def asset_case(self, name, content):
+        (self.academy/"assets").mkdir(exist_ok=True)
+        (self.academy/"assets"/name).write_text(content,encoding="utf-8")
+        body=f"# Lesson\n\n[Download](../assets/{name})\n"
+        (self.academy/"curriculum/lesson.md").write_text(body,encoding="utf-8")
+        self.lesson["sha256"]=hashlib.sha256(body.encode()).hexdigest()
+        self.save_catalogue()
+
+    def test_imported_markdown_asset_cannot_execute_jekyll(self):
+        self.asset_case("payload.md","---\nlayout: default\n---\n{% include secret.html %}")
+        with self.assertRaisesRegex(ValueError,"asset type"):
+            sync.make_plan(self.registry,self.academy)
+
+    def test_frontmatter_rejected_even_in_downloads(self):
+        self.asset_case("payload.txt","---\nlayout: default\n---\ntext")
+        with self.assertRaisesRegex(ValueError,"template"):
+            sync.make_plan(self.registry,self.academy)
+
+    def test_svg_active_content_rejected(self):
+        self.asset_case("payload.svg",'<svg onload="alert(1)"></svg>')
+        with self.assertRaisesRegex(ValueError,"Active SVG"):
+            sync.make_plan(self.registry,self.academy)
+
     def test_output_escape(self):
         with self.assertRaises(ValueError):
             sync.write_plan({"../outside":b"x"},self.site)

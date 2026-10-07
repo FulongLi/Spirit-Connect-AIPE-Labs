@@ -112,8 +112,18 @@ def make_plan(registry, academy):
             return by_source[resolved]["url"] + suffix
         rel = resolved.relative_to(academy).as_posix()
         if rel.startswith("assets/"):
+            allowed = {".svg", ".png", ".jpg", ".jpeg", ".gif", ".webp", ".pdf", ".m", ".cir", ".json", ".csv", ".txt"}
+            if resolved.suffix.lower() not in allowed:
+                raise ValueError(f"Unsupported imported asset type: {rel}")
+            asset = source_bytes(resolved)
+            if resolved.suffix.lower() in {".svg", ".m", ".cir", ".json", ".csv", ".txt"}:
+                text = asset.decode("utf-8")
+                if text.lstrip("\ufeff \t\r\n").startswith("---") or "{%" in text or "{{" in text:
+                    raise ValueError(f"Executable template syntax in imported asset: {rel}")
+                if resolved.suffix.lower() == ".svg" and re.search(r"<\s*(?:script|foreignObject)\b|\bon\w+\s*=|(?:href|src)\s*=\s*['\"]\s*javascript:", text, re.I):
+                    raise ValueError(f"Active SVG content in imported asset: {rel}")
             dest = "assets/academy/"+rel.removeprefix("assets/")
-            plan[dest] = source_bytes(resolved)
+            plan[dest] = asset
             source_hashes[rel] = digest(plan[dest])
             return "/"+dest+suffix
         # Supporting reviews/prompts remain linked to their canonical repository.
