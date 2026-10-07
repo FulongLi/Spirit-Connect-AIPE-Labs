@@ -7,6 +7,7 @@ description: Design reference for an AI-assisted solid-state transformer (SST) a
 
 <header class="hero">
   <div class="container">
+    {% include hub-breadcrumb.html category='designs' %}
     <h1>Solid-State Transformer</h1>
     <p class="lead">AI-driven design of a modular SST — from cell-level converter optimisation to system-level integration and control.</p>
   </div>

@@ -1,0 +1,11 @@
+{%- comment -%}
+  Places an existing page inside the Hub. Params: category (Hub category key), lang.
+{%- endcomment -%}
+{%- assign bc_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- if bc_lang == 'zh' -%}{%- assign bc_lp = '/zh' -%}{%- else -%}{%- assign bc_lp = '' -%}{%- endif -%}
+{%- assign bc_category = site.data.hub.categories | where: "key", include.category | first -%}
+<nav class="hub-breadcrumb" aria-label="{% if bc_lang == 'zh' %}位置{% else %}Breadcrumb{% endif %}">
+  <a href="{{ bc_lp | append: '/hub/' | relative_url }}">{{ site.data.i18n[bc_lang].nav_hub }}</a>
+  <span aria-hidden="true">/</span>
+  <a href="{{ bc_lp | append: bc_category.url | relative_url }}">{{ bc_category.title[bc_lang] }}</a>
+</nav>

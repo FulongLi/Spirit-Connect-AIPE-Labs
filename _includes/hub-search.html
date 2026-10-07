@@ -1,0 +1,25 @@
+{%- comment -%}
+  Client-side search over the generated /hub/search.json index (artifacts,
+  domains, Academy lessons, articles and agent interfaces). Without JavaScript the
+  form submits to the Hub overview. Params: lang, suggestions (true to show chips).
+{%- endcomment -%}
+{%- assign s_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- if s_lang == 'zh' -%}{%- assign s_lp = '/zh' -%}{%- else -%}{%- assign s_lp = '' -%}{%- endif -%}
+{%- assign s_t = site.data.i18n[s_lang] -%}
+<form class="hub-search" role="search" action="{{ s_lp | append: '/hub/' | relative_url }}" method="get" data-hub-search data-index="{{ s_lp | append: '/hub/search.json' | relative_url }}" data-empty="{{ s_t.hub_search_empty | escape }}">
+  <label class="visually-hidden" for="hub-search-{{ include.id | default: 'main' }}">{{ s_t.hub_search_label }}</label>
+  <svg class="hub-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+  <input id="hub-search-{{ include.id | default: 'main' }}" type="search" name="q" autocomplete="off" spellcheck="false" placeholder="{{ s_t.hub_search_placeholder }}" role="combobox" aria-expanded="false" aria-controls="hub-search-results-{{ include.id | default: 'main' }}" aria-autocomplete="list">
+  <kbd class="hub-search-key" aria-hidden="true">/</kbd>
+  <button class="hub-search-submit" type="submit">{{ s_t.hub_search_button }}</button>
+  <ul class="hub-search-results" id="hub-search-results-{{ include.id | default: 'main' }}" role="listbox" hidden></ul>
+</form>
+{%- if include.suggestions %}
+<p class="hub-search-suggestions">
+  {%- if s_lang == 'zh' %}试试：{% else %}Try:{% endif %}
+  {%- assign suggestions = "SiC,buck,magnetics,LTspice,schematic,DAB" | split: "," %}
+  {%- for suggestion in suggestions %}
+  <a href="{{ s_lp | append: '/hub/?q=' | append: suggestion | relative_url }}" data-hub-suggest="{{ suggestion }}">{{ suggestion }}</a>
+  {%- endfor %}
+</p>
+{%- endif %}

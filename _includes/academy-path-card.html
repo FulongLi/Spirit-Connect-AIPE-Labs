@@ -1,0 +1,16 @@
+{%- comment -%}
+  One Academy lesson inside a learning stage. Params: lesson (a generated
+  academy/*.md page). Title, type, status and time come from its front matter.
+{%- endcomment -%}
+{%- assign lesson = include.lesson -%}
+<a class="academy-lesson" href="{{ lesson.url | relative_url }}"{% if lesson.lang == 'zh' %} lang="zh"{% endif %}>
+  <span class="academy-lesson-meta">
+    <span class="academy-lesson-type">{{ lesson.lesson_type }}</span>
+    {% include status-badge.html status=lesson.lesson_status lang='en' %}
+  </span>
+  <strong>{{ lesson.title }}</strong>
+  <span class="academy-lesson-foot">
+    <span>{{ lesson.estimated_time }} min</span>
+    {%- if lesson.lang == 'zh' %}<span class="academy-lesson-lang">中文</span>{% endif %}
+  </span>
+</a>

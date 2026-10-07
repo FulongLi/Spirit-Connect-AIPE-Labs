@@ -1,0 +1,70 @@
+# AIPE Academy learning-path presentation.
+#
+# Lesson content, titles, status and durations are owned by AIPE Academy and
+# arrive as generated pages in academy/*.md. This file only groups those lesson
+# URLs into learning stages for the /academy/ landing page. Topics are labels
+# for what a stage covers; they are not links and do not imply finished lessons.
+#
+# A generated lesson missing from every stage is still listed automatically
+# under "More from the catalogue", and tests/test_hub.py reports it.
+
+intro:
+  en: "Learn power electronics from first principles to AI-assisted engineering."
+
+stages:
+  - number: "01"
+    key: foundations
+    title: "Foundations"
+    summary: "Build the map of the field and the circuit, energy and signal ideas every later stage relies on."
+    topics: [Electricity, Circuits, Energy, Signals]
+    lessons:
+      - /academy/foundations/orientation/
+      - /academy/foundations/foundations/
+      - /academy/foundations/prerequisite-path-zh/
+      - /academy/foundations/first-circuit-zh/
+    hub: [devices]
+  - number: "02"
+    key: power-electronics
+    title: "Power Electronics"
+    summary: "Model the switch, then use volt-second and charge balance to design steady-state converters."
+    topics: [Devices, Switching, Converters]
+    lessons:
+      - /academy/power-electronics/components/
+      - /academy/power-electronics/converters/
+      - /academy/power-electronics/buck-converter/
+    hub: [devices, converters]
+  - number: "03"
+    key: design-simulation
+    title: "Design & Simulation"
+    summary: "Move from ideal waveforms to dynamics, control, magnetics and the practical constraints of a real build."
+    topics: [Magnetics, Control, Simulation, Thermal, PCB / CAD]
+    lessons:
+      - /academy/power-electronics/dynamics-and-control/
+      - /academy/power-electronics/practical-design/
+    hub: [magnetics, control]
+  - number: "04"
+    key: systems-energy
+    title: "Systems & Energy"
+    summary: "Place converters inside storage, microgrid and wider energy systems."
+    topics: [Energy Storage, Microgrids, Energy Systems]
+    lessons:
+      - /academy/power-electronics/systems-applications/
+    hub: [microgrids, systems]
+
+# The lesson-to-Hub route shown on /academy/. Every step links to a real page.
+hub_route:
+  - label: "Academy lesson"
+    title: "Buck converter: principles to design"
+    url: /academy/power-electronics/buck-converter/
+  - label: "Data"
+    title: "AIPE Semiconductor Database"
+    url: /hub/data/
+  - label: "Tools & Agents"
+    title: "AIPE Simulation Skills"
+    url: /hub/tools/
+  - label: "Design"
+    title: "DAB converter design reference"
+    url: /resources/prototypes/dab/
+  - label: "Lab"
+    title: "Ideal buck open lab"
+    url: /academy/power-electronics/buck-open-lab/

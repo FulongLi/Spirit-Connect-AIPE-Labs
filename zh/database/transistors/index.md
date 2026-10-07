@@ -8,6 +8,7 @@ description: SiC、GaN、IGBT 与硅 MOSFET 数据库 —— 实测开关波形�
 
 <header class="hero">
   <div class="container">
+    {% include hub-breadcrumb.html category='data' %}
     <h1>晶体管数据库</h1>
     <p class="lead">在你的任务需求下进行 SiC/GaN/IGBT 选型。</p>
   </div>

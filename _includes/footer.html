@@ -19,22 +19,36 @@
       </p>
     </div>
     <div>
+      <strong>{{ t.footer_hub }}</strong>
+      <p class="small">
+        <a href="{{ lp | append: '/hub/' | relative_url }}">{{ t.nav_hub_overview }}</a><br>
+        {%- for category in site.data.hub.categories %}
+        <a href="{{ lp | append: category.url | relative_url }}">{{ category.title[lang] }}</a><br>
+        {%- endfor %}
+        <a href="{{ lp | append: '/engineering/' | relative_url }}">{{ t.nav_engineering }}</a>
+      </p>
+    </div>
+    <div>
+      <strong>{{ t.footer_learn }}</strong>
+      <p class="small">
+        <a href="{{ '/academy/' | relative_url }}">{{ t.nav_academy }}</a><br>
+        <a href="{{ lp | append: '/resources/blog/' | relative_url }}">{{ t.nav_articles }}</a><br>
+        <a href="{{ lp | append: '/news/' | relative_url }}">{{ t.footer_news }}</a>
+      </p>
+      <strong>{{ t.footer_interfaces }}</strong>
+      <p class="small">
+        <a href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin_overview }}</a><br>
+        <a href="{{ '/aipe.md' | relative_url }}">aipe.md</a> · <a href="{{ '/aipe.json' | relative_url }}">aipe.json</a>
+      </p>
+    </div>
+    <div>
       <strong>{{ t.footer_company }}</strong>
       <p class="small">
         <a href="{{ lp | append: '/company/about/' | relative_url }}">{{ t.footer_about }}</a><br>
         <a href="{{ lp | append: '/company/team/' | relative_url }}">{{ t.footer_team }}</a><br>
         <a href="{{ lp | append: '/company/faq/' | relative_url }}">{{ t.footer_faq }}</a><br>
         <a href="{{ lp | append: '/company/careers/' | relative_url }}">{{ t.footer_careers }}</a><br>
-        <a href="{{ lp | append: '/news/' | relative_url }}">{{ t.footer_news }}</a>
-      </p>
-    </div>
-    <div>
-      <strong>{{ t.footer_resources }}</strong>
-      <p class="small">
-        <a href="{{ lp | append: '/resources/blog/' | relative_url }}">{{ t.nav_blog }}</a><br>
-        <a href="{{ lp | append: '/resources/database/' | relative_url }}">{{ t.nav_database }}</a><br>
-        <a href="{{ lp | append: '/resources/prototypes/' | relative_url }}">{{ t.nav_prototypes }}</a><br>
-        <a href="{{ lp | append: '/resources/ai-agent-team/' | relative_url }}">{{ t.nav_agents }}</a>
+        <a href="{{ lp | append: '/contact/' | relative_url }}">{{ t.nav_contact }}</a>
       </p>
     </div>
     <div>

@@ -8,6 +8,7 @@ description: 面向变换器、变压器、磁性元件与电力电子测量的�
 
 <header class="hero hero-compact">
   <div class="container">
+    {% include hub-breadcrumb.html category='designs' %}
     <h1>原型设计参考</h1>
     <p class="lead">
       为后续电力电子分析与开发提供参考的设计方案、硬件原型和工程记录。

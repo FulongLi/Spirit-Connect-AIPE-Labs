@@ -10,10 +10,13 @@ navigation, SEO and editorial RESEARCH/BUILD/NEWS content.
 ```sh
 python -m pip install -r requirements-dev.txt
 python tools/sync_ecosystem.py --registry ../AIPE-Registry --academy ../AIPE-Academy
+python tools/hub_data.py --write
 python tools/sync_ecosystem.py --check
+python tools/hub_data.py --check
 python -m unittest discover -s tests -v
 bundle exec jekyll build --strict_front_matter
 python tools/check_public_build.py _site
+python tools/check_site_links.py _site
 ```
 
 Before refresh, validate the Registry and Academy source checkouts and commit
@@ -44,6 +47,37 @@ The former manually curated index is preserved unchanged as
 [the historical v0 resource index](../legacy/aipe-resource-index-v0.md), so useful
 legacy hardware/reference links remain accessible without polluting Registry's
 canonical capability set. Its original terminology describes that older snapshot.
+
+## Hub presentation data
+
+The public site is organised as an **AIPE Hub** (artifact dimension: Data,
+Models, Designs, Tools & Agents, Labs) and **Engineering** domains (Devices,
+Magnetics, Converters, Control, Energy Storage, Microgrids, Energy Systems).
+Both views, the homepage feed, the Plugin page tables and the client-side search
+index are rendered from three data files:
+
+| File | Owner | Role |
+| --- | --- | --- |
+| `_data/registry.json` | derived | Byte-identical mirror of `/aipe.json`. GitHub Pages cannot read a root file from Liquid, so `tools/hub_data.py --write` copies it after every Registry sync. Never edit it by hand. |
+| `_data/hub.yml` | this site | Placement only: Hub category, engineering domains, featured order and on-site pages for each artifact. Registry artifacts carry no restated metadata; only website-owned artifacts (`id: site.*`) describe themselves. |
+| `_data/academy.yml` | this site | Groups generated lesson URLs into learning stages for `/academy/`. Lesson titles, status and durations come from the generated pages. |
+
+`tools/hub_data.py --check` (also run by `tests/test_hub.py` and CI) fails when
+the mirror drifts from `/aipe.json`, when a Registry capability is not placed
+exactly once, or when an ID, file or URL does not resolve. A Registry refresh that
+adds a capability therefore needs a one-line placement in `_data/hub.yml` in the
+same reviewed PR. A new Academy lesson not yet placed in a stage only produces a
+warning: `/academy/` lists it automatically under "More from the catalogue".
+
+The Academy landing page is rendered by `_layouts/academy.html`; the generated,
+hash-locked `academy/index.md` table is kept unchanged as its complete catalogue.
+`aipe.md` and `aipe.json` keep their role as the agent- and machine-readable
+Registry interfaces; the installable AIPE Plugin is planned
+([architecture note](aipe-plugin-architecture.md)) and the site labels it so.
+
+Former `Resources` navigation was replaced without moving any page. `/resources/`
+and `/power/` (previously unpublished) now redirect to `/hub/` and
+`/engineering/`, and their Chinese equivalents likewise.
 
 ## Content ownership and URL preservation
 

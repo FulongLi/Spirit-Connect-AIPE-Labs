@@ -1,106 +1,128 @@
 ---
 layout: default
-title: 面向 Coding Agent 的电力电子 AI 开放资源
+title: AIPE — 面向电力与能源的开放工程 Hub
 lang: zh
 permalink: /zh/
-description: 通过一条链接，让 Claude Code、Codex、Cursor 等 Coding Agent 接入 AIPE Labs 的电力电子开放知识、工具、专业智能体与工程工作流。
+description: 发现、分享并运行面向电力电子与能源系统的工程数据、模型、设计与 AI 工作流——服务工程师，也服务与他们协作的 Coding Agent。
 image: /images/background/sst.png
 ---
+{%- assign hub = site.data.hub -%}
+{%- assign featured = "" | split: "" -%}
+{%- assign hub_count = 0 -%}
+{%- for item in hub.artifacts -%}
+  {%- if item.featured -%}{%- assign featured = featured | push: item -%}{%- endif -%}
+  {%- if item.category != 'platform' -%}{%- assign hub_count = hub_count | plus: 1 -%}{%- endif -%}
+{%- endfor -%}
+{%- assign featured = featured | sort: "featured" -%}
+{%- assign lesson_count = 0 -%}
+{%- for candidate in site.pages -%}{%- if candidate.academy_page and candidate.lesson_status -%}{%- assign lesson_count = lesson_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
+{%- assign article_count = site.posts | where: "lang", "zh" | size -%}
 
-<header class="hero home-hero">
+<header class="home-hub-hero">
   <div class="container">
-    <h1>为 AI 供能的电力系统，由 AI 来设计</h1>
-    <p class="lead">
-      我们正在连接智能系统设计与为其供能的能源基础设施
-      —— 从半导体器件到变换器，再到电网。
-    </p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#agent-link">复制 AIPE 链接</a>
-      <a class="btn btn-ghost" href="https://github.com/AIPE-Labs" target="_blank" rel="noopener">查看开源项目 ↗</a>
-    </div>
-
-    <div class="workflow-panel" aria-label="Coding Agent 如何使用 AIPE Labs 资源索引">
-      <div class="workflow-toolbar">
-        <span class="workflow-brand"><span class="status-dot"></span> AIPE Labs 资源图谱</span>
-        <span class="workflow-status">开放 · 持续建设中</span>
-      </div>
-      <div class="workflow-prompt">
-        <span class="workflow-label">你</span>
-        <p>阅读 <strong>aipel.co.uk/aipe.md</strong>，找到合适的 AIPE 资源，帮助我分析一台 DAB 变换器。</p>
-      </div>
-      <div class="workflow-route" aria-hidden="true">
-        <span>Coding Agent</span><b>→</b><span class="workflow-index">aipe.md</span><b>→</b><span>相关资源</span>
-      </div>
-      <div class="workflow-resources">
-        <span>仿真</span><span>有限元分析</span><span>器件</span>
-        <span>磁性元件</span><span>变换器</span><span>验证</span>
-      </div>
-    </div>
+    <span class="section-kicker">AIPE · AI for Power Engineering</span>
+    <h1>面向电力与能源的开放工程 Hub。</h1>
+    <p class="lead">发现、分享并运行工程数据、模型、设计与 AI 工作流。</p>
+    {% include hub-search.html lang='zh' id='home' suggestions=true %}
+    <dl class="home-stats">
+      <div><dt>注册表能力</dt><dd><a href="{{ '/aipe.md' | relative_url }}">{{ site.data.registry.capabilities.size }}</a></dd></div>
+      <div><dt>Hub 产物</dt><dd><a href="{{ '/zh/hub/' | relative_url }}">{{ hub_count }}</a></dd></div>
+      <div><dt>学院课程</dt><dd><a href="{{ '/academy/' | relative_url }}">{{ lesson_count }}</a></dd></div>
+      <div><dt>工程文章</dt><dd><a href="{{ '/zh/resources/blog/' | relative_url }}">{{ article_count }}</a></dd></div>
+    </dl>
   </div>
 </header>
 
-<section class="section section-alt agent-entry" id="agent-link">
-  <div class="container narrow-center">
-    <h2>一条链接，就是整个生态的入口</h2>
-    <p class="lead">
-      <code>aipe.md</code> 是一份专门为 AI 智能体编写的 Markdown 索引。它帮助智能体根据当前任务，
-      找到最相关的 AIPE Labs 资源；不需要安装新应用、注册账号，也不受封闭平台限制。
-    </p>
-    <div class="agent-link">
-      <code id="agent-url">https://aipel.co.uk/aipe.md</code>
-      <button class="copy-btn" data-copy-target="agent-url" data-copied-label="已复制!" aria-live="polite">复制链接</button>
+<section class="section home-explore">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">探索 AIPE</span><h2>可复用的工程产物，而不是孤立的项目。</h2></div>
+      <p>每一项产物都标明类型、工程领域、成熟度与集成状态，让工程师和智能体都能判断哪些已经可用、哪些仍在建设中。</p>
     </div>
-    <p class="agent-steps">把链接粘贴给你的 Coding Agent，然后直接描述你想完成的工程任务。</p>
-    <div class="prompt-grid">
-      <div class="prompt-card"><span>仿真</span><p>“找到可用的 AIPE 资源，帮助我建立并检查这台变换器的仿真模型。”</p></div>
-      <div class="prompt-card"><span>有限元分析</span><p>“使用 AIPE 索引，帮我规划磁场或热场有限元分析流程。”</p></div>
-      <div class="prompt-card"><span>设计与验证</span><p>“根据这个规格，找到相关的器件、磁性元件、控制与验证资源。”</p></div>
+    <div class="hub-category-grid">
+      {%- for category in hub.categories %}{% include hub-category-card.html category=category index=forloop.index lang='zh' %}{% endfor %}
     </div>
-    <a class="text-link" href="{{ '/zh/plugin/' | relative_url }}">了解如何在 Coding Agent 中使用 AIPE →</a>
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section section-alt home-featured">
   <div class="container">
-    <h2>覆盖每一个工程尺度</h2>
-    <p class="lead">AIPE Labs 连接电力电子工程师日常工作的多个层级，让智能体获得超越单一计算的完整上下文。</p>
-    <div class="grid scope-grid">
-      <a class="card scope-card" href="{{ '/zh/power/devices/' | relative_url }}">
-        <img src="{{ '/images/research/components.png' | relative_url }}" alt="功率半导体器件" loading="lazy" decoding="async">
-        <span class="scope-kicker">01 · 元件层</span><h3>器件与磁性元件</h3>
-        <p>器件表征、模型、数据、损耗估算、热特性与磁性元件设计资源。</p><strong>查看器件资源 →</strong>
-      </a>
-      <a class="card scope-card" href="{{ '/zh/power/converters/' | relative_url }}">
-        <img src="{{ '/images/research/converter.png' | relative_url }}" alt="功率变换器设计" loading="lazy" decoding="async">
-        <span class="scope-kicker">02 · 变换器层</span><h3>变换器与控制</h3>
-        <p>拓扑比较、变换器建模、控制、优化与可复现设计流程。</p><strong>查看变换器资源 →</strong>
-      </a>
-      <a class="card scope-card" href="{{ '/zh/power/microgrids/' | relative_url }}">
-        <img src="{{ '/images/research/microgrids.png' | relative_url }}" alt="电力电子系统与微电网" loading="lazy" decoding="async">
-        <span class="scope-kicker">03 · 系统层</span><h3>系统与微电网</h3>
-        <p>直流配电、微电网架构、系统集成、任务工况与验证规划。</p><strong>查看系统资源 →</strong>
-      </a>
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">精选产物</span><h2>从现在已有的内容开始。</h2></div>
+      <p>注册表条目的成熟度、集成状态与代码仓库直接来自已发布的 <a href="{{ '/aipe.json' | relative_url }}">aipe.json</a>，没有任何手工转述。注册表描述目前为英文。<a href="{{ '/zh/hub/' | relative_url }}">浏览完整 Hub →</a></p>
     </div>
+    <div class="artifact-grid artifact-grid-feed">
+      {%- for item in featured %}{% include artifact-card.html item=item compact=true lang='zh' %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section home-domains">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">两个发现维度</span><h2>按“它是什么”搜索，或按“用在哪里”搜索。</h2></div>
+      <p>Hub 按产物类型组织，<a href="{{ '/zh/engineering/' | relative_url }}">工程领域</a> 按应用领域组织同一批产物——从半导体芯片到能源系统。空白单元格表示 Hub 尚未覆盖的地方。</p>
+    </div>
+    {% include domain-matrix.html lang='zh' %}
+  </div>
+</section>
+
+<section class="section section-alt home-academy">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">AIPE 学院</span><h2>从基本原理到 AI 辅助工程，系统学习电力电子。</h2></div>
+      <p>分阶段的课程体系与开放实验。每个阶段都标明课程处于大纲、草稿还是可用状态。目前课程以英文为主，并提供 <a href="{{ '/academy/foundations/prerequisite-path-zh/' | relative_url }}">中文先修路线</a>。<a href="{{ '/academy/' | relative_url }}">进入学院 →</a></p>
+    </div>
+    <ol class="home-stages">
+      {%- for stage in site.data.academy.stages %}
+      <li><a href="{{ '/academy/#stage-' | append: stage.key | relative_url }}"><span>{{ stage.number }}</span><strong>{{ stage.title }}</strong><em>{{ stage.topics | join: ' · ' }}</em></a></li>
+      {%- endfor %}
+      <li><a href="{{ '/academy/#labs' | relative_url }}"><span>Lab</span><strong>Open labs</strong><em>Predict · run · compare · explain</em></a></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section home-access" id="agent-link">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">不只服务于人</span><h2>同一个生态：人、智能体与机器三种接口。</h2></div>
+      <p>网站、面向智能体的 <code>aipe.md</code> 与面向机器的 <code>aipe.json</code> 都由同一个注册表生成。现在只需给 Coding Agent 一条链接；可安装的 <a href="{{ '/zh/plugin/' | relative_url }}">AIPE 插件</a> 是下一步。</p>
+    </div>
+    <div class="agent-link home-agent-link">
+      <code id="agent-url">https://aipel.co.uk/aipe.md</code>
+      <button class="copy-btn" data-copy-target="agent-url" data-copied-label="已复制！" aria-live="polite">复制链接</button>
+    </div>
+    {% include access-interfaces.html lang='zh' %}
+  </div>
+</section>
+
+<section class="section section-alt home-loop">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">为 AI 供能的电力系统，由 AI 来设计</span><h2>连接 AI 与电力设计闭环。</h2></div>
+      <p>各专业仓库始终是事实来源。注册表让它们可被发现，Core 为它们提供共同的工程语言，而来自仿真、硬件与验证的结果再以数据形式回到 Hub。</p>
+    </div>
+    {% include ecosystem-loop.html lang='zh' %}
   </div>
 </section>
 
 <section class="section collaboration-section">
   <div class="container collaboration-layout">
     <div>
-      <h2>今天就要有用，也要足够有野心</h2>
+      <h2>开放构建，也要足够有野心</h2>
       <p class="lead">
-        我们欢迎开发者使用或贡献资源，欢迎研究人员共同验证新的工程流程，也期待与企业、
-        投资机构和战略合作伙伴一起建设下一代 AI 辅助电力电子工程平台。
+        我们欢迎希望发布或改进产物的开发者、希望把方法与数据集转化为可复用工作流的研究者，
+        以及共同打造下一代 AI 辅助电力工程的企业和战略合作伙伴。
       </p>
       <div class="hero-actions align-left">
         <a class="btn btn-primary" href="{{ '/zh/contact/' | relative_url }}">讨论合作</a>
-        <a class="btn btn-ghost" href="{{ '/zh/resources/prototypes/' | relative_url }}">查看设计工作</a>
+        <a class="btn btn-ghost" href="https://github.com/AIPE-Labs" target="_blank" rel="noopener">查看开源项目 ↗</a>
       </div>
     </div>
     <div class="collaboration-list">
-      <div><span>01</span><p><strong>开发者</strong><br>使用索引、测试资源，并贡献开放工具。</p></div>
-      <div><span>02</span><p><strong>科研伙伴</strong><br>把研究方法和数据转化为可复现的智能体工作流。</p></div>
-      <div><span>03</span><p><strong>产业与战略伙伴</strong><br>用真实工程问题验证技术，并共同塑造平台。</p></div>
+      <div><span>01</span><p><strong>开发者</strong><br>用 <code>aipe.yaml</code> 清单描述产物，让注册表把它呈现给人和智能体。</p></div>
+      <div><span>02</span><p><strong>科研伙伴</strong><br>把方法与数据集转化为可重复、可追溯证据的工作流。</p></div>
+      <div><span>03</span><p><strong>产业与战略伙伴</strong><br>用真实工程问题验证平台，并共同塑造它。</p></div>
     </div>
   </div>
 </section>

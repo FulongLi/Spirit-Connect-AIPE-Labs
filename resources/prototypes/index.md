@@ -7,6 +7,7 @@ description: Prototype design references for converters, transformers, magnetics
 
 <header class="hero hero-compact">
   <div class="container">
+    {% include hub-breadcrumb.html category='designs' %}
     <h1>Prototype Design References</h1>
     <p class="lead">
       Reference designs, hardware prototypes, and engineering notes that can inform

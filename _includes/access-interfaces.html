@@ -1,0 +1,37 @@
+{%- comment -%}
+  The three ways into the same ecosystem: Human, Agent and Machine.
+  Only aipel.co.uk, /aipe.md and /aipe.json exist today; the AIPE Plugin and a
+  Registry API/CLI are shown as planned. Params: lang.
+{%- endcomment -%}
+{%- assign ax_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- if ax_lang == 'zh' -%}{%- assign ax_lp = '/zh' -%}{%- else -%}{%- assign ax_lp = '' -%}{%- endif -%}
+<div class="access-grid">
+  <div class="access-card">
+    <span class="access-kicker">{% if ax_lang == 'zh' %}人{% else %}Human{% endif %}</span>
+    <h3>aipel.co.uk</h3>
+    <p>{% if ax_lang == 'zh' %}通过 Hub、工程领域与学院浏览、比较和学习。{% else %}Browse, compare and learn through the Hub, engineering domains and the Academy.{% endif %}</p>
+    <ul class="access-list">
+      <li><a href="{{ ax_lp | append: '/hub/' | relative_url }}">{{ site.data.i18n[ax_lang].nav_hub }}</a>{% include status-badge.html status='available' lang=ax_lang %}</li>
+      <li><a href="{{ ax_lp | append: '/engineering/' | relative_url }}">{{ site.data.i18n[ax_lang].nav_engineering }}</a>{% include status-badge.html status='available' lang=ax_lang %}</li>
+      <li><a href="{{ '/academy/' | relative_url }}">{{ site.data.i18n[ax_lang].nav_academy }}</a>{% include status-badge.html status='available' lang=ax_lang %}</li>
+    </ul>
+  </div>
+  <div class="access-card">
+    <span class="access-kicker">{% if ax_lang == 'zh' %}智能体{% else %}Agent{% endif %}</span>
+    <h3>aipe.md · AIPE Plugin</h3>
+    <p>{% if ax_lang == 'zh' %}Coding Agent 读取同一份注册表，找到与你当前工程任务相关的能力。{% else %}Coding agents read the same Registry and find the capabilities relevant to the task in your current project.{% endif %}</p>
+    <ul class="access-list">
+      <li><a href="{{ '/aipe.md' | relative_url }}"><code>aipel.co.uk/aipe.md</code></a>{% include status-badge.html status='available' lang=ax_lang %}</li>
+      <li><a href="{{ ax_lp | append: '/plugin/#next' | relative_url }}">{% if ax_lang == 'zh' %}可安装的 AIPE 插件{% else %}Installable AIPE Plugin{% endif %}</a>{% include status-badge.html status='planned' lang=ax_lang %}</li>
+    </ul>
+  </div>
+  <div class="access-card">
+    <span class="access-kicker">{% if ax_lang == 'zh' %}机器{% else %}Machine{% endif %}</span>
+    <h3>aipe.json</h3>
+    <p>{% if ax_lang == 'zh' %}脚本与流水线读取确定性生成、经过校验的能力清单。{% else %}Scripts and pipelines read the deterministic, validated capability index.{% endif %}</p>
+    <ul class="access-list">
+      <li><a href="{{ '/aipe.json' | relative_url }}"><code>aipel.co.uk/aipe.json</code></a>{% include status-badge.html status='available' lang=ax_lang %}</li>
+      <li><span>{% if ax_lang == 'zh' %}注册表 API / CLI{% else %}Registry API / CLI{% endif %}</span>{% include status-badge.html status='planned' lang=ax_lang %}</li>
+    </ul>
+  </div>
+</div>

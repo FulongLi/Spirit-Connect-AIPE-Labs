@@ -8,6 +8,7 @@ description: 磁性元件数据库 —— 磁芯几何、铁氧体与粉芯材�
 
 <header class="hero">
   <div class="container">
+    {% include hub-breadcrumb.html category='data' %}
     <h1>磁性元件数据库</h1>
     <p class="lead">磁芯材料、Steinmetz 参数、绕组窗口与热数据 —— 用于自动化磁性元件设计。</p>
   </div>

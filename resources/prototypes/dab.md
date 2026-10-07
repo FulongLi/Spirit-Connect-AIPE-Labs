@@ -7,6 +7,7 @@ description: Design reference for AI-assisted optimisation of a dual-active-brid
 
 <header class="hero">
   <div class="container">
+    {% include hub-breadcrumb.html category='designs' %}
     <h1>DAB Converter Design Reference</h1>
     <p class="lead">A design workflow for a DAB stage — switching devices, magnetics, control loops and validation. The teaching series starts with a separate 100 W cell example.</p>
   </div>

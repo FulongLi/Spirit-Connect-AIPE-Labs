@@ -7,6 +7,7 @@ description: Power semiconductor and magnetics databases for power electronics a
 
 <header class="database-hero library-hero">
   <div class="container">
+    {% include hub-breadcrumb.html category='data' %}
     <span class="section-kicker">Engineering evidence, structured</span>
     <h1>Data that behaves like part of the design.</h1>
     <p class="lead">Reusable device and magnetics data for component selection, loss modelling and AI-assisted engineering workflows — with the conditions and provenance kept attached.</p>

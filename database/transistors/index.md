@@ -7,6 +7,7 @@ description: SiC, GaN, IGBT and silicon MOSFET database — measured switching w
 
 <header class="hero">
   <div class="container">
+    {% include hub-breadcrumb.html category='data' %}
     <h1>Transistor Database</h1>
     <p class="lead">SiC/GaN/IGBT selection under your mission profile.</p>
   </div>

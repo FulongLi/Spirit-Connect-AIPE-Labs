@@ -1,0 +1,74 @@
+---
+layout: default
+---
+{%- comment -%}
+  Engineering domains: the application dimension of AIPE, complementary to the
+  Hub's artifact dimension. Each domain lists its dedicated page (if one exists),
+  articles, Academy stages and the Hub artifacts tagged with it.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'en' -%}
+{%- if lang == 'zh' -%}{%- assign lp = '/zh' -%}{%- else -%}{%- assign lp = '' -%}{%- endif -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign hub = site.data.hub -%}
+{%- assign lang_posts = site.posts | where: "lang", lang -%}
+<header class="hub-hero">
+  <div class="container">
+    <span class="section-kicker">{{ t.nav_engineering }}</span>
+    <h1>{{ page.heading }}</h1>
+    <p class="lead">{{ page.intro }}</p>
+    <nav class="engineering-jump" aria-label="{% if lang == 'zh' %}工程领域{% else %}Engineering domains{% endif %}">
+      {%- for domain in hub.domains %}<a href="#{{ domain.key }}">{{ domain.title[lang] }}</a>{% endfor %}
+    </nav>
+  </div>
+</header>
+
+<section class="section section-alt hub-matrix-section">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{% if lang == 'zh' %}两个发现维度{% else %}Two directions of discovery{% endif %}</span><h2>{% if lang == 'zh' %}工程领域 × 产物类型{% else %}Engineering domain × artifact type{% endif %}</h2></div>
+      <p>{% if lang == 'zh' %}按领域浏览，或在 <a href="{{ lp | append: '/hub/' | relative_url }}">Hub</a> 中按产物类型浏览——两者指向同一批产物。{% else %}Browse by domain here, or by artifact type in the <a href="{{ lp | append: '/hub/' | relative_url }}">Hub</a> — both lead to the same artifacts.{% endif %}</p>
+    </div>
+    {% include domain-matrix.html lang=lang %}
+  </div>
+</section>
+
+{%- for domain in hub.domains %}
+{%- assign domain_items = "" | split: "" %}
+{%- for item in hub.artifacts %}{% if item.domains contains domain.key %}{% assign domain_items = domain_items | push: item %}{% endif %}{% endfor %}
+<section class="section engineering-domain{% cycle '', ' section-alt' %}" id="{{ domain.key }}">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div>
+        <span class="section-kicker">{{ forloop.index | prepend: '0' | slice: -2, 2 }} · {{ domain_items.size }} {{ t.hub_artifacts }}</span>
+        <h2>{{ domain.title[lang] }}</h2>
+      </div>
+      <div>
+        <p>{{ domain.summary[lang] }}</p>
+        <ul class="engineering-links">
+          {%- if domain.url %}
+          <li><a href="{{ lp | append: domain.url | relative_url }}">{{ t.hub_domain_page }} →</a></li>
+          {%- else %}
+          <li><span>{{ t.hub_domain_page_planned }}</span>{% include status-badge.html status='planned' lang=lang %}</li>
+          {%- endif %}
+          {%- if domain.blog_flag %}
+          {%- assign series_posts = lang_posts | where: domain.blog_flag, true %}
+          <li><a href="{{ lp | append: '/resources/blog/#' | append: domain.blog_anchor | relative_url }}">{{ t.hub_articles }} ({{ series_posts.size }}) →</a></li>
+          {%- endif %}
+          {%- for stage in site.data.academy.stages %}
+          {%- if stage.hub contains domain.key %}
+          <li><a href="{{ '/academy/#stage-' | append: stage.key | relative_url }}">{{ t.nav_academy }} · {{ stage.number }} {{ stage.title }} →</a></li>
+          {%- endif %}
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+    {%- if domain_items.size > 0 %}
+    <div class="artifact-grid">
+      {%- for item in domain_items %}{% include artifact-card.html item=item compact=true lang=lang %}{% endfor %}
+    </div>
+    {%- else %}
+    <p class="engineering-empty">{% if lang == 'zh' %}Hub 中暂时没有标注此领域的产物。{% else %}No Hub artifacts are tagged with this domain yet.{% endif %} <a href="{{ lp | append: '/contact/' | relative_url }}">{% if lang == 'zh' %}参与贡献 →{% else %}Contribute one →{% endif %}</a></p>
+    {%- endif %}
+  </div>
+</section>
+{%- endfor %}

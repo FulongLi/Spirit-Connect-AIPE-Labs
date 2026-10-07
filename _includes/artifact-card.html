@@ -1,0 +1,158 @@
+{%- comment -%}
+  AIPE Artifact Card — the presentation of one Hub artifact.
+  Params: item (an entry of site.data.hub.artifacts), compact (true for feeds), lang.
+
+  Metadata is never restated here. Registry artifacts read the mirrored
+  /aipe.json record; Academy artifacts read the generated lesson page; only
+  website-owned artifacts (id: site.*) describe themselves in _data/hub.yml.
+{%- endcomment -%}
+{%- assign card_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- if card_lang == 'zh' -%}{%- assign card_lp = '/zh' -%}{%- else -%}{%- assign card_lp = '' -%}{%- endif -%}
+{%- assign t = site.data.i18n[card_lang] -%}
+{%- assign item = include.item -%}
+{%- assign rec = nil -%}
+{%- assign lesson = nil -%}
+{%- assign card_id = nil -%}
+{%- assign card_minutes = nil -%}
+{%- assign card_href = nil -%}
+{%- if item.registry -%}
+  {%- assign rec = site.data.registry.capabilities | where: "id", item.registry | first -%}
+  {%- assign card_name = rec.name -%}
+  {%- assign card_type = rec.type -%}
+  {%- assign card_status = rec.maturity -%}
+  {%- assign card_desc = rec.description -%}
+  {%- assign card_desc_lang = 'en' -%}
+  {%- assign card_id = rec.id -%}
+  {%- assign card_source = t.hub_source_registry -%}
+  {%- if item.links and item.links.size > 0 -%}
+    {%- assign first_link = item.links | first -%}
+    {%- if first_link.localised -%}{%- assign card_href = card_lp | append: first_link.url -%}{%- else -%}{%- assign card_href = first_link.url -%}{%- endif -%}
+  {%- else -%}
+    {%- assign card_href = rec.repository -%}
+  {%- endif -%}
+{%- elsif item.academy -%}
+  {%- assign lesson = site.pages | where: "url", item.academy | first -%}
+  {%- assign card_name = lesson.title -%}
+  {%- assign card_type = item.type | default: lesson.lesson_type -%}
+  {%- assign card_status = lesson.lesson_status -%}
+  {%- assign card_desc = item.description[card_lang] -%}
+  {%- assign card_desc_lang = card_lang -%}
+  {%- assign card_minutes = lesson.estimated_time -%}
+  {%- assign card_source = t.hub_source_academy -%}
+  {%- assign card_href = item.academy -%}
+{%- else -%}
+  {%- assign card_name = item.title[card_lang] -%}
+  {%- assign card_type = item.type -%}
+  {%- assign card_status = item.status -%}
+  {%- assign card_desc = item.description[card_lang] -%}
+  {%- assign card_desc_lang = card_lang -%}
+  {%- assign card_source = t.hub_source_site -%}
+  {%- if item.url -%}
+    {%- if item.localised -%}{%- assign card_href = card_lp | append: item.url -%}{%- else -%}{%- assign card_href = item.url -%}{%- endif -%}
+  {%- elsif item.links and item.links.size > 0 -%}
+    {%- assign first_link = item.links | first -%}
+    {%- if first_link.localised -%}{%- assign card_href = card_lp | append: first_link.url -%}{%- else -%}{%- assign card_href = first_link.url -%}{%- endif -%}
+  {%- else -%}
+    {%- assign card_href = item.files | first -%}
+  {%- endif -%}
+{%- endif -%}
+{%- assign card_external = false -%}
+{%- if card_href contains '://' -%}{%- assign card_external = true -%}{%- endif -%}
+<article class="artifact-card{% if include.compact %} artifact-card-compact{% endif %}" data-category="{{ item.category }}" data-domains="{{ item.domains | join: ' ' }}">
+  <div class="artifact-card-top">
+    <span class="artifact-type">{{ site.data.hub.type_labels[card_type][card_lang] | default: card_type }}</span>
+    {% include status-badge.html status=card_status lang=card_lang %}
+  </div>
+  <h3 class="artifact-name"><a href="{% if card_external %}{{ card_href }}{% else %}{{ card_href | relative_url }}{% endif %}"{% if card_external %} rel="noopener"{% endif %}>{{ card_name }}</a></h3>
+  {%- if card_id %}
+  <code class="artifact-id">{{ card_id }}</code>
+  {%- endif %}
+  <p class="artifact-desc"{% if card_desc_lang != card_lang %} lang="{{ card_desc_lang }}"{% endif %}>{{ card_desc }}</p>
+  <dl class="artifact-meta">
+    <div>
+      <dt>{{ t.hub_domain }}</dt>
+      <dd>
+        {%- if item.domains.size > 0 -%}
+          {%- for key in item.domains -%}
+            {%- assign domain = site.data.hub.domains | where: "key", key | first -%}
+            {{ domain.title[card_lang] }}{% unless forloop.last %} · {% endunless %}
+          {%- endfor -%}
+        {%- else -%}{{ t.hub_cross_domain }}{%- endif -%}
+      </dd>
+    </div>
+    {%- if rec %}
+    <div><dt>{{ t.hub_integration }}</dt><dd>{{ rec.compatibility.integration }}</dd></div>
+    {%- endif %}
+    {%- if card_minutes %}
+    <div><dt>{{ t.hub_duration }}</dt><dd>{{ card_minutes }} {{ t.hub_minutes }}</dd></div>
+    {%- endif %}
+    {%- unless include.compact %}
+    {%- if rec %}
+    <div><dt>{{ t.hub_licence }}</dt><dd>{{ rec.license }}</dd></div>
+    <div><dt>{{ t.hub_checks }}</dt><dd>{{ rec.validation.status }}</dd></div>
+    {%- endif %}
+    {%- endunless %}
+  </dl>
+  {%- if rec and rec.capabilities.size > 0 %}
+  <ul class="artifact-chips" aria-label="{{ t.hub_capabilities }}">
+    {%- if include.compact %}{% assign cap_limit = 3 %}{% else %}{% assign cap_limit = 12 %}{% endif %}
+    {%- for capability in rec.capabilities limit: cap_limit %}
+    <li>{{ capability }}</li>
+    {%- endfor %}
+    {%- if rec.capabilities.size > cap_limit %}<li class="artifact-chip-more">+{{ rec.capabilities.size | minus: cap_limit }}</li>{% endif %}
+  </ul>
+  {%- elsif item.tools %}
+  <ul class="artifact-chips" aria-label="{{ t.hub_tools }}">
+    {%- for tool in item.tools %}<li>{{ tool }}</li>{% endfor %}
+  </ul>
+  {%- endif %}
+  {%- unless include.compact %}
+  {%- if rec and rec.tools.size > 1 %}
+  <details class="artifact-more">
+    <summary>{{ t.hub_tools }} ({{ rec.tools.size }})</summary>
+    <ul lang="en">
+      {%- for tool in rec.tools %}
+      <li><a href="{{ tool.url }}" rel="noopener">{{ tool.name }}</a> <span>{{ tool.licence_class | replace: '_', ' ' }}{% if tool.optional %} · optional{% endif %}</span></li>
+      {%- endfor %}
+    </ul>
+  </details>
+  {%- endif %}
+  {%- if item.files %}
+  <details class="artifact-more">
+    <summary>{{ t.hub_files }} ({{ item.files.size }})</summary>
+    <ul>
+      {%- for file in item.files %}
+      {%- assign file_name = file | split: '/' | last %}
+      <li><a href="{{ file | relative_url }}" download><code>{{ file_name }}</code></a></li>
+      {%- endfor %}
+    </ul>
+  </details>
+  {%- endif %}
+  {%- if rec and rec.validation.limitations.size > 0 %}
+  <details class="artifact-more">
+    <summary>{{ t.hub_limitations }} ({{ rec.validation.limitations.size }})</summary>
+    <ul lang="en">
+      {%- for limitation in rec.validation.limitations %}
+      <li>{{ limitation }}</li>
+      {%- endfor %}
+    </ul>
+  </details>
+  {%- endif %}
+  {%- endunless %}
+  <div class="artifact-links">
+    {%- for link in item.links %}
+    {%- if include.compact and forloop.index > 1 %}{% break %}{% endif %}
+    {%- if link.localised %}{% assign link_href = card_lp | append: link.url %}{% else %}{% assign link_href = link.url %}{% endif %}
+    <a href="{{ link_href | relative_url }}">{{ link.label[card_lang] }} →</a>
+    {%- endfor %}
+    {%- if rec %}
+    <a href="{{ rec.repository }}" rel="noopener">{{ t.hub_repository }} ↗</a>
+    {%- if item.pending_repository %}<span class="artifact-note">{{ t.hub_repository_pending }}</span>{% endif %}
+    {%- elsif lesson %}
+    <a href="{{ item.academy | relative_url }}">{{ t.hub_open }} →</a>
+    {%- elsif item.url and item.links == nil %}
+    <a href="{{ card_href | relative_url }}">{{ t.hub_open }} →</a>
+    {%- endif %}
+  </div>
+  <p class="artifact-source">{{ t.hub_source }}: {{ card_source }}</p>
+</article>
