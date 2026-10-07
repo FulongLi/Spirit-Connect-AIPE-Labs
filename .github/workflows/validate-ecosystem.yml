@@ -1,0 +1,31 @@
+name: Ecosystem presentation validation
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python tools/sync_ecosystem.py --check
+      - run: python -m unittest discover -s tests -v
+      - id: sources
+        run: python tools/academy_source_lock.py
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ steps.sources.outputs.repository }}
+          ref: ${{ steps.sources.outputs.revision }}
+          path: .ecosystem-sources/academy
+          persist-credentials: false
+      - run: python tools/build_academy.py .ecosystem-sources/academy
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler: latest
+          bundler-cache: true
+      - run: bundle exec jekyll build --strict_front_matter
+      - run: python tools/check_public_build.py _site

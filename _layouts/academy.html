@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<header class="hero hero-compact">
+  <div class="container">
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.lesson_status %}<p>{{ page.lesson_type | escape }} · {{ page.lesson_status | escape }} · {{ page.estimated_time }} min</p>{% endif %}
+  </div>
+</header>
+<section class="section post-content-section">
+  <div class="container post-content-shell">
+    <div class="post-article-column">
+      <article class="post-article blog-post-article">
+        {% if page.lesson_status == 'outline' %}<p><strong>This page is a curriculum outline. Detailed lessons are still being developed.</strong></p>{% endif %}
+        {% if page.prerequisite_links.size > 0 %}
+        <p>Prerequisites: {% for item in page.prerequisite_links %}<a href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
+        {% endif %}
+        {{ content }}
+        {% if page.next_links.size > 0 %}
+        <p>Continue: {% for item in page.next_links %}<a href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
+        {% endif %}
+        <p><a href="{{ '/academy/' | relative_url }}">Academy learning map</a></p>
+      </article>
+    </div>
+  </div>
+</section>

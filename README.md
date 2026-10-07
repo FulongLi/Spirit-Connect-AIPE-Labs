@@ -80,3 +80,7 @@ See [LICENSE.md](LICENSE.md) for licensing details.
 - Email: [info@spiritconnect.co.uk](mailto:info@spiritconnect.co.uk)
 - Location: Cardiff, United Kingdom
 - Website: [https://aipel.co.uk](https://aipel.co.uk/)
+
+## AIPE Ecosystem v0.1
+
+AIPE means **AI for Power Engineering**. Capability metadata is maintained by AIPE Registry, and teaching content by AIPE Academy. This site consumes reviewed outputs. See the [synchronization, ownership and URL contract](docs/ecosystem-v0.1.md) and [capability manifest](aipe.yaml). The new [Academy entry point](https://aipel.co.uk/academy/) is published after this PR is reviewed and deployed.

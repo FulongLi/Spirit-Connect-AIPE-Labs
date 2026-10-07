@@ -1,5 +1,7 @@
 ---
 layout: post
+academy_source: /academy/power-electronics/buck-converter/
+canonical_url: https://aipel.co.uk/academy/power-electronics/buck-converter/
 title: "Buck Converter: From Zero to Everything"
 description: "A practical path from the first switching cycle to modelling, feedback control, simulation, KiCad and a working buck-converter prototype."
 date: 2025-12-10
