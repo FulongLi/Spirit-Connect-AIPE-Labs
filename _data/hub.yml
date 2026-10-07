@@ -9,6 +9,11 @@
 # generated lesson page front matter. Only artifacts owned by this website
 # (`id: site.*`) describe themselves here.
 #
+# Registry descriptions are English. Chinese pages never show them: each
+# Registry artifact carries a presentation-owned `zh_summary`, a reviewed Chinese
+# rendering of its Registry description. Refresh it in the same PR when the
+# Registry description changes meaning.
+#
 # tests/test_hub.py fails when a Registry capability is not placed, when an ID or
 # URL does not resolve, or when the mirror drifts from /aipe.json. Add new
 # capabilities by refreshing the Registry snapshot, then placing them below.
@@ -112,6 +117,18 @@ type_labels:
   reference_design: {en: "Reference design", zh: "参考设计"}
   lab: {en: "Lab", zh: "实验"}
 
+# Display labels for Registry integration, validation and tool licence values.
+integration_labels:
+  native: {en: "Native", zh: "原生"}
+  mapped: {en: "Mapped", zh: "映射"}
+  none: {en: "None", zh: "无"}
+check_labels:
+  tested: {en: "Tested", zh: "已测试"}
+licence_class_labels:
+  open_source: {en: "Open source", zh: "开源"}
+  free_proprietary: {en: "Free proprietary", zh: "免费专有软件"}
+  commercial: {en: "Commercial", zh: "商业软件"}
+
 # Registry maturity values plus website/Academy publication states.
 status_labels:
   usable: {en: "Usable", zh: "可用"}
@@ -130,6 +147,7 @@ status_labels:
 artifacts:
   # ── Data ──
   - registry: aipe.semiconductor-database
+    zh_summary: "规范的 V3 功率半导体记录，包含 SI 单位曲线、来源权利信息与证据溯源，并提供一个保守的 Core 候选数据适配器。"
     category: data
     domains: [devices]
     featured: 1
@@ -138,6 +156,7 @@ artifacts:
         localised: true
         label: {en: "Transistor data overview", zh: "晶体管数据概览"}
   - registry: aipe.magnetics-database
+    zh_summary: "以证据为先的磁性元件数据记录框架，涵盖材料、几何结构、绕组、元件、损耗模型与测量记录，并明确使用 SI 单位。"
     category: data
     domains: [magnetics]
     featured: 2
@@ -247,6 +266,7 @@ artifacts:
 
   # ── Tools & Agents ──
   - registry: aipe.sketch
+    zh_summary: "把显式的电路中间表示（Circuit IR）渲染为经过连接性检查、带来源记录的 SVG 原理图。"
     category: tools
     domains: [converters]
     featured: 3
@@ -255,17 +275,21 @@ artifacts:
         localised: true
         label: {en: "Guide", zh: "使用指南"}
   - registry: aipe.simulation-skills
+    zh_summary: "面向工程用途的仿真、控制、CAD、PCB 与场分析技能，默认使用开源工具，并保留可选的商业软件工作流。"
     category: tools
     domains: [converters, control, magnetics]
     featured: 4
   - registry: aipe.design-agent
+    zh_summary: "通过 Core 工程状态与注册表能力，逐步编排关联证据的工程工作，同时保留现有的 PEA 计算器与接口。"
     category: tools
     domains: [converters]
     featured: 5
   - registry: aipe.ieee-paper-agent
+    zh_summary: "关联证据的科研规划，以及面向特定 IEEE 期刊与会议的论文撰写。"
     category: tools
     domains: []
   - registry: aipe.open-source-catalogue
+    zh_summary: "社区整理的外部工程工具目录，附有注明日期的维护状态、许可与自动化能力依据。"
     category: tools
     domains: []
 
@@ -273,6 +297,9 @@ artifacts:
   - academy: /academy/power-electronics/buck-open-lab/
     category: labs
     type: lab
+    # The lesson is English-only; Chinese pages show this title with a
+    # "content in English" note instead of the English lesson title.
+    title: {zh: "预测并核对理想 Buck 变换器"}
     domains: [converters]
     featured: 8
     description:
@@ -281,10 +308,12 @@ artifacts:
 
   # ── Platform layer ── (infrastructure that the artifacts above build on)
   - registry: aipe.core
+    zh_summary: "带版本的 SI 单位工程状态模式、证据约定与语义互操作约定。"
     category: platform
     domains: []
     pending_repository: true
   - registry: aipe.registry
+    zh_summary: "发现并校验规范的 AIPE 能力，发布可复现的机器可读索引与 Markdown 索引。"
     category: platform
     domains: []
     pending_repository: true
@@ -294,12 +323,15 @@ artifacts:
       - url: /aipe.json
         label: {en: "aipe.json", zh: "aipe.json"}
   - registry: aipe.academy
+    zh_summary: "原创的电力工程学习路径，v0.1 课程以电力电子为主。"
     category: platform
     domains: []
     links:
       - url: /academy/
+        localised: true
         label: {en: "Academy", zh: "学院"}
   - registry: aipe.presentation
+    zh_summary: "基于 Jekyll 的展示层，为注册表能力与学院课程提供稳定的公开网址。"
     category: platform
     domains: []
 

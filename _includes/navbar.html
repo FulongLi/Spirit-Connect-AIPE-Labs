@@ -9,6 +9,18 @@
 {%- endif -%}
 {%- if page.en_url -%}{%- assign en_url = page.en_url -%}{%- else -%}{%- assign en_url = base_path -%}{%- endif -%}
 {%- if page.zh_url -%}{%- assign zh_url = page.zh_url -%}{%- else -%}{%- assign zh_url = '/zh' | append: base_path -%}{%- endif -%}
+{%- comment -%}
+  Academy lessons are generated, single-language pages without translated
+  counterparts, so the language switch leads to the other language's Academy
+  entry point (/academy/ or /zh/academy/) instead of the generated en_url/zh_url.
+{%- endcomment -%}
+{%- if page.academy_page or page.academy_landing -%}
+  {%- if lang == 'zh' -%}
+    {%- assign en_url = '/academy/' -%}{%- assign zh_url = page.url -%}
+  {%- else -%}
+    {%- assign en_url = page.url -%}{%- assign zh_url = '/zh/academy/' -%}
+  {%- endif -%}
+{%- endif -%}
 {%- if page.collection == 'posts' -%}
   {%- assign current_translation_key = page.translation_key | default: page.slug -%}
   {%- for candidate in site.posts -%}
@@ -47,8 +59,7 @@
           {%- endfor %}
         </div>
       </div>
-      {%- comment -%} Academy has English and Chinese entry points but no mirrored /zh/academy/ tree. {%- endcomment %}
-      <a class="nav-academy" href="{{ '/academy/' | relative_url }}">{{ t.nav_academy }}</a>
+      <a class="nav-academy" href="{{ lp | append: '/academy/' | relative_url }}">{{ t.nav_academy }}</a>
       <div class="dropdown">
         <button class="drop-toggle" aria-expanded="false">{{ t.nav_community }} ▾</button>
         <div class="drop-menu">
@@ -58,15 +69,7 @@
           <a href="{{ lp | append: '/contact/' | relative_url }}">{{ t.nav_contribute }}</a>
         </div>
       </div>
-      <div class="dropdown">
-        <button class="drop-toggle" aria-expanded="false">{{ t.nav_plugin }} ▾</button>
-        <div class="drop-menu drop-menu-wide">
-          <a href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin_overview }}</a>
-          <a href="{{ lp | append: '/plugin/#access' | relative_url }}">{{ t.nav_access }}</a>
-          <a href="{{ '/aipe.md' | relative_url }}">{{ t.nav_agent_index }}</a>
-          <a href="{{ '/aipe.json' | relative_url }}">{{ t.nav_machine_index }}</a>
-        </div>
-      </div>
+      <a class="nav-plugin" href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a>
       <a class="nav-partner-mobile" href="{{ lp | append: '/contact/' | relative_url }}">{{ t.nav_contact }}</a>
     </nav>
     <div class="nav-right">

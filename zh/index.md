@@ -15,7 +15,7 @@ image: /images/background/sst.png
 {%- endfor -%}
 {%- assign featured = featured | sort: "featured" -%}
 {%- assign lesson_count = 0 -%}
-{%- for candidate in site.pages -%}{%- if candidate.academy_page and candidate.lesson_status -%}{%- assign lesson_count = lesson_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
+{%- for candidate in site.pages -%}{%- if candidate.academy_page and candidate.lesson_status and candidate.lang == 'zh' -%}{%- assign lesson_count = lesson_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
 {%- assign article_count = site.posts | where: "lang", "zh" | size -%}
 
 <header class="home-hub-hero">
@@ -25,10 +25,10 @@ image: /images/background/sst.png
     <p class="lead">发现、分享并运行工程数据、模型、设计与 AI 工作流。</p>
     {% include hub-search.html lang='zh' id='home' suggestions=true %}
     <dl class="home-stats">
-      <div><dt>注册表能力</dt><dd><a href="{{ '/aipe.md' | relative_url }}">{{ site.data.registry.capabilities.size }}</a></dd></div>
       <div><dt>Hub 产物</dt><dd><a href="{{ '/zh/hub/' | relative_url }}">{{ hub_count }}</a></dd></div>
-      <div><dt>学院课程</dt><dd><a href="{{ '/academy/' | relative_url }}">{{ lesson_count }}</a></dd></div>
+      <div><dt>学院课程</dt><dd><a href="{{ '/zh/academy/' | relative_url }}">{{ lesson_count }}</a></dd></div>
       <div><dt>工程文章</dt><dd><a href="{{ '/zh/resources/blog/' | relative_url }}">{{ article_count }}</a></dd></div>
+      <div><dt>工程领域</dt><dd><a href="{{ '/zh/engineering/' | relative_url }}">{{ hub.domains.size }}</a></dd></div>
     </dl>
   </div>
 </header>
@@ -37,7 +37,7 @@ image: /images/background/sst.png
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">探索 AIPE</span><h2>可复用的工程产物，而不是孤立的项目。</h2></div>
-      <p>每一项产物都标明类型、工程领域、成熟度与集成状态，让工程师和智能体都能判断哪些已经可用、哪些仍在建设中。</p>
+      <p>每一项产物都标明类型、工程领域与成熟度，让你一眼看出哪些已经可用、哪些仍在建设中。</p>
     </div>
     <div class="hub-category-grid">
       {%- for category in hub.categories %}{% include hub-category-card.html category=category index=forloop.index lang='zh' %}{% endfor %}
@@ -49,7 +49,7 @@ image: /images/background/sst.png
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">精选产物</span><h2>从现在已有的内容开始。</h2></div>
-      <p>注册表条目的成熟度、集成状态与代码仓库直接来自已发布的 <a href="{{ '/aipe.json' | relative_url }}">aipe.json</a>，没有任何手工转述。注册表描述目前为英文。<a href="{{ '/zh/hub/' | relative_url }}">浏览完整 Hub →</a></p>
+      <p>现在就可以打开、运行并在此基础上继续构建的数据集、模型、设计、工具与实验。每张卡片都标明其成熟度。<a href="{{ '/zh/hub/' | relative_url }}">浏览完整 Hub →</a></p>
     </div>
     <div class="artifact-grid artifact-grid-feed">
       {%- for item in featured %}{% include artifact-card.html item=item compact=true lang='zh' %}{% endfor %}
@@ -71,28 +71,28 @@ image: /images/background/sst.png
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">AIPE 学院</span><h2>从基本原理到 AI 辅助工程，系统学习电力电子。</h2></div>
-      <p>分阶段的课程体系与开放实验。每个阶段都标明课程处于大纲、草稿还是可用状态。目前课程以英文为主，并提供 <a href="{{ '/academy/foundations/prerequisite-path-zh/' | relative_url }}">中文先修路线</a>。<a href="{{ '/academy/' | relative_url }}">进入学院 →</a></p>
+      <p>分阶段的课程体系与开放实验。每个阶段都标明课程处于大纲、草稿还是可用状态，尚无中文课程的阶段标为规划中。<a href="{{ '/zh/academy/' | relative_url }}">进入学院 →</a></p>
     </div>
     <ol class="home-stages">
       {%- for stage in site.data.academy.stages %}
-      <li><a href="{{ '/academy/#stage-' | append: stage.key | relative_url }}"><span>{{ stage.number }}</span><strong>{{ stage.title }}</strong><em>{{ stage.topics | join: ' · ' }}</em></a></li>
+      <li><a href="{{ '/zh/academy/#stage-' | append: stage.key | relative_url }}"><span>{{ stage.number }}</span><strong>{{ stage.title.zh }}</strong><em>{{ stage.topics.zh | join: ' · ' }}</em></a></li>
       {%- endfor %}
-      <li><a href="{{ '/academy/#labs' | relative_url }}"><span>Lab</span><strong>Open labs</strong><em>Predict · run · compare · explain</em></a></li>
+      <li><a href="{{ '/zh/academy/#labs' | relative_url }}"><span>实验</span><strong>开放实验</strong><em>预测 · 运行 · 对比 · 解释</em></a></li>
     </ol>
   </div>
 </section>
 
-<section class="section home-access" id="agent-link">
-  <div class="container">
-    <div class="hub-section-heading">
-      <div><span class="section-kicker">不只服务于人</span><h2>同一个生态：人、智能体与机器三种接口。</h2></div>
-      <p>网站、面向智能体的 <code>aipe.md</code> 与面向机器的 <code>aipe.json</code> 都由同一个注册表生成。现在只需给 Coding Agent 一条链接；可安装的 <a href="{{ '/zh/plugin/' | relative_url }}">AIPE 插件</a> 是下一步。</p>
+<section class="section home-plugin" id="plugin">
+  <div class="container home-plugin-layout">
+    <div>
+      <span class="section-kicker">AIPE 插件</span>
+      <h2>在你的 Coding Agent 中使用 AIPE。</h2>
+      <p class="lead">把 AIPE 的数据、工程工具、仿真技能与设计工作流带入 Codex、Claude Code 或其他 Coding Agent，在你自己的项目中直接使用。</p>
     </div>
-    <div class="agent-link home-agent-link">
-      <code id="agent-url">https://aipel.co.uk/aipe.md</code>
-      <button class="copy-btn" data-copy-target="agent-url" data-copied-label="已复制！" aria-live="polite">复制链接</button>
+    <div class="home-plugin-actions">
+      <p><strong>现在即可使用</strong>，无需安装任何内容。<strong>下一步：</strong>可安装的 AIPE 插件。</p>
+      <a class="btn btn-primary" href="{{ '/zh/plugin/' | relative_url }}">了解 AIPE 插件</a>
     </div>
-    {% include access-interfaces.html lang='zh' %}
   </div>
 </section>
 
@@ -100,9 +100,9 @@ image: /images/background/sst.png
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">为 AI 供能的电力系统，由 AI 来设计</span><h2>连接 AI 与电力设计闭环。</h2></div>
-      <p>各专业仓库始终是事实来源。注册表让它们可被发现，Core 为它们提供共同的工程语言，而来自仿真、硬件与验证的结果再以数据形式回到 Hub。</p>
+      <p>AI 帮助工程师设计更好的电力与能源系统，而这些系统又为下一代 AI 提供能源。每一个以开放方式完成学习、设计与验证的项目，都会为下一个项目留下更好的数据、模型与设计。</p>
     </div>
-    {% include ecosystem-loop.html lang='zh' %}
+    {% include design-loop.html lang='zh' %}
   </div>
 </section>
 
@@ -120,7 +120,7 @@ image: /images/background/sst.png
       </div>
     </div>
     <div class="collaboration-list">
-      <div><span>01</span><p><strong>开发者</strong><br>用 <code>aipe.yaml</code> 清单描述产物，让注册表把它呈现给人和智能体。</p></div>
+      <div><span>01</span><p><strong>开发者</strong><br>发布或改进数据集、模型、设计或工具，让其他工程师和他们的智能体都能找到并复用。</p></div>
       <div><span>02</span><p><strong>科研伙伴</strong><br>把方法与数据集转化为可重复、可追溯证据的工作流。</p></div>
       <div><span>03</span><p><strong>产业与战略伙伴</strong><br>用真实工程问题验证平台，并共同塑造它。</p></div>
     </div>

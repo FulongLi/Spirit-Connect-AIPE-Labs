@@ -112,6 +112,35 @@ class HubDataTests(unittest.TestCase):
         self.assertEqual(errors, [])
         self.assertTrue(any("systems-applications" in w for w in warnings))
 
+    def test_academy_stage_labels_need_both_languages(self):
+        self.edit_yaml("_data/academy.yml", lambda d: d["stages"][0]["title"].pop("zh"))
+        self.assertIn("academy stage foundations: title needs en and zh", self.errors())
+
+    def test_academy_route_must_stay_in_its_language(self):
+        def change(data):
+            data["hub_route"]["zh"].append({"label": "实验", "title": "x", "url": "/academy/power-electronics/buck-open-lab/"})
+            data["hub_route"]["en"].append({"label": "Lab", "title": "x", "url": "/academy/foundations/first-circuit-zh/"})
+        self.edit_yaml("_data/academy.yml", change)
+        errors = self.errors()
+        self.assertIn("links a en lesson from the zh Academy", errors)
+        self.assertIn("links a zh lesson from the en Academy", errors)
+
+    def test_registry_placement_needs_chinese_summary(self):
+        def change(data):
+            item = next(a for a in data["artifacts"] if a.get("registry") == "aipe.sketch")
+            del item["zh_summary"]
+        self.edit_yaml("_data/hub.yml", change)
+        self.assertIn("aipe.sketch: needs a zh_summary", self.errors())
+
+    def test_plugin_cards_reference_real_capabilities(self):
+        def change(data):
+            data["capabilities"][0]["registry"].append("aipe.missing")
+            del data["capabilities"][1]["text"]["zh"]
+        self.edit_yaml("_data/plugin.yml", change)
+        errors = self.errors()
+        self.assertIn("aipe.missing not in aipe.json", errors)
+        self.assertIn("plugin capability magnetics: text needs en and zh", errors)
+
     def test_featured_positions_are_unique(self):
         def change(data):
             for item in data["artifacts"][:2]:

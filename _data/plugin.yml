@@ -1,0 +1,58 @@
+# What the AIPE Plugin page says an agent can reach, in plain product language.
+#
+# Each card names the Registry capabilities (`registry:`) it is drawn from. The
+# page shows those capabilities' names and maturity straight from the Registry
+# mirror, so a card never claims more than the Registry does. `hub` is the
+# on-site page where people can browse the same artifacts. Text needs en and zh;
+# tools/hub_data.py checks both, and that every Registry ID exists.
+
+capabilities:
+  - key: devices
+    title: {en: "Device Data", zh: "器件数据"}
+    text:
+      en: "Power semiconductor records with characteristic curves, sources and evidence lineage."
+      zh: "功率半导体记录，附带特性曲线、数据来源与证据溯源。"
+    registry: [aipe.semiconductor-database]
+    hub: /hub/data/
+  - key: magnetics
+    title: {en: "Magnetics", zh: "磁性元件"}
+    text:
+      en: "Records for magnetic materials, cores, windings and loss models, in explicit SI units."
+      zh: "磁性材料、磁芯、绕组与损耗模型的数据记录，统一使用 SI 单位。"
+    registry: [aipe.magnetics-database]
+    hub: /hub/data/
+  - key: converters
+    title: {en: "Converter Design", zh: "变换器设计"}
+    text:
+      en: "Operating-point analysis and converter concept calculations your agent can run and explain."
+      zh: "工作点分析与变换器方案计算，智能体可以运行并解释结果。"
+    registry: [aipe.design-agent]
+    hub: /hub/tools/
+  - key: simulation
+    title: {en: "Simulation", zh: "仿真"}
+    text:
+      en: "Switching-circuit simulation, averaged control analysis and field-analysis set-up, open-source tools first."
+      zh: "开关电路仿真、平均模型控制分析与场分析建模，优先使用开源工具。"
+    registry: [aipe.simulation-skills]
+    hub: /hub/tools/
+  - key: pcb-cad
+    title: {en: "PCB & CAD", zh: "PCB 与 CAD"}
+    text:
+      en: "Power-stage PCB review, mechanical packaging and connectivity-checked schematics."
+      zh: "功率级 PCB 评审、机械封装设计，以及经过连接性检查的原理图。"
+    registry: [aipe.simulation-skills, aipe.sketch]
+    hub: /hub/tools/
+  - key: validation
+    title: {en: "Validation", zh: "验证"}
+    text:
+      en: "Stated assumptions, data checks and reviewable evidence, so results can be verified rather than trusted."
+      zh: "明确的假设、数据检查与可审查的证据，让结果可以被核实，而不只是被相信。"
+    registry: [aipe.semiconductor-database, aipe.sketch]
+    hub: /hub/
+  - key: research
+    title: {en: "Research & Documentation", zh: "科研与文档"}
+    text:
+      en: "Evidence-linked research planning and IEEE manuscript preparation."
+      zh: "关联证据的科研规划与 IEEE 论文撰写。"
+    registry: [aipe.ieee-paper-agent]
+    hub: /hub/tools/

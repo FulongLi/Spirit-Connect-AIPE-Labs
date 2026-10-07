@@ -1,0 +1,21 @@
+{%- comment -%}
+  "What it can access" cards on the AIPE Plugin page, from _data/plugin.yml.
+  Each card lists the Registry capabilities it draws on with their Registry
+  maturity, so the page never overstates what exists. Params: lang.
+{%- endcomment -%}
+{%- assign pc_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- if pc_lang == 'zh' -%}{%- assign pc_lp = '/zh' -%}{%- else -%}{%- assign pc_lp = '' -%}{%- endif -%}
+<div class="plugin-capabilities">
+  {%- for card in site.data.plugin.capabilities %}
+  <a class="plugin-capability" href="{{ pc_lp | append: card.hub | relative_url }}">
+    <strong>{{ card.title[pc_lang] }}</strong>
+    <p>{{ card.text[pc_lang] }}</p>
+    <ul>
+      {%- for id in card.registry %}
+      {%- assign rec = site.data.registry.capabilities | where: "id", id | first %}
+      <li><span>{{ rec.name }}</span>{% include status-badge.html status=rec.maturity lang=pc_lang %}</li>
+      {%- endfor %}
+    </ul>
+  </a>
+  {%- endfor %}
+</div>

@@ -5,6 +5,11 @@
   Metadata is never restated here. Registry artifacts read the mirrored
   /aipe.json record; Academy artifacts read the generated lesson page; only
   website-owned artifacts (id: site.*) describe themselves in _data/hub.yml.
+
+  Chinese cards stay Chinese: Registry artifacts use their reviewed zh_summary,
+  English-only lessons use their hub.yml title plus a "content in English" note,
+  and untranslated Registry fields (capability identifiers, limitations) are
+  replaced by a pointer to the English technical index.
 {%- endcomment -%}
 {%- assign card_lang = include.lang | default: page.lang | default: 'en' -%}
 {%- if card_lang == 'zh' -%}{%- assign card_lp = '/zh' -%}{%- else -%}{%- assign card_lp = '' -%}{%- endif -%}
@@ -20,8 +25,13 @@
   {%- assign card_name = rec.name -%}
   {%- assign card_type = rec.type -%}
   {%- assign card_status = rec.maturity -%}
-  {%- assign card_desc = rec.description -%}
-  {%- assign card_desc_lang = 'en' -%}
+  {%- if card_lang == 'zh' and item.zh_summary -%}
+    {%- assign card_desc = item.zh_summary -%}
+    {%- assign card_desc_lang = 'zh' -%}
+  {%- else -%}
+    {%- assign card_desc = rec.description -%}
+    {%- assign card_desc_lang = 'en' -%}
+  {%- endif -%}
   {%- assign card_id = rec.id -%}
   {%- assign card_source = t.hub_source_registry -%}
   {%- if item.links and item.links.size > 0 -%}
@@ -33,6 +43,11 @@
 {%- elsif item.academy -%}
   {%- assign lesson = site.pages | where: "url", item.academy | first -%}
   {%- assign card_name = lesson.title -%}
+  {%- assign card_other_lang = false -%}
+  {%- if lesson.lang != card_lang -%}
+    {%- assign card_other_lang = true -%}
+    {%- if item.title[card_lang] -%}{%- assign card_name = item.title[card_lang] -%}{%- endif -%}
+  {%- endif -%}
   {%- assign card_type = item.type | default: lesson.lesson_type -%}
   {%- assign card_status = lesson.lesson_status -%}
   {%- assign card_desc = item.description[card_lang] -%}
@@ -81,19 +96,19 @@
       </dd>
     </div>
     {%- if rec %}
-    <div><dt>{{ t.hub_integration }}</dt><dd>{{ rec.compatibility.integration }}</dd></div>
+    <div><dt>{{ t.hub_integration }}</dt><dd>{{ site.data.hub.integration_labels[rec.compatibility.integration][card_lang] | default: rec.compatibility.integration }}</dd></div>
     {%- endif %}
     {%- if card_minutes %}
     <div><dt>{{ t.hub_duration }}</dt><dd>{{ card_minutes }} {{ t.hub_minutes }}</dd></div>
     {%- endif %}
     {%- unless include.compact %}
     {%- if rec %}
-    <div><dt>{{ t.hub_licence }}</dt><dd>{{ rec.license }}</dd></div>
-    <div><dt>{{ t.hub_checks }}</dt><dd>{{ rec.validation.status }}</dd></div>
+    <div><dt>{{ t.hub_licence }}</dt><dd>{% if rec.license == 'NOASSERTION' %}{{ t.hub_licence_unstated }}{% else %}{{ rec.license }}{% endif %}</dd></div>
+    <div><dt>{{ t.hub_checks }}</dt><dd>{{ site.data.hub.check_labels[rec.validation.status][card_lang] | default: rec.validation.status }}</dd></div>
     {%- endif %}
     {%- endunless %}
   </dl>
-  {%- if rec and rec.capabilities.size > 0 %}
+  {%- if rec and rec.capabilities.size > 0 and card_lang == 'en' %}
   <ul class="artifact-chips" aria-label="{{ t.hub_capabilities }}">
     {%- if include.compact %}{% assign cap_limit = 3 %}{% else %}{% assign cap_limit = 12 %}{% endif %}
     {%- for capability in rec.capabilities limit: cap_limit %}
@@ -110,9 +125,9 @@
   {%- if rec and rec.tools.size > 1 %}
   <details class="artifact-more">
     <summary>{{ t.hub_tools }} ({{ rec.tools.size }})</summary>
-    <ul lang="en">
+    <ul>
       {%- for tool in rec.tools %}
-      <li><a href="{{ tool.url }}" rel="noopener">{{ tool.name }}</a> <span>{{ tool.licence_class | replace: '_', ' ' }}{% if tool.optional %} · optional{% endif %}</span></li>
+      <li><a href="{{ tool.url }}" rel="noopener">{{ tool.name }}</a> <span>{{ site.data.hub.licence_class_labels[tool.licence_class][card_lang] | default: tool.licence_class }}{% if tool.optional %} · {% if card_lang == 'zh' %}可选{% else %}optional{% endif %}{% endif %}</span></li>
       {%- endfor %}
     </ul>
   </details>
@@ -128,10 +143,12 @@
     </ul>
   </details>
   {%- endif %}
-  {%- if rec and rec.validation.limitations.size > 0 %}
+  {%- if rec and rec.validation.limitations.size > 0 and card_lang == 'zh' %}
+  <p class="artifact-note"><a href="{{ '/aipe.md' | relative_url }}">查看已声明的局限（英文技术索引）↗</a></p>
+  {%- elsif rec and rec.validation.limitations.size > 0 %}
   <details class="artifact-more">
     <summary>{{ t.hub_limitations }} ({{ rec.validation.limitations.size }})</summary>
-    <ul lang="en">
+    <ul>
       {%- for limitation in rec.validation.limitations %}
       <li>{{ limitation }}</li>
       {%- endfor %}
@@ -150,6 +167,7 @@
     {%- if item.pending_repository %}<span class="artifact-note">{{ t.hub_repository_pending }}</span>{% endif %}
     {%- elsif lesson %}
     <a href="{{ item.academy | relative_url }}">{{ t.hub_open }} →</a>
+    {%- if card_other_lang %}<span class="artifact-note">{{ t.hub_content_other_language }}</span>{% endif %}
     {%- elsif item.url and item.links == nil %}
     <a href="{{ card_href | relative_url }}">{{ t.hub_open }} →</a>
     {%- endif %}

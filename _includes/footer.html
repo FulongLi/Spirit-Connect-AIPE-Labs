@@ -31,13 +31,13 @@
     <div>
       <strong>{{ t.footer_learn }}</strong>
       <p class="small">
-        <a href="{{ '/academy/' | relative_url }}">{{ t.nav_academy }}</a><br>
+        <a href="{{ lp | append: '/academy/' | relative_url }}">{{ t.nav_academy }}</a><br>
         <a href="{{ lp | append: '/resources/blog/' | relative_url }}">{{ t.nav_articles }}</a><br>
         <a href="{{ lp | append: '/news/' | relative_url }}">{{ t.footer_news }}</a>
       </p>
       <strong>{{ t.footer_interfaces }}</strong>
       <p class="small">
-        <a href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin_overview }}</a><br>
+        <a href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a><br>
         <a href="{{ '/aipe.md' | relative_url }}">aipe.md</a> · <a href="{{ '/aipe.json' | relative_url }}">aipe.json</a>
       </p>
     </div>

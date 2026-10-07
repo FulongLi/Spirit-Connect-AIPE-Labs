@@ -22,6 +22,7 @@ REGISTRY = "aipe.json"
 MIRROR = "_data/registry.json"
 HUB = "_data/hub.yml"
 ACADEMY = "_data/academy.yml"
+PLUGIN = "_data/plugin.yml"
 SKIP_DIRS = {"_site", "vendor", ".git", ".jekyll-cache", ".bundle", "node_modules", "tools", "tests", "docs"}
 
 
@@ -125,11 +126,17 @@ def validate(root=ROOT):
             if item["registry"] not in registry:
                 errors.append(f"{where}: not in {REGISTRY}")
             placed[item["registry"]] = placed.get(item["registry"], 0) + 1
+            if not item.get("zh_summary"):
+                errors.append(f"{where}: needs a zh_summary for Chinese pages")
         elif "academy" in item:
             if item["academy"] not in lessons:
                 errors.append(f"{where}: no generated Academy lesson at this URL")
             if set(item.get("description", {})) != set(languages):
                 errors.append(f"{where}: description needs en and zh")
+            lesson_lang = lessons.get(item["academy"], {}).get("lang", "en")
+            for language in set(languages) - {lesson_lang}:
+                if not item.get("title", {}).get(language):
+                    errors.append(f"{where}: {lesson_lang} lesson needs a {language} title for {language} pages")
         else:
             if not item["id"].startswith("site."):
                 errors.append(f"{where}: website artifact IDs start with 'site.'")
@@ -155,6 +162,14 @@ def validate(root=ROOT):
     if len(featured) != len(set(featured)):
         errors.append("artifacts: featured positions must be unique")
     for record in registry.values():
+        integration = record["compatibility"].get("integration")
+        if integration not in hub["integration_labels"]:
+            errors.append(f"integration_labels: missing Registry integration {integration}")
+        if record["validation"].get("status") not in hub["check_labels"]:
+            errors.append(f"check_labels: missing Registry validation status {record['validation'].get('status')}")
+        for tool in record.get("tools", []):
+            if tool["licence_class"] not in hub["licence_class_labels"]:
+                errors.append(f"licence_class_labels: missing Registry licence class {tool['licence_class']}")
         if record["type"] not in hub["type_labels"]:
             errors.append(f"type_labels: missing Registry type {record['type']}")
         if record["maturity"] not in hub["status_labels"]:
@@ -163,8 +178,13 @@ def validate(root=ROOT):
         if meta["lesson_status"] not in hub["status_labels"]:
             errors.append(f"status_labels: missing Academy status {meta['lesson_status']}")
 
+    if set(academy.get("intro", {})) != set(languages):
+        errors.append("academy intro needs en and zh")
     staged = set()
     for stage in academy["stages"]:
+        for field in ("title", "summary", "topics"):
+            if set(stage.get(field, {})) != set(languages):
+                errors.append(f"academy stage {stage['key']}: {field} needs en and zh")
         for url in stage["lessons"]:
             if url not in lessons:
                 errors.append(f"academy stage {stage['key']}: no generated lesson at {url}")
@@ -172,8 +192,26 @@ def validate(root=ROOT):
         unknown = set(stage.get("hub", [])) - domains
         if unknown:
             errors.append(f"academy stage {stage['key']}: unknown domains {sorted(unknown)}")
-    for step in academy["hub_route"]:
-        check_url(step["url"], f"academy hub_route {step['title']}")
+    if set(academy["hub_route"]) != set(languages):
+        errors.append("academy hub_route needs en and zh routes")
+    for language, route in academy["hub_route"].items():
+        for step in route:
+            where = f"academy hub_route.{language} {step['title']}"
+            check_url(step["url"], where)
+            lesson = lessons.get(step["url"])
+            if lesson and lesson.get("lang", "en") != language:
+                errors.append(f"{where}: links a {lesson.get('lang', 'en')} lesson from the {language} Academy")
+            elif not lesson and language == "zh" and not step["url"].startswith("/zh/"):
+                errors.append(f"{where}: Chinese route must link Chinese pages")
+    for card in load_yaml(root, PLUGIN)["capabilities"]:
+        where = f"plugin capability {card['key']}"
+        for field in ("title", "text"):
+            if set(card.get(field, {})) != set(languages):
+                errors.append(f"{where}: {field} needs en and zh")
+        for capability in card.get("registry", []):
+            if capability not in registry:
+                errors.append(f"{where}: {capability} not in {REGISTRY}")
+        check_url(card["hub"], where, localised=True)
     labs = {item["academy"] for item in hub["artifacts"] if "academy" in item}
     for url in sorted(set(lessons) - staged - labs):
         warnings.append(f"Academy lesson {url} is not in a stage; it will appear under 'More from the catalogue'")
