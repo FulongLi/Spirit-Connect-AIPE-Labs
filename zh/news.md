@@ -24,6 +24,7 @@ description: Spirit Connect 与 AIPE Labs 的发展里程碑及项目动态。
         <p>
           网站完成重要版本更新，重点展示 AI 辅助电力电子工程、公开的 <code>aipe.md</code>
           资源索引、Coding Agent 接入、开放资源与合作方向。
+          <a href="{{ '/zh/resources/blog/one-link-for-your-ai-agent/' | relative_url }}">阅读公告 →</a>
         </p>
       </div>
 

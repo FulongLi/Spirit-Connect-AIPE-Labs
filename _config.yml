@@ -16,6 +16,18 @@ defaults:
       type: posts
     values:
       lang: en
+  - scope:
+      path: ""
+      type: explorations
+    values:
+      layout: exploration
+
+# AIPE Explorations: open research questions and investigations. English entries
+# live in _explorations/ and Chinese entries in _explorations/zh/; each sets its
+# own `lang` and `permalink` (see docs/exploration-template.md).
+collections:
+  explorations:
+    output: true
 
 exclude:
   - README.md

@@ -1,0 +1,126 @@
+---
+layout: default
+---
+{%- comment -%}
+  One AIPE Exploration. Front matter is documented in docs/exploration-template.md
+  and checked by tools/content_data.py: the status must be supported by the
+  evidence list, and the body must contain the eight required sections.
+  The page reuses the article shell (table of contents, MathJax) of blog posts.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'en' -%}
+{%- if lang == 'zh' -%}{%- assign lp = '/zh' -%}{%- else -%}{%- assign lp = '' -%}{%- endif -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign ex = site.data.explorations -%}
+{%- assign status = ex.statuses | where: "key", page.status | first -%}
+{%- assign hub = site.data.hub -%}
+<header class="hero hero-compact exploration-hero">
+  <div class="container">
+    <nav class="hub-breadcrumb" aria-label="{% if lang == 'zh' %}位置{% else %}Breadcrumb{% endif %}">
+      <a href="{{ lp | append: '/explorations/' | relative_url }}">{{ t.nav_explorations }}</a><span aria-hidden="true">/</span>{% include exploration-status.html status=page.status lang=lang %}
+    </nav>
+    <h1>{{ page.title }}</h1>
+    <p class="exploration-question">{{ page.question }}</p>
+    <dl class="exploration-facts">
+      <div><dt>{{ t.explorations_domains }}</dt><dd>{%- for key in page.domains -%}{%- assign domain = hub.domains | where: "key", key | first -%}{%- if domain.url %}{% assign domain_href = domain.url %}{% else %}{% assign domain_href = '/engineering/#' | append: domain.key %}{% endif -%}<a href="{{ lp | append: domain_href | relative_url }}">{{ domain.title[lang] }}</a>{% unless forloop.last %} · {% endunless %}{%- endfor -%}</dd></div>
+      <div><dt>{{ t.explorations_opened }}</dt><dd>{% if lang == 'zh' %}{{ page.opened | date: "%Y年%-m月%-d日" }}{% else %}{{ page.opened | date: "%-d %B %Y" }}{% endif %}</dd></div>
+      <div><dt>{{ t.explorations_updated }}</dt><dd>{% if lang == 'zh' %}{{ page.updated | date: "%Y年%-m月%-d日" }}{% else %}{{ page.updated | date: "%-d %B %Y" }}{% endif %}</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section class="section post-content-section exploration-section">
+  <div class="container post-content-shell">
+    <aside class="post-page-nav" aria-label="{% if lang == 'zh' %}本页目录{% else %}On this page{% endif %}">
+      <span>{% if lang == 'zh' %}本页目录{% else %}On this page{% endif %}</span>
+      <nav data-post-toc>
+        <a class="is-active" href="#article-overview" aria-current="location">{% if lang == 'zh' %}概览{% else %}Overview{% endif %}</a>
+      </nav>
+    </aside>
+    <div class="post-article-column">
+      <aside class="exploration-panel" aria-label="{{ t.explorations_status }}">
+        <div class="exploration-panel-status">
+          <span class="section-kicker">{{ t.explorations_status }}</span>
+          {% include exploration-status.html status=page.status lang=lang %}
+          <p>{{ status.summary[lang] }} <a href="{{ lp | append: '/explorations/#status' | relative_url }}">{{ t.explorations_other_status }}</a></p>
+        </div>
+        <div class="exploration-panel-evidence">
+          <span class="section-kicker">{{ t.explorations_evidence }}</span>
+          {% include exploration-evidence.html evidence=page.evidence lang=lang %}
+        </div>
+        {%- if page.ai_disclosure %}
+        <p class="exploration-disclosure"><strong>{{ t.explorations_ai_note_title }}</strong> {{ page.ai_disclosure }}</p>
+        {%- endif %}
+      </aside>
+
+      <article class="post-article blog-post-article exploration-article" id="article-overview">
+        {{ content }}
+      </article>
+
+      <section class="exploration-record" aria-labelledby="evidence-record">
+        <h2 id="evidence-record">{{ t.explorations_evidence }}</h2>
+        {%- assign evidence_count = page.evidence | size %}
+        {%- if evidence_count > 0 %}
+        <div class="exploration-table">
+          <table>
+            <thead><tr><th>{{ t.explorations_col_kind }}</th><th>{{ t.explorations_col_summary }}</th><th>{{ t.explorations_col_date }}</th></tr></thead>
+            <tbody>
+              {%- for item in page.evidence %}
+              {%- assign kind = ex.evidence_kinds | where: "key", item.kind | first %}
+              <tr>
+                <td>{{ kind.label[lang] }}</td>
+                <td>{{ item.summary }}{% if item.reviewer %}<br><span class="exploration-reviewer">{{ t.explorations_reviewer }}: {{ item.reviewer }}</span>{% endif %}{% if item.link %}<br><a href="{{ item.link | relative_url }}">{{ t.explorations_col_source }} →</a>{% endif %}</td>
+                <td>{{ item.date | date: "%Y-%m-%d" }}</td>
+              </tr>
+              {%- endfor %}
+            </tbody>
+          </table>
+        </div>
+        {%- else %}
+        <p class="exploration-empty">{{ t.explorations_evidence_none }}</p>
+        {%- endif %}
+      </section>
+
+      {%- assign uses_count = page.hub.uses | size %}
+      {%- assign produces_count = page.hub.produces | size %}
+      {%- if uses_count > 0 or produces_count > 0 %}
+      <section class="exploration-record" aria-labelledby="hub-artifacts">
+        <h2 id="hub-artifacts">{{ t.explorations_hub_heading }}</h2>
+        <p>{{ t.explorations_hub_note }}</p>
+        {%- for group in (1..2) %}
+        {%- if group == 1 %}{% assign ids = page.hub.produces %}{% assign group_label = t.explorations_hub_produces %}{% else %}{% assign ids = page.hub.uses %}{% assign group_label = t.explorations_hub_uses %}{% endif %}
+        {%- assign ids_count = ids | size %}
+        {%- if ids_count > 0 %}
+        <h3>{{ group_label }}</h3>
+        <div class="artifact-grid">
+          {%- for id in ids %}
+          {%- assign item = hub.artifacts | where: "registry", id | first %}
+          {%- unless item %}{% assign item = hub.artifacts | where: "id", id | first %}{% endunless %}
+          {%- unless item %}{% assign item = hub.artifacts | where: "academy", id | first %}{% endunless %}
+          {%- if item %}{% include artifact-card.html item=item compact=true lang=lang %}{% endif %}
+          {%- endfor %}
+        </div>
+        {%- endif %}
+        {%- endfor %}
+      </section>
+      {%- endif %}
+
+      {%- assign learn_count = page.learn | size %}
+      {%- if learn_count > 0 %}
+      <section class="exploration-record" aria-labelledby="background-reading">
+        <h2 id="background-reading">{{ t.explorations_learn }}</h2>
+        <ul class="hub-context-links">
+          {%- for link in page.learn %}
+          <li><a href="{{ link.url | relative_url }}">{{ link.title }}<span>{{ link.kind }}</span></a></li>
+          {%- endfor %}
+        </ul>
+      </section>
+      {%- endif %}
+
+      <div class="exploration-actions">
+        <a class="btn btn-primary" href="{{ ex.repository }}/issues/new?title={{ page.title | prepend: 'Exploration: ' | url_encode }}" target="_blank" rel="noopener">{{ t.explorations_discuss }} ↗</a>
+        <a class="btn btn-ghost" href="{{ ex.repository }}/blob/main/{{ page.path }}" target="_blank" rel="noopener">{{ t.explorations_edit }} ↗</a>
+      </div>
+      <p class="post-back"><a href="{{ lp | append: '/explorations/' | relative_url }}">{{ t.explorations_back }}</a></p>
+    </div>
+  </div>
+</section>

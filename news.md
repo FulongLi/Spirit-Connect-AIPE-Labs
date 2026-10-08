@@ -23,6 +23,7 @@ description: Milestones and project updates from Spirit Connect and AIPE Labs.
         <p>
           We released a major website update centred on AI-assisted power electronics engineering,
           the public <code>aipe.md</code> resource index, coding-agent access, open resources, and collaboration.
+          <a href="{{ '/resources/blog/one-link-for-your-ai-agent/' | relative_url }}">Read the announcement →</a>
         </p>
       </div>
 

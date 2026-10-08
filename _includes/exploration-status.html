@@ -1,0 +1,7 @@
+{%- comment -%}
+  Exploration evidence status: a restrained text label, never a colour code.
+  Params: status (a key from _data/explorations.yml statuses), lang.
+{%- endcomment -%}
+{%- assign es_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- assign es_status = site.data.explorations.statuses | where: "key", include.status | first -%}
+<span class="exploration-status exploration-status-{{ include.status }}">{{ es_status.label[es_lang] | default: include.status }}</span>

@@ -22,6 +22,7 @@ translation_key: blog-index
     <span class="section-kicker">Engineering library</span>
     <h1>Ideas built from first principles.</h1>
     <p class="lead">Deep technical guides for engineers working across converters, semiconductor devices, solid-state transformers and wireless power.</p>
+    <p class="library-routes">Tutorials on established engineering are being reviewed one by one for <a href="{{ '/academy/' | relative_url }}">AIPE Academy</a> and stay at their current addresses. Open research questions live in <a href="{{ '/explorations/' | relative_url }}">Explorations</a>; product updates in <a href="{{ '/news/' | relative_url }}">News</a>.</p>
   </div>
 </header>
 

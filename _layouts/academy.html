@@ -98,6 +98,18 @@ layout: default
               {%- endfor %}
             </p>
             {%- endif %}
+            {%- comment -%} Articles classified LEARN for this stage (_data/blog-ownership.json), until they migrate into Academy. {%- endcomment %}
+            {%- assign stage_articles = site.data['blog-ownership'].posts | where: "academy_stage", stage.key | where: "language", lang | where_exp: "article", "article.migration_status != 'migrated'" %}
+            {%- if stage_articles.size > 0 %}
+            <details class="academy-stage-articles">
+              <summary>{{ t.academy_articles_title }} ({{ stage_articles.size }})</summary>
+              <ul>
+                {%- for article in stage_articles %}
+                <li><a href="{{ article.url | relative_url }}">{{ article.title }}</a></li>
+                {%- endfor %}
+              </ul>
+            </details>
+            {%- endif %}
           </div>
         </div>
         <div class="academy-stage-lessons">

@@ -16,9 +16,9 @@
   {% seo %}
   {% assign alternate_en = nil %}
   {% assign alternate_zh = nil %}
-  {% if page.collection == 'posts' %}
+  {% if page.collection == 'posts' or page.collection == 'explorations' %}
     {% assign current_translation_key = page.translation_key | default: page.slug %}
-    {% for candidate in site.posts %}
+    {% for candidate in site[page.collection] %}
       {% assign candidate_translation_key = candidate.translation_key | default: candidate.slug %}
       {% if candidate_translation_key == current_translation_key %}
         {% if candidate.lang == 'zh' %}

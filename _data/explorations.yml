@@ -1,0 +1,183 @@
+# AIPE Explorations presentation data.
+#
+# Explorations are open research questions and investigations. Each entry is a
+# Markdown file in _explorations/ (English) or _explorations/zh/ (Chinese) with
+# the front matter described in docs/exploration-template.md. This file holds
+# only the shared vocabulary: the evidence statuses, evidence kinds, research
+# principles and contribution routes, in both languages.
+#
+# tools/content_data.py (run by tests/test_content.py and CI) fails when an entry
+# claims a status that its recorded evidence does not support, when a required
+# section is missing, or when a Hub artifact, domain or link does not resolve.
+
+repository: https://github.com/FulongLi/Spirit-Connect-AIPE-Labs
+
+tagline:
+  en: "Exploring what engineering has yet to prove."
+  zh: "探索工程尚未证明的问题。"
+description:
+  en: "Open questions, emerging concepts and AI-assisted investigations at the frontier of power and energy engineering."
+  zh: "电力与能源工程前沿的开放问题、新兴概念与 AI 辅助研究。"
+
+# Evidence statuses. They describe the strongest evidence recorded so far, not a
+# fixed sequence: an entry can move from Concept straight to Refuted, or be
+# Simulated without ever being Modelled by this project. `requires` lists the
+# evidence kinds that must be present (all of them); `requires_any` lists kinds of
+# which at least one must be present.
+statuses:
+  - key: concept
+    label: {en: "Concept", zh: "概念"}
+    summary:
+      en: "A question and a hypothesis are stated. No analysis has been completed."
+      zh: "已提出问题与假设，尚未完成任何分析。"
+    requires: []
+  - key: under-investigation
+    label: {en: "Under investigation", zh: "研究中"}
+    summary:
+      en: "Derivation, literature comparison or AI-assisted analysis has produced recorded output. Nothing is concluded."
+      zh: "推导、文献比较或 AI 辅助分析已产生有记录的结果，但尚无结论。"
+    requires_any: [ai-analysis, derivation, literature]
+  - key: modelled
+    label: {en: "Modelled", zh: "已建模"}
+    summary:
+      en: "A mathematical or computational model is published with its assumptions."
+      zh: "已发布数学或计算模型及其假设。"
+    requires: [model]
+  - key: simulated
+    label: {en: "Simulated", zh: "已仿真"}
+    summary:
+      en: "A model has been simulated and the files are published. Results describe the model, not the physical system."
+      zh: "模型已完成仿真且文件已公开。结果描述的是模型，而不是物理系统。"
+    requires: [simulation]
+  - key: human-reviewed
+    label: {en: "Human reviewed", zh: "已人工评审"}
+    summary:
+      en: "A named engineer or scientist has reviewed the reasoning and their conclusions are recorded. This is not journal peer review."
+      zh: "已有署名的工程师或科学家评审其推理，并记录了评审结论。这不等同于期刊同行评审。"
+    requires: [human-review]
+  - key: experimentally-validated
+    label: {en: "Experimentally validated", zh: "已实验验证"}
+    summary:
+      en: "Measurements on physical hardware support the hypothesis within stated conditions."
+      zh: "在明确条件下，物理硬件上的测量结果支持该假设。"
+    requires: [experiment]
+  - key: refuted
+    label: {en: "Refuted", zh: "已证伪"}
+    summary:
+      en: "Recorded evidence contradicts the hypothesis. The work stays published so others need not repeat it."
+      zh: "已记录的证据与假设相矛盾。相关工作继续公开，避免他人重复。"
+    requires_any: [ai-analysis, derivation, literature, model, simulation, human-review, experiment]
+
+# Kinds of evidence an entry can record, in the order the evidence record shows
+# them. `link` marks kinds that must link to published files or data so the work
+# can be reproduced; `reviewer` marks kinds that must name who did the review.
+evidence_kinds:
+  - key: literature
+    label: {en: "Literature comparison", zh: "文献比较"}
+  - key: ai-analysis
+    label: {en: "AI-assisted analysis", zh: "AI 辅助分析"}
+  - key: derivation
+    label: {en: "Derivation", zh: "数学推导"}
+  - key: model
+    label: {en: "Model", zh: "模型"}
+    link: true
+  - key: simulation
+    label: {en: "Simulation", zh: "仿真"}
+    link: true
+  - key: human-review
+    label: {en: "Human review", zh: "人工评审"}
+    reviewer: true
+  - key: experiment
+    label: {en: "Experiment", zh: "实验"}
+    link: true
+
+# Required article sections, in order. Headings must match exactly (level 2).
+sections:
+  en:
+    - "Research question"
+    - "Hypothesis"
+    - "Existing knowledge"
+    - "AI-assisted investigation"
+    - "Preliminary findings"
+    - "Limitations and unknowns"
+    - "Human review and validation"
+    - "Open contributions"
+  zh:
+    - "研究问题"
+    - "假设"
+    - "已有知识"
+    - "AI 辅助研究"
+    - "初步发现"
+    - "局限与未知"
+    - "人工评审与验证"
+    - "开放贡献"
+
+# What each kind of evidence can and cannot establish (landing page).
+principles:
+  - key: hypothesis
+    title: {en: "Hypothesis", zh: "假设"}
+    is:
+      en: "A precise, testable proposal stating what would make it false."
+      zh: "精确、可检验的命题，并说明什么结果会推翻它。"
+    not:
+      en: "A result. Plausibility is not evidence."
+      zh: "不是结果。看似合理并不构成证据。"
+  - key: ai-analysis
+    title: {en: "AI-assisted analysis", zh: "AI 辅助分析"}
+    is:
+      en: "Derivations, literature searches and reasoning produced with AI tools and checked step by step."
+      zh: "借助 AI 工具完成、并经逐步核对的推导、文献检索与推理。"
+    not:
+      en: "Scientific validation. Fluent reasoning can still be wrong, and every reference must be verified."
+      zh: "不是科学验证。表述流畅的推理仍可能出错，每一条参考文献都必须核实。"
+  - key: simulation
+    title: {en: "Simulation", zh: "仿真"}
+    is:
+      en: "The behaviour of a model under stated assumptions, with files others can rerun."
+      zh: "模型在既定假设下的行为，并附有他人可以重新运行的文件。"
+    not:
+      en: "Proof of physical feasibility. A simulation cannot be more correct than its model."
+      zh: "不能证明物理可行性。仿真的正确性不会超过其模型本身。"
+  - key: human-review
+    title: {en: "Human review", zh: "人工评审"}
+    is:
+      en: "A named engineer or scientist checking assumptions and reasoning, with the outcome recorded."
+      zh: "由署名的工程师或科学家检查假设与推理，并记录评审结果。"
+    not:
+      en: "Peer review or experimental validation. A reviewer can only check what was shown."
+      zh: "不是同行评审，也不是实验验证。评审者只能检查已展示的内容。"
+  - key: experiment
+    title: {en: "Experimental evidence", zh: "实验证据"}
+    is:
+      en: "Measurements on physical hardware, with conditions, uncertainty and data published."
+      zh: "在物理硬件上的测量，公开测量条件、不确定度与数据。"
+    not:
+      en: "Universal truth. It holds for the conditions tested and can be overturned by better evidence."
+      zh: "不是普适真理。它只在被测试的条件下成立，也可能被更好的证据推翻。"
+
+# The route from a question to reusable Hub artifacts (landing page).
+pipeline:
+  - {en: "Exploration", zh: "探索"}
+  - {en: "Hypothesis", zh: "假设"}
+  - {en: "Modelling & simulation", zh: "建模与仿真"}
+  - {en: "Human review", zh: "人工评审"}
+  - {en: "Reusable artifacts", zh: "可复用产物"}
+  - {en: "AIPE Hub", zh: "AIPE Hub"}
+
+# Ways to take part (landing page).
+contribute:
+  - key: review
+    title: {en: "Review or challenge", zh: "评审或质疑"}
+    text:
+      en: "Check an assumption, a derivation or a reference. A well-argued objection is a contribution, and negative or inconclusive results are published."
+      zh: "检查某个假设、推导或参考文献。有理有据的反对意见同样是贡献，否定或不确定的结果也会公开。"
+  - key: extend
+    title: {en: "Extend the work", zh: "推进研究"}
+    text:
+      en: "Contribute a model, simulation, dataset or measurement. Each piece of evidence links to its files and states its limits."
+      zh: "贡献模型、仿真、数据集或测量结果。每一项证据都链接到相应文件，并说明其局限。"
+  - key: propose
+    title: {en: "Propose a question", zh: "提出问题"}
+    text:
+      en: "Suggest a question worth investigating, with why it matters and what result would answer it."
+      zh: "提出值得研究的问题，说明其意义，以及什么样的结果可以回答它。"

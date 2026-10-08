@@ -1,0 +1,19 @@
+{%- comment -%}
+  One exploration in a listing. Params: entry (a document of site.explorations), lang.
+{%- endcomment -%}
+{%- assign ec_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- assign ec_t = site.data.i18n[ec_lang] -%}
+{%- assign entry = include.entry -%}
+{%- assign ec_recorded = entry.evidence | size -%}
+<a class="exploration-card" href="{{ entry.url | relative_url }}">
+  <span class="exploration-card-meta">
+    {% include exploration-status.html status=entry.status lang=ec_lang %}
+    <span>{%- for key in entry.domains -%}{%- assign domain = site.data.hub.domains | where: "key", key | first -%}{{ domain.title[ec_lang] }}{% unless forloop.last %} · {% endunless %}{%- endfor -%}</span>
+  </span>
+  <strong>{{ entry.title }}</strong>
+  <span class="exploration-card-question">{{ entry.question }}</span>
+  <span class="exploration-card-foot">
+    <span>{% if ec_recorded > 0 %}{{ ec_t.explorations_evidence_count | replace: '%n', ec_recorded }}{% else %}{{ ec_t.explorations_evidence_none_short }}{% endif %}</span>
+    <span>{{ ec_t.explorations_opened }} {% if ec_lang == 'zh' %}{{ entry.opened | date: "%Y.%m.%d" }}{% else %}{{ entry.opened | date: "%-d %b %Y" }}{% endif %}</span>
+  </span>
+</a>

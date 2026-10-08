@@ -1,0 +1,17 @@
+{%- comment -%}
+  Which kinds of evidence an exploration has recorded, in a fixed order. Shows
+  presence only: statuses are not a progress bar.
+  Params: evidence (the entry's evidence list), lang.
+{%- endcomment -%}
+{%- assign ee_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- assign ee_t = site.data.i18n[ee_lang] -%}
+{%- assign ee_kinds = include.evidence | map: "kind" -%}
+<ul class="evidence-meter" aria-label="{{ ee_t.explorations_evidence }}">
+  {%- for kind in site.data.explorations.evidence_kinds %}
+  {%- if ee_kinds contains kind.key %}
+  <li class="is-recorded"><span aria-hidden="true">●</span> {{ kind.label[ee_lang] }}<span class="visually-hidden"> — {{ ee_t.explorations_recorded }}</span></li>
+  {%- else %}
+  <li><span aria-hidden="true">○</span> {{ kind.label[ee_lang] }}<span class="visually-hidden"> — {{ ee_t.explorations_not_recorded }}</span></li>
+  {%- endif %}
+  {%- endfor %}
+</ul>
