@@ -107,6 +107,12 @@ LEARN, RESEARCH, BUILD or NEWS with an ownership decision. Classification does
 not automatically move an article. Most current posts are educational tutorials;
 editorial categories remain available for future posts.
 
+Each post also records its destination (LEARN → Academy, RESEARCH →
+Explorations, BUILD → Hub, NEWS → News), its target Academy stage and a migration
+wave; `tools/content_data.py --check` validates the map. The waves, the per-article
+procedure and the interim presentation are documented in
+[content-migration-map.md](content-migration-map.md).
+
 The English buck-converter tutorial is the first migration pilot. Academy holds
 the attributed editable teaching source and an open Python lab. The original
 website URL retains its historical article, figures and interactive explorer;
@@ -118,6 +124,20 @@ posts retain their original paths pending individual migration reviews.
 The Academy has no invented bilingual counterpart URLs. Equivalent-language SEO
 links connect only `/academy/` and `/zh/academy/`; individual lessons omit them
 unless translations are explicitly provided.
+
+## Explorations
+
+AIPE Explorations (`/explorations/`, `/zh/explorations/`) is owned by this
+repository. Entries are Markdown files in the `explorations` collection
+(`_explorations/`, Chinese in `_explorations/zh/`) using the front matter in
+[exploration-template.md](exploration-template.md); shared statuses, evidence
+kinds and principles are in `_data/explorations.yml`. An entry may link Hub
+artifacts it could use or has produced (`hub.uses`, `hub.produces`, IDs from
+`_data/hub.yml`). The link never changes an artifact's maturity: an artifact an
+investigation produces enters the Hub through the normal Registry or
+`_data/hub.yml` review with its own status. Explorations that link Hub artifacts
+are listed on the Hub overview, and every entry appears in the client-side search
+index of its own language.
 
 ## Delivery boundary
 

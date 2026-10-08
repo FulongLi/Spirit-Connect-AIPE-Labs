@@ -1,0 +1,162 @@
+---
+layout: default
+---
+{%- comment -%}
+  AIPE Explorations landing page: /explorations/ and /zh/explorations/.
+  Everything is derived from the explorations collection (filtered by page
+  language, never falling back to the other language) and _data/explorations.yml.
+  Empty states are stated plainly rather than filled with placeholder projects.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'en' -%}
+{%- if lang == 'zh' -%}{%- assign lp = '/zh' -%}{%- else -%}{%- assign lp = '' -%}{%- endif -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign ex = site.data.explorations -%}
+{%- assign entries = site.explorations | where: "lang", lang | sort: "opened" | reverse -%}
+{%- assign open_entries = entries | where: "status", "concept" -%}
+{%- assign featured = "" | split: "" -%}
+{%- assign progress = "" | split: "" -%}
+{%- assign concluded = "" | split: "" -%}
+{%- for entry in entries -%}
+  {%- if entry.featured -%}{%- assign featured = featured | push: entry -%}{%- endif -%}
+  {%- case entry.status -%}
+    {%- when 'under-investigation', 'modelled', 'simulated', 'human-reviewed' -%}{%- assign progress = progress | push: entry -%}
+    {%- when 'experimentally-validated', 'refuted' -%}{%- assign concluded = concluded | push: entry -%}
+  {%- endcase -%}
+{%- endfor -%}
+<header class="explorations-hero">
+  <div class="container">
+    <span class="section-kicker">{{ t.explorations_kicker }}</span>
+    <h1>{{ ex.tagline[lang] }}</h1>
+    <p class="lead">{{ ex.description[lang] }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#questions">{{ t.explorations_open_questions }}</a>
+      <a class="btn btn-ghost" href="#principles">{{ t.explorations_principles_kicker }}</a>
+    </div>
+    <dl class="explorations-stats">
+      <div><dt>{{ t.explorations_open_questions }}</dt><dd>{{ open_entries.size }}</dd></div>
+      <div><dt>{{ t.explorations_in_progress }}</dt><dd>{{ progress.size }}</dd></div>
+      <div><dt>{{ t.explorations_concluded }}</dt><dd>{{ concluded.size }}</dd></div>
+    </dl>
+  </div>
+</header>
+
+{%- comment -%} Featured explorations appear only once one has recorded substantial evidence. {%- endcomment -%}
+{%- if featured.size > 0 %}
+<section class="section explorations-featured" id="featured">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{{ t.explorations_featured_kicker }}</span><h2>{{ t.explorations_featured_title }}</h2></div>
+      <p>{{ t.explorations_featured_intro }}</p>
+    </div>
+    <div class="exploration-grid">
+      {%- for entry in featured %}{% include exploration-card.html entry=entry lang=lang %}{% endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section class="section" id="questions">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{{ t.explorations_questions_kicker }}</span><h2>{{ t.explorations_questions_title }}</h2></div>
+      <p>{{ t.explorations_questions_intro }}</p>
+    </div>
+    {%- if open_entries.size > 0 %}
+    <div class="exploration-grid">
+      {%- for entry in open_entries %}{% include exploration-card.html entry=entry lang=lang %}{% endfor %}
+    </div>
+    {%- else %}
+    <p class="explorations-empty">{{ t.explorations_questions_empty }}</p>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="section section-alt" id="in-progress">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{{ t.explorations_progress_kicker }}</span><h2>{{ t.explorations_progress_title }}</h2></div>
+      <p>{{ t.explorations_progress_intro }}</p>
+    </div>
+    {%- if progress.size > 0 %}
+    <div class="exploration-grid">
+      {%- for entry in progress %}{% include exploration-card.html entry=entry lang=lang %}{% endfor %}
+    </div>
+    {%- else %}
+    <p class="explorations-empty">{{ t.explorations_progress_empty }}</p>
+    {%- endif %}
+    {%- if concluded.size > 0 %}
+    <h3 class="explorations-subheading">{{ t.explorations_concluded_title }}</h3>
+    <p>{{ t.explorations_concluded_intro }}</p>
+    <div class="exploration-grid">
+      {%- for entry in concluded %}{% include exploration-card.html entry=entry lang=lang %}{% endfor %}
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="section" id="status">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{{ t.explorations_status_kicker }}</span><h2>{{ t.explorations_status_title }}</h2></div>
+      <p>{{ t.explorations_status_intro }}</p>
+    </div>
+    <dl class="exploration-status-list">
+      {%- for status in ex.statuses %}
+      <div>
+        <dt>{% include exploration-status.html status=status.key lang=lang %}</dt>
+        <dd>{{ status.summary[lang] }}</dd>
+      </div>
+      {%- endfor %}
+    </dl>
+  </div>
+</section>
+
+<section class="section section-alt" id="principles">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{{ t.explorations_principles_kicker }}</span><h2>{{ t.explorations_principles_title }}</h2></div>
+      <p>{{ t.explorations_principles_intro }}</p>
+    </div>
+    <div class="exploration-principles">
+      {%- for principle in ex.principles %}
+      <div class="exploration-principle">
+        <h3>{{ principle.title[lang] }}</h3>
+        <p><span>{{ t.explorations_is }}</span>{{ principle.is[lang] }}</p>
+        <p><span>{{ t.explorations_is_not }}</span>{{ principle.not[lang] }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="hub">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{{ t.explorations_hub_kicker }}</span><h2>{{ t.explorations_hub_title }}</h2></div>
+      <p>{{ t.explorations_hub_intro }} <a href="{{ lp | append: '/hub/' | relative_url }}">{{ t.explorations_hub_link }} →</a></p>
+    </div>
+    <ol class="exploration-pipeline">
+      {%- for step in ex.pipeline %}<li>{{ step[lang] }}</li>{% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section collaboration-section" id="contribute">
+  <div class="container collaboration-layout">
+    <div>
+      <span class="section-kicker">{{ t.explorations_contribute_kicker }}</span>
+      <h2>{{ t.explorations_contribute_title }}</h2>
+      <p class="lead">{{ t.explorations_contribute_intro }}</p>
+      <div class="hero-actions align-left">
+        <a class="btn btn-primary" href="{{ ex.repository }}/issues/new?title={{ 'Exploration: ' | url_encode }}" target="_blank" rel="noopener">{{ t.explorations_open_issue }} ↗</a>
+        <a class="btn btn-ghost" href="{{ ex.repository }}/blob/main/docs/exploration-template.md" target="_blank" rel="noopener">{{ t.explorations_read_template }} ↗</a>
+        <a class="btn btn-ghost" href="{{ lp | append: '/contact/' | relative_url }}">{{ t.explorations_collaborate }}</a>
+      </div>
+    </div>
+    <div class="collaboration-list">
+      {%- for route in ex.contribute %}
+      <div><span>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span><p><strong>{{ route.title[lang] }}</strong><br>{{ route.text[lang] }}</p></div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

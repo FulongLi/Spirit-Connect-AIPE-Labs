@@ -21,9 +21,16 @@
     {%- assign en_url = page.url -%}{%- assign zh_url = '/zh/academy/' -%}
   {%- endif -%}
 {%- endif -%}
-{%- if page.collection == 'posts' -%}
+{%- comment -%}
+  Explorations without a counterpart in the other language switch to that
+  language's Explorations landing page; translated pairs share a translation_key.
+{%- endcomment -%}
+{%- if page.collection == 'explorations' -%}
+  {%- assign en_url = '/explorations/' -%}{%- assign zh_url = '/zh/explorations/' -%}
+{%- endif -%}
+{%- if page.collection == 'posts' or page.collection == 'explorations' -%}
   {%- assign current_translation_key = page.translation_key | default: page.slug -%}
-  {%- for candidate in site.posts -%}
+  {%- for candidate in site[page.collection] -%}
     {%- assign candidate_translation_key = candidate.translation_key | default: candidate.slug -%}
     {%- if candidate_translation_key == current_translation_key -%}
       {%- if candidate.lang == 'zh' -%}
@@ -60,6 +67,7 @@
         </div>
       </div>
       <a class="nav-academy" href="{{ lp | append: '/academy/' | relative_url }}">{{ t.nav_academy }}</a>
+      <a class="nav-explorations" href="{{ lp | append: '/explorations/' | relative_url }}">{{ t.nav_explorations }}</a>
       <div class="dropdown">
         <button class="drop-toggle" aria-expanded="false">{{ t.nav_community }} ▾</button>
         <div class="drop-menu">

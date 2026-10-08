@@ -54,6 +54,10 @@ layout: default
           {%- assign series_posts = lang_posts | where: domain.blog_flag, true %}
           <li><a href="{{ lp | append: '/resources/blog/#' | append: domain.blog_anchor | relative_url }}">{{ t.hub_articles }} ({{ series_posts.size }}) →</a></li>
           {%- endif %}
+          {%- assign domain_explorations = site.explorations | where: "lang", lang | where_exp: "entry", "entry.domains contains domain.key" %}
+          {%- if domain_explorations.size > 0 %}
+          <li><a href="{{ lp | append: '/explorations/' | relative_url }}">{{ t.explorations_in_domain }} ({{ domain_explorations.size }}) →</a></li>
+          {%- endif %}
           {%- for stage in site.data.academy.stages %}
           {%- if stage.hub contains domain.key %}
           <li><a href="{{ lp | append: '/academy/#stage-' | append: stage.key | relative_url }}">{{ t.nav_academy }} · {{ stage.number }} {{ stage.title[lang] }} →</a></li>

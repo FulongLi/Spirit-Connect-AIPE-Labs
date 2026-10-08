@@ -93,6 +93,24 @@ layout: default
   </div>
 </section>
 
+{%- assign linked_explorations = "" | split: "" %}
+{%- for entry in site.explorations %}
+  {%- if entry.lang == lang %}{% assign entry_links = entry.hub.uses | size | plus: entry.hub.produces.size %}{% if entry_links > 0 %}{% assign linked_explorations = linked_explorations | push: entry %}{% endif %}{% endif %}
+{%- endfor %}
+{%- if linked_explorations.size > 0 %}
+<section class="section hub-explorations-section" id="explorations">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{{ t.explorations_hub_section_kicker }}</span><h2>{{ t.explorations_hub_section_title }}</h2></div>
+      <p>{{ t.explorations_hub_section_intro }} <a href="{{ lp | append: '/explorations/' | relative_url }}">{{ t.nav_explorations }} →</a></p>
+    </div>
+    <div class="exploration-grid">
+      {%- for entry in linked_explorations %}{% include exploration-card.html entry=entry lang=lang %}{% endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
 {%- else %}
 <section class="section hub-listing">
   <div class="container">

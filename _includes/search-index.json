@@ -45,6 +45,11 @@
 {%- for post in si_posts -%}
 {"t":{{ post.title | jsonify }},"u":{{ post.url | relative_url | jsonify }},"k":{{ si_t.nav_articles | jsonify }},"d":{{ post.description | strip_html | truncate: 160 | jsonify }}},
 {%- endfor -%}
+{%- assign si_explorations = site.explorations | where: "lang", si_lang -%}
+{%- for entry in si_explorations -%}
+{%- assign si_status = site.data.explorations.statuses | where: "key", entry.status | first -%}
+{"t":{{ entry.title | jsonify }},"u":{{ entry.url | relative_url | jsonify }},"k":{{ si_t.nav_explorations | append: ' · ' | append: si_status.label[si_lang] | jsonify }},"d":{{ entry.question | jsonify }},"x":{{ entry.domains | join: ' ' | append: ' research question exploration hypothesis' | jsonify }}},
+{%- endfor -%}
 {"t":"aipe.md","u":{{ '/aipe.md' | relative_url | jsonify }},"k":{{ si_t.hub_agent_index | jsonify }},"x":"agent registry markdown plugin codex claude","w":2},
 {"t":"aipe.json","u":{{ '/aipe.json' | relative_url | jsonify }},"k":{{ si_t.hub_machine_index | jsonify }},"x":"machine registry json api","w":2},
 {"t":{{ si_t.nav_plugin | jsonify }},"u":{{ si_lp | append: '/plugin/' | relative_url | jsonify }},"k":{{ si_t.nav_plugin | jsonify }},"x":"agent plugin codex claude code skills install","w":2}

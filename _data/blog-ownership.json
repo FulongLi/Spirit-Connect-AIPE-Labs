@@ -1,12 +1,40 @@
 {
   "schema_version": "0.1.0",
-  "checked_on": "2026-10-07",
+  "checked_on": "2026-10-08",
   "allowed_categories": [
     "LEARN",
     "RESEARCH",
     "BUILD",
     "NEWS"
   ],
+  "destinations": {
+    "LEARN": {
+      "section": "AIPE Academy",
+      "en": "/academy/",
+      "zh": "/zh/academy/"
+    },
+    "RESEARCH": {
+      "section": "AIPE Explorations",
+      "en": "/explorations/",
+      "zh": "/zh/explorations/"
+    },
+    "BUILD": {
+      "section": "AIPE Hub",
+      "en": "/hub/",
+      "zh": "/zh/hub/"
+    },
+    "NEWS": {
+      "section": "News & updates",
+      "en": "/news/",
+      "zh": "/zh/news/"
+    }
+  },
+  "migration_states": {
+    "migrated": "Canonical source lives in the destination; the historical article stays at its URL with a canonical link and notice.",
+    "candidate": "Approved for the next migration wave; the article stays canonical here until the destination copy is published.",
+    "retained": "Stays canonical at its current URL pending an individual review.",
+    "routed": "Stays at its current URL and is linked from its destination section; no canonical move is planned."
+  },
   "posts": [
     {
       "source": "_posts/2026-06-08-introducing-the-basics-of-solid-state-transformer.md",
@@ -16,6 +44,9 @@
       "url": "/resources/blog/introducing-the-basics-of-solid-state-transformer/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -26,7 +57,9 @@
       "url": "/resources/blog/one-link-for-your-ai-agent/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
-      "migration": "Retain current source pending individual review"
+      "migration_status": "routed",
+      "migration_wave": null,
+      "migration": "Announcement linked from News; retained at its original URL"
     },
     {
       "source": "_posts/2026-09-10-bias-humidity-reliability-testing.md",
@@ -36,6 +69,9 @@
       "url": "/resources/blog/bias-humidity-reliability-testing/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -46,7 +82,10 @@
       "url": "/resources/blog/boost-converter-from-zero-to-everything/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
-      "migration": "Retain current source pending individual review"
+      "academy_stage": "power-electronics",
+      "migration_status": "candidate",
+      "migration_wave": 1,
+      "migration": "Wave 1 Academy migration candidate; this article stays canonical until the Academy lesson is published and its notice added"
     },
     {
       "source": "_posts/2026-09-10-dab-converter-from-principles-to-control.md",
@@ -56,6 +95,9 @@
       "url": "/resources/blog/dab-converter-from-principles-to-control/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -66,6 +108,9 @@
       "url": "/resources/blog/dab-power-transfer-and-small-signal-model/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -76,6 +121,9 @@
       "url": "/resources/blog/double-pulse-testing/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -86,6 +134,9 @@
       "url": "/resources/blog/gate-charge-capacitance-dynamic-resistance/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -96,6 +147,9 @@
       "url": "/resources/blog/junction-temperature-measurement/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -106,6 +160,9 @@
       "url": "/resources/blog/mission-profile-lifetime-estimation/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -116,6 +173,9 @@
       "url": "/resources/blog/modular-sst-system-integration/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -126,6 +186,9 @@
       "url": "/resources/blog/power-cycling-reliability/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -136,6 +199,9 @@
       "url": "/resources/blog/power-semiconductor-characterisation-guide/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -146,6 +212,9 @@
       "url": "/resources/blog/semiconductor-robustness-testing/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -156,7 +225,10 @@
       "url": "/resources/blog/small-signal-modelling-boost-converter/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
-      "migration": "Retain current source pending individual review"
+      "academy_stage": "design-simulation",
+      "migration_status": "candidate",
+      "migration_wave": 1,
+      "migration": "Wave 1 Academy migration candidate; this article stays canonical until the Academy lesson is published and its notice added"
     },
     {
       "source": "_posts/2026-09-10-sst-ac-dc-front-end.md",
@@ -166,6 +238,9 @@
       "url": "/resources/blog/sst-ac-dc-front-end/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -176,6 +251,9 @@
       "url": "/resources/blog/sst-dc-ac-output-stage/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -186,6 +264,9 @@
       "url": "/resources/blog/sst-high-frequency-transformer-design/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -196,6 +277,9 @@
       "url": "/resources/blog/static-electrical-characterisation/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -206,6 +290,9 @@
       "url": "/resources/blog/steady-state-thermal-resistance/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -216,6 +303,9 @@
       "url": "/resources/blog/temperature-cycling-reliability/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -226,6 +316,9 @@
       "url": "/resources/blog/three-phase-dq-modelling/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -236,6 +329,9 @@
       "url": "/resources/blog/three-stage-solid-state-transformer/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -246,6 +342,9 @@
       "url": "/resources/blog/transient-thermal-impedance/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -256,7 +355,10 @@
       "url": "/resources/blog/buck-boost-converter-from-zero-to-everything/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
-      "migration": "Retain current source pending individual review"
+      "academy_stage": "power-electronics",
+      "migration_status": "candidate",
+      "migration_wave": 1,
+      "migration": "Wave 1 Academy migration candidate; this article stays canonical until the Academy lesson is published and its notice added"
     },
     {
       "source": "_posts/2026-09-11-buck-converter-from-zero-to-everything.md",
@@ -266,6 +368,9 @@
       "url": "/resources/blog/buck-converter-from-zero-to-everything/",
       "language": "en",
       "canonical_owner": "AIPE-Academy",
+      "academy_stage": "power-electronics",
+      "migration_status": "migrated",
+      "migration_wave": 0,
       "migration": "Canonical teaching source migrated; historical public copy retained"
     },
     {
@@ -276,6 +381,9 @@
       "url": "/resources/blog/cuk-sepic-zeta-converters/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -286,6 +394,9 @@
       "url": "/resources/blog/flyback-converter-from-zero-to-everything/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -296,6 +407,9 @@
       "url": "/resources/blog/forward-converter-from-zero-to-everything/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -306,6 +420,9 @@
       "url": "/resources/blog/llc-resonant-converter/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -316,6 +433,9 @@
       "url": "/resources/blog/push-pull-half-bridge-full-bridge/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -326,6 +446,9 @@
       "url": "/resources/blog/underwater-wireless-power-transfer/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -336,6 +459,9 @@
       "url": "/resources/blog/wireless-charging-electric-vehicles/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -346,6 +472,9 @@
       "url": "/resources/blog/wireless-charging-phones-inductive-basics/",
       "language": "en",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -356,6 +485,9 @@
       "url": "/zh/resources/blog/introducing-the-basics-of-solid-state-transformer/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -366,7 +498,9 @@
       "url": "/zh/resources/blog/one-link-for-your-ai-agent/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
-      "migration": "Retain current source pending individual review"
+      "migration_status": "routed",
+      "migration_wave": null,
+      "migration": "Announcement linked from News; retained at its original URL"
     },
     {
       "source": "_posts/zh/2026-09-10-bias-humidity-reliability-testing.md",
@@ -376,6 +510,9 @@
       "url": "/zh/resources/blog/bias-humidity-reliability-testing/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -386,7 +523,10 @@
       "url": "/zh/resources/blog/boost-converter-from-zero-to-everything/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
-      "migration": "Retain current source pending individual review"
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 1,
+      "migration": "Follows its English counterpart; Academy has no Chinese lesson for this stage yet"
     },
     {
       "source": "_posts/zh/2026-09-10-dab-converter-from-principles-to-control.md",
@@ -396,6 +536,9 @@
       "url": "/zh/resources/blog/dab-converter-from-principles-to-control/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -406,6 +549,9 @@
       "url": "/zh/resources/blog/dab-power-transfer-and-small-signal-model/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -416,6 +562,9 @@
       "url": "/zh/resources/blog/double-pulse-testing/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -426,6 +575,9 @@
       "url": "/zh/resources/blog/gate-charge-capacitance-dynamic-resistance/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -436,6 +588,9 @@
       "url": "/zh/resources/blog/junction-temperature-measurement/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -446,6 +601,9 @@
       "url": "/zh/resources/blog/mission-profile-lifetime-estimation/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -456,6 +614,9 @@
       "url": "/zh/resources/blog/modular-sst-system-integration/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -466,6 +627,9 @@
       "url": "/zh/resources/blog/power-cycling-reliability/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -476,6 +640,9 @@
       "url": "/zh/resources/blog/power-semiconductor-characterisation-guide/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -486,6 +653,9 @@
       "url": "/zh/resources/blog/semiconductor-robustness-testing/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -496,7 +666,10 @@
       "url": "/zh/resources/blog/small-signal-modelling-boost-converter/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
-      "migration": "Retain current source pending individual review"
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 1,
+      "migration": "Follows its English counterpart; Academy has no Chinese lesson for this stage yet"
     },
     {
       "source": "_posts/zh/2026-09-10-sst-ac-dc-front-end.md",
@@ -506,6 +679,9 @@
       "url": "/zh/resources/blog/sst-ac-dc-front-end/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -516,6 +692,9 @@
       "url": "/zh/resources/blog/sst-dc-ac-output-stage/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -526,6 +705,9 @@
       "url": "/zh/resources/blog/sst-high-frequency-transformer-design/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -536,6 +718,9 @@
       "url": "/zh/resources/blog/static-electrical-characterisation/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -546,6 +731,9 @@
       "url": "/zh/resources/blog/steady-state-thermal-resistance/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -556,6 +744,9 @@
       "url": "/zh/resources/blog/temperature-cycling-reliability/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -566,6 +757,9 @@
       "url": "/zh/resources/blog/three-phase-dq-modelling/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -576,6 +770,9 @@
       "url": "/zh/resources/blog/three-stage-solid-state-transformer/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -586,6 +783,9 @@
       "url": "/zh/resources/blog/transient-thermal-impedance/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "design-simulation",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -596,7 +796,10 @@
       "url": "/zh/resources/blog/buck-boost-converter-from-zero-to-everything/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
-      "migration": "Retain current source pending individual review"
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 1,
+      "migration": "Follows its English counterpart; Academy has no Chinese lesson for this stage yet"
     },
     {
       "source": "_posts/zh/2026-09-11-buck-converter-from-zero-to-everything.md",
@@ -606,6 +809,9 @@
       "url": "/zh/resources/blog/buck-converter-from-zero-to-everything/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -616,6 +822,9 @@
       "url": "/zh/resources/blog/cuk-sepic-zeta-converters/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -626,6 +835,9 @@
       "url": "/zh/resources/blog/flyback-converter-from-zero-to-everything/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -636,6 +848,9 @@
       "url": "/zh/resources/blog/forward-converter-from-zero-to-everything/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -646,6 +861,9 @@
       "url": "/zh/resources/blog/llc-resonant-converter/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -656,6 +874,9 @@
       "url": "/zh/resources/blog/push-pull-half-bridge-full-bridge/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "power-electronics",
+      "migration_status": "retained",
+      "migration_wave": 2,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -666,6 +887,9 @@
       "url": "/zh/resources/blog/underwater-wireless-power-transfer/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -676,6 +900,9 @@
       "url": "/zh/resources/blog/wireless-charging-electric-vehicles/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     },
     {
@@ -686,6 +913,9 @@
       "url": "/zh/resources/blog/wireless-charging-phones-inductive-basics/",
       "language": "zh",
       "canonical_owner": "Spirit-Connect-AIPE-Labs",
+      "academy_stage": "systems-energy",
+      "migration_status": "retained",
+      "migration_wave": 3,
       "migration": "Retain current source pending individual review"
     }
   ]

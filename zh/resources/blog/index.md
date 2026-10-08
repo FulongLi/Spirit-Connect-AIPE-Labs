@@ -23,6 +23,7 @@ translation_key: blog-index
     <span class="section-kicker">工程知识库</span>
     <h1>从第一性原理出发的工程文章。</h1>
     <p class="lead">围绕变换器、功率半导体器件、固态变压器和无线电能传输整理的深入技术指南。</p>
+    <p class="library-routes">关于已确立工程知识的教程正在逐篇评审，以纳入 <a href="{{ '/zh/academy/' | relative_url }}">AIPE 学院</a>，现有网址保持不变。开放研究问题见<a href="{{ '/zh/explorations/' | relative_url }}">前沿探索</a>，产品动态见<a href="{{ '/zh/news/' | relative_url }}">新闻</a>。</p>
   </div>
 </header>
 

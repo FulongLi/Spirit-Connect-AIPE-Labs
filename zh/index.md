@@ -3,7 +3,7 @@ layout: default
 title: AIPE — 面向电力与能源的开放工程 Hub
 lang: zh
 permalink: /zh/
-description: 发现、分享并运行面向电力电子与能源系统的工程数据、模型、设计与 AI 工作流——服务工程师，也服务与他们协作的 Coding Agent。
+description: 学习已确立的电力工程知识，用开放的数据、模型、设计与工具构建应用，并探索开放的研究问题——服务工程师、研究者以及与他们协作的 AI Agent。
 image: /images/background/sst.png
 ---
 {%- assign hub = site.data.hub -%}
@@ -17,6 +17,7 @@ image: /images/background/sst.png
 {%- assign lesson_count = 0 -%}
 {%- for candidate in site.pages -%}{%- if candidate.academy_page and candidate.lesson_status and candidate.lang == 'zh' -%}{%- assign lesson_count = lesson_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
 {%- assign article_count = site.posts | where: "lang", "zh" | size -%}
+{%- assign question_count = site.explorations | where: "lang", "zh" | where: "status", "concept" | size -%}
 
 <header class="home-hub-hero">
   <div class="container">
@@ -33,10 +34,43 @@ image: /images/background/sst.png
   </div>
 </header>
 
-<section class="section home-explore">
+<section class="section home-pillars-section">
+  <div class="container">
+    <div class="home-pillars-heading">
+      <span class="section-kicker">一个开放平台</span>
+      <h2>学习。构建。探索。</h2>
+      <p><span>学习我们已知的。</span> <span>构建我们所需的。</span> <span>探索我们尚未知道的。</span></p>
+    </div>
+    <ol class="home-pillars" aria-label="AIPE 的三个组成部分">
+      <li class="home-pillar">
+        <span class="home-pillar-verb">LEARN</span>
+        <h3>AIPE 学院</h3>
+        <p>系统学习已确立的工程知识，从基本原理到高级电力工程。</p>
+        <p class="home-pillar-fact"><strong>{{ lesson_count }}</strong> 门课程，分阶段学习路径，配有开放实验</p>
+        <a class="btn btn-primary" href="{{ '/zh/academy/' | relative_url }}">进入学院 →</a>
+      </li>
+      <li class="home-pillar">
+        <span class="home-pillar-verb">BUILD</span>
+        <h3>AIPE Hub</h3>
+        <p>发现并使用开放的工程数据、模型、设计、工具与工作流，构建真实应用。</p>
+        <p class="home-pillar-fact"><strong>{{ hub_count }}</strong> 项 Hub 产物，均标明成熟度</p>
+        <a class="btn btn-primary" href="{{ '/zh/hub/' | relative_url }}">进入 Hub →</a>
+      </li>
+      <li class="home-pillar">
+        <span class="home-pillar-verb">EXPLORE</span>
+        <h3>AIPE 前沿探索</h3>
+        <p>研究新的工程可能，质疑既有假设，参与开放的科学研究。</p>
+        <p class="home-pillar-fact"><strong>{{ question_count }}</strong> 个开放研究问题，均标明证据状态</p>
+        <a class="btn btn-primary" href="{{ '/zh/explorations/' | relative_url }}">进入前沿探索 →</a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section-alt home-explore">
   <div class="container">
     <div class="hub-section-heading">
-      <div><span class="section-kicker">探索 AIPE</span><h2>可复用的工程产物，而不是孤立的项目。</h2></div>
+      <div><span class="section-kicker">Hub 内容</span><h2>可复用的工程产物，而不是孤立的项目。</h2></div>
       <p>每一项产物都标明类型、工程领域与成熟度，让你一眼看出哪些已经可用、哪些仍在建设中。</p>
     </div>
     <div class="hub-category-grid">
@@ -45,7 +79,7 @@ image: /images/background/sst.png
   </div>
 </section>
 
-<section class="section section-alt home-featured">
+<section class="section home-featured">
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">精选产物</span><h2>从现在已有的内容开始。</h2></div>
@@ -57,7 +91,7 @@ image: /images/background/sst.png
   </div>
 </section>
 
-<section class="section home-domains">
+<section class="section section-alt home-domains">
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">两个发现维度</span><h2>按“它是什么”搜索，或按“用在哪里”搜索。</h2></div>
@@ -67,7 +101,7 @@ image: /images/background/sst.png
   </div>
 </section>
 
-<section class="section section-alt home-academy">
+<section class="section home-academy">
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">AIPE 学院</span><h2>从基本原理到 AI 辅助工程，系统学习电力电子。</h2></div>
@@ -82,7 +116,7 @@ image: /images/background/sst.png
   </div>
 </section>
 
-<section class="section home-plugin" id="plugin">
+<section class="section section-alt home-plugin" id="plugin">
   <div class="container home-plugin-layout">
     <div>
       <span class="section-kicker">AIPE 插件</span>
@@ -96,7 +130,7 @@ image: /images/background/sst.png
   </div>
 </section>
 
-<section class="section section-alt home-loop">
+<section class="section home-loop">
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">为 AI 供能的电力系统，由 AI 来设计</span><h2>连接 AI 与电力设计闭环。</h2></div>
