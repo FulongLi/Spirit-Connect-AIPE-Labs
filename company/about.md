@@ -2,5 +2,5 @@
 layout: about
 title: About
 permalink: /company/about/
-description: About Spirit Connect AIPE Labs — connecting AI-assisted engineering with power infrastructure.
+description: About AIPE Labs — an open resource platform connecting knowledge, data and tools for power electronics and power engineering.
 ---
