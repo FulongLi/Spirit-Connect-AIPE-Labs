@@ -73,7 +73,7 @@ en:
   hub_search_suggestions: [SiC, Buck, Magnetics, LTspice, Schematic, DAB]
   # academy (UI chrome only; lesson titles and bodies come from AIPE Academy)
   academy_kicker: "AIPE Academy · AI for Power Engineering"
-  academy_start: "Start with orientation"
+  academy_start: "Start learning"
   academy_labs: "Open labs"
   academy_sections: "Academy sections"
   academy_lessons: "Lessons"

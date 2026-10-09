@@ -1,0 +1,95 @@
+# Editorial copy for the human-facing landing pages; capability metadata stays
+# in Registry and Academy. Both languages use the same layouts and destinations.
+company_links:
+  - url: /company/about/
+    title: {en: About, zh: 关于我们}
+  - url: /company/team/
+    title: {en: Team, zh: 团队}
+  - url: /company/careers/
+    title: {en: Careers, zh: 加入我们}
+  - url: /company/faq/
+    title: {en: FAQ, zh: 常见问题}
+  - url: /news/
+    title: {en: News, zh: 新闻}
+  - url: /contact/
+    title: {en: Contact, zh: 联系我们}
+home:
+  title: {en: "Power engineering, open to everyone.", zh: "让电力工程，向每个人开放。"}
+  intro:
+    en: "Shared knowledge, open engineering resources and AI tools. Learn the principles. Put them to work. Explore what comes next."
+    zh: "共享知识、开放工程资源与 AI 工具。学习原理，动手实践，探索新的可能。"
+  paths_title: {en: "Find your starting point.", zh: "找到你的起点。"}
+  paths:
+    - verb: {en: Learn, zh: 学习}
+      title: {en: AIPE Academy, zh: AIPE 学院}
+      text: {en: "Build your understanding, from circuit fundamentals to power systems.", zh: "从电路基础到电力系统，逐步建立你的工程知识。"}
+      url: /academy/
+      action: {en: Start learning, zh: 开始学习}
+    - verb: {en: Build, zh: 构建}
+      title: {en: AIPE Hub, zh: AIPE Hub}
+      text: {en: "Find data, models, reference designs and tools for your next project.", zh: "为你的项目寻找数据、模型、参考设计与工具。"}
+      url: /hub/
+      action: {en: Browse resources, zh: 浏览资源}
+    - verb: {en: Explore, zh: 探索}
+      title: {en: AIPE Explorations, zh: AIPE 前沿探索}
+      text: {en: "Investigate open questions and contribute to the research behind them.", zh: "研究尚待解答的问题，参与开放的工程探索。"}
+      url: /explorations/
+      action: {en: Explore questions, zh: 查看研究问题}
+  featured: [aipe.sketch, aipe.semiconductor-database, /academy/power-electronics/buck-open-lab/]
+  featured_summaries:
+    aipe.sketch:
+      en: "Create clear SVG schematics from explicit electrical connections."
+      zh: "把明确的电气连接关系绘制成清晰的 SVG 原理图。"
+    aipe.semiconductor-database:
+      en: "Explore power semiconductor data with electrical curves and traceable sources."
+      zh: "查阅功率半导体数据、电气特性曲线与可追溯的来源。"
+    /academy/power-electronics/buck-open-lab/:
+      en: "Predict an ideal buck converter's behaviour, then check your calculations in an open Python lab."
+      zh: "预测理想 Buck 变换器的行为，再通过开放 Python 实验核对计算结果。"
+  featured_kicker: {en: A few places to begin, zh: 从这些内容开始}
+  featured_title: {en: "Useful work, shared openly.", zh: "把工程实践，变成共享资源。"}
+  featured_intro: {en: "Draw a circuit, explore device data or work through an open lab. Each resource states its current status.", zh: "绘制电路图、查阅器件数据，或完成一个开放实验。每项资源都标明当前状态。"}
+  browse: {en: Browse the Hub, zh: 浏览完整 Hub}
+  plugin_title: {en: "Your engineering tools. Your AI agent.", zh: "你的工程工具，你的 AI 助手。"}
+  plugin_intro: {en: "Give Codex, Claude Code or another coding agent the AIPE index, then describe your engineering task.", zh: "把 AIPE 索引交给 Codex、Claude Code 或其他 Coding Agent，然后描述你的工程任务。"}
+  plugin_action: {en: See how to use AIPE, zh: 查看使用方法}
+  plugin_status: {en: "Use the public index today. An installable plugin is planned.", zh: "公开索引现在即可使用；可安装的插件仍在规划中。"}
+  collaborate_title: {en: "Build something worth sharing.", zh: "一起构建值得分享的成果。"}
+  collaborate_intro: {en: "Contribute a resource, explore a research question or bring us an engineering problem.", zh: "贡献一项资源，探索一个研究问题，或带着真实工程需求与我们交流。"}
+  collaborate_action: {en: Get in touch, zh: 联系我们}
+  about_action: {en: About AIPE Labs, zh: 了解 AIPE Labs}
+  partners: {en: Partners & collaborations, zh: 合作伙伴}
+about:
+  kicker: {en: About AIPE Labs, zh: 关于 AIPE Labs}
+  title: {en: "Engineering knowledge should be a foundation we share.", zh: "让工程知识，成为大家共同的基石。"}
+  intro:
+    en: "AIPE Labs is an open power engineering initiative by Spirit Connect. We bring together knowledge, data and tools that engineers — and their AI agents — can build on."
+    zh: "AIPE Labs 是 Spirit Connect 发起的开放电力工程项目。我们汇集知识、数据与工具，让工程师和他们的 AI 助手都能在此基础上继续构建。"
+  action: {en: Explore our work, zh: 查看我们的工作}
+  mission_kicker: {en: Our purpose, zh: 我们的使命}
+  mission_title: {en: "Make it easier to learn, build and contribute.", zh: "让学习、实践与贡献变得更容易。"}
+  mission_text:
+    en: "AIPE began as AI for Power Electronics. As the work grew from devices and converters towards energy systems, it became AI for Power Engineering. The ambition is the same: turn engineering experience into an open foundation that others can use, question and improve."
+    zh: "AIPE 最初代表 AI for Power Electronics，随着工作从器件和变换器拓展到能源系统，逐步演进为 AI for Power Engineering。我们的初衷始终如一：把工程经验变成开放的基础，让更多人能够使用、质疑并改进它。"
+  scales:
+    - title: {en: Devices, zh: 器件}
+      text: {en: "Understand the components through characterisation, data and modelling.", zh: "通过表征、数据与建模，理解元器件。"}
+    - title: {en: Converters, zh: 变换器}
+      text: {en: "Connect topology, magnetics and control through design and simulation.", zh: "以设计和仿真连接拓扑、磁性元件与控制。"}
+    - title: {en: Systems, zh: 系统}
+      text: {en: "Place each design in the wider context of power and energy infrastructure.", zh: "把每一项设计放到电力与能源基础设施中考量。"}
+  founder_kicker: {en: A note from the founder, zh: 创始人的话}
+  founder_title: {en: Why I built AIPE, zh: 为什么我想做 AIPE}
+  founder_intro:
+    en: "After more than a decade in power electronics and energy, I wanted to turn what I had learnt into something others could build upon. My hope is that AIPE helps more people find their interests, develop their abilities and contribute work they care about."
+    zh: "在电力电子和能源领域学习、研究与工作十多年后，我想把积累下来的经验变成一块基石。我希望 AIPE 能帮助更多人找到兴趣、发展能力，并投入自己真正在乎的工作。"
+  founder_name: {en: Fulong Li, zh: 李富龙}
+  founder_role: {en: "Founder, AIPE Labs", zh: AIPE Labs 创始人}
+  founder_read: {en: Read the full founder's letter, zh: 阅读创始人的完整文字}
+  loop_kicker: {en: The longer-term vision, zh: 长期愿景}
+  loop_title: {en: "Better engineering. Better foundations for AI.", zh: "更好的工程实践，更扎实的 AI 基础。"}
+  loop_intro:
+    en: "AI can help engineers design power systems. Those systems provide energy for computing. Sharing the data, models and lessons from each project can make the next one better."
+    zh: "AI 帮助工程师设计电力系统，电力系统为计算提供能源。把项目中的数据、模型和经验分享出来，让下一次设计拥有更好的起点。"
+  contact_title: {en: Let's build the next part together., zh: 一起继续向前。}
+  contact_intro: {en: "We welcome engineers, researchers and organisations who want to contribute to open power engineering.", zh: "欢迎工程师、研究者和企业参与开放电力工程的建设。"}

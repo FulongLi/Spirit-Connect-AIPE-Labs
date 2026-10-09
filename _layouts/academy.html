@@ -47,6 +47,9 @@ layout: default
     {%- if candidate and start_lesson == nil -%}{%- assign start_lesson = candidate -%}{%- endif -%}
   {%- endfor -%}
 {%- endfor -%}
+{%- assign available_start = lessons | where: 'lesson_status', 'available' | first -%}
+{%- assign draft_start = lessons | where: 'lesson_status', 'draft' | first -%}
+{%- if available_start -%}{%- assign start_lesson = available_start -%}{%- elsif draft_start -%}{%- assign start_lesson = draft_start -%}{%- endif -%}
 <header class="academy-hero">
   <div class="container">
     <span class="section-kicker">{{ t.academy_kicker }}</span>
@@ -167,7 +170,8 @@ layout: default
     </div>
     <div class="artifact-grid artifact-grid-labs">
       {%- for item in lang_labs %}{% include artifact-card.html item=item lang=lang %}{% endfor %}
-      <div class="planned-list">
+      <details class="planned-list editorial-details">
+        <summary>{{ t.academy_planned_labs }}</summary>
         <span class="section-kicker">{{ t.academy_planned_labs }}</span>
         <p>{% if lang_labs.size == 0 %}{{ t.academy_labs_none }} {% endif %}{{ t.academy_planned_labs_intro }}</p>
         <ul>
@@ -175,7 +179,7 @@ layout: default
           <li><span>{{ lab[lang] }}</span>{% include status-badge.html status='planned' lang=lang %}</li>
           {%- endfor %}
         </ul>
-      </div>
+      </details>
     </div>
   </div>
 </section>
@@ -199,6 +203,7 @@ layout: default
 
 <section class="section section-alt academy-catalogue-section" id="catalogue">
   <div class="container">
+    <details class="editorial-details"><summary>{{ t.academy_catalogue_title }}</summary>
     <div class="academy-path-heading">
       <div>
         <span class="section-kicker">{{ t.academy_catalogue_kicker }}</span>
@@ -221,6 +226,7 @@ layout: default
         </tbody>
       </table>
     </article>
+    </details>
   </div>
 </section>
 {%- else -%}
