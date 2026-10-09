@@ -40,6 +40,15 @@ layout: default
   </div>
 </header>
 
+<nav class="hub-tabs section-tabs" aria-label="{{ t.explorations_sections }}">
+  <div class="container">
+    <a href="#questions">{{ t.explorations_open_questions }}</a>
+    <a href="#in-progress">{{ t.explorations_investigations }}</a>
+    <a href="#findings">{{ t.explorations_findings }}</a>
+    <a href="#contribute">{{ t.explorations_contribute }}</a>
+  </div>
+</nav>
+
 {%- comment -%} Featured explorations appear only once one has recorded substantial evidence. {%- endcomment -%}
 {%- if featured.size > 0 %}
 <section class="section explorations-featured" id="featured">
@@ -84,17 +93,26 @@ layout: default
     {%- else %}
     <p class="explorations-empty">{{ t.explorations_progress_empty }}</p>
     {%- endif %}
+  </div>
+</section>
+
+<section class="section" id="findings">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{{ t.explorations_findings }}</span><h2>{{ t.explorations_concluded_title }}</h2></div>
+      <p>{{ t.explorations_concluded_intro }}</p>
+    </div>
     {%- if concluded.size > 0 %}
-    <h3 class="explorations-subheading">{{ t.explorations_concluded_title }}</h3>
-    <p>{{ t.explorations_concluded_intro }}</p>
     <div class="exploration-grid">
       {%- for entry in concluded %}{% include exploration-card.html entry=entry lang=lang %}{% endfor %}
     </div>
+    {%- else %}
+    <p class="explorations-empty">{{ t.explorations_findings_empty }}</p>
     {%- endif %}
   </div>
 </section>
 
-<section class="section" id="status">
+<section class="section section-alt" id="status">
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">{{ t.explorations_status_kicker }}</span><h2>{{ t.explorations_status_title }}</h2></div>
@@ -111,7 +129,7 @@ layout: default
   </div>
 </section>
 
-<section class="section section-alt" id="principles">
+<section class="section" id="principles">
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">{{ t.explorations_principles_kicker }}</span><h2>{{ t.explorations_principles_title }}</h2></div>
@@ -129,7 +147,7 @@ layout: default
   </div>
 </section>
 
-<section class="section" id="hub">
+<section class="section section-alt" id="hub">
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">{{ t.explorations_hub_kicker }}</span><h2>{{ t.explorations_hub_title }}</h2></div>

@@ -67,6 +67,15 @@ layout: default
   </div>
 </header>
 
+<nav class="hub-tabs section-tabs" aria-label="{{ t.academy_sections }}">
+  <div class="container">
+    {%- for stage in academy.stages %}
+    <a href="#stage-{{ stage.key }}">{{ stage.title[lang] }}</a>
+    {%- endfor %}
+    <a href="#labs">{{ t.academy_labs }}</a>
+  </div>
+</nav>
+
 <section class="section academy-path-section">
   <div class="container">
     <div class="academy-path-heading">

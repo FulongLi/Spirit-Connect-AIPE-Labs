@@ -62,6 +62,8 @@ layout: default
       <p>{% if lang == 'zh' %}每个单元格统计同时属于该领域和该类别的 Hub 条目。空白单元格表示 Hub 尚未覆盖的地方——欢迎贡献。{% else %}Each cell counts Hub artifacts in that domain and category. Empty cells show where the hub has not grown yet — and where contributions are welcome.{% endif %}</p>
     </div>
     {% include domain-matrix.html lang=lang %}
+    <p class="hub-filter-intro">{{ t.hub_filter_overview_intro }}</p>
+    {% include hub-domain-filter.html items=hub.artifacts lang=lang %}
   </div>
 </section>
 
@@ -73,9 +75,10 @@ layout: default
       <div><span class="section-kicker">{{ forloop.index | prepend: '0' | slice: -2, 2 }} · {{ cat_items.size }} {{ t.hub_artifacts }}</span><h2>{{ cat.title[lang] }}</h2></div>
       <p>{{ cat.summary[lang] }} <a href="{{ lp | append: cat.url | relative_url }}">{% if lang == 'zh' %}查看全部{% else %}Open {{ cat.title[lang] }}{% endif %} →</a></p>
     </div>
-    <div class="artifact-grid">
+    <div class="artifact-grid" data-hub-grid>
       {%- for item in cat_items %}{% include artifact-card.html item=item compact=true lang=lang %}{% endfor %}
     </div>
+    <p class="hub-filter-empty" hidden>{{ t.hub_filter_empty }}</p>
   </div>
 </section>
 {%- endfor %}
@@ -87,9 +90,10 @@ layout: default
       <div><span class="section-kicker">{% if lang == 'zh' %}平台层{% else %}Platform layer{% endif %}</span><h2>{% if lang == 'zh' %}让产物彼此连接的基础设施{% else %}The infrastructure that connects the artifacts{% endif %}</h2></div>
       <p>{% if lang == 'zh' %}Core 定义共同的工程语言，Registry 负责发现，Academy 负责教学，本网站负责展示。{% else %}Core defines the common engineering language, Registry handles discovery, Academy teaches, and this website presents.{% endif %}</p>
     </div>
-    <div class="artifact-grid">
+    <div class="artifact-grid" data-hub-grid>
       {%- for item in platform %}{% include artifact-card.html item=item compact=true lang=lang %}{% endfor %}
     </div>
+    <p class="hub-filter-empty" hidden>{{ t.hub_filter_empty }}</p>
   </div>
 </section>
 
@@ -114,20 +118,7 @@ layout: default
 {%- else %}
 <section class="section hub-listing">
   <div class="container">
-    {%- assign filter_domains = "" | split: "" %}
-    {%- for domain in hub.domains %}
-      {%- for item in items %}{% if item.domains contains domain.key %}{% assign filter_domains = filter_domains | push: domain %}{% break %}{% endif %}{% endfor %}
-    {%- endfor %}
-    {%- if filter_domains.size > 0 %}
-    <div class="hub-filter" role="group" aria-label="{{ t.hub_filter_label }}" data-hub-filter>
-      <button type="button" class="hub-chip" data-domain="" aria-pressed="true">{{ t.hub_all_domains }} <span>{{ items.size }}</span></button>
-      {%- for domain in filter_domains %}
-      {%- assign domain_count = 0 %}
-      {%- for item in items %}{% if item.domains contains domain.key %}{% assign domain_count = domain_count | plus: 1 %}{% endif %}{% endfor %}
-      <button type="button" class="hub-chip" data-domain="{{ domain.key }}" aria-pressed="false">{{ domain.title[lang] }} <span>{{ domain_count }}</span></button>
-      {%- endfor %}
-    </div>
-    {%- endif %}
+    {% include hub-domain-filter.html items=items lang=lang %}
     <div class="artifact-grid" data-hub-grid>
       {%- for item in items %}{% include artifact-card.html item=item lang=lang %}{% endfor %}
     </div>

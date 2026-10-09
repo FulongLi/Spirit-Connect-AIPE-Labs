@@ -136,20 +136,22 @@
   });
 
   document.querySelectorAll('[data-hub-filter]').forEach(function (group) {
-    var grid = document.querySelector('[data-hub-grid]');
-    var empty = document.querySelector('.hub-filter-empty');
-    if (!grid) return;
+    var grids = document.querySelectorAll('[data-hub-grid]');
+    if (!grids.length) return;
     var buttons = group.querySelectorAll('[data-domain]');
 
     function apply(domain, updateUrl) {
-      var shown = 0;
-      grid.querySelectorAll('[data-domains]').forEach(function (card) {
-        var match = !domain || (' ' + card.dataset.domains + ' ').indexOf(' ' + domain + ' ') !== -1;
-        card.hidden = !match;
-        if (match) shown++;
+      grids.forEach(function (grid) {
+        var shown = 0;
+        grid.querySelectorAll('[data-domains]').forEach(function (card) {
+          var match = !domain || (' ' + card.dataset.domains + ' ').indexOf(' ' + domain + ' ') !== -1;
+          card.hidden = !match;
+          if (match) shown++;
+        });
+        var empty = grid.parentElement.querySelector('.hub-filter-empty');
+        if (empty) empty.hidden = shown > 0;
       });
       buttons.forEach(function (button) { button.setAttribute('aria-pressed', button.dataset.domain === domain ? 'true' : 'false'); });
-      if (empty) empty.hidden = shown > 0;
       if (updateUrl && window.history.replaceState) {
         var url = new URL(window.location.href);
         if (domain) url.searchParams.set('domain', domain); else url.searchParams.delete('domain');

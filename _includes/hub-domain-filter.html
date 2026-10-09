@@ -1,0 +1,21 @@
+{%- comment -%}
+  Engineering-domain filter chips for Hub artifact grids ([data-hub-grid]);
+  assets/hub.js applies the filter and keeps ?domain= in the URL. Only domains
+  with at least one artifact in `items` are offered. Params: items, lang.
+{%- endcomment -%}
+{%- assign hf_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- assign hf_t = site.data.i18n[hf_lang] -%}
+{%- assign hf_domains = "" | split: "" -%}
+{%- for domain in site.data.hub.domains -%}
+  {%- for item in include.items -%}{%- if item.domains contains domain.key -%}{%- assign hf_domains = hf_domains | push: domain -%}{%- break -%}{%- endif -%}{%- endfor -%}
+{%- endfor -%}
+{%- if hf_domains.size > 0 %}
+<div class="hub-filter" role="group" aria-label="{{ hf_t.hub_filter_label }}" data-hub-filter>
+  <button type="button" class="hub-chip" data-domain="" aria-pressed="true">{{ hf_t.hub_all_domains }} <span>{{ include.items.size }}</span></button>
+  {%- for domain in hf_domains %}
+  {%- assign hf_count = 0 %}
+  {%- for item in include.items %}{% if item.domains contains domain.key %}{% assign hf_count = hf_count | plus: 1 %}{% endif %}{% endfor %}
+  <button type="button" class="hub-chip" data-domain="{{ domain.key }}" aria-pressed="false">{{ domain.title[hf_lang] }} <span>{{ hf_count }}</span></button>
+  {%- endfor %}
+</div>
+{%- endif %}
