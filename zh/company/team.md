@@ -19,7 +19,7 @@ description: 共同建设 Spirit Connect AIPE Labs 的贡献者。
   <div class="container">
     <div class="team-grid">
       <article class="card team-card">
-        <img class="team-photo" src="{{ '/images/team/fulong.jpg' | relative_url }}" alt="李富龙博士">
+        <img class="team-photo" src="{{ '/images/team/Fulong_selfie.png' | relative_url }}" alt="李富龙博士">
         <div class="team-card-body">
           <h2>李富龙 博士</h2>
           <p class="team-role">创始人</p>

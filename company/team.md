@@ -18,7 +18,7 @@ description: The contributors building Spirit Connect AIPE Labs.
   <div class="container">
     <div class="team-grid">
       <article class="card team-card">
-        <img class="team-photo" src="{{ '/images/team/fulong.jpg' | relative_url }}" alt="Dr Fulong Li">
+        <img class="team-photo" src="{{ '/images/team/Fulong_selfie.png' | relative_url }}" alt="Dr Fulong Li">
         <div class="team-card-body">
           <h2>Dr Fulong Li</h2>
           <p class="team-role">Founder</p>

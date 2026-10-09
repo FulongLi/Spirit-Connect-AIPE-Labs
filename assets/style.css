@@ -809,7 +809,7 @@ h2 { margin-bottom: 1.5rem; }
   width: 104px; height: 104px; margin-bottom: 1.2rem; border-radius: 50%;
   border: 2px solid var(--border); box-shadow: var(--shadow-lg);
 }
-.team-photo { object-fit: cover; }
+.team-card .team-photo { object-fit: cover; border-radius: 50%; }
 .team-photo-placeholder { background: var(--bg-alt); border-style: dashed; box-shadow: none; }
 .team-card-body { display: flex; flex: 1; flex-direction: column; width: 100%; }
 .team-card-body h2 { margin-bottom: .35rem; font-size: 1.3rem; }
