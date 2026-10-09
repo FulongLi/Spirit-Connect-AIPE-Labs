@@ -37,9 +37,12 @@
     <div>
       <strong>{{ t.footer_company }}</strong>
       <p class="small">
-        {% for link in site.data.presentation.company_links %}
-        <a href="{{ lp | append: link.url | relative_url }}">{{ link.title[lang] }}</a>{% unless forloop.last %}<br>{% endunless %}
-        {% endfor %}
+        <a href="{{ lp | append: '/company/about/' | relative_url }}">{{ t.footer_about }}</a><br>
+        <a href="{{ lp | append: '/company/team/' | relative_url }}">{{ t.footer_team }}</a><br>
+        <a href="{{ lp | append: '/company/careers/' | relative_url }}">{{ t.footer_careers }}</a><br>
+        <a href="{{ lp | append: '/company/faq/' | relative_url }}">{{ t.footer_faq }}</a><br>
+        <a href="{{ lp | append: '/news/' | relative_url }}">{{ t.footer_news }}</a><br>
+        <a href="{{ lp | append: '/contact/' | relative_url }}">{{ t.footer_contact }}</a>
       </p>
     </div>
     <div>

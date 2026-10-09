@@ -23,7 +23,18 @@ image: /images/background/sst.png
       <a class="btn btn-primary" href="#claude-code">Use with Claude Code</a>
       <a class="btn btn-ghost" href="{{ rec_skills.repository }}" rel="noopener">View on GitHub ↗</a>
     </div>
-    <p class="plugin-status-note" id="status"><span id="next"></span>Use the public index today. The installable plugin is still in design. <a href="#future">View the plan →</a></p>
+    <div class="plugin-status" id="status">
+      <div>
+        <span class="plugin-status-label">Available now</span>
+        <p><strong>Use AIPE today, with nothing to install</strong> {% include status-badge.html status='available' %}</p>
+        <p>Give your agent one link and add the reusable AIPE skills you need.</p>
+      </div>
+      <div id="next">
+        <span class="plugin-status-label">Coming next</span>
+        <p><strong>Installable AIPE Plugin</strong> {% include status-badge.html status='planned' %}</p>
+        <p>In design. No plugin package has been released yet.</p>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -33,6 +44,30 @@ image: /images/background/sst.png
     <a href="#claude-code">Claude Code</a>
   </div>
 </nav>
+
+<section class="section" id="capabilities">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">What it can access</span><h2>Engineering capabilities, ready for your agent.</h2></div>
+      <p>Each area lists the AIPE projects behind it and how mature they are, so you know what to rely on and what to check.</p>
+    </div>
+    {% include plugin-capabilities.html lang='en' %}
+  </div>
+</section>
+
+<section class="section section-alt" id="how-it-works">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">How it works</span><h2>Your project stays yours.</h2></div>
+      <p>Your agent keeps working in your own project and tools. AIPE adds the engineering data, models and workflows it needs, and each one stays maintained where it is published.</p>
+    </div>
+    <ol class="plugin-flow">
+      <li><strong>Your engineering project</strong><span>Codex, Claude Code or another coding agent</span></li>
+      <li class="plugin-flow-accent"><strong>AIPE Plugin</strong><span>Finds and loads what the task needs</span></li>
+      <li><strong>AIPE ecosystem</strong><span>Data · Models · Tools · Agents · Workflows</span></li>
+    </ol>
+  </div>
+</section>
 
 <section class="section" id="now">
   <div class="container">
@@ -69,18 +104,8 @@ image: /images/background/sst.png
   </div>
 </section>
 
-<section class="section" id="capabilities">
+<section class="section section-alt" id="future">
   <div class="container">
-    <div class="hub-section-heading">
-      <div><span class="section-kicker">What it can access</span><h2>Engineering capabilities, ready for your agent.</h2></div>
-      <p>Each area lists the AIPE projects behind it and how mature they are, so you know what to rely on and what to check.</p>
-    </div>
-    {% include plugin-capabilities.html lang='en' %}
-  </div>
-</section>
-
-<section class="section plugin-future-section" id="future">
-  <div class="container"><details class="editorial-details"><summary>Coming next: the installable AIPE Plugin</summary>
     <div class="hub-section-heading">
       <div><span class="section-kicker">Coming next</span><h2>The installable AIPE Plugin.</h2></div>
       <p>Install it once, and your agent will recognise the engineering task in your project, bring in the matching AIPE capabilities at a fixed version, and keep assumptions and evidence open for review. It stays lightweight: data, tools and skills keep evolving in their own projects.</p>
@@ -91,7 +116,7 @@ image: /images/background/sst.png
       <li>Keeps calculations, sources and checks reviewable.</li>
       <li>Loads each capability from where it is maintained, rather than bundling copies.</li>
     </ul>
-  </details></div>
+  </div>
 </section>
 
 <section class="section">

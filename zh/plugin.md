@@ -24,7 +24,18 @@ image: /images/background/sst.png
       <a class="btn btn-primary" href="#claude-code">在 Claude Code 中使用</a>
       <a class="btn btn-ghost" href="{{ rec_skills.repository }}" rel="noopener">在 GitHub 上查看 ↗</a>
     </div>
-    <p class="plugin-status-note" id="status"><span id="next"></span>现在可通过公开索引使用。可安装的插件仍在设计中。 <a href="#future">查看计划 →</a></p>
+    <div class="plugin-status" id="status">
+      <div>
+        <span class="plugin-status-label">现在可用</span>
+        <p><strong>今天就能使用，无需安装任何内容</strong> {% include status-badge.html status='available' lang='zh' %}</p>
+        <p>给智能体一条链接，再按需加入可复用的 AIPE 技能。</p>
+      </div>
+      <div id="next">
+        <span class="plugin-status-label">即将推出</span>
+        <p><strong>可安装的 AIPE 插件</strong> {% include status-badge.html status='planned' lang='zh' %}</p>
+        <p>设计中，目前尚未发布任何插件安装包。</p>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -34,6 +45,30 @@ image: /images/background/sst.png
     <a href="#claude-code">Claude Code</a>
   </div>
 </nav>
+
+<section class="section" id="capabilities">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">可以使用的能力</span><h2>为你的智能体准备好的工程能力。</h2></div>
+      <p>每个方向都列出背后的 AIPE 项目及其成熟度，让你清楚哪些可以依赖、哪些需要再核实。</p>
+    </div>
+    {% include plugin-capabilities.html lang='zh' %}
+  </div>
+</section>
+
+<section class="section section-alt" id="how-it-works">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">工作方式</span><h2>项目始终是你自己的。</h2></div>
+      <p>智能体继续在你自己的项目和工具中工作。AIPE 为它补充所需的工程数据、模型与工作流，而每一项能力都在各自发布的地方持续维护。</p>
+    </div>
+    <ol class="plugin-flow">
+      <li><strong>你的工程项目</strong><span>Codex、Claude Code 或其他 Coding Agent</span></li>
+      <li class="plugin-flow-accent"><strong>AIPE 插件</strong><span>找到并加载当前任务所需的能力</span></li>
+      <li><strong>AIPE 生态</strong><span>数据 · 模型 · 工具 · 智能体 · 工作流</span></li>
+    </ol>
+  </div>
+</section>
 
 <section class="section" id="now">
   <div class="container">
@@ -70,18 +105,8 @@ image: /images/background/sst.png
   </div>
 </section>
 
-<section class="section" id="capabilities">
+<section class="section section-alt" id="future">
   <div class="container">
-    <div class="hub-section-heading">
-      <div><span class="section-kicker">可以使用的能力</span><h2>为你的智能体准备好的工程能力。</h2></div>
-      <p>每个方向都列出背后的 AIPE 项目及其成熟度，让你清楚哪些可以依赖、哪些需要再核实。</p>
-    </div>
-    {% include plugin-capabilities.html lang='zh' %}
-  </div>
-</section>
-
-<section class="section plugin-future-section" id="future">
-  <div class="container"><details class="editorial-details"><summary>即将推出：可安装的 AIPE 插件</summary>
     <div class="hub-section-heading">
       <div><span class="section-kicker">即将推出</span><h2>可安装的 AIPE 插件。</h2></div>
       <p>只需安装一次，智能体就能识别你项目中的工程任务，按固定版本引入匹配的 AIPE 能力，并让假设与证据始终可供审查。插件保持轻量：数据、工具与技能继续在各自的项目中演进。</p>
@@ -92,7 +117,7 @@ image: /images/background/sst.png
       <li>让计算、来源与检查过程始终可审查。</li>
       <li>从各项能力的维护处直接加载，而不是打包副本。</li>
     </ul>
-  </details></div>
+  </div>
 </section>
 
 <section class="section">

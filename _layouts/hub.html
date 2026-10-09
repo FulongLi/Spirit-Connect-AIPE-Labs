@@ -44,18 +44,32 @@ layout: default
 </nav>
 
 {%- if is_overview %}
-{%- assign public_items = hub.artifacts | where_exp: 'item', "item.category != 'platform'" %}
-<section class="section hub-browse-section">
+<section class="section hub-overview-section">
   <div class="container">
-    <div class="hub-section-heading"><div><span class="section-kicker">{{ public_items.size }} {{ t.hub_artifacts }}</span><h2>{% if lang == 'zh' %}为你的项目寻找资源。{% else %}Find a resource for your project.{% endif %}</h2></div><p>{% if lang == 'zh' %}按上方类型浏览，或选择工程领域。每项资源都标明当前状态。{% else %}Browse by type above, or choose an engineering domain. Each resource states its current status.{% endif %}</p></div>
-    {% include hub-domain-filter.html items=public_items lang=lang %}
-    <p class="hub-overview-empty" hidden>{{ t.hub_filter_empty }}</p>
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{% if lang == 'zh' %}按产物类型浏览{% else %}Browse by artifact{% endif %}</span><h2>{% if lang == 'zh' %}五类可复用的工程产物{% else %}Five kinds of reusable engineering artifact{% endif %}</h2></div>
+    </div>
+    <div class="hub-category-grid">
+      {%- for cat in hub.categories %}{% include hub-category-card.html category=cat index=forloop.index lang=lang %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt hub-matrix-section">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{% if lang == 'zh' %}两个发现维度{% else %}Two directions of discovery{% endif %}</span><h2>{% if lang == 'zh' %}工程领域 × 产物类型{% else %}Engineering domain × artifact type{% endif %}</h2></div>
+      <p>{% if lang == 'zh' %}每个单元格统计同时属于该领域和该类别的 Hub 条目。空白单元格表示 Hub 尚未覆盖的地方——欢迎贡献。{% else %}Each cell counts Hub artifacts in that domain and category. Empty cells show where the hub has not grown yet — and where contributions are welcome.{% endif %}</p>
+    </div>
+    {% include domain-matrix.html lang=lang %}
+    <p class="hub-filter-intro">{{ t.hub_filter_overview_intro }}</p>
+    {% include hub-domain-filter.html items=hub.artifacts lang=lang %}
   </div>
 </section>
 
 {%- for cat in hub.categories %}
 {%- assign cat_items = hub.artifacts | where: "category", cat.key %}
-<section class="section hub-listing hub-overview-listing" id="{{ cat.key }}">
+<section class="section hub-listing{% cycle '', ' section-alt' %}" id="{{ cat.key }}">
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">{{ forloop.index | prepend: '0' | slice: -2, 2 }} · {{ cat_items.size }} {{ t.hub_artifacts }}</span><h2>{{ cat.title[lang] }}</h2></div>
@@ -69,15 +83,37 @@ layout: default
 </section>
 {%- endfor %}
 
-<section class="section hub-reference-section">
+{%- assign platform = hub.artifacts | where: "category", "platform" %}
+<section class="section section-alt hub-platform-section" id="platform">
   <div class="container">
-    <details class="editorial-details" id="domain-index"><summary>{% if lang == 'zh' %}按工程领域与资源类型查看总览{% else %}View the domain and resource type index{% endif %}</summary>{% include domain-matrix.html lang=lang %}</details>
-    {%- assign platform = hub.artifacts | where: 'category', 'platform' %}
-    <details class="editorial-details" id="platform"><summary>{% if lang == 'zh' %}平台基础设施与开发者资源{% else %}Platform infrastructure & developer resources{% endif %}</summary><div class="artifact-grid">
-      {%- for item in platform %}{% include artifact-card.html item=item lang=lang %}{% endfor %}
-    </div></details>
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{% if lang == 'zh' %}平台层{% else %}Platform layer{% endif %}</span><h2>{% if lang == 'zh' %}让产物彼此连接的基础设施{% else %}The infrastructure that connects the artifacts{% endif %}</h2></div>
+      <p>{% if lang == 'zh' %}Core 定义共同的工程语言，Registry 负责发现，Academy 负责教学，本网站负责展示。{% else %}Core defines the common engineering language, Registry handles discovery, Academy teaches, and this website presents.{% endif %}</p>
+    </div>
+    <div class="artifact-grid" data-hub-grid>
+      {%- for item in platform %}{% include artifact-card.html item=item compact=true lang=lang %}{% endfor %}
+    </div>
+    <p class="hub-filter-empty" hidden>{{ t.hub_filter_empty }}</p>
   </div>
 </section>
+
+{%- assign linked_explorations = "" | split: "" %}
+{%- for entry in site.explorations %}
+  {%- if entry.lang == lang %}{% assign entry_links = entry.hub.uses | size | plus: entry.hub.produces.size %}{% if entry_links > 0 %}{% assign linked_explorations = linked_explorations | push: entry %}{% endif %}{% endif %}
+{%- endfor %}
+{%- if linked_explorations.size > 0 %}
+<section class="section hub-explorations-section" id="explorations">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{{ t.explorations_hub_section_kicker }}</span><h2>{{ t.explorations_hub_section_title }}</h2></div>
+      <p>{{ t.explorations_hub_section_intro }} <a href="{{ lp | append: '/explorations/' | relative_url }}">{{ t.nav_explorations }} →</a></p>
+    </div>
+    <div class="exploration-grid">
+      {%- for entry in linked_explorations %}{% include exploration-card.html entry=entry lang=lang %}{% endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
 
 {%- else %}
 <section class="section hub-listing">

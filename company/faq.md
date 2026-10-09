@@ -32,7 +32,7 @@ description: Frequently asked questions about AIPE Labs, aipe.md, coding-agent a
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Is the Claude/Codex Plugin something I install?<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>The public index needs no installation: your coding agent reads <code>aipe.md</code> and follows the published links. Individual Simulation Skills can be added as their repository describes. An installable AIPE Plugin is in design and no package has been released yet. See the <a href="{{ '/plugin/' | relative_url }}">Plugin guide</a> for current usage instructions.</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>No. “Plugin” is a convenient name for the current agent entry point. There is no browser extension or software package to install: your coding agent reads <code>aipe.md</code> and follows the published links. More deeply integrated skills and agents may be added as the project develops.</p></div></div>
       </div>
 
       <div class="faq-item">

@@ -80,7 +80,6 @@ layout: default
   </div>
 </section>
 
-{%- if progress.size > 0 %}
 <section class="section section-alt" id="in-progress">
   <div class="container">
     <div class="hub-section-heading">
@@ -96,11 +95,7 @@ layout: default
     {%- endif %}
   </div>
 </section>
-{%- else %}
-<div class="container exploration-empty-note" id="in-progress"><strong>{{ t.explorations_in_progress }}</strong><p>{{ t.explorations_progress_empty }}</p></div>
-{%- endif %}
 
-{%- if concluded.size > 0 %}
 <section class="section" id="findings">
   <div class="container">
     <div class="hub-section-heading">
@@ -116,12 +111,9 @@ layout: default
     {%- endif %}
   </div>
 </section>
-{%- else %}
-<div class="container exploration-empty-note" id="findings"><strong>{{ t.explorations_findings }}</strong><p>{{ t.explorations_findings_empty }}</p></div>
-{%- endif %}
 
 <section class="section section-alt" id="status">
-  <div class="container"><details class="editorial-details"><summary>{{ t.explorations_status_kicker }}</summary>
+  <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">{{ t.explorations_status_kicker }}</span><h2>{{ t.explorations_status_title }}</h2></div>
       <p>{{ t.explorations_status_intro }}</p>
@@ -134,11 +126,11 @@ layout: default
       </div>
       {%- endfor %}
     </dl>
-  </details>  </div>
+  </div>
 </section>
 
 <section class="section" id="principles">
-  <div class="container"><details class="editorial-details"><summary>{{ t.explorations_principles_kicker }}</summary>
+  <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">{{ t.explorations_principles_kicker }}</span><h2>{{ t.explorations_principles_title }}</h2></div>
       <p>{{ t.explorations_principles_intro }}</p>
@@ -152,7 +144,7 @@ layout: default
       </div>
       {%- endfor %}
     </div>
-  </details>  </div>
+  </div>
 </section>
 
 <section class="section section-alt" id="hub">
