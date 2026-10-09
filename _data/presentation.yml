@@ -1,50 +1,35 @@
-# Copy for the retained bilingual About pages.
-company_links:
-  - url: /company/about/
-    title: {en: About, zh: 关于我们}
-  - url: /company/team/
-    title: {en: Team, zh: 团队}
-  - url: /company/careers/
-    title: {en: Careers, zh: 加入我们}
-  - url: /company/faq/
-    title: {en: FAQ, zh: 常见问题}
-  - url: /news/
-    title: {en: News, zh: 新闻}
-  - url: /contact/
-    title: {en: Contact, zh: 联系我们}
-home:
-  collaborate_action: {en: Get in touch, zh: 联系我们}
+# Human-facing copy for the bilingual About pages.
 about:
-  kicker: {en: About AIPE Labs, zh: 关于 AIPE Labs}
-  title: {en: "Engineering knowledge should be a foundation we share.", zh: "让工程知识，成为大家共同的基石。"}
+  title: {en: About AIPE Labs, zh: 关于 AIPE Labs}
   intro:
-    en: "AIPE Labs is an open power engineering initiative by Spirit Connect. We bring together knowledge, data and tools that engineers — and their AI agents — can build on."
-    zh: "AIPE Labs 是 Spirit Connect 发起的开放电力工程项目。我们汇集知识、数据与工具，让工程师和他们的 AI 助手都能在此基础上继续构建。"
-  action: {en: Explore our work, zh: 查看我们的工作}
-  mission_kicker: {en: Our purpose, zh: 我们的使命}
-  mission_title: {en: "Make it easier to learn, build and contribute.", zh: "让学习、实践与贡献变得更容易。"}
+    en: "AIPE Labs is an open resource platform for power electronics and power engineering. We bring together learning material, engineering data and practical tools, helping students, engineers and researchers find useful resources and put them to work."
+    zh: "AIPE Labs 是一个面向电力电子与电力工程的开放资源平台。我们整合学习资料、工程数据与实用工具，帮助学习者、工程师和研究者更高效地检索和使用资源，将知识应用于实践。"
+  action: {en: Browse resources, zh: 浏览工程资源}
+  mission_kicker: {en: What the platform brings together, zh: 平台整合的资源}
+  mission_title: {en: "Knowledge, data and tools, connected.", zh: "汇集资源，连接学习与实践。"}
   mission_text:
-    en: "AIPE began as AI for Power Electronics. As the work grew from devices and converters towards energy systems, it became AI for Power Engineering. The ambition is the same: turn engineering experience into an open foundation that others can use, question and improve."
-    zh: "AIPE 最初代表 AI for Power Electronics，随着工作从器件和变换器拓展到能源系统，逐步演进为 AI for Power Engineering。我们的初衷始终如一：把工程经验变成开放的基础，让更多人能够使用、质疑并改进它。"
+    en: "Useful engineering resources are often scattered across courses, publications and individual projects. AIPE brings them into a shared index, connecting a question or task with relevant knowledge, data and tools. Our scope spans devices, converters and power systems, with each resource's source and current status made visible."
+    zh: "有价值的工程资源往往分散在课程、文献和各类项目中。AIPE 将这些资源汇集到统一索引中，让学习问题与工程任务能够连接到相关的知识、数据和工具。平台覆盖器件、变换器与电力系统，并清楚标明各项资源的来源和当前状态。"
   scales:
-    - title: {en: Devices, zh: 器件}
-      text: {en: "Understand the components through characterisation, data and modelling.", zh: "通过表征、数据与建模，理解元器件。"}
-    - title: {en: Converters, zh: 变换器}
-      text: {en: "Connect topology, magnetics and control through design and simulation.", zh: "以设计和仿真连接拓扑、磁性元件与控制。"}
-    - title: {en: Systems, zh: 系统}
-      text: {en: "Place each design in the wider context of power and energy infrastructure.", zh: "把每一项设计放到电力与能源基础设施中考量。"}
+    - title: {en: Learning resources, zh: 学习资源}
+      text: {en: "Find explanations, tutorials and open labs, from fundamental principles to engineering applications.", zh: "从基础原理到工程应用，查找知识讲解、教程与开放实验。"}
+    - title: {en: Engineering data, zh: 工程数据}
+      text: {en: "Explore component data, models and reference designs with traceable sources.", zh: "查阅器件数据、模型与参考设计，并追溯其来源。"}
+    - title: {en: Practical tools, zh: 实用工具}
+      text: {en: "Discover engineering software, simulation workflows and AI-assisted tools for your next task.", zh: "为实际任务寻找工程软件、仿真工作流与 AI 辅助工具。"}
   founder_kicker: {en: A note from the founder, zh: 创始人的话}
   founder_title: {en: Why I built AIPE, zh: 为什么我想做 AIPE}
   founder_intro:
-    en: "After more than a decade in power electronics and energy, I wanted to turn what I had learnt into something others could build upon. My hope is that AIPE helps more people find their interests, develop their abilities and contribute work they care about."
-    zh: "在电力电子和能源领域学习、研究与工作十多年后，我想把积累下来的经验变成一块基石。我希望 AIPE 能帮助更多人找到兴趣、发展能力，并投入自己真正在乎的工作。"
+    en: "After more than a decade of studying, researching and working in power electronics and energy, I wanted to make the knowledge and resources I had gathered easier for others to find and use. AIPE is my way of turning that experience into an open platform others can learn from, contribute to and build upon."
+    zh: "在电力电子与能源领域学习、研究和工作十多年后，我希望把积累的知识与资源整理出来，让更多人能够方便地找到并使用。AIPE 是我把这些经验转化为开放平台的一次尝试，让大家能够在此学习、贡献，并继续构建自己的成果。"
   founder_name: {en: Fulong Li, zh: 李富龙}
   founder_role: {en: "Founder, AIPE Labs", zh: AIPE Labs 创始人}
   founder_read: {en: Read the full founder's letter, zh: 阅读创始人的完整文字}
   loop_kicker: {en: The longer-term vision, zh: 长期愿景}
-  loop_title: {en: "Better engineering. Better foundations for AI.", zh: "更好的工程实践，更扎实的 AI 基础。"}
+  loop_title: {en: "An open foundation that grows through practice.", zh: "开放共享，持续完善。"}
   loop_intro:
-    en: "AI can help engineers design power systems. Those systems provide energy for computing. Sharing the data, models and lessons from each project can make the next one better."
-    zh: "AI 帮助工程师设计电力系统，电力系统为计算提供能源。把项目中的数据、模型和经验分享出来，让下一次设计拥有更好的起点。"
+    en: "AIPE began as AI for Power Electronics and has grown towards the wider field of power engineering. Our long-term aim is a shared foundation that people and their AI tools can use and improve. Each contribution of knowledge, data or practical experience gives the next project a better starting point."
+    zh: "AIPE 从 AI for Power Electronics 起步，逐步拓展到更广泛的电力工程领域。我们希望建立一个人与 AI 工具都能使用和完善的共享基础，让每一次知识、数据和实践经验的贡献，都成为后续工作的更好起点。"
   contact_title: {en: Let's build the next part together., zh: 一起继续向前。}
   contact_intro: {en: "We welcome engineers, researchers and organisations who want to contribute to open power engineering.", zh: "欢迎工程师、研究者和企业参与开放电力工程的建设。"}
+  contact_action: {en: Get in touch, zh: 联系我们}

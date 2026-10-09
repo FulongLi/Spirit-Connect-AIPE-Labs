@@ -3,25 +3,16 @@ layout: default
 ---
 <link rel="stylesheet" href="{{ '/assets/about.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 <div class="about-page">
-{% include company-nav.html %}
 {% assign lang = page.lang | default: 'en' %}
 {% if lang == 'zh' %}{% assign lp = '/zh' %}{% else %}{% assign lp = '' %}{% endif %}
 {% assign about = site.data.presentation.about %}
-<header class="about-hero">
-  <div class="container about-hero-layout">
-    <div><span class="section-kicker">{{ about.kicker[lang] }}</span><h1>{{ about.title[lang] }}</h1></div>
-    <div class="about-hero-intro"><p class="lead">{{ about.intro[lang] }}</p><a class="editorial-link" href="{{ lp | append: '/hub/' | relative_url }}">{{ about.action[lang] }} <span aria-hidden="true">↗</span></a></div>
+<header class="hero hero-compact">
+  <div class="container">
+    <h1>{{ about.title[lang] }}</h1>
+    <p class="lead">{{ about.intro[lang] }}</p>
+    <a class="btn btn-primary" href="{{ lp | append: '/hub/' | relative_url }}">{{ about.action[lang] }} <span aria-hidden="true">→</span></a>
   </div>
 </header>
-
-<section class="section about-mission">
-  <div class="container about-split">
-    <div><span class="section-kicker">{{ about.mission_kicker[lang] }}</span><h2>{{ about.mission_title[lang] }}</h2></div>
-    <div><p>{{ about.mission_text[lang] }}</p><ol class="about-scales">
-      {% for scale in about.scales %}<li><span>0{{ forloop.index }}</span><div><h3>{{ scale.title[lang] }}</h3><p>{{ scale.text[lang] }}</p></div></li>{% endfor %}
-    </ol></div>
-  </div>
-</section>
 
 <section class="section section-alt founder-section" id="why-i-built-aipe">
   <div class="container">
@@ -35,7 +26,16 @@ layout: default
   </div>
 </section>
 
-<section class="section about-loop">
+<section class="section about-mission">
+  <div class="container about-split">
+    <div><span class="section-kicker">{{ about.mission_kicker[lang] }}</span><h2>{{ about.mission_title[lang] }}</h2></div>
+    <div><p>{{ about.mission_text[lang] }}</p><ol class="about-scales">
+      {% for scale in about.scales %}<li><span>0{{ forloop.index }}</span><div><h3>{{ scale.title[lang] }}</h3><p>{{ scale.text[lang] }}</p></div></li>{% endfor %}
+    </ol></div>
+  </div>
+</section>
+
+<section class="section section-alt about-loop">
   <div class="container">
     <div class="hub-section-heading"><div><span class="section-kicker">{{ about.loop_kicker[lang] }}</span><h2>{{ about.loop_title[lang] }}</h2></div><p>{{ about.loop_intro[lang] }}</p></div>
     {% include design-loop.html lang=lang %}
@@ -43,7 +43,7 @@ layout: default
 </section>
 
 <section class="section home-invitation">
-  <div class="container invitation-layout"><div><h2>{{ about.contact_title[lang] }}</h2><p>{{ about.contact_intro[lang] }}</p></div><a class="btn btn-primary" href="{{ lp | append: '/contact/' | relative_url }}">{{ site.data.presentation.home.collaborate_action[lang] }}</a></div>
+  <div class="container invitation-layout"><div><h2>{{ about.contact_title[lang] }}</h2><p>{{ about.contact_intro[lang] }}</p></div><a class="btn btn-primary" href="{{ lp | append: '/contact/' | relative_url }}">{{ about.contact_action[lang] }}</a></div>
 </section>
 
 </div>
