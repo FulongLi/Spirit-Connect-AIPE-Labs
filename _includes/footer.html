@@ -3,37 +3,58 @@
 {% assign current_year = site.time | date: '%Y' %}
 {%- if lang == 'zh' -%}{%- assign lp = '/zh' -%}{%- else -%}{%- assign lp = '' -%}{%- endif -%}
 <footer class="footer">
-  <div class="container footer-main">
-    <div class="footer-brand">
-      <img class="footer-logo" src="{{ '/images/general/SC_black.svg' | relative_url }}" alt="Spirit Connect Logo">
-      <div>
-        <strong class="footer-name">AIPE Labs</strong>
-        <span class="footer-tagline">{{ t.footer_tagline }}</span>
-        <span class="footer-company-name">Spirit Connect Ltd.</span>
-        <a class="footer-email" href="mailto:info@spiritconnect.co.uk">info@spiritconnect.co.uk</a>
+  <div class="container cols">
+    <div>
+      <div class="brand footer-brand">
+        <img class="footer-logo" src="{{ '/images/general/SC_black.svg' | relative_url }}" alt="Spirit Connect Logo">
+        <div>
+          <strong class="footer-name">AIPE Labs</strong>
+          <span class="small footer-company-name">Spirit Connect</span>
+          <span class="small footer-tagline">{{ t.footer_tagline }}</span>
+        </div>
       </div>
+      <p class="small footer-contact">
+        {{ t.footer_location }} ·
+        <a href="mailto:info@spiritconnect.co.uk">info@spiritconnect.co.uk</a>
+      </p>
     </div>
-    <nav class="footer-links" aria-label="{{ t.footer_explore }}">
-      <strong>{{ t.footer_explore }}</strong>
-      <a href="{{ lp | append: '/hub/' | relative_url }}">{{ t.nav_hub }}</a>
-      <a href="{{ lp | append: '/academy/' | relative_url }}">{{ t.nav_academy }}</a>
-      <a href="{{ lp | append: '/explorations/' | relative_url }}">{{ t.nav_explorations }}</a>
-      <a href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a>
-    </nav>
-    <nav class="footer-links" aria-label="{{ t.footer_company }}">
+    <div>
+      <strong>{{ t.footer_hub }}</strong>
+      <p class="small">
+        {%- for category in site.data.hub.categories %}
+        <a href="{{ lp | append: category.url | relative_url }}">{{ category.title[lang] }}</a>{% unless forloop.last %}<br>{% endunless %}
+        {%- endfor %}
+      </p>
+    </div>
+    <div>
+      <strong>{{ t.footer_learn }}</strong>
+      <p class="small">
+        <a href="{{ lp | append: '/academy/' | relative_url }}">{{ t.nav_academy }}</a><br>
+        <a href="{{ lp | append: '/explorations/' | relative_url }}">{{ t.nav_explorations }}</a><br>
+        <a href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a>
+      </p>
+    </div>
+    <div>
       <strong>{{ t.footer_company }}</strong>
-      <a href="{{ lp | append: '/company/about/' | relative_url }}">{{ t.footer_about }}</a>
-      <a href="{{ lp | append: '/news/' | relative_url }}">{{ t.footer_news }}</a>
-      <a href="{{ lp | append: '/contact/' | relative_url }}">{{ t.footer_contact }}</a>
-    </nav>
+      <p class="small">
+        <a href="{{ lp | append: '/company/about/' | relative_url }}">{{ t.footer_about }}</a><br>
+        <a href="{{ lp | append: '/news/' | relative_url }}">{{ t.footer_news }}</a><br>
+        <a href="{{ lp | append: '/contact/' | relative_url }}">{{ t.footer_contact }}</a>
+      </p>
+    </div>
+    <div>
+      <strong>{{ t.footer_legal }}</strong>
+      <p class="small">
+        <a href="{{ lp | append: '/legal/privacy/' | relative_url }}">{{ t.footer_privacy }}</a><br>
+        <a href="{{ lp | append: '/legal/terms/' | relative_url }}">{{ t.footer_terms }}</a><br>
+        <a href="{{ lp | append: '/legal/cookies/' | relative_url }}">{{ t.footer_cookies }}</a>
+      </p>
+    </div>
   </div>
 
   <div class="container footer-bottom">
-    <p>© {{ current_year }} {{ t.footer_rights }}</p>
-    <nav class="footer-legal" aria-label="{{ t.footer_legal }}">
-      <a href="{{ lp | append: '/legal/privacy/' | relative_url }}">{{ t.footer_privacy }}</a>
-      <a href="{{ lp | append: '/legal/terms/' | relative_url }}">{{ t.footer_terms }}</a>
-      <a href="{{ lp | append: '/legal/cookies/' | relative_url }}">{{ t.footer_cookies }}</a>
-    </nav>
+    <p class="small">
+      © {{ current_year }} {{ t.footer_rights }}
+    </p>
   </div>
 </footer>

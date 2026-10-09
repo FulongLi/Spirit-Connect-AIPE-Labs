@@ -41,25 +41,62 @@
     {%- endif -%}
   {%- endfor -%}
 {%- endif -%}
-{%- assign section_path = base_path -%}
-{%- if page.collection == 'explorations' -%}{%- assign section_path = '/explorations/' -%}{%- endif -%}
 <header class="nav">
   <div class="container nav-inner">
     <a class="brand" href="{{ lp | append: '/' | relative_url }}">
       <img class="nav-logo" src="{{ '/images/general/AIPE_logo_black.svg' | relative_url }}" alt="AIPE Labs">
     </a>
     <nav id="mainmenu" class="menu">
-      <a href="{{ lp | append: '/hub/' | relative_url }}"{% if section_path contains '/hub/' %} aria-current="page"{% endif %}>{{ t.nav_hub }}</a>
-      <a href="{{ lp | append: '/academy/' | relative_url }}"{% if section_path contains '/academy/' or page.academy_page %} aria-current="page"{% endif %}>{{ t.nav_academy }}</a>
-      <a href="{{ lp | append: '/explorations/' | relative_url }}"{% if section_path contains '/explorations/' %} aria-current="page"{% endif %}>{{ t.nav_explorations }}</a>
-      <a href="{{ lp | append: '/plugin/' | relative_url }}"{% if section_path contains '/plugin/' %} aria-current="page"{% endif %}>{{ t.nav_plugin }}</a>
+      <div class="dropdown">
+        <div class="drop-head">
+          <a class="drop-label" href="{{ lp | append: '/hub/' | relative_url }}">{{ t.nav_hub }}</a>
+          <button class="drop-toggle" aria-expanded="false" aria-label="{{ t.nav_hub }} {{ t.nav_submenu }}">▾</button>
+        </div>
+        <div class="drop-menu">
+          {%- for category in site.data.hub.categories %}
+          <a href="{{ lp | append: category.url | relative_url }}">{{ category.title[lang] }}</a>
+          {%- endfor %}
+        </div>
+      </div>
+      <div class="dropdown">
+        <div class="drop-head">
+          <a class="drop-label" href="{{ lp | append: '/academy/' | relative_url }}">{{ t.nav_academy }}</a>
+          <button class="drop-toggle" aria-expanded="false" aria-label="{{ t.nav_academy }} {{ t.nav_submenu }}">▾</button>
+        </div>
+        <div class="drop-menu">
+          {%- for stage in site.data.academy.stages %}
+          <a href="{{ lp | append: '/academy/#stage-' | append: stage.key | relative_url }}">{{ stage.title[lang] }}</a>
+          {%- endfor %}
+          <a href="{{ lp | append: '/academy/#labs' | relative_url }}">{{ t.nav_academy_labs }}</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <div class="drop-head">
+          <a class="drop-label" href="{{ lp | append: '/explorations/' | relative_url }}">{{ t.nav_explorations }}</a>
+          <button class="drop-toggle" aria-expanded="false" aria-label="{{ t.nav_explorations }} {{ t.nav_submenu }}">▾</button>
+        </div>
+        <div class="drop-menu">
+          <a href="{{ lp | append: '/explorations/#questions' | relative_url }}">{{ t.nav_explorations_questions }}</a>
+          <a href="{{ lp | append: '/explorations/#in-progress' | relative_url }}">{{ t.nav_explorations_investigations }}</a>
+          <a href="{{ lp | append: '/explorations/#findings' | relative_url }}">{{ t.nav_explorations_findings }}</a>
+          <a href="{{ lp | append: '/explorations/#contribute' | relative_url }}">{{ t.nav_explorations_contribute }}</a>
+        </div>
+      </div>
+      <a class="nav-plugin" href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a>
+      <a class="nav-partner-mobile" href="{{ lp | append: '/contact/' | relative_url }}">{{ t.nav_contact }}</a>
     </nav>
     <div class="nav-right">
-      <div class="lang-switch" role="group" aria-label="{{ t.lang_switch_label }}">
-        <a href="{{ en_url | relative_url }}" lang="en" hreflang="en"{% if lang != 'zh' %} class="lang-active" aria-current="true"{% endif %}>EN</a>
-        <span aria-hidden="true">/</span>
-        <a href="{{ zh_url | relative_url }}" lang="zh" hreflang="zh"{% if lang == 'zh' %} class="lang-active" aria-current="true"{% endif %}>中文</a>
+      <div class="dropdown lang-switch">
+        <button class="drop-toggle" aria-expanded="false">
+          <svg class="lang-globe" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          {{ t.lang_label }} ▾
+        </button>
+        <div class="drop-menu drop-menu-right">
+          <a href="{{ en_url | relative_url }}"{% if lang != 'zh' %} class="lang-active"{% endif %}>{{ t.lang_english }}</a>
+          <a href="{{ zh_url | relative_url }}"{% if lang == 'zh' %} class="lang-active"{% endif %}>{{ t.lang_chinese }}</a>
+        </div>
       </div>
+      <a href="{{ lp | append: '/contact/' | relative_url }}" class="cta desktop-cta">{{ t.nav_contact }}</a>
       <button class="hamburger" aria-label="Open menu" aria-controls="mainmenu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
