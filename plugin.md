@@ -38,6 +38,13 @@ image: /images/background/sst.png
   </div>
 </header>
 
+<nav class="hub-tabs section-tabs" aria-label="Plugin sections">
+  <div class="container">
+    <a href="#codex">Codex</a>
+    <a href="#claude-code">Claude Code</a>
+  </div>
+</nav>
+
 <section class="section" id="capabilities">
   <div class="container">
     <div class="hub-section-heading">
