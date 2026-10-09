@@ -29,6 +29,9 @@ en:
   footer_company: "Company"
   footer_legal: "Legal"
   footer_about: "About"
+  footer_team: "Team"
+  footer_careers: "Careers"
+  footer_faq: "FAQ"
   footer_news: "News"
   footer_contact: "Contact"
   footer_privacy: "Privacy"
@@ -73,7 +76,7 @@ en:
   hub_search_suggestions: [SiC, Buck, Magnetics, LTspice, Schematic, DAB]
   # academy (UI chrome only; lesson titles and bodies come from AIPE Academy)
   academy_kicker: "AIPE Academy · AI for Power Engineering"
-  academy_start: "Start learning"
+  academy_start: "Start with orientation"
   academy_labs: "Open labs"
   academy_sections: "Academy sections"
   academy_lessons: "Lessons"
@@ -211,6 +214,9 @@ zh:
   footer_company: "公司"
   footer_legal: "法律"
   footer_about: "关于我们"
+  footer_team: "团队"
+  footer_careers: "加入我们"
+  footer_faq: "常见问题"
   footer_news: "新闻"
   footer_contact: "联系我们"
   footer_privacy: "隐私"

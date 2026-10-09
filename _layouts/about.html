@@ -1,6 +1,9 @@
 ---
 layout: default
 ---
+<link rel="stylesheet" href="{{ '/assets/about.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<div class="about-page">
+{% include company-nav.html %}
 {% assign lang = page.lang | default: 'en' %}
 {% if lang == 'zh' %}{% assign lp = '/zh' %}{% else %}{% assign lp = '' %}{% endif %}
 {% assign about = site.data.presentation.about %}
@@ -42,3 +45,5 @@ layout: default
 <section class="section home-invitation">
   <div class="container invitation-layout"><div><h2>{{ about.contact_title[lang] }}</h2><p>{{ about.contact_intro[lang] }}</p></div><a class="btn btn-primary" href="{{ lp | append: '/contact/' | relative_url }}">{{ site.data.presentation.home.collaborate_action[lang] }}</a></div>
 </section>
+
+</div>

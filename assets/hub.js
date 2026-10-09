@@ -41,17 +41,10 @@
   function search(entries, query) {
     var terms = query.toLowerCase().split(/\s+/).filter(Boolean);
     if (!terms.length) return [];
-    var seenUrls = new Set();
     return entries
       .map(function (entry) { return { entry: entry, score: score(entry, terms) }; })
       .filter(function (hit) { return hit.score > 0; })
       .sort(function (a, b) { return b.score - a.score; })
-      .filter(function (hit) {
-        // A lesson can also be a Hub artifact. Show its best matching record once.
-        if (seenUrls.has(hit.entry.u)) return false;
-        seenUrls.add(hit.entry.u);
-        return true;
-      })
       .slice(0, 8)
       .map(function (hit) { return hit.entry; });
   }
@@ -148,7 +141,6 @@
     var buttons = group.querySelectorAll('[data-domain]');
 
     function apply(domain, updateUrl) {
-      var totalShown = 0;
       grids.forEach(function (grid) {
         var shown = 0;
         grid.querySelectorAll('[data-domains]').forEach(function (card) {
@@ -156,14 +148,9 @@
           card.hidden = !match;
           if (match) shown++;
         });
-        totalShown += shown;
-        var listing = grid.closest('.hub-overview-listing');
-        if (listing) listing.hidden = shown === 0;
         var empty = grid.parentElement.querySelector('.hub-filter-empty');
-        if (empty) empty.hidden = !!listing || shown > 0;
+        if (empty) empty.hidden = shown > 0;
       });
-      var overviewEmpty = document.querySelector('.hub-overview-empty');
-      if (overviewEmpty) overviewEmpty.hidden = totalShown > 0;
       buttons.forEach(function (button) { button.setAttribute('aria-pressed', button.dataset.domain === domain ? 'true' : 'false'); });
       if (updateUrl && window.history.replaceState) {
         var url = new URL(window.location.href);

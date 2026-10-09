@@ -1,4 +1,4 @@
-<script src="{{ '/assets/hub.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+<script src="{{ '/assets/hub.js' | relative_url }}" defer></script>
 <script>
 const burger = document.querySelector('.hamburger');
 const menu   = document.getElementById('mainmenu');
@@ -153,29 +153,4 @@ if (showcaseVideos.length) {
     showcaseVideos.forEach(video => videoObserver.observe(video));
   }
 }
-</script>
-<script>
-// Preserve direct links to information now presented in native disclosures.
-(function () {
-  function revealTarget(hash) {
-    if (!hash || hash === '#') return;
-    let id;
-    try { id = decodeURIComponent(hash.slice(1)); } catch (_) { return; }
-    const target = document.getElementById(id);
-    if (!target) return;
-    const ownDisclosure = target.matches('details') ? target : target.querySelector('.editorial-details');
-    if (ownDisclosure) ownDisclosure.open = true;
-    let parent = target.closest('details');
-    while (parent) {
-      parent.open = true;
-      parent = parent.parentElement.closest('details');
-    }
-  }
-  document.addEventListener('click', function (event) {
-    const link = event.target.closest('a[href^="#"]');
-    if (link) revealTarget(link.getAttribute('href'));
-  });
-  window.addEventListener('hashchange', function () { revealTarget(window.location.hash); });
-  revealTarget(window.location.hash);
-})();
 </script>

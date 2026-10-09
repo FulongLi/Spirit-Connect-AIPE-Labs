@@ -1,7 +1,6 @@
 {%- comment -%}
   AIPE Artifact Card — the presentation of one Hub artifact.
-  Params: item (an entry of site.data.hub.artifacts), compact (true for feeds),
-  lang, description (optional homepage editorial summary, never metadata).
+  Params: item (an entry of site.data.hub.artifacts), compact (true for feeds), lang.
 
   Metadata is never restated here. Registry artifacts read the mirrored
   /aipe.json record; Academy artifacts read the generated lesson page; only
@@ -21,7 +20,6 @@
 {%- assign card_id = nil -%}
 {%- assign card_minutes = nil -%}
 {%- assign card_href = nil -%}
-{%- assign card_other_lang = false -%}
 {%- if item.registry -%}
   {%- assign rec = site.data.registry.capabilities | where: "id", item.registry | first -%}
   {%- assign card_name = rec.name -%}
@@ -73,10 +71,6 @@
     {%- assign card_href = item.files | first -%}
   {%- endif -%}
 {%- endif -%}
-{%- if include.description -%}
-  {%- assign card_desc = include.description -%}
-  {%- assign card_desc_lang = card_lang -%}
-{%- endif -%}
 {%- assign card_external = false -%}
 {%- if card_href contains '://' -%}{%- assign card_external = true -%}{%- endif -%}
 <article class="artifact-card{% if include.compact %} artifact-card-compact{% endif %}" data-category="{{ item.category }}" data-domains="{{ item.domains | join: ' ' }}">
@@ -85,15 +79,10 @@
     {% include status-badge.html status=card_status lang=card_lang %}
   </div>
   <h3 class="artifact-name"><a href="{% if card_external %}{{ card_href }}{% else %}{{ card_href | relative_url }}{% endif %}"{% if card_external %} rel="noopener"{% endif %}>{{ card_name }}</a></h3>
-  <p class="artifact-desc"{% if card_desc_lang != card_lang %} lang="{{ card_desc_lang }}"{% endif %}>{{ card_desc }}</p>
-  {%- if include.compact %}
-  <p class="artifact-domain">{%- for key in item.domains -%}{%- assign domain = site.data.hub.domains | where: 'key', key | first -%}{{ domain.title[card_lang] }}{% unless forloop.last %} · {% endunless %}{%- endfor -%}</p>
-  {%- else %}
-  <details class="artifact-more artifact-technical">
-    <summary>{% if card_lang == 'zh' %}技术信息、文件与局限{% else %}Technical details, files & limitations{% endif %}</summary>
   {%- if card_id %}
   <code class="artifact-id">{{ card_id }}</code>
   {%- endif %}
+  <p class="artifact-desc"{% if card_desc_lang != card_lang %} lang="{{ card_desc_lang }}"{% endif %}>{{ card_desc }}</p>
   <dl class="artifact-meta">
     <div>
       <dt>{{ t.hub_domain }}</dt>
@@ -167,14 +156,6 @@
   </details>
   {%- endif %}
   {%- endunless %}
-  </details>
-  {%- endif %}
-  {%- if include.compact %}
-  <div class="artifact-links"><a href="{% if card_external %}{{ card_href }}{% else %}{{ card_href | relative_url }}{% endif %}"{% if card_external %} rel="noopener"{% endif %}>{{ t.hub_open }} <span aria-hidden="true">{% if card_external %}↗{% else %}→{% endif %}</span></a>
-    {% if item.pending_repository %}<span class="artifact-note">{{ t.hub_repository_pending }}</span>{% endif %}
-    {% if card_other_lang %}<span class="artifact-note">{{ t.hub_content_other_language }}</span>{% endif %}
-  </div>
-  {%- else %}
   <div class="artifact-links">
     {%- for link in item.links %}
     {%- if include.compact and forloop.index > 1 %}{% break %}{% endif %}
@@ -192,6 +173,4 @@
     {%- endif %}
   </div>
   <p class="artifact-source">{{ t.hub_source }}: {{ card_source }}</p>
-  {%- endif %}
-
 </article>
