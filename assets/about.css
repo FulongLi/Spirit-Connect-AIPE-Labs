@@ -65,7 +65,10 @@
 .about-page .about-scales h3 { margin: 0 0 .4rem; font: 650 1.15rem var(--font-display); }
 .about-page .about-scales p { margin: 0; font-size: .92rem; }
 .about-page .founder-person { display: flex; align-items: center; gap: 1rem; margin-top: 2rem; }
-.about-page .founder-person img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+.about-page .founder-person img {
+  width: 80px; height: 80px; padding: 5px; flex-shrink: 0;
+  border-radius: 50%; object-fit: contain; background: #e7e8ea;
+}
 .about-page .section .founder-person p { margin: 0; font-size: .85rem; }
 .about-page .founder-person strong, .about-page .founder-person span { display: block; }
 .about-page .founder-person strong { color: var(--fg); }
