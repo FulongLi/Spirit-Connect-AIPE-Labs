@@ -33,7 +33,7 @@ description: 关于 AIPE Labs、aipe.md、Coding Agent 接入、开放资源、�
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Claude/Codex 插件需要安装吗？<span class="faq-icon"></span></button>
-        <div class="faq-a"><div class="faq-a-inner"><p>不需要。“插件”是当前智能体入口的便捷名称，并不是浏览器扩展或需要安装的软件包。Coding Agent 会读取 <code>aipe.md</code>，再访问其中已经发布的链接。随着项目发展，后续可能会增加集成程度更高的 Skill 和专业智能体。</p></div></div>
+        <div class="faq-a"><div class="faq-a-inner"><p>使用公开索引无需安装：Coding Agent 读取 <code>aipe.md</code>，再访问其中已发布的链接。单个仿真技能可以按仓库说明添加。可安装的 AIPE 插件仍在设计中，尚未发布安装包。当前使用方法见<a href="{{ '/zh/plugin/' | relative_url }}">插件指南</a>。</p></div></div>
       </div>
 
       <div class="faq-item">

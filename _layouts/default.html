@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="theme-color" content="#fdfcf9"/>
+  <meta name="theme-color" content="#faf9f6"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}"/>
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}?v={{ site.time | date: '%s' }}"/>
   {% include favicon.html %}
   {% assign social_image = page.image | default: '/images/background/sst.png' %}
   <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ social_image }}">
@@ -56,8 +56,9 @@
   <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ alternate_en }}">
   {% endif %}
 </head>
-<body>
+<body class="layout-{{ page.layout | escape }}">
   {% include navbar.html %}
+  {% if page.url contains '/company/' %}{% include company-nav.html %}{% endif %}
   {{ content }}
   {% include footer.html %}
   {% include scripts.html %}
