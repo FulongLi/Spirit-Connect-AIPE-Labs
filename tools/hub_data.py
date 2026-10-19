@@ -90,7 +90,8 @@ def validate(root=ROOT):
     registry = {record["id"]: record for record in json.loads((root/REGISTRY).read_text(encoding="utf-8"))["capabilities"]}
     hub, academy = load_yaml(root, HUB), load_yaml(root, ACADEMY)
     paths, lessons = public_paths(root), academy_lessons(root)
-    categories = {c["key"] for c in hub["categories"]} | {"platform"}
+    public = {c["key"] for c in hub["categories"]}
+    categories = public | {"platform", "academy"}
     domains = {d["key"] for d in hub["domains"]}
     languages = ("en", "zh")
 
@@ -122,6 +123,14 @@ def validate(root=ROOT):
             errors.append(f"{where}: unknown domains {sorted(unknown)}")
         if "featured" in item:
             featured.append(item["featured"])
+        card = item.get("card")
+        if card is not None:
+            if item.get("category") not in public:
+                errors.append(f"{where}: only artifacts in a Hub category can carry a card")
+            if set(card.get("summary", {})) != set(languages):
+                errors.append(f"{where}: card summary needs en and zh")
+            if "status" in card and card["status"] not in hub["status_labels"]:
+                errors.append(f"{where}: unknown card status {card['status']}")
         if "registry" in item:
             if item["registry"] not in registry:
                 errors.append(f"{where}: not in {REGISTRY}")
@@ -161,6 +170,9 @@ def validate(root=ROOT):
             errors.append(f"Registry capability {capability} must be placed exactly once in {HUB}")
     if len(featured) != len(set(featured)):
         errors.append("artifacts: featured positions must be unique")
+    for key in sorted(public):
+        if not any(item.get("card") and item.get("category") == key for item in hub["artifacts"]):
+            errors.append(f"categories.{key}: needs at least one artifact with a card")
     for record in registry.values():
         integration = record["compatibility"].get("integration")
         if integration not in hub["integration_labels"]:

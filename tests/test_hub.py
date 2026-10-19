@@ -142,6 +142,38 @@ class HubDataTests(unittest.TestCase):
         self.assertIn("aipe.missing not in aipe.json", errors)
         self.assertIn("plugin capability magnetics: text needs en and zh", errors)
 
+    def test_hub_cards_need_both_languages_and_known_status(self):
+        def change(data):
+            item = next(a for a in data["artifacts"] if a.get("registry") == "aipe.sketch")
+            del item["card"]["summary"]["zh"]
+            item["card"]["status"] = "finished"
+        self.edit_yaml("_data/hub.yml", change)
+        errors = self.errors()
+        self.assertIn("aipe.sketch: card summary needs en and zh", errors)
+        self.assertIn("unknown card status finished", errors)
+
+    def test_hub_cards_only_in_public_categories(self):
+        def change(data):
+            item = next(a for a in data["artifacts"] if a.get("id") == "site.llc-fha-gain")
+            item["card"] = {"summary": {"en": "x", "zh": "x"}}
+        self.edit_yaml("_data/hub.yml", change)
+        self.assertIn("only artifacts in a Hub category can carry a card", self.errors())
+
+    def test_every_hub_category_shows_a_card(self):
+        def change(data):
+            for item in data["artifacts"]:
+                if item["category"] == "workflows":
+                    item.pop("card", None)
+        self.edit_yaml("_data/hub.yml", change)
+        self.assertIn("categories.workflows: needs at least one artifact with a card", self.errors())
+
+    def test_excluded_projects_stay_placed_without_cards(self):
+        hub = yaml.safe_load((ROOT/"_data/hub.yml").read_text(encoding="utf-8"))
+        placed = {a.get("registry"): a for a in hub["artifacts"] if a.get("registry")}
+        for capability in ("aipe.simulation-skills", "aipe.design-agent", "aipe.open-source-catalogue"):
+            self.assertIn(capability, placed)
+            self.assertNotIn("card", placed[capability])
+
     def test_featured_positions_are_unique(self):
         def change(data):
             for item in data["artifacts"][:2]:

@@ -177,6 +177,19 @@ layout: default
         </ul>
       </div>
     </div>
+    {%- assign teaching_items = site.data.hub.artifacts | where: "category", "academy" | where_exp: "item", "item.files" %}
+    {%- if teaching_items.size > 0 %}
+    <div class="academy-path-heading academy-teaching-heading" id="teaching-files">
+      <div>
+        <span class="section-kicker">{{ t.academy_teaching_kicker }}</span>
+        <h2>{{ t.academy_teaching_title }}</h2>
+      </div>
+      <p>{{ t.academy_teaching_intro }}</p>
+    </div>
+    <div class="artifact-grid">
+      {%- for item in teaching_items %}{% include artifact-card.html item=item lang=lang %}{% endfor %}
+    </div>
+    {%- endif %}
   </div>
 </section>
 

@@ -4,22 +4,6 @@ title: Data & Models — AIPE Hub
 lang: en
 permalink: /hub/data/
 hub_category: data
-description: Power semiconductor and magnetics data, simulation netlists and analytical scripts in the AIPE Hub, with Registry-sourced maturity, stated tool requirements and limitations.
+description: AIPE engineering databases for power semiconductors and magnetic components, with their data and engineering models.
 ---
-<div class="hub-context-grid">
-  <div>
-    <span class="section-kicker">Collections</span>
-    <h2>Explore the data libraries</h2>
-    <p>The cards above state what each database contains today, as declared in the Registry. The library pages describe the data model the records are built around.</p>
-    <h2>Teaching models, labelled as drafts</h2>
-    <p>The Registry does not list a dedicated model capability yet. The models above are files published with this website's converter tutorials; each file header states its tool requirements and that it is not validated hardware.</p>
-  </div>
-  <ul class="hub-context-links">
-    <li><a href="{{ '/resources/database/' | relative_url }}">Engineering databases <span>Library overview</span></a></li>
-    <li><a href="{{ '/database/transistors/' | relative_url }}">Transistor data <span>Static, switching and thermal records</span></a></li>
-    <li><a href="{{ '/database/magnetics/' | relative_url }}">Magnetics data <span>Cores, materials, losses and windings</span></a></li>
-    <li><a href="{{ '/power/devices/characterisation/' | relative_url }}">Characterisation <span>How device data is measured</span></a></li>
-    <li><a href="{{ '/power/converters/' | relative_url }}">Converter library <span>Topologies the models cover</span></a></li>
-    <li><a href="{{ '/resources/blog/#converter-series' | relative_url }}">Converter tutorials <span>Where each model file is explained</span></a></li>
-  </ul>
-</div>
+<p>Teaching netlists and analysis scripts from the converter tutorials are in the <a href="{{ '/academy/#teaching-files' | relative_url }}">Academy</a>.</p>

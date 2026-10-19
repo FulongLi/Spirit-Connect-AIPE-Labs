@@ -18,7 +18,7 @@
 {%- endfor -%}
 {%- for item in hub.artifacts -%}
 {%- assign category = hub.categories | where: "key", item.category | first -%}
-{%- if category -%}{%- assign kind = category.title[si_lang] -%}{%- else -%}{%- assign kind = si_t.nav_hub -%}{%- endif -%}
+{%- if category -%}{%- assign kind = category.title[si_lang] -%}{%- elsif item.category == 'academy' -%}{%- assign kind = si_t.nav_academy -%}{%- else -%}{%- assign kind = si_t.nav_hub -%}{%- endif -%}
 {%- assign keywords = item.domains | join: ' ' -%}
 {%- if item.registry -%}
 {%- assign rec = site.data.registry.capabilities | where: "id", item.registry | first -%}

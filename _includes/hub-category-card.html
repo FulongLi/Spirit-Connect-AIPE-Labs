@@ -1,10 +1,11 @@
 {%- comment -%}
   Hub category card. Params: category (entry of site.data.hub.categories), index, lang.
-  The artifact count is computed from _data/hub.yml, never typed by hand.
+  The count is computed from _data/hub.yml, never typed by hand, and matches the
+  project cards shown on the category page.
 {%- endcomment -%}
 {%- assign cat_lang = include.lang | default: page.lang | default: 'en' -%}
 {%- if cat_lang == 'zh' -%}{%- assign cat_lp = '/zh' -%}{%- else -%}{%- assign cat_lp = '' -%}{%- endif -%}
-{%- assign cat_items = site.data.hub.artifacts | where: "category", include.category.key -%}
+{%- assign cat_items = site.data.hub.artifacts | where: "category", include.category.key | where_exp: "item", "item.card" -%}
 <a class="hub-category-card" href="{{ cat_lp | append: include.category.url | relative_url }}">
   <span class="hub-category-index">{{ include.index | prepend: '0' | slice: -2, 2 }}</span>
   <h3>{{ include.category.title[cat_lang] }}</h3>

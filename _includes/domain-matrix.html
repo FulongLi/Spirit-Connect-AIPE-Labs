@@ -1,8 +1,8 @@
 {%- comment -%}
   Two-dimensional discovery: engineering domain × artifact type.
-  Each cell counts Hub artifacts carrying that domain in that category and links
-  to the category page filtered by domain. Empty cells are shown as empty: they
-  mark where the hub has not grown yet. Params: lang.
+  Each cell counts the Hub project cards carrying that domain in that category
+  and links to the category page. Empty cells are shown as empty: they mark
+  where the hub has not grown yet. Params: lang.
 {%- endcomment -%}
 {%- assign mx_lang = include.lang | default: page.lang | default: 'en' -%}
 {%- if mx_lang == 'zh' -%}{%- assign mx_lp = '/zh' -%}{%- else -%}{%- assign mx_lp = '' -%}{%- endif -%}
@@ -25,9 +25,9 @@
         {%- for category in site.data.hub.categories %}
         {%- assign cell = 0 %}
         {%- for item in site.data.hub.artifacts %}
-          {%- if item.category == category.key and item.domains contains domain.key %}{% assign cell = cell | plus: 1 %}{% endif %}
+          {%- if item.card and item.category == category.key and item.domains contains domain.key %}{% assign cell = cell | plus: 1 %}{% endif %}
         {%- endfor %}
-        <td>{% if cell > 0 %}<a class="domain-matrix-cell" href="{{ mx_lp | append: category.url | append: '?domain=' | append: domain.key | relative_url }}" aria-label="{{ cell }} {{ category.title[mx_lang] }} · {{ domain.title[mx_lang] }}">{{ cell }}</a>{% else %}<span class="domain-matrix-empty" aria-label="0">·</span>{% endif %}</td>
+        <td>{% if cell > 0 %}<a class="domain-matrix-cell" href="{{ mx_lp | append: category.url | relative_url }}" aria-label="{{ cell }} {{ category.title[mx_lang] }} · {{ domain.title[mx_lang] }}">{{ cell }}</a>{% else %}<span class="domain-matrix-empty" aria-label="0">·</span>{% endif %}</td>
         {%- endfor %}
       </tr>
       {%- endfor %}
