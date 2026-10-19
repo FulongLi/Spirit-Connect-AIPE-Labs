@@ -1,12 +1,13 @@
 ---
 title: "基于运行数据的功率半导体老化估计"
 lang: zh
-permalink: /zh/explorations/semiconductor-ageing-from-operational-data/
+permalink: /zh/frontiers/semiconductor-ageing-from-operational-data/
 translation_key: semiconductor-ageing-from-operational-data
 status: concept
 question: "能否仅凭变换器为控制而已经测量的数据，在不增加专用诊断测量的情况下估计功率半导体的退化？"
 description: "一个开放问题：仅使用变换器已记录的电流、电压与散热器温度，能否把热阻与通态压降的漂移，与工况、环境和传感器变化区分开？"
 domains: [devices]
+topics: [电力电子, 功率半导体, 可靠性]
 opened: 2026-10-08
 updated: 2026-10-08
 featured: false

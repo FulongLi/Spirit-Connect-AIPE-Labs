@@ -1,4 +1,4 @@
-"""Verify that Jekyll publishes raw Registry endpoints, every stable lesson URL and every Exploration."""
+"""Verify that Jekyll publishes raw Registry endpoints, every stable lesson URL and every Frontiers topic."""
 import hashlib
 import json
 from pathlib import Path
@@ -20,11 +20,16 @@ for source in sorted((root/"academy").glob("*.md")):
 legacy = site/"resources/blog/buck-converter-from-zero-to-everything/index.html"
 if not legacy.is_file():
     raise SystemExit("Migrated tutorial's legacy URL was lost")
-explorations = ["/explorations/", "/zh/explorations/"]
+frontiers = ["/frontiers/", "/zh/frontiers/"]
 for source in sorted((root/"_explorations").rglob("*.md")):
-    explorations.append(yaml.safe_load(source.read_text(encoding="utf-8").split("---",2)[1])["permalink"])
-for url in explorations:
+    frontiers.append(yaml.safe_load(source.read_text(encoding="utf-8").split("---",2)[1])["permalink"])
+for url in frontiers:
     rendered = (site/url.strip("/")/"index.html").read_text(encoding="utf-8")
     if "<h1>" not in rendered or "{%" in rendered:
-        raise SystemExit(f"Unrendered Explorations page: {url}")
-print("Public Registry endpoints, Academy URLs, Explorations URLs and legacy tutorial URL verified")
+        raise SystemExit(f"Unrendered Frontiers page: {url}")
+    # Frontiers was published as Explorations; every former URL must redirect.
+    old = url.replace("/frontiers/", "/explorations/", 1)
+    redirect = site/old.strip("/")/"index.html"
+    if not redirect.is_file() or f'url={url}"' not in redirect.read_text(encoding="utf-8"):
+        raise SystemExit(f"Former Explorations URL does not redirect: {old} -> {url}")
+print("Public Registry endpoints, Academy URLs, Frontiers URLs, Explorations redirects and legacy tutorial URL verified")

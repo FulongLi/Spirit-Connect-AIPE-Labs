@@ -15,7 +15,7 @@ image: /images/background/sst.png
 {%- assign lesson_count = 0 -%}
 {%- for candidate in site.pages -%}{%- if candidate.academy_page and candidate.lesson_status and candidate.lang == 'en' -%}{%- assign lesson_count = lesson_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
 {%- assign article_count = site.posts | where: "lang", "en" | size -%}
-{%- assign question_count = site.explorations | where: "lang", "en" | where: "status", "concept" | size -%}
+{%- assign topic_count = site.explorations | where: "lang", "en" | size -%}
 
 <header class="home-hub-hero">
   <div class="container">
@@ -56,10 +56,10 @@ image: /images/background/sst.png
       </li>
       <li class="home-pillar">
         <span class="home-pillar-verb">EXPLORE</span>
-        <h3>AIPE Explorations</h3>
-        <p>Investigate new engineering possibilities, challenge existing assumptions and contribute to open scientific research.</p>
-        <p class="home-pillar-fact"><strong>{{ question_count }}</strong> open research questions, each labelled with its evidence</p>
-        <a class="btn btn-primary" href="{{ '/explorations/' | relative_url }}">Explore Explorations →</a>
+        <h3>AIPE Frontiers</h3>
+        <p>Exploring what engineering could become: emerging concepts, theoretical possibilities and unconventional approaches.</p>
+        <p class="home-pillar-fact"><strong>{{ topic_count }}</strong> research topics, each labelled with its evidence</p>
+        <a class="btn btn-primary" href="{{ '/frontiers/' | relative_url }}">Explore Frontiers →</a>
       </li>
     </ol>
   </div>
@@ -102,7 +102,7 @@ image: /images/background/sst.png
 <section class="section home-academy">
   <div class="container">
     <div class="hub-section-heading">
-      <div><span class="section-kicker">AIPE Academy</span><h2>Learn power electronics from first principles to AI-assisted engineering.</h2></div>
+      <div><span class="section-kicker">AIPE Academy</span><h2>Learn power engineering from first principles to AI-assisted engineering.</h2></div>
       <p>A staged curriculum with open labs. Each stage shows which lessons are outlines, drafts or available. <a href="{{ '/academy/' | relative_url }}">Open the Academy →</a></p>
     </div>
     <ol class="home-stages">

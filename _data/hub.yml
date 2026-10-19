@@ -18,38 +18,31 @@
 # URL does not resolve, or when the mirror drifts from /aipe.json. Add new
 # capabilities by refreshing the Registry snapshot, then placing them below.
 
-# Artifact dimension, in display order.
+# Artifact dimension, in display order. Three public categories: models sit
+# with the data they are built on, and reference designs and Academy labs are
+# both presented as end-to-end workflows. Each card keeps its own `type`
+# (database, simulation model, reference design, lab, ...), so the finer
+# distinction stays visible. The former /hub/models/, /hub/designs/ and
+# /hub/labs/ URLs redirect (legacy/).
 categories:
   - key: data
     url: /hub/data/
-    title: {en: "Data", zh: "数据"}
+    title: {en: "Data & Models", zh: "数据与模型"}
     summary:
-      en: "Engineering datasets, measurements and characterised component data."
-      zh: "工程数据集、测量数据与经过表征的元器件数据。"
-  - key: models
-    url: /hub/models/
-    title: {en: "Models", zh: "模型"}
-    summary:
-      en: "Simulation, behavioural, surrogate and analytical models."
-      zh: "仿真、行为级、代理与解析模型。"
-  - key: designs
-    url: /hub/designs/
-    title: {en: "Designs", zh: "设计"}
-    summary:
-      en: "Reusable converter, magnetics, PCB and system reference designs."
-      zh: "可复用的变换器、磁性元件、PCB 与系统参考设计。"
+      en: "Engineering databases, component data, mathematical models and simulation models."
+      zh: "工程数据库、元器件数据、数学模型与仿真模型。"
   - key: tools
     url: /hub/tools/
     title: {en: "Tools & Agents", zh: "工具与智能体"}
     summary:
-      en: "Engineering software integrations, AI agents and reusable skills."
-      zh: "工程软件集成、AI 智能体与可复用技能。"
-  - key: labs
-    url: /hub/labs/
-    title: {en: "Labs", zh: "实验"}
+      en: "Engineering tools, AI agents, software integrations and specialist plugins."
+      zh: "工程工具、AI 智能体、软件集成与专业插件。"
+  - key: workflows
+    url: /hub/workflows/
+    title: {en: "Workflows", zh: "工作流"}
     summary:
-      en: "Interactive engineering workflows and reproducible engineering tasks."
-      zh: "交互式工程工作流与可复现的工程任务。"
+      en: "End-to-end engineering processes, including converter design, PCB design, magnetics design, simulation and validation."
+      zh: "端到端的工程流程，涵盖变换器设计、PCB 设计、磁性元件设计、仿真与验证。"
 
 # Engineering (domain) dimension. `url` is the dedicated domain page when one
 # exists; otherwise the domain is presented on /engineering/#<key>.
@@ -137,6 +130,7 @@ status_labels:
   available: {en: "Available", zh: "可用"}
   draft: {en: "Draft", zh: "草稿"}
   outline: {en: "Outline", zh: "大纲"}
+  in-development: {en: "In development", zh: "开发中"}
   planned: {en: "Planned", zh: "规划中"}
   reference: {en: "Reference", zh: "参考"}
 
@@ -145,7 +139,7 @@ status_labels:
 # repository was still empty when checked on 2026-10-07; remove the flag once the
 # repository is published.
 artifacts:
-  # ── Data ──
+  # ── Data & Models: data ──
   - registry: aipe.semiconductor-database
     zh_summary: "规范的 V3 功率半导体记录，包含 SI 单位曲线、来源权利信息与证据溯源，并提供一个保守的 Core 候选数据适配器。"
     category: data
@@ -166,9 +160,9 @@ artifacts:
         localised: true
         label: {en: "Magnetics data overview", zh: "磁性元件数据概览"}
 
-  # ── Models ── (files published by this website)
+  # ── Data & Models: models ── (files published by this website)
   - id: site.converter-netlists
-    category: models
+    category: data
     type: simulation_model
     status: draft
     domains: [converters]
@@ -193,7 +187,7 @@ artifacts:
         label: {en: "Source tutorials", zh: "对应教程"}
     featured: 7
   - id: site.ccm-analysis-scripts
-    category: models
+    category: data
     type: analytical_model
     status: draft
     domains: [converters, control]
@@ -212,7 +206,7 @@ artifacts:
         localised: true
         label: {en: "Source tutorials", zh: "对应教程"}
   - id: site.llc-fha-gain
-    category: models
+    category: data
     type: analytical_model
     status: draft
     domains: [converters]
@@ -228,9 +222,9 @@ artifacts:
         localised: true
         label: {en: "LLC tutorial", zh: "LLC 教程"}
 
-  # ── Designs ── (reference pages published by this website)
+  # ── Workflows: reference designs ── (pages published by this website)
   - id: site.dab-reference
-    category: designs
+    category: workflows
     type: reference_design
     status: reference
     domains: [converters]
@@ -242,7 +236,7 @@ artifacts:
       en: "Design workflow for a dual-active-bridge stage covering devices, magnetics, control and validation planning. Linked tutorials are analytical teaching drafts."
       zh: "双有源桥变换器的设计流程，涵盖器件、磁性元件、控制与验证规划。所链接的教程为解析性教学草稿。"
   - id: site.sst-reference
-    category: designs
+    category: workflows
     type: reference_design
     status: reference
     domains: [converters, systems]
@@ -253,7 +247,7 @@ artifacts:
       en: "Modular solid-state transformer architecture and system-integration reference."
       zh: "模块化固态变压器架构与系统集成参考。"
   - id: site.rogowski-coil
-    category: designs
+    category: workflows
     type: reference_design
     status: reference
     domains: [magnetics]
@@ -293,9 +287,10 @@ artifacts:
     category: tools
     domains: []
 
-  # ── Labs ── (Academy lessons of type `lab`)
+  # ── Workflows: labs ── (Academy lessons of type `lab`; the Academy finds its
+  # labs by the `academy` field, not by category)
   - academy: /academy/power-electronics/buck-open-lab/
-    category: labs
+    category: workflows
     type: lab
     # The lesson is English-only; Chinese pages show this title with a
     # "content in English" note instead of the English lesson title.

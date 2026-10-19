@@ -16,7 +16,7 @@ exactly once and that each state is consistent.
 | Category | Destination | URL | Canonical owner |
 | --- | --- | --- | --- |
 | LEARN | AIPE Academy | `/academy/`, `/zh/academy/` | AIPE Academy repository (hash-locked sync) |
-| RESEARCH | AIPE Explorations | `/explorations/`, `/zh/explorations/` | This repository (`_explorations/`) |
+| RESEARCH | AIPE Frontiers | `/frontiers/`, `/zh/frontiers/` | This repository (`_explorations/`) |
 | BUILD | AIPE Hub | `/hub/`, `/zh/hub/` | AIPE Registry (capabilities) and `_data/hub.yml` (placement) |
 | NEWS | News & updates | `/news/`, `/zh/news/` | This repository |
 

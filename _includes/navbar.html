@@ -22,11 +22,11 @@
   {%- endif -%}
 {%- endif -%}
 {%- comment -%}
-  Explorations without a counterpart in the other language switch to that
-  language's Explorations landing page; translated pairs share a translation_key.
+  Frontiers topics without a counterpart in the other language switch to that
+  language's Frontiers landing page; translated pairs share a translation_key.
 {%- endcomment -%}
 {%- if page.collection == 'explorations' -%}
-  {%- assign en_url = '/explorations/' -%}{%- assign zh_url = '/zh/explorations/' -%}
+  {%- assign en_url = '/frontiers/' -%}{%- assign zh_url = '/zh/frontiers/' -%}
 {%- endif -%}
 {%- if page.collection == 'posts' or page.collection == 'explorations' -%}
   {%- assign current_translation_key = page.translation_key | default: page.slug -%}
@@ -67,22 +67,10 @@
           {%- for stage in site.data.academy.stages %}
           <a href="{{ lp | append: '/academy/#stage-' | append: stage.key | relative_url }}">{{ stage.title[lang] }}</a>
           {%- endfor %}
-          <a href="{{ lp | append: '/academy/#labs' | relative_url }}">{{ t.nav_academy_labs }}</a>
         </div>
       </div>
-      <div class="dropdown">
-        <div class="drop-head">
-          <a class="drop-label" href="{{ lp | append: '/explorations/' | relative_url }}">{{ t.nav_explorations }}</a>
-          <button class="drop-toggle" aria-expanded="false" aria-label="{{ t.nav_explorations }} {{ t.nav_submenu }}">▾</button>
-        </div>
-        <div class="drop-menu">
-          <a href="{{ lp | append: '/explorations/#questions' | relative_url }}">{{ t.nav_explorations_questions }}</a>
-          <a href="{{ lp | append: '/explorations/#in-progress' | relative_url }}">{{ t.nav_explorations_investigations }}</a>
-          <a href="{{ lp | append: '/explorations/#findings' | relative_url }}">{{ t.nav_explorations_findings }}</a>
-          <a href="{{ lp | append: '/explorations/#contribute' | relative_url }}">{{ t.nav_explorations_contribute }}</a>
-        </div>
-      </div>
-      <a class="nav-plugin" href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a>
+      <a class="nav-direct" href="{{ lp | append: '/frontiers/' | relative_url }}">{{ t.nav_explorations }}</a>
+      <a class="nav-direct" href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a>
       <a class="nav-partner-mobile" href="{{ lp | append: '/contact/' | relative_url }}">{{ t.nav_contact }}</a>
     </nav>
     <div class="nav-right">

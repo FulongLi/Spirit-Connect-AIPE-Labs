@@ -2,8 +2,8 @@
 layout: default
 ---
 {%- comment -%}
-  One AIPE Exploration. Front matter is documented in docs/exploration-template.md
-  and checked by tools/content_data.py: the status must be supported by the
+  One AIPE Frontiers topic (an entry of the explorations collection). Front
+  matter is documented in docs/exploration-template.md and checked by tools/content_data.py: the status must be supported by the
   evidence list, and the body must contain the eight required sections.
   The page reuses the article shell (table of contents, MathJax) of blog posts.
 {%- endcomment -%}
@@ -16,7 +16,7 @@ layout: default
 <header class="hero hero-compact exploration-hero">
   <div class="container">
     <nav class="hub-breadcrumb" aria-label="{% if lang == 'zh' %}位置{% else %}Breadcrumb{% endif %}">
-      <a href="{{ lp | append: '/explorations/' | relative_url }}">{{ t.nav_explorations }}</a><span aria-hidden="true">/</span>{% include exploration-status.html status=page.status lang=lang %}
+      <a href="{{ lp | append: '/frontiers/' | relative_url }}">{{ t.nav_explorations }}</a><span aria-hidden="true">/</span>{% include exploration-status.html status=page.status lang=lang %}
     </nav>
     <h1>{{ page.title }}</h1>
     <p class="exploration-question">{{ page.question }}</p>
@@ -41,7 +41,7 @@ layout: default
         <div class="exploration-panel-status">
           <span class="section-kicker">{{ t.explorations_status }}</span>
           {% include exploration-status.html status=page.status lang=lang %}
-          <p>{{ status.summary[lang] }} <a href="{{ lp | append: '/explorations/#status' | relative_url }}">{{ t.explorations_other_status }}</a></p>
+          <p>{{ status.summary[lang] }} <a href="{{ lp | append: '/frontiers/#status' | relative_url }}">{{ t.explorations_other_status }}</a></p>
         </div>
         <div class="exploration-panel-evidence">
           <span class="section-kicker">{{ t.explorations_evidence }}</span>
@@ -120,7 +120,7 @@ layout: default
         <a class="btn btn-primary" href="{{ ex.repository }}/issues/new?title={{ page.title | prepend: 'Exploration: ' | url_encode }}" target="_blank" rel="noopener">{{ t.explorations_discuss }} ↗</a>
         <a class="btn btn-ghost" href="{{ ex.repository }}/blob/main/{{ page.path }}" target="_blank" rel="noopener">{{ t.explorations_edit }} ↗</a>
       </div>
-      <p class="post-back"><a href="{{ lp | append: '/explorations/' | relative_url }}">{{ t.explorations_back }}</a></p>
+      <p class="post-back"><a href="{{ lp | append: '/frontiers/' | relative_url }}">{{ t.explorations_back }}</a></p>
     </div>
   </div>
 </section>

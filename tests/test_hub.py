@@ -107,7 +107,8 @@ class HubDataTests(unittest.TestCase):
         self.assertIn("no generated lesson at /academy/foundations/invented/", self.errors())
 
     def test_unstaged_lesson_is_a_warning_not_an_error(self):
-        self.edit_yaml("_data/academy.yml", lambda d: d["stages"][-1]["lessons"].clear())
+        lesson = "/academy/power-electronics/systems-applications/"
+        self.edit_yaml("_data/academy.yml", lambda d: [stage["lessons"].remove(lesson) for stage in d["stages"] if lesson in stage["lessons"]])
         errors, warnings = hub_data.validate(self.root)
         self.assertEqual(errors, [])
         self.assertTrue(any("systems-applications" in w for w in warnings))

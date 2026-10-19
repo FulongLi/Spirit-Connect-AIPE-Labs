@@ -56,7 +56,7 @@ layout: default
           {%- endif %}
           {%- assign domain_explorations = site.explorations | where: "lang", lang | where_exp: "entry", "entry.domains contains domain.key" %}
           {%- if domain_explorations.size > 0 %}
-          <li><a href="{{ lp | append: '/explorations/' | relative_url }}">{{ t.explorations_in_domain }} ({{ domain_explorations.size }}) →</a></li>
+          <li><a href="{{ lp | append: '/frontiers/' | relative_url }}">{{ t.explorations_in_domain }} ({{ domain_explorations.size }}) →</a></li>
           {%- endif %}
           {%- for stage in site.data.academy.stages %}
           {%- if stage.hub contains domain.key %}

@@ -17,7 +17,7 @@ image: /images/background/sst.png
 {%- assign lesson_count = 0 -%}
 {%- for candidate in site.pages -%}{%- if candidate.academy_page and candidate.lesson_status and candidate.lang == 'zh' -%}{%- assign lesson_count = lesson_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
 {%- assign article_count = site.posts | where: "lang", "zh" | size -%}
-{%- assign question_count = site.explorations | where: "lang", "zh" | where: "status", "concept" | size -%}
+{%- assign topic_count = site.explorations | where: "lang", "zh" | size -%}
 
 <header class="home-hub-hero">
   <div class="container">
@@ -58,10 +58,10 @@ image: /images/background/sst.png
       </li>
       <li class="home-pillar">
         <span class="home-pillar-verb">EXPLORE</span>
-        <h3>AIPE 前沿探索</h3>
-        <p>研究新的工程可能，质疑既有假设，参与开放的科学研究。</p>
-        <p class="home-pillar-fact"><strong>{{ question_count }}</strong> 个开放研究问题，均标明证据状态</p>
-        <a class="btn btn-primary" href="{{ '/zh/explorations/' | relative_url }}">进入前沿探索 →</a>
+        <h3>AIPE 前沿研究</h3>
+        <p>探索工程的未来可能：新兴概念、理论可能与非常规方法。</p>
+        <p class="home-pillar-fact"><strong>{{ topic_count }}</strong> 个研究课题，均标明证据状态</p>
+        <a class="btn btn-primary" href="{{ '/zh/frontiers/' | relative_url }}">进入前沿研究 →</a>
       </li>
     </ol>
   </div>
@@ -104,7 +104,7 @@ image: /images/background/sst.png
 <section class="section home-academy">
   <div class="container">
     <div class="hub-section-heading">
-      <div><span class="section-kicker">AIPE 学院</span><h2>从基本原理到 AI 辅助工程，系统学习电力电子。</h2></div>
+      <div><span class="section-kicker">AIPE 学院</span><h2>从基本原理到 AI 辅助工程，系统学习电力工程。</h2></div>
       <p>分阶段的课程体系与开放实验。每个阶段都标明课程处于大纲、草稿还是可用状态，尚无中文课程的阶段标为规划中。<a href="{{ '/zh/academy/' | relative_url }}">进入学院 →</a></p>
     </div>
     <ol class="home-stages">
