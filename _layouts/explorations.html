@@ -2,50 +2,44 @@
 layout: default
 ---
 {%- comment -%}
-  AIPE Explorations landing page: /explorations/ and /zh/explorations/.
-  Everything is derived from the explorations collection (filtered by page
-  language, never falling back to the other language) and _data/explorations.yml.
-  Empty states are stated plainly rather than filled with placeholder projects.
+  AIPE Frontiers landing page: /frontiers/ and /zh/frontiers/ (the former
+  /explorations/ URLs redirect from legacy/). Everything is derived from the
+  explorations collection (filtered by page language, never falling back to the
+  other language) and _data/explorations.yml. All topics are shown as one card
+  grid; each card's evidence status separates hypotheses from validated results.
 {%- endcomment -%}
 {%- assign lang = page.lang | default: 'en' -%}
 {%- if lang == 'zh' -%}{%- assign lp = '/zh' -%}{%- else -%}{%- assign lp = '' -%}{%- endif -%}
 {%- assign t = site.data.i18n[lang] -%}
 {%- assign ex = site.data.explorations -%}
 {%- assign entries = site.explorations | where: "lang", lang | sort: "opened" | reverse -%}
-{%- assign open_entries = entries | where: "status", "concept" -%}
-{%- assign featured = "" | split: "" -%}
-{%- assign progress = "" | split: "" -%}
-{%- assign concluded = "" | split: "" -%}
-{%- for entry in entries -%}
-  {%- if entry.featured -%}{%- assign featured = featured | push: entry -%}{%- endif -%}
-  {%- case entry.status -%}
-    {%- when 'under-investigation', 'modelled', 'simulated', 'human-reviewed' -%}{%- assign progress = progress | push: entry -%}
-    {%- when 'experimentally-validated', 'refuted' -%}{%- assign concluded = concluded | push: entry -%}
-  {%- endcase -%}
-{%- endfor -%}
+{%- assign featured = entries | where: "featured", true -%}
+{%- assign validated = entries | where: "status", "experimentally-validated" -%}
+{%- assign refuted = entries | where: "status", "refuted" -%}
+{%- assign hypotheses = entries.size | minus: validated.size | minus: refuted.size -%}
 <header class="explorations-hero">
   <div class="container">
     <span class="section-kicker">{{ t.explorations_kicker }}</span>
     <h1>{{ ex.tagline[lang] }}</h1>
     <p class="lead">{{ ex.description[lang] }}</p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="#questions">{{ t.explorations_open_questions }}</a>
-      <a class="btn btn-ghost" href="#principles">{{ t.explorations_principles_kicker }}</a>
+      <a class="btn btn-primary" href="#topics">{{ t.explorations_topics }}</a>
+      <a class="btn btn-ghost" href="#status">{{ t.explorations_status_kicker }}</a>
     </div>
     <dl class="explorations-stats">
-      <div><dt>{{ t.explorations_open_questions }}</dt><dd>{{ open_entries.size }}</dd></div>
-      <div><dt>{{ t.explorations_in_progress }}</dt><dd>{{ progress.size }}</dd></div>
-      <div><dt>{{ t.explorations_concluded }}</dt><dd>{{ concluded.size }}</dd></div>
+      <div><dt>{{ t.explorations_topics }}</dt><dd>{{ entries.size }}</dd></div>
+      <div><dt>{{ t.explorations_hypotheses }}</dt><dd>{{ hypotheses }}</dd></div>
+      <div><dt>{{ t.explorations_validated }}</dt><dd>{{ validated.size }}</dd></div>
     </dl>
   </div>
 </header>
 
 <nav class="hub-tabs section-tabs" aria-label="{{ t.explorations_sections }}">
   <div class="container">
-    <a href="#questions">{{ t.explorations_open_questions }}</a>
-    <a href="#in-progress">{{ t.explorations_investigations }}</a>
-    <a href="#findings">{{ t.explorations_findings }}</a>
-    <a href="#contribute">{{ t.explorations_contribute }}</a>
+    <a href="#topics">{{ t.explorations_topics }}</a>
+    <a href="#status">{{ t.explorations_status_kicker }}</a>
+    <a href="#principles">{{ t.explorations_principles_kicker }}</a>
+    <a href="#contribute">{{ t.explorations_contribute_kicker }}</a>
   </div>
 </nav>
 
@@ -64,51 +58,15 @@ layout: default
 </section>
 {%- endif %}
 
-<section class="section" id="questions">
+<section class="section" id="topics">
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">{{ t.explorations_questions_kicker }}</span><h2>{{ t.explorations_questions_title }}</h2></div>
       <p>{{ t.explorations_questions_intro }}</p>
     </div>
-    {%- if open_entries.size > 0 %}
     <div class="exploration-grid">
-      {%- for entry in open_entries %}{% include exploration-card.html entry=entry lang=lang %}{% endfor %}
+      {%- for entry in entries %}{% include exploration-card.html entry=entry lang=lang %}{% endfor %}
     </div>
-    {%- else %}
-    <p class="explorations-empty">{{ t.explorations_questions_empty }}</p>
-    {%- endif %}
-  </div>
-</section>
-
-<section class="section section-alt" id="in-progress">
-  <div class="container">
-    <div class="hub-section-heading">
-      <div><span class="section-kicker">{{ t.explorations_progress_kicker }}</span><h2>{{ t.explorations_progress_title }}</h2></div>
-      <p>{{ t.explorations_progress_intro }}</p>
-    </div>
-    {%- if progress.size > 0 %}
-    <div class="exploration-grid">
-      {%- for entry in progress %}{% include exploration-card.html entry=entry lang=lang %}{% endfor %}
-    </div>
-    {%- else %}
-    <p class="explorations-empty">{{ t.explorations_progress_empty }}</p>
-    {%- endif %}
-  </div>
-</section>
-
-<section class="section" id="findings">
-  <div class="container">
-    <div class="hub-section-heading">
-      <div><span class="section-kicker">{{ t.explorations_findings }}</span><h2>{{ t.explorations_concluded_title }}</h2></div>
-      <p>{{ t.explorations_concluded_intro }}</p>
-    </div>
-    {%- if concluded.size > 0 %}
-    <div class="exploration-grid">
-      {%- for entry in concluded %}{% include exploration-card.html entry=entry lang=lang %}{% endfor %}
-    </div>
-    {%- else %}
-    <p class="explorations-empty">{{ t.explorations_findings_empty }}</p>
-    {%- endif %}
   </div>
 </section>
 

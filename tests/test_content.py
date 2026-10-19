@@ -110,8 +110,8 @@ class ContentDataTests(unittest.TestCase):
         self.assertIn("learn URL /power/microgrids/ is not in zh", self.errors())
 
     def test_permalink_follows_language_folder(self):
-        self.edit_entry(ENTRY_ZH, lambda m: m.update(permalink="/explorations/autonomous-dc-network-stability/"))
-        self.assertIn("permalink must be /zh/explorations/autonomous-dc-network-stability/", self.errors())
+        self.edit_entry(ENTRY_ZH, lambda m: m.update(permalink="/frontiers/autonomous-dc-network-stability/"))
+        self.assertIn("permalink must be /zh/frontiers/autonomous-dc-network-stability/", self.errors())
 
     def edit_ownership(self, change):
         path = self.root/content_data.OWNERSHIP

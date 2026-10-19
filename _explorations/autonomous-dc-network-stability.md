@@ -1,12 +1,13 @@
 ---
 title: "Autonomous DC network stability"
 lang: en
-permalink: /explorations/autonomous-dc-network-stability/
+permalink: /frontiers/autonomous-dc-network-stability/
 translation_key: autonomous-dc-network-stability
 status: concept
 question: "Can interconnected DC converters keep a network stable using only local control and locally checkable design rules, without centralised coordination?"
 description: "An open question on whether per-converter, locally verifiable conditions can guarantee small-signal stability of a DC network with constant-power loads, and how conservative such conditions would be."
 domains: [microgrids, control, converters]
+topics: [DC Microgrids, Power Electronics, Control]
 opened: 2026-10-08
 updated: 2026-10-08
 featured: false

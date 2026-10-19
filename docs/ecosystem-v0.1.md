@@ -50,8 +50,9 @@ canonical capability set. Its original terminology describes that older snapshot
 
 ## Hub presentation data
 
-The public site is organised as an **AIPE Hub** (artifact dimension: Data,
-Models, Designs, Tools & Agents, Labs) and **Engineering** domains (Devices,
+The public site is organised as an **AIPE Hub** (artifact dimension: Data &
+Models, Tools & Agents, Workflows; reference designs and Academy labs are both
+Workflows, and each card keeps its own type) and **Engineering** domains (Devices,
 Magnetics, Converters, Control, Energy Storage, Microgrids, Energy Systems).
 Both views, the homepage feed, the Plugin page capability cards and the
 client-side search index are rendered from these data files:
@@ -125,10 +126,10 @@ The Academy has no invented bilingual counterpart URLs. Equivalent-language SEO
 links connect only `/academy/` and `/zh/academy/`; individual lessons omit them
 unless translations are explicitly provided.
 
-## Explorations
+## Frontiers
 
-AIPE Explorations (`/explorations/`, `/zh/explorations/`) is owned by this
-repository. Entries are Markdown files in the `explorations` collection
+AIPE Frontiers (`/frontiers/`, `/zh/frontiers/`; formerly Explorations, whose
+URLs redirect from `legacy/`) is owned by this repository. Entries are Markdown files in the `explorations` collection
 (`_explorations/`, Chinese in `_explorations/zh/`) using the front matter in
 [exploration-template.md](exploration-template.md); shared statuses, evidence
 kinds and principles are in `_data/explorations.yml`. An entry may link Hub

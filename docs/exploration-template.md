@@ -1,7 +1,8 @@
-# AIPE Exploration template
+# AIPE Frontiers topic template
 
-An Exploration is an open research question or investigation published at
-`/explorations/<slug>/` (English) or `/zh/explorations/<slug>/` (Chinese). It
+A Frontiers topic (an entry of the `explorations` collection) is an open research
+question or investigation published at `/frontiers/<slug>/` (English) or
+`/zh/frontiers/<slug>/` (Chinese). It
 separates what is established from what is proposed, and states exactly what
 evidence exists. Copy the template below into `_explorations/<slug>.md` or
 `_explorations/zh/<slug>.md`, then run:
@@ -66,12 +67,13 @@ status, through the normal Registry or `_data/hub.yml` review.
 ---
 title: "Short, specific title"
 lang: en                                  # zh for _explorations/zh/
-permalink: /explorations/<slug>/          # /zh/explorations/<slug>/ for zh
+permalink: /frontiers/<slug>/             # /zh/frontiers/<slug>/ for zh
 translation_key: <slug>                   # equals the file name
 status: concept
 question: "One-sentence research question, ending in a question mark?"
 description: "One or two sentences for search results and social cards."
 domains: [converters]                     # keys from _data/hub.yml domains
+topics: [Power Electronics]               # optional card tags, in the entry's language
 opened: 2026-10-08
 updated: 2026-10-08
 featured: false

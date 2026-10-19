@@ -1,0 +1,79 @@
+---
+layout: default
+---
+{%- comment -%}
+  Team page: /company/team/ and /zh/company/team/. All content comes from
+  _data/team.yml; the human and digital teams are two card grids that grow with
+  their lists. Agent icons are plain geometric line drawings, not avatars.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'en' -%}
+{%- assign team = site.data.team -%}
+<header class="hero hero-compact">
+  <div class="container">
+    <h1>{{ team.title[lang] }}</h1>
+    <p class="lead">{{ team.tagline[lang] }}</p>
+  </div>
+</header>
+
+<section class="section team-section" id="human-team">
+  <div class="container">
+    <div class="team-section-heading"><span class="section-kicker">{{ team.human.kicker[lang] }}</span><h2>{{ team.human.title[lang] }}</h2></div>
+    <div class="team-grid">
+      {%- for member in team.human.members %}
+      <article class="card team-card">
+        <img class="team-photo" src="{{ member.photo | relative_url }}" alt="{{ member.name[lang] }}">
+        <div class="team-card-body">
+          <h3>{{ member.name[lang] }}</h3>
+          <p class="team-role">{{ member.role[lang] }}</p>
+          <div class="team-links">
+            {%- for link in member.links %}
+            {%- if link.url contains 'mailto:' %}
+            <a href="{{ link.url }}">{{ link.label[lang] }}</a>
+            {%- else %}
+            <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label[lang] }} ↗</a>
+            {%- endif %}
+            {%- endfor %}
+          </div>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt team-section" id="digital-team">
+  <div class="container">
+    <div class="team-section-heading"><span class="section-kicker">{{ team.digital.kicker[lang] }}</span><h2>{{ team.digital.title[lang] }}</h2><p>{{ team.digital.intro[lang] }}</p></div>
+    <div class="team-grid">
+      {%- for agent in team.digital.agents %}
+      <article class="card team-card team-agent-card" id="agent-{{ agent.key }}">
+        <span class="team-icon" aria-hidden="true">
+          {%- case agent.icon -%}
+          {%- when 'pcb' -%}
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="30" height="30" rx="3"/><path d="M11 12h8l5 5v6"/><path d="M11 28h6l4-4"/><path d="M29 11v18"/><circle cx="24" cy="25" r="2"/><circle cx="11" cy="12" r="1.6"/><circle cx="11" cy="28" r="1.6"/><circle cx="29" cy="11" r="1.6"/><circle cx="29" cy="29" r="1.6"/></svg>
+          {%- when 'schematic' -%}
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h7l2-4 3 8 3-8 3 8 2-4h12"/><path d="M28 12v8"/><path d="M24 20h8"/><path d="M24 23h8"/><path d="M28 23v9H4"/><path d="M4 12v20"/><circle cx="28" cy="12" r="1.4"/></svg>
+          {%- when 'magnetics' -%}
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="7" width="28" height="26" rx="2"/><rect x="14" y="14" width="12" height="12" rx="1"/><path d="M6 14h4M6 18h4M6 22h4M6 26h4"/><path d="M30 14h4M30 18h4M30 22h4M30 26h4"/></svg>
+          {%- endcase -%}
+        </span>
+        <div class="team-card-body">
+          <h3>{{ agent.name[lang] }}</h3>
+          <p class="team-role">{% include status-badge.html status=agent.status lang=lang %}</p>
+          <p>{{ agent.summary[lang] }}</p>
+          {%- if agent.note %}
+          <p class="team-note">{{ agent.note[lang] }}</p>
+          {%- endif %}
+          <div class="team-links">
+            {%- if agent.repository %}
+            <a href="{{ agent.repository }}" target="_blank" rel="noopener">{{ team.digital.repository_label[lang] }} ↗</a>
+            {%- else %}
+            <span>{{ team.digital.no_repository[lang] }}</span>
+            {%- endif %}
+          </div>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

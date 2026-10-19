@@ -1,6 +1,7 @@
-# AIPE Explorations presentation data.
+# AIPE Frontiers presentation data (published at /frontiers/ and /zh/frontiers/;
+# the collection and file names keep their original "explorations" identifiers).
 #
-# Explorations are open research questions and investigations. Each entry is a
+# Frontiers topics are open research questions and investigations. Each entry is a
 # Markdown file in _explorations/ (English) or _explorations/zh/ (Chinese) with
 # the front matter described in docs/exploration-template.md. This file holds
 # only the shared vocabulary: the evidence statuses, evidence kinds, research
@@ -13,11 +14,11 @@
 repository: https://github.com/FulongLi/Spirit-Connect-AIPE-Labs
 
 tagline:
-  en: "Exploring what engineering has yet to prove."
-  zh: "探索工程尚未证明的问题。"
+  en: "Exploring what engineering could become."
+  zh: "探索工程的未来可能。"
 description:
-  en: "Open questions, emerging concepts and AI-assisted investigations at the frontier of power and energy engineering."
-  zh: "电力与能源工程前沿的开放问题、新兴概念与 AI 辅助研究。"
+  en: "Emerging engineering concepts, theoretical possibilities and unconventional approaches that may eventually lead to real-world applications."
+  zh: "探索新兴工程概念、理论可能与非常规方法，它们有望最终走向实际应用。"
 
 # Evidence statuses. They describe the strongest evidence recorded so far, not a
 # fixed sequence: an entry can move from Concept straight to Refuted, or be
@@ -157,7 +158,7 @@ principles:
 
 # The route from a question to reusable Hub artifacts (landing page).
 pipeline:
-  - {en: "Exploration", zh: "探索"}
+  - {en: "Research topic", zh: "研究课题"}
   - {en: "Hypothesis", zh: "假设"}
   - {en: "Modelling & simulation", zh: "建模与仿真"}
   - {en: "Human review", zh: "人工评审"}

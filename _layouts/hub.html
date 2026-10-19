@@ -47,7 +47,7 @@ layout: default
 <section class="section hub-overview-section">
   <div class="container">
     <div class="hub-section-heading">
-      <div><span class="section-kicker">{% if lang == 'zh' %}按产物类型浏览{% else %}Browse by artifact{% endif %}</span><h2>{% if lang == 'zh' %}五类可复用的工程产物{% else %}Five kinds of reusable engineering artifact{% endif %}</h2></div>
+      <div><span class="section-kicker">{% if lang == 'zh' %}按产物类型浏览{% else %}Browse by artifact{% endif %}</span><h2>{% if lang == 'zh' %}三类可复用的工程产物{% else %}Three kinds of reusable engineering artifact{% endif %}</h2></div>
     </div>
     <div class="hub-category-grid">
       {%- for cat in hub.categories %}{% include hub-category-card.html category=cat index=forloop.index lang=lang %}{% endfor %}
@@ -102,11 +102,11 @@ layout: default
   {%- if entry.lang == lang %}{% assign entry_links = entry.hub.uses | size | plus: entry.hub.produces.size %}{% if entry_links > 0 %}{% assign linked_explorations = linked_explorations | push: entry %}{% endif %}{% endif %}
 {%- endfor %}
 {%- if linked_explorations.size > 0 %}
-<section class="section hub-explorations-section" id="explorations">
+<section class="section hub-explorations-section" id="frontiers">
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">{{ t.explorations_hub_section_kicker }}</span><h2>{{ t.explorations_hub_section_title }}</h2></div>
-      <p>{{ t.explorations_hub_section_intro }} <a href="{{ lp | append: '/explorations/' | relative_url }}">{{ t.nav_explorations }} →</a></p>
+      <p>{{ t.explorations_hub_section_intro }} <a href="{{ lp | append: '/frontiers/' | relative_url }}">{{ t.nav_explorations }} →</a></p>
     </div>
     <div class="exploration-grid">
       {%- for entry in linked_explorations %}{% include exploration-card.html entry=entry lang=lang %}{% endfor %}

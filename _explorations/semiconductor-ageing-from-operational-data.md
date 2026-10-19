@@ -1,12 +1,13 @@
 ---
 title: "Power semiconductor ageing from operational data"
 lang: en
-permalink: /explorations/semiconductor-ageing-from-operational-data/
+permalink: /frontiers/semiconductor-ageing-from-operational-data/
 translation_key: semiconductor-ageing-from-operational-data
 status: concept
 question: "Can power semiconductor degradation be estimated from the data a converter already measures for control, without dedicated diagnostic measurements?"
 description: "An open question on whether drifts in thermal resistance and on-state voltage can be separated from operating-point, ambient and sensor variation using only the currents, voltages and heatsink temperature a converter already logs."
 domains: [devices]
+topics: [Power Electronics, Power Semiconductors, Reliability]
 opened: 2026-10-08
 updated: 2026-10-08
 featured: false

@@ -1,12 +1,13 @@
 ---
 title: "直流网络的自主稳定性"
 lang: zh
-permalink: /zh/explorations/autonomous-dc-network-stability/
+permalink: /zh/frontiers/autonomous-dc-network-stability/
 translation_key: autonomous-dc-network-stability
 status: concept
 question: "互联的直流变换器能否仅依靠本地控制与可在本地校核的设计规则保持网络稳定，而无需集中协调？"
 description: "一个开放问题：能否用每台变换器各自可校核的本地条件，保证含恒功率负载的直流网络小信号稳定？这类条件又会有多保守？"
 domains: [microgrids, control, converters]
+topics: [直流微电网, 电力电子, 控制]
 opened: 2026-10-08
 updated: 2026-10-08
 featured: false

@@ -1,0 +1,66 @@
+# Team page presentation: /company/team/ and /zh/company/team/ (_layouts/team.html).
+#
+# Both lists render in display order; add an entry to either list to extend the
+# page. Agent `status` uses the Hub status labels and must match the linked
+# repository as checked on 2026-10-19:
+#   in-development  code is published but not released or validated
+#   planned         no implementation is published yet; leave `repository` out
+# Never link a repository that does not exist or claim a capability that the
+# repository does not implement. `icon` names an SVG in _layouts/team.html.
+
+title: {en: "Team", zh: "团队"}
+tagline: {en: "Humans and AI, engineering together.", zh: "人与 AI，共同完成工程。"}
+
+human:
+  kicker: {en: "Human team", zh: "人类团队"}
+  title: {en: "The people behind AIPE.", zh: "AIPE 背后的人。"}
+  members:
+    - name: {en: "Dr Fulong Li", zh: "李富龙 博士"}
+      role: {en: "Founder", zh: "创始人"}
+      photo: /images/team/Fulong_selfie.png
+      links:
+        - label: {en: "LinkedIn", zh: "领英"}
+          url: https://www.linkedin.com/in/fulong-li-6bb443127
+        - label: {en: "GitHub", zh: "GitHub"}
+          url: https://github.com/FulongLi
+        - label: {en: "fulong.li@ieee.org", zh: "fulong.li@ieee.org"}
+          url: mailto:fulong.li@ieee.org
+
+digital:
+  kicker: {en: "Digital team", zh: "数字团队"}
+  title: {en: "Specialist agents for power engineering.", zh: "面向电力工程的专业智能体。"}
+  intro:
+    en: "Each agent covers one engineering discipline and states how far its development has come. None replaces human engineering review."
+    zh: "每个智能体负责一个工程方向，并标明其开发进度。它们都不能替代人工工程评审。"
+  repository_label: {en: "View repository", zh: "查看仓库"}
+  no_repository: {en: "Repository not yet published", zh: "仓库尚未发布"}
+  agents:
+    - key: pcb
+      icon: pcb
+      name: {en: "PCB Design Agent", zh: "PCB 设计智能体"}
+      summary:
+        en: "Takes a power-electronics design from schematic implementation through PCB layout and routing to design review."
+        zh: "把电力电子设计从原理图实现，推进到 PCB 布局、布线与设计评审。"
+      note:
+        en: "KiCad-based engineering prototypes under human review; no board has been fabricated or validated."
+        zh: "基于 KiCad 的工程原型，正在人工评审；尚无电路板经过制造或验证。"
+      status: in-development
+      repository: https://github.com/FulongLi/AIPE-PCB-Agent
+    - key: schematic
+      icon: schematic
+      name: {en: "Schematic Design Agent", zh: "原理图设计智能体"}
+      summary:
+        en: "Generates circuit schematics, checks their connectivity and optimises how the diagram is drawn."
+        zh: "生成电路原理图，检查连接性，并优化图面布局。"
+      note:
+        en: "Builds on AIPE-Sketch, the schematic rendering tool listed in the Hub."
+        zh: "基于 Hub 中收录的原理图渲染工具 AIPE-Sketch。"
+      status: in-development
+      repository: https://github.com/FulongLi/AIPE-Sketch
+    - key: magnetics
+      icon: magnetics
+      name: {en: "Magnetics & Multiphysics Agent", zh: "磁性元件与多物理场智能体"}
+      summary:
+        en: "Designs transformers and inductors as one integrated capability, from CAD modelling through electromagnetic simulation to thermal analysis."
+        zh: "以一体化能力完成变压器与电感设计，从 CAD 建模到电磁仿真，再到热分析。"
+      status: planned

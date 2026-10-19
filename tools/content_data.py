@@ -85,7 +85,7 @@ def validate_explorations(root, hub, errors):
         expected_lang = "zh" if path.parent.name == "zh" else "en"
         if lang != expected_lang:
             errors.append(f"{where}: lang must be {expected_lang} for this folder")
-        prefix = "/zh/explorations/" if expected_lang == "zh" else "/explorations/"
+        prefix = "/zh/frontiers/" if expected_lang == "zh" else "/frontiers/"
         if meta["permalink"] != f"{prefix}{path.stem}/":
             errors.append(f"{where}: permalink must be {prefix}{path.stem}/")
         if meta["translation_key"] != path.stem:
@@ -95,6 +95,9 @@ def validate_explorations(root, hub, errors):
                 errors.append(f"{where}: {field} must be a date (YYYY-MM-DD)")
         if isinstance(meta["opened"], datetime.date) and isinstance(meta["updated"], datetime.date) and meta["updated"] < meta["opened"]:
             errors.append(f"{where}: updated precedes opened")
+        topics = meta.get("topics", [])
+        if not isinstance(topics, list) or not all(isinstance(topic, str) and topic.strip() for topic in topics):
+            errors.append(f"{where}: topics must be a list of non-empty labels")
         unknown = set(meta["domains"] or []) - domains
         if not meta["domains"] or unknown:
             errors.append(f"{where}: needs known engineering domains (unknown: {sorted(unknown)})")
