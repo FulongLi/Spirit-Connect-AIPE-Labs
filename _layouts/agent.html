@@ -1,32 +1,45 @@
 ---
 layout: default
 ---
-{% assign agent_lang = page.lang | default: 'en' %}
+{%- comment -%}
+  Agent detail page template. The page sets `agent: <key>` (a record in
+  _data/agents.yml, which supplies the repository and the optional demo video),
+  plus its own title, role, intro and `sections` (the on-page navigation:
+  a list of {id, label} matching the headings in the page body).
+  Without a video the hero shows a "Demo coming soon" placeholder; no media
+  is ever linked that does not exist.
+{%- endcomment -%}
+{%- assign agent_lang = page.lang | default: 'en' -%}
+{%- assign agent = site.data.agents | where: "key", page.agent | first -%}
+{%- assign agent_repo = agent.repository | default: page.repository -%}
+{%- assign agent_video = agent.video | default: page.video -%}
+{%- assign agent_poster = agent.video_poster | default: page.video_poster -%}
 <header class="agent-hero">
   <div class="container agent-hero-grid">
     <div class="agent-hero-copy">
       <p class="agent-eyebrow">{{ site.data.i18n[agent_lang].nav_agents }} · {{ page.role }}</p>
       <h1>{{ page.title }}</h1>
       <p class="lead">{{ page.intro }}</p>
+      {%- if agent.status %}
+      <p class="agent-hero-status">{% include status-badge.html status=agent.status lang=agent_lang %}</p>
+      {%- endif %}
       <div class="hero-actions align-left">
-        <a class="btn btn-primary" href="#quick-start">{% if page.lang == 'zh' %}开始使用{% else %}Get started{% endif %}</a>
-        <a class="btn btn-ghost" href="{{ page.repository }}">{% if page.lang == 'zh' %}查看 GitHub 仓库{% else %}View on GitHub{% endif %} →</a>
+        <a class="btn btn-primary" href="#quick-start">{% if agent_lang == 'zh' %}开始使用{% else %}Get started{% endif %}</a>
+        <a class="btn btn-ghost" href="{{ agent_repo }}">{% if agent_lang == 'zh' %}查看 GitHub 仓库{% else %}View on GitHub{% endif %} →</a>
       </div>
     </div>
-    {% if page.video %}
+    {% if agent_video %}
     <div class="agent-preview agent-preview-media">
-      <video class="agent-tool-video agent-preview-video" autoplay muted loop playsinline preload="metadata" poster="{{ page.video_poster | relative_url }}" aria-label="{{ page.video_alt | default: page.title }}">
-        <source src="{{ page.video | relative_url }}" type="video/mp4">
+      <video class="agent-tool-video agent-preview-video" autoplay muted loop playsinline preload="metadata" poster="{{ agent_poster | relative_url }}" aria-label="{{ page.video_alt | default: page.title }}">
+        <source src="{{ agent_video | relative_url }}" type="video/mp4">
       </video>
     </div>
     {% else %}
-    <div class="agent-preview" aria-label="{% if page.lang == 'zh' %}AIPE-Sketch 输出预览{% else %}AIPE-Sketch output preview{% endif %}">
-      <div class="agent-preview-bar">
-        <span><i></i>{% if page.lang == 'zh' %}自动生成的 SVG{% else %}Generated SVG{% endif %}</span>
-        <small>{% if page.lang == 'zh' %}连接已验证{% else %}Connectivity checked{% endif %}</small>
-      </div>
-      <div class="agent-preview-canvas">
-        <img src="{{ page.visual | default: '/assets/blog/figures/circuit-dab.svg' | relative_url }}" alt="{{ page.visual_alt | default: page.title }}">
+    <div class="agent-preview agent-preview-placeholder" role="img" aria-label="{% if agent_lang == 'zh' %}演示视频即将推出{% else %}Demo video coming soon{% endif %}">
+      <div class="agent-placeholder-inner">
+        <span class="agent-placeholder-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+        <strong>{% if agent_lang == 'zh' %}演示视频即将推出{% else %}Demo Coming Soon{% endif %}</strong>
+        <span>{% if agent_lang == 'zh' %}{{ agent.name | default: page.title }} 的视频演示将在这里发布。{% else %}A video walkthrough of {{ agent.name | default: page.title }} will appear here.{% endif %}</span>
       </div>
     </div>
     {% endif %}
@@ -34,19 +47,16 @@ layout: default
 </header>
 <section class="section agent-content-section">
   <div class="container agent-content-shell">
-    <aside class="agent-page-nav" aria-label="{% if page.lang == 'zh' %}本页目录{% else %}On this page{% endif %}">
-      <span>{% if page.lang == 'zh' %}本页目录{% else %}On this page{% endif %}</span>
-      <a href="#overview">{% if page.lang == 'zh' %}一个链接开始{% else %}Start with one link{% endif %}</a>
-      <a href="#quick-start">{% if page.lang == 'zh' %}快速开始{% else %}Quick start{% endif %}</a>
-      <a href="#capabilities">{% if page.lang == 'zh' %}它能做什么{% else %}What it can do{% endif %}</a>
-      <a href="#custom-circuit">{% if page.lang == 'zh' %}如何描述电路{% else %}What to describe{% endif %}</a>
-      <a href="#outputs">{% if page.lang == 'zh' %}输出文件{% else %}Output files{% endif %}</a>
-      <a href="#limits">{% if page.lang == 'zh' %}使用前检查{% else %}Before you use it{% endif %}</a>
+    <aside class="agent-page-nav" aria-label="{% if agent_lang == 'zh' %}本页目录{% else %}On this page{% endif %}">
+      <span>{% if agent_lang == 'zh' %}本页目录{% else %}On this page{% endif %}</span>
+      {%- for section in page.sections %}
+      <a href="#{{ section.id }}">{{ section.label }}</a>
+      {%- endfor %}
     </aside>
     <div class="agent-article-column">
       <article class="post-article agent-article">{{ content }}</article>
     <p class="post-back">
-      {% if page.lang == 'zh' %}
+      {% if agent_lang == 'zh' %}
       <a href="{{ '/zh/resources/ai-agent-team/' | relative_url }}">← 返回 AI Agent 团队</a>
       {% else %}
       <a href="{{ '/resources/ai-agent-team/' | relative_url }}">← Back to AI Agent Team</a>

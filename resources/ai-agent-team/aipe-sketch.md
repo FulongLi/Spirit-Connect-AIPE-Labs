@@ -5,10 +5,15 @@ permalink: /resources/ai-agent-team/aipe-sketch/
 description: "Use AIPE-Sketch with Codex or Claude Code: copy one link, describe a circuit in natural language, and generate a checked SVG schematic."
 role: Schematic generation
 intro: Describe the electrical connections. Let AIPE-Sketch handle the placement, wires, and labels.
-repository: https://github.com/FulongLi/AIPE-Sketch
-video: /videos/AIPE-Sketch.mp4
-video_poster: /images/general/aipe-sketch-video-poster.png
+agent: sketch
 video_alt: Animated introduction to the AIPE-Sketch schematic workflow
+sections:
+  - {id: overview, label: "Start with one link"}
+  - {id: quick-start, label: "Quick start"}
+  - {id: capabilities, label: "What it can do"}
+  - {id: custom-circuit, label: "What to describe"}
+  - {id: outputs, label: "Output files"}
+  - {id: limits, label: "Before you use it"}
 ---
 
 ## Draw a circuit with one link
@@ -35,10 +40,7 @@ and returns the generated files. You stay in control by describing changes in or
 3. Paste it into the agent and describe your circuit.
 4. Review the SVG and any connectivity warnings with the agent.
 
-<div class="agent-link">
-  <code id="aipe-sketch-prompt">Read https://github.com/FulongLi/AIPE-Sketch and use it to draw the circuit I describe. Set up and run the tool for me, ask if any connection is unclear, generate an SVG, and run the connectivity checks.</code>
-  <button class="copy-btn" data-copy-target="aipe-sketch-prompt" aria-live="polite">Copy prompt</button>
-</div>
+{% include agent-prompt.html agent='sketch' lang='en' id='aipe-sketch-prompt' %}
 
 You can then continue naturally: “Move the output capacitor closer to the load,” “add the
 component values,” or “change this to a synchronous buck and redraw it.” The agent may ask

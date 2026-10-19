@@ -109,9 +109,9 @@ image: /images/background/sst.png
     </div>
     <ol class="home-stages">
       {%- for stage in site.data.academy.stages %}
-      <li><a href="{{ '/zh/academy/#stage-' | append: stage.key | relative_url }}"><span>{{ stage.number }}</span><strong>{{ stage.title.zh }}</strong><em>{{ stage.topics.zh | join: ' · ' }}</em></a></li>
+      <li><a href="{{ '/zh' | append: stage.url | relative_url }}"><span>{{ stage.number }}</span><strong>{{ stage.title.zh }}</strong><em>{{ stage.topics.zh | join: ' · ' }}</em></a></li>
       {%- endfor %}
-      <li><a href="{{ '/zh/academy/#labs' | relative_url }}"><span>实验</span><strong>开放实验</strong><em>预测 · 运行 · 对比 · 解释</em></a></li>
+      <li><a href="{{ '/zh/academy/power-electronics/#resources' | relative_url }}"><span>实验</span><strong>开放实验</strong><em>预测 · 运行 · 对比 · 解释</em></a></li>
     </ol>
   </div>
 </section>

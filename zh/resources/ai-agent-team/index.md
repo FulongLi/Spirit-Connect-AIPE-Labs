@@ -39,6 +39,19 @@ description: 认识 AIPE Labs 生态中的专业 Agent 与工具，了解各自�
   </div>
 </section>
 
+<section class="section agent-team-more">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">更多智能体</span><h2>团队中的其他成员。</h2></div>
+    </div>
+    <div class="hub-project-grid">
+      {%- for agent in site.data.agents %}{% unless agent.key == 'sketch' %}
+      {% include agent-plugin-card.html agent=agent lang='zh' %}
+      {%- endunless %}{% endfor %}
+    </div>
+  </div>
+</section>
+
 <section class="section section-alt agent-team-method">
   <div class="container">
     <div class="agent-team-method-heading">

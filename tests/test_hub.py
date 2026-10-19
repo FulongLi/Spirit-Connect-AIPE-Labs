@@ -117,15 +117,6 @@ class HubDataTests(unittest.TestCase):
         self.edit_yaml("_data/academy.yml", lambda d: d["stages"][0]["title"].pop("zh"))
         self.assertIn("academy stage foundations: title needs en and zh", self.errors())
 
-    def test_academy_route_must_stay_in_its_language(self):
-        def change(data):
-            data["hub_route"]["zh"].append({"label": "实验", "title": "x", "url": "/academy/power-electronics/buck-open-lab/"})
-            data["hub_route"]["en"].append({"label": "Lab", "title": "x", "url": "/academy/foundations/first-circuit-zh/"})
-        self.edit_yaml("_data/academy.yml", change)
-        errors = self.errors()
-        self.assertIn("links a en lesson from the zh Academy", errors)
-        self.assertIn("links a zh lesson from the en Academy", errors)
-
     def test_registry_placement_needs_chinese_summary(self):
         def change(data):
             item = next(a for a in data["artifacts"] if a.get("registry") == "aipe.sketch")
@@ -133,14 +124,20 @@ class HubDataTests(unittest.TestCase):
         self.edit_yaml("_data/hub.yml", change)
         self.assertIn("aipe.sketch: needs a zh_summary", self.errors())
 
-    def test_plugin_cards_reference_real_capabilities(self):
+    def test_agent_cards_need_both_languages_and_real_pages(self):
         def change(data):
-            data["capabilities"][0]["registry"].append("aipe.missing")
-            del data["capabilities"][1]["text"]["zh"]
-        self.edit_yaml("_data/plugin.yml", change)
+            data[1]["page"] = "/resources/ai-agent-team/missing-agent/"
+            del data[2]["summary"]["zh"]
+            data[0]["status"] = "finished"
+        self.edit_yaml("_data/agents.yml", change)
         errors = self.errors()
-        self.assertIn("aipe.missing not in aipe.json", errors)
-        self.assertIn("plugin capability magnetics: text needs en and zh", errors)
+        self.assertIn("agent pcb-agent: unresolved URL /resources/ai-agent-team/missing-agent/", errors)
+        self.assertIn("agent ieee-paper-agent: summary needs en and zh", errors)
+        self.assertIn("agent sketch: unknown status finished", errors)
+
+    def test_agent_prompt_reads_its_own_repository(self):
+        self.edit_yaml("_data/agents.yml", lambda d: d[0]["prompt"].update(en="Draw my circuit."))
+        self.assertIn("agent sketch: en prompt must point the coding agent to https://github.com/FulongLi/AIPE-Sketch", self.errors())
 
     def test_hub_cards_need_both_languages_and_known_status(self):
         def change(data):
@@ -173,6 +170,29 @@ class HubDataTests(unittest.TestCase):
         for capability in ("aipe.simulation-skills", "aipe.design-agent", "aipe.open-source-catalogue"):
             self.assertIn(capability, placed)
             self.assertNotIn("card", placed[capability])
+
+    def test_knowledge_graph_references_must_exist(self):
+        def change(data):
+            node = next(n for n in data["nodes"] if n["id"] == "pe.buck")
+            node["requires"].append("pe.invented")
+            node["lessons"].append("/academy/power-electronics/invented/")
+            del node["title"]["zh"]
+        self.edit_yaml("_data/knowledge_graph.yml", change)
+        errors = self.errors()
+        self.assertIn("knowledge graph node pe.buck: requires unknown topic pe.invented", errors)
+        self.assertIn("knowledge graph node pe.buck: no generated lesson at /academy/power-electronics/invented/", errors)
+        self.assertIn("knowledge graph node pe.buck: title needs en and zh", errors)
+
+    def test_knowledge_graph_rejects_prerequisite_cycles(self):
+        def change(data):
+            node = next(n for n in data["nodes"] if n["id"] == "f.quantities")
+            node["requires"] = ["pe.control"]
+        self.edit_yaml("_data/knowledge_graph.yml", change)
+        self.assertIn("knowledge graph: prerequisite cycle", self.errors())
+
+    def test_academy_subject_needs_its_page(self):
+        self.edit_yaml("_data/academy.yml", lambda d: d["stages"][3].update(url="/academy/renewable-energy/"))
+        self.assertIn("academy stage renewables: url must be /academy/renewables/", self.errors())
 
     def test_featured_positions_are_unique(self):
         def change(data):

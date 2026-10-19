@@ -1,0 +1,12 @@
+{%- comment -%}
+  Copyable coding-agent prompt for one agent in _data/agents.yml.
+  Params: agent (record key), lang, id (optional element id, unique per page).
+  The prompt asks the coding agent to read the repository; it is not an install.
+{%- endcomment -%}
+{%- assign ap_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- assign ap_agent = site.data.agents | where: "key", include.agent | first -%}
+{%- if include.id -%}{%- assign ap_id = include.id -%}{%- else -%}{%- assign ap_id = ap_agent.key | append: '-prompt-' | append: ap_lang -%}{%- endif -%}
+<div class="agent-link agent-prompt">
+  <code id="{{ ap_id }}">{{ ap_agent.prompt[ap_lang] | escape }}</code>
+  <button class="copy-btn" type="button" data-copy-target="{{ ap_id }}"{% if ap_lang == 'zh' %} data-copied-label="已复制"{% endif %} aria-live="polite">{% if ap_lang == 'zh' %}复制提示词{% else %}Copy prompt{% endif %}</button>
+</div>

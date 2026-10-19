@@ -38,6 +38,19 @@ description: Meet the specialist agents and tools in the AIPE Labs ecosystem, di
   </div>
 </section>
 
+<section class="section agent-team-more">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">More agents</span><h2>Also in the team.</h2></div>
+    </div>
+    <div class="hub-project-grid">
+      {%- for agent in site.data.agents %}{% unless agent.key == 'sketch' %}
+      {% include agent-plugin-card.html agent=agent lang='en' %}
+      {%- endunless %}{% endfor %}
+    </div>
+  </div>
+</section>
+
 <section class="section section-alt agent-team-method">
   <div class="container">
     <div class="agent-team-method-heading">

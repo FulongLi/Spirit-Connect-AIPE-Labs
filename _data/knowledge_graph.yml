@@ -1,0 +1,279 @@
+# AIPE Academy engineering knowledge graph.
+#
+# Presentation data owned by this website. Subjects are the four Academy stages
+# in _data/academy.yml (their `key`); lessons are the generated AIPE Academy
+# pages in academy/*.md, referenced only by URL and never copied or edited here.
+#
+# Each node is a topic in one subject:
+#   id         stable identifier, <subject prefix>.<name>
+#   subject    an Academy stage key
+#   parent     optional; the broader topic this one belongs to (a subtopic)
+#   requires   prerequisite topics: what a learner needs first. Only real
+#              learning dependencies belong here; the graph draws them as arrows
+#   related    optional; topics that inform each other without a prerequisite
+#              order (drawn as dotted lines)
+#   lessons    optional; generated lesson URLs that teach this topic. A page
+#              shows only the lessons in its own language; a node without one
+#              in that language is shown as planned and links to nothing
+#   resources  optional; on-site or external pages that support the topic
+#              (Hub tools, data, reference designs, articles). `localised: true`
+#              means the same path exists under /zh
+#   title, summary   en and zh
+#
+# Foundations follows the F01–F09 modules of the AIPE Academy prerequisite path.
+# To connect a new lesson, add its URL to the node it teaches; the graph and
+# the subject pages update without changes to the visualisation.
+#
+# tools/hub_data.py checks labels in both languages, that every reference and
+# lesson exists, that resources resolve, and that prerequisites have no cycles.
+
+nodes:
+  # ── Foundations ──
+  - id: f.quantities
+    subject: foundations
+    title: {en: "Quantities and units", zh: "数量与单位"}
+    summary:
+      en: "Ratios, scientific notation, unit conversion and simple equations: the arithmetic every engineering estimate rests on."
+      zh: "比例、科学计数法、单位换算与简单方程：一切工程估算所依赖的基本运算。"
+    lessons:
+      - /academy/foundations/first-circuit-zh/
+  - id: f.dc-circuits
+    subject: foundations
+    title: {en: "DC circuits", zh: "直流电路"}
+    summary:
+      en: "Voltage, current, power and energy; Ohm's law, KCL, KVL and equivalent circuits."
+      zh: "电压、电流、功率与能量；欧姆定律、KCL、KVL 与等效电路。"
+    requires: [f.quantities]
+    lessons:
+      - /academy/foundations/first-circuit-zh/
+  - id: f.dynamics
+    subject: foundations
+    title: {en: "Energy storage dynamics", zh: "储能元件动态"}
+    summary:
+      en: "Capacitors and inductors, first-order differential equations, RC and RL responses and time constants."
+      zh: "电容与电感、一阶微分方程、RC 与 RL 响应以及时间常数。"
+    requires: [f.dc-circuits]
+  - id: f.ac
+    subject: foundations
+    title: {en: "Waveforms and AC", zh: "周期波形与交流"}
+    summary:
+      en: "Period, frequency, duty cycle, average and RMS values; complex numbers, phasors and impedance."
+      zh: "周期、频率、占空比、平均值与有效值；复数、相量与阻抗。"
+    requires: [f.quantities, f.dynamics]
+  - id: f.electronics
+    subject: foundations
+    title: {en: "Basic electronic devices", zh: "基础电子器件"}
+    summary:
+      en: "Simplified models of diodes and MOSFETs, operating points, losses and ratings."
+      zh: "二极管与 MOSFET 的简化模型、工作点、损耗与额定值。"
+    requires: [f.dc-circuits, f.dynamics]
+  - id: f.computation
+    subject: foundations
+    title: {en: "Computation and numerics", zh: "计算与数值方法"}
+    summary:
+      en: "Scripts, plots and simulation models; linear equations, matrices, step sizes and numerical error."
+      zh: "脚本、绘图与仿真模型；线性方程组、矩阵、仿真步长与数值误差。"
+    requires: [f.quantities, f.dynamics]
+  - id: f.signals
+    subject: foundations
+    title: {en: "Signals and feedback", zh: "信号、系统与反馈"}
+    summary:
+      en: "Linear time-invariant systems, step and frequency response, Laplace transforms, poles, Bode plots and negative feedback."
+      zh: "线性时不变系统、阶跃与频率响应、拉普拉斯变换、极点、Bode 图与负反馈。"
+    requires: [f.dynamics, f.ac]
+  - id: f.magnetism
+    subject: foundations
+    title: {en: "Magnetism and measurement", zh: "磁学与工程测量"}
+    summary:
+      en: "Flux, induction, magnetic circuits and saturation; measurement range, sampling, reference points and error."
+      zh: "磁通、感应、磁路与饱和；测量量程、采样、参考点与误差。"
+    requires: [f.dynamics, f.electronics]
+
+  # ── Power Electronics ──
+  - id: pe.devices
+    subject: power-electronics
+    title: {en: "Semiconductor devices", zh: "功率半导体器件"}
+    summary:
+      en: "Diodes, MOSFETs, IGBTs, SiC and GaN as switches; datasheets, parasitics and conduction loss."
+      zh: "作为开关的二极管、MOSFET、IGBT、SiC 与 GaN 器件；数据手册、寄生参数与导通损耗。"
+    requires: [f.electronics]
+    lessons:
+      - /academy/power-electronics/components/
+    resources:
+      - {url: /database/transistors/, localised: true, label: {en: "Transistor data", zh: "晶体管数据"}}
+      - {url: /power/devices/, localised: true, label: {en: "Device articles", zh: "器件文章"}}
+  - id: pe.topologies
+    subject: power-electronics
+    title: {en: "Converter topologies", zh: "变换器拓扑"}
+    summary:
+      en: "Switching converters in steady state: volt-second and charge balance, conversion ratios, ripple, CCM and DCM."
+      zh: "稳态下的开关变换器：伏秒平衡与电荷平衡、变比、纹波、CCM 与 DCM。"
+    requires: [pe.devices, f.ac]
+    lessons:
+      - /academy/power-electronics/converters/
+    resources:
+      - {url: /power/converters/, localised: true, label: {en: "Converter articles", zh: "变换器文章"}}
+      - {url: /resources/ai-agent-team/aipe-sketch/, localised: true, label: {en: "Draw schematics with AIPE Sketch", zh: "用 AIPE Sketch 绘制原理图"}}
+  - id: pe.buck
+    subject: power-electronics
+    parent: pe.topologies
+    title: {en: "Buck converter", zh: "Buck 变换器"}
+    summary:
+      en: "The step-down converter worked from switch states to duty ratio, inductor ripple and component choice."
+      zh: "从开关状态出发分析降压变换器，直至占空比、电感纹波与元件选择。"
+    requires: [pe.topologies]
+    lessons:
+      - /academy/power-electronics/buck-converter/
+      - /academy/power-electronics/buck-open-lab/
+  - id: pe.magnetics
+    subject: power-electronics
+    title: {en: "Magnetics", zh: "磁性元件"}
+    summary:
+      en: "Inductor and transformer design: saturation, core loss, copper loss and leakage."
+      zh: "电感与变压器设计：饱和、磁芯损耗、铜损与漏感。"
+    requires: [f.magnetism, f.ac]
+    lessons:
+      - /academy/power-electronics/practical-design/
+    resources:
+      - {url: /database/magnetics/, localised: true, label: {en: "Magnetics data", zh: "磁性元件数据"}}
+  - id: pe.isolated
+    subject: power-electronics
+    parent: pe.topologies
+    title: {en: "Isolated converters", zh: "隔离型变换器"}
+    summary:
+      en: "Transformer-based converters such as flyback, forward, dual active bridge and LLC resonant stages."
+      zh: "基于变压器的变换器，例如反激、正激、双有源桥与 LLC 谐振变换器。"
+    requires: [pe.topologies, pe.magnetics]
+    resources:
+      - {url: /resources/prototypes/dab/, localised: true, label: {en: "DAB design reference", zh: "DAB 设计参考"}}
+  - id: pe.modelling
+    subject: power-electronics
+    title: {en: "Modelling", zh: "建模"}
+    summary:
+      en: "Averaged and small-signal models, linearisation around an operating point, and converter transfer functions."
+      zh: "平均模型与小信号模型、围绕工作点的线性化，以及变换器传递函数。"
+    requires: [pe.topologies, f.signals]
+    lessons:
+      - /academy/power-electronics/dynamics-and-control/
+  - id: pe.control
+    subject: power-electronics
+    title: {en: "Control", zh: "控制"}
+    summary:
+      en: "Feedback loop design, compensation, phase and gain margins, voltage- and current-mode control and digital control."
+      zh: "反馈环路设计、补偿、相位与增益裕度、电压型与电流型控制以及数字控制。"
+    requires: [pe.modelling]
+    lessons:
+      - /academy/power-electronics/dynamics-and-control/
+  - id: pe.simulation
+    subject: power-electronics
+    title: {en: "Simulation", zh: "仿真"}
+    summary:
+      en: "Switching and averaged simulation with open tools, and checking a simulation result against hand analysis."
+      zh: "使用开源工具进行开关模型与平均模型仿真，并用手算结果核对仿真。"
+    requires: [pe.topologies, f.computation]
+    related: [pe.modelling]
+  - id: pe.practical
+    subject: power-electronics
+    title: {en: "Practical design", zh: "工程实践设计"}
+    summary:
+      en: "Gate driving, PCB layout, EMI, thermal design, protection and safety: the constraints of real hardware."
+      zh: "栅极驱动、PCB 布局、EMI、热设计、保护与安全：真实硬件中的工程约束。"
+    requires: [pe.devices, pe.topologies]
+    related: [pe.magnetics]
+    lessons:
+      - /academy/power-electronics/practical-design/
+    resources:
+      - {url: /resources/ai-agent-team/aipe-pcb-agent/, localised: true, label: {en: "PCB design with AIPE PCB Agent", zh: "用 AIPE PCB Agent 设计 PCB"}}
+  - id: pe.applications
+    subject: power-electronics
+    title: {en: "Systems and applications", zh: "系统与应用"}
+    summary:
+      en: "How converters become products: chargers, server supplies, EV drives, solar inverters, requirements and trade-offs."
+      zh: "变换器如何成为产品：充电器、服务器电源、电动汽车驱动、光伏逆变器，以及需求与权衡。"
+    requires: [pe.control, pe.practical]
+    related: [ps.grid-converters, re.pv, re.storage]
+    lessons:
+      - /academy/power-electronics/systems-applications/
+
+  # ── Power Systems ──
+  - id: ps.three-phase
+    subject: power-systems
+    title: {en: "Three-phase systems", zh: "三相系统"}
+    summary:
+      en: "Balanced three-phase circuits, active and reactive power, and dq reference frames."
+      zh: "对称三相电路、有功与无功功率，以及 dq 坐标系。"
+    requires: [f.ac]
+    resources:
+      - {url: /resources/blog/three-phase-dq-modelling/, localised: true, label: {en: "Three-phase dq modelling", zh: "三相 dq 建模"}}
+  - id: ps.power-flow
+    subject: power-systems
+    title: {en: "Power flow", zh: "潮流计算"}
+    summary:
+      en: "Network models and the power-flow problem: bus voltages, line flows and losses in a grid."
+      zh: "电网模型与潮流问题：母线电压、线路潮流与网络损耗。"
+    requires: [ps.three-phase, f.computation]
+  - id: ps.grid-converters
+    subject: power-systems
+    title: {en: "Grid-connected converters", zh: "并网变换器"}
+    summary:
+      en: "Converters that exchange power with the grid: synchronisation, current control and grid-support functions."
+      zh: "与电网交换功率的变换器：同步、电流控制与电网支撑功能。"
+    requires: [pe.control, ps.three-phase]
+  - id: ps.stability
+    subject: power-systems
+    title: {en: "Stability", zh: "稳定性"}
+    summary:
+      en: "Small-signal stability of grids with many converters, and how converter and network dynamics interact."
+      zh: "含大量变换器的电网小信号稳定性，以及变换器与电网动态之间的相互作用。"
+    requires: [ps.power-flow, pe.modelling]
+    related: [ps.grid-converters]
+  - id: ps.microgrids
+    subject: power-systems
+    title: {en: "Microgrids", zh: "微电网"}
+    summary:
+      en: "DC, AC and hybrid microgrids: droop control, power sharing and energy management."
+      zh: "直流、交流与交直流混合微电网：下垂控制、功率分配与能量管理。"
+    requires: [ps.grid-converters, ps.power-flow]
+    resources:
+      - {url: /power/microgrids/, localised: true, label: {en: "Microgrid articles", zh: "微电网文章"}}
+  - id: ps.sst
+    subject: power-systems
+    title: {en: "Solid-state transformers", zh: "固态变压器"}
+    summary:
+      en: "Multi-stage power-electronic transformers that interface medium-voltage grids, DC links and loads."
+      zh: "连接中压电网、直流母线与负载的多级电力电子变压器。"
+    requires: [pe.isolated, ps.grid-converters]
+    resources:
+      - {url: /resources/prototypes/sst/, localised: true, label: {en: "SST design reference", zh: "固态变压器设计参考"}}
+      - {url: /resources/blog/three-stage-solid-state-transformer/, localised: true, label: {en: "Three-stage SST article", zh: "三级式固态变压器文章"}}
+
+  # ── Renewables ──
+  - id: re.pv
+    subject: renewables
+    title: {en: "Solar PV", zh: "光伏发电"}
+    summary:
+      en: "PV cell and array behaviour, maximum power point tracking and the converters that connect PV to a load or grid."
+      zh: "光伏电池与阵列特性、最大功率点跟踪，以及把光伏连接到负载或电网的变换器。"
+    requires: [pe.topologies, f.electronics]
+  - id: re.storage
+    subject: renewables
+    title: {en: "Energy storage", zh: "储能"}
+    summary:
+      en: "Batteries and other storage, their interfaces, and bidirectional converters for charging and discharging."
+      zh: "电池及其他储能形式、它们的接口，以及用于充放电的双向变换器。"
+    requires: [pe.topologies]
+  - id: re.wind
+    subject: renewables
+    title: {en: "Wind energy", zh: "风力发电"}
+    summary:
+      en: "Wind turbine generators and the back-to-back converters that connect them to the grid."
+      zh: "风力发电机及其连接电网的背靠背变换器。"
+    requires: [f.magnetism, ps.grid-converters]
+  - id: re.integration
+    subject: renewables
+    title: {en: "Grid integration", zh: "并网集成"}
+    summary:
+      en: "Connecting variable renewable generation and storage to the grid: grid requirements, hosting capacity and stability."
+      zh: "把波动性可再生能源与储能接入电网：并网要求、承载能力与稳定性。"
+    requires: [ps.grid-converters, ps.stability]
+    related: [re.pv, re.wind, re.storage, ps.microgrids]

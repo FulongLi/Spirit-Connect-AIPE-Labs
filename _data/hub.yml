@@ -273,6 +273,10 @@ artifacts:
       summary:
         en: "AI-assisted PCB design, routing and engineering review using KiCad."
         zh: "基于 KiCad 的 AI 辅助 PCB 设计、布线与工程评审。"
+    links:
+      - url: /resources/ai-agent-team/aipe-pcb-agent/
+        localised: true
+        label: {en: "Guide", zh: "使用指南"}
   - registry: aipe.ieee-paper-agent
     zh_summary: "关联证据的科研规划，以及面向特定 IEEE 期刊与会议的论文撰写。"
     category: tools
@@ -281,6 +285,10 @@ artifacts:
       summary:
         en: "AI-assisted research planning and IEEE manuscript preparation."
         zh: "AI 辅助的科研规划与 IEEE 论文撰写。"
+    links:
+      - url: /resources/ai-agent-team/aipe-ieee-paper-agent/
+        localised: true
+        label: {en: "Guide", zh: "使用指南"}
   # Placed but not shown as Hub cards for now (still in the Registry, the
   # homepage feed, Engineering and search).
   - registry: aipe.simulation-skills

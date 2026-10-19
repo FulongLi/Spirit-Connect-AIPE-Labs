@@ -65,7 +65,7 @@
         </div>
         <div class="drop-menu">
           {%- for stage in site.data.academy.stages %}
-          <a href="{{ lp | append: '/academy/#stage-' | append: stage.key | relative_url }}">{{ stage.title[lang] }}</a>
+          <a href="{{ lp | append: stage.url | relative_url }}">{{ stage.title[lang] }}</a>
           {%- endfor %}
         </div>
       </div>

@@ -1,0 +1,31 @@
+{%- comment -%}
+  Standalone agent card (Plugin page, AI Agent Team page). Params: agent (an
+  entry of site.data.agents), lang. Shows the name, one sentence, a status badge
+  only while the project is in development, a Copy prompt button, the detail
+  page and GitHub. A native install link appears only when the repository
+  documents one, and is labelled as such: a copied prompt is never an install.
+{%- endcomment -%}
+{%- assign apc_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- if apc_lang == 'zh' -%}{%- assign apc_lp = '/zh' -%}{%- else -%}{%- assign apc_lp = '' -%}{%- endif -%}
+{%- assign apc = include.agent -%}
+{%- assign apc_id = apc.key | append: '-card-prompt-' | append: apc_lang -%}
+<article class="hub-project-card agent-plugin-card">
+  <div class="hub-project-head">
+    <h3><a href="{{ apc_lp | append: apc.page | relative_url }}">{{ apc.name }}</a></h3>
+    {%- if apc.status %}
+    {% include status-badge.html status=apc.status lang=apc_lang %}
+    {%- endif %}
+  </div>
+  <p>{{ apc.summary[apc_lang] }}</p>
+  <code class="visually-hidden" id="{{ apc_id }}">{{ apc.prompt[apc_lang] | escape }}</code>
+  <div class="agent-plugin-actions">
+    <button class="copy-btn" type="button" data-copy-target="{{ apc_id }}"{% if apc_lang == 'zh' %} data-copied-label="已复制"{% endif %} aria-live="polite">{% if apc_lang == 'zh' %}复制提示词{% else %}Copy prompt{% endif %}</button>
+  </div>
+  <div class="hub-project-links">
+    <a href="{{ apc_lp | append: apc.page | relative_url }}">{% if apc_lang == 'zh' %}查看详情{% else %}View details{% endif %} →</a>
+    <a href="{{ apc.repository }}" rel="noopener">GitHub ↗</a>
+    {%- if apc.install %}
+    <a href="{{ apc.install.url }}" rel="noopener">{{ apc.install.label[apc_lang] }} ↗</a>
+    {%- endif %}
+  </div>
+</article>

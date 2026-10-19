@@ -54,15 +54,16 @@ The public site is organised as an **AIPE Hub** (artifact dimension: Data &
 Models, Tools & Agents, Workflows; reference designs and Academy labs are both
 Workflows, and each card keeps its own type) and **Engineering** domains (Devices,
 Magnetics, Converters, Control, Energy Storage, Microgrids, Energy Systems).
-Both views, the homepage feed, the Plugin page capability cards and the
-client-side search index are rendered from these data files:
+Both views, the homepage feed, the Academy subject pages and knowledge graph,
+the Plugin page agent cards and the client-side search index are rendered from these data files:
 
 | File | Owner | Role |
 | --- | --- | --- |
 | `_data/registry.json` | derived | Byte-identical mirror of `/aipe.json`. GitHub Pages cannot read a root file from Liquid, so `tools/hub_data.py --write` copies it after every Registry sync. Never edit it by hand. |
 | `_data/hub.yml` | this site | Placement only: Hub category, engineering domains, featured order and on-site pages for each artifact. Registry artifacts carry no restated metadata; only website-owned artifacts (`id: site.*`) describe themselves. |
-| `_data/academy.yml` | this site | Groups generated lesson URLs into learning stages for `/academy/` and `/zh/academy/`, with stage labels and a Hub route in both languages. Lesson titles, language, status and durations come from the generated pages. |
-| `_data/plugin.yml` | this site | The plain-language capability areas on `/plugin/`; each names the Registry IDs it draws on, whose names and maturity are read from the mirror. |
+| `_data/academy.yml` | this site | The four Academy subjects (stages): labels, subject page URL, colour, generated lesson URLs, practical examples and resources, in both languages. Lesson titles, language, status and durations come from the generated pages. |
+| `_data/knowledge_graph.yml` | this site | The engineering knowledge graph: topics per subject, subtopics, prerequisites, related topics, lesson URLs and supporting pages, with English and Chinese labels. Rendered by `assets/knowledge-map.js` on `/academy/` and each subject page. |
+| `_data/agents.yml` | this site | Standalone agents: repository, detail page, optional demo video, one-sentence summary, copyable prompt and any repository-documented native install. Shared by the agent pages, the Plugin page and the AI Agent Team page. |
 
 Registry descriptions are English. Each Registry placement in `_data/hub.yml`
 carries a reviewed `zh_summary`, so Chinese cards and search never show the
