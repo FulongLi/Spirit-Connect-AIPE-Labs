@@ -107,9 +107,9 @@ image: /images/background/sst.png
     </div>
     <ol class="home-stages">
       {%- for stage in site.data.academy.stages %}
-      <li><a href="{{ '/academy/#stage-' | append: stage.key | relative_url }}"><span>{{ stage.number }}</span><strong>{{ stage.title.en }}</strong><em>{{ stage.topics.en | join: ' · ' }}</em></a></li>
+      <li><a href="{{ stage.url | relative_url }}"><span>{{ stage.number }}</span><strong>{{ stage.title.en }}</strong><em>{{ stage.topics.en | join: ' · ' }}</em></a></li>
       {%- endfor %}
-      <li><a href="{{ '/academy/#labs' | relative_url }}"><span>Lab</span><strong>Open labs</strong><em>Predict · run · compare · explain</em></a></li>
+      <li><a href="{{ '/academy/power-electronics/#resources' | relative_url }}"><span>Lab</span><strong>Open labs</strong><em>Predict · run · compare · explain</em></a></li>
     </ol>
   </div>
 </section>

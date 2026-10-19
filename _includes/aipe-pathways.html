@@ -1,0 +1,24 @@
+{%- comment -%}
+  Subtle Academy → Hub → Plugin connection strip. Params: current
+  (academy | hub | plugin; that item is marked as the current page), lang.
+{%- endcomment -%}
+{%- assign pw_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- if pw_lang == 'zh' -%}{%- assign pw_lp = '/zh' -%}{%- else -%}{%- assign pw_lp = '' -%}{%- endif -%}
+<section class="section aipe-pathways-section">
+  <div class="container">
+    <nav class="aipe-pathways" aria-label="{% if pw_lang == 'zh' %}AIPE 学习与工具路径{% else %}Learn, build and use AIPE{% endif %}">
+      <a href="{{ pw_lp | append: '/academy/' | relative_url }}"{% if include.current == 'academy' %} aria-current="page"{% endif %}>
+        <span>{% if pw_lang == 'zh' %}学院{% else %}Academy{% endif %}</span>
+        <strong>{% if pw_lang == 'zh' %}学习工程原理{% else %}Learn engineering principles{% endif %}</strong>
+      </a>
+      <a href="{{ pw_lp | append: '/hub/' | relative_url }}"{% if include.current == 'hub' %} aria-current="page"{% endif %}>
+        <span>Hub</span>
+        <strong>{% if pw_lang == 'zh' %}发现工程工具{% else %}Discover engineering tools{% endif %}</strong>
+      </a>
+      <a href="{{ pw_lp | append: '/plugin/' | relative_url }}"{% if include.current == 'plugin' %} aria-current="page"{% endif %}>
+        <span>{% if pw_lang == 'zh' %}插件{% else %}Plugin{% endif %}</span>
+        <strong>{% if pw_lang == 'zh' %}在 Coding Agent 中使用工具{% else %}Use tools with coding agents{% endif %}</strong>
+      </a>
+    </nav>
+  </div>
+</section>

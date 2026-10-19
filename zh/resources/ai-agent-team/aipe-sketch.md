@@ -6,10 +6,15 @@ permalink: /zh/resources/ai-agent-team/aipe-sketch/
 description: "在 Codex 或 Claude Code 中使用 AIPE-Sketch：复制一个链接，用自然语言描述电路，生成并检查 SVG 原理图。"
 role: 原理图生成
 intro: 描述电路怎样连接，让 AIPE-Sketch 完成器件布局、布线和标注。
-repository: https://github.com/FulongLi/AIPE-Sketch
-video: /videos/AIPE-Sketch.mp4
-video_poster: /images/general/aipe-sketch-video-poster.png
+agent: sketch
 video_alt: AIPE-Sketch 原理图工作流动画介绍
+sections:
+  - {id: overview, label: "一个链接开始"}
+  - {id: quick-start, label: "快速开始"}
+  - {id: capabilities, label: "它能做什么"}
+  - {id: custom-circuit, label: "如何描述电路"}
+  - {id: outputs, label: "输出文件"}
+  - {id: limits, label: "使用前检查"}
 ---
 
 ## 一个链接开始画电路
@@ -35,10 +40,7 @@ Coding Agent 会读取仓库、准备电路描述、运行 AIPE-Sketch，然后�
 3. 粘贴给 Agent，然后用自然语言描述电路。
 4. 与 Agent 一起检查 SVG 和连通性警告。
 
-<div class="agent-link">
-  <code id="aipe-sketch-prompt-zh">请阅读 https://github.com/FulongLi/AIPE-Sketch，并用它绘制我描述的电路。请帮我完成工具设置和运行；如果连接关系不清楚，先向我确认；最后生成 SVG 并运行连通性检查。</code>
-  <button class="copy-btn" data-copy-target="aipe-sketch-prompt-zh" data-copied-label="已复制" aria-live="polite">复制提示词</button>
-</div>
+{% include agent-prompt.html agent='sketch' lang='zh' id='aipe-sketch-prompt-zh' %}
 
 之后可以继续直接说：“把输出电容放得更靠近负载”、“加上器件参数”，
 或者“改成同步 Buck 并重新绘制”。Agent 可能会请求访问 GitHub 或运行本地命令的权限。

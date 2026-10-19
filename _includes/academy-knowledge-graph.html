@@ -1,0 +1,124 @@
+{%- comment -%}
+  Data-driven engineering knowledge graph (assets/knowledge-map.js).
+  Params: lang; scope (optional subject key). Without a scope the whole graph
+  is shown; with one, that subject's topics plus their direct prerequisites and
+  dependents in other subjects.
+
+  Topics come from _data/knowledge_graph.yml and subjects from
+  _data/academy.yml. Lessons are generated AIPE Academy pages filtered to the
+  page language, so a topic without a lesson in this language is shown as
+  planned and links nowhere. The topic list below the graph is the no-script
+  and small-screen fallback, rendered from the same data.
+{%- endcomment -%}
+{%- assign kg_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- if kg_lang == 'zh' -%}{%- assign kg_lp = '/zh' -%}{%- else -%}{%- assign kg_lp = '' -%}{%- endif -%}
+{%- assign kg_t = site.data.i18n[kg_lang] -%}
+{%- assign kg_lessons = "" | split: "" -%}
+{%- for candidate in site.pages -%}
+  {%- if candidate.academy_page and candidate.lesson_status and candidate.lang == kg_lang -%}{%- assign kg_lessons = kg_lessons | push: candidate -%}{%- endif -%}
+{%- endfor -%}
+{%- assign kg_nodes = site.data.knowledge_graph.nodes -%}
+<div class="kg" data-knowledge-graph>
+  <div class="kg-stage{% if include.scope %} kg-stage-subject{% endif %}">
+    <svg class="kg-svg" role="group" aria-label="{{ kg_t.kg_aria }}"></svg>
+    <div class="kg-controls blog-graph-controls">
+      <button type="button" data-kg-action="zoom-in" aria-label="{{ kg_t.kg_zoom_in }}">+</button>
+      <button type="button" data-kg-action="zoom-out" aria-label="{{ kg_t.kg_zoom_out }}">−</button>
+      <button type="button" data-kg-action="reset" aria-label="{{ kg_t.kg_reset }}">↺</button>
+    </div>
+    <ul class="kg-legend" aria-hidden="true">
+      <li><i class="kg-key-node"></i>{{ kg_t.kg_with_lessons }}</li>
+      <li><i class="kg-key-node kg-key-planned"></i>{{ kg_t.kg_planned }}</li>
+      <li><i class="kg-key-line"></i>{{ kg_t.kg_legend_prereq }}</li>
+      <li><i class="kg-key-line kg-key-part"></i>{{ kg_t.kg_legend_part }}</li>
+      <li><i class="kg-key-line kg-key-related"></i>{{ kg_t.kg_legend_related }}</li>
+    </ul>
+    <span class="kg-hint">{{ kg_t.kg_hint }}</span>
+    <aside class="kg-panel" aria-live="polite" hidden>
+      <button type="button" class="kg-panel-close" aria-label="{% if kg_lang == 'zh' %}关闭{% else %}Close{% endif %}">×</button>
+      <div class="kg-panel-content"></div>
+    </aside>
+  </div>
+  <script type="application/json" class="kg-data">
+  {
+    "lang": {{ kg_lang | jsonify }},
+    "scope": {{ include.scope | jsonify }},
+    "text": {
+      "prerequisites": {{ kg_t.kg_prerequisites | jsonify }},
+      "partOf": {{ kg_t.kg_part_of | jsonify }},
+      "subtopics": {{ kg_t.kg_subtopics | jsonify }},
+      "leadsTo": {{ kg_t.kg_leads_to | jsonify }},
+      "related": {{ kg_t.kg_related | jsonify }},
+      "lessons": {{ kg_t.kg_lessons | jsonify }},
+      "resources": {{ kg_t.kg_resources | jsonify }},
+      "plannedNote": {{ kg_t.kg_planned_note | jsonify }},
+      "withLessons": {{ kg_t.kg_with_lessons | jsonify }},
+      "planned": {{ kg_t.kg_planned | jsonify }},
+      "openSubject": {{ kg_t.kg_open_subject | jsonify }}
+    },
+    "subjects": [
+      {%- for stage in site.data.academy.stages %}
+      {"key": {{ stage.key | jsonify }}, "number": {{ stage.number | jsonify }}, "title": {{ stage.title[kg_lang] | jsonify }}, "summary": {{ stage.summary[kg_lang] | jsonify }}, "url": {{ kg_lp | append: stage.url | relative_url | jsonify }}, "color": {{ stage.color | jsonify }}}{% unless forloop.last %},{% endunless %}
+      {%- endfor %}
+    ],
+    "nodes": [
+      {%- for node in kg_nodes %}
+      {
+        "id": {{ node.id | jsonify }},
+        "subject": {{ node.subject | jsonify }},
+        "parent": {{ node.parent | jsonify }},
+        "title": {{ node.title[kg_lang] | jsonify }},
+        "summary": {{ node.summary[kg_lang] | jsonify }},
+        "requires": {{ node.requires | jsonify }},
+        "related": {{ node.related | jsonify }},
+        "lessons": [
+          {%- assign kg_first = true -%}
+          {%- for url in node.lessons -%}
+            {%- assign lesson = kg_lessons | where: "url", url | first -%}
+            {%- if lesson -%}
+              {%- unless kg_first %},{% endunless -%}
+              {%- assign kg_first = false -%}
+              {"title": {{ lesson.title | jsonify }}, "url": {{ lesson.url | relative_url | jsonify }}, "status": {{ lesson.lesson_status | jsonify }}, "statusLabel": {{ site.data.hub.status_labels[lesson.lesson_status][kg_lang] | jsonify }}, "type": {{ kg_t.academy_types[lesson.lesson_type] | default: lesson.lesson_type | jsonify }}}
+            {%- endif -%}
+          {%- endfor -%}
+        ],
+        "resources": [
+          {%- for resource in node.resources -%}
+            {%- if resource.localised -%}{%- assign kg_href = kg_lp | append: resource.url | relative_url -%}{%- else -%}{%- assign kg_href = resource.url | relative_url -%}{%- endif -%}
+            {"label": {{ resource.label[kg_lang] | jsonify }}, "url": {{ kg_href | jsonify }}}{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        ]
+      }{% unless forloop.last %},{% endunless %}
+      {%- endfor %}
+    ]
+  }
+  </script>
+  <details class="kg-list">
+    <summary>{{ kg_t.kg_list }}</summary>
+    {%- for stage in site.data.academy.stages %}
+    {%- if include.scope and include.scope != stage.key %}{% continue %}{% endif %}
+    {%- assign stage_nodes = kg_nodes | where: "subject", stage.key %}
+    <section class="kg-list-subject">
+      {%- unless include.scope %}<h3><a href="{{ kg_lp | append: stage.url | relative_url }}">{{ stage.title[kg_lang] }}</a></h3>{% endunless %}
+      <ol>
+        {%- for node in stage_nodes %}
+        <li>
+          <strong>{{ node.title[kg_lang] }}</strong>
+          <p>{{ node.summary[kg_lang] }}</p>
+          {%- if node.requires %}
+          <p class="kg-list-meta">{{ kg_t.kg_prerequisites }}:
+            {%- for id in node.requires %}{% assign req = kg_nodes | where: "id", id | first %} {{ req.title[kg_lang] }}{% unless forloop.last %} ·{% endunless %}{% endfor %}
+          </p>
+          {%- endif %}
+          {%- assign kg_found = false %}
+          {%- capture kg_lesson_links %}
+            {%- for url in node.lessons %}{% assign lesson = kg_lessons | where: "url", url | first %}{% if lesson %}{% assign kg_found = true %}<a href="{{ lesson.url | relative_url }}">{{ lesson.title | escape }}</a> {% include status-badge.html status=lesson.lesson_status lang=kg_lang %} {% endif %}{% endfor %}
+          {%- endcapture %}
+          <p class="kg-list-meta">{% if kg_found %}{{ kg_t.kg_lessons }}: {{ kg_lesson_links }}{% else %}{% include status-badge.html status='planned' lang=kg_lang %}{% endif %}</p>
+        </li>
+        {%- endfor %}
+      </ol>
+    </section>
+    {%- endfor %}
+  </details>
+</div>

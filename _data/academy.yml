@@ -13,9 +13,16 @@
 # Topics are labels for what a stage covers; they are not links and do not imply
 # finished lessons.
 #
-# A generated lesson missing from every stage is still listed automatically
-# under "More from the catalogue" in its own language, and tests/test_hub.py
-# reports it.
+# Each stage is one Academy subject with its own page (`url`, mirrored under
+# /zh): a short introduction, its part of the knowledge graph
+# (_data/knowledge_graph.yml), the lessons below and its resources. `color`
+# identifies the subject in the graph. `examples` names website artifacts in
+# _data/hub.yml (teaching netlists and scripts) shown as practical examples;
+# Academy labs are found by their lesson URL. `resources` lists further pages
+# that support the subject; `localised: true` means the path exists under /zh.
+#
+# A generated lesson missing from every stage is still listed on the Academy
+# entry point in its own language, and tests/test_hub.py reports it.
 
 intro:
   en: "Learn power engineering from first principles to AI-assisted engineering: foundations, power electronics, power systems and renewables."
@@ -24,6 +31,8 @@ intro:
 stages:
   - number: "01"
     key: foundations
+    url: /academy/foundations/
+    color: "#c79522"
     title: {en: "Foundations", zh: "基础"}
     summary:
       en: "Build the map of the field and the circuit, energy and signal ideas every later stage relies on."
@@ -37,8 +46,13 @@ stages:
       - /academy/foundations/prerequisite-path-zh/
       - /academy/foundations/first-circuit-zh/
     hub: [devices]
+    resources:
+      - url: https://github.com/FulongLi/AIPE-Academy/blob/main/START-HERE.md
+        label: {en: "Start here: learning with an AI tutor", zh: "从这里开始：与 AI 导师一起学习（英文）"}
   - number: "02"
     key: power-electronics
+    url: /academy/power-electronics/
+    color: "#5f8fe0"
     title: {en: "Power Electronics", zh: "电力电子"}
     summary:
       en: "Model the switch, design steady-state converters, then move to dynamics, control, magnetics and the practical constraints of real products."
@@ -54,10 +68,14 @@ stages:
       - /academy/power-electronics/practical-design/
       - /academy/power-electronics/systems-applications/
     hub: [devices, converters, magnetics, control]
+    examples: [site.converter-netlists, site.ccm-analysis-scripts, site.llc-fha-gain]
+    planned_labs: true
   # No Academy lesson covers the next two stages yet; each entry point shows
   # them as planned. Add lesson URLs here only once AIPE Academy publishes them.
   - number: "03"
     key: power-systems
+    url: /academy/power-systems/
+    color: "#8d70dc"
     title: {en: "Power Systems", zh: "电力系统"}
     summary:
       en: "Connect converters to grids and microgrids: power flow, grid interfaces, solid-state transformers and system stability."
@@ -69,6 +87,8 @@ stages:
     hub: [microgrids, systems]
   - number: "04"
     key: renewables
+    url: /academy/renewables/
+    color: "#3fb58e"
     title: {en: "Renewables", zh: "可再生能源"}
     summary:
       en: "Convert, store and integrate energy from solar, wind and storage systems."
@@ -78,36 +98,7 @@ stages:
       zh: [光伏, 风电, 储能, 并网]
     lessons: []
     hub: [storage]
-
-# The lesson-to-Hub route shown on each Academy entry point. Every step links to
-# a real page in that language; a language without a lab omits the lab step.
-hub_route:
-  en:
-    - label: "Academy lesson"
-      title: "Buck converter: principles to design"
-      url: /academy/power-electronics/buck-converter/
-    - label: "Data"
-      title: "AIPE Semiconductor Database"
-      url: /hub/data/
-    - label: "Tools & Agents"
-      title: "AIPE Simulation Skills"
-      url: /hub/tools/
-    - label: "Design"
-      title: "DAB converter design reference"
-      url: /resources/prototypes/dab/
-    - label: "Lab"
-      title: "Ideal buck open lab"
-      url: /academy/power-electronics/buck-open-lab/
-  zh:
-    - label: "学院课程"
-      title: "一个简单电路用了多少电？"
-      url: /academy/foundations/first-circuit-zh/
-    - label: "数据"
-      title: "AIPE 半导体数据库"
-      url: /zh/hub/data/
-    - label: "工具与智能体"
-      title: "AIPE 仿真技能"
-      url: /zh/hub/tools/
-    - label: "设计"
-      title: "DAB 变换器设计参考"
-      url: /zh/resources/prototypes/dab/
+    resources:
+      - url: /power/microgrids/
+        localised: true
+        label: {en: "Solar, wind and storage in microgrids", zh: "微电网中的光伏、风电与储能"}

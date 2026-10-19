@@ -22,7 +22,8 @@ REGISTRY = "aipe.json"
 MIRROR = "_data/registry.json"
 HUB = "_data/hub.yml"
 ACADEMY = "_data/academy.yml"
-PLUGIN = "_data/plugin.yml"
+AGENTS = "_data/agents.yml"
+GRAPH = "_data/knowledge_graph.yml"
 SKIP_DIRS = {"_site", "vendor", ".git", ".jekyll-cache", ".bundle", "node_modules", "tools", "tests", "docs"}
 
 
@@ -82,6 +83,51 @@ def academy_lessons(root):
     return lessons
 
 
+def validate_graph(graph, subjects, lessons, check_resource, errors):
+    """Knowledge graph: bilingual labels, real references and lessons, no prerequisite cycles."""
+    nodes = graph.get("nodes", [])
+    ids = [node.get("id") for node in nodes]
+    known = set(ids)
+    for ident in sorted({i for i in ids if ids.count(i) > 1}):
+        errors.append(f"knowledge graph: duplicate node {ident}")
+    for node in nodes:
+        where = f"knowledge graph node {node.get('id')}"
+        if node.get("subject") not in subjects:
+            errors.append(f"{where}: unknown subject {node.get('subject')}")
+        for field in ("title", "summary"):
+            if set(node.get(field, {})) != {"en", "zh"}:
+                errors.append(f"{where}: {field} needs en and zh")
+        for field in ("requires", "related"):
+            for ref in node.get(field, []) or []:
+                if ref not in known:
+                    errors.append(f"{where}: {field} unknown topic {ref}")
+                elif ref == node.get("id"):
+                    errors.append(f"{where}: {field} refers to itself")
+        if node.get("parent") and node["parent"] not in known:
+            errors.append(f"{where}: unknown parent {node['parent']}")
+        for url in node.get("lessons", []) or []:
+            if url not in lessons:
+                errors.append(f"{where}: no generated lesson at {url}")
+        for resource in node.get("resources", []) or []:
+            check_resource(resource, where)
+    requires = {node.get("id"): [r for r in node.get("requires", []) or [] if r in known] for node in nodes}
+    state = {}
+
+    def visit(ident, trail):
+        if state.get(ident) == "done":
+            return
+        if state.get(ident) == "active":
+            errors.append(f"knowledge graph: prerequisite cycle {' -> '.join(trail + [ident])}")
+            return
+        state[ident] = "active"
+        for ref in requires.get(ident, []):
+            visit(ref, trail + [ident])
+        state[ident] = "done"
+
+    for ident in requires:
+        visit(ident, [])
+
+
 def validate(root=ROOT):
     """Return (errors, warnings) for the Hub and Academy presentation data."""
     errors, warnings = [], []
@@ -100,6 +146,11 @@ def validate(root=ROOT):
             errors.append(f"{where}: unresolved URL {url}")
         if localised and not url.startswith("http") and not resolves("/zh"+url, paths):
             errors.append(f"{where}: no Chinese counterpart for {url}")
+
+    def check_resource(resource, where):
+        if set(resource.get("label", {})) != set(languages):
+            errors.append(f"{where}: resource label needs en and zh")
+        check_url(resource.get("url", ""), where, resource.get("localised", False))
 
     for group in ("categories", "domains"):
         for entry in hub[group]:
@@ -204,26 +255,43 @@ def validate(root=ROOT):
         unknown = set(stage.get("hub", [])) - domains
         if unknown:
             errors.append(f"academy stage {stage['key']}: unknown domains {sorted(unknown)}")
-    if set(academy["hub_route"]) != set(languages):
-        errors.append("academy hub_route needs en and zh routes")
-    for language, route in academy["hub_route"].items():
-        for step in route:
-            where = f"academy hub_route.{language} {step['title']}"
-            check_url(step["url"], where)
-            lesson = lessons.get(step["url"])
-            if lesson and lesson.get("lang", "en") != language:
-                errors.append(f"{where}: links a {lesson.get('lang', 'en')} lesson from the {language} Academy")
-            elif not lesson and language == "zh" and not step["url"].startswith("/zh/"):
-                errors.append(f"{where}: Chinese route must link Chinese pages")
-    for card in load_yaml(root, PLUGIN)["capabilities"]:
-        where = f"plugin capability {card['key']}"
-        for field in ("title", "text"):
-            if set(card.get(field, {})) != set(languages):
+        if stage.get("url") != f"/academy/{stage['key']}/":
+            errors.append(f"academy stage {stage['key']}: url must be /academy/{stage['key']}/")
+        else:
+            check_url(stage["url"], f"academy stage {stage['key']}", localised=True)
+        if not re.fullmatch(r"#[0-9a-fA-F]{6}", str(stage.get("color", ""))):
+            errors.append(f"academy stage {stage['key']}: color must be a #rrggbb value")
+        site_ids = {item["id"] for item in hub["artifacts"] if "id" in item}
+        for ident in stage.get("examples", []):
+            if ident not in site_ids:
+                errors.append(f"academy stage {stage['key']}: example {ident} is not placed in {HUB}")
+        for resource in stage.get("resources", []):
+            check_resource(resource, f"academy stage {stage['key']}")
+    agent_keys = set()
+    for agent in load_yaml(root, AGENTS):
+        where = f"agent {agent.get('key')}"
+        if agent.get("key") in agent_keys:
+            errors.append(f"{where}: duplicate key")
+        agent_keys.add(agent.get("key"))
+        repository = str(agent.get("repository", ""))
+        if not repository.startswith("https://"):
+            errors.append(f"{where}: repository must be an absolute https URL")
+        for field in ("summary", "prompt"):
+            if set(agent.get(field, {})) != set(languages):
                 errors.append(f"{where}: {field} needs en and zh")
-        for capability in card.get("registry", []):
-            if capability not in registry:
-                errors.append(f"{where}: {capability} not in {REGISTRY}")
-        check_url(card["hub"], where, localised=True)
+        for language, prompt in agent.get("prompt", {}).items():
+            if repository and repository not in prompt:
+                errors.append(f"{where}: {language} prompt must point the coding agent to {repository}")
+        if "status" in agent and agent["status"] not in hub["status_labels"]:
+            errors.append(f"{where}: unknown status {agent['status']}")
+        check_url(agent.get("page", ""), where, localised=True)
+        install = agent.get("install")
+        if install is not None:
+            if not str(install.get("url", "")).startswith("https://"):
+                errors.append(f"{where}: install url must be the repository's own documentation")
+            if set(install.get("label", {})) != set(languages):
+                errors.append(f"{where}: install label needs en and zh")
+    validate_graph(load_yaml(root, GRAPH), {stage["key"] for stage in academy["stages"]}, lessons, check_resource, errors)
     labs = {item["academy"] for item in hub["artifacts"] if "academy" in item}
     for url in sorted(set(lessons) - staged - labs):
         warnings.append(f"Academy lesson {url} is not in a stage; it will appear under 'More from the catalogue'")

@@ -1,0 +1,68 @@
+# Standalone AIPE agents and tools.
+#
+# One record per agent, shared by:
+#   - its detail page (_layouts/agent.html; the page sets `agent: <key>`),
+#   - the Standalone Plugins cards on /plugin/ (_includes/agent-plugin-card.html),
+#   - the AI Agent Team page.
+# Add an agent by adding a record here and an English and a Chinese detail page.
+#
+#   name         product name, shown in both languages
+#   repository   canonical GitHub repository
+#   page         English detail page; the Chinese page is the same path under /zh
+#   status       optional; set it only while the project is still being developed,
+#                in line with its own repository (same values as _data/hub.yml)
+#   video        optional demo video. Without one, the page shows a
+#                "Demo coming soon" placeholder; never link media that does not exist
+#   summary      one sentence, en and zh
+#   prompt       a copyable instruction asking a coding agent to read the repository
+#                and use its documented capabilities, en and zh. A prompt is not an
+#                installation and is never presented as one
+#   install      optional; only a native installation method that the repository
+#                itself documents, linked to that documentation
+#
+# tools/hub_data.py checks both languages, that each page exists in English and
+# Chinese, and that repositories and install links are absolute URLs.
+
+- key: sketch
+  name: AIPE Sketch
+  repository: https://github.com/FulongLi/AIPE-Sketch
+  page: /resources/ai-agent-team/aipe-sketch/
+  video: /videos/AIPE-Sketch.mp4
+  video_poster: /images/general/aipe-sketch-video-poster.png
+  summary:
+    en: "Turn circuit connections described in plain language into a clear, connectivity-checked SVG schematic."
+    zh: "把用自然语言描述的电路连接关系，转换为经过连通性检查的清晰 SVG 原理图。"
+  prompt:
+    en: "Read https://github.com/FulongLi/AIPE-Sketch and use it to draw the circuit I describe. Set up and run the tool for me, ask if any connection is unclear, generate an SVG, and run the connectivity checks."
+    zh: "请阅读 https://github.com/FulongLi/AIPE-Sketch，并用它绘制我描述的电路。请帮我完成工具设置和运行；如果连接关系不清楚，先向我确认；最后生成 SVG 并运行连通性检查。"
+
+- key: pcb-agent
+  name: AIPE PCB Agent
+  repository: https://github.com/FulongLi/AIPE-PCB-Agent
+  page: /resources/ai-agent-team/aipe-pcb-agent/
+  # README: "engineering prototype review; release blocked".
+  status: prototype
+  summary:
+    en: "AI-assisted power-electronics PCB design in KiCad, with native ERC/DRC checks and a recorded engineering review."
+    zh: "在 KiCad 中进行 AI 辅助的电力电子 PCB 设计，配合原生 ERC/DRC 检查与有记录的工程评审。"
+  prompt:
+    en: "Read https://github.com/FulongLi/AIPE-PCB-Agent and follow its README and docs/agent-workflow.md to help me with my power-electronics PCB task. Inspect my environment first and ask before installing any software. Use KiCad's native ERC and DRC checks, state every assumption, and list everything that still needs human engineering review."
+    zh: "请阅读 https://github.com/FulongLi/AIPE-PCB-Agent，按照其中的 README 和 docs/agent-workflow.md 协助我完成电力电子 PCB 任务。请先检查我的环境，安装任何软件前先征得我的同意。使用 KiCad 原生 ERC 与 DRC 检查，写明所有假设，并列出仍需人工工程评审的全部事项。"
+
+- key: ieee-paper-agent
+  name: AIPE IEEE Paper Agent
+  repository: https://github.com/FulongLi/AIPE-IEEE-Paper-Agent
+  page: /resources/ai-agent-team/aipe-ieee-paper-agent/
+  summary:
+    en: "Turn a research idea into an evidence-linked paper plan and a LaTeX workspace built on official IEEE templates."
+    zh: "把研究想法整理成关联证据的论文计划，并基于 IEEE 官方模板生成 LaTeX 稿件工作区。"
+  prompt:
+    en: "Read https://github.com/FulongLi/AIPE-IEEE-Paper-Agent and follow its AGENTS.md and core/workflows/idea-to-paper.md. My research idea is: <describe your idea>. Develop a paper plan with testable questions and evidence gaps, then set up a manuscript workspace for my target IEEE venue. Never invent results or references; mark missing evidence as TODO."
+    zh: "请阅读 https://github.com/FulongLi/AIPE-IEEE-Paper-Agent，并按照其中的 AGENTS.md 和 core/workflows/idea-to-paper.md 工作。我的研究想法是：<描述你的想法>。请先形成包含可检验问题与证据缺口的论文计划，再为我的目标 IEEE 期刊或会议建立稿件工作区。不要编造任何结果或参考文献，缺失的证据请标记为 TODO。"
+  # INSTALL.md documents packaged Codex skill, Codex plugin marketplace and
+  # Claude skill installs built with scripts/package-release.py.
+  install:
+    url: https://github.com/FulongLi/AIPE-IEEE-Paper-Agent/blob/main/INSTALL.md
+    label:
+      en: "Native install guide"
+      zh: "原生安装说明"

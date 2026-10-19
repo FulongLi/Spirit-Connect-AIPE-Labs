@@ -1,0 +1,162 @@
+---
+layout: default
+---
+{%- comment -%}
+  Academy subject page: /academy/<subject>/ and /zh/academy/<subject>/.
+  Site-owned presentation; the page sets `subject: <stage key>` and `lang`.
+  Everything shown comes from _data/academy.yml, _data/knowledge_graph.yml,
+  _data/hub.yml and the generated lesson front matter. Only lessons in the
+  page language are listed; a subject without one shows a planned state.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'en' -%}
+{%- if lang == 'zh' -%}{%- assign lp = '/zh' -%}{%- else -%}{%- assign lp = '' -%}{%- endif -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign stage = site.data.academy.stages | where: "key", page.subject | first -%}
+{%- assign stage_prefix = '/academy/' | append: stage.key | append: '/' -%}
+{%- assign lessons = "" | split: "" -%}
+{%- for candidate in site.pages -%}
+  {%- if candidate.academy_page and candidate.lesson_status and candidate.lang == lang -%}{%- assign lessons = lessons | push: candidate -%}{%- endif -%}
+{%- endfor -%}
+{%- assign stage_lessons = "" | split: "" -%}
+{%- for url in stage.lessons -%}
+  {%- assign lesson = lessons | where: "url", url | first -%}
+  {%- if lesson -%}{%- assign stage_lessons = stage_lessons | push: lesson -%}{%- endif -%}
+{%- endfor -%}
+{%- assign labs = "" | split: "" -%}
+{%- for item in site.data.hub.artifacts -%}
+  {%- if item.academy and item.academy contains stage_prefix -%}
+    {%- assign lab_lesson = lessons | where: "url", item.academy | first -%}
+    {%- if lab_lesson -%}{%- assign labs = labs | push: item -%}{%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign examples = "" | split: "" -%}
+{%- for id in stage.examples -%}
+  {%- assign example = site.data.hub.artifacts | where: "id", id | first -%}
+  {%- if example -%}{%- assign examples = examples | push: example -%}{%- endif -%}
+{%- endfor -%}
+{%- comment -%} Pages linked from this subject's topics, without duplicates. {%- endcomment -%}
+{%- assign related_seen = "|" -%}
+{%- capture related_links -%}
+  {%- assign subject_nodes = site.data.knowledge_graph.nodes | where: "subject", stage.key -%}
+  {%- for node in subject_nodes -%}
+    {%- for resource in node.resources -%}
+      {%- assign marker = resource.url | append: "|" -%}
+      {%- unless related_seen contains marker -%}
+        {%- assign related_seen = related_seen | append: marker -%}
+        {%- if resource.localised -%}{%- assign href = lp | append: resource.url -%}{%- else -%}{%- assign href = resource.url -%}{%- endif -%}
+        <li><a href="{{ href | relative_url }}">{{ resource.label[lang] }} →</a></li>
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endfor -%}
+  {%- for resource in stage.resources -%}
+    {%- if resource.localised -%}{%- assign href = lp | append: resource.url -%}{%- else -%}{%- assign href = resource.url -%}{%- endif -%}
+    <li><a href="{{ href | relative_url }}"{% unless resource.localised %} rel="noopener"{% endunless %}>{{ resource.label[lang] }} {% if href contains '://' %}↗{% else %}→{% endif %}</a></li>
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign stage_articles = site.data['blog-ownership'].posts | where: "academy_stage", stage.key | where: "language", lang | where_exp: "article", "article.migration_status != 'migrated'" -%}
+<header class="academy-hero academy-subject-hero" style="--subject-color: {{ stage.color }}">
+  <div class="container">
+    <nav class="hub-breadcrumb" aria-label="{% if lang == 'zh' %}位置{% else %}Breadcrumb{% endif %}">
+      <a href="{{ lp | append: '/academy/' | relative_url }}">{{ t.nav_academy }}</a><span aria-hidden="true">/</span><span>{{ stage.title[lang] }}</span>
+    </nav>
+    <span class="section-kicker">{{ t.nav_academy }} · {{ stage.number }}</span>
+    <h1>{{ stage.title[lang] }}</h1>
+    <p class="lead">{{ stage.summary[lang] }}</p>
+  </div>
+</header>
+
+<nav class="hub-tabs section-tabs" aria-label="{{ t.academy_sections }}">
+  <div class="container">
+    {%- for other in site.data.academy.stages %}
+    <a href="{{ lp | append: other.url | relative_url }}"{% if other.key == stage.key %} aria-current="page"{% endif %}>{{ other.title[lang] }}</a>
+    {%- endfor %}
+  </div>
+</nav>
+
+<section class="section academy-map-section" id="map">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{{ t.academy_map_kicker }}</span><h2>{{ t.academy_subject_map_title }}</h2></div>
+      <p>{{ t.academy_subject_map_intro }}</p>
+    </div>
+    {% include academy-knowledge-graph.html lang=lang scope=stage.key %}
+  </div>
+</section>
+
+<section class="section section-alt" id="lessons">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{{ t.academy_lessons_kicker }}</span><h2>{{ t.academy_lessons_title }}</h2></div>
+      <p>{{ t.academy_lessons_intro }}</p>
+    </div>
+    <div class="academy-stage-lessons academy-subject-lessons">
+      {%- for lesson in stage_lessons %}{% include academy-path-card.html lesson=lesson lang=lang %}{% endfor %}
+      {%- if stage_lessons.size == 0 %}
+      <div class="academy-lesson academy-lesson-planned">
+        <strong>{{ t.academy_stage_planned }}</strong>
+        <span class="academy-lesson-foot"><span>{{ t.academy_lessons_none }}</span></span>
+      </div>
+      {%- endif %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="resources">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">{{ t.academy_resources_kicker }}</span><h2>{{ t.academy_resources_title }}</h2></div>
+      <p>{{ t.academy_resources_intro }}</p>
+    </div>
+    {%- if labs.size > 0 or examples.size > 0 %}
+    <div class="artifact-grid artifact-grid-labs">
+      {%- for item in labs %}{% include artifact-card.html item=item lang=lang %}{% endfor %}
+      {%- for item in examples %}{% include artifact-card.html item=item lang=lang %}{% endfor %}
+    </div>
+    {%- endif %}
+    {%- if stage.planned_labs %}
+    <div class="planned-list academy-planned-labs">
+      <span class="section-kicker">{{ t.academy_planned_labs }}</span>
+      <p>{% if labs.size == 0 %}{{ t.academy_labs_none }} {% endif %}{{ t.academy_planned_labs_intro }}</p>
+      <ul>
+        {%- for lab in site.data.hub.planned_labs %}
+        <li><span>{{ lab[lang] }}</span>{% include status-badge.html status='planned' lang=lang %}</li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endif %}
+    <div class="academy-resource-columns">
+      {%- assign related_trimmed = related_links | strip %}
+      {%- if related_trimmed != "" %}
+      <div>
+        <h3>{{ t.academy_resources_pages }}</h3>
+        <ul class="academy-resource-list">{{ related_links }}</ul>
+      </div>
+      {%- endif %}
+      {%- if stage.hub %}
+      <div>
+        <h3>{{ t.academy_engineering_domains }}</h3>
+        <ul class="academy-resource-list">
+          {%- for key in stage.hub %}
+          {%- assign domain = site.data.hub.domains | where: "key", key | first %}
+          {%- if domain.url %}{% assign domain_href = domain.url %}{% else %}{% assign domain_href = '/engineering/#' | append: domain.key %}{% endif %}
+          <li><a href="{{ lp | append: domain_href | relative_url }}">{{ domain.title[lang] }} →</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+      {%- endif %}
+    </div>
+    {%- if stage_articles.size > 0 %}
+    <details class="academy-stage-articles">
+      <summary>{{ t.academy_articles_title }} ({{ stage_articles.size }})</summary>
+      <ul>
+        {%- for article in stage_articles %}
+        <li><a href="{{ article.url | relative_url }}">{{ article.title }}</a></li>
+        {%- endfor %}
+      </ul>
+    </details>
+    {%- endif %}
+  </div>
+</section>
+
+{% include aipe-pathways.html current='academy' lang=lang %}
+<script defer src="{{ '/assets/knowledge-map.js' | relative_url }}"></script>
