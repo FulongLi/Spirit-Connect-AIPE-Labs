@@ -1,6 +1,6 @@
-/* AIPE Hub — client-side search and domain filtering.
-   Progressive enhancement only: without JavaScript every artifact is rendered and
-   the search form submits to the Hub overview. */
+/* AIPE Hub — client-side search.
+   Progressive enhancement only: without JavaScript the search form submits to
+   the Hub overview. */
 (function () {
   'use strict';
 
@@ -133,36 +133,5 @@
     if (/INPUT|TEXTAREA|SELECT/.test(tag) || (document.activeElement && document.activeElement.isContentEditable)) return;
     var input = document.querySelector('[data-hub-search] input[type="search"]');
     if (input) { event.preventDefault(); input.focus(); }
-  });
-
-  document.querySelectorAll('[data-hub-filter]').forEach(function (group) {
-    var grids = document.querySelectorAll('[data-hub-grid]');
-    if (!grids.length) return;
-    var buttons = group.querySelectorAll('[data-domain]');
-
-    function apply(domain, updateUrl) {
-      grids.forEach(function (grid) {
-        var shown = 0;
-        grid.querySelectorAll('[data-domains]').forEach(function (card) {
-          var match = !domain || (' ' + card.dataset.domains + ' ').indexOf(' ' + domain + ' ') !== -1;
-          card.hidden = !match;
-          if (match) shown++;
-        });
-        var empty = grid.parentElement.querySelector('.hub-filter-empty');
-        if (empty) empty.hidden = shown > 0;
-      });
-      buttons.forEach(function (button) { button.setAttribute('aria-pressed', button.dataset.domain === domain ? 'true' : 'false'); });
-      if (updateUrl && window.history.replaceState) {
-        var url = new URL(window.location.href);
-        if (domain) url.searchParams.set('domain', domain); else url.searchParams.delete('domain');
-        window.history.replaceState(null, '', url);
-      }
-    }
-
-    buttons.forEach(function (button) {
-      button.addEventListener('click', function () { apply(button.dataset.domain, true); });
-    });
-    var requested = new URLSearchParams(window.location.search).get('domain');
-    if (requested) apply(requested, false);
   });
 })();

@@ -17,32 +17,40 @@
 # tests/test_hub.py fails when a Registry capability is not placed, when an ID or
 # URL does not resolve, or when the mirror drifts from /aipe.json. Add new
 # capabilities by refreshing the Registry snapshot, then placing them below.
+#
+# Hub project cards. The Hub pages show only artifacts that carry a `card`, in
+# the order they appear below. A card is deliberately minimal:
+#   summary  one or two sentences, en and zh
+#   status   optional; set it only when the project is still being developed,
+#            and keep it in line with the project's own repository
+# The card links to the artifact's first on-site link (when it has one) and to
+# its GitHub repository. Artifacts without a card stay placed — in the Registry,
+# Engineering, Academy and search — but are not shown as Hub project cards.
 
-# Artifact dimension, in display order. Three public categories: models sit
-# with the data they are built on, and reference designs and Academy labs are
-# both presented as end-to-end workflows. Each card keeps its own `type`
-# (database, simulation model, reference design, lab, ...), so the finer
-# distinction stays visible. The former /hub/models/, /hub/designs/ and
+# Artifact dimension, in display order. Three public Hub categories, each with
+# its own page. `platform` (Core, Registry, Academy, presentation) and `academy`
+# (teaching labs, netlists and scripts presented by the Academy) are internal
+# placements with no Hub page. The former /hub/models/, /hub/designs/ and
 # /hub/labs/ URLs redirect (legacy/).
 categories:
   - key: data
     url: /hub/data/
     title: {en: "Data & Models", zh: "数据与模型"}
     summary:
-      en: "Engineering databases, component data, mathematical models and simulation models."
-      zh: "工程数据库、元器件数据、数学模型与仿真模型。"
+      en: "Engineering databases and models for power semiconductors and magnetic components."
+      zh: "面向功率半导体与磁性元件的工程数据库与模型。"
   - key: tools
     url: /hub/tools/
     title: {en: "Tools & Agents", zh: "工具与智能体"}
     summary:
-      en: "Engineering tools, AI agents, software integrations and specialist plugins."
-      zh: "工程工具、AI 智能体、软件集成与专业插件。"
+      en: "Tools and AI agents for schematics, PCB design and research writing."
+      zh: "用于原理图、PCB 设计与科研写作的工具和 AI 智能体。"
   - key: workflows
     url: /hub/workflows/
     title: {en: "Workflows", zh: "工作流"}
     summary:
-      en: "End-to-end engineering processes, including converter design, PCB design, magnetics design, simulation and validation."
-      zh: "端到端的工程流程，涵盖变换器设计、PCB 设计、磁性元件设计、仿真与验证。"
+      en: "Complete engineering processes built on AIPE projects."
+      zh: "基于 AIPE 项目的完整工程流程。"
 
 # Engineering (domain) dimension. `url` is the dedicated domain page when one
 # exists; otherwise the domain is presented on /engineering/#<key>.
@@ -109,6 +117,7 @@ type_labels:
   analytical_model: {en: "Analytical model", zh: "解析模型"}
   reference_design: {en: "Reference design", zh: "参考设计"}
   lab: {en: "Lab", zh: "实验"}
+  workflow: {en: "Workflow", zh: "工作流"}
 
 # Display labels for Registry integration, validation and tool licence values.
 integration_labels:
@@ -136,15 +145,19 @@ status_labels:
 
 # Placement of every artifact. `featured` orders the homepage feed.
 # `pending_repository: true` marks Registry entries whose canonical GitHub
-# repository was still empty when checked on 2026-10-07; remove the flag once the
-# repository is published.
+# repository is still empty; remove the flag once the repository is published.
+# Card statuses were checked against each repository on 2026-10-19.
 artifacts:
-  # ── Data & Models: data ──
+  # ── Data & Models ──
   - registry: aipe.semiconductor-database
     zh_summary: "规范的 V3 功率半导体记录，包含 SI 单位曲线、来源权利信息与证据溯源，并提供一个保守的 Core 候选数据适配器。"
     category: data
     domains: [devices]
     featured: 1
+    card:
+      summary:
+        en: "Power semiconductor data, device characteristics and engineering models."
+        zh: "功率半导体数据、器件特性与工程模型。"
     links:
       - url: /database/transistors/
         localised: true
@@ -154,15 +167,22 @@ artifacts:
     category: data
     domains: [magnetics]
     featured: 2
-    pending_repository: true
+    card:
+      # v0.2 on GitHub; every result reports "L0 unverified" until verification
+      # evidence is recorded.
+      status: in-development
+      summary:
+        en: "Magnetic materials, core data, loss models and magnetics design resources."
+        zh: "磁性材料、磁芯数据、损耗模型与磁性元件设计资源。"
     links:
       - url: /database/magnetics/
         localised: true
         label: {en: "Magnetics data overview", zh: "磁性元件数据概览"}
 
-  # ── Data & Models: models ── (files published by this website)
+  # ── Academy: teaching models ── (files published by this website with the
+  # converter tutorials; presented in the Academy, not as Hub project cards)
   - id: site.converter-netlists
-    category: data
+    category: academy
     type: simulation_model
     status: draft
     domains: [converters]
@@ -187,7 +207,7 @@ artifacts:
         label: {en: "Source tutorials", zh: "对应教程"}
     featured: 7
   - id: site.ccm-analysis-scripts
-    category: data
+    category: academy
     type: analytical_model
     status: draft
     domains: [converters, control]
@@ -206,7 +226,7 @@ artifacts:
         localised: true
         label: {en: "Source tutorials", zh: "对应教程"}
   - id: site.llc-fha-gain
-    category: data
+    category: academy
     type: analytical_model
     status: draft
     domains: [converters]
@@ -222,7 +242,96 @@ artifacts:
         localised: true
         label: {en: "LLC tutorial", zh: "LLC 教程"}
 
-  # ── Workflows: reference designs ── (pages published by this website)
+  # ── Tools & Agents ──
+  - registry: aipe.sketch
+    zh_summary: "把显式的电路中间表示（Circuit IR）渲染为经过连接性检查、带来源记录的 SVG 原理图。"
+    category: tools
+    domains: [converters]
+    featured: 3
+    card:
+      summary:
+        en: "Generate clear and structured electrical schematics automatically."
+        zh: "自动生成清晰、结构化的电路原理图。"
+    links:
+      - url: /resources/ai-agent-team/aipe-sketch/
+        localised: true
+        label: {en: "Guide", zh: "使用指南"}
+  # Not yet in the Registry, so the website describes it until it is listed.
+  - id: site.pcb-agent
+    category: tools
+    type: agent
+    status: prototype
+    domains: [converters]
+    url: https://github.com/FulongLi/AIPE-PCB-Agent
+    title: {en: "AIPE PCB Agent", zh: "AIPE PCB Agent"}
+    description:
+      en: "AI-assisted power-electronics PCB engineering with reproducible KiCad automation. Its 5 kW SiC buck example is an engineering prototype under review; nothing has been fabricated or energised."
+      zh: "AI 辅助的电力电子 PCB 工程，基于可复现的 KiCad 自动化。其 5 kW SiC Buck 示例是正在评审的工程原型，尚未制板或通电。"
+    card:
+      # README: "engineering prototype review; release blocked".
+      status: prototype
+      summary:
+        en: "AI-assisted PCB design, routing and engineering review using KiCad."
+        zh: "基于 KiCad 的 AI 辅助 PCB 设计、布线与工程评审。"
+  - registry: aipe.ieee-paper-agent
+    zh_summary: "关联证据的科研规划，以及面向特定 IEEE 期刊与会议的论文撰写。"
+    category: tools
+    domains: []
+    card:
+      summary:
+        en: "AI-assisted research planning and IEEE manuscript preparation."
+        zh: "AI 辅助的科研规划与 IEEE 论文撰写。"
+  # Placed but not shown as Hub cards for now (still in the Registry, the
+  # homepage feed, Engineering and search).
+  - registry: aipe.simulation-skills
+    zh_summary: "面向工程用途的仿真、控制、CAD、PCB 与场分析技能，默认使用开源工具，并保留可选的商业软件工作流。"
+    category: tools
+    domains: [converters, control, magnetics]
+    featured: 4
+  - registry: aipe.design-agent
+    zh_summary: "通过 Core 工程状态与注册表能力，逐步编排关联证据的工程工作，同时保留现有的 PEA 计算器与接口。"
+    category: tools
+    domains: [converters]
+    featured: 5
+  - registry: aipe.open-source-catalogue
+    zh_summary: "社区整理的外部工程工具目录，附有注明日期的维护状态、许可与自动化能力依据。"
+    category: tools
+    domains: []
+
+  # ── Workflows ── Only processes backed by a published project are listed.
+  - id: site.pcb-design-workflow
+    category: workflows
+    type: workflow
+    status: prototype
+    domains: [converters]
+    url: https://github.com/FulongLi/AIPE-PCB-Agent/tree/main/examples/sic-buck-400v-200v-5kw-v3
+    title: {en: "PCB Design", zh: "PCB 设计"}
+    description:
+      en: "Schematic sheets, routed KiCad boards, native ERC/DRC checks and a recorded design review, built with AIPE PCB Agent and shown on a 5 kW SiC buck. Hardware qualification and human review remain open."
+      zh: "原理图、完成布线的 KiCad 电路板、原生 ERC/DRC 检查与有记录的设计评审，由 AIPE PCB Agent 完成，并以 5 kW SiC Buck 为示例。硬件验证与人工评审仍未完成。"
+    card:
+      status: prototype
+      summary:
+        en: "From schematic sheets to routed, rule-checked KiCad boards and a recorded design review, built with AIPE PCB Agent. The 5 kW SiC buck example has not been built or tested."
+        zh: "从原理图到完成布线并通过规则检查的 KiCad 电路板，再到有记录的设计评审，由 AIPE PCB Agent 完成。5 kW SiC Buck 示例尚未制板或测试。"
+  - id: site.magnetics-design-workflow
+    category: workflows
+    type: workflow
+    status: in-development
+    domains: [magnetics]
+    url: https://github.com/FulongLi/AIPE-Magnetics-Database
+    title: {en: "Magnetics Design", zh: "磁性元件设计"}
+    description:
+      en: "Material comparison, core-loss estimation and inductor and transformer sizing with AIPE Magnetics. Results state their model validity and are not yet verified against measurements."
+      zh: "使用 AIPE Magnetics 进行材料比较、磁芯损耗估算以及电感与变压器选型。结果注明模型适用范围，尚未经过测量验证。"
+    card:
+      status: in-development
+      summary:
+        en: "Material comparison, core-loss estimation and inductor and transformer sizing with AIPE Magnetics. Results are not yet verified against measurements."
+        zh: "使用 AIPE Magnetics 进行材料比较、磁芯损耗估算以及电感与变压器选型。结果尚未经过测量验证。"
+
+  # ── Reference designs ── (pages published by this website; kept at their
+  # URLs and linked from Workflows, but not shown as workflow cards)
   - id: site.dab-reference
     category: workflows
     type: reference_design
@@ -258,39 +367,10 @@ artifacts:
       en: "Principles, geometry, winding patterns and design considerations for a PCB Rogowski coil current transducer."
       zh: "PCB 罗氏线圈电流传感器的原理、几何结构、绕线方式与设计要点。"
 
-  # ── Tools & Agents ──
-  - registry: aipe.sketch
-    zh_summary: "把显式的电路中间表示（Circuit IR）渲染为经过连接性检查、带来源记录的 SVG 原理图。"
-    category: tools
-    domains: [converters]
-    featured: 3
-    links:
-      - url: /resources/ai-agent-team/aipe-sketch/
-        localised: true
-        label: {en: "Guide", zh: "使用指南"}
-  - registry: aipe.simulation-skills
-    zh_summary: "面向工程用途的仿真、控制、CAD、PCB 与场分析技能，默认使用开源工具，并保留可选的商业软件工作流。"
-    category: tools
-    domains: [converters, control, magnetics]
-    featured: 4
-  - registry: aipe.design-agent
-    zh_summary: "通过 Core 工程状态与注册表能力，逐步编排关联证据的工程工作，同时保留现有的 PEA 计算器与接口。"
-    category: tools
-    domains: [converters]
-    featured: 5
-  - registry: aipe.ieee-paper-agent
-    zh_summary: "关联证据的科研规划，以及面向特定 IEEE 期刊与会议的论文撰写。"
-    category: tools
-    domains: []
-  - registry: aipe.open-source-catalogue
-    zh_summary: "社区整理的外部工程工具目录，附有注明日期的维护状态、许可与自动化能力依据。"
-    category: tools
-    domains: []
-
-  # ── Workflows: labs ── (Academy lessons of type `lab`; the Academy finds its
+  # ── Academy: labs ── (Academy lessons of type `lab`; the Academy finds its
   # labs by the `academy` field, not by category)
   - academy: /academy/power-electronics/buck-open-lab/
-    category: workflows
+    category: academy
     type: lab
     # The lesson is English-only; Chinese pages show this title with a
     # "content in English" note instead of the English lesson title.

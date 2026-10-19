@@ -1,0 +1,41 @@
+{%- comment -%}
+  Minimal Hub project card: name, a one- or two-sentence summary, a status
+  badge only while the project is still being developed, and its links.
+  Params: item (an entry of site.data.hub.artifacts with a `card`), lang.
+
+  The card shows no Registry IDs, capability lists or integration metadata;
+  those stay in the Registry (/aipe.md) and each project's documentation.
+{%- endcomment -%}
+{%- assign pc_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- if pc_lang == 'zh' -%}{%- assign pc_lp = '/zh' -%}{%- else -%}{%- assign pc_lp = '' -%}{%- endif -%}
+{%- assign pc_item = include.item -%}
+{%- assign pc_page = nil -%}
+{%- if pc_item.registry -%}
+  {%- assign pc_rec = site.data.registry.capabilities | where: "id", pc_item.registry | first -%}
+  {%- assign pc_name = pc_rec.name -%}
+  {%- assign pc_repo = pc_rec.repository -%}
+{%- else -%}
+  {%- assign pc_name = pc_item.title[pc_lang] -%}
+  {%- assign pc_repo = pc_item.url -%}
+{%- endif -%}
+{%- if pc_item.links and pc_item.links.size > 0 -%}
+  {%- assign pc_link = pc_item.links | first -%}
+  {%- if pc_link.localised -%}{%- assign pc_page = pc_lp | append: pc_link.url -%}{%- else -%}{%- assign pc_page = pc_link.url -%}{%- endif -%}
+{%- endif -%}
+<article class="hub-project-card">
+  <div class="hub-project-head">
+    <h3><a href="{% if pc_page %}{{ pc_page | relative_url }}{% else %}{{ pc_repo }}{% endif %}"{% unless pc_page %} rel="noopener"{% endunless %}>{{ pc_name }}</a></h3>
+    {%- if pc_item.card.status %}
+    {% include status-badge.html status=pc_item.card.status lang=pc_lang %}
+    {%- endif %}
+  </div>
+  <p>{{ pc_item.card.summary[pc_lang] }}</p>
+  <div class="hub-project-links">
+    {%- if pc_page %}
+    <a href="{{ pc_page | relative_url }}">{% if pc_lang == 'zh' %}查看项目{% else %}View project{% endif %} →</a>
+    <a href="{{ pc_repo }}" rel="noopener">GitHub ↗</a>
+    {%- else %}
+    <a href="{{ pc_repo }}" rel="noopener">{% if pc_lang == 'zh' %}在 GitHub 查看{% else %}View on GitHub{% endif %} ↗</a>
+    {%- endif %}
+  </div>
+</article>
