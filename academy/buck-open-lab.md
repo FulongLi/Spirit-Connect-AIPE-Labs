@@ -1,12 +1,25 @@
 ---
+academic_references:
+- mit-6-622-2023
 academy_page: true
-en_url: /academy/
+canonical_source_url: https://github.com/FulongLi/AIPE-Academy/blob/main/curriculum/03-converters/buck-open-lab.md
+concept: buck-open-lab
+covers: []
+domain: power-electronics
+en_url: /academy/power-electronics/buck-open-lab/
 estimated_time: 45
+lab_urls:
+- https://github.com/FulongLi/AIPE-Academy/blob/main/labs/buck_open.py
+labs:
+- labs/buck_open.py
 lang: en
 layout: academy
+lesson_format: legacy
 lesson_status: available
 lesson_type: lab
+level: undergraduate
 math: true
+module: pe.buck
 next_links:
 - title: Dynamics, transfer functions and control
   url: /academy/power-electronics/dynamics-and-control/
@@ -16,9 +29,15 @@ prerequisite_links:
   url: /academy/power-electronics/converters/
 render_with_liquid: false
 source_path: curriculum/03-converters/buck-open-lab.md
-source_sha256: 3e4ab946e91b69ad737efddd9aa62608dac19ccf8047bd65ffb006465c9363b5
+source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
+source_sha256: dd3c64bd570e1202202af736f4c78c93f6f9777fe791bf370770d90673085544
 title: Predict and check an ideal buck converter
-zh_url: /academy/foundations/prerequisite-path-zh/
+track: dc-dc-conversion
+translation_status: original
+translations:
+  en: /academy/power-electronics/buck-open-lab/
+  zh: null
+zh_url: /zh/academy/
 ---
 
 This original software-only lab links steady-state reasoning to a reproducible
@@ -53,3 +72,23 @@ optional extensions with separate licences and model-validation requirements.
 To pass, derive the voltage balance and explain an assumption failure without
 copying the answer. A tutor should record assisted and independent performance
 separately in the learner's local record, never the public repository.
+
+## Academic References
+
+### MIT OpenCourseWare
+
+Primary academic reference:
+
+- MIT 6.622 — Power Electronics (Spring 2023)
+  https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/
+
+Relevant subjects:
+
+- Steady-state analysis of the buck converter
+- Inductor volt-second balance and current ripple
+- Continuous and discontinuous conduction modes
+
+This lab has been independently developed by AIPE Academy with reference to the
+academic scope of the above course. MIT OpenCourseWare is an external
+educational resource released under its own licence (generally CC BY-NC-SA 4.0).
+AIPE Academy is not affiliated with or endorsed by MIT.

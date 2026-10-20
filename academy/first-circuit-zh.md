@@ -1,22 +1,42 @@
 ---
+academic_references:
+- mit-6-002-2007
 academy_page: true
+canonical_source_url: https://github.com/FulongLi/AIPE-Academy/blob/main/curriculum/01-foundations/first-lesson.zh-CN.md
+concept: first-circuit
+covers:
+- f.quantities
+domain: foundations
 en_url: /academy/
 estimated_time: 30
+lab_urls: []
+labs: []
 lang: zh
 layout: academy
+lesson_format: legacy
 lesson_status: available
 lesson_type: lesson
+level: beginner
 math: true
+module: f.dc-circuits
 next_links:
+- title: 'DC circuit fundamentals: voltage, current, power and the circuit laws'
+  url: /academy/foundations/dc-circuit-fundamentals/
 - title: Devices and switching models
   url: /academy/power-electronics/components/
 permalink: /academy/foundations/first-circuit-zh/
 prerequisite_links: []
 render_with_liquid: false
 source_path: curriculum/01-foundations/first-lesson.zh-CN.md
+source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
 source_sha256: 4d386288d6f351affa22386ec3dcd59a80544673116e8bffdedc0c550847dbef
 title: 一个简单电路用了多少电？
-zh_url: /academy/foundations/prerequisite-path-zh/
+track: circuits
+translation_status: original
+translations:
+  en: null
+  zh: /academy/foundations/first-circuit-zh/
+zh_url: /academy/foundations/first-circuit-zh/
 ---
 
 模块：F01/F02。状态：可用的原创入门示范。只需四则运算；无需硬件或软件安装。

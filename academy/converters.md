@@ -1,13 +1,31 @@
 ---
+academic_references: []
 academy_page: true
-en_url: /academy/
+canonical_source_url: https://github.com/FulongLi/AIPE-Academy/blob/main/curriculum/03-converters/README.md
+concept: converters-stage
+covers:
+- pe.boost
+- pe.rectifiers
+- pe.inverters
+- pe.isolated
+- pe.losses
+domain: power-electronics
+en_url: /academy/power-electronics/converters/
 estimated_time: 30
+lab_urls: []
+labs: []
 lang: en
 layout: academy
+lesson_format: legacy
 lesson_status: outline
 lesson_type: stage
+level: undergraduate
 math: true
+module: pe.topologies
 next_links:
+- title: 'Buck converter fundamentals: from switch states to ripple and conduction
+    modes'
+  url: /academy/power-electronics/buck-converter-fundamentals/
 - title: 'Buck converter: from principles to design'
   url: /academy/power-electronics/buck-converter/
 - title: Predict and check an ideal buck converter
@@ -20,9 +38,15 @@ prerequisite_links:
   url: /academy/power-electronics/components/
 render_with_liquid: false
 source_path: curriculum/03-converters/README.md
+source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
 source_sha256: 24772bb3427435be9368b06441efa3b4bb479402c6b40ceead21917a20ddb480
 title: Steady-state converters
-zh_url: /academy/foundations/prerequisite-path-zh/
+track: dc-dc-conversion
+translation_status: original
+translations:
+  en: /academy/power-electronics/converters/
+  zh: null
+zh_url: /zh/academy/
 ---
 
 ## Purpose

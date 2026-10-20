@@ -5,7 +5,7 @@ lang: en
 layout: academy
 permalink: /academy/
 title: AIPE Academy
-zh_url: /academy/foundations/prerequisite-path-zh/
+zh_url: /zh/academy/
 ---
 
 AIPE means **AI for Power Engineering**. Power electronics is the primary v0.1 curriculum.
@@ -25,5 +25,9 @@ Start with orientation and the foundation bridge. Outlines describe planned cove
 | [Dynamics, transfer functions and control](/academy/power-electronics/dynamics-and-control/) | stage | outline | 30 |
 | [Magnetics and practical design](/academy/power-electronics/practical-design/) | stage | outline | 30 |
 | [Systems and applications](/academy/power-electronics/systems-applications/) | stage | outline | 30 |
+| [DC circuit fundamentals: voltage, current, power and the circuit laws](/academy/foundations/dc-circuit-fundamentals/) | lesson | available | 90 |
+| [Buck converter fundamentals: from switch states to ripple and conduction modes](/academy/power-electronics/buck-converter-fundamentals/) | lesson | available | 120 |
+| [Three-phase system fundamentals: balanced operation, power and the per-unit system](/academy/power-systems/three-phase-fundamentals/) | lesson | available | 120 |
+| [Solar PV fundamentals: from photons to the maximum power point](/academy/renewable-energy/solar-pv-fundamentals/) | lesson | available | 120 |
 
 Core practice uses open tools. Commercial variants are optional. [Discover AIPE capabilities](/aipe.md).
