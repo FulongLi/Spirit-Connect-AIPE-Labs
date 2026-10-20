@@ -1,12 +1,22 @@
 ---
+academic_references: []
 academy_page: true
+canonical_source_url: https://github.com/FulongLi/AIPE-Academy/blob/main/curriculum/01-foundations/prerequisite-path.zh-CN.md
+concept: prerequisite-path
+covers: []
+domain: foundations
 en_url: /academy/
 estimated_time: 30
+lab_urls: []
+labs: []
 lang: zh
 layout: academy
+lesson_format: legacy
 lesson_status: outline
 lesson_type: guide
+level: beginner
 math: true
+module: null
 next_links:
 - title: 一个简单电路用了多少电？
   url: /academy/foundations/first-circuit-zh/
@@ -16,8 +26,14 @@ prerequisite_links:
   url: /academy/foundations/orientation/
 render_with_liquid: false
 source_path: curriculum/01-foundations/prerequisite-path.zh-CN.md
+source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
 source_sha256: 5fafaae38dc7777970dae69aadb942ad9da2f16872d8429a2a9de7c4ddaf85a7
 title: 电力电子之前：先修课程路线
+track: learning-methods
+translation_status: original
+translations:
+  en: null
+  zh: /academy/foundations/prerequisite-path-zh/
 zh_url: /academy/foundations/prerequisite-path-zh/
 ---
 

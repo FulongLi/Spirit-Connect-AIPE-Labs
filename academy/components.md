@@ -1,12 +1,23 @@
 ---
+academic_references: []
 academy_page: true
-en_url: /academy/
+canonical_source_url: https://github.com/FulongLi/AIPE-Academy/blob/main/curriculum/02-components/README.md
+concept: components-stage
+covers:
+- pe.passives
+domain: power-electronics
+en_url: /academy/power-electronics/components/
 estimated_time: 30
+lab_urls: []
+labs: []
 lang: en
 layout: academy
+lesson_format: legacy
 lesson_status: outline
 lesson_type: stage
+level: undergraduate
 math: true
+module: pe.devices
 next_links:
 - title: Steady-state converters
   url: /academy/power-electronics/converters/
@@ -16,9 +27,15 @@ prerequisite_links:
   url: /academy/foundations/foundations/
 render_with_liquid: false
 source_path: curriculum/02-components/README.md
+source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
 source_sha256: bc580623a495a2a2227aa8be07829ba76383b9de73e4a19ae01e8eac156d17c4
 title: Devices and switching models
-zh_url: /academy/foundations/prerequisite-path-zh/
+track: devices-and-components
+translation_status: original
+translations:
+  en: /academy/power-electronics/components/
+  zh: null
+zh_url: /zh/academy/
 ---
 
 ## Purpose

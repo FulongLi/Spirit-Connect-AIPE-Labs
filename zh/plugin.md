@@ -64,6 +64,34 @@ image: /images/background/sst.png
   </div>
 </section>
 
+<section class="section" id="aipe-academy">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">AIPE Academy</span><h2>与 AI 导师一起学习。</h2></div>
+      <p>AIPE Academy 同时提供 Codex 技能与 Claude Code 插件，二者使用同一套开放课程：四个学科、带先修检查的学习路线、可复现的 Python 实验、MIT OpenCourseWare 学术范围参考，以及只保存在你本机的学习记录。除了你的 Coding Agent，只需要 Python 3.10；不需要 API 订阅、专有软件或云数据库。{% include status-badge.html status='available' lang='zh' %}</p>
+    </div>
+    <div class="plugin-status">
+      <div>
+        <span class="plugin-status-label">Claude Code</span>
+        <div class="agent-link plugin-prompt">
+          <code id="aipe-academy-claude">/plugin install aipe-academy --marketplace FulongLi/AIPE-Academy</code>
+          <button class="copy-btn" type="button" data-copy-target="aipe-academy-claude" data-copied-label="已复制" aria-live="polite">复制命令</button>
+        </div>
+        <p>然后运行 <code>/aipe-academy:learn</code>，或直接说：“请按 AIPE Academy 带我从零学习。”</p>
+      </div>
+      <div>
+        <span class="plugin-status-label">Codex</span>
+        <div class="agent-link plugin-prompt">
+          <code id="aipe-academy-codex">git clone https://github.com/FulongLi/AIPE-Academy</code>
+          <button class="copy-btn" type="button" data-copy-target="aipe-academy-codex" data-copied-label="已复制" aria-live="polite">复制命令</button>
+        </div>
+        <p>在 Codex 中打开该文件夹，<code>aipe-academy</code> 技能会从 <code>.agents/skills/</code> 自动被发现。输入 <code>$aipe-academy</code>，或说“请按 AIPE Academy 带我从零学习”。</p>
+      </div>
+    </div>
+    <p class="small">分步安装说明、各平台已测试的内容与已知限制见 <a href="https://github.com/FulongLi/AIPE-Academy/blob/main/docs/plugin-installation.md" rel="noopener">docs/plugin-installation.md ↗</a>（英文）。本站每节课程都链接到同一仓库中的规范源文件。</p>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
     <h2 class="section-title-centred">常见问题</h2>

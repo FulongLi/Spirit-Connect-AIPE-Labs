@@ -1,0 +1,31 @@
+{%- comment -%}
+  Structured external academic references for a generated AIPE Academy lesson.
+  Params: lang. The lesson front matter lists reference ids
+  (academic_references); the records come from _data/academic_references.json,
+  a verbatim copy of AIPE Academy's generated projection of its MIT
+  OpenCourseWare baseline (official title, term, level, verification date,
+  official URL). The panel is labelled as external and carries the
+  non-affiliation statement; the lesson body keeps its own Academic References
+  section as canonical content.
+{%- endcomment -%}
+{%- assign ar_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- assign ar_t = site.data.i18n[ar_lang] -%}
+{%- assign ar_courses = site.data.academic_references.courses -%}
+{%- if page.academic_references and page.academic_references.size > 0 and ar_courses %}
+<aside class="academy-academic-references" aria-label="{{ ar_t.academy_references_title }}">
+  <h2>{{ ar_t.academy_references_title }} <span class="status-badge status-reference">{{ ar_t.academy_references_external_badge }}</span></h2>
+  <p class="small">{{ ar_t.academy_references_intro }}</p>
+  <ul>
+    {%- for id in page.academic_references %}
+    {%- assign course = ar_courses | where: "id", id | first %}
+    {%- if course %}
+    <li>
+      <a href="{{ course.url }}" rel="noopener">MIT {{ course.course_number }} — {{ course.title }} ({{ course.term }}) ↗</a>
+      <span class="small">{% if course.level and course.level.size > 0 %}{{ course.level | join: ', ' }} · {% endif %}{% if course.verified_on %}{{ ar_t.academy_references_verified }} {{ course.verified_on }}{% endif %}</span>
+    </li>
+    {%- endif %}
+    {%- endfor %}
+  </ul>
+  <p class="small">{{ ar_t.academy_references_disclaimer }}</p>
+</aside>
+{%- endif %}

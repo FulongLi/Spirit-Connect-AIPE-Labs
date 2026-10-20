@@ -24,6 +24,8 @@ HUB = "_data/hub.yml"
 ACADEMY = "_data/academy.yml"
 AGENTS = "_data/agents.yml"
 GRAPH = "_data/knowledge_graph.yml"
+RESOURCES = "_data/knowledge_graph_resources.yml"
+REFERENCES = "_data/academic_references.json"
 SKIP_DIRS = {"_site", "vendor", ".git", ".jekyll-cache", ".bundle", "node_modules", "tools", "tests", "docs"}
 
 
@@ -291,7 +293,25 @@ def validate(root=ROOT):
                 errors.append(f"{where}: install url must be the repository's own documentation")
             if set(install.get("label", {})) != set(languages):
                 errors.append(f"{where}: install label needs en and zh")
-    validate_graph(load_yaml(root, GRAPH), {stage["key"] for stage in academy["stages"]}, lessons, check_resource, errors)
+    graph = load_yaml(root, GRAPH)
+    validate_graph(graph, {stage["key"] for stage in academy["stages"]}, lessons, check_resource, errors)
+    # Site-owned resource overlay for generated graph topics (tools/sync_ecosystem.py merges it).
+    if (root/RESOURCES).is_file():
+        overlay = load_yaml(root, RESOURCES) or {}
+        known = {node.get("id") for node in graph.get("nodes", [])}
+        for ident, resources in overlay.items():
+            if ident not in known:
+                errors.append(f"{RESOURCES}: unknown topic {ident}")
+            for resource in resources or []:
+                check_resource(resource, f"{RESOURCES} {ident}")
+    # Academic references cited by generated lessons must exist in the synced reference data.
+    references = set()
+    if (root/REFERENCES).is_file():
+        references = {course["id"] for course in json.loads((root/REFERENCES).read_text(encoding="utf-8")).get("courses", [])}
+    for url, meta in lessons.items():
+        for ident in meta.get("academic_references") or []:
+            if ident not in references:
+                errors.append(f"academy lesson {url}: unknown academic reference {ident}")
     labs = {item["academy"] for item in hub["artifacts"] if "academy" in item}
     for url in sorted(set(lessons) - staged - labs):
         warnings.append(f"Academy lesson {url} is not in a stage; it will appear under 'More from the catalogue'")

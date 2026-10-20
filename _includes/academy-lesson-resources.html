@@ -1,0 +1,33 @@
+{%- comment -%}
+  Lesson resources panel for a generated AIPE Academy lesson page.
+  Params: lang. Everything comes from the lesson's generated front matter
+  (module, canonical_source_url, source_revision, lab_urls, translations) and
+  the generated knowledge graph; nothing is restated by hand.
+{%- endcomment -%}
+{%- assign lr_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- if lr_lang == 'zh' -%}{%- assign lr_lp = '/zh' -%}{%- assign lr_other = 'en' -%}{%- else -%}{%- assign lr_lp = '' -%}{%- assign lr_other = 'zh' -%}{%- endif -%}
+{%- assign lr_t = site.data.i18n[lr_lang] -%}
+{%- assign lr_node = site.data.knowledge_graph.nodes | where: "id", page.module | first -%}
+{%- assign lr_stage = site.data.academy.stages | where: "key", page.domain | first -%}
+{%- assign lr_counterpart = page.translations[lr_other] -%}
+<aside class="academy-lesson-resources" aria-label="{{ lr_t.academy_lesson_resources }}">
+  <h2>{{ lr_t.academy_lesson_resources }}</h2>
+  <dl>
+    {%- if lr_node %}
+    <dt>{{ lr_t.academy_module_label }}</dt>
+    <dd>{{ lr_node.title[lr_lang] }}{% if lr_stage %} · <a href="{{ lr_lp | append: lr_stage.url | append: '#map' | relative_url }}">{{ lr_stage.title[lr_lang] }}</a>{% endif %}</dd>
+    {%- endif %}
+    {%- if page.canonical_source_url %}
+    <dt>{{ lr_t.academy_canonical_source }}</dt>
+    <dd><a href="{{ page.canonical_source_url }}" rel="noopener">{{ page.source_path }} ↗</a>{% if page.source_revision %}<br><span class="small">{{ lr_t.academy_source_revision }} <code>{{ page.source_revision | slice: 0, 12 }}</code></span>{% endif %}</dd>
+    {%- endif %}
+    {%- if page.lab_urls and page.lab_urls.size > 0 %}
+    <dt>{{ lr_t.academy_lab_scripts }}</dt>
+    <dd>{% for lab in page.labs %}<a href="{{ page.lab_urls[forloop.index0] }}" rel="noopener"><code>{{ lab }}</code> ↗</a>{% unless forloop.last %}<br>{% endunless %}{% endfor %}</dd>
+    {%- endif %}
+    <dt>{{ lr_t.academy_translation_label }}</dt>
+    <dd>{% if lr_counterpart %}<a href="{{ lr_counterpart | relative_url }}">{{ lr_t.academy_translation_available }} {% if lr_other == 'zh' %}中文{% else %}English{% endif %}</a>{% elsif lr_lang == 'zh' %}{{ lr_t.academy_only_this_language }}{% else %}{{ lr_t.academy_only_this_language }}{% endif %}{% if page.translation_status and page.translation_status != 'original' %} · {{ site.data.hub.status_labels[page.translation_status][lr_lang] | default: page.translation_status }}{% endif %}</dd>
+    <dt>{{ lr_t.academy_learn_with_ai }}</dt>
+    <dd><a href="{{ lr_lp | append: '/plugin/#aipe-academy' | relative_url }}">{{ lr_t.academy_install_link }} →</a></dd>
+  </dl>
+</aside>

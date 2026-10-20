@@ -1,12 +1,22 @@
 ---
+academic_references: []
 academy_page: true
-en_url: /academy/
+canonical_source_url: https://github.com/FulongLi/AIPE-Academy/blob/main/curriculum/06-systems-and-applications/README.md
+concept: systems-applications-stage
+covers: []
+domain: power-electronics
+en_url: /academy/power-electronics/systems-applications/
 estimated_time: 30
+lab_urls: []
+labs: []
 lang: en
 layout: academy
+lesson_format: legacy
 lesson_status: outline
 lesson_type: stage
+level: undergraduate
 math: true
+module: pe.applications
 next_links: []
 permalink: /academy/power-electronics/systems-applications/
 prerequisite_links:
@@ -14,9 +24,15 @@ prerequisite_links:
   url: /academy/power-electronics/practical-design/
 render_with_liquid: false
 source_path: curriculum/06-systems-and-applications/README.md
+source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
 source_sha256: cef74ab2df57e0cfc3c5a7716bdec5b7a50ed54ead853cb2418c33a2f69b78df
 title: Systems and applications
-zh_url: /academy/foundations/prerequisite-path-zh/
+track: systems-integration
+translation_status: original
+translations:
+  en: /academy/power-electronics/systems-applications/
+  zh: null
+zh_url: /zh/academy/
 ---
 
 ## Purpose

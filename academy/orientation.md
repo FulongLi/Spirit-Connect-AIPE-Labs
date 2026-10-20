@@ -1,12 +1,22 @@
 ---
+academic_references: []
 academy_page: true
-en_url: /academy/
+canonical_source_url: https://github.com/FulongLi/AIPE-Academy/blob/main/curriculum/00-orientation/README.md
+concept: orientation
+covers: []
+domain: foundations
+en_url: /academy/foundations/orientation/
 estimated_time: 30
+lab_urls: []
+labs: []
 lang: en
 layout: academy
+lesson_format: legacy
 lesson_status: outline
 lesson_type: stage
+level: beginner
 math: true
+module: f.learning-with-ai
 next_links:
 - title: Foundations readiness map
   url: /academy/foundations/foundations/
@@ -14,9 +24,15 @@ permalink: /academy/foundations/orientation/
 prerequisite_links: []
 render_with_liquid: false
 source_path: curriculum/00-orientation/README.md
+source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
 source_sha256: b3336c884facec23e40ec5a860fcfe0b59fc75047c36fbd48a2d72db1086054a
 title: Orientation and learning methods
-zh_url: /academy/foundations/prerequisite-path-zh/
+track: learning-methods
+translation_status: original
+translations:
+  en: /academy/foundations/orientation/
+  zh: null
+zh_url: /zh/academy/
 ---
 
 New to both electricity and AI-assisted learning? Start with [the learner entry point](https://github.com/FulongLi/AIPE-Academy/blob/main/START-HERE.md). You do not need to know course names or prepare a technical prompt.

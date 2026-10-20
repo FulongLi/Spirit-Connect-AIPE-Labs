@@ -152,6 +152,8 @@ layout: default
         {% endif %}
         <p><a href="{{ lp | append: '/academy/' | relative_url }}">{{ t.academy_map }}</a>{% if is_lab %} · <a href="{{ lp | append: '/hub/workflows/' | relative_url }}">{{ t.academy_hub_labs }}</a>{% endif %}</p>
       </article>
+      {% include academy-lesson-resources.html lang=lang %}
+      {% include academy-academic-references.html lang=lang %}
     </div>
   </div>
 </section>

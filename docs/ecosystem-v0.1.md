@@ -48,6 +48,44 @@ The former manually curated index is preserved unchanged as
 legacy hardware/reference links remain accessible without polluting Registry's
 canonical capability set. Its original terminology describes that older snapshot.
 
+## Academy v0.2 integration
+
+AIPE Academy v0.2 publishes three generated files per pinned revision, and the
+synchronizer consumes all of them:
+
+| Academy output | Website artifact | Role |
+| --- | --- | --- |
+| `generated/lessons.json` (schema 0.2.0; 0.1.0 still accepted) | `academy/<slug>.md` | Lesson pages. New front matter: `domain`, `track`, `module`, `covers`, `concept`, `translations`, `translation_status`, `lesson_format`, `labs`, `lab_urls`, `academic_references`, `canonical_source_url`, `source_revision`. |
+| `generated/knowledge-graph.json` | `_data/knowledge_graph.yml` (generated) and `_data/academy_graph.json` (verbatim) | Topics of the interactive knowledge graph are the Academy's modules; subjects are its four domain ids; `requires`, `related`, lesson attachments and coverage `status` come from the Academy. The website adds only its own links per topic in `_data/knowledge_graph_resources.yml`. |
+| `generated/academic-references.json` | `_data/academic_references.json` (verbatim) | MIT OpenCourseWare reference baseline: verified title, term, level, verification date and official URL per course, with the lessons that cite it. |
+
+The four canonical domains are `foundations`, `power-electronics`,
+`power-systems` and `renewable-energy`; the former `renewables` subject key and
+its URLs `/academy/renewables/` and `/zh/academy/renewables/` redirect to
+`/academy/renewable-energy/` and `/zh/academy/renewable-energy/` (`legacy/`).
+Academy stages in `_data/academy.yml` are the domains; learning stages and
+paths (the seven-stage power-electronics path with its G1/G2/G3 gates) are a
+separate dimension published inside `_data/academy_graph.json`.
+
+Each lesson page now ends with two site-rendered panels: **Lesson resources**
+(knowledge module, canonical Markdown source on GitHub with the pinned
+revision, lab scripts, translation availability and the AIPE Academy
+installation link) and **Academic references**, labelled external, listing the
+cited MIT OCW courses from the synced data with the non-affiliation statement.
+The lesson body keeps its own Academic References section as canonical
+content. Language switching on a lesson leads to its recorded translation when
+the Academy catalogue has one (same `concept`), otherwise to the other
+language's Academy entry point; `hreflang` alternates are emitted only for real
+translation pairs.
+
+`tools/hub_data.py --check` additionally verifies that every topic in the
+resource overlay exists in the generated graph and that every reference id a
+lesson cites exists in the synced reference data; `tools/check_public_build.py`
+verifies the four subject pages in both languages, the `renewables` redirects,
+the canonical source link and the academic references panel on every lesson
+that cites a reference. The `/plugin/` page describes how to install the
+Academy as a Codex skill or Claude Code plugin from its repository.
+
 ## Hub presentation data
 
 The public site is organised as an **AIPE Hub** (artifact dimension: Data &

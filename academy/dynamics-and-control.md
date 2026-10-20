@@ -1,12 +1,24 @@
 ---
+academic_references: []
 academy_page: true
-en_url: /academy/
+canonical_source_url: https://github.com/FulongLi/AIPE-Academy/blob/main/curriculum/04-modeling-and-control/README.md
+concept: dynamics-and-control-stage
+covers:
+- pe.control
+- pe.simulation
+domain: power-electronics
+en_url: /academy/power-electronics/dynamics-and-control/
 estimated_time: 30
+lab_urls: []
+labs: []
 lang: en
 layout: academy
+lesson_format: legacy
 lesson_status: outline
 lesson_type: stage
+level: undergraduate
 math: true
+module: pe.modelling
 next_links:
 - title: Magnetics and practical design
   url: /academy/power-electronics/practical-design/
@@ -16,9 +28,15 @@ prerequisite_links:
   url: /academy/power-electronics/converters/
 render_with_liquid: false
 source_path: curriculum/04-modeling-and-control/README.md
+source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
 source_sha256: adcd1619f4fec35787f871547c46b98e30a052a36f760231c9f6fc60fbb04bd9
 title: Dynamics, transfer functions and control
-zh_url: /academy/foundations/prerequisite-path-zh/
+track: modelling-and-control
+translation_status: original
+translations:
+  en: /academy/power-electronics/dynamics-and-control/
+  zh: null
+zh_url: /zh/academy/
 ---
 
 ## Purpose

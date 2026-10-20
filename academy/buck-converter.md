@@ -1,12 +1,27 @@
 ---
+academic_references:
+- mit-6-622-2023
+- mit-6-334-2007
 academy_page: true
-en_url: /academy/
+canonical_source_url: https://github.com/FulongLi/AIPE-Academy/blob/main/curriculum/03-converters/buck-converter.md
+concept: buck-converter-design
+covers:
+- pe.modelling
+- pe.control
+- pe.practical
+domain: power-electronics
+en_url: /academy/power-electronics/buck-converter/
 estimated_time: 120
+lab_urls: []
+labs: []
 lang: en
 layout: academy
+lesson_format: legacy
 lesson_status: draft
 lesson_type: tutorial
+level: undergraduate
 math: true
+module: pe.buck
 next_links:
 - title: Predict and check an ideal buck converter
   url: /academy/power-electronics/buck-open-lab/
@@ -16,9 +31,15 @@ prerequisite_links:
   url: /academy/power-electronics/converters/
 render_with_liquid: false
 source_path: curriculum/03-converters/buck-converter.md
-source_sha256: 19dc19d2f1cfb0919259c4a4768bcf432acb68427f42313fb4575caf79cf5e0f
+source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
+source_sha256: 5d30e67000ff970c9e22dcb2ab5681e5cfc9361b420939605cf8d853594edfec
 title: 'Buck converter: from principles to design'
-zh_url: /academy/foundations/prerequisite-path-zh/
+track: dc-dc-conversion
+translation_status: original
+translations:
+  en: /academy/power-electronics/buck-converter/
+  zh: null
+zh_url: /zh/academy/
 ---
 
 > Canonical teaching source: AIPE Academy. Adapted from Dr. Fulong Li's AIPE Labs
@@ -533,3 +554,35 @@ The central habit remains the same: write down the requirement, explain the ener
 ## Further study
 
 Robert W. Erickson and Dragan Maksimović, [*Fundamentals of Power Electronics*, third edition, Springer, 2020](https://link.springer.com/book/10.1007/978-3-030-43881-4). Relevant chapters cover steady-state converter analysis, AC equivalent circuit modelling, converter transfer functions and controller design. The derivations and numerical example on this page are presented independently; this article is not a reproduction of the textbook.
+
+## Academic References
+
+### MIT OpenCourseWare
+
+Primary academic reference:
+
+- MIT 6.622 — Power Electronics (Spring 2023)
+  https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/
+
+Complementary historical reference:
+
+- MIT 6.334 — Power Electronics (Spring 2007)
+  https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/
+
+Relevant subjects:
+
+- DC/DC converter steady-state analysis and conversion ratios
+- Averaged and small-signal converter modelling
+- Feedback control of switching converters
+- Converter design practice (component sizing, losses, layout)
+
+Verified teaching resources (official MIT OCW pages):
+
+- 6.622 syllabus: https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/pages/syllabus/
+- 6.622 lecture videos: https://ocw.mit.edu/courses/6-622-power-electronics-spring-2023/video_galleries/video-lectures/
+- 6.334 syllabus: https://ocw.mit.edu/courses/6-334-power-electronics-spring-2007/pages/syllabus/
+
+This tutorial has been independently developed by AIPE Academy with reference
+to the academic scope of the above courses. MIT OpenCourseWare is an external
+educational resource released under its own licence (generally CC BY-NC-SA 4.0).
+AIPE Academy is not affiliated with or endorsed by MIT.

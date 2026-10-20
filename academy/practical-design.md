@@ -1,12 +1,26 @@
 ---
+academic_references: []
 academy_page: true
-en_url: /academy/
+canonical_source_url: https://github.com/FulongLi/AIPE-Academy/blob/main/curriculum/05-practical-design/README.md
+concept: practical-design-stage
+covers:
+- pe.magnetics
+- pe.thermal
+- pe.gate-driving
+- pe.emi-pcb
+domain: power-electronics
+en_url: /academy/power-electronics/practical-design/
 estimated_time: 30
+lab_urls: []
+labs: []
 lang: en
 layout: academy
+lesson_format: legacy
 lesson_status: outline
 lesson_type: stage
+level: undergraduate
 math: true
+module: pe.practical
 next_links:
 - title: Systems and applications
   url: /academy/power-electronics/systems-applications/
@@ -16,9 +30,15 @@ prerequisite_links:
   url: /academy/power-electronics/dynamics-and-control/
 render_with_liquid: false
 source_path: curriculum/05-practical-design/README.md
+source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
 source_sha256: 8195423937dd858df65190c6c055eef95d1a832e9ec61fe5575b48be5a1366a3
 title: Magnetics and practical design
-zh_url: /academy/foundations/prerequisite-path-zh/
+track: practical-design
+translation_status: original
+translations:
+  en: /academy/power-electronics/practical-design/
+  zh: null
+zh_url: /zh/academy/
 ---
 
 ## Purpose

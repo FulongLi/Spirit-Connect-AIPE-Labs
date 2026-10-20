@@ -1,15 +1,27 @@
 ---
+academic_references: []
 academy_page: true
-en_url: /academy/
+canonical_source_url: https://github.com/FulongLi/AIPE-Academy/blob/main/curriculum/01-foundations/README.md
+concept: foundations-readiness
+covers: []
+domain: foundations
+en_url: /academy/foundations/foundations/
 estimated_time: 30
+lab_urls: []
+labs: []
 lang: en
 layout: academy
+lesson_format: legacy
 lesson_status: outline
 lesson_type: stage
+level: beginner
 math: true
+module: null
 next_links:
 - title: 电力电子之前：先修课程路线
   url: /academy/foundations/prerequisite-path-zh/
+- title: 'DC circuit fundamentals: voltage, current, power and the circuit laws'
+  url: /academy/foundations/dc-circuit-fundamentals/
 - title: Devices and switching models
   url: /academy/power-electronics/components/
 permalink: /academy/foundations/foundations/
@@ -18,9 +30,15 @@ prerequisite_links:
   url: /academy/foundations/orientation/
 render_with_liquid: false
 source_path: curriculum/01-foundations/README.md
+source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
 source_sha256: f81b5b9165ed920d1e51d9de59f33616dac560073c1eeb6c4443d19cb220d82f
 title: Foundations readiness map
-zh_url: /academy/foundations/prerequisite-path-zh/
+track: learning-methods
+translation_status: original
+translations:
+  en: /academy/foundations/foundations/
+  zh: null
+zh_url: /zh/academy/
 ---
 
 For beginners, start with the [prerequisite path (中文)](/academy/foundations/prerequisite-path-zh/) and [first lesson](/academy/foundations/first-circuit-zh/). The path separates what is needed before basic converter analysis from what can be learned later alongside control and design. See the [MIT / Princeton source review](https://github.com/FulongLi/AIPE-Academy/blob/main/references/undergraduate-foundations-review.zh-CN.md) for the evidence behind this structure.
