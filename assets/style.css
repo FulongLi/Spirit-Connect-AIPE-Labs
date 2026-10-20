@@ -1843,20 +1843,6 @@ img { max-width: 100%; height: auto; }
 .home-stats dd { margin: .25rem 0 0; font: 800 1.7rem/1 var(--font-display); }
 .home-stats dd a { color: var(--fg); }
 @media(max-width:620px) { .home-stats { grid-template-columns: repeat(2, minmax(0,1fr)); } .home-stats div:nth-child(3) { border-left: 0; } .home-stats div:nth-child(n+3) { border-top: 1px solid var(--border); } }
-.artifact-grid-feed { grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
-.home-stages { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: .75rem; margin: 0; padding: 0; list-style: none; }
-.home-stages a { display: flex; flex-direction: column; gap: .35rem; height: 100%; padding: 1.25rem; border: 1px solid var(--border); border-radius: 16px; background: var(--bg-white); }
-.section .home-stages a { font-weight: 400; }
-.home-stages a:hover { opacity: 1; border-color: var(--fg); }
-.home-stages span { font: 800 1.8rem/1 var(--font-display); color: var(--accent); -webkit-text-stroke: 1px #c79522; }
-.home-stages strong { margin-top: .6rem; font: 750 1.1rem/1.2 var(--font-display); color: var(--fg); }
-.home-stages em { color: var(--fg-dim); font-size: .82rem; font-style: normal; }
-.home-stages li:last-child a { background: var(--black); border-color: var(--black); }
-.home-stages li:last-child span { color: #fff; -webkit-text-stroke: 0; font-size: 1rem; letter-spacing: .1em; text-transform: uppercase; }
-.home-stages li:last-child strong { color: #fff; }
-.home-stages li:last-child em { color: rgba(255,255,255,.6); }
-@media(max-width:960px) { .home-stages { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-@media(max-width:440px) { .home-stages { grid-template-columns: 1fr; } }
 .home-plugin-layout { display: grid; grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); align-items: end; gap: 2.5rem; padding: clamp(1.75rem,4vw,3rem); border: 1px solid var(--border); border-radius: 24px; background: var(--bg-white); }
 .home-plugin-layout h2 { margin: .6rem 0 .8rem; }
 .home-plugin-layout .lead { margin: 0; color: var(--fg-dim); }

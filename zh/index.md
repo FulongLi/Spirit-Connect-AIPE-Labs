@@ -7,13 +7,10 @@ description: 学习已确立的电力工程知识，用开放的数据、模型�
 image: /images/background/sst.png
 ---
 {%- assign hub = site.data.hub -%}
-{%- assign featured = "" | split: "" -%}
 {%- assign hub_count = 0 -%}
 {%- for item in hub.artifacts -%}
-  {%- if item.featured -%}{%- assign featured = featured | push: item -%}{%- endif -%}
   {%- if item.category != 'platform' -%}{%- assign hub_count = hub_count | plus: 1 -%}{%- endif -%}
 {%- endfor -%}
-{%- assign featured = featured | sort: "featured" -%}
 {%- assign lesson_count = 0 -%}
 {%- for candidate in site.pages -%}{%- if candidate.academy_page and candidate.lesson_status and candidate.lang == 'zh' -%}{%- assign lesson_count = lesson_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
 {%- assign article_count = site.posts | where: "lang", "zh" | size -%}
@@ -63,55 +60,6 @@ image: /images/background/sst.png
         <p class="home-pillar-fact"><strong>{{ topic_count }}</strong> 个研究课题，均标明证据状态</p>
         <a class="btn btn-primary" href="{{ '/zh/frontiers/' | relative_url }}">进入前沿研究 →</a>
       </li>
-    </ol>
-  </div>
-</section>
-
-<section class="section section-alt home-explore">
-  <div class="container">
-    <div class="hub-section-heading">
-      <div><span class="section-kicker">Hub 内容</span><h2>可复用的工程产物，而不是孤立的项目。</h2></div>
-      <p>每一项产物都标明类型、工程领域与成熟度，让你一眼看出哪些已经可用、哪些仍在建设中。</p>
-    </div>
-    <div class="hub-category-grid">
-      {%- for category in hub.categories %}{% include hub-category-card.html category=category index=forloop.index lang='zh' %}{% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="section home-featured">
-  <div class="container">
-    <div class="hub-section-heading">
-      <div><span class="section-kicker">精选产物</span><h2>从现在已有的内容开始。</h2></div>
-      <p>现在就可以打开、运行并在此基础上继续构建的数据集、模型、设计、工具与实验。每张卡片都标明其成熟度。<a href="{{ '/zh/hub/' | relative_url }}">浏览完整 Hub →</a></p>
-    </div>
-    <div class="artifact-grid artifact-grid-feed">
-      {%- for item in featured %}{% include artifact-card.html item=item compact=true lang='zh' %}{% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt home-domains">
-  <div class="container">
-    <div class="hub-section-heading">
-      <div><span class="section-kicker">两个发现维度</span><h2>按“它是什么”搜索，或按“用在哪里”搜索。</h2></div>
-      <p>Hub 按产物类型组织，<a href="{{ '/zh/engineering/' | relative_url }}">工程领域</a> 按应用领域组织同一批产物——从半导体芯片到能源系统。空白单元格表示 Hub 尚未覆盖的地方。</p>
-    </div>
-    {% include domain-matrix.html lang='zh' %}
-  </div>
-</section>
-
-<section class="section home-academy">
-  <div class="container">
-    <div class="hub-section-heading">
-      <div><span class="section-kicker">AIPE 学院</span><h2>从基本原理到 AI 辅助工程，系统学习电力工程。</h2></div>
-      <p>分阶段的课程体系与开放实验。每个阶段都标明课程处于大纲、草稿还是可用状态，尚无中文课程的阶段标为规划中。<a href="{{ '/zh/academy/' | relative_url }}">进入学院 →</a></p>
-    </div>
-    <ol class="home-stages">
-      {%- for stage in site.data.academy.stages %}
-      <li><a href="{{ '/zh' | append: stage.url | relative_url }}"><span>{{ stage.number }}</span><strong>{{ stage.title.zh }}</strong><em>{{ stage.topics.zh | join: ' · ' }}</em></a></li>
-      {%- endfor %}
-      <li><a href="{{ '/zh/academy/power-electronics/#resources' | relative_url }}"><span>实验</span><strong>开放实验</strong><em>预测 · 运行 · 对比 · 解释</em></a></li>
     </ol>
   </div>
 </section>

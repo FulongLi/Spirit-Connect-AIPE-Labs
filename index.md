@@ -5,13 +5,10 @@ description: Learn established power engineering, build with open data, models, 
 image: /images/background/sst.png
 ---
 {%- assign hub = site.data.hub -%}
-{%- assign featured = "" | split: "" -%}
 {%- assign hub_count = 0 -%}
 {%- for item in hub.artifacts -%}
-  {%- if item.featured -%}{%- assign featured = featured | push: item -%}{%- endif -%}
   {%- if item.category != 'platform' -%}{%- assign hub_count = hub_count | plus: 1 -%}{%- endif -%}
 {%- endfor -%}
-{%- assign featured = featured | sort: "featured" -%}
 {%- assign lesson_count = 0 -%}
 {%- for candidate in site.pages -%}{%- if candidate.academy_page and candidate.lesson_status and candidate.lang == 'en' -%}{%- assign lesson_count = lesson_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
 {%- assign article_count = site.posts | where: "lang", "en" | size -%}
@@ -61,55 +58,6 @@ image: /images/background/sst.png
         <p class="home-pillar-fact"><strong>{{ topic_count }}</strong> research topics, each labelled with its evidence</p>
         <a class="btn btn-primary" href="{{ '/frontiers/' | relative_url }}">Explore Frontiers →</a>
       </li>
-    </ol>
-  </div>
-</section>
-
-<section class="section section-alt home-explore">
-  <div class="container">
-    <div class="hub-section-heading">
-      <div><span class="section-kicker">Inside the Hub</span><h2>Reusable engineering artifacts, not isolated projects.</h2></div>
-      <p>Every artifact states its type, engineering domain and maturity, so you can see what is ready to use and what is still being built.</p>
-    </div>
-    <div class="hub-category-grid">
-      {%- for category in hub.categories %}{% include hub-category-card.html category=category index=forloop.index lang='en' %}{% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="section home-featured">
-  <div class="container">
-    <div class="hub-section-heading">
-      <div><span class="section-kicker">Featured artifacts</span><h2>Start with what exists today.</h2></div>
-      <p>Datasets, models, designs, tools and labs you can open, run and build on today. Each card shows how mature it is. <a href="{{ '/hub/' | relative_url }}">Browse the whole Hub →</a></p>
-    </div>
-    <div class="artifact-grid artifact-grid-feed">
-      {%- for item in featured %}{% include artifact-card.html item=item compact=true lang='en' %}{% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt home-domains">
-  <div class="container">
-    <div class="hub-section-heading">
-      <div><span class="section-kicker">Two directions of discovery</span><h2>Search by what it is, or by where it applies.</h2></div>
-      <p>The Hub sorts artifacts by type. <a href="{{ '/engineering/' | relative_url }}">Engineering</a> sorts the same artifacts by domain, from the semiconductor die to the energy system. Empty cells mark where the hub has not grown yet.</p>
-    </div>
-    {% include domain-matrix.html lang='en' %}
-  </div>
-</section>
-
-<section class="section home-academy">
-  <div class="container">
-    <div class="hub-section-heading">
-      <div><span class="section-kicker">AIPE Academy</span><h2>Learn power engineering from first principles to AI-assisted engineering.</h2></div>
-      <p>A staged curriculum with open labs. Each stage shows which lessons are outlines, drafts or available. <a href="{{ '/academy/' | relative_url }}">Open the Academy →</a></p>
-    </div>
-    <ol class="home-stages">
-      {%- for stage in site.data.academy.stages %}
-      <li><a href="{{ stage.url | relative_url }}"><span>{{ stage.number }}</span><strong>{{ stage.title.en }}</strong><em>{{ stage.topics.en | join: ' · ' }}</em></a></li>
-      {%- endfor %}
-      <li><a href="{{ '/academy/power-electronics/#resources' | relative_url }}"><span>Lab</span><strong>Open labs</strong><em>Predict · run · compare · explain</em></a></li>
     </ol>
   </div>
 </section>
