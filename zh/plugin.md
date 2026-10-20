@@ -54,7 +54,7 @@ image: /images/background/sst.png
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">独立插件</span><h2>直接使用单个智能体。</h2></div>
-      <p>每个智能体都维护在各自的仓库中。<strong>复制提示词</strong>得到的是一条让 Coding Agent 阅读该仓库并使用其文档所述能力的指令，它不会安装任何内容。</p>
+      <p>每个智能体都维护在各自的仓库中。<strong>复制提示词</strong>得到的是一条让 Coding Agent 使用该智能体的指令，它不会安装任何内容。如果某个智能体同时是 Codex 与 Claude Code 的原生插件，其卡片会链接到安装步骤：请先安装插件，再粘贴提示词。</p>
     </div>
     <div class="hub-project-grid">
       {%- for agent in site.data.agents %}

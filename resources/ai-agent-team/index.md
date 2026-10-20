@@ -14,23 +14,24 @@ description: Meet the specialist agents and tools in the AIPE Labs ecosystem, di
   </div>
 </header>
 
+{%- assign sketcher = site.data.agents | where: "key", "sketch" | first %}
 <section class="section agent-team-feature-section">
   <div class="container">
-    <a class="agent-team-feature" href="{{ '/resources/ai-agent-team/aipe-sketch/' | relative_url }}">
+    <a class="agent-team-feature" href="{{ sketcher.page | relative_url }}">
       <div class="agent-team-feature-copy">
-        <div class="agent-team-status"><span></span>Available now · Open source</div>
+        <div class="agent-team-status"><span></span>Available now · {{ sketcher.licence.label.en }}</div>
         <p class="agent-team-index">Agent tool 01</p>
-        <h2>AIPE-Sketch</h2>
-        <p class="lead">Turn electrical connectivity into a clear SVG schematic. AIPE‑Sketch plans component placement, routes wires and checks that the drawing still represents the circuit you described.</p>
-        <div class="agent-team-tags" aria-label="AIPE-Sketch capabilities">
-          <span>Graph planning</span><span>SVG output</span><span>Connectivity checks</span>
+        <h2>{{ sketcher.name }}</h2>
+        <p class="lead">Turn circuit descriptions into clear, electrically checked SVG schematics. {{ sketcher.name }} installs as a Codex or Claude Code plugin, arranges symbols and wires, and checks that the drawing matches the circuit you described.</p>
+        <div class="agent-team-tags" aria-label="{{ sketcher.name }} capabilities">
+          <span>Codex &amp; Claude Code plugin</span><span>SVG + JSON report</span><span>Electrical validation</span>
         </div>
-        <strong class="agent-team-link">Meet AIPE-Sketch and start drawing →</strong>
+        <strong class="agent-team-link">Meet {{ sketcher.name }} and start drawing →</strong>
       </div>
       <div class="agent-team-feature-visual">
         <div class="agent-tool-window">
-          <video class="agent-tool-video" autoplay muted loop playsinline preload="metadata" poster="{{ '/images/general/aipe-sketch-video-poster.png' | relative_url }}" aria-label="Animated introduction to the AIPE-Sketch schematic workflow">
-            <source src="{{ '/videos/AIPE-Sketch.mp4' | relative_url }}" type="video/mp4">
+          <video class="agent-tool-video" autoplay muted loop playsinline preload="metadata" poster="{{ sketcher.video_poster | relative_url }}" aria-label="Preview of the {{ sketcher.name }} Quick Start tutorial">
+            <source src="{{ sketcher.video | relative_url }}" type="video/mp4">
           </video>
         </div>
       </div>

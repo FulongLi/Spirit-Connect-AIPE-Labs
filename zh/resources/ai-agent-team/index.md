@@ -15,23 +15,24 @@ description: 认识 AIPE Labs 生态中的专业 Agent 与工具，了解各自�
   </div>
 </header>
 
+{%- assign sketcher = site.data.agents | where: "key", "sketch" | first %}
 <section class="section agent-team-feature-section">
   <div class="container">
-    <a class="agent-team-feature" href="{{ '/zh/resources/ai-agent-team/aipe-sketch/' | relative_url }}">
+    <a class="agent-team-feature" href="{{ '/zh' | append: sketcher.page | relative_url }}">
       <div class="agent-team-feature-copy">
-        <div class="agent-team-status"><span></span>现已开放 · 开源工具</div>
+        <div class="agent-team-status"><span></span>现已开放 · {{ sketcher.licence.label.zh }}</div>
         <p class="agent-team-index">Agent 工具 01</p>
-        <h2>AIPE-Sketch</h2>
-        <p class="lead">把电气连接关系转换成清晰的 SVG 原理图。AIPE‑Sketch 负责规划器件位置、完成布线，并检查图纸是否仍然准确表达所描述的电路。</p>
-        <div class="agent-team-tags" aria-label="AIPE-Sketch 主要能力">
-          <span>图结构规划</span><span>SVG 输出</span><span>连通性检查</span>
+        <h2>{{ sketcher.name }}</h2>
+        <p class="lead">把电路描述转换为清晰、经过电气检查的 SVG 原理图。{{ sketcher.name }} 可作为 Codex 或 Claude Code 插件安装，自动排列符号与连线，并检查图纸是否与所描述的电路一致。</p>
+        <div class="agent-team-tags" aria-label="{{ sketcher.name }} 主要能力">
+          <span>Codex 与 Claude Code 插件</span><span>SVG + JSON 报告</span><span>电气验证</span>
         </div>
-        <strong class="agent-team-link">认识 AIPE-Sketch，开始绘制原理图 →</strong>
+        <strong class="agent-team-link">认识 {{ sketcher.name }}，开始绘制原理图 →</strong>
       </div>
       <div class="agent-team-feature-visual">
         <div class="agent-tool-window">
-          <video class="agent-tool-video" autoplay muted loop playsinline preload="metadata" poster="{{ '/images/general/aipe-sketch-video-poster.png' | relative_url }}" aria-label="AIPE-Sketch 原理图工作流动画介绍">
-            <source src="{{ '/videos/AIPE-Sketch.mp4' | relative_url }}" type="video/mp4">
+          <video class="agent-tool-video" autoplay muted loop playsinline preload="metadata" poster="{{ sketcher.video_poster | relative_url }}" aria-label="{{ sketcher.name }} 快速入门教程预览">
+            <source src="{{ sketcher.video | relative_url }}" type="video/mp4">
           </video>
         </div>
       </div>

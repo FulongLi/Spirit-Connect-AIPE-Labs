@@ -2046,6 +2046,13 @@ img { max-width: 100%; height: auto; }
 .agent-article .agent-prompt code { white-space: normal; font-size: .86rem; line-height: 1.55; }
 .agent-plugin-actions { display: flex; }
 .agent-plugin-actions .copy-btn { padding: .5rem 1.1rem; font-size: .85rem; }
+.agent-article .agent-command { margin: .7rem 0; max-width: none; box-shadow: none; }
+.agent-article .agent-command + p { margin-top: 1.4rem; }
+.agent-article .agent-command code { background: none; border: 0; padding: 0; font-size: .88rem; }
+.agent-article .agent-command .copy-btn { padding: .45rem 1.1rem; font-size: .85rem; }
+.section .hub-project-card p.agent-plugin-note { font-size: .86rem; }
+.section .hub-project-card p.agent-plugin-licence { padding-top: .2rem; border-top: 1px solid var(--border); font-size: .82rem; }
+.section .agent-plugin-licence a { color: var(--fg-dim); font-weight: 500; }
 .agent-team-more { padding-top: 0; }
 
 /* ══════════════════════════════════════

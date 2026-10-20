@@ -2,7 +2,7 @@
   "artifacts": {
     "_data/academic_references.json": "c0fd1ba6dd1a6d9292524dde1d2e557d888432c2a652084dda2db111fa2cc9aa",
     "_data/academy_graph.json": "4bf5f6fc8440f6ba7b9a01553ded05c08c2af49341baf481f9d6253bfc9b6e86",
-    "_data/knowledge_graph.yml": "983167fdb2502c6bfaa2e28eed00b1f272e917208ea68351a27fb4062f9e1ec9",
+    "_data/knowledge_graph.yml": "8bf31821dbaa05c122ac33a8d1cfdee08c1446f8386a51fe2db1dc44de0760cc",
     "academy/buck-converter-fundamentals.md": "f1e002c6eae23a1e3ec36332544c0c62b8058b81c9a71e6fa3933c8a87009dd4",
     "academy/buck-converter.md": "d46c9c46f212f9dca1fa1ccef2e898322a0e633fe6ccf05be4ebc59673c151c1",
     "academy/buck-open-lab.md": "acffd1a418191deb0e5301afea8fc2d65a9512acbce78922bec4cd107e2d7551",

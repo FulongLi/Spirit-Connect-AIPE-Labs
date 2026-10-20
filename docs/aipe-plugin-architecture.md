@@ -17,7 +17,7 @@ Spirit-Connect-AIPE-Labs   human-facing presentation layer (aipe.presentation)
 ```
 
 Specialist repositories (Semiconductor Database, Magnetics Database, Simulation
-Skills, Design Agent, AIPE Sketch, Academy, …) are capabilities. Each remains the
+Skills, Design Agent, AIPE Sketcher, Academy, …) are capabilities. Each remains the
 source of truth for its own data, code and skills.
 
 ## Interfaces available today

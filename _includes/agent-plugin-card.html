@@ -4,6 +4,9 @@
   only while the project is in development, a Copy prompt button, the detail
   page and GitHub. A native install link appears only when the repository
   documents one, and is labelled as such: a copied prompt is never an install.
+  For an agent that is itself a Codex and Claude Code plugin (install.plugin),
+  the card says to install it first and links the detail page's install steps.
+  The project's own licence is shown when the record states one.
 {%- endcomment -%}
 {%- assign apc_lang = include.lang | default: page.lang | default: 'en' -%}
 {%- if apc_lang == 'zh' -%}{%- assign apc_lp = '/zh' -%}{%- else -%}{%- assign apc_lp = '' -%}{%- endif -%}
@@ -17,6 +20,9 @@
     {%- endif %}
   </div>
   <p>{{ apc.summary[apc_lang] }}</p>
+  {%- if apc.install.plugin %}
+  <p class="agent-plugin-note">{% if apc_lang == 'zh' %}先在 Codex 或 Claude Code 中安装插件，再粘贴下面的提示词。{% else %}Install the Codex or Claude Code plugin first, then paste the prompt.{% endif %} <a href="{{ apc_lp | append: apc.page | append: '#install-codex' | relative_url }}">{% if apc_lang == 'zh' %}安装步骤{% else %}Install steps{% endif %} →</a></p>
+  {%- endif %}
   <code class="visually-hidden" id="{{ apc_id }}">{{ apc.prompt[apc_lang] | escape }}</code>
   <div class="agent-plugin-actions">
     <button class="copy-btn" type="button" data-copy-target="{{ apc_id }}"{% if apc_lang == 'zh' %} data-copied-label="已复制"{% endif %} aria-live="polite">{% if apc_lang == 'zh' %}复制提示词{% else %}Copy prompt{% endif %}</button>
@@ -28,4 +34,7 @@
     <a href="{{ apc.install.url }}" rel="noopener">{{ apc.install.label[apc_lang] }} ↗</a>
     {%- endif %}
   </div>
+  {%- if apc.licence %}
+  <p class="agent-plugin-licence"><a href="{{ apc.licence.url }}" rel="noopener">{{ apc.licence.label[apc_lang] }}</a></p>
+  {%- endif %}
 </article>

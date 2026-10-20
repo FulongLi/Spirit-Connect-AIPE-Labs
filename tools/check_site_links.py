@@ -2,7 +2,7 @@
 
   python tools/check_site_links.py _site
 
-Checks every href/src that points inside the site (root-relative or relative),
+Checks every href/src/poster that points inside the site (root-relative or relative),
 ignoring external URLs, mailto:, data: and in-page fragments. A link resolves
 when the built site contains the file, or a directory with an index.html.
 """
@@ -23,7 +23,7 @@ class LinkParser(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         for name, value in attrs:
-            if name in {"href", "src"} and value:
+            if name in {"href", "src", "poster"} and value:
                 self.links.append(value)
 
 
