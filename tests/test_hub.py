@@ -191,8 +191,20 @@ class HubDataTests(unittest.TestCase):
         self.assertIn("knowledge graph: prerequisite cycle", self.errors())
 
     def test_academy_subject_needs_its_page(self):
-        self.edit_yaml("_data/academy.yml", lambda d: d["stages"][3].update(url="/academy/renewable-energy/"))
-        self.assertIn("academy stage renewables: url must be /academy/renewables/", self.errors())
+        self.edit_yaml("_data/academy.yml", lambda d: d["stages"][3].update(url="/academy/renewables/"))
+        self.assertIn("academy stage renewable-energy: url must be /academy/renewable-energy/", self.errors())
+
+    def test_knowledge_graph_resource_overlay_must_name_known_topics(self):
+        self.edit_yaml("_data/knowledge_graph_resources.yml", lambda d: d.update({"pe.unicorn": [{"url": "/hub/", "localised": True, "label": {"en": "x", "zh": "x"}}]}))
+        self.assertIn("knowledge_graph_resources.yml: unknown topic pe.unicorn", self.errors())
+
+    def test_lesson_academic_references_must_exist(self):
+        lesson = next((p for p in sorted((self.root / "academy").glob("*.md")) if "academic_references:" in p.read_text(encoding="utf-8")), None)
+        if lesson is None:
+            self.skipTest("no generated lesson cites academic references yet; run the Academy sync")
+        text = lesson.read_text(encoding="utf-8").replace("academic_references:", "academic_references:\n- mit-0-000-1999", 1)
+        lesson.write_text(text, encoding="utf-8")
+        self.assertIn("unknown academic reference mit-0-000-1999", self.errors())
 
     def test_featured_positions_are_unique(self):
         def change(data):
