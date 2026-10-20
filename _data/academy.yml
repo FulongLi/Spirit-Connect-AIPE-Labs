@@ -25,7 +25,7 @@
 # entry point in its own language, and tests/test_hub.py reports it.
 
 intro:
-  en: "Learn power engineering from first principles to AI-assisted engineering: foundations, power electronics, power systems and renewables."
+  en: "Learn power engineering from first principles to AI-assisted engineering: foundations, power electronics, power systems and renewable energy."
   zh: "从基本原理到 AI 辅助工程，系统学习电力工程：基础、电力电子、电力系统与可再生能源。"
 
 stages:
@@ -43,6 +43,7 @@ stages:
     lessons:
       - /academy/foundations/orientation/
       - /academy/foundations/foundations/
+      - /academy/foundations/dc-circuit-fundamentals/
       - /academy/foundations/prerequisite-path-zh/
       - /academy/foundations/first-circuit-zh/
     hub: [devices]
@@ -63,6 +64,7 @@ stages:
     lessons:
       - /academy/power-electronics/components/
       - /academy/power-electronics/converters/
+      - /academy/power-electronics/buck-converter-fundamentals/
       - /academy/power-electronics/buck-converter/
       - /academy/power-electronics/dynamics-and-control/
       - /academy/power-electronics/practical-design/
@@ -70,8 +72,8 @@ stages:
     hub: [devices, converters, magnetics, control]
     examples: [site.converter-netlists, site.ccm-analysis-scripts, site.llc-fha-gain]
     planned_labs: true
-  # No Academy lesson covers the next two stages yet; each entry point shows
-  # them as planned. Add lesson URLs here only once AIPE Academy publishes them.
+  # Power Systems and Renewable Energy each have one complete English lesson in
+  # v0.2; their Chinese entry points still show a planned state.
   - number: "03"
     key: power-systems
     url: /academy/power-systems/
@@ -83,20 +85,22 @@ stages:
     topics:
       en: [Grid Interfaces, Microgrids, Solid-State Transformers, Stability]
       zh: [电网接口, 微电网, 固态变压器, 稳定性]
-    lessons: []
+    lessons:
+      - /academy/power-systems/three-phase-fundamentals/
     hub: [microgrids, systems]
   - number: "04"
-    key: renewables
-    url: /academy/renewables/
+    key: renewable-energy
+    url: /academy/renewable-energy/
     color: "#3fb58e"
-    title: {en: "Renewables", zh: "可再生能源"}
+    title: {en: "Renewable Energy", zh: "可再生能源"}
     summary:
-      en: "Convert, store and integrate energy from solar, wind and storage systems."
+      en: "Convert, store and integrate energy from solar, wind and storage systems, through power electronics and the grid."
       zh: "转换、存储并接入来自光伏、风电与储能系统的能量。"
     topics:
-      en: [Solar PV, Wind, Energy Storage, Grid Integration]
-      zh: [光伏, 风电, 储能, 并网]
-    lessons: []
+      en: [Solar PV, Wind, Energy Storage, Energy Conversion, Grid Integration]
+      zh: [光伏, 风电, 储能, 能量转换, 并网]
+    lessons:
+      - /academy/renewable-energy/solar-pv-fundamentals/
     hub: [storage]
     resources:
       - url: /power/microgrids/
