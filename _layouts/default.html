@@ -43,7 +43,15 @@
     {% endif %}
   {% endif %}
   {% assign show_alternates = true %}
-  {% if page.academy_page %}{% assign show_alternates = false %}{% endif %}
+  {% if page.academy_page %}
+    {% comment %} Generated lessons are single-language unless the Academy catalogue records a translation of the same concept. {% endcomment %}
+    {% assign show_alternates = false %}
+    {% if page.translations and page.translations.en and page.translations.zh %}
+      {% assign alternate_en = page.translations.en %}
+      {% assign alternate_zh = page.translations.zh %}
+      {% assign show_alternates = true %}
+    {% endif %}
+  {% endif %}
   {% if page.url == '/academy/' or page.url == '/zh/academy/' %}
     {% comment %} The two Academy entry points are each other's translation; individual lessons are not. {% endcomment %}
     {% assign alternate_en = '/academy/' %}

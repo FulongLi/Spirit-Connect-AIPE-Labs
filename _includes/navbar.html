@@ -15,10 +15,11 @@
   entry point (/academy/ or /zh/academy/) instead of the generated en_url/zh_url.
 {%- endcomment -%}
 {%- if page.academy_page or page.academy_landing -%}
+  {%- comment -%} A lesson with a recorded translation switches to it; otherwise to the other language's entry point. {%- endcomment -%}
   {%- if lang == 'zh' -%}
-    {%- assign en_url = '/academy/' -%}{%- assign zh_url = page.url -%}
+    {%- assign en_url = page.translations.en | default: '/academy/' -%}{%- assign zh_url = page.url -%}
   {%- else -%}
-    {%- assign en_url = page.url -%}{%- assign zh_url = '/zh/academy/' -%}
+    {%- assign en_url = page.url -%}{%- assign zh_url = page.translations.zh | default: '/zh/academy/' -%}
   {%- endif -%}
 {%- endif -%}
 {%- comment -%}
