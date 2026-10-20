@@ -65,6 +65,34 @@ image: /images/background/sst.png
   </div>
 </section>
 
+<section class="section" id="aipe-academy">
+  <div class="container">
+    <div class="hub-section-heading">
+      <div><span class="section-kicker">AIPE Academy</span><h2>Learn with an AI tutor.</h2></div>
+      <p>AIPE Academy ships as a Codex skill and a Claude Code plugin that teach from the same open curriculum: four domains, prerequisite-aware learning paths, reproducible Python labs, MIT OpenCourseWare scope references and a learning record that stays on your machine. Beyond your coding agent it needs only Python 3.10; no API subscription, proprietary software or cloud database. {% include status-badge.html status='available' %}</p>
+    </div>
+    <div class="plugin-status">
+      <div>
+        <span class="plugin-status-label">Claude Code</span>
+        <div class="agent-link plugin-prompt">
+          <code id="aipe-academy-claude">/plugin install aipe-academy --marketplace FulongLi/AIPE-Academy</code>
+          <button class="copy-btn" type="button" data-copy-target="aipe-academy-claude" aria-live="polite">Copy command</button>
+        </div>
+        <p>Then run <code>/aipe-academy:learn</code>, or just ask: “Teach me electrical engineering from the beginning.”</p>
+      </div>
+      <div>
+        <span class="plugin-status-label">Codex</span>
+        <div class="agent-link plugin-prompt">
+          <code id="aipe-academy-codex">git clone https://github.com/FulongLi/AIPE-Academy</code>
+          <button class="copy-btn" type="button" data-copy-target="aipe-academy-codex" aria-live="polite">Copy command</button>
+        </div>
+        <p>Open the folder in Codex; the <code>aipe-academy</code> skill is discovered from <code>.agents/skills/</code>. Type <code>$aipe-academy</code> or say “Guide me through AIPE Academy from the beginning.”</p>
+      </div>
+    </div>
+    <p class="small">Step-by-step instructions, what has been tested on each platform and known limitations: <a href="https://github.com/FulongLi/AIPE-Academy/blob/main/docs/plugin-installation.md" rel="noopener">docs/plugin-installation.md ↗</a>. Every lesson on this site links to its canonical source in the same repository.</p>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
     <h2 class="section-title-centred">Frequently asked questions</h2>
