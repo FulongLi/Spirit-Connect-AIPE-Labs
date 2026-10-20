@@ -55,7 +55,7 @@ image: /images/background/sst.png
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">Standalone plugins</span><h2>Use one agent directly.</h2></div>
-      <p>Each agent lives in its own repository. <strong>Copy prompt</strong> gives your coding agent an instruction to read that repository and use what it documents; it does not install anything.</p>
+      <p>Each agent lives in its own repository. <strong>Copy prompt</strong> gives your coding agent an instruction to use that agent; it does not install anything. Where an agent is also a native Codex and Claude Code plugin, its card links to the installation steps: install the plugin first, then paste the prompt.</p>
     </div>
     <div class="hub-project-grid">
       {%- for agent in site.data.agents %}

@@ -281,18 +281,35 @@ def validate(root=ROOT):
         for field in ("summary", "prompt"):
             if set(agent.get(field, {})) != set(languages):
                 errors.append(f"{where}: {field} needs en and zh")
+        install = agent.get("install")
+        plugin = (install or {}).get("plugin")
         for language, prompt in agent.get("prompt", {}).items():
-            if repository and repository not in prompt:
+            # With a native plugin the prompt is what to ask after installing it.
+            if plugin:
+                if agent.get("name", "") not in prompt:
+                    errors.append(f"{where}: {language} prompt must name {agent.get('name')}")
+            elif repository and repository not in prompt:
                 errors.append(f"{where}: {language} prompt must point the coding agent to {repository}")
         if "status" in agent and agent["status"] not in hub["status_labels"]:
             errors.append(f"{where}: unknown status {agent['status']}")
         check_url(agent.get("page", ""), where, localised=True)
-        install = agent.get("install")
         if install is not None:
             if not str(install.get("url", "")).startswith("https://"):
                 errors.append(f"{where}: install url must be the repository's own documentation")
             if set(install.get("label", {})) != set(languages):
                 errors.append(f"{where}: install label needs en and zh")
+            if plugin is not None:
+                marketplace = str(plugin.get("marketplace", ""))
+                if not repository.endswith("/"+marketplace):
+                    errors.append(f"{where}: plugin marketplace must be the repository {repository}")
+                if not re.fullmatch(r"[\w.-]+@[\w.-]+", str(plugin.get("id", ""))):
+                    errors.append(f"{where}: plugin id must be <plugin>@<marketplace>")
+        licence = agent.get("licence")
+        if licence is not None:
+            if not str(licence.get("url", "")).startswith(repository+"/"):
+                errors.append(f"{where}: licence url must be in the repository")
+            if set(licence.get("label", {})) != set(languages):
+                errors.append(f"{where}: licence label needs en and zh")
     graph = load_yaml(root, GRAPH)
     validate_graph(graph, {stage["key"] for stage in academy["stages"]}, lessons, check_resource, errors)
     # Site-owned resource overlay for generated graph topics (tools/sync_ecosystem.py merges it).

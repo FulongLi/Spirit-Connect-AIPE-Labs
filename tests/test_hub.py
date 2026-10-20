@@ -136,8 +136,29 @@ class HubDataTests(unittest.TestCase):
         self.assertIn("agent sketch: unknown status finished", errors)
 
     def test_agent_prompt_reads_its_own_repository(self):
-        self.edit_yaml("_data/agents.yml", lambda d: d[0]["prompt"].update(en="Draw my circuit."))
-        self.assertIn("agent sketch: en prompt must point the coding agent to https://github.com/FulongLi/AIPE-Sketch", self.errors())
+        self.edit_yaml("_data/agents.yml", lambda d: d[1]["prompt"].update(en="Design my board."))
+        self.assertIn("agent pcb-agent: en prompt must point the coding agent to https://github.com/FulongLi/AIPE-PCB-Agent", self.errors())
+
+    def test_native_plugin_prompt_names_the_product(self):
+        def change(data):
+            data[0]["prompt"]["en"] = "Draw my circuit."
+            data[0]["install"]["plugin"]["marketplace"] = "FulongLi/AIPE-Sketch"
+            data[0]["install"]["plugin"]["id"] = "aipe-sketcher"
+        self.edit_yaml("_data/agents.yml", change)
+        errors = self.errors()
+        self.assertIn("agent sketch: en prompt must name AIPE Sketcher", errors)
+        self.assertNotIn("agent sketch: zh prompt", errors)
+        self.assertIn("agent sketch: plugin marketplace must be the repository https://github.com/FulongLi/AIPE-Sketcher", errors)
+        self.assertIn("agent sketch: plugin id must be <plugin>@<marketplace>", errors)
+
+    def test_agent_licence_links_the_repository(self):
+        def change(data):
+            data[0]["licence"]["url"] = "https://opensource.org/licenses/MIT"
+            del data[0]["licence"]["label"]["zh"]
+        self.edit_yaml("_data/agents.yml", change)
+        errors = self.errors()
+        self.assertIn("agent sketch: licence url must be in the repository", errors)
+        self.assertIn("agent sketch: licence label needs en and zh", errors)
 
     def test_hub_cards_need_both_languages_and_known_status(self):
         def change(data):

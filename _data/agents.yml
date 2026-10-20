@@ -15,26 +15,51 @@
 #                "Demo coming soon" placeholder; never link media that does not exist
 #   summary      one sentence, en and zh
 #   prompt       a copyable instruction asking a coding agent to read the repository
-#                and use its documented capabilities, en and zh. A prompt is not an
+#                and use its documented capabilities, en and zh. For an agent with
+#                `install.plugin`, it is instead what to ask once the plugin is
+#                installed, and it names the product. A prompt is not an
 #                installation and is never presented as one
 #   install      optional; only a native installation method that the repository
 #                itself documents, linked to that documentation
+#     plugin     optional; set when the repository is itself a Codex and Claude Code
+#                plugin, with the marketplace and plugin id its docs use. Cards and
+#                the detail page then show the install commands built from them
+#   licence      optional; the project's own licence, label en and zh and a link to it
 #
 # tools/hub_data.py checks both languages, that each page exists in English and
 # Chinese, and that repositories and install links are absolute URLs.
 
 - key: sketch
-  name: AIPE Sketch
-  repository: https://github.com/FulongLi/AIPE-Sketch
+  # Renamed from AIPE Sketch in v0.2.0; the Registry id stays aipe.sketch and
+  # the detail page keeps its URL.
+  name: AIPE Sketcher
+  repository: https://github.com/FulongLi/AIPE-Sketcher
   page: /resources/ai-agent-team/aipe-sketch/
-  video: /videos/AIPE-Sketch.mp4
-  video_poster: /images/general/aipe-sketch-video-poster.png
+  # Quick Start V2 from the v0.2.0 release (99 s, 1920x1080, H.264, no audio),
+  # byte-identical to the release asset; poster is docs/media/quick-start-v2-thumbnail.png.
+  video: /videos/AIPE-Sketcher-Quick-Start-v0.2.0.mp4
+  video_poster: /images/general/aipe-sketcher-quick-start-v0.2.0-poster.jpg
   summary:
-    en: "Turn circuit connections described in plain language into a clear, connectivity-checked SVG schematic."
-    zh: "把用自然语言描述的电路连接关系，转换为经过连通性检查的清晰 SVG 原理图。"
+    en: "Turn circuit descriptions into clear, electrically checked SVG schematics, with a JSON validation report."
+    zh: "把电路描述转换为清晰、经过电气检查的 SVG 原理图，并附带 JSON 验证报告。"
   prompt:
-    en: "Read https://github.com/FulongLi/AIPE-Sketch and use it to draw the circuit I describe. Set up and run the tool for me, ask if any connection is unclear, generate an SVG, and run the connectivity checks."
-    zh: "请阅读 https://github.com/FulongLi/AIPE-Sketch，并用它绘制我描述的电路。请帮我完成工具设置和运行；如果连接关系不清楚，先向我确认；最后生成 SVG 并运行连通性检查。"
+    en: "Using AIPE Sketcher, generate a Dual Active Bridge converter schematic, validate the electrical connections, and export the result as SVG."
+    zh: "使用 AIPE Sketcher 生成双有源桥（DAB）变换器原理图，验证电气连接，并将结果导出为 SVG。"
+  # docs/plugins.md documents the Codex and Claude Code plugin installs (v0.2.0).
+  install:
+    url: https://github.com/FulongLi/AIPE-Sketcher/blob/main/docs/plugins.md
+    label:
+      en: "Plugin install guide"
+      zh: "插件安装说明"
+    plugin:
+      marketplace: FulongLi/AIPE-Sketcher
+      id: aipe-sketcher@aipe-sketcher
+  # Source-available, not open source. The bundled CC0 symbol sheet is separate.
+  licence:
+    url: https://github.com/FulongLi/AIPE-Sketcher/blob/main/LICENSE
+    label:
+      en: "Free for personal, non-commercial use"
+      zh: "个人非商业用途免费"
 
 - key: pcb-agent
   name: AIPE PCB Agent

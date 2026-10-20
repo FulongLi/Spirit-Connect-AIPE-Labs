@@ -23,7 +23,7 @@ pe.topologies:
   label: {en: Converter articles, zh: 变换器文章}
 - url: /resources/ai-agent-team/aipe-sketch/
   localised: true
-  label: {en: Draw schematics with AIPE Sketch, zh: 用 AIPE Sketch 绘制原理图}
+  label: {en: Draw schematics with AIPE Sketcher, zh: 用 AIPE Sketcher 绘制原理图}
 pe.magnetics:
 - url: /database/magnetics/
   localised: true

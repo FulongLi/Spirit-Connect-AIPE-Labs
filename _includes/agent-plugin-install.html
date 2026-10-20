@@ -1,0 +1,27 @@
+{%- comment -%}
+  Native plugin install commands for one agent in _data/agents.yml that sets
+  install.plugin, built from its marketplace and plugin id exactly as the
+  repository's own documentation gives them. Params: agent (record key),
+  host ('codex' for the Codex CLI, 'claude' for slash commands inside a
+  Claude Code session), lang. Each command has its own Copy button, because
+  slash commands must be entered one at a time.
+{%- endcomment -%}
+{%- assign pi_lang = include.lang | default: page.lang | default: 'en' -%}
+{%- assign pi_agent = site.data.agents | where: "key", include.agent | first -%}
+{%- assign pi_plugin = pi_agent.install.plugin -%}
+{%- if include.host == 'codex' -%}
+  {%- capture pi_add -%}codex plugin marketplace add {{ pi_plugin.marketplace }}{%- endcapture -%}
+  {%- capture pi_install -%}codex plugin add {{ pi_plugin.id }}{%- endcapture -%}
+{%- else -%}
+  {%- capture pi_add -%}/plugin marketplace add {{ pi_plugin.marketplace }}{%- endcapture -%}
+  {%- capture pi_install -%}/plugin install {{ pi_plugin.id }}{%- endcapture -%}
+{%- endif -%}
+{%- assign pi_id = pi_agent.key | append: '-' | append: include.host | append: '-' | append: pi_lang -%}
+<div class="agent-link agent-command">
+  <code id="{{ pi_id }}-add">{{ pi_add }}</code>
+  <button class="copy-btn" type="button" data-copy-target="{{ pi_id }}-add"{% if pi_lang == 'zh' %} data-copied-label="已复制"{% endif %} aria-live="polite">{% if pi_lang == 'zh' %}复制{% else %}Copy{% endif %}</button>
+</div>
+<div class="agent-link agent-command">
+  <code id="{{ pi_id }}-install">{{ pi_install }}</code>
+  <button class="copy-btn" type="button" data-copy-target="{{ pi_id }}-install"{% if pi_lang == 'zh' %} data-copied-label="已复制"{% endif %} aria-live="polite">{% if pi_lang == 'zh' %}复制{% else %}Copy{% endif %}</button>
+</div>

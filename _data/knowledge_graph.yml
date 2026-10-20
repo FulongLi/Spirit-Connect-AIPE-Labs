@@ -250,8 +250,8 @@ nodes:
   - url: /resources/ai-agent-team/aipe-sketch/
     localised: true
     label:
-      en: Draw schematics with AIPE Sketch
-      zh: 用 AIPE Sketch 绘制原理图
+      en: Draw schematics with AIPE Sketcher
+      zh: 用 AIPE Sketcher 绘制原理图
 - id: pe.buck
   subject: power-electronics
   track: dc-dc-conversion

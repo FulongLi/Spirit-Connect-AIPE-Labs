@@ -53,10 +53,10 @@ digital:
         en: "Generates circuit schematics, checks their connectivity and optimises how the diagram is drawn."
         zh: "生成电路原理图，检查连接性，并优化图面布局。"
       note:
-        en: "Builds on AIPE-Sketch, the schematic rendering tool listed in the Hub."
-        zh: "基于 Hub 中收录的原理图渲染工具 AIPE-Sketch。"
+        en: "Builds on AIPE Sketcher, the schematic generation tool listed in the Hub."
+        zh: "基于 Hub 中收录的原理图生成工具 AIPE Sketcher。"
       status: in-development
-      repository: https://github.com/FulongLi/AIPE-Sketch
+      repository: https://github.com/FulongLi/AIPE-Sketcher
     - key: magnetics
       icon: magnetics
       name: {en: "Magnetics & Multiphysics Agent", zh: "磁性元件与多物理场智能体"}
