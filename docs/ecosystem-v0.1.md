@@ -62,7 +62,7 @@ the Plugin page agent cards and the client-side search index are rendered from t
 | `_data/registry.json` | derived | Byte-identical mirror of `/aipe.json`. GitHub Pages cannot read a root file from Liquid, so `tools/hub_data.py --write` copies it after every Registry sync. Never edit it by hand. |
 | `_data/hub.yml` | this site | Placement only: Hub category, engineering domains, featured order and on-site pages for each artifact. Registry artifacts carry no restated metadata; only website-owned artifacts (`id: site.*`) describe themselves. |
 | `_data/academy.yml` | this site | The four Academy subjects (stages): labels, subject page URL, colour, generated lesson URLs, practical examples and resources, in both languages. Lesson titles, language, status and durations come from the generated pages. |
-| `_data/knowledge_graph.yml` | this site | The engineering knowledge graph: topics per subject, subtopics, prerequisites, related topics, lesson URLs and supporting pages, with English and Chinese labels. Rendered by `assets/knowledge-map.js` on `/academy/` and each subject page. |
+| `_data/knowledge_graph.yml` | this site | The engineering knowledge graph: topics per subject, subtopics, prerequisites, related topics, lesson URLs and supporting pages, with English and Chinese labels. Rendered by `assets/knowledge-map.js` (an explorable network styled after the Blog knowledge map) on `/academy/` and each subject page. |
 | `_data/agents.yml` | this site | Standalone agents: repository, detail page, optional demo video, one-sentence summary, copyable prompt and any repository-documented native install. Shared by the agent pages, the Plugin page and the AI Agent Team page. |
 
 Registry descriptions are English. Each Registry placement in `_data/hub.yml`

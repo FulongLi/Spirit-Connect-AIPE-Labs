@@ -69,7 +69,16 @@
           {%- endfor %}
         </div>
       </div>
-      <a class="nav-direct" href="{{ lp | append: '/frontiers/' | relative_url }}">{{ t.nav_explorations }}</a>
+      <div class="dropdown">
+        <div class="drop-head">
+          <a class="drop-label" href="{{ lp | append: '/frontiers/' | relative_url }}">{{ t.nav_explorations }}</a>
+          <button class="drop-toggle" aria-expanded="false" aria-label="{{ t.nav_explorations }} {{ t.nav_submenu }}">▾</button>
+        </div>
+        <div class="drop-menu">
+          <a href="{{ lp | append: '/frontiers/' | relative_url }}">{{ t.nav_explorations }}</a>
+          <a href="{{ lp | append: '/resources/blog/' | relative_url }}">{{ t.nav_blog }}</a>
+        </div>
+      </div>
       <a class="nav-direct" href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a>
       <a class="nav-partner-mobile" href="{{ lp | append: '/contact/' | relative_url }}">{{ t.nav_contact }}</a>
     </nav>
