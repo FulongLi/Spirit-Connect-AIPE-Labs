@@ -28,7 +28,7 @@ prerequisite_links:
   url: /academy/power-electronics/converters/
 render_with_liquid: false
 source_path: curriculum/04-modeling-and-control/README.md
-source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
+source_revision: f4d8d4d4b35fc6de376c58afd127c43ba0fec20a
 source_sha256: adcd1619f4fec35787f871547c46b98e30a052a36f760231c9f6fc60fbb04bd9
 title: Dynamics, transfer functions and control
 track: modelling-and-control

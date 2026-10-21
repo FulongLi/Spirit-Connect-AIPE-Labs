@@ -126,6 +126,7 @@ integration_labels:
   none: {en: "None", zh: "无"}
 check_labels:
   tested: {en: "Tested", zh: "已测试"}
+  schema_validated: {en: "Schema validated", zh: "已通过模式校验"}
 licence_class_labels:
   open_source: {en: "Open source", zh: "开源"}
   free_proprietary: {en: "Free proprietary", zh: "免费专有软件"}
@@ -305,8 +306,44 @@ artifacts:
     zh_summary: "社区整理的外部工程工具目录，附有注明日期的维护状态、许可与自动化能力依据。"
     category: tools
     domains: []
+  - registry: aipe.doc
+    zh_summary: "AIPE 品牌的 HTML 文档与幻灯片模板（A4 与 16:9 打印版式），含共享样式、链接检查器与预览服务；AIPE-Workflows 的工程评审包使用该文档版式渲染。"
+    category: platform
+    domains: []
 
+  - registry: aipe.field-simulation
+    zh_summary: "基于 Gmsh 与 Elmer 的开源有限元仿真：变压器窗口二维磁场（漏感、励磁电感）与散热器三维导热，均经网格收敛与解析基准校核，并产生带来源记录的工况文件；在 10 kW DAB 工作流中按所选磁芯与散热器候选执行。"
+    category: tools
+    domains: [magnetics, converters]
+    card:
+      status: prototype
+      summary:
+        en: "Executed Gmsh + Elmer field simulation: 2-D transformer-window magnetostatics (leakage and magnetising inductance) and 3-D heat-sink conduction, each with mesh-convergence levels, analytic benchmarks and provenance-carrying case files. Used by the DAB workflow on the selected core and heat-sink candidate."
+        zh: "真实执行的 Gmsh + Elmer 场仿真：变压器窗口二维磁场（漏感与励磁电感）与散热器三维导热，均带网格收敛层级、解析基准与来源记录的工况文件；在 DAB 工作流中按所选磁芯与散热器候选执行。"
+  - registry: aipe.cad-agent
+    zh_summary: "由 SI 单位 JSON 参数驱动的 FreeCAD 参数化几何：E 型磁芯变压器、板翅散热器、液冷板与整机装配，输出 STEP/FCStd、网格提示元数据以及干涉、配合与电气间隙检查报告；在 10 kW DAB 工作流中由工程状态生成变压器与散热器模型。"
+    category: tools
+    domains: [converters]
+    card:
+      status: prototype
+      summary:
+        en: "Parametric FreeCAD geometry from SI-unit JSON parameters: E-core transformers, plate-fin heat sinks, liquid cold plates and converter assemblies, with STEP/FCStd export, mesh-hint metadata and interference, fit and clearance check reports. The DAB workflow builds its transformer and heat sink from the Engineering State."
+        zh: "由 SI 单位 JSON 参数驱动的 FreeCAD 参数化几何：E 型磁芯变压器、板翅散热器、液冷板与整机装配，输出 STEP/FCStd、网格提示元数据以及干涉、配合与电气间隙检查报告；DAB 工作流由工程状态生成变压器与散热器模型。"
   # ── Workflows ── Only processes backed by a published project are listed.
+  - registry: aipe.workflows
+    zh_summary: "系统级工程工作流引擎：在 AIPE 专项能力之上执行带类型、带检查点的任务图，具备本地工具检验、工程状态溯源、验证关卡与报告生成；首个基准是仿真驱动的 10 kW 双有源桥变换器。"
+    category: workflows
+    domains: [converters, control]
+    featured: 9
+    card:
+      status: in-development
+      summary:
+        en: "Simulation-driven converter design on a 10 kW dual active bridge: analytical SPS design, executed ngspice switching simulation (ideal and behavioural), SPS control baseline, waveform-informed magnetics, device screening and losses, cooling comparison and heat-sink screening, Gmsh/Elmer FEM checks and FreeCAD geometry, all in one checkpointed task graph with an evidence-linked review package. PCB, measurement and hardware stages are separate gates."
+        zh: "以 10 kW 双有源桥为例的仿真驱动变换器设计：SPS 解析设计、真实 ngspice 开关仿真（理想与行为级）、SPS 控制基线、由波形驱动的磁件设计、器件筛选与损耗、散热方案比较与散热器筛选、Gmsh/Elmer 有限元校核与 FreeCAD 几何，全部纳入一个带检查点的任务图并生成关联证据的评审包。PCB、测量与硬件阶段为独立关卡。"
+    links:
+      - url: /resources/prototypes/dab/
+        localised: true
+        label: {en: "DAB workflow page", zh: "DAB 工作流页面"}
   - id: site.pcb-design-workflow
     category: workflows
     type: workflow
@@ -348,10 +385,10 @@ artifacts:
     featured: 6
     url: /resources/prototypes/dab/
     localised: true
-    title: {en: "DAB converter design reference", zh: "DAB 变换器设计参考"}
+    title: {en: "DAB converter engineering workflow", zh: "DAB 变换器工程工作流"}
     description:
-      en: "Design workflow for a dual-active-bridge stage covering devices, magnetics, control and validation planning. Linked tutorials are analytical teaching drafts."
-      zh: "双有源桥变换器的设计流程，涵盖器件、磁性元件、控制与验证规划。所链接的教程为解析性教学草稿。"
+      en: "Executed 10 kW dual-active-bridge workflow: analytical SPS design, real ngspice switching simulation with waveform-derived metrics and an evidence-linked review package. Field, PCB, measurement and hardware stages are not executed."
+      zh: "已执行的 10 kW 双有源桥工作流：SPS 解析设计、真实 ngspice 开关仿真及由波形导出的指标，并生成关联证据的评审包。场仿真、PCB、测量与硬件阶段尚未执行。"
   - id: site.sst-reference
     category: workflows
     type: reference_design

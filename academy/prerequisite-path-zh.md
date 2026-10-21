@@ -26,7 +26,7 @@ prerequisite_links:
   url: /academy/foundations/orientation/
 render_with_liquid: false
 source_path: curriculum/01-foundations/prerequisite-path.zh-CN.md
-source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
+source_revision: f4d8d4d4b35fc6de376c58afd127c43ba0fec20a
 source_sha256: 5fafaae38dc7777970dae69aadb942ad9da2f16872d8429a2a9de7c4ddaf85a7
 title: 电力电子之前：先修课程路线
 track: learning-methods

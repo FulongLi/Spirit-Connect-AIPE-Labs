@@ -30,7 +30,7 @@ prerequisite_links:
   url: /academy/power-electronics/dynamics-and-control/
 render_with_liquid: false
 source_path: curriculum/05-practical-design/README.md
-source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
+source_revision: f4d8d4d4b35fc6de376c58afd127c43ba0fec20a
 source_sha256: 8195423937dd858df65190c6c055eef95d1a832e9ec61fe5575b48be5a1366a3
 title: Magnetics and practical design
 track: practical-design

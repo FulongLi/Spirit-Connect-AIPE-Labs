@@ -38,7 +38,7 @@ prerequisite_links:
   url: /academy/power-electronics/components/
 render_with_liquid: false
 source_path: curriculum/03-converters/README.md
-source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
+source_revision: f4d8d4d4b35fc6de376c58afd127c43ba0fec20a
 source_sha256: 24772bb3427435be9368b06441efa3b4bb479402c6b40ceead21917a20ddb480
 title: Steady-state converters
 track: dc-dc-conversion

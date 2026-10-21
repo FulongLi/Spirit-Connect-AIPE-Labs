@@ -24,7 +24,7 @@ permalink: /academy/foundations/orientation/
 prerequisite_links: []
 render_with_liquid: false
 source_path: curriculum/00-orientation/README.md
-source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
+source_revision: f4d8d4d4b35fc6de376c58afd127c43ba0fec20a
 source_sha256: b3336c884facec23e40ec5a860fcfe0b59fc75047c36fbd48a2d72db1086054a
 title: Orientation and learning methods
 track: learning-methods

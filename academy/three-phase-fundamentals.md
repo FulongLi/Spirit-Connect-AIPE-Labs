@@ -31,7 +31,7 @@ prerequisite_links:
   url: /academy/foundations/dc-circuit-fundamentals/
 render_with_liquid: false
 source_path: curriculum/power-systems/ac-power-networks/three-phase-fundamentals.md
-source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
+source_revision: f4d8d4d4b35fc6de376c58afd127c43ba0fec20a
 source_sha256: 3a5ac0ce8b06da1a43e47911f2e1d22232e1722ec201db3948c87195f7d9b27a
 title: 'Three-phase system fundamentals: balanced operation, power and the per-unit
   system'
