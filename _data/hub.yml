@@ -300,14 +300,9 @@ artifacts:
         en: "Analytical electrical design library (aipe_electrical, formerly the AIPE Design Agent): lossless single-phase-shift dual-active-bridge model with explicit SI units and sign conventions, CCM DC-DC sizing and first-order buck losses; the analytical design stage of AIPE-Workflows."
         zh: "电气设计解析库 aipe_electrical（原 AIPE Design Agent）：带显式 SI 单位与符号约定的无损单移相双有源桥模型、CCM DC-DC 参数整定与一阶 Buck 损耗；AIPE-Workflows 的解析设计阶段。"
   - registry: aipe.design-agent
-    zh_summary: "历史能力标识：AIPE Design Agent 已更名为 AIPE-Electrical-Design 并重构为 aipe_electrical；此条目作为迁移别名保留至消费者完成迁移。"
+    zh_summary: "历史能力标识：AIPE Design Agent 已更名为 AIPE-Electrical-Design 并重构为 aipe_electrical；此条目作为迁移别名保留至消费者完成迁移，不单独展示卡片。"
     category: tools
     domains: [converters]
-    card:
-      status: archived
-      summary:
-        en: "Legacy identity of the AIPE Design Agent, renamed AIPE-Electrical-Design and refactored into aipe_electrical; kept as a migration alias until its consumers have moved."
-        zh: "AIPE Design Agent 的历史标识，已更名为 AIPE-Electrical-Design 并重构为 aipe_electrical；作为迁移别名保留至消费者完成迁移。"
   - registry: aipe.thermal-design
     zh_summary: "热设计解析库 aipe_thermal（原 HeatSinkOptimisation）：板翅散热器关联模型（自然/强迫对流、压降与风扇工作点、扩散热阻、Pareto 优化）、共用散热器热网络与 Foster/Cauer 瞬态阻抗、电热迭代、自然/风冷/液冷方案比较与 Stage A 散热器筛选；无 CFD、FEM 或测量值。"
     category: tools
