@@ -33,7 +33,7 @@ prerequisite_links:
   url: /academy/power-electronics/buck-converter-fundamentals/
 render_with_liquid: false
 source_path: curriculum/renewable-energy/solar-photovoltaics/solar-pv-fundamentals.md
-source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
+source_revision: f4d8d4d4b35fc6de376c58afd127c43ba0fec20a
 source_sha256: 2d4d77ce00b8f1071ea0506b9845b19e6b06889f966c93a9ae23ce34be53f60e
 title: 'Solar PV fundamentals: from photons to the maximum power point'
 track: solar-photovoltaics

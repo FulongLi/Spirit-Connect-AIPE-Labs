@@ -40,7 +40,7 @@ prerequisite_links:
   url: /academy/power-electronics/converters/
 render_with_liquid: false
 source_path: curriculum/power-electronics/dc-dc-conversion/buck-converter-fundamentals.md
-source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
+source_revision: f4d8d4d4b35fc6de376c58afd127c43ba0fec20a
 source_sha256: 283bd287b7f5e6140e0f51cc6dd54aeee621948f9a6e39d205525a173960b438
 title: 'Buck converter fundamentals: from switch states to ripple and conduction modes'
 track: dc-dc-conversion

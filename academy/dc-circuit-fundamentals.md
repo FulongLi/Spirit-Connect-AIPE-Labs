@@ -38,7 +38,7 @@ prerequisite_links:
   url: /academy/foundations/orientation/
 render_with_liquid: false
 source_path: curriculum/foundations/circuits/dc-circuit-fundamentals.md
-source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
+source_revision: f4d8d4d4b35fc6de376c58afd127c43ba0fec20a
 source_sha256: 6970689aac954c724454f17df7d7ef81f08a65b2fc8d83435194653e7965170c
 title: 'DC circuit fundamentals: voltage, current, power and the circuit laws'
 track: circuits

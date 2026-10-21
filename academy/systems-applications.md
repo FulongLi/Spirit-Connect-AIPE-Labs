@@ -24,7 +24,7 @@ prerequisite_links:
   url: /academy/power-electronics/practical-design/
 render_with_liquid: false
 source_path: curriculum/06-systems-and-applications/README.md
-source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
+source_revision: f4d8d4d4b35fc6de376c58afd127c43ba0fec20a
 source_sha256: cef74ab2df57e0cfc3c5a7716bdec5b7a50ed54ead853cb2418c33a2f69b78df
 title: Systems and applications
 track: systems-integration

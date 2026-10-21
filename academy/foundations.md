@@ -30,7 +30,7 @@ prerequisite_links:
   url: /academy/foundations/orientation/
 render_with_liquid: false
 source_path: curriculum/01-foundations/README.md
-source_revision: 928720f55ab6982bfab8050ed75224c54cc4ccba
+source_revision: f4d8d4d4b35fc6de376c58afd127c43ba0fec20a
 source_sha256: f81b5b9165ed920d1e51d9de59f33616dac560073c1eeb6c4443d19cb220d82f
 title: Foundations readiness map
 track: learning-methods
