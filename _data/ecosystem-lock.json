@@ -19,8 +19,8 @@
     "academy/solar-pv-fundamentals.md": "da42fb83882c1f7eca1e4dafd0ed66f936375276d37c1c93eccab7ef3e82a8d9",
     "academy/systems-applications.md": "7538026540e91f60c07ba653dcb52ac49de2f778a79f7fab3af4b9e04bf533a2",
     "academy/three-phase-fundamentals.md": "ded7a6e8b1bf7e5ac473a7ad56024a1cf2ac211c6402fb4dce76aa48c4b32447",
-    "aipe.json": "dc69924689cf06d7a4c23f668441b55aa0f6b307028adb72bf67a7195e9cba4f",
-    "aipe.md": "1656755c506cabda79940c9515d7c0412f7cb5dcbca333cc2e6bf0dfe83c53f7",
+    "aipe.json": "019655a4d2e10e0b1cbfa72f58cd11ac23e6219f11fb24faedbb0de37ebc8a9e",
+    "aipe.md": "577d6b9c93c1370a91d069abcfbeb4bea1bd41d1202439a7adc42d30aae5bcc0",
     "assets/academy/migrated/buck/buck-waveforms.svg": "f1e4f94ab7f690d28304ffed8c23ed46d641ccf0c0257dfbe635f5346d4b9574",
     "assets/academy/migrated/buck/buck_ccm_analysis.m": "1d928af3e0b755b18bd53a2cb732f984fb2403f7384c3f23828ecaba66422318",
     "assets/academy/migrated/buck/buck_open_loop.cir": "8c1c58c4c452a5e89e547b7da56f77509f22358ae7ac8ec03cd382050f7aec1f",
@@ -62,11 +62,11 @@
       "revision": "f4d8d4d4b35fc6de376c58afd127c43ba0fec20a"
     },
     "registry": {
-      "aipe_json_sha256": "dc69924689cf06d7a4c23f668441b55aa0f6b307028adb72bf67a7195e9cba4f",
-      "checkout_repository": "FulongLi/AIPE-Registry",
+      "aipe_json_sha256": "019655a4d2e10e0b1cbfa72f58cd11ac23e6219f11fb24faedbb0de37ebc8a9e",
+      "checkout_repository": "MrCoconut616/AIPE-Registry",
       "dirty": true,
       "repository": "FulongLi/AIPE-Registry",
-      "revision": "f419260bc604e5e79ecde9d998139a39a5e0ebdf"
+      "revision": "f5bbe6b23b02d5e14737bbced926367bf01157ea"
     }
   }
 }

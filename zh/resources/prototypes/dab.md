@@ -10,7 +10,7 @@ description: 由 AIPE-Workflows 执行的 10 kW 双有源桥仿真驱动工程�
   <div class="container">
     {% include hub-breadcrumb.html category='workflows' %}
     <h1>DAB 变换器工程工作流</h1>
-    <p class="lead">一台 10 kW、800 V→400 V、100 kHz 的双有源桥，经 AIPE 工作流引擎完成：需求 → 单移相解析设计 → 真实 ngspice 开关仿真 → 由波形驱动的磁件、器件与热设计 → Gmsh/Elmer 场校核与 FreeCAD 几何 → 带证据的 Core 工程状态 → 评审包。七个专项仓库的十三个任务纳入同一个带检查点的任务图。成熟度：<strong>原型</strong>（软件、电路仿真、场仿真与 CAD 关卡已执行；PCB、测量与硬件验证不作声明）。</p>
+    <p class="lead">一台 10 kW、800 V→400 V、100 kHz 的双有源桥，经 AIPE 工作流引擎完成：需求 → 单移相解析设计 → 真实 ngspice 开关仿真 → 由波形驱动的磁件、器件与热设计 → Gmsh/Elmer 场校核与 FreeCAD 几何 → 带证据的 Core 工程状态 → 评审包。八个专项仓库的十四个任务纳入同一个带检查点的任务图。成熟度：<strong>原型</strong>（软件、电路仿真与场仿真关卡已通过；CAD/PCB 关卡已执行但因电路板布线未完成而未通过；测量与硬件验证不作声明）。</p>
   </div>
 </header>
 
@@ -58,5 +58,5 @@ aipe-workflows report &lt;run-id&gt;</code></pre>
 
 <section class="section"><div class="container">
   <h2>尚未执行的阶段</h2>
-  <p>三块 KiCad 电路板及其 ERC/DRC 由 <a href="https://github.com/FulongLi/AIPE-PCB-Agent">AIPE-PCB-Agent</a> 在其自身仓库中生成，尚未纳入任务图；CFD、厂商 SPICE 模型（三级）、实验室测量与硬件验证是软件永不自行声明的独立状态。早期的解析教学系列仍可阅读：<a href="{{ '/zh/resources/blog/' | relative_url }}">教程列表 →</a></p>
+  <p>由 <a href="https://github.com/FulongLi/AIPE-PCB-Agent">AIPE-PCB-Agent</a> 生成的三块 KiCad 电路板（原边功率、副边功率、控制）通过了 ERC，但布线尚未完成：工作流的 ERC/DRC 任务报告 82 / 81 / 499 个未连接项与 22 / 2 / 0 个 DRC 错误，因此本次运行的 <code>cad_pcb</code> 关卡为<strong>未通过</strong>（FreeCAD 检查已通过）。CFD、厂商 SPICE 模型（三级）、实验室测量与硬件验证是软件永不自行声明的独立状态。早期的解析教学系列仍可阅读：<a href="{{ '/zh/resources/blog/' | relative_url }}">教程列表 →</a></p>
 </div></section>

@@ -257,27 +257,18 @@ artifacts:
       - url: /resources/ai-agent-team/aipe-sketch/
         localised: true
         label: {en: "Guide", zh: "使用指南"}
-  # Not yet in the Registry, so the website describes it until it is listed.
-  - id: site.pcb-agent
+  - registry: aipe.pcb-agent
+    zh_summary: "面向电力电子的 AI 辅助 PCB 工程：由需求文件驱动的 KiCad 原理图、封装库、布局、网格布线、原生 ERC/DRC 校验与制造输出清单。10 kW DAB 三块板（原边功率、副边功率、控制）已生成并执行 ERC/DRC：ERC 零告警，功率板布线尚未完成（各约 80 个未连接项），控制板仅完成布局；未制板、未通电。"
     category: tools
-    type: agent
-    status: prototype
     domains: [converters]
-    url: https://github.com/FulongLi/AIPE-PCB-Agent
-    title: {en: "AIPE PCB Agent", zh: "AIPE PCB Agent"}
-    description:
-      en: "AI-assisted power-electronics PCB engineering with reproducible KiCad automation. Its 5 kW SiC buck example is an engineering prototype under review; nothing has been fabricated or energised."
-      zh: "AI 辅助的电力电子 PCB 工程，基于可复现的 KiCad 自动化。其 5 kW SiC Buck 示例是正在评审的工程原型，尚未制板或通电。"
     card:
-      # README: "engineering prototype review; release blocked".
       status: prototype
       summary:
-        en: "AI-assisted PCB design, routing and engineering review using KiCad."
-        zh: "基于 KiCad 的 AI 辅助 PCB 设计、布线与工程评审。"
+        en: "AI-assisted power-electronics PCB engineering with reproducible KiCad automation: requirement-driven schematics, footprint libraries, placement, grid routing, native ERC/DRC and hashed manufacturing exports. The three 10 kW DAB boards (primary power, secondary power, control) are generated with ERC clean; power-board routing is unfinished (about 80 open connections each) and the control board is placed only. Nothing has been fabricated or energised."
+        zh: "AI 辅助的电力电子 PCB 工程，基于可复现的 KiCad 自动化：需求驱动的原理图、封装库、布局、网格布线、原生 ERC/DRC 与带哈希的制造输出。10 kW DAB 三块板（原边功率、副边功率、控制）已生成且 ERC 零告警；功率板布线尚未完成（各约 80 个未连接项），控制板仅完成布局。未制板、未通电。"
     links:
-      - url: /resources/ai-agent-team/aipe-pcb-agent/
-        localised: true
-        label: {en: "Guide", zh: "使用指南"}
+      - url: https://github.com/FulongLi/AIPE-PCB-Agent/tree/feat/dab-10kw-workflow/examples/dab-10kw
+        label: {en: "DAB boards (branch)", zh: "DAB 电路板（分支）"}
   - registry: aipe.ieee-paper-agent
     zh_summary: "关联证据的科研规划，以及面向特定 IEEE 期刊与会议的论文撰写。"
     category: tools
