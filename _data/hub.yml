@@ -137,6 +137,7 @@ status_labels:
   usable: {en: "Usable", zh: "可用"}
   prototype: {en: "Prototype", zh: "原型"}
   scaffold: {en: "Scaffold", zh: "框架"}
+  archived: {en: "Archived", zh: "已归档"}
   available: {en: "Available", zh: "可用"}
   draft: {en: "Draft", zh: "草稿"}
   outline: {en: "Outline", zh: "大纲"}
@@ -288,11 +289,34 @@ artifacts:
     category: tools
     domains: [converters, control, magnetics]
     featured: 4
-  - registry: aipe.design-agent
-    zh_summary: "通过 Core 工程状态与注册表能力，逐步编排关联证据的工程工作，同时保留现有的 PEA 计算器与接口。"
+  - registry: aipe.electrical-design
+    zh_summary: "电气设计解析库 aipe_electrical（原 AIPE Design Agent）：带显式 SI 单位与符号约定的无损单移相双有源桥模型、CCM DC-DC 参数整定与一阶 Buck 损耗；供 AIPE-Workflows 的解析设计阶段调用。"
     category: tools
     domains: [converters]
     featured: 5
+    card:
+      status: prototype
+      summary:
+        en: "Analytical electrical design library (aipe_electrical, formerly the AIPE Design Agent): lossless single-phase-shift dual-active-bridge model with explicit SI units and sign conventions, CCM DC-DC sizing and first-order buck losses; the analytical design stage of AIPE-Workflows."
+        zh: "电气设计解析库 aipe_electrical（原 AIPE Design Agent）：带显式 SI 单位与符号约定的无损单移相双有源桥模型、CCM DC-DC 参数整定与一阶 Buck 损耗；AIPE-Workflows 的解析设计阶段。"
+  - registry: aipe.design-agent
+    zh_summary: "历史能力标识：AIPE Design Agent 已更名为 AIPE-Electrical-Design 并重构为 aipe_electrical；此条目作为迁移别名保留至消费者完成迁移。"
+    category: tools
+    domains: [converters]
+    card:
+      status: archived
+      summary:
+        en: "Legacy identity of the AIPE Design Agent, renamed AIPE-Electrical-Design and refactored into aipe_electrical; kept as a migration alias until its consumers have moved."
+        zh: "AIPE Design Agent 的历史标识，已更名为 AIPE-Electrical-Design 并重构为 aipe_electrical；作为迁移别名保留至消费者完成迁移。"
+  - registry: aipe.thermal-design
+    zh_summary: "热设计解析库 aipe_thermal（原 HeatSinkOptimisation）：板翅散热器关联模型（自然/强迫对流、压降与风扇工作点、扩散热阻、Pareto 优化）、共用散热器热网络与 Foster/Cauer 瞬态阻抗、电热迭代、自然/风冷/液冷方案比较与 Stage A 散热器筛选；无 CFD、FEM 或测量值。"
+    category: tools
+    domains: [converters]
+    card:
+      status: prototype
+      summary:
+        en: "Analytical thermal design library (aipe_thermal, formerly HeatSinkOptimisation): plate-fin heat-sink correlation model (natural and forced convection, pressure drop and fan operating point, spreading, Pareto optimisation), shared-sink thermal networks with Foster/Cauer transients, electrothermal iteration, natural / forced-air / liquid cooling comparison and Stage A heat-sink screening. No CFD, FEM or measured values."
+        zh: "热设计解析库 aipe_thermal（原 HeatSinkOptimisation）：板翅散热器关联模型、共用散热器热网络与 Foster/Cauer 瞬态阻抗、电热迭代、自然/风冷/液冷方案比较与 Stage A 散热器筛选；无 CFD、FEM 或测量值。"
   - registry: aipe.open-source-catalogue
     zh_summary: "社区整理的外部工程工具目录，附有注明日期的维护状态、许可与自动化能力依据。"
     category: tools
