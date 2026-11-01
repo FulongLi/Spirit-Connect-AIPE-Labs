@@ -10,7 +10,6 @@ description: AIPE Labs 网站如何使用必要 Cookie 与可选分析 Cookie。
 
 ## Cookie 类型
 - **必要：** 用于呈现页面与表单所必需。
-- **社区登录（必要）：** 如果你登录 AIPE 社区，会话信息保存在浏览器的本地存储中，以保持登录状态；退出登录时即被删除。
 - **分析（可选）：** 匿名、汇总的使用统计。
 
 ## 管理 Cookie
@@ -19,4 +18,4 @@ description: AIPE Labs 网站如何使用必要 Cookie 与可选分析 Cookie。
 ## 联系
 有疑问？**info@spiritconnect.co.uk**
 
-*最后更新：2026 年 11 月 1 日*
+*最后更新：2025 年 10 月 6 日*

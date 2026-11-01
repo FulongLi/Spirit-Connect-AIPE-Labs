@@ -17,8 +17,6 @@ Subscriptions are collected at `/subscribe/` and `/zh/subscribe/` and stored by
 5. If `BUTTONDOWN_API_KEY` is missing the function answers `503 not_configured`; if the site has no
    `community_backend.supabase_url` the form is disabled. Neither case reports success.
 
-Newsletter consent is separate from Community membership: registering an account never subscribes anyone.
-
 ## Provider configuration (one-off)
 
 1. Create the Buttondown newsletter (sender name "AIPE Labs", reply-to `info@spiritconnect.co.uk`) and
@@ -60,10 +58,6 @@ Subject: AIPE Updates — <Month YYYY>
 
 ## AIPE Development Updates
 - <Academy lesson / Plugin release / site change>. <link>
-
-## Community Highlights
-- **<Contribution title>** by <member display name> — <why it is useful>. <link to the community page>
-  (Community contributions are reviewed for suitability, not certified as validated engineering.)
 
 —
 AIPE Labs · Cardiff, United Kingdom
