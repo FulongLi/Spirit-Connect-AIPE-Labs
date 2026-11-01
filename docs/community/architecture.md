@@ -1,0 +1,103 @@
+# AIPE Community architecture
+
+## Decision
+
+The public website stays a static Jekyll site on GitHub Pages; nothing about the existing sections, Registry
+synchronisation or Academy publishing changes. Features that need accounts, a database or moderation use a single
+managed [Supabase](https://supabase.com) project (Postgres, Auth, Storage, Edge Functions) whose code lives in
+`supabase/` in this repository. A separate backend repository or a framework migration was not justified: the
+backend is SQL migrations plus two small functions, and keeping it here lets one pull request change the schema,
+the pages and the tests together.
+
+```text
+Browser (aipel.co.uk, static)                        Supabase project
+┌────────────────────────────────┐   anon key /     ┌──────────────────────────────────────┐
+│ /community/*  app.js + lib.js  │──member JWT─────▶│ PostgREST → Postgres (RLS, workflow  │
+│ /subscribe/   newsletter.js    │                  │            functions, audit trail)   │
+└────────────────────────────────┘                  │ Auth (email + GitHub OAuth)          │
+                 │                                  │ Storage (avatars bucket)             │
+                 └──────────── HTTPS ──────────────▶│ Edge Functions: newsletter-subscribe,│
+                                                    │   delete-account (service role)      │
+                                                    └───────────────┬──────────────────────┘
+                                                                    ▼
+                                                     Buttondown (newsletter, double opt-in)
+```
+
+## Pages
+
+| URL (EN; ZH under `/zh`) | View | Access |
+| --- | --- | --- |
+| `/community/` | Landing page (static) | Public |
+| `/community/explore/` | Search and browse published contributions | Public |
+| `/community/contribution/?slug=…` | Contribution page (stable URL; slug fixed at creation) | Public when published |
+| `/community/members/?u=…` | Member profile and portfolio | Public |
+| `/community/join/` | Sign in, sign up, password reset, GitHub | Public |
+| `/community/account/` | Profile editing, my contributions, data export, account deletion | Member |
+| `/community/submit/` | Editor: draft, preview, submit for review | Member |
+| `/community/moderation/` | Review queue and decisions | Moderator |
+| `/community/guidelines/` | Community guidelines (static) | Public |
+
+Each application page is a front-matter-only Markdown file using `_layouts/community.html`, which writes the
+public configuration and the strings from `_data/community.yml` into the page; `assets/community/app.js` renders
+the view. Browser libraries (supabase-js, marked, DOMPurify) are vendored in `assets/libs/` by
+`npm run vendor` at pinned versions.
+
+## Data model (`supabase/migrations/`)
+
+- `profiles` — one per auth user (created by trigger), public; no email. `role` (member, moderator, admin) and
+  `is_official` cannot be written by members. `publishing_tier` is reserved for a future trusted-contributor tier.
+- `contributions` — tools, ideas and articles in one table with type-specific columns and check constraints;
+  `status` follows the workflow below; `slug` is fixed at creation; `edited_at` records content edits.
+  AI assistance is recorded in `ai_assisted`, `ai_disclosure` and `origin` (`member` or `agent-assisted`).
+- `moderation_events` — append-only audit trail of every submission, decision and role change.
+- `rate_limits` — fixed-window counters for server-side rate limiting.
+
+Workflow: `draft → submitted → approved → published ⇄ unpublished`, with `changes_requested` and `rejected`
+from review. Status, timestamps and review fields have **no client write grant**; they change only through
+`submit_contribution`, `withdraw_contribution` and `review_contribution` (SECURITY DEFINER), which check the
+caller, validate required fields and log the decision. Moderators cannot review their own work (admins can).
+Republishing work edited since the last decision requires a fresh review.
+
+## Security
+
+- Row-level security on every table; column-level grants restrict which fields members may write.
+- Anonymous visitors read only published contributions and public profiles; drafts and the audit trail are
+  visible only to their author and moderators.
+- URLs are validated in the database (`http(s)` only, no markup characters) and again in the browser.
+- Markdown is rendered with raw HTML escaped, images dropped, `h1` demoted, then sanitised with DOMPurify
+  (allow-listed tags and `http(s)`/`mailto` links only); external links get `rel="ugc nofollow noopener
+  noreferrer"`. All other user text is inserted with escaping (`html` template tag in `lib.js`).
+- Rate limits: 20 new contributions per member per day, 10 awaiting review; newsletter limits per IP and address;
+  Supabase Auth's own sign-up, sign-in and email limits; optional Turnstile on sign-up and newsletter.
+- Avatars: public bucket, PNG/JPEG/WebP only, 1 MB, writable only in the member's own folder.
+- Account deletion (Edge Function, service role) removes avatars and the auth user; the profile and the member's
+  contributions cascade; audit records keep the decision with the actor removed.
+- Sessions are managed by Supabase Auth (PKCE, refresh-token rotation) and stored in the browser's local storage,
+  the standard model for static sites.
+
+## Ecosystem integration
+
+Community content is kept separate from official AIPE content and is never written into the Hub, Frontiers,
+Academy, Registry or Blog sources. Frontier ideas carry an author-declared evidence level and a permanent
+"not validated research" notice, distinct from the evidence statuses of official Frontiers topics.
+Promotion of a contribution into an official section is a manual, reviewed process; see
+[moderation.md](moderation.md#promoting-a-contribution).
+
+## Future AI-assisted contributions
+
+Contributions are always created by a signed-in member through the editor, and `origin = 'agent-assisted'`
+requires an AI disclosure. A future agent integration (for example the AIPE Plugin preparing a draft) should
+create **drafts** under the member's own session; submission and publication stay human actions, and the existing
+review workflow applies unchanged. No autonomous publishing path exists.
+
+## Known limitations
+
+- Contribution and profile pages are rendered in the browser, so search engines may index them less well than
+  static pages, and they need JavaScript. A build-time export of published contributions could be added later.
+- Pretty URLs (`/community/c/<slug>/`) are not possible on GitHub Pages without a build step; query-string URLs are
+  used and are stable.
+- Search uses Postgres full-text search with the `simple` configuration plus substring matching for Chinese text;
+  there is no stemming or relevance tuning.
+- The Edge Functions are unit-tested under Node with injected dependencies; their Deno entry points
+  (`index.ts`) are thin wrappers that are not exercised in CI.
+- No email notifications to authors on review decisions; authors see status and notes in My account.
