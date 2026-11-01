@@ -140,7 +140,7 @@ function viewJoin(me) {
         ${mode === 'signup' ? html`<label class="newsletter-consent"><input type="checkbox" name="terms" required>
           <span>${T.terms_accept} <a href="${path('/legal/terms/')}">${T.terms_link}</a> · <a href="${path('/community/guidelines/')}">${T.guidelines_link}</a> · <a href="${path('/legal/privacy/')}">${T.privacy_link}</a></span></label>
           <p class="form-hint">${T.marketing_note}</p>` : ''}
-        ${config.turnstileSiteKey && mode !== 'signin' ? html`<div class="contact-turnstile"><div class="cf-turnstile" data-sitekey="${config.turnstileSiteKey}"></div></div>` : ''}
+        ${config.turnstileSiteKey ? html`<div class="contact-turnstile"><div class="cf-turnstile" data-sitekey="${config.turnstileSiteKey}"></div></div>` : ''}
         <button class="btn btn-primary" type="submit">${mode === 'signup' ? T.sign_up : mode === 'reset' ? T.send_reset : T.sign_in}</button>
         <p class="form-message" id="auth-message" hidden></p>
       </form>
@@ -179,7 +179,8 @@ function viewJoin(me) {
           flash(message, T.check_email, true);
           form.reset();
         } else {
-          const { error } = await sb.auth.signInWithPassword({ email, password: form.password.value });
+          // With Supabase bot protection enabled, sign-in needs the Turnstile token too.
+          const { error } = await sb.auth.signInWithPassword({ email, password: form.password.value, options: { captchaToken } });
           if (error) return flash(message, T.auth_error, false);
           window.location.assign(safeNext);
         }

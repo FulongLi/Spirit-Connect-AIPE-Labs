@@ -95,6 +95,14 @@ class CommunityPages(unittest.TestCase):
         self.assertIn("'/community/'", (ROOT / "_includes/navbar.html").read_text(encoding="utf-8"))
         self.assertIn("'/community/'", (ROOT / "_includes/footer.html").read_text(encoding="utf-8"))
 
+    def test_password_auth_calls_pass_the_bot_protection_token(self):
+        # Supabase requires a captcha token on all three calls once bot protection is enabled.
+        app = (ROOT / "assets/community/app.js").read_text(encoding="utf-8")
+        for call in ("signInWithPassword(", "signUp(", "resetPasswordForEmail("):
+            start = app.index(call)
+            self.assertIn("captchaToken", app[start:start + 400], call)
+        self.assertNotIn("turnstileSiteKey && mode !==", app)
+
     def test_layout_passes_only_public_configuration(self):
         layout = (ROOT / "_layouts/community.html").read_text(encoding="utf-8")
         self.assertEqual(set(re.findall(r"backend\.([a-z_]+)", layout)), {"supabase_url", "supabase_anon_key", "turnstile_site_key"})
