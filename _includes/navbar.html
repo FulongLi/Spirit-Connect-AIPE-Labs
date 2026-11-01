@@ -81,7 +81,19 @@
         </div>
       </div>
       <a class="nav-direct" href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a>
-      <a class="nav-direct" href="{{ lp | append: '/community/' | relative_url }}">{{ t.nav_community }}</a>
+      <div class="dropdown">
+        <div class="drop-head">
+          <a class="drop-label" href="{{ lp | append: '/community/' | relative_url }}">{{ t.nav_community }}</a>
+          <button class="drop-toggle" aria-expanded="false" aria-label="{{ t.nav_community }} {{ t.nav_submenu }}">▾</button>
+        </div>
+        <div class="drop-menu">
+          <a href="{{ lp | append: '/community/' | relative_url }}">{{ t.nav_community_home }}</a>
+          <a href="{{ lp | append: '/community/explore/' | relative_url }}">{{ t.nav_community_explore }}</a>
+          <a class="drop-menu-strong" href="{{ lp | append: '/community/join/?mode=signup' | relative_url }}">{{ t.nav_join }}</a>
+          <a href="{{ lp | append: '/community/join/' | relative_url }}">{{ t.nav_login }}</a>
+          <a href="{{ lp | append: '/community/account/' | relative_url }}">{{ t.nav_account }}</a>
+        </div>
+      </div>
       <a class="nav-partner-mobile" href="{{ lp | append: '/contact/' | relative_url }}">{{ t.nav_contact }}</a>
     </nav>
     <div class="nav-right">

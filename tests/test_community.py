@@ -95,6 +95,17 @@ class CommunityPages(unittest.TestCase):
         self.assertIn("'/community/'", (ROOT / "_includes/navbar.html").read_text(encoding="utf-8"))
         self.assertIn("'/community/'", (ROOT / "_includes/footer.html").read_text(encoding="utf-8"))
 
+    def test_registration_is_one_step_from_every_page(self):
+        # The header's Community menu leads straight to sign-up, sign-in and the member's account.
+        navbar = (ROOT / "_includes/navbar.html").read_text(encoding="utf-8")
+        for path in ("'/community/join/?mode=signup'", "'/community/join/'", "'/community/account/'", "'/community/explore/'"):
+            self.assertIn(path, navbar)
+        home = (ROOT / "_layouts/community-home.html").read_text(encoding="utf-8")
+        actions = home.split('class="hero-actions"', 1)[1].split("</div>", 1)[0]
+        for key in ("t.entry_join", "t.entry_explore", "t.entry_share"):
+            self.assertIn(key, actions)
+        self.assertIn("t.not_configured", home)
+
     def test_password_auth_calls_pass_the_bot_protection_token(self):
         # Supabase requires a captcha token on all three calls once bot protection is enabled.
         app = (ROOT / "assets/community/app.js").read_text(encoding="utf-8")

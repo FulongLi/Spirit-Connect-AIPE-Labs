@@ -17,7 +17,9 @@ en:
   entry_idea_text: "Research ideas, open problems and hypotheses, clearly marked as unvalidated."
   entry_article: "Write an Article"
   entry_article_text: "Tutorials, technical notes, experimental findings and design experience."
-  entry_join: "Join the Community"
+  entry_join: "Join Community"
+  entry_share: "Share a Tool / Idea / Article"
+  entry_member: "Already a member?"
   entry_join_text: "Create a free account with email or GitHub. Joining does not subscribe you to email."
   how_title: "How contributions work"
   how_steps:
@@ -309,6 +311,8 @@ zh:
   entry_article: "撰写文章"
   entry_article_text: "教程、技术笔记、实验发现与设计经验。"
   entry_join: "加入社区"
+  entry_share: "分享工具 / 想法 / 文章"
+  entry_member: "已经是成员？"
   entry_join_text: "使用邮箱或 GitHub 免费注册。加入社区不会让你订阅邮件。"
   how_title: "贡献如何发布"
   how_steps:
