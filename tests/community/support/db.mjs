@@ -37,6 +37,7 @@ create function auth.role() returns text language sql stable as $$
   select nullif(current_setting('request.jwt.claims', true), '')::jsonb ->> 'role'
 $$;
 grant execute on function auth.uid(), auth.role() to anon, authenticated, service_role;
+grant all on auth.users to service_role;
 
 create schema storage;
 grant usage on schema storage to anon, authenticated, service_role;
@@ -50,6 +51,8 @@ create table storage.objects (
   created_at timestamptz default now()
 );
 alter table storage.objects enable row level security;
+grant all on storage.buckets to service_role;
+grant select on storage.buckets to anon, authenticated;
 grant all on storage.objects to anon, authenticated, service_role;
 create function storage.foldername(name text) returns text[] language sql immutable as $$
   select (string_to_array(name, '/'))[1:array_length(string_to_array(name, '/'), 1) - 1]
