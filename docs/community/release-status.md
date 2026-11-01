@@ -1,6 +1,7 @@
 # Community and newsletter: release status
 
-Recorded 1 November 2026 for the integration pull request that brings all three Community phases to `main`.
+Recorded 1 November 2026. The integration pull request #26 brought all three Community phases to `main` (merge
+commit `30b8c0f`).
 Update this file whenever a column changes; never mark a column PASS without the evidence named below.
 
 ## Integration history
@@ -16,6 +17,21 @@ The MVP was delivered as stacked pull requests. Only the first reached `main`:
 `claude/community-core` at `dddf15c` contains every commit of all three phases. `main` had nothing that branch
 lacked except the #23 merge commit, so `claude/community-release` merges it into `main` with no conflicts; the
 merged tree is identical to `dddf15c`. No history was rewritten.
+
+## Deployment
+
+| Check | Result |
+| --- | --- |
+| PR #26 base | `main`; merged as `30b8c0f` after both CI jobs (Jekyll 4 build and GitHub Pages engine) passed |
+| GitHub Pages build | `built` for commit `30b8c0f` (20:36–20:37 UTC, 1 November 2026) |
+| Live routes, EN and ZH: `/community/` and its nine views, `/subscribe/` | 200 |
+| Live redirects: `/company/team/` → About, `/company/careers/` → Contact (EN and ZH); `/aipe/` → `/aipe.md`, `/legacy/aipe-resource-index-v0/` → its `.md` | Working; none of them in the live sitemap |
+| `/aipe.md` | Served as `text/markdown`, byte-identical to the repository |
+| Live header and footer | Community menu with Join / Sign up, Log in, My account (EN and ZH); Company column is About, FAQ, News, Subscribe, Contact |
+| Live backend configuration | Blank: Community views and the homepage say "not open yet"; the subscribe form's email, consent and submit controls are disabled with a notice |
+| Live mobile (375 px) | No horizontal overflow on `/community/`, `/community/join/`, `/zh/community/submit/`, `/zh/subscribe/` |
+
+The Production column below stays BLOCKED: the pages are deployed, but no feature can work until the backend exists.
 
 ## Backend configuration
 
@@ -95,5 +111,5 @@ earlier Phase 2 browser run), avatar upload.
    publishable key, confirm the Pages build for that commit, then run the production smoke tests
    (go-live.md step 8).
 
-Until then, merging the integration pull request publishes the Community pages in their "not open yet" state,
-the new header menu and the Company changes. It does not enable registration, publishing or email.
+Until then, the live site shows the Community pages in their "not open yet" state, the new header menu and the
+Company changes. Registration, publishing and email are not enabled.
