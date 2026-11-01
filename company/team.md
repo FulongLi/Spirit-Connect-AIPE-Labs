@@ -1,4 +1,6 @@
 ---
+# Unpublished while Team and Careers are withdrawn (published: false); the redirects live in legacy/.
+published: false
 layout: team
 title: Team
 permalink: /company/team/

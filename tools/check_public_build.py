@@ -1,6 +1,6 @@
 """Verify that Jekyll publishes raw Registry endpoints, every stable lesson URL, every Frontiers topic,
 the four Academy subject pages, the Academy legacy redirects, the lesson-page academic references and
-the newsletter subscription and Community pages."""
+the newsletter subscription and Community pages, and the Team and Careers redirects."""
 import hashlib
 import json
 from pathlib import Path
@@ -70,4 +70,18 @@ for prefix in ("", "/zh"):
             raise SystemExit(f"Community page incomplete: {url}")
         if slug not in ("", "guidelines/") and ('id="community-app"' not in rendered or 'id="community-config"' not in rendered):
             raise SystemExit(f"Community page lacks the application mount: {url}")
-print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects, Frontiers URLs, subscription and Community pages verified")
+# Team and Careers are unpublished: no links to them, their URLs redirect and the sitemap omits them.
+sitemap = (site/"sitemap.xml").read_text(encoding="utf-8")
+site_url = yaml.safe_load((root/"_config.yml").read_text(encoding="utf-8"))["url"]
+for prefix, about, contact in (("", "/company/about/", "/contact/"), ("/zh", "/zh/company/about/", "/zh/contact/")):
+    for page, target in (("team", about), ("careers", contact)):
+        url = f"{prefix}/company/{page}/"
+        redirect = (site/url.strip("/")/"index.html").read_text(encoding="utf-8")
+        if f'url={target}"' not in redirect:
+            raise SystemExit(f"Former Company page does not redirect: {url} -> {target}")
+        for linking in (site/prefix.strip("/")/"index.html", site/about.strip("/")/"index.html"):
+            if f'href="{url}"' in linking.read_text(encoding="utf-8"):
+                raise SystemExit(f"{linking} still links the unpublished {url}")
+        if f"<loc>{site_url}{url}</loc>" in sitemap:
+            raise SystemExit(f"Sitemap lists the unpublished {url}")
+print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects, Frontiers URLs, subscription and Community pages, Company redirects verified")

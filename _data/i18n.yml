@@ -31,6 +31,7 @@ en:
   footer_faq: "FAQ"
   footer_news: "News"
   footer_contact: "Contact"
+  # footer_team and footer_careers are kept for when Team and Careers are restored.
   footer_privacy: "Privacy"
   footer_terms: "Terms"
   footer_cookies: "Cookies"
