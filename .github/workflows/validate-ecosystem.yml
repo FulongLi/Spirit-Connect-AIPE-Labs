@@ -14,6 +14,7 @@ jobs:
       - run: python tools/sync_ecosystem.py --check
       - run: python tools/hub_data.py --check
       - run: python tools/content_data.py --check
+      - run: python tools/community_topics.py --check
       - run: python -m unittest discover -s tests -v
       - uses: actions/setup-node@v4
         with:

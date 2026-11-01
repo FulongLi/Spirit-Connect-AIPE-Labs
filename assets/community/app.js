@@ -651,39 +651,108 @@ async function viewMember() {
 // Phase 3 adds discussion and contribution history here.
 const memberExtensions = [];
 
-// ── Explore ───────────────────────────────────────────────────────────────
+// ── Explore: search, filters, sorting ─────────────────────────────────────
+const SORTS = {
+  newest: ['published_at', false], oldest: ['published_at', true], updated: ['edited_at', false], title: ['title', true],
+};
+const CJK = /[㐀-鿿豈-﫿]/;
+
 async function viewExplore() {
-  const state = { type: TYPES.includes(params.get('type')) ? params.get('type') : '', page: 0 };
-  mount(root, html`<nav class="community-filters" aria-label="${T.type}">
+  const state = {
+    q: (params.get('q') || '').slice(0, 100),
+    type: TYPES.includes(params.get('type')) ? params.get('type') : '',
+    domain: DOMAINS.includes(params.get('domain')) ? params.get('domain') : '',
+    topic: params.get('topic') || '',
+    sort: SORTS[params.get('sort')] ? params.get('sort') : 'newest',
+    page: 0,
+    request: 0,
+  };
+  const { data: topics } = await sb.from('knowledge_topics').select('id, subject, title_en, title_zh').eq('retired', false).order('id');
+  const topicTitle = (t) => (lang === 'zh' ? t.title_zh : t.title_en);
+  mount(root, html`<form class="aipe-form community-search" id="explore-form" role="search">
+      <label class="visually-hidden" for="ex-q">${T.search_label}</label>
+      <input id="ex-q" name="q" type="search" maxlength="100" placeholder="${T.search_placeholder}" value="${state.q}">
+      <button class="btn btn-primary" type="submit">${T.search_button}</button>
+      <div class="community-search-filters">
+        <label class="visually-hidden" for="ex-domain">${T.domains}</label>
+        <select id="ex-domain" name="domain">${options(DOMAINS, T.domain_labels, state.domain, T.all_domains)}</select>
+        <label class="visually-hidden" for="ex-topic">${T.topics}</label>
+        <select id="ex-topic" name="topic"><option value="">${T.all_topics}</option>
+          ${Object.keys(T.subjects).map((subject) => html`<optgroup label="${T.subjects[subject]}">${(topics || []).filter((t) => t.subject === subject)
+            .map((t) => html`<option value="${t.id}"${raw(t.id === state.topic ? ' selected' : '')}>${topicTitle(t)}</option>`)}</optgroup>`)}
+        </select>
+        <label class="visually-hidden" for="ex-sort">${T.sort_label}</label>
+        <select id="ex-sort" name="sort">${options(Object.keys(SORTS), T.sorts, state.sort)}</select>
+      </div>
+    </form>
+    <nav class="community-filters" aria-label="${T.type}">
       <button type="button" data-type=""${raw(state.type ? '' : ' aria-pressed="true"')}>${T.all_types}</button>
       ${TYPES.map((t) => html`<button type="button" data-type="${t}"${raw(state.type === t ? ' aria-pressed="true"' : '')}>${T.types_plural[t]}</button>`)}
+      <button type="button" class="link-button" id="clear-filters">${T.clear_filters}</button>
     </nav>
-    <div class="hub-project-grid community-grid" id="results"></div>
+    <div class="hub-project-grid community-grid" id="results" aria-live="polite"></div>
     <p class="community-more"><button type="button" class="btn btn-ghost" id="more" hidden>${T.load_more}</button></p>`);
+  const form = $('#explore-form');
   const results = $('#results');
   const more = $('#more');
 
+  function syncUrl() {
+    const q = new URLSearchParams();
+    for (const key of ['q', 'type', 'domain', 'topic']) if (state[key]) q.set(key, state[key]);
+    if (state.sort !== 'newest') q.set('sort', state.sort);
+    window.history.replaceState(null, '', `${window.location.pathname}${q.toString() ? `?${q}` : ''}`);
+  }
+
   async function load(reset) {
-    if (reset) { state.page = 0; results.innerHTML = ''; }
-    let query = sb.from('contributions').select(`id, slug, type, title, summary, domains, published_at, ${AUTHOR}`)
-      .eq('status', 'published').order('published_at', { ascending: false })
-      .range(state.page * PAGE_SIZE, state.page * PAGE_SIZE + PAGE_SIZE);
+    // Only the latest request may render, so quick filter changes cannot interleave results.
+    const request = ++state.request;
+    if (reset) state.page = 0;
+    let query = sb.from('contributions').select(`id, slug, type, title, summary, domains, published_at, edited_at, ${AUTHOR}`)
+      .eq('status', 'published');
     if (state.type) query = query.eq('type', state.type);
+    if (state.domain) query = query.overlaps('domains', [state.domain]);
+    if (state.topic) {
+      const { data: links } = await sb.from('contribution_topics').select('contribution_id').eq('topic_id', state.topic);
+      query = query.in('id', (links || []).map((l) => l.contribution_id).concat(['00000000-0000-0000-0000-000000000000']));
+    }
+    const q = state.q.replace(/[,()*%\\]/g, ' ').trim();
+    if (q) {
+      // Postgres 'simple' text search does not segment Chinese; use substring matching for CJK text.
+      query = CJK.test(q)
+        ? query.or(`title.ilike.*${q}*,summary.ilike.*${q}*,body_md.ilike.*${q}*,hypothesis.ilike.*${q}*`)
+        : query.textSearch('search', q, { type: 'websearch', config: 'simple' });
+    }
+    const [column, ascending] = SORTS[state.sort];
+    query = query.order(column, { ascending, nullsFirst: false }).order('published_at', { ascending: false })
+      .range(state.page * PAGE_SIZE, state.page * PAGE_SIZE + PAGE_SIZE);
     const { data, error } = await query;
+    if (request !== state.request) return;
     if (error) return mount(results, notice(errorText(error), 'is-error'));
     const page = data.slice(0, PAGE_SIZE);
+    if (reset) results.innerHTML = '';
     if (reset && !page.length) mount(results, html`<p class="explorations-empty">${T.empty}</p>`);
     results.insertAdjacentHTML('beforeend', page.map((c) => card(c).value).join(''));
     more.hidden = data.length <= PAGE_SIZE;
   }
+
+  form.addEventListener('submit', (event) => { event.preventDefault(); state.q = form.q.value.trim().slice(0, 100); syncUrl(); load(true); });
+  for (const name of ['domain', 'topic', 'sort']) {
+    form[name].addEventListener('change', () => { state[name] = form[name].value; syncUrl(); load(true); });
+  }
   $$('[data-type]').forEach((b) => b.addEventListener('click', () => {
     state.type = b.dataset.type;
     $$('[data-type]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    const q = new URLSearchParams(window.location.search);
-    if (state.type) q.set('type', state.type); else q.delete('type');
-    window.history.replaceState(null, '', `${window.location.pathname}${q.toString() ? `?${q}` : ''}`);
+    syncUrl();
     load(true);
   }));
+  $('#clear-filters').addEventListener('click', () => {
+    Object.assign(state, { q: '', type: '', domain: '', topic: '', sort: 'newest' });
+    form.reset();
+    form.q.value = '';
+    $$('[data-type]').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.type === '')));
+    syncUrl();
+    load(true);
+  });
   more.addEventListener('click', () => { state.page += 1; load(false); });
   await load(true);
 }
@@ -801,7 +870,7 @@ async function start() {
 }
 
 export const extensions = { exportHooks, editorExtensions, editorSaveHooks, contributionExtensions, memberExtensions, moderationQueues, reviewExtensions };
-export { sb, T, lang, path, html, raw, mount, notice, flash, errorText, card, authorLink, statusBadge, md, escapeHtml, formatDate, currentUser };
+export { sb, T, lang, path, html, raw, mount, notice, flash, errorText, card, authorLink, avatar, statusBadge, md, escapeHtml, formatDate, currentUser, options, $, $$ };
 
 // Let extension modules (Phase 3) register before the view renders.
 window.addEventListener('DOMContentLoaded', () => { start(); }, { once: true });

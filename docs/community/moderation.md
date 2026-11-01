@@ -39,6 +39,20 @@ Open `/community/moderation/`. The queue shows submissions oldest first. For eac
 
 Review is a suitability check, not an engineering validation. Never mark community work as validated.
 
+## Comments and reports
+
+- Open reports appear at the top of `/community/moderation/`. For a reported comment, **Hide comment** (note
+  required) removes it from public view; the author still sees it marked as hidden. Hidden comments can be
+  restored. Mark the report **actioned** or **dismissed**; reporters are not shown the outcome.
+- For a reported contribution, open it from the published queue and **Unpublish** with a note if needed.
+- Members delete their own comments to a "deleted" placeholder so replies keep their context.
+
+## Knowledge-topic curation
+
+Authors link contributions to Academy topics; the links are reviewed with the contribution. On a published
+contribution a moderator may **Curate for the Academy** a link that is accurate and useful to learners of that
+topic. Curation only marks a candidate: see [Promoting a contribution](#promoting-a-contribution).
+
 ## Audit trail
 
 `moderation_events` records every submission, withdrawal, decision, role change (and, from Phase 3, comment and
@@ -57,6 +71,11 @@ Community content never enters official sections automatically. When a contribut
      its own evidence record; the community idea is cited as the origin.
    - **Blog** — add a post under `_posts/` crediting the author and linking the community page; record it in
      `_data/blog-ownership.json`.
-   - **Academy** — propose the material to the AIPE Academy repository; the site only publishes what Academy
-     releases.
+   - **Academy knowledge views** — run `python tools/community_curation.py`, review the printed entries, add the
+     chosen ones to `_data/knowledge_graph_resources.yml` and re-run the Academy sync
+     (`python tools/sync_ecosystem.py --registry <registry checkout> --academy <academy checkout>`, as in
+     [ecosystem-v0.1.md](../ecosystem-v0.1.md)), then open a pull request. The links appear under
+     the topic's resources in the knowledge graph, labelled "Community".
+   - **Academy lessons** — propose the material to the AIPE Academy repository; the site only publishes what
+     Academy releases.
 3. Keep the community page published (it remains the author's version) and add a reviewer note if useful.

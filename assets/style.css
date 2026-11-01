@@ -2340,3 +2340,43 @@ img { max-width: 100%; height: auto; }
 .community-queue-item:hover { border-color: var(--fg); }
 .community-review-body { margin: 1rem 0; padding-top: 1rem; border-top: 1px solid var(--border); }
 .community-history { margin: 0; padding-left: 1.2rem; color: var(--fg-dim); font-size: .86rem; }
+.community-search { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1rem; }
+.community-search input[type="search"] { flex: 1 1 18rem; width: auto; }
+.community-search-filters { display: flex; flex-wrap: wrap; gap: .6rem; flex-basis: 100%; }
+.community-search-filters select { flex: 1 1 11rem; width: auto; }
+.community-topics li { display: inline-flex; gap: .3rem; align-items: center; }
+.section a.community-topic-academy { color: var(--muted); font-weight: 600; }
+.community-report-link { margin: 1.5rem 0 .25rem; font-size: .86rem; }
+.community-report { margin: .5rem 0 1rem; padding: .9rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); display: grid; gap: .5rem; max-width: 36rem; }
+.community-report[hidden] { display: none; }
+.community-report textarea { min-height: 70px; }
+.community-discussion { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.community-comments, .community-replies { margin: 0; padding: 0; list-style: none; }
+.community-comment { padding: 1rem 0; border-top: 1px solid var(--border); }
+.community-replies { margin: .5rem 0 0 1.5rem; border-left: 2px solid var(--border); padding-left: 1rem; }
+.community-replies .community-comment { padding: .75rem 0; }
+.community-replies .community-comment:first-child { border-top: 0; }
+.community-comment-head { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; color: var(--muted); font-size: .84rem; }
+.section p.community-comment-body { margin: .45rem 0; color: var(--fg); white-space: pre-wrap; overflow-wrap: anywhere; }
+.community-comment-actions { display: flex; flex-wrap: wrap; gap: .9rem; font-size: .84rem; }
+.community-comment-actions .link-button { font-weight: 500; color: var(--fg-dim); }
+.community-comment-form { margin-top: .75rem; }
+.community-comment-form textarea { min-height: 90px; }
+.community-topic-picker { border: 0; padding: 0; margin: 0 0 1rem; }
+.community-topic-filter { margin: .35rem 0 .75rem; }
+.community-topic-groups { display: grid; gap: 1rem; max-height: 22rem; overflow-y: auto; padding: .75rem; border: 1px solid var(--border); border-radius: var(--radius-sm); }
+@media(min-width:720px) { .community-topic-groups { grid-template-columns: 1fr 1fr; } }
+.community-topic-group { display: flex; flex-direction: column; gap: .3rem; }
+.community-topic-group strong { font-size: .84rem; }
+.community-topic-group label { display: flex; gap: .45rem; align-items: flex-start; color: var(--fg-dim); font-size: .88rem; }
+.community-topic-group label[hidden] { display: none; }
+.community-curation { margin: 0; padding: 0; list-style: none; }
+.community-curation li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; padding: .45rem 0; border-top: 1px solid var(--border); font-size: .9rem; }
+.community-report-item { display: flex; flex-direction: column; gap: .3rem; padding: .7rem .75rem; margin-bottom: .4rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-white); font-size: .86rem; }
+.community-report-item blockquote { margin: 0; padding-left: .6rem; border-left: 2px solid var(--border-hover); color: var(--fg-dim); white-space: pre-wrap; overflow-wrap: anywhere; }
+.community-member-comments { margin: 0; padding: 0; list-style: none; }
+.community-member-comments li { padding: .75rem 0; border-top: 1px solid var(--border); }
+.section .community-member-comments p { margin: 0 0 .25rem; color: var(--fg); white-space: pre-wrap; overflow-wrap: anywhere; }
+.community-timeline { margin: 0; padding: 0; list-style: none; }
+.community-timeline > li { display: grid; grid-template-columns: 4rem 1fr; gap: .5rem; padding: .6rem 0; border-top: 1px solid var(--border); }
+.community-timeline ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .3rem; font-size: .9rem; color: var(--fg-dim); }

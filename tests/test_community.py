@@ -74,7 +74,7 @@ class CommunityPages(unittest.TestCase):
     def test_strings_match_across_languages_and_cover_the_client(self):
         data = yaml.safe_load((ROOT / "_data/community.yml").read_text(encoding="utf-8"))
         self.assertEqual(nested_keys(data["en"]), nested_keys(data["zh"]))
-        app = (ROOT / "assets/community/app.js").read_text(encoding="utf-8")
+        app = "".join((ROOT / f"assets/community/{name}.js").read_text(encoding="utf-8") for name in ("app", "interaction"))
         for key in set(re.findall(r"\bT\.([a-z_]+)", app)):
             self.assertIn(key, data["en"], f"T.{key} is used but not defined")
 
@@ -99,6 +99,34 @@ class CommunityPages(unittest.TestCase):
         layout = (ROOT / "_layouts/community.html").read_text(encoding="utf-8")
         self.assertEqual(set(re.findall(r"backend\.([a-z_]+)", layout)), {"supabase_url", "supabase_anon_key", "turnstile_site_key"})
         self.assertNotIn("cdn.", layout, "community libraries are vendored, not loaded from a CDN")
+
+
+class KnowledgeTopics(unittest.TestCase):
+    def test_topic_list_matches_the_academy_graph(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("community_topics", ROOT / "tools/community_topics.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        self.assertEqual((ROOT / "supabase/knowledge_topics.sql").read_text(encoding="utf-8"), module.render())
+
+    def test_curation_entries_fit_the_resource_overlay(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("community_curation", ROOT / "tools/community_curation.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        grouped = module.entries([{"topic_id": "pe.control", "slug": "dab-1a2b3c", "type": "article", "title": "DAB", "lang": "en"}])
+        entry = grouped["pe.control"][0]
+        self.assertEqual(entry["url"], "/community/contribution/?slug=dab-1a2b3c")
+        self.assertEqual(set(entry["label"]), {"en", "zh"})
+        self.assertTrue(entry["localised"])
+
+    def test_community_tools_never_write_academy_data(self):
+        curation = (ROOT / "tools/community_curation.py").read_text(encoding="utf-8")
+        self.assertNotIn("write_text", curation)
+        self.assertNotRegex(curation, r"(?<![a-z])open\(")
+        topics = (ROOT / "tools/community_topics.py").read_text(encoding="utf-8")
+        self.assertIn('OUTPUT = "supabase/knowledge_topics.sql"', topics)
+        self.assertEqual(topics.count("write_text"), 1)
 
 
 class Translations(unittest.TestCase):

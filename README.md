@@ -43,6 +43,7 @@ python -m pip install -r requirements-dev.txt
 python tools/sync_ecosystem.py --check
 python tools/hub_data.py --check
 python tools/content_data.py --check
+python tools/community_topics.py --check
 python -m unittest discover -s tests -v
 npm ci && npm test                # newsletter/community backend tests (Node 22.18+)
 bundle exec jekyll serve          # requires Ruby and Bundler; then open http://localhost:4000/
