@@ -1,6 +1,6 @@
 """Verify that Jekyll publishes raw Registry endpoints, every stable lesson URL, every Frontiers topic,
 the four Academy subject pages, the Academy legacy redirects, the lesson-page academic references and
-the newsletter subscription pages."""
+the newsletter subscription and Community pages."""
 import hashlib
 import json
 from pathlib import Path
@@ -62,4 +62,12 @@ for url in ("/subscribe/", "/zh/subscribe/"):
 for page in (site/"index.html", site/"zh/index.html"):
     if "/subscribe/" not in page.read_text(encoding="utf-8").split('class="footer"', 1)[1]:
         raise SystemExit(f"Footer lacks the Subscribe link: {page}")
-print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects, Frontiers URLs and subscription pages verified")
+for prefix in ("", "/zh"):
+    for slug in ("", "explore/", "contribution/", "members/", "join/", "account/", "submit/", "moderation/", "guidelines/"):
+        url = f"{prefix}/community/{slug}"
+        rendered = (site/url.strip("/")/"index.html").read_text(encoding="utf-8")
+        if "<h1>" not in rendered or "{%" in rendered:
+            raise SystemExit(f"Community page incomplete: {url}")
+        if slug not in ("", "guidelines/") and ('id="community-app"' not in rendered or 'id="community-config"' not in rendered):
+            raise SystemExit(f"Community page lacks the application mount: {url}")
+print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects, Frontiers URLs, subscription and Community pages verified")
