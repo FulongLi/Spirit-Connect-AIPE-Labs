@@ -259,7 +259,9 @@ extensions.moderationQueues.push(async () => {
         const li = b.closest('[data-report-id]');
         const { error } = await sb.rpc('resolve_report', { p_id: li.dataset.reportId, p_outcome: b.dataset.resolve, p_note: null });
         if (error) return window.alert(errorText(error));
+        const section = li.closest('.community-queue');
         li.remove();
+        section.querySelector('h3 .community-muted').textContent = String(section.querySelectorAll('[data-report-id]').length);
       }));
     },
   };
