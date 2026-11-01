@@ -32,9 +32,11 @@ Values you will collect (keep secrets in a password manager, never in the repo):
 
 ## 1. Merge the code (no visible change yet)
 
-- [ ] Merge PR #23, then retarget #24 to `main` and merge it, then retarget #25 to `main` and merge it.
-- [ ] Confirm the GitHub Pages deploy succeeded and `/subscribe/` and `/community/` show the "not open yet"
-      notices. Nothing else on the site should change.
+- [ ] Merge the integration pull request into `main` (see [release-status.md](release-status.md); the stacked
+      PRs #24 and #25 were merged into their intermediate branches and never reached `main` on their own).
+- [ ] Confirm the GitHub Pages build for that merge commit succeeded
+      (`gh api repos/FulongLi/Spirit-Connect-AIPE-Labs/pages/builds/latest`) and that `/subscribe/` and
+      `/community/` show the "not open yet" notices.
 
 ## 2. Supabase project
 
@@ -163,6 +165,6 @@ Data rights
 - **Hide the features:** blank `community_backend` in `_config.yml` and redeploy; the pages return to "not open
   yet" and no data is lost.
 - **Stop sign-ups only:** Supabase → Authentication → disable "Allow new users to sign up".
-- **Code:** revert the merge commits in reverse order (#25, #24, #23).
+- **Code:** revert the integration merge commit on `main` (and, if needed, the Phase 1 merge of #23).
 - **Database:** never edit applied migrations; add a new migration that reverses the change. Production backups
   (Pro plan) can restore the whole database to a daily snapshot.
