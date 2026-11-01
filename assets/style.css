@@ -2245,7 +2245,6 @@ img { max-width: 100%; height: auto; }
 .community-steps span { color: var(--fg-dim); font-size: .92rem; }
 .section p.community-note { max-width: 70ch; font-size: .92rem; }
 .community-hero .section-kicker a { color: inherit; }
-.community-subnav a[aria-current="page"] { color: var(--fg); font-weight: 700; }
 .community-section { padding-top: 2.5rem; }
 .community-muted, .section p.community-muted { color: var(--muted); }
 .community-small, .section p.community-small { font-size: .84rem; }
@@ -2286,6 +2285,7 @@ img { max-width: 100%; height: auto; }
 .community-card { display: flex; flex-direction: column; gap: .55rem; }
 .community-card h3 { margin: 0; font-size: 1.05rem; }
 .community-card-meta { display: flex; justify-content: space-between; gap: .5rem; color: var(--muted); font-size: .8rem; }
+.community-card-meta time { white-space: nowrap; }
 .community-card-foot { margin-top: auto; padding-top: .4rem; font-size: .86rem; }
 .community-chips { display: flex; flex-wrap: wrap; gap: .35rem; margin: .4rem 0 .8rem; padding: 0; list-style: none; }
 .community-chips li { padding: .15rem .6rem; border-radius: var(--pill); background: var(--bg-alt); color: var(--fg-dim); font-size: .78rem; font-weight: 600; }
