@@ -60,6 +60,10 @@ exclude:
   - supabase
   - .env.example
 
+# GitHub Pages' builder otherwise renders Markdown files without front matter (aipe.md, the v0 resource index)
+# as site pages; those files are raw endpoints. Their former page URLs redirect (legacy/aipe-*.md).
+require_front_matter: true
+
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap

@@ -79,7 +79,7 @@ earlier Phase 2 browser run), avatar upload.
 | `npm test` (56 tests, including database security policies) | PASS |
 | CI Jekyll 4 build, `check_public_build.py`, `check_site_links.py` | PASS |
 | CI build with the GitHub Pages engine (what production runs), `check_public_build.py` | PASS |
-| Pages-engine `check_site_links.py` | 2 pre-existing broken links, unrelated to Community: `/aipe/` and `/legacy/aipe-resource-index-v0/` link a `/zh/` page that does not exist (also broken on the live site today) |
+| Pages-engine `check_site_links.py` | PASS — `/aipe/` and `/legacy/aipe-resource-index-v0/` (pages the builder generated from Markdown without front matter, whose language switch pointed at missing `/zh/` pages) now redirect to their raw `.md` files |
 | Routes, EN and ZH: `/community/`, `join/`, `account/`, `submit/`, `explore/`, `moderation/`, `contribution/`, `members/`, `guidelines/`, `/subscribe/` | 200, rendered, correct language |
 | `/company/team/` → `/company/about/`, `/company/careers/` → `/contact/` (EN and ZH) | Redirect, `noindex`, not in the sitemap |
 | Mobile (375 px): the routes above, About, Contact | No horizontal overflow; Community menu works in the mobile navigation |

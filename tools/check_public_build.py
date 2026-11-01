@@ -84,4 +84,10 @@ for prefix, about, contact in (("", "/company/about/", "/contact/"), ("/zh", "/z
                 raise SystemExit(f"{linking} still links the unpublished {url}")
         if f"<loc>{site_url}{url}</loc>" in sitemap:
             raise SystemExit(f"Sitemap lists the unpublished {url}")
+# Markdown endpoints without front matter stay raw files; their former page URLs redirect to them.
+for url, target in (("/aipe/", "/aipe.md"), ("/legacy/aipe-resource-index-v0/", "/legacy/aipe-resource-index-v0.md")):
+    if not (site/target.strip("/")).is_file():
+        raise SystemExit(f"Raw Markdown endpoint missing: {target}")
+    if f'url={target}"' not in (site/url.strip("/")/"index.html").read_text(encoding="utf-8"):
+        raise SystemExit(f"{url} does not redirect to the raw endpoint {target}")
 print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects, Frontiers URLs, subscription and Community pages, Company redirects verified")
