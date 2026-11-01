@@ -33,6 +33,38 @@ en:
   footer_privacy: "Privacy"
   footer_terms: "Terms"
   footer_cookies: "Cookies"
+  footer_subscribe: "Subscribe"
+  # newsletter (/subscribe/)
+  newsletter_title: "Subscribe to AIPE Updates"
+  newsletter_description: "Engineering tools, research developments and community highlights, delivered to your inbox."
+  newsletter_email_label: "Email address"
+  newsletter_email_placeholder: "you@example.com"
+  newsletter_consent: "I agree to receive AIPE Updates by email and understand I can unsubscribe at any time. See the"
+  newsletter_privacy_link: "Privacy Policy"
+  newsletter_submit: "Subscribe"
+  newsletter_sending: "Subscribing…"
+  newsletter_double_opt_in: "We will email you a confirmation link first; nothing is sent until you confirm."
+  newsletter_ok_sent: "Almost done: check your inbox and confirm your subscription with the link we have just sent."
+  newsletter_ok_existing: "Thank you. If this address is not yet subscribed, a confirmation link is on its way; if it already is, nothing changes."
+  newsletter_err_invalid_email: "Please enter a valid email address."
+  newsletter_err_consent_required: "Please tick the consent box to subscribe."
+  newsletter_err_captcha_failed: "The spam check did not complete. Please try again."
+  newsletter_err_rate_limited: "Too many attempts. Please wait a while and try again."
+  newsletter_err_not_configured: "Email subscriptions are not open yet. Please try again later."
+  newsletter_err_generic: "Something went wrong and you have not been subscribed. Please try again later."
+  newsletter_unconfigured: "Email subscriptions are not open yet. This form will be enabled once the newsletter service is connected."
+  newsletter_confirmed: "Your subscription is confirmed. Thank you for following AIPE."
+  newsletter_unsubscribed: "You have been unsubscribed and will receive no further AIPE Updates."
+  newsletter_expect_title: "What each issue covers"
+  newsletter_sections:
+    - {title: "New Engineering Tools", text: "Data, models, agents and tools added to the AIPE Hub."}
+    - {title: "Research & Frontiers", text: "Open questions and evidence updates from AIPE Frontiers."}
+    - {title: "AIPE Development Updates", text: "Academy lessons, Plugin releases and platform changes."}
+    - {title: "Community Highlights", text: "Reviewed tools, ideas and articles from the AIPE Community."}
+  newsletter_frequency: "We aim for a monthly issue and send one only when there is something worth reading."
+  newsletter_manage_title: "Unsubscribing and your data"
+  newsletter_manage_text: "Every email has a one-click unsubscribe link. You can also email info@spiritconnect.co.uk and we will remove your address. Subscriptions are handled by our newsletter provider, Buttondown."
+  newsletter_independent: "Subscribing does not create an AIPE Community account, and joining the Community never subscribes you."
   footer_rights: "AIPE Labs, Spirit Connect Ltd. All rights reserved."
   # hub
   hub_search_placeholder: "Search devices, models, designs, tools, workflows…"
@@ -247,6 +279,38 @@ zh:
   footer_privacy: "隐私"
   footer_terms: "条款"
   footer_cookies: "Cookie"
+  footer_subscribe: "订阅"
+  # newsletter (/zh/subscribe/)
+  newsletter_title: "订阅 AIPE 动态"
+  newsletter_description: "工程工具、研究进展与社区精选，直接送达你的邮箱。"
+  newsletter_email_label: "邮箱地址"
+  newsletter_email_placeholder: "you@example.com"
+  newsletter_consent: "我同意通过邮件接收 AIPE 动态，并了解可以随时退订。详见"
+  newsletter_privacy_link: "隐私政策"
+  newsletter_submit: "订阅"
+  newsletter_sending: "正在订阅…"
+  newsletter_double_opt_in: "我们会先发送一封确认邮件；在你确认之前不会发送任何内容。"
+  newsletter_ok_sent: "还差一步：请查收邮件，并通过我们刚发送的链接确认订阅。"
+  newsletter_ok_existing: "谢谢。如果该地址尚未订阅，确认链接正在发送；如果已经订阅，则不会有任何变化。"
+  newsletter_err_invalid_email: "请输入有效的邮箱地址。"
+  newsletter_err_consent_required: "请勾选同意框后再订阅。"
+  newsletter_err_captcha_failed: "垃圾信息校验未完成，请重试。"
+  newsletter_err_rate_limited: "尝试次数过多，请稍后再试。"
+  newsletter_err_not_configured: "邮件订阅尚未开放，请稍后再试。"
+  newsletter_err_generic: "出现错误，你尚未订阅成功。请稍后再试。"
+  newsletter_unconfigured: "邮件订阅尚未开放。接入邮件服务后，此表单将会启用。"
+  newsletter_confirmed: "订阅已确认，感谢你关注 AIPE。"
+  newsletter_unsubscribed: "你已退订，今后不会再收到 AIPE 动态。"
+  newsletter_expect_title: "每期内容"
+  newsletter_sections:
+    - {title: "新的工程工具", text: "AIPE Hub 新增的数据、模型、智能体与工具。"}
+    - {title: "研究与前沿", text: "来自 AIPE 前沿研究的开放问题与证据更新。"}
+    - {title: "AIPE 开发动态", text: "学院课程、插件发布与平台更新。"}
+    - {title: "社区精选", text: "AIPE 社区中经过审核的工具、想法与文章。"}
+  newsletter_frequency: "我们计划每月一期，只在有值得阅读的内容时发送。"
+  newsletter_manage_title: "退订与你的数据"
+  newsletter_manage_text: "每封邮件都包含一键退订链接。你也可以发送邮件至 info@spiritconnect.co.uk，我们会删除你的地址。订阅由我们的邮件服务商 Buttondown 处理。"
+  newsletter_independent: "订阅不会创建 AIPE 社区账号，加入社区也不会让你自动订阅。"
   footer_rights: "AIPE Labs，Spirit Connect Ltd. 版权所有。"
   # hub
   hub_search_placeholder: "搜索器件、模型、设计、工具、工作流…"

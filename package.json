@@ -1,0 +1,15 @@
+{
+  "name": "aipe-labs-site",
+  "private": true,
+  "description": "Test tooling for the AIPE website's community and newsletter backend (the site itself is built by Jekyll).",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "test": "node --test \"tests/community/*.test.mjs\""
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.2.17"
+  }
+}

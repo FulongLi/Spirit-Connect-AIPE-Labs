@@ -1,5 +1,6 @@
 """Verify that Jekyll publishes raw Registry endpoints, every stable lesson URL, every Frontiers topic,
-the four Academy subject pages, the Academy legacy redirects and the lesson-page academic references."""
+the four Academy subject pages, the Academy legacy redirects, the lesson-page academic references and
+the newsletter subscription pages."""
 import hashlib
 import json
 from pathlib import Path
@@ -54,4 +55,11 @@ for url in frontiers:
     redirect = site/old.strip("/")/"index.html"
     if not redirect.is_file() or f'url={url}"' not in redirect.read_text(encoding="utf-8"):
         raise SystemExit(f"Former Explorations URL does not redirect: {old} -> {url}")
-print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects and Frontiers URLs verified")
+for url in ("/subscribe/", "/zh/subscribe/"):
+    rendered = (site/url.strip("/")/"index.html").read_text(encoding="utf-8")
+    if 'id="newsletter-form"' not in rendered or "{%" in rendered or 'name="consent"' not in rendered:
+        raise SystemExit(f"Subscription page incomplete: {url}")
+for page in (site/"index.html", site/"zh/index.html"):
+    if "/subscribe/" not in page.read_text(encoding="utf-8").split('class="footer"', 1)[1]:
+        raise SystemExit(f"Footer lacks the Subscribe link: {page}")
+print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects, Frontiers URLs and subscription pages verified")

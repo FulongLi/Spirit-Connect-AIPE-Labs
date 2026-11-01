@@ -13,3 +13,10 @@ Thumbs.db
 __pycache__/
 *.pyc
 .ecosystem-sources/
+node_modules/
+.env
+.env.*
+!.env.example
+supabase/.temp/
+supabase/.branches/
+_config.local.yml
