@@ -46,7 +46,7 @@ layout: default
         <input type="text" name="website" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
         <label class="newsletter-consent">
           <input type="checkbox" name="consent" required{% if endpoint == '' %} disabled{% endif %}>
-          <span>{{ t.newsletter_consent }} <a href="{{ lp | append: '/legal/privacy/' | relative_url }}">{{ t.newsletter_privacy_link }}</a>.</span>
+          <span>{{ t.newsletter_consent }} <a href="{{ lp | append: '/legal/privacy/' | relative_url }}">{{ t.newsletter_privacy_link }}</a>{{ t.newsletter_consent_end }}</span>
         </label>
         {%- if endpoint != '' and tk != '' %}
         <div class="contact-turnstile"><div class="cf-turnstile" data-sitekey="{{ tk }}" data-theme="light"></div></div>
