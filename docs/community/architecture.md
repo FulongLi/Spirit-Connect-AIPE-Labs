@@ -39,7 +39,7 @@ Browser (aipel.co.uk, static)                        Supabase project
 
 Each application page is a front-matter-only Markdown file using `_layouts/community.html`, which writes the
 public configuration and the strings from `_data/community.yml` into the page; `assets/community/app.js` renders
-the view. Browser libraries (supabase-js, marked, DOMPurify) are vendored in `assets/vendor/` by
+the view. Browser libraries (supabase-js, marked, DOMPurify) are vendored in `assets/libs/` by
 `npm run vendor` at pinned versions.
 
 ## Data model (`supabase/migrations/`)

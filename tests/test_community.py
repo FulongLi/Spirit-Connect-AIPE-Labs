@@ -135,13 +135,13 @@ class Secrets(unittest.TestCase):
         sources = [*ROOT.glob("assets/**/*.js"), *ROOT.glob("_layouts/*.html"), *ROOT.glob("_includes/*.html"),
                    *ROOT.glob("supabase/**/*.ts"), *ROOT.glob("supabase/**/*.sql"), *ROOT.glob("supabase/*.toml")]
         for path in sources:
-            if "/vendor/" in path.as_posix():
+            if "/assets/libs/" in path.as_posix():
                 continue
             text = path.read_text(encoding="utf-8")
             for pattern in self.PATTERNS[1:]:
                 self.assertIsNone(pattern.search(text), f"possible secret in {path}")
         for path in [*ROOT.glob("assets/**/*.js"), *ROOT.glob("_layouts/*.html")]:
-            if "/vendor/" not in path.as_posix():
+            if "/assets/libs/" not in path.as_posix():
                 self.assertIsNone(self.PATTERNS[0].search(path.read_text(encoding="utf-8")),
                                   f"frontend code must not reference the service role: {path}")
 
