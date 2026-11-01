@@ -1,0 +1,76 @@
+# Supabase configuration for local development (`supabase start`) and the
+# AIPE Community / newsletter backend. Hosted-project settings (auth providers,
+# redirect URLs, SMTP, captcha) must be mirrored in the Supabase dashboard; see
+# docs/community/setup.md. Secrets are read from the environment, never committed.
+
+project_id = "aipe-community"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 200
+
+[db]
+port = 54322
+major_version = 15
+
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
+
+[studio]
+enabled = true
+port = 54323
+
+[inbucket]
+# Local mail catcher: confirmation and recovery emails appear at http://localhost:54324
+enabled = true
+port = 54324
+
+[storage]
+enabled = true
+file_size_limit = "1MiB"
+
+[auth]
+enabled = true
+site_url = "http://localhost:4000"
+additional_redirect_urls = [
+  "http://localhost:4000/community/account/",
+  "http://localhost:4000/zh/community/account/",
+  "https://aipel.co.uk/community/account/",
+  "https://aipel.co.uk/zh/community/account/",
+]
+jwt_expiry = 3600
+enable_refresh_token_rotation = true
+refresh_token_reuse_interval = 10
+enable_signup = true
+enable_anonymous_sign_ins = false
+minimum_password_length = 10
+password_requirements = "lower_upper_letters_digits"
+
+[auth.rate_limit]
+email_sent = 4
+sign_in_sign_ups = 30
+token_verifications = 30
+
+[auth.email]
+enable_signup = true
+enable_confirmations = true
+double_confirm_changes = true
+secure_password_change = true
+max_frequency = "60s"
+
+[auth.external.github]
+enabled = true
+client_id = "env(SUPABASE_AUTH_EXTERNAL_GITHUB_CLIENT_ID)"
+secret = "env(SUPABASE_AUTH_EXTERNAL_GITHUB_SECRET)"
+redirect_uri = ""
+
+[functions.newsletter-subscribe]
+# Public endpoint: anonymous visitors subscribe without an account.
+verify_jwt = false
+
+[functions.delete-account]
+verify_jwt = true

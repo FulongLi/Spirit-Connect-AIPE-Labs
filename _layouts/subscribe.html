@@ -1,0 +1,79 @@
+---
+layout: default
+---
+{%- comment -%}
+  AIPE Updates subscription page: /subscribe/ and /zh/subscribe/.
+  The form posts to the newsletter-subscribe Edge Function (supabase/functions),
+  which creates a pending, double opt-in subscriber at the newsletter provider.
+  Without a configured backend the form is disabled and says so; it never
+  reports success that did not happen.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'en' -%}
+{%- if lang == 'zh' -%}{%- assign lp = '/zh' -%}{%- else -%}{%- assign lp = '' -%}{%- endif -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign backend = site.community_backend.supabase_url | default: '' | strip -%}
+{%- assign tk = site.community_backend.turnstile_site_key | default: '' | strip -%}
+{%- if backend != '' -%}{%- assign endpoint = backend | append: '/functions/v1/newsletter-subscribe' -%}{%- else -%}{%- assign endpoint = '' -%}{%- endif -%}
+<header class="hero hero-compact">
+  <div class="container">
+    <h1>{{ t.newsletter_title }}</h1>
+    <p class="lead">{{ t.newsletter_description }}</p>
+  </div>
+</header>
+
+<section class="section section-alt">
+  <div class="container newsletter-layout">
+    <div class="card newsletter-card">
+      <p class="newsletter-status form-message is-ok" id="newsletter-state" role="status" hidden
+         data-confirmed="{{ t.newsletter_confirmed | escape }}"
+         data-unsubscribed="{{ t.newsletter_unsubscribed | escape }}"></p>
+      <form class="newsletter-form aipe-form" id="newsletter-form" novalidate
+            data-endpoint="{{ endpoint }}" data-lang="{{ lang }}"
+            data-sending="{{ t.newsletter_sending | escape }}"
+            data-ok-confirmation_sent="{{ t.newsletter_ok_sent | escape }}"
+            data-ok-pending_or_existing="{{ t.newsletter_ok_existing | escape }}"
+            data-err-invalid_email="{{ t.newsletter_err_invalid_email | escape }}"
+            data-err-consent_required="{{ t.newsletter_err_consent_required | escape }}"
+            data-err-captcha_failed="{{ t.newsletter_err_captcha_failed | escape }}"
+            data-err-rate_limited="{{ t.newsletter_err_rate_limited | escape }}"
+            data-err-not_configured="{{ t.newsletter_err_not_configured | escape }}"
+            data-err-generic="{{ t.newsletter_err_generic | escape }}">
+        <div class="contact-field">
+          <label class="contact-label" for="nl-email">{{ t.newsletter_email_label }}</label>
+          <input id="nl-email" name="email" type="email" required autocomplete="email" maxlength="254"
+                 placeholder="{{ t.newsletter_email_placeholder }}"{% if endpoint == '' %} disabled{% endif %}>
+        </div>
+        <input type="text" name="website" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
+        <label class="newsletter-consent">
+          <input type="checkbox" name="consent" required{% if endpoint == '' %} disabled{% endif %}>
+          <span>{{ t.newsletter_consent }} <a href="{{ lp | append: '/legal/privacy/' | relative_url }}">{{ t.newsletter_privacy_link }}</a>{{ t.newsletter_consent_end }}</span>
+        </label>
+        {%- if endpoint != '' and tk != '' %}
+        <div class="contact-turnstile"><div class="cf-turnstile" data-sitekey="{{ tk }}" data-theme="light"></div></div>
+        {%- endif %}
+        <button type="submit" class="btn btn-primary newsletter-submit"{% if endpoint == '' %} disabled{% endif %}>{{ t.newsletter_submit }}</button>
+        <p class="newsletter-note">{{ t.newsletter_double_opt_in }}</p>
+        <p class="newsletter-message form-message" id="newsletter-message" role="status" aria-live="polite"{% if endpoint != '' %} hidden{% endif %}>
+          {%- if endpoint == '' %}{{ t.newsletter_unconfigured }}{% endif -%}
+        </p>
+      </form>
+    </div>
+    <div class="newsletter-about">
+      <h2>{{ t.newsletter_expect_title }}</h2>
+      <ol class="newsletter-sections">
+        {%- for item in t.newsletter_sections %}
+        <li><strong>{{ item.title }}</strong><span>{{ item.text }}</span></li>
+        {%- endfor %}
+      </ol>
+      <p>{{ t.newsletter_frequency }}</p>
+      <h3>{{ t.newsletter_manage_title }}</h3>
+      <p>{{ t.newsletter_manage_text }}</p>
+      <p>{{ t.newsletter_independent }}</p>
+    </div>
+  </div>
+</section>
+
+{%- if endpoint != '' and tk != '' %}
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+{%- endif %}
+<script src="{{ '/assets/newsletter.js' | relative_url }}" defer></script>

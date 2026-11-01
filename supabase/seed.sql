@@ -1,0 +1,1 @@
+-- Local development seed (run by `supabase db reset`). Contains no personal data.

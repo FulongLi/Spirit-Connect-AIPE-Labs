@@ -15,6 +15,12 @@ jobs:
       - run: python tools/hub_data.py --check
       - run: python tools/content_data.py --check
       - run: python -m unittest discover -s tests -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm test
       - id: sources
         run: python tools/academy_source_lock.py
       - uses: actions/checkout@v4
@@ -32,3 +38,8 @@ jobs:
       - run: bundle exec jekyll build --strict_front_matter
       - run: python tools/check_public_build.py _site
       - run: python tools/check_site_links.py _site
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: _site
+          retention-days: 7

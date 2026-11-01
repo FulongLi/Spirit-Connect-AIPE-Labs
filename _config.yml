@@ -5,6 +5,16 @@ url: "https://aipel.co.uk"
 baseurl: ""
 timezone: Europe/London
 
+# AIPE Community and newsletter backend (Supabase; see docs/community/setup.md).
+# The project URL and anon key are public values restricted by row-level
+# security; leave them blank until the project exists, and the forms then say
+# that the service is not yet open. Never put the service-role key, Buttondown
+# key or any other secret here.
+community_backend:
+  supabase_url: ""
+  supabase_anon_key: ""
+  turnstile_site_key: ""
+
 permalink: /resources/blog/:title/
 
 # English is the default publishing language. A translated post overrides this
@@ -44,6 +54,11 @@ exclude:
   - .ecosystem-sources
   - .idea
   - .gitignore
+  - package.json
+  - package-lock.json
+  - node_modules
+  - supabase
+  - .env.example
 
 plugins:
   - jekyll-seo-tag

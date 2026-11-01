@@ -42,6 +42,7 @@ python tools/sync_ecosystem.py --check
 python tools/hub_data.py --check
 python tools/content_data.py --check
 python -m unittest discover -s tests -v
+npm ci && npm test                # newsletter/community backend tests (Node 22.18+)
 bundle exec jekyll serve          # requires Ruby and Bundler; then open http://localhost:4000/
 ```
 
@@ -66,6 +67,7 @@ index, not an executable model or application.
 - [Development: local build, pre-publish checks, adding a capability](docs/development.md)
 - [Ecosystem synchronisation, ownership and URL contract](docs/ecosystem-v0.1.md) ·
   [Capability manifest](aipe.yaml)
+- [Backend setup (Supabase)](docs/community/setup.md) · [Newsletter](docs/community/newsletter.md)
 - [AIPE Plugin architecture note](docs/aipe-plugin-architecture.md) ·
   [Content migration map](docs/content-migration-map.md) ·
   [Frontiers entry template](docs/exploration-template.md)

@@ -24,6 +24,7 @@ python tools/sync_ecosystem.py --check
 python tools/hub_data.py --check
 python tools/content_data.py --check
 python -m unittest discover -s tests -v
+npm ci && npm test
 bundle exec jekyll build --trace
 python tools/check_public_build.py _site
 python tools/check_site_links.py _site

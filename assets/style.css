@@ -2189,3 +2189,42 @@ img { max-width: 100%; height: auto; }
   .aipe-pathways { grid-template-columns: 1fr; }
   .aipe-pathways a + a { border-left: 0; border-top: 1px solid var(--border); }
 }
+
+/* ══════════════════════════════════════
+   FORMS — shared by Subscribe and Community
+   ══════════════════════════════════════ */
+.aipe-form input[type="email"], .aipe-form input[type="text"], .aipe-form input[type="url"],
+.aipe-form input[type="password"], .aipe-form input[type="search"], .aipe-form textarea, .aipe-form select {
+  width: 100%; font: inherit; padding: .7rem .95rem;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--bg); color: var(--fg);
+  transition: border-color .2s, box-shadow .2s;
+}
+.aipe-form textarea { min-height: 140px; resize: vertical; line-height: 1.55; }
+.aipe-form input:focus, .aipe-form textarea:focus, .aipe-form select:focus {
+  outline: none; border-color: var(--fg); box-shadow: 0 0 0 3px rgba(36,28,16,.08);
+}
+.aipe-form input:disabled, .aipe-form button:disabled { opacity: .55; cursor: not-allowed; }
+.aipe-form .btn { border: none; cursor: pointer; font: inherit; font-weight: 700; }
+.form-hint { margin: .35rem 0 0; color: var(--muted); font-size: .82rem; }
+.form-message { margin: 1rem 0 0; padding: .8rem 1rem; border-radius: var(--radius-sm); background: var(--bg-alt); color: var(--fg); font-size: .92rem; }
+.form-message.is-ok { background: var(--accent-soft); border: 1px solid rgba(214,178,40,.35); }
+.form-message.is-error { background: #fbeceb; border: 1px solid rgba(160,40,30,.25); color: #6d1d16; }
+
+/* ══════════════════════════════════════
+   SUBSCRIBE — /subscribe/
+   ══════════════════════════════════════ */
+.newsletter-layout { display: grid; gap: 2rem; align-items: start; }
+@media(min-width:881px) { .newsletter-layout { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 3rem; } }
+.newsletter-card { padding: 1.75rem; }
+.newsletter-consent { display: flex; gap: .6rem; align-items: flex-start; margin: 1rem 0; font-size: .9rem; color: var(--fg-dim); line-height: 1.5; }
+.newsletter-consent input { margin-top: .25rem; flex: 0 0 auto; }
+.section p.newsletter-note { margin: .8rem 0 0; color: var(--muted); font-size: .84rem; }
+.newsletter-status { margin: 0 0 1.25rem; }
+.newsletter-about h2 { margin-top: 0; }
+.newsletter-about h3 { margin: 1.75rem 0 .4rem; font-size: 1.05rem; }
+.newsletter-sections { margin: 0 0 1rem; padding: 0; list-style: none; counter-reset: nl; display: grid; gap: .75rem; }
+.newsletter-sections li { counter-increment: nl; display: grid; grid-template-columns: 2rem 1fr; column-gap: .5rem; }
+.newsletter-sections li::before { content: counter(nl, decimal-leading-zero); grid-row: span 2; color: var(--muted); font: 700 .85rem var(--font-display); padding-top: .15rem; }
+.newsletter-sections strong { color: var(--fg); }
+.newsletter-sections span { color: var(--fg-dim); font-size: .92rem; }
