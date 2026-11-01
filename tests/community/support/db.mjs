@@ -4,7 +4,7 @@
 // The real migration files are then applied unchanged, so row-level security
 // and the SECURITY DEFINER workflow functions are tested as written.
 
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { randomUUID } from "node:crypto";
 import { PGlite } from "@electric-sql/pglite";
@@ -70,6 +70,9 @@ export async function createDatabase() {
       throw new Error(`Migration ${file} failed: ${error.message}`);
     }
   }
+  // Knowledge topics are loaded the same way as on a real project (and in seed.sql).
+  const topics = join(ROOT, "supabase", "knowledge_topics.sql");
+  if (existsSync(topics)) await db.exec(readFileSync(topics, "utf8"));
   return db;
 }
 

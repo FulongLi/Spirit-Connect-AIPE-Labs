@@ -37,6 +37,13 @@ Migrations in `supabase/migrations/` are applied in filename order by `supabase 
 in-process Postgres and checks the security policies. After the first deployment, create the initial
 administrator as described in [moderation.md](moderation.md#initial-administrator).
 
+Load the knowledge-topic list after the first migration and after every Academy sync that changes the graph:
+
+```bash
+python tools/community_topics.py --write          # regenerate from _data/knowledge_graph.yml (CI checks it)
+psql "$SUPABASE_DB_URL" -f supabase/knowledge_topics.sql   # or paste it into the SQL editor
+```
+
 ## Authentication providers
 
 Configure in the Supabase dashboard → Authentication (and mirror local settings in `config.toml`):
@@ -92,4 +99,4 @@ Release order for a change that touches both: apply migrations and deploy functi
 change. Roll back a site change by reverting its pull request; roll back a migration with a new, reversing
 migration.
 
-See also: [architecture.md](architecture.md) · [moderation.md](moderation.md) · [newsletter.md](newsletter.md).
+Step-by-step launch: [go-live.md](go-live.md). See also: [architecture.md](architecture.md) · [moderation.md](moderation.md) · [newsletter.md](newsletter.md).

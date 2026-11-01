@@ -43,6 +43,7 @@ python -m pip install -r requirements-dev.txt
 python tools/sync_ecosystem.py --check
 python tools/hub_data.py --check
 python tools/content_data.py --check
+python tools/community_topics.py --check
 python -m unittest discover -s tests -v
 npm ci && npm test                # newsletter/community backend tests (Node 22.18+)
 bundle exec jekyll serve          # requires Ruby and Bundler; then open http://localhost:4000/
@@ -70,6 +71,7 @@ index, not an executable model or application.
 - [Ecosystem synchronisation, ownership and URL contract](docs/ecosystem-v0.1.md) ·
   [Capability manifest](aipe.yaml)
 - Community and newsletter: [architecture](docs/community/architecture.md) · [backend setup](docs/community/setup.md) ·
+  [go-live checklist](docs/community/go-live.md) ·
   [moderation](docs/community/moderation.md) · [newsletter](docs/community/newsletter.md)
 - [AIPE Plugin architecture note](docs/aipe-plugin-architecture.md) ·
   [Content migration map](docs/content-migration-map.md) ·
