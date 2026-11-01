@@ -71,6 +71,7 @@ index, not an executable model or application.
 - [Ecosystem synchronisation, ownership and URL contract](docs/ecosystem-v0.1.md) ·
   [Capability manifest](aipe.yaml)
 - Community and newsletter: [architecture](docs/community/architecture.md) · [backend setup](docs/community/setup.md) ·
+  [go-live checklist](docs/community/go-live.md) ·
   [moderation](docs/community/moderation.md) · [newsletter](docs/community/newsletter.md)
 - [AIPE Plugin architecture note](docs/aipe-plugin-architecture.md) ·
   [Content migration map](docs/content-migration-map.md) ·

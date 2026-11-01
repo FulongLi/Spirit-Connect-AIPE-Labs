@@ -99,4 +99,4 @@ Release order for a change that touches both: apply migrations and deploy functi
 change. Roll back a site change by reverting its pull request; roll back a migration with a new, reversing
 migration.
 
-See also: [architecture.md](architecture.md) · [moderation.md](moderation.md) · [newsletter.md](newsletter.md).
+Step-by-step launch: [go-live.md](go-live.md). See also: [architecture.md](architecture.md) · [moderation.md](moderation.md) · [newsletter.md](newsletter.md).
