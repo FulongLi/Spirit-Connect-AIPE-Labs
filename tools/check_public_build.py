@@ -1,6 +1,6 @@
 """Verify that Jekyll publishes raw Registry endpoints, every stable lesson URL, every Frontiers topic,
 the four Academy subject pages, the Academy legacy redirects, the lesson-page academic references and
-the newsletter subscription pages."""
+the newsletter subscription and Community pages, and the Team and Careers redirects."""
 import hashlib
 import json
 from pathlib import Path
@@ -62,4 +62,32 @@ for url in ("/subscribe/", "/zh/subscribe/"):
 for page in (site/"index.html", site/"zh/index.html"):
     if "/subscribe/" not in page.read_text(encoding="utf-8").split('class="footer"', 1)[1]:
         raise SystemExit(f"Footer lacks the Subscribe link: {page}")
-print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects, Frontiers URLs and subscription pages verified")
+for prefix in ("", "/zh"):
+    for slug in ("", "explore/", "contribution/", "members/", "join/", "account/", "submit/", "moderation/", "guidelines/"):
+        url = f"{prefix}/community/{slug}"
+        rendered = (site/url.strip("/")/"index.html").read_text(encoding="utf-8")
+        if "<h1>" not in rendered or "{%" in rendered:
+            raise SystemExit(f"Community page incomplete: {url}")
+        if slug not in ("", "guidelines/") and ('id="community-app"' not in rendered or 'id="community-config"' not in rendered):
+            raise SystemExit(f"Community page lacks the application mount: {url}")
+# Team and Careers are unpublished: no links to them, their URLs redirect and the sitemap omits them.
+sitemap = (site/"sitemap.xml").read_text(encoding="utf-8")
+site_url = yaml.safe_load((root/"_config.yml").read_text(encoding="utf-8"))["url"]
+for prefix, about, contact in (("", "/company/about/", "/contact/"), ("/zh", "/zh/company/about/", "/zh/contact/")):
+    for page, target in (("team", about), ("careers", contact)):
+        url = f"{prefix}/company/{page}/"
+        redirect = (site/url.strip("/")/"index.html").read_text(encoding="utf-8")
+        if f'url={target}"' not in redirect:
+            raise SystemExit(f"Former Company page does not redirect: {url} -> {target}")
+        for linking in (site/prefix.strip("/")/"index.html", site/about.strip("/")/"index.html"):
+            if f'href="{url}"' in linking.read_text(encoding="utf-8"):
+                raise SystemExit(f"{linking} still links the unpublished {url}")
+        if f"<loc>{site_url}{url}</loc>" in sitemap:
+            raise SystemExit(f"Sitemap lists the unpublished {url}")
+# Markdown endpoints without front matter stay raw files; their former page URLs redirect to them.
+for url, target in (("/aipe/", "/aipe.md"), ("/legacy/aipe-resource-index-v0/", "/legacy/aipe-resource-index-v0.md")):
+    if not (site/target.strip("/")).is_file():
+        raise SystemExit(f"Raw Markdown endpoint missing: {target}")
+    if f'url={target}"' not in (site/url.strip("/")/"index.html").read_text(encoding="utf-8"):
+        raise SystemExit(f"{url} does not redirect to the raw endpoint {target}")
+print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects, Frontiers URLs, subscription and Community pages, Company redirects verified")

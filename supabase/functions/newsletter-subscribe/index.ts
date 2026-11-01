@@ -3,7 +3,7 @@
 // optional TURNSTILE_SECRET_KEY. SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are
 // injected by the platform and used only for the rate limiter.
 
-import { createClient } from "npm:@supabase/supabase-js@2.45.4";
+import { createClient } from "npm:@supabase/supabase-js@2.118.0";
 import { handleSubscribe } from "../_shared/newsletter.ts";
 
 const admin = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, {

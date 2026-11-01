@@ -1,0 +1,56 @@
+---
+layout: default
+---
+{%- comment -%}
+  AIPE Community landing page (/community/, /zh/community/). Static: it
+  introduces participation and links to the application pages. No feed,
+  counters or badges.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'en' -%}
+{%- if lang == 'zh' -%}{%- assign lp = '/zh' -%}{%- else -%}{%- assign lp = '' -%}{%- endif -%}
+{%- assign t = site.data.community[lang] -%}
+<header class="hero community-home-hero">
+  <div class="container">
+    <h1>{{ t.title }}</h1>
+    <p class="lead community-subtitle">{{ t.subtitle }}</p>
+    <p class="lead">{{ t.intro }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ lp | append: '/community/join/?mode=signup' | relative_url }}">{{ t.entry_join }}</a>
+      <a class="btn btn-ghost" href="{{ lp | append: '/community/explore/' | relative_url }}">{{ t.entry_explore }}</a>
+      <a class="btn btn-ghost" href="{{ lp | append: '/community/submit/' | relative_url }}">{{ t.entry_share }}</a>
+    </div>
+    <p class="community-home-signin">{{ t.entry_member }} <a href="{{ lp | append: '/community/join/' | relative_url }}">{{ t.sign_in }}</a></p>
+    {%- unless site.community_backend.supabase_url != '' and site.community_backend.supabase_anon_key != '' %}
+    <p class="community-home-status" role="status">{{ t.not_configured }}</p>
+    {%- endunless %}
+  </div>
+</header>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="community-entries">
+      <a class="community-entry" href="{{ lp | append: '/community/explore/' | relative_url }}">
+        <h2>{{ t.entry_explore }}</h2><p>{{ t.entry_explore_text }}</p><span aria-hidden="true">→</span></a>
+      <a class="community-entry" href="{{ lp | append: '/community/submit/?type=tool' | relative_url }}">
+        <h2>{{ t.entry_tool }}</h2><p>{{ t.entry_tool_text }}</p><span aria-hidden="true">→</span></a>
+      <a class="community-entry" href="{{ lp | append: '/community/submit/?type=idea' | relative_url }}">
+        <h2>{{ t.entry_idea }}</h2><p>{{ t.entry_idea_text }}</p><span aria-hidden="true">→</span></a>
+      <a class="community-entry" href="{{ lp | append: '/community/submit/?type=article' | relative_url }}">
+        <h2>{{ t.entry_article }}</h2><p>{{ t.entry_article_text }}</p><span aria-hidden="true">→</span></a>
+      <a class="community-entry" href="{{ lp | append: '/community/join/?mode=signup' | relative_url }}">
+        <h2>{{ t.entry_join }}</h2><p>{{ t.entry_join_text }}</p><span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>{{ t.how_title }}</h2>
+    <ol class="community-steps">
+      {%- for step in t.how_steps %}
+      <li><strong>{{ step.title }}</strong><span>{{ step.text }}</span></li>
+      {%- endfor %}
+    </ol>
+    <p class="community-note">{{ t.how_note }} <a href="{{ lp | append: '/community/guidelines/' | relative_url }}">{{ t.guidelines_link }} →</a></p>
+  </div>
+</section>
