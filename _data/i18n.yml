@@ -7,12 +7,6 @@ en:
   nav_hub: "Hub"
   nav_engineering: "Engineering"
   nav_plugin: "Plugin"
-  nav_community: "Community"
-  nav_community_home: "Community home"
-  nav_community_explore: "Explore contributions"
-  nav_join: "Join / Sign up"
-  nav_login: "Log in"
-  nav_account: "My account"
   nav_articles: "Engineering articles"
   nav_academy: "Academy"
   nav_explorations: "Frontiers"
@@ -43,7 +37,7 @@ en:
   footer_subscribe: "Subscribe"
   # newsletter (/subscribe/)
   newsletter_title: "Subscribe to AIPE Updates"
-  newsletter_description: "Engineering tools, research developments and community highlights, delivered to your inbox."
+  newsletter_description: "Engineering tools, research developments and AIPE news, delivered to your inbox."
   newsletter_email_label: "Email address"
   newsletter_email_placeholder: "you@example.com"
   newsletter_consent: "I agree to receive AIPE Updates by email and understand I can unsubscribe at any time. See the"
@@ -68,11 +62,9 @@ en:
     - {title: "New Engineering Tools", text: "Data, models, agents and tools added to the AIPE Hub."}
     - {title: "Research & Frontiers", text: "Open questions and evidence updates from AIPE Frontiers."}
     - {title: "AIPE Development Updates", text: "Academy lessons, Plugin releases and platform changes."}
-    - {title: "Community Highlights", text: "Reviewed tools, ideas and articles from the AIPE Community."}
   newsletter_frequency: "We aim for a monthly issue and send one only when there is something worth reading."
   newsletter_manage_title: "Unsubscribing and your data"
   newsletter_manage_text: "Every email has a one-click unsubscribe link. You can also email info@spiritconnect.co.uk and we will remove your address. Subscriptions are handled by our newsletter provider, Buttondown."
-  newsletter_independent: "Subscribing does not create an AIPE Community account, and joining the Community never subscribes you."
   footer_rights: "AIPE Labs, Spirit Connect Ltd. All rights reserved."
   # hub
   hub_search_placeholder: "Search devices, models, designs, tools, workflows…"
@@ -261,12 +253,6 @@ zh:
   nav_hub: "Hub"
   nav_engineering: "工程领域"
   nav_plugin: "插件"
-  nav_community: "社区"
-  nav_community_home: "社区首页"
-  nav_community_explore: "浏览贡献"
-  nav_join: "加入 / 注册"
-  nav_login: "登录"
-  nav_account: "我的账户"
   nav_articles: "工程文章"
   nav_academy: "学习学院"
   nav_explorations: "前沿研究"
@@ -296,7 +282,7 @@ zh:
   footer_subscribe: "订阅"
   # newsletter (/zh/subscribe/)
   newsletter_title: "订阅 AIPE 动态"
-  newsletter_description: "工程工具、研究进展与社区精选，直接送达你的邮箱。"
+  newsletter_description: "工程工具、研究进展与 AIPE 动态，直接送达你的邮箱。"
   newsletter_email_label: "邮箱地址"
   newsletter_email_placeholder: "you@example.com"
   newsletter_consent: "我同意通过邮件接收 AIPE 动态，并了解可以随时退订。详见"
@@ -321,11 +307,9 @@ zh:
     - {title: "新的工程工具", text: "AIPE Hub 新增的数据、模型、智能体与工具。"}
     - {title: "研究与前沿", text: "来自 AIPE 前沿研究的开放问题与证据更新。"}
     - {title: "AIPE 开发动态", text: "学院课程、插件发布与平台更新。"}
-    - {title: "社区精选", text: "AIPE 社区中经过审核的工具、想法与文章。"}
   newsletter_frequency: "我们计划每月一期，只在有值得阅读的内容时发送。"
   newsletter_manage_title: "退订与你的数据"
   newsletter_manage_text: "每封邮件都包含一键退订链接。你也可以发送邮件至 info@spiritconnect.co.uk，我们会删除你的地址。订阅由我们的邮件服务商 Buttondown 处理。"
-  newsletter_independent: "订阅不会创建 AIPE 社区账号，加入社区也不会让你自动订阅。"
   footer_rights: "AIPE Labs，Spirit Connect Ltd. 版权所有。"
   # hub
   hub_search_placeholder: "搜索器件、模型、设计、工具、工作流…"
