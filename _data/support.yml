@@ -1,0 +1,58 @@
+# Support AIPE page (/support/, /zh/support/), rendered by _layouts/support.html.
+#
+# buy_me_a_coffee_url: the official AIPE Buy Me a Coffee page. Leave it empty until that page exists;
+# the Support Development card then says "Coming soon" and shows no payment button. When set it must
+# be an https://buymeacoffee.com/… or https://www.buymeacoffee.com/… URL (tests/test_support.py).
+# The site never processes payments itself.
+buy_me_a_coffee_url: ""
+
+title: {en: Support AIPE, zh: 支持 AIPE}
+intro:
+  en: "Support the development of open engineering knowledge, tools and AI-assisted workflows."
+  zh: "支持开放工程知识、工具与 AI 辅助工作流的持续发展。"
+coming_soon: {en: Coming soon, zh: 即将推出}
+planned: {en: Planned, zh: 计划中}
+
+development:
+  title: {en: Support Development, zh: 支持开发}
+  text:
+    en: "AIPE is developed and maintained by AIPE Labs at Spirit Connect Ltd. Voluntary financial support helps cover hosting and the time spent maintaining and extending AIPE's open lessons, data, models and tools."
+    zh: "AIPE 由 Spirit Connect Ltd 旗下的 AIPE Labs 开发和维护。自愿的资金支持可以帮助承担网站托管费用，以及维护和扩展 AIPE 开放课程、数据、模型与工具所需的时间。"
+  pending:
+    en: "A Buy Me a Coffee page is being prepared and is not open yet. Until it is, contributing on GitHub is the best way to help."
+    zh: "Buy Me a Coffee 页面正在准备中，尚未开放。在此之前，在 GitHub 上参与贡献是最好的支持方式。"
+  action: {en: Support on Buy Me a Coffee, zh: 在 Buy Me a Coffee 上支持}
+  note:
+    en: "AIPE is not a registered charity. Support payments are voluntary contributions, not charitable donations, and are not tax-deductible."
+    zh: "AIPE 不是注册慈善机构。支持款项属于自愿付款，不是慈善捐赠，也不能抵扣税款。"
+
+contribute:
+  title: {en: Contribute to AIPE, zh: 参与贡献}
+  text:
+    en: "You can also support AIPE by contributing your expertise:"
+    zh: "你也可以贡献专业知识来支持 AIPE："
+  ways:
+    - {en: Code and tools, zh: 代码与工具}
+    - {en: Documentation and lessons, zh: 文档与课程}
+    - {en: Engineering data and models, zh: 工程数据与模型}
+    - {en: Testing and feedback, zh: 测试与反馈}
+  # Verified public GitHub entry points.
+  links:
+    - url: https://github.com/FulongLi/Spirit-Connect-AIPE-Labs
+      label: {en: AIPE website repository, zh: AIPE 网站仓库}
+    - url: https://github.com/FulongLi/Spirit-Connect-AIPE-Labs/issues
+      label: {en: Report an issue or give feedback, zh: 提交问题或反馈}
+    - url: https://github.com/AIPE-Labs
+      label: {en: AIPE Labs on GitHub, zh: GitHub 上的 AIPE Labs}
+
+shop:
+  title: {en: AIPE Shop, zh: AIPE 商店}
+  text:
+    en: "AIPE and Spirit Connect merchandise is planned: T-shirts, mugs, pens and other branded accessories. Nothing is on sale yet."
+    zh: "我们计划推出 AIPE 与 Spirit Connect 周边：T 恤、马克杯、笔及其他品牌配件。目前尚未开售。"
+
+more:
+  en: "Other ways to help: share AIPE with a colleague, subscribe to updates or get in touch."
+  zh: "其他支持方式：把 AIPE 分享给同事、订阅更新，或与我们联系。"
+more_subscribe: {en: Subscribe, zh: 订阅更新}
+more_contact: {en: Contact Us, zh: 联系我们}

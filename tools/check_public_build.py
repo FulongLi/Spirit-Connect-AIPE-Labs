@@ -1,6 +1,6 @@
 """Verify that Jekyll publishes raw Registry endpoints, every stable lesson URL, every Frontiers topic,
 the four Academy subject pages, the Academy legacy redirects, the lesson-page academic references,
-the Academia landing pages and main menu, the About partner logos and the newsletter subscription pages."""
+the Academia landing pages and main menu, the About partner logos, the Support AIPE pages and the newsletter subscription pages."""
 import hashlib
 import json
 from pathlib import Path
@@ -89,6 +89,23 @@ for prefix in ("", "/zh"):
     for partner in partners:
         if f'/images/general/{partner["image"]}"' not in about:
             raise SystemExit(f"About page lacks the {partner['alt_en']} logo: {prefix}/company/about/")
+# Support AIPE renders in both languages with its three areas; no payment link until one is configured.
+support = yaml.safe_load((root/"_data/support.yml").read_text(encoding="utf-8"))
+for prefix in ("", "/zh"):
+    rendered = (site/(prefix + "/support/").strip("/")/"index.html").read_text(encoding="utf-8")
+    if "<h1>" not in rendered or "{%" in rendered:
+        raise SystemExit(f"Unrendered Support page: {prefix}/support/")
+    for area in ('id="development"', 'id="contribute"', 'id="shop"'):
+        if area not in rendered:
+            raise SystemExit(f"Support page lacks {area}: {prefix}/support/")
+    if not support["buy_me_a_coffee_url"] and "buymeacoffee.com" in rendered:
+        raise SystemExit(f"Support page links a payment page that is not configured: {prefix}/support/")
+    for link in support["contribute"]["links"]:
+        if f'href="{link["url"]}"' not in rendered:
+            raise SystemExit(f"Support page lacks the contribution link {link['url']}")
+    main_menu = (site/prefix.strip("/")/"index.html").read_text(encoding="utf-8").split('id="mainmenu"', 1)[1].split("</nav>", 1)[0]
+    if f'href="{prefix}/support/"' not in main_menu:
+        raise SystemExit(f"Main menu lacks {prefix}/support/")
 # Team and Careers are unpublished: no links to them, their URLs redirect and the sitemap omits them.
 sitemap = (site/"sitemap.xml").read_text(encoding="utf-8")
 site_url = yaml.safe_load((root/"_config.yml").read_text(encoding="utf-8"))["url"]
@@ -109,4 +126,4 @@ for url, target in (("/aipe/", "/aipe.md"), ("/legacy/aipe-resource-index-v0/", 
         raise SystemExit(f"Raw Markdown endpoint missing: {target}")
     if f'url={target}"' not in (site/url.strip("/")/"index.html").read_text(encoding="utf-8"):
         raise SystemExit(f"{url} does not redirect to the raw endpoint {target}")
-print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects, Frontiers URLs, Academia pages and main menu, About partners, subscription pages and the Company and Markdown-endpoint redirects verified")
+print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects, Frontiers URLs, Academia pages and main menu, About partners, Support pages, subscription pages and the Company and Markdown-endpoint redirects verified")

@@ -1692,6 +1692,23 @@ img { max-width: 100%; height: auto; }
 .academia-section .academia-library { margin-top: .6rem; }
 @media(max-width:700px) { .academia-grid { grid-template-columns: 1fr; } }
 
+/* Support AIPE */
+.support-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; align-items: stretch; }
+.support-card { display: flex; flex-direction: column; gap: .9rem; min-width: 0; padding: 1.6rem; background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); }
+.support-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: .75rem; }
+.support-card h2 { margin: 0; font: 750 1.3rem/1.2 var(--font-display); letter-spacing: -.015em; }
+.section .support-card p { margin: 0; color: var(--fg-dim); font-size: .94rem; line-height: 1.6; }
+.section .support-card p.support-pending { color: var(--fg); font-weight: 550; }
+.section .support-card p.support-note { margin-top: auto; padding-top: .9rem; border-top: 1px solid var(--border); color: var(--muted); font-size: .82rem; }
+.support-action { align-self: flex-start; }
+.support-ways, .support-links { margin: 0; padding: 0; list-style: none; }
+.support-ways { display: flex; flex-wrap: wrap; gap: .4rem; }
+.support-ways li { padding: .25rem .7rem; border: 1px solid var(--border); border-radius: var(--pill); color: var(--fg-dim); font-size: .82rem; }
+.support-links { display: flex; flex-direction: column; gap: .45rem; margin-top: auto; padding-top: .4rem; }
+.section .support-links a { font-weight: 700; font-size: .92rem; }
+.support-section .support-more { text-align: center; }
+@media(max-width:960px) { .support-grid { grid-template-columns: 1fr; max-width: 640px; margin: 0 auto; } }
+
 /* Hub project cards */
 .hub-project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 1rem; }
 .hub-project-card {

@@ -1,4 +1,4 @@
-"""Static checks for the site's information architecture: Academia | Industry | Plugin in both languages.
+"""Static checks for the site's information architecture: Academia | Industry | Plugin | Support AIPE.
 
 Academia gathers Research (AIPE Frontiers, /frontiers/) and Education (AIPE Academy, /academy/).
 Industry is the public name of the Hub; its /hub/ URLs, categories and Registry data are unchanged.
@@ -18,6 +18,7 @@ LABELS = {
     "nav_education": ("Education", "教育"),
     "nav_hub": ("Industry", "产业"),
     "nav_plugin": ("Plugin", "插件"),
+    "nav_support": ("Support AIPE", "支持 AIPE"),
 }
 
 
@@ -41,7 +42,7 @@ class MainNavigation(unittest.TestCase):
 
     def test_top_level_order(self):
         labels = re.findall(r'class="(?:drop-label|nav-direct)" href="[^"]*">\{\{ t\.(\w+) \}\}', self.menu)
-        self.assertEqual(labels[:3], ["nav_academia", "nav_hub", "nav_plugin"])
+        self.assertEqual(labels, ["nav_academia", "nav_hub", "nav_plugin", "nav_support"])
 
     def test_academia_dropdown_leads_to_research_and_education(self):
         academia = self.menu.split("t.nav_academia", 1)[1].split('<div class="dropdown">', 1)[0]
