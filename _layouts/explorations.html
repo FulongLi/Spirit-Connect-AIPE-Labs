@@ -19,6 +19,9 @@ layout: default
 {%- assign hypotheses = entries.size | minus: validated.size | minus: refuted.size -%}
 <header class="explorations-hero">
   <div class="container">
+    <nav class="hub-breadcrumb" aria-label="{% if lang == 'zh' %}位置{% else %}Breadcrumb{% endif %}">
+      <a href="{{ lp | append: '/academia/' | relative_url }}">{{ t.nav_academia }}</a><span aria-hidden="true">/</span><span>{{ t.nav_research }}</span>
+    </nav>
     <span class="section-kicker">{{ t.explorations_kicker }}</span>
     <h1>{{ ex.tagline[lang] }}</h1>
     <p class="lead">{{ ex.description[lang] }}</p>

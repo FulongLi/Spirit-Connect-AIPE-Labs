@@ -1,0 +1,43 @@
+---
+layout: default
+---
+{%- comment -%}
+  Academia landing page: /academia/ and /zh/academia/. Two cards lead to existing sections:
+  Research (AIPE Frontiers, /frontiers/) and Education (AIPE Academy, /academy/). Text comes from
+  _data/presentation.yml (academia); the Blog stays linked as the article library.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'en' -%}
+{%- if lang == 'zh' -%}{%- assign lp = '/zh' -%}{%- else -%}{%- assign lp = '' -%}{%- endif -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign ac = site.data.presentation.academia -%}
+{%- assign topic_count = site.explorations | where: "lang", lang | size -%}
+<header class="hub-hero academia-hero">
+  <div class="container">
+    <span class="section-kicker">AIPE {{ ac.title[lang] }}</span>
+    <h1>{{ ac.heading[lang] }}</h1>
+    <p class="lead">{{ ac.intro[lang] }}</p>
+  </div>
+</header>
+
+<section class="section academia-section">
+  <div class="container">
+    <div class="hub-category-grid academia-grid">
+      <a class="hub-category-card academia-card" id="research" href="{{ lp | append: '/frontiers/' | relative_url }}">
+        <span class="hub-category-index">{{ ac.research.brand[lang] }}</span>
+        <h3>{{ t.nav_research }}</h3>
+        <p>{{ ac.research.text[lang] }}</p>
+        <p class="academia-fact"><strong>{{ topic_count }}</strong> {{ ac.research.fact[lang] }}</p>
+        <span class="hub-category-more">{{ ac.research.action[lang] }} →</span>
+      </a>
+      <a class="hub-category-card academia-card" id="education" href="{{ lp | append: '/academy/' | relative_url }}">
+        <span class="hub-category-index">{{ ac.education.brand[lang] }}</span>
+        <h3>{{ t.nav_education }}</h3>
+        <p>{{ ac.education.text[lang] }}</p>
+        <p class="academia-fact"><strong>{{ site.data.academy.stages.size }}</strong> {{ ac.education.fact[lang] }}</p>
+        <span class="hub-category-more">{{ ac.education.action[lang] }} →</span>
+      </a>
+    </div>
+    <p class="hub-note">{{ ac.evidence_note[lang] }}</p>
+    <p class="hub-note academia-library">{{ ac.library_note[lang] }} <a href="{{ lp | append: '/resources/blog/' | relative_url }}">{{ t.nav_article_library }}</a>{% if lang == 'zh' %}。{% else %}.{% endif %}</p>
+  </div>
+</section>

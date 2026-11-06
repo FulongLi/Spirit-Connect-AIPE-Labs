@@ -1,6 +1,6 @@
 ---
 layout: hub
-title: Workflows — AIPE Hub
+title: Workflows — AIPE Industry
 lang: en
 permalink: /hub/workflows/
 hub_category: workflows

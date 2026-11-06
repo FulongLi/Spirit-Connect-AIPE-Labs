@@ -114,7 +114,7 @@ Useful contributions at this stage:
 - measured output- or input-impedance data from real DC converters, with test conditions;
 - a first averaged model of a small network that others can rerun.
 
-Use the links at the end of this page to discuss the question or suggest a change. Contributed models and data will be linked from the evidence record with their own limitations, and reusable parts will be offered to the [AIPE Hub]({{ '/hub/' | relative_url }}).
+Use the links at the end of this page to discuss the question or suggest a change. Contributed models and data will be linked from the evidence record with their own limitations, and reusable parts will be offered to the [AIPE Industry]({{ '/hub/' | relative_url }}).
 
 ### References
 

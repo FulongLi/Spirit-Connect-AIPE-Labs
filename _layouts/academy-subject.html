@@ -57,7 +57,7 @@ layout: default
 <header class="academy-hero academy-subject-hero" style="--subject-color: {{ stage.color }}">
   <div class="container">
     <nav class="hub-breadcrumb" aria-label="{% if lang == 'zh' %}位置{% else %}Breadcrumb{% endif %}">
-      <a href="{{ lp | append: '/academy/' | relative_url }}">{{ t.nav_academy }}</a><span aria-hidden="true">/</span><span>{{ stage.title[lang] }}</span>
+      <a href="{{ lp | append: '/academia/' | relative_url }}">{{ t.nav_academia }}</a><span aria-hidden="true">/</span><a href="{{ lp | append: '/academy/' | relative_url }}">{{ t.nav_education }}</a><span aria-hidden="true">/</span><span>{{ stage.title[lang] }}</span>
     </nav>
     <span class="section-kicker">{{ t.nav_academy }} · {{ stage.number }}</span>
     <h1>{{ stage.title[lang] }}</h1>

@@ -4,7 +4,13 @@
 
 en:
   # nav
-  nav_hub: "Hub"
+  # Main navigation: Academia (Research = Frontiers, Education = Academy) | Industry (the Hub) | Plugin | Support AIPE.
+  # nav_hub labels the Hub section, published under the Industry name; its /hub/ URLs are unchanged.
+  nav_hub: "Industry"
+  nav_academia: "Academia"
+  nav_research: "Research"
+  nav_education: "Education"
+  nav_article_library: "Technical Article Library"
   nav_engineering: "Engineering"
   nav_plugin: "Plugin"
   nav_articles: "Engineering articles"
@@ -20,8 +26,8 @@ en:
   # footer
   footer_tagline: "Closing the AI–power design loop."
   footer_location: "Cardiff, United Kingdom"
-  footer_hub: "Hub"
-  footer_learn: "Learn & Explore"
+  footer_hub: "Industry"
+  footer_learn: "Academia"
   footer_company: "Company"
   footer_legal: "Legal"
   footer_about: "About"
@@ -59,7 +65,7 @@ en:
   newsletter_unsubscribed: "You have been unsubscribed and will receive no further AIPE Updates."
   newsletter_expect_title: "What each issue covers"
   newsletter_sections:
-    - {title: "New Engineering Tools", text: "Data, models, agents and tools added to the AIPE Hub."}
+    - {title: "New Engineering Tools", text: "Data, models, agents and tools added to AIPE Industry."}
     - {title: "Research & Frontiers", text: "Open questions and evidence updates from AIPE Frontiers."}
     - {title: "AIPE Development Updates", text: "Academy lessons, Plugin releases and platform changes."}
   newsletter_frequency: "We aim for a monthly issue and send one only when there is something worth reading."
@@ -115,7 +121,7 @@ en:
   academy_prerequisites: "Prerequisites:"
   academy_continue: "Continue:"
   academy_map: "Academy learning map"
-  academy_hub_labs: "Workflows in the Hub"
+  academy_hub_labs: "Workflows in Industry"
   academy_articles_title: "Articles for this stage"
   academy_types:
     stage: "Stage"
@@ -205,9 +211,9 @@ en:
   explorations_is: "Is"
   explorations_is_not: "Is not"
   explorations_hub_kicker: "From question to artifact"
-  explorations_hub_title: "Frontiers explain the research. The Hub holds what it produces."
-  explorations_hub_intro: "When an investigation produces a dataset, model, design, tool or workflow that others can reuse, it is published to the AIPE Hub with its own maturity. Publication never marks an artifact as validated; the Frontiers topic keeps the reasoning, limitations and evidence behind it."
-  explorations_hub_link: "Explore the Hub"
+  explorations_hub_title: "Research explains the question. Industry holds what it produces."
+  explorations_hub_intro: "When an investigation produces a dataset, model, design, tool or workflow that others can reuse, it is published to AIPE Industry with its own maturity. Publication never marks an artifact as validated; the Frontiers topic keeps the reasoning, limitations and evidence behind it."
+  explorations_hub_link: "Explore Industry"
   explorations_contribute_kicker: "Contribute to Frontiers"
   explorations_contribute_title: "Review it, challenge it, extend it."
   explorations_contribute_intro: "Every topic is a Markdown file in the website's public repository, written to a shared template. Suggest changes on GitHub, or contact us to collaborate on a larger investigation."
@@ -235,7 +241,7 @@ en:
   explorations_reviewer: "Reviewer"
   explorations_ai_note_title: "How this page was prepared."
   explorations_other_status: "How statuses work →"
-  explorations_hub_heading: "Related Hub artifacts"
+  explorations_hub_heading: "Related Industry artifacts"
   explorations_hub_uses: "Could support this investigation"
   explorations_hub_produces: "Produced by this investigation"
   explorations_hub_note: "Each card shows the artifact's own maturity. Being linked from a Frontiers topic does not change it."
@@ -244,13 +250,17 @@ en:
   explorations_discuss: "Discuss on GitHub"
   explorations_back: "← All Frontiers topics"
   explorations_hub_section_kicker: "Research behind the artifacts"
-  explorations_hub_section_title: "Open questions that draw on the Hub"
-  explorations_hub_section_intro: "Frontiers topics investigate ideas that are not yet established. These link to Hub artifacts they could use or have produced; an artifact's maturity is never raised by the link."
+  explorations_hub_section_title: "Open questions that draw on Industry resources"
+  explorations_hub_section_intro: "Frontiers topics investigate ideas that are not yet established. These link to Industry artifacts they could use or have produced; an artifact's maturity is never raised by the link."
   explorations_in_domain: "Frontiers"
 
 zh:
   # nav
-  nav_hub: "Hub"
+  nav_hub: "产业"
+  nav_academia: "学术"
+  nav_research: "研究"
+  nav_education: "教育"
+  nav_article_library: "技术文章库"
   nav_engineering: "工程领域"
   nav_plugin: "插件"
   nav_articles: "工程文章"
@@ -266,8 +276,8 @@ zh:
   # footer
   footer_tagline: "连接 AI 与电力设计闭环。"
   footer_location: "英国卡迪夫"
-  footer_hub: "Hub"
-  footer_learn: "学习与探索"
+  footer_hub: "产业"
+  footer_learn: "学术"
   footer_company: "公司"
   footer_legal: "法律"
   footer_about: "关于我们"
@@ -304,7 +314,7 @@ zh:
   newsletter_unsubscribed: "你已退订，今后不会再收到 AIPE 动态。"
   newsletter_expect_title: "每期内容"
   newsletter_sections:
-    - {title: "新的工程工具", text: "AIPE Hub 新增的数据、模型、智能体与工具。"}
+    - {title: "新的工程工具", text: "AIPE 产业板块新增的数据、模型、智能体与工具。"}
     - {title: "研究与前沿", text: "来自 AIPE 前沿研究的开放问题与证据更新。"}
     - {title: "AIPE 开发动态", text: "学院课程、插件发布与平台更新。"}
   newsletter_frequency: "我们计划每月一期，只在有值得阅读的内容时发送。"
@@ -360,7 +370,7 @@ zh:
   academy_prerequisites: "先修："
   academy_continue: "继续学习："
   academy_map: "学院学习地图"
-  academy_hub_labs: "Hub 中的工作流"
+  academy_hub_labs: "产业板块中的工作流"
   academy_articles_title: "本阶段相关文章"
   academy_types:
     stage: "阶段概览"
@@ -450,9 +460,9 @@ zh:
   explorations_is: "是"
   explorations_is_not: "不是"
   explorations_hub_kicker: "从问题到产物"
-  explorations_hub_title: "前沿研究解释研究过程，Hub 收录研究成果。"
-  explorations_hub_intro: "当一项研究产生了可供他人复用的数据集、模型、设计、工具或工作流时，它会以自身的成熟度发布到 AIPE Hub。发布到 Hub 并不意味着已获验证；其背后的推理、局限与证据保留在对应的前沿研究课题中。"
-  explorations_hub_link: "浏览 Hub"
+  explorations_hub_title: "研究解释问题，产业板块收录研究成果。"
+  explorations_hub_intro: "当一项研究产生了可供他人复用的数据集、模型、设计、工具或工作流时，它会以自身的成熟度发布到 AIPE 产业板块。发布并不意味着已获验证；其背后的推理、局限与证据保留在对应的前沿研究课题中。"
+  explorations_hub_link: "浏览产业资源"
   explorations_contribute_kicker: "参与前沿研究"
   explorations_contribute_title: "评审、质疑、推进。"
   explorations_contribute_intro: "每个课题都是网站公开仓库中的一个 Markdown 文件，遵循统一模板。你可以在 GitHub 上提出修改，或联系我们合作开展更大规模的研究。"
@@ -480,7 +490,7 @@ zh:
   explorations_reviewer: "评审人"
   explorations_ai_note_title: "本页的撰写方式。"
   explorations_other_status: "了解状态含义 →"
-  explorations_hub_heading: "相关 Hub 产物"
+  explorations_hub_heading: "相关产业资源"
   explorations_hub_uses: "可支持本研究"
   explorations_hub_produces: "本研究产生"
   explorations_hub_note: "每张卡片显示该产物自身的成熟度，被前沿研究课题引用不会改变它。"
@@ -489,6 +499,6 @@ zh:
   explorations_discuss: "在 GitHub 讨论"
   explorations_back: "← 全部前沿研究"
   explorations_hub_section_kicker: "产物背后的研究"
-  explorations_hub_section_title: "引用 Hub 产物的开放问题"
-  explorations_hub_section_intro: "前沿研究探讨的是尚未确立的想法。以下课题链接了它们可能使用或已经产生的 Hub 产物；这种链接不会提升产物的成熟度。"
+  explorations_hub_section_title: "引用产业资源的开放问题"
+  explorations_hub_section_intro: "前沿研究探讨的是尚未确立的想法。以下课题链接了它们可能使用或已经产生的产业资源；这种链接不会提升产物的成熟度。"
   explorations_in_domain: "前沿研究"

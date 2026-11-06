@@ -4,8 +4,9 @@
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-enabled-brightgreen)](https://pages.github.com/)
 
 AIPE - **AI for Power Engineering** - is the open engineering platform for power and energy built around
-three parts: **Learn** established knowledge in AIPE Academy, **Build** with reusable data, models,
-designs, tools and labs in AIPE Hub, and **Explore** open research questions in AIPE Frontiers. This
+two domains: **Academia** — Education (established knowledge in AIPE Academy) and Research (open
+research questions in AIPE Frontiers) — and **Industry** (reusable data, models, tools and workflows, served
+from the `/hub/` pages), with the AIPE Plugin connecting coding agents to them. This
 repository is the human-facing presentation layer of that ecosystem (Registry id `aipe.presentation`): a
 Jekyll site that publishes [aipel.co.uk](https://aipel.co.uk/) together with the Registry's
 agent-readable (`aipe.md`) and machine-readable (`aipe.json`) endpoints. It does not implement the
@@ -13,11 +14,11 @@ databases, agents or tools; each lives in its own repository and stays the sourc
 
 ## Features
 
-- Hub, Engineering, Academy and Frontiers sections with English and Chinese mirrors, in-page tabs and
+- Academia (Research, Education), Industry, Engineering and Plugin sections with English and Chinese mirrors, in-page tabs and
   stable redirects from superseded URLs
 - Academy lessons, knowledge graph and academic references published from a pinned AIPE Academy revision
   (hash-locked and generated, never hand-edited)
-- Hub project cards driven by `_data/hub.yml`, with detailed metadata left to the Registry;
+- Industry (Hub) project cards driven by `_data/hub.yml`, with detailed metadata left to the Registry;
   `aipe.md` / `aipe.json` served unchanged
 - Frontiers topics carry an evidence status that the build checks against the recorded evidence, so
   hypotheses are never shown as results

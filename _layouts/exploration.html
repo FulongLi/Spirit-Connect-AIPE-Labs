@@ -16,7 +16,7 @@ layout: default
 <header class="hero hero-compact exploration-hero">
   <div class="container">
     <nav class="hub-breadcrumb" aria-label="{% if lang == 'zh' %}位置{% else %}Breadcrumb{% endif %}">
-      <a href="{{ lp | append: '/frontiers/' | relative_url }}">{{ t.nav_explorations }}</a><span aria-hidden="true">/</span>{% include exploration-status.html status=page.status lang=lang %}
+      <a href="{{ lp | append: '/academia/' | relative_url }}">{{ t.nav_academia }}</a><span aria-hidden="true">/</span><a href="{{ lp | append: '/frontiers/' | relative_url }}">{{ t.nav_research }}</a><span aria-hidden="true">/</span>{% include exploration-status.html status=page.status lang=lang %}
     </nav>
     <h1>{{ page.title }}</h1>
     <p class="exploration-question">{{ page.question }}</p>

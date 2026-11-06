@@ -1,6 +1,6 @@
 ---
 layout: hub
-title: Tools & Agents — AIPE Hub
+title: Tools & Agents — AIPE Industry
 lang: en
 permalink: /hub/tools/
 hub_category: tools
