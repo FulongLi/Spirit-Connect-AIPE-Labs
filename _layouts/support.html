@@ -1,0 +1,63 @@
+---
+layout: default
+---
+{%- comment -%}
+  Support AIPE: /support/ and /zh/support/. Copy and links come from _data/support.yml.
+  Financial support is a placeholder until buy_me_a_coffee_url is configured; the site
+  never processes payments. The AIPE Shop is a "Coming soon" note only.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'en' -%}
+{%- if lang == 'zh' -%}{%- assign lp = '/zh' -%}{%- else -%}{%- assign lp = '' -%}{%- endif -%}
+{%- assign sp = site.data.support -%}
+{%- assign coffee = sp.buy_me_a_coffee_url | default: '' | strip -%}
+<header class="hub-hero support-hero">
+  <div class="container">
+    <span class="section-kicker">AIPE</span>
+    <h1>{{ sp.title[lang] }}</h1>
+    <p class="lead">{{ sp.intro[lang] }}</p>
+  </div>
+</header>
+
+<section class="section support-section">
+  <div class="container">
+    <div class="support-grid">
+      <article class="support-card" id="development" aria-labelledby="support-development-title">
+        <div class="support-card-head">
+          <h2 id="support-development-title">{{ sp.development.title[lang] }}</h2>
+          {%- if coffee == '' %}<span class="status-badge status-planned">{{ sp.coming_soon[lang] }}</span>{% endif %}
+        </div>
+        <p>{{ sp.development.text[lang] }}</p>
+        {%- if coffee == '' %}
+        <p class="support-pending">{{ sp.development.pending[lang] }}</p>
+        {%- else %}
+        <a class="btn btn-primary support-action" href="{{ coffee }}" target="_blank" rel="noopener">{{ sp.development.action[lang] }} ↗</a>
+        {%- endif %}
+        <p class="support-note">{{ sp.development.note[lang] }}</p>
+      </article>
+
+      <article class="support-card" id="contribute" aria-labelledby="support-contribute-title">
+        <div class="support-card-head"><h2 id="support-contribute-title">{{ sp.contribute.title[lang] }}</h2></div>
+        <p>{{ sp.contribute.text[lang] }}</p>
+        <ul class="support-ways">
+          {%- for way in sp.contribute.ways %}
+          <li>{{ way[lang] }}</li>
+          {%- endfor %}
+        </ul>
+        <ul class="support-links">
+          {%- for link in sp.contribute.links %}
+          <li><a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label[lang] }} ↗</a></li>
+          {%- endfor %}
+        </ul>
+      </article>
+
+      <article class="support-card" id="shop" aria-labelledby="support-shop-title">
+        <div class="support-card-head">
+          <h2 id="support-shop-title">{{ sp.shop.title[lang] }}</h2>
+          <span class="status-badge status-planned">{{ sp.coming_soon[lang] }}</span>
+        </div>
+        <p>{{ sp.shop.text[lang] }}</p>
+      </article>
+    </div>
+    <p class="hub-note support-more">{{ sp.more[lang] }} <a href="{{ lp | append: '/subscribe/' | relative_url }}">{{ sp.more_subscribe[lang] }}</a> · <a href="{{ lp | append: '/contact/' | relative_url }}">{{ sp.more_contact[lang] }}</a></p>
+  </div>
+</section>

@@ -4,13 +4,14 @@
 
 en:
   # nav
-  # Main navigation: Academia (Research = Frontiers, Education = Academy) | Industry (the Hub) | Plugin | Support AIPE.
+  # Main navigation: Academia (Research = Frontiers, Education = Academy) | Industry (the Hub) | Plugin | Support AIPE (/support/).
   # nav_hub labels the Hub section, published under the Industry name; its /hub/ URLs are unchanged.
   nav_hub: "Industry"
   nav_academia: "Academia"
   nav_research: "Research"
   nav_education: "Education"
   nav_article_library: "Technical Article Library"
+  nav_support: "Support AIPE"
   nav_engineering: "Engineering"
   nav_plugin: "Plugin"
   nav_articles: "Engineering articles"
@@ -261,6 +262,7 @@ zh:
   nav_research: "研究"
   nav_education: "教育"
   nav_article_library: "技术文章库"
+  nav_support: "支持 AIPE"
   nav_engineering: "工程领域"
   nav_plugin: "插件"
   nav_articles: "工程文章"
