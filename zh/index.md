@@ -23,7 +23,7 @@ image: /images/background/sst.png
     <p class="lead">发现、分享并运行工程数据、模型、设计与 AI 工作流。</p>
     {% include hub-search.html lang='zh' id='home' suggestions=true %}
     <dl class="home-stats">
-      <div><dt>Hub 产物</dt><dd><a href="{{ '/zh/hub/' | relative_url }}">{{ hub_count }}</a></dd></div>
+      <div><dt>产业资源</dt><dd><a href="{{ '/zh/hub/' | relative_url }}">{{ hub_count }}</a></dd></div>
       <div><dt>学院课程</dt><dd><a href="{{ '/zh/academy/' | relative_url }}">{{ lesson_count }}</a></dd></div>
       <div><dt>工程文章</dt><dd><a href="{{ '/zh/resources/blog/' | relative_url }}">{{ article_count }}</a></dd></div>
       <div><dt>工程领域</dt><dd><a href="{{ '/zh/engineering/' | relative_url }}">{{ hub.domains.size }}</a></dd></div>
@@ -40,25 +40,25 @@ image: /images/background/sst.png
     </div>
     <ol class="home-pillars" aria-label="AIPE 的三个组成部分">
       <li class="home-pillar">
-        <span class="home-pillar-verb">LEARN</span>
-        <h3>AIPE 学院</h3>
-        <p>系统学习已确立的工程知识，从基本原理到高级电力工程。</p>
+        <span class="home-pillar-verb">LEARN · 学术</span>
+        <h3>教育</h3>
+        <p>在 AIPE 学院系统学习已确立的工程知识，从基本原理到高级电力工程。</p>
         <p class="home-pillar-fact"><strong>{{ lesson_count }}</strong> 门课程，分阶段学习路径，配有开放实验</p>
-        <a class="btn btn-primary" href="{{ '/zh/academy/' | relative_url }}">进入学院 →</a>
+        <a class="btn btn-primary" href="{{ '/zh/academy/' | relative_url }}">进入教育 →</a>
       </li>
       <li class="home-pillar">
-        <span class="home-pillar-verb">BUILD</span>
-        <h3>AIPE Hub</h3>
-        <p>发现并使用开放的工程数据、模型、设计、工具与工作流，构建真实应用。</p>
-        <p class="home-pillar-fact"><strong>{{ hub_count }}</strong> 项 Hub 产物，均标明成熟度</p>
-        <a class="btn btn-primary" href="{{ '/zh/hub/' | relative_url }}">进入 Hub →</a>
+        <span class="home-pillar-verb">BUILD · 产业</span>
+        <h3>产业</h3>
+        <p>发现并使用开放的工程数据、模型、工具与工作流，构建真实应用。</p>
+        <p class="home-pillar-fact"><strong>{{ hub_count }}</strong> 项产业资源，均标明成熟度</p>
+        <a class="btn btn-primary" href="{{ '/zh/hub/' | relative_url }}">进入产业 →</a>
       </li>
       <li class="home-pillar">
-        <span class="home-pillar-verb">EXPLORE</span>
-        <h3>AIPE 前沿研究</h3>
-        <p>探索工程的未来可能：新兴概念、理论可能与非常规方法。</p>
+        <span class="home-pillar-verb">EXPLORE · 学术</span>
+        <h3>研究</h3>
+        <p>在 AIPE 前沿研究中探索工程的未来可能：新兴概念、理论可能与非常规方法。</p>
         <p class="home-pillar-fact"><strong>{{ topic_count }}</strong> 个研究课题，均标明证据状态</p>
-        <a class="btn btn-primary" href="{{ '/zh/frontiers/' | relative_url }}">进入前沿研究 →</a>
+        <a class="btn btn-primary" href="{{ '/zh/frontiers/' | relative_url }}">进入研究 →</a>
       </li>
     </ol>
   </div>
@@ -85,34 +85,5 @@ image: /images/background/sst.png
       <p>AI 帮助工程师设计更好的电力与能源系统，而这些系统又为下一代 AI 提供能源。每一个以开放方式完成学习、设计与验证的项目，都会为下一个项目留下更好的数据、模型与设计。</p>
     </div>
     {% include design-loop.html lang='zh' %}
-  </div>
-</section>
-
-<section class="section collaboration-section">
-  <div class="container collaboration-layout">
-    <div>
-      <h2>开放构建，也要足够有野心</h2>
-      <p class="lead">
-        我们欢迎希望发布或改进产物的开发者、希望把方法与数据集转化为可复用工作流的研究者，
-        以及共同打造下一代 AI 辅助电力工程的企业和战略合作伙伴。
-      </p>
-      <div class="hero-actions align-left">
-        <a class="btn btn-primary" href="{{ '/zh/contact/' | relative_url }}">讨论合作</a>
-        <a class="btn btn-ghost" href="https://github.com/AIPE-Labs" target="_blank" rel="noopener">查看开源项目 ↗</a>
-      </div>
-    </div>
-    <div class="collaboration-list">
-      <div><span>01</span><p><strong>开发者</strong><br>发布或改进数据集、模型、设计或工具，让其他工程师和他们的智能体都能找到并复用。</p></div>
-      <div><span>02</span><p><strong>科研伙伴</strong><br>把方法与数据集转化为可重复、可追溯证据的工作流。</p></div>
-      <div><span>03</span><p><strong>产业与战略伙伴</strong><br>用真实工程问题验证平台，并共同塑造它。</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt partners-section">
-  <div class="container">
-    <h2>合作伙伴</h2>
-    <p>连接人工智能、电力电子与能源系统研究的学术和产业合作关系。</p>
-    {% include partners-marquee.html %}
   </div>
 </section>

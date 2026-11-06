@@ -42,7 +42,27 @@ layout: default
   </div>
 </section>
 
-<section class="section home-invitation">
+<section class="section about-partners" id="partners">
+  <div class="container">
+    <div class="about-split">
+      <div><span class="section-kicker">{{ about.partners_kicker[lang] }}</span><h2>{{ about.partners_title[lang] }}</h2></div>
+      <div>
+        <p>{{ about.partners_intro[lang] }}</p>
+        <ol class="about-scales about-collaborators">
+          {% for group in about.collaborators %}<li><span>0{{ forloop.index }}</span><div><h3>{{ group.title[lang] }}</h3><p>{{ group.text[lang] }}</p></div></li>{% endfor %}
+        </ol>
+        <p class="about-collaborate">{{ about.collaborate_invite[lang] }}</p>
+        <div class="hero-actions align-left">
+          <a class="btn btn-primary" href="{{ lp | append: '/contact/' | relative_url }}">{{ about.collaborate_action[lang] }}</a>
+          <a class="btn btn-ghost" href="https://github.com/AIPE-Labs" target="_blank" rel="noopener">{{ about.collaborate_github[lang] }} ↗</a>
+        </div>
+      </div>
+    </div>
+    {% include partners-marquee.html %}
+  </div>
+</section>
+
+<section class="section section-alt home-invitation">
   <div class="container invitation-layout"><div><h2>{{ about.contact_title[lang] }}</h2><p>{{ about.contact_intro[lang] }}</p></div><a class="btn btn-primary" href="{{ lp | append: '/contact/' | relative_url }}">{{ about.contact_action[lang] }}</a></div>
 </section>
 

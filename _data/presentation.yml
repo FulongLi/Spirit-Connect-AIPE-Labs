@@ -30,9 +30,28 @@ about:
   loop_intro:
     en: "AIPE began as AI for Power Electronics and has grown towards the wider field of power engineering. Our long-term aim is a shared foundation that people and their AI tools can use and improve. Each contribution of knowledge, data or practical experience gives the next project a better starting point."
     zh: "AIPE 从 AI for Power Electronics 起步，逐步拓展到更广泛的电力工程领域。我们希望建立一个人与 AI 工具都能使用和完善的共享基础，让每一次知识、数据和实践经验的贡献，都成为后续工作的更好起点。"
-  contact_title: {en: Let's build the next part together., zh: 一起继续向前。}
-  contact_intro: {en: "We welcome engineers, researchers and organisations who want to contribute to open power engineering.", zh: "欢迎工程师、研究者和企业参与开放电力工程的建设。"}
-  contact_action: {en: Get in touch, zh: 联系我们}
+  # Partners & Collaborations, moved from the homepage. Logos come from _data/partners.yml via
+  # _includes/partners-marquee.html; this is the page's one collaboration invitation.
+  partners_kicker: {en: Partners & Collaborations, zh: 合作伙伴与协作}
+  partners_title: {en: "Built in the open, with academic and industrial partners.", zh: "开放构建，与学术和产业伙伴同行。"}
+  partners_intro:
+    en: "Academic and industrial relationships support our work across AI, power electronics and energy systems."
+    zh: "学术与产业合作关系支撑着我们在人工智能、电力电子与能源系统方面的工作。"
+  collaborators:
+    - title: {en: Developers, zh: 开发者}
+      text: {en: "Publish or improve a dataset, model, design or tool so other engineers — and their agents — can find and reuse it.", zh: "发布或改进数据集、模型、设计或工具，让其他工程师和他们的智能体都能找到并复用。"}
+    - title: {en: Research partners, zh: 科研伙伴}
+      text: {en: "Turn methods and datasets into repeatable, evidence-linked workflows.", zh: "把方法与数据集转化为可重复、可追溯证据的工作流。"}
+    - title: {en: Industry & strategic partners, zh: 产业与战略伙伴}
+      text: {en: "Pilot the platform on real engineering problems and help shape it.", zh: "用真实工程问题验证平台，并共同塑造它。"}
+  collaborate_invite:
+    en: "If your work fits one of these, we would like to hear from you."
+    zh: "如果你的工作与以上方向相关，欢迎与我们联系。"
+  collaborate_action: {en: Discuss a collaboration, zh: 讨论合作}
+  collaborate_github: {en: Explore the open-source work, zh: 查看开源项目}
+  contact_title: {en: Get in touch, zh: 保持联系}
+  contact_intro: {en: "Questions, feedback or suggestions about AIPE are always welcome.", zh: "关于 AIPE 的问题、反馈或建议，我们都乐于倾听。"}
+  contact_action: {en: Contact Us, zh: 联系我们}
 
 # Academia landing page (/academia/, /zh/academia/): two directions that reuse existing sections.
 # Research is AIPE Frontiers (/frontiers/); Education is AIPE Academy (/academy/). The Blog is linked

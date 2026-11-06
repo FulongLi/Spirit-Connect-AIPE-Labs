@@ -1,6 +1,6 @@
 """Verify that Jekyll publishes raw Registry endpoints, every stable lesson URL, every Frontiers topic,
 the four Academy subject pages, the Academy legacy redirects, the lesson-page academic references,
-the Academia landing pages and main menu, and the newsletter subscription pages."""
+the Academia landing pages and main menu, the About partner logos and the newsletter subscription pages."""
 import hashlib
 import json
 from pathlib import Path
@@ -77,6 +77,18 @@ for prefix in ("", "/zh"):
             raise SystemExit(f"Main menu lacks {prefix}{target}")
     if f'href="{prefix}/resources/blog/"' in main_menu:
         raise SystemExit("Main menu still lists the Blog")
+# Partners & Collaborations moved from the homepage to About: every partner logo renders on About only.
+partners = yaml.safe_load((root/"_data/partners.yml").read_text(encoding="utf-8"))
+for prefix in ("", "/zh"):
+    home = (site/prefix.strip("/")/"index.html").read_text(encoding="utf-8")
+    if "partner-marquee" in home or "collaboration-section" in home:
+        raise SystemExit(f"Homepage still shows the partner or collaboration section: {prefix}/")
+    about = (site/(prefix + "/company/about/").strip("/")/"index.html").read_text(encoding="utf-8")
+    if 'id="partners"' not in about or "{%" in about:
+        raise SystemExit(f"About page lacks Partners & Collaborations: {prefix}/company/about/")
+    for partner in partners:
+        if f'/images/general/{partner["image"]}"' not in about:
+            raise SystemExit(f"About page lacks the {partner['alt_en']} logo: {prefix}/company/about/")
 # Team and Careers are unpublished: no links to them, their URLs redirect and the sitemap omits them.
 sitemap = (site/"sitemap.xml").read_text(encoding="utf-8")
 site_url = yaml.safe_load((root/"_config.yml").read_text(encoding="utf-8"))["url"]
@@ -97,4 +109,4 @@ for url, target in (("/aipe/", "/aipe.md"), ("/legacy/aipe-resource-index-v0/", 
         raise SystemExit(f"Raw Markdown endpoint missing: {target}")
     if f'url={target}"' not in (site/url.strip("/")/"index.html").read_text(encoding="utf-8"):
         raise SystemExit(f"{url} does not redirect to the raw endpoint {target}")
-print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects, Frontiers URLs, Academia pages and main menu, subscription pages and the Company and Markdown-endpoint redirects verified")
+print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects, Frontiers URLs, Academia pages and main menu, About partners, subscription pages and the Company and Markdown-endpoint redirects verified")

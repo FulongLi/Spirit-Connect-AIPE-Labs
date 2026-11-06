@@ -21,7 +21,7 @@ image: /images/background/sst.png
     <p class="lead">Discover, share and run engineering data, models, designs and AI workflows.</p>
     {% include hub-search.html lang='en' id='home' suggestions=true %}
     <dl class="home-stats">
-      <div><dt>Hub artifacts</dt><dd><a href="{{ '/hub/' | relative_url }}">{{ hub_count }}</a></dd></div>
+      <div><dt>Industry artifacts</dt><dd><a href="{{ '/hub/' | relative_url }}">{{ hub_count }}</a></dd></div>
       <div><dt>Academy lessons</dt><dd><a href="{{ '/academy/' | relative_url }}">{{ lesson_count }}</a></dd></div>
       <div><dt>Engineering articles</dt><dd><a href="{{ '/resources/blog/' | relative_url }}">{{ article_count }}</a></dd></div>
       <div><dt>Engineering domains</dt><dd><a href="{{ '/engineering/' | relative_url }}">{{ hub.domains.size }}</a></dd></div>
@@ -38,25 +38,25 @@ image: /images/background/sst.png
     </div>
     <ol class="home-pillars" aria-label="The three parts of AIPE">
       <li class="home-pillar">
-        <span class="home-pillar-verb">LEARN</span>
-        <h3>AIPE Academy</h3>
-        <p>Learn established engineering knowledge, from first principles to advanced power engineering.</p>
+        <span class="home-pillar-verb">LEARN · ACADEMIA</span>
+        <h3>Education</h3>
+        <p>Learn established engineering knowledge in AIPE Academy, from first principles to advanced power engineering.</p>
         <p class="home-pillar-fact"><strong>{{ lesson_count }}</strong> lessons on a staged path, with open labs</p>
-        <a class="btn btn-primary" href="{{ '/academy/' | relative_url }}">Explore Academy →</a>
+        <a class="btn btn-primary" href="{{ '/academy/' | relative_url }}">Explore Education →</a>
       </li>
       <li class="home-pillar">
-        <span class="home-pillar-verb">BUILD</span>
-        <h3>AIPE Hub</h3>
-        <p>Discover and use open engineering data, models, designs, tools and workflows to build real applications.</p>
+        <span class="home-pillar-verb">BUILD · INDUSTRY</span>
+        <h3>Industry</h3>
+        <p>Discover and use open engineering data, models, tools and workflows to build real applications.</p>
         <p class="home-pillar-fact"><strong>{{ hub_count }}</strong> artifacts, each with its maturity stated</p>
-        <a class="btn btn-primary" href="{{ '/hub/' | relative_url }}">Explore Hub →</a>
+        <a class="btn btn-primary" href="{{ '/hub/' | relative_url }}">Explore Industry →</a>
       </li>
       <li class="home-pillar">
-        <span class="home-pillar-verb">EXPLORE</span>
-        <h3>AIPE Frontiers</h3>
-        <p>Exploring what engineering could become: emerging concepts, theoretical possibilities and unconventional approaches.</p>
+        <span class="home-pillar-verb">EXPLORE · ACADEMIA</span>
+        <h3>Research</h3>
+        <p>Exploring what engineering could become in AIPE Frontiers: emerging concepts, theoretical possibilities and unconventional approaches.</p>
         <p class="home-pillar-fact"><strong>{{ topic_count }}</strong> research topics, each labelled with its evidence</p>
-        <a class="btn btn-primary" href="{{ '/frontiers/' | relative_url }}">Explore Frontiers →</a>
+        <a class="btn btn-primary" href="{{ '/frontiers/' | relative_url }}">Explore Research →</a>
       </li>
     </ol>
   </div>
@@ -83,35 +83,5 @@ image: /images/background/sst.png
       <p>AI helps engineers design better power and energy systems, and those systems power the AI that comes next. Every project that learns, designs and validates in the open leaves better data, models and designs for the next one.</p>
     </div>
     {% include design-loop.html lang='en' %}
-  </div>
-</section>
-
-<section class="section collaboration-section">
-  <div class="container collaboration-layout">
-    <div>
-      <h2>Built in the open — and ambitious enough to grow</h2>
-      <p class="lead">
-        We welcome developers who want to publish or improve artifacts, researchers who want to
-        turn methods and datasets into reusable workflows, and companies or strategic partners
-        building the next generation of AI-assisted power engineering.
-      </p>
-      <div class="hero-actions align-left">
-        <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Discuss a collaboration</a>
-        <a class="btn btn-ghost" href="https://github.com/AIPE-Labs" target="_blank" rel="noopener">Explore the open-source work ↗</a>
-      </div>
-    </div>
-    <div class="collaboration-list">
-      <div><span>01</span><p><strong>Developers</strong><br>Publish or improve a dataset, model, design or tool so other engineers — and their agents — can find and reuse it.</p></div>
-      <div><span>02</span><p><strong>Research partners</strong><br>Turn methods and datasets into repeatable, evidence-linked workflows.</p></div>
-      <div><span>03</span><p><strong>Industry &amp; strategic partners</strong><br>Pilot the platform on real engineering problems and help shape it.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt partners-section">
-  <div class="container">
-    <h2>Partners &amp; collaborations</h2>
-    <p>Academic and industrial relationships supporting our work across AI, power electronics, and energy systems.</p>
-    {% include partners-marquee.html %}
   </div>
 </section>
