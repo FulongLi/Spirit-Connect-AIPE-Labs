@@ -1,4 +1,4 @@
-# Human-facing copy for the bilingual About pages.
+# Human-facing copy for the bilingual About and Academia pages.
 about:
   title: {en: About AIPE Labs, zh: 关于 AIPE Labs}
   intro:
@@ -33,3 +33,31 @@ about:
   contact_title: {en: Let's build the next part together., zh: 一起继续向前。}
   contact_intro: {en: "We welcome engineers, researchers and organisations who want to contribute to open power engineering.", zh: "欢迎工程师、研究者和企业参与开放电力工程的建设。"}
   contact_action: {en: Get in touch, zh: 联系我们}
+
+# Academia landing page (/academia/, /zh/academia/): two directions that reuse existing sections.
+# Research is AIPE Frontiers (/frontiers/); Education is AIPE Academy (/academy/). The Blog is linked
+# discreetly as the article library until its articles are classified individually.
+academia:
+  title: {en: Academia, zh: 学术}
+  heading: {en: "Research and education in power and energy engineering.", zh: "电力与能源工程的研究与教育。"}
+  intro:
+    en: "Two directions: open questions still being investigated, and established engineering knowledge you can learn from today."
+    zh: "两个方向：仍在探索中的开放问题，以及今天就可以学习的成熟工程知识。"
+  research:
+    brand: {en: AIPE Frontiers, zh: AIPE 前沿研究}
+    text:
+      en: "Explore emerging concepts, open questions and experimental investigations in power and energy engineering."
+      zh: "探索电力与能源工程中的新兴概念、开放问题与实验性研究。"
+    fact: {en: "research topics, each labelled with its evidence", zh: "个研究课题，均标明其证据状态"}
+    action: {en: Explore Research, zh: 进入研究}
+  education:
+    brand: {en: AIPE Academy, zh: AIPE 学院}
+    text:
+      en: "Learn established engineering principles through courses, technical knowledge maps and practical resources."
+      zh: "通过课程、技术知识图谱与实践资源，学习已确立的工程原理。"
+    fact: {en: "subjects, from Foundations to Renewable Energy", zh: "个学科，从基础到可再生能源"}
+    action: {en: Explore Education, zh: 进入教育}
+  evidence_note:
+    en: "Research topics are hypotheses and investigations, not established conclusions: each one states the evidence behind it."
+    zh: "研究课题是假设与探索，而非已确立的结论：每个课题都会标明其背后的证据。"
+  library_note: {en: "Looking for tutorials and engineering explanations? Browse the", zh: "想查找教程与工程讲解？请浏览"}

@@ -43,6 +43,9 @@ layout: default
 {%- endfor -%}
 <header class="academy-hero">
   <div class="container">
+    <nav class="hub-breadcrumb" aria-label="{% if lang == 'zh' %}位置{% else %}Breadcrumb{% endif %}">
+      <a href="{{ lp | append: '/academia/' | relative_url }}">{{ t.nav_academia }}</a><span aria-hidden="true">/</span><span>{{ t.nav_education }}</span>
+    </nav>
     <span class="section-kicker">{{ t.academy_kicker }}</span>
     <h1>{{ page.title | escape }}</h1>
     <p class="lead">{{ academy.intro[lang] }}</p>

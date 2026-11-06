@@ -1682,6 +1682,16 @@ img { max-width: 100%; height: auto; }
 .hub-category-more { margin-top: auto; padding-top: 1.2rem; color: var(--fg); font-size: .85rem; font-weight: 650; }
 @media(max-width:700px) { .hub-category-grid-three { grid-template-columns: 1fr; } }
 
+/* Academia landing: Research and Education */
+.academia-grid { grid-template-columns: repeat(2, minmax(0,1fr)); max-width: 900px; margin: 0 auto; }
+.academia-card { min-height: 260px; }
+.academia-card h3 { margin-top: 1rem; }
+.section .academia-card .academia-fact { margin-top: 1.1rem; color: var(--fg-dim); font-size: .85rem; }
+.academia-fact strong { color: var(--fg); font: 800 1.05rem var(--font-display); }
+.academia-section .hub-note { max-width: 900px; margin: 1.4rem auto 0; text-align: center; }
+.academia-section .academia-library { margin-top: .6rem; }
+@media(max-width:700px) { .academia-grid { grid-template-columns: 1fr; } }
+
 /* Hub project cards */
 .hub-project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 1rem; }
 .hub-project-card {

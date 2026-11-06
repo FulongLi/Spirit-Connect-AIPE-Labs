@@ -19,18 +19,20 @@
       </p>
     </div>
     <div>
-      <strong>{{ t.footer_hub }}</strong>
+      <strong>{{ t.footer_learn }}</strong>
       <p class="small">
-        {%- for category in site.data.hub.categories %}
-        <a href="{{ lp | append: category.url | relative_url }}">{{ category.title[lang] }}</a>{% unless forloop.last %}<br>{% endunless %}
-        {%- endfor %}
+        <a href="{{ lp | append: '/academia/' | relative_url }}">{{ t.nav_academia }}</a><br>
+        <a href="{{ lp | append: '/frontiers/' | relative_url }}">{{ t.nav_research }}</a><br>
+        <a href="{{ lp | append: '/academy/' | relative_url }}">{{ t.nav_education }}</a><br>
+        <a href="{{ lp | append: '/resources/blog/' | relative_url }}">{{ t.nav_article_library }}</a>
       </p>
     </div>
     <div>
-      <strong>{{ t.footer_learn }}</strong>
+      <strong>{{ t.footer_hub }}</strong>
       <p class="small">
-        <a href="{{ lp | append: '/academy/' | relative_url }}">{{ t.nav_academy }}</a><br>
-        <a href="{{ lp | append: '/frontiers/' | relative_url }}">{{ t.nav_explorations }}</a><br>
+        {%- for category in site.data.hub.categories %}
+        <a href="{{ lp | append: category.url | relative_url }}">{{ category.title[lang] }}</a><br>
+        {%- endfor %}
         <a href="{{ lp | append: '/plugin/' | relative_url }}">{{ t.nav_plugin }}</a>
       </p>
     </div>

@@ -1,6 +1,6 @@
 ---
 layout: hub
-title: 工具与智能体 — AIPE Hub
+title: 工具与智能体 — AIPE 产业
 lang: zh
 permalink: /zh/hub/tools/
 hub_category: tools

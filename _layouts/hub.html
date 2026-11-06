@@ -2,7 +2,7 @@
 layout: default
 ---
 {%- comment -%}
-  AIPE Hub pages. Front matter: hub_category (a category key, or "overview").
+  AIPE Hub pages, published under the Industry name (the /hub/ URLs are unchanged). Front matter: hub_category (a category key, or "overview").
   The overview introduces the three categories. Each category page lists the
   artifacts of that category in _data/hub.yml that carry a `card`, in file
   order; page content adds a short note below the cards.
@@ -19,7 +19,7 @@ layout: default
 <header class="hub-hero{% if is_overview %} hub-hero-overview{% endif %}">
   <div class="container">
     {%- if is_overview %}
-    <span class="section-kicker">AIPE Hub</span>
+    <span class="section-kicker">AIPE {{ t.nav_hub }}</span>
     <h1>{{ page.heading | default: page.title }}</h1>
     <p class="lead">{{ page.intro }}</p>
     {% include hub-search.html lang=lang id='hub' %}

@@ -163,7 +163,7 @@ pipeline:
   - {en: "Modelling & simulation", zh: "建模与仿真"}
   - {en: "Human review", zh: "人工评审"}
   - {en: "Reusable artifacts", zh: "可复用产物"}
-  - {en: "AIPE Hub", zh: "AIPE Hub"}
+  - {en: "AIPE Industry", zh: "AIPE 产业"}
 
 # Ways to take part (landing page).
 contribute:

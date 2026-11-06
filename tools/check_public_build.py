@@ -1,6 +1,6 @@
 """Verify that Jekyll publishes raw Registry endpoints, every stable lesson URL, every Frontiers topic,
-the four Academy subject pages, the Academy legacy redirects, the lesson-page academic references and
-the newsletter subscription pages."""
+the four Academy subject pages, the Academy legacy redirects, the lesson-page academic references,
+the Academia landing pages and main menu, and the newsletter subscription pages."""
 import hashlib
 import json
 from pathlib import Path
@@ -62,6 +62,21 @@ for url in ("/subscribe/", "/zh/subscribe/"):
 for page in (site/"index.html", site/"zh/index.html"):
     if "/subscribe/" not in page.read_text(encoding="utf-8").split('class="footer"', 1)[1]:
         raise SystemExit(f"Footer lacks the Subscribe link: {page}")
+# Academia leads to Research (Frontiers) and Education (Academy); the main menu has no Frontiers or Blog entry.
+for prefix in ("", "/zh"):
+    rendered = (site/(prefix + "/academia/").strip("/")/"index.html").read_text(encoding="utf-8")
+    if "<h1>" not in rendered or "{%" in rendered:
+        raise SystemExit(f"Unrendered Academia page: {prefix}/academia/")
+    for target in ("/frontiers/", "/academy/", "/resources/blog/"):
+        if f'href="{prefix}{target}"' not in rendered.split('class="section academia-section"', 1)[1].split('class="footer"', 1)[0]:
+            raise SystemExit(f"Academia page does not link {prefix}{target}")
+    home = (site/prefix.strip("/")/"index.html").read_text(encoding="utf-8")
+    main_menu = home.split('id="mainmenu"', 1)[1].split("</nav>", 1)[0]
+    for target in ("/academia/", "/frontiers/", "/academy/", "/hub/", "/hub/data/", "/hub/tools/", "/hub/workflows/", "/plugin/"):
+        if f'href="{prefix}{target}"' not in main_menu:
+            raise SystemExit(f"Main menu lacks {prefix}{target}")
+    if f'href="{prefix}/resources/blog/"' in main_menu:
+        raise SystemExit("Main menu still lists the Blog")
 # Team and Careers are unpublished: no links to them, their URLs redirect and the sitemap omits them.
 sitemap = (site/"sitemap.xml").read_text(encoding="utf-8")
 site_url = yaml.safe_load((root/"_config.yml").read_text(encoding="utf-8"))["url"]
@@ -82,4 +97,4 @@ for url, target in (("/aipe/", "/aipe.md"), ("/legacy/aipe-resource-index-v0/", 
         raise SystemExit(f"Raw Markdown endpoint missing: {target}")
     if f'url={target}"' not in (site/url.strip("/")/"index.html").read_text(encoding="utf-8"):
         raise SystemExit(f"{url} does not redirect to the raw endpoint {target}")
-print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects, Frontiers URLs, subscription pages and the Company and Markdown-endpoint redirects verified")
+print("Public Registry endpoints, Academy URLs, subject pages, academic references, legacy redirects, Frontiers URLs, Academia pages and main menu, subscription pages and the Company and Markdown-endpoint redirects verified")

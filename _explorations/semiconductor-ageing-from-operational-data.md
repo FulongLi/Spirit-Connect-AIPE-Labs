@@ -118,7 +118,7 @@ Useful contributions at this stage:
 - operational converter data (currents, voltages, temperatures) with known module history, shared under a clear licence;
 - review by device reliability or thermal-modelling specialists.
 
-Use the links at the end of this page to discuss the question or suggest a change. Device data and models produced by the investigation will be offered to the [AIPE Hub]({{ '/hub/' | relative_url }}) with their own maturity and limitations.
+Use the links at the end of this page to discuss the question or suggest a change. Device data and models produced by the investigation will be offered to the [AIPE Industry]({{ '/hub/' | relative_url }}) with their own maturity and limitations.
 
 ### References
 

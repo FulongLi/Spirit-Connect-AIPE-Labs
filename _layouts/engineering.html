@@ -26,7 +26,7 @@ layout: default
   <div class="container">
     <div class="hub-section-heading">
       <div><span class="section-kicker">{% if lang == 'zh' %}两个发现维度{% else %}Two directions of discovery{% endif %}</span><h2>{% if lang == 'zh' %}工程领域 × 产物类型{% else %}Engineering domain × artifact type{% endif %}</h2></div>
-      <p>{% if lang == 'zh' %}按领域浏览，或在 <a href="{{ lp | append: '/hub/' | relative_url }}">Hub</a> 中按产物类型浏览——两者指向同一批产物。{% else %}Browse by domain here, or by artifact type in the <a href="{{ lp | append: '/hub/' | relative_url }}">Hub</a> — both lead to the same artifacts.{% endif %}</p>
+      <p>{% if lang == 'zh' %}按领域浏览，或在<a href="{{ lp | append: '/hub/' | relative_url }}">产业板块</a>中按产物类型浏览——两者指向同一批产物。{% else %}Browse by domain here, or by artifact type in <a href="{{ lp | append: '/hub/' | relative_url }}">Industry</a> — both lead to the same artifacts.{% endif %}</p>
     </div>
     {% include domain-matrix.html lang=lang %}
   </div>
@@ -71,7 +71,7 @@ layout: default
       {%- for item in domain_items %}{% include artifact-card.html item=item compact=true lang=lang %}{% endfor %}
     </div>
     {%- else %}
-    <p class="engineering-empty">{% if lang == 'zh' %}Hub 中暂时没有标注此领域的产物。{% else %}No Hub artifacts are tagged with this domain yet.{% endif %} <a href="{{ lp | append: '/contact/' | relative_url }}">{% if lang == 'zh' %}参与贡献 →{% else %}Contribute one →{% endif %}</a></p>
+    <p class="engineering-empty">{% if lang == 'zh' %}产业板块中暂时没有标注此领域的资源。{% else %}No Industry artifacts are tagged with this domain yet.{% endif %} <a href="{{ lp | append: '/contact/' | relative_url }}">{% if lang == 'zh' %}参与贡献 →{% else %}Contribute one →{% endif %}</a></p>
     {%- endif %}
   </div>
 </section>

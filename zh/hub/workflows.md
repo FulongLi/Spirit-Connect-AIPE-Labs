@@ -1,6 +1,6 @@
 ---
 layout: hub
-title: 工作流 — AIPE Hub
+title: 工作流 — AIPE 产业
 lang: zh
 permalink: /zh/hub/workflows/
 hub_category: workflows

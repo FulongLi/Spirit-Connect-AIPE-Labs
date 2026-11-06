@@ -1,6 +1,6 @@
 ---
 layout: hub
-title: Data & Models — AIPE Hub
+title: Data & Models — AIPE Industry
 lang: en
 permalink: /hub/data/
 hub_category: data

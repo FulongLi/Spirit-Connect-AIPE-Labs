@@ -1,6 +1,6 @@
 ---
 layout: hub
-title: 数据与模型 — AIPE Hub
+title: 数据与模型 — AIPE 产业
 lang: zh
 permalink: /zh/hub/data/
 hub_category: data
