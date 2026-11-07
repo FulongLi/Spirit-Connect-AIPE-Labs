@@ -58,7 +58,11 @@ layout: default
         </div>
       </div>
     </div>
-    {% include partners-marquee.html %}
+    <div class="about-partners-logos">
+      <h3>{{ about.partners_logos_title[lang] }}</h3>
+      <p>{{ about.partners_logos_intro[lang] }}</p>
+      {% include partners-marquee.html %}
+    </div>
   </div>
 </section>
 

@@ -52,6 +52,10 @@ class AboutPage(unittest.TestCase):
         self.assertIn("{% include partners-marquee.html %}", partners)
         self.assertIn("'/contact/'", partners)
         self.assertIn("https://github.com/AIPE-Labs", partners)
+        card = partners.split('<div class="about-partners-logos">', 1)[1]
+        self.assertIn("about.partners_logos_title[lang]", card)
+        self.assertIn("{% include partners-marquee.html %}", card)
+        self.assertLess(partners.index("about.collaborate_invite"), partners.index("about-partners-logos"))
 
     def test_partner_data_is_unchanged_and_every_logo_exists(self):
         partners = yaml.safe_load((ROOT / "_data/partners.yml").read_text(encoding="utf-8"))
@@ -62,7 +66,7 @@ class AboutPage(unittest.TestCase):
 
     def test_copy_is_bilingual(self):
         keys = ["partners_kicker", "partners_title", "partners_intro", "collaborate_invite", "collaborate_action",
-                "collaborate_github", "contact_title", "contact_intro", "contact_action"]
+                "collaborate_github", "partners_logos_title", "partners_logos_intro", "contact_title", "contact_intro", "contact_action"]
         for key in keys:
             self.assertTrue(self.about[key]["en"] and self.about[key]["zh"], key)
         self.assertEqual(len(self.about["collaborators"]), 3)
