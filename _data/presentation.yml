@@ -49,8 +49,8 @@ about:
     zh: "如果你的工作与以上方向相关，欢迎与我们联系。"
   collaborate_action: {en: Discuss a collaboration, zh: 讨论合作}
   collaborate_github: {en: Explore the open-source work, zh: 查看开源项目}
-  # Heading and line for the partner-logo card, as in the former homepage Partners band.
-  partners_logos_title: {en: Our partners, zh: 合作伙伴}
+  # Heading and line for the partner-logo band, as on the former homepage Partners band.
+  partners_logos_title: {en: Partners & collaborations, zh: 合作伙伴}
   partners_logos_intro: {en: "Universities and companies we work with.", zh: "与我们合作的高校与企业。"}
   contact_title: {en: Get in touch, zh: 保持联系}
   contact_intro: {en: "Questions, feedback or suggestions about AIPE are always welcome.", zh: "关于 AIPE 的问题、反馈或建议，我们都乐于倾听。"}

@@ -43,19 +43,19 @@ class AboutPage(unittest.TestCase):
 
     def test_section_order(self):
         order = [self.layout.index(marker) for marker in (
-            "about.title[lang]", 'id="why-i-built-aipe"', "about-mission", "about-loop", 'id="partners"', "home-invitation")]
+            "about.title[lang]", 'id="why-i-built-aipe"', "about-mission", "about-loop", 'id="partners"', "partners-section", "home-invitation")]
         self.assertEqual(order, sorted(order))
 
     def test_partners_section_reuses_the_marquee_and_links_contact(self):
         partners = self.layout.split('id="partners"', 1)[1].split("</section>", 1)[0]
-        self.assertEqual(self.layout.count("{% include partners-marquee.html %}"), 1)
-        self.assertIn("{% include partners-marquee.html %}", partners)
         self.assertIn("'/contact/'", partners)
         self.assertIn("https://github.com/AIPE-Labs", partners)
-        card = partners.split('<div class="about-partners-logos">', 1)[1]
-        self.assertIn("about.partners_logos_title[lang]", card)
-        self.assertIn("{% include partners-marquee.html %}", card)
-        self.assertLess(partners.index("about.collaborate_invite"), partners.index("about-partners-logos"))
+        self.assertNotIn("partners-marquee", partners)
+        # The logos have their own band, as on the former homepage.
+        band = self.layout.split('<section class="section section-alt partners-section">', 1)[1].split("</section>", 1)[0]
+        self.assertEqual(self.layout.count("{% include partners-marquee.html %}"), 1)
+        self.assertIn("{% include partners-marquee.html %}", band)
+        self.assertIn("about.partners_logos_title[lang]", band)
 
     def test_partner_data_is_unchanged_and_every_logo_exists(self):
         partners = yaml.safe_load((ROOT / "_data/partners.yml").read_text(encoding="utf-8"))

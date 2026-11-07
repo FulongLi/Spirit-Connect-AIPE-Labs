@@ -58,15 +58,18 @@ layout: default
         </div>
       </div>
     </div>
-    <div class="about-partners-logos">
-      <h3>{{ about.partners_logos_title[lang] }}</h3>
-      <p>{{ about.partners_logos_intro[lang] }}</p>
-      {% include partners-marquee.html %}
-    </div>
   </div>
 </section>
 
-<section class="section section-alt home-invitation">
+<section class="section section-alt partners-section">
+  <div class="container">
+    <h2>{{ about.partners_logos_title[lang] }}</h2>
+    <p>{{ about.partners_logos_intro[lang] }}</p>
+    {% include partners-marquee.html %}
+  </div>
+</section>
+
+<section class="section home-invitation">
   <div class="container invitation-layout"><div><h2>{{ about.contact_title[lang] }}</h2><p>{{ about.contact_intro[lang] }}</p></div><a class="btn btn-primary" href="{{ lp | append: '/contact/' | relative_url }}">{{ about.contact_action[lang] }}</a></div>
 </section>
 
