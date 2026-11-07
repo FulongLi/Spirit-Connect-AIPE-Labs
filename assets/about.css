@@ -6,15 +6,10 @@
 .about-page .editorial-link span { transition: transform .2s; }
 .about-page .editorial-link:hover { opacity: 1; }
 .about-page .editorial-link:hover span { transform: translate(2px,-1px); }
-.about-page .home-invitation { background: var(--bg-alt); }
+.about-page .home-invitation { background: var(--bg); }
 .about-page .about-partners .about-collaborators { margin-top: 1.5rem; }
 .about-page .section p.about-collaborate { margin: 1.5rem 0 1rem; color: var(--fg); font-weight: 600; }
 .about-page .about-partners .hero-actions { margin-top: 0; }
-/* Partner logos sit in their own surface, like the former homepage Partners band. */
-.about-page .about-partners-logos { margin-top: 3.5rem; padding: 2.5rem 2.5rem 2rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); }
-.about-page .about-partners-logos h3 { margin: 0 0 .5rem; font: 700 clamp(1.3rem,2.4vw,1.6rem)/1.2 var(--font-display); letter-spacing: -.02em; color: var(--fg); }
-.about-page .section .about-partners-logos p { margin: 0; max-width: 60ch; }
-.about-page .about-partners-logos .partner-marquee { margin-top: 1.75rem; }
 .about-page .invitation-layout { display: grid; grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); align-items: center; gap: 3rem; }
 .about-page .invitation-layout h2 { font-size: clamp(1.7rem,3vw,2.3rem); }
 .about-page .invitation-layout p { margin-bottom: 0; max-width: 50ch; }
@@ -63,5 +58,4 @@
 }
 @media(max-width:680px) {
   .about-page .container { width: 100%; padding-inline: 1.25rem; }
-  .about-page .about-partners-logos { margin-top: 2.5rem; padding: 1.75rem 1.25rem 1.5rem; }
 }
